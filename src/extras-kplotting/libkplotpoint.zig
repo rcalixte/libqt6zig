@@ -19,7 +19,7 @@ pub const kplotpoint = struct {
     /// ` y: f64 `
     ///
     pub fn New2(x: f64, y: f64) QtC.KPlotPoint {
-        return qtc.KPlotPoint_new2(@floatCast(x), @floatCast(y));
+        return qtc.KPlotPoint_new2(@bitCast(x), @bitCast(y));
     }
 
     /// New3 constructs a new KPlotPoint object.
@@ -48,7 +48,7 @@ pub const kplotpoint = struct {
             .data = label.ptr,
         };
 
-        return qtc.KPlotPoint_new4(@floatCast(x), @floatCast(y), label_str);
+        return qtc.KPlotPoint_new4(@bitCast(x), @bitCast(y), label_str);
     }
 
     /// New5 constructs a new KPlotPoint object.
@@ -69,7 +69,7 @@ pub const kplotpoint = struct {
             .data = label.ptr,
         };
 
-        return qtc.KPlotPoint_new5(@floatCast(x), @floatCast(y), label_str, @floatCast(width));
+        return qtc.KPlotPoint_new5(@bitCast(x), @bitCast(y), label_str, @bitCast(width));
     }
 
     /// New6 constructs a new KPlotPoint object.
@@ -105,7 +105,7 @@ pub const kplotpoint = struct {
             .data = label.ptr,
         };
 
-        return qtc.KPlotPoint_new7(@ptrCast(p), label_str, @floatCast(width));
+        return qtc.KPlotPoint_new7(@ptrCast(p), label_str, @bitCast(width));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#position)
@@ -149,7 +149,7 @@ pub const kplotpoint = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.KPlotPoint_SetX(@ptrCast(self), @floatCast(x));
+        qtc.KPlotPoint_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#y)
@@ -171,7 +171,7 @@ pub const kplotpoint = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.KPlotPoint_SetY(@ptrCast(self), @floatCast(y));
+        qtc.KPlotPoint_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#label)
@@ -225,7 +225,7 @@ pub const kplotpoint = struct {
     /// ` w: f64 `
     ///
     pub fn SetBarWidth(self: ?*anyopaque, w: f64) void {
-        qtc.KPlotPoint_SetBarWidth(@ptrCast(self), @floatCast(w));
+        qtc.KPlotPoint_SetBarWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#dtor.KPlotPoint)

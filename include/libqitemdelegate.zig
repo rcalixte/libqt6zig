@@ -44,7 +44,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QItemDelegate_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -79,7 +79,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QItemDelegate_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -106,7 +106,7 @@ pub const qitemdelegate = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QItemDelegate_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QItemDelegate_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -118,7 +118,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QItemDelegate_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -134,7 +134,7 @@ pub const qitemdelegate = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QItemDelegate_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QItemDelegate_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -203,7 +203,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#paint)
@@ -249,7 +249,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) QtC.QSize `
     ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.QItemDelegate_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#sizeHint)
@@ -295,7 +295,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, parent: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) QtC.QWidget `
     ///
     pub fn OnCreateEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.QItemDelegate_OnCreateEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnCreateEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#createEditor)
@@ -341,7 +341,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnSetEditorData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnSetEditorData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnSetEditorData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setEditorData)
@@ -387,7 +387,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget, model: QtC.QAbstractItemModel, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnSetModelData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnSetModelData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnSetModelData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setModelData)
@@ -435,7 +435,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnUpdateEditorGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnUpdateEditorGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnUpdateEditorGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#updateEditorGeometry)
@@ -511,7 +511,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnDrawDisplay(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDrawDisplay(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnDrawDisplay(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawDisplay)
@@ -567,7 +567,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect, pixmap: QtC.QPixmap) callconv(.c) void `
     ///
     pub fn OnDrawDecoration(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDrawDecoration(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnDrawDecoration(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawDecoration)
@@ -617,7 +617,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect) callconv(.c) void `
     ///
     pub fn OnDrawFocus(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDrawFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnDrawFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawFocus)
@@ -653,7 +653,7 @@ pub const qitemdelegate = struct {
     /// ` state: qnamespace_enums.CheckState `
     ///
     pub fn DrawCheck(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, rect: ?*anyopaque, state: i32) void {
-        qtc.QItemDelegate_DrawCheck(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(rect), @intCast(state));
+        qtc.QItemDelegate_DrawCheck(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(rect), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawCheck)
@@ -667,7 +667,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect, state: qnamespace_enums.CheckState) callconv(.c) void `
     ///
     pub fn OnDrawCheck(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDrawCheck(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnDrawCheck(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawCheck)
@@ -687,7 +687,7 @@ pub const qitemdelegate = struct {
     /// ` state: qnamespace_enums.CheckState `
     ///
     pub fn QBaseDrawCheck(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, rect: ?*anyopaque, state: i32) void {
-        qtc.QItemDelegate_QBaseDrawCheck(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(rect), @intCast(state));
+        qtc.QItemDelegate_QBaseDrawCheck(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(rect), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawBackground)
@@ -717,7 +717,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDrawBackground(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDrawBackground(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnDrawBackground(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawBackground)
@@ -769,7 +769,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, checkRect: QtC.QRect, iconRect: QtC.QRect, textRect: QtC.QRect, hint: bool) callconv(.c) void `
     ///
     pub fn OnDoLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDoLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnDoLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doLayout)
@@ -807,7 +807,7 @@ pub const qitemdelegate = struct {
     /// ` role: i32 `
     ///
     pub fn Rect(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QRect {
-        return qtc.QItemDelegate_Rect(@ptrCast(self), @ptrCast(option), @ptrCast(index), @intCast(role));
+        return qtc.QItemDelegate_Rect(@ptrCast(self), @ptrCast(option), @ptrCast(index), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#rect)
@@ -821,7 +821,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex, role: i32) callconv(.c) QtC.QRect `
     ///
     pub fn OnRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QRect) void {
-        qtc.QItemDelegate_OnRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#rect)
@@ -839,7 +839,7 @@ pub const qitemdelegate = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseRect(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QRect {
-        return qtc.QItemDelegate_QBaseRect(@ptrCast(self), @ptrCast(option), @ptrCast(index), @intCast(role));
+        return qtc.QItemDelegate_QBaseRect(@ptrCast(self), @ptrCast(option), @ptrCast(index), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#eventFilter)
@@ -867,7 +867,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, object: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QItemDelegate_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#eventFilter)
@@ -915,7 +915,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, event: QtC.QEvent, model: QtC.QAbstractItemModel, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnEditorEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QItemDelegate_OnEditorEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnEditorEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#editorEvent)
@@ -963,7 +963,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, index: QtC.QModelIndex, option: QtC.QStyleOptionViewItem) callconv(.c) QtC.QStyleOptionViewItem `
     ///
     pub fn OnSetOptions(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QStyleOptionViewItem) void {
-        qtc.QItemDelegate_OnSetOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnSetOptions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setOptions)
@@ -1007,7 +1007,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, variant: QtC.QVariant) callconv(.c) QtC.QPixmap `
     ///
     pub fn OnDecoration(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPixmap) void {
-        qtc.QItemDelegate_OnDecoration(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnDecoration(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#decoration)
@@ -1053,7 +1053,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, bounding: QtC.QRect, variant: QtC.QVariant) callconv(.c) QtC.QRect `
     ///
     pub fn OnDoCheck(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QItemDelegate_OnDoCheck(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnDoCheck(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doCheck)
@@ -1107,7 +1107,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, painter: QtC.QPainter, rect: QtC.QRect, font: QtC.QFont, text: [*:0]const u8) callconv(.c) QtC.QRect `
     ///
     pub fn OnTextRectangle(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QRect) void {
-        qtc.QItemDelegate_OnTextRectangle(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnTextRectangle(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#textRectangle)
@@ -1169,7 +1169,7 @@ pub const qitemdelegate = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qitemdelegate.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1201,7 +1201,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemDelegate_Connect_CommitData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemDelegate_Connect_CommitData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1229,7 +1229,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemDelegate_Connect_CloseEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemDelegate_Connect_CloseEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1257,7 +1257,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, param1: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnSizeHintChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemDelegate_Connect_SizeHintChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemDelegate_Connect_SizeHintChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1273,7 +1273,7 @@ pub const qitemdelegate = struct {
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
     pub fn CloseEditor2(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.QAbstractItemDelegate_CloseEditor2(@ptrCast(self), @ptrCast(editor), @intCast(hint));
+        qtc.QAbstractItemDelegate_CloseEditor2(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1287,7 +1287,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
     pub fn OnCloseEditor2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemDelegate_Connect_CloseEditor2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemDelegate_Connect_CloseEditor2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1421,7 +1421,7 @@ pub const qitemdelegate = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1435,7 +1435,7 @@ pub const qitemdelegate = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1449,7 +1449,7 @@ pub const qitemdelegate = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1463,7 +1463,7 @@ pub const qitemdelegate = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1793,7 +1793,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1848,7 +1848,7 @@ pub const qitemdelegate = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1864,7 +1864,7 @@ pub const qitemdelegate = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1886,7 +1886,7 @@ pub const qitemdelegate = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1906,7 +1906,7 @@ pub const qitemdelegate = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1928,7 +1928,7 @@ pub const qitemdelegate = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2025,7 +2025,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -2077,7 +2077,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDestroyEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDestroyEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnDestroyEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -2137,7 +2137,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, event: QtC.QHelpEvent, view: QtC.QAbstractItemView, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnHelpEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QItemDelegate_OnHelpEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnHelpEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -2201,7 +2201,7 @@ pub const qitemdelegate = struct {
     /// ` C ABI representation of []i32 `
     ///
     pub fn OnPaintingRoles(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QItemDelegate_OnPaintingRoles(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnPaintingRoles(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2249,7 +2249,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QItemDelegate_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2297,7 +2297,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2345,7 +2345,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2393,7 +2393,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2441,7 +2441,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2489,7 +2489,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2533,7 +2533,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QItemDelegate_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2577,7 +2577,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QItemDelegate_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2627,7 +2627,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QItemDelegate_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2675,7 +2675,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QItemDelegate_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemDelegate_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2691,7 +2691,7 @@ pub const qitemdelegate = struct {
     /// ` callback: *const fn (self: QtC.QItemDelegate, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#dtor.QItemDelegate)

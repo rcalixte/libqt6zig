@@ -18,7 +18,7 @@ pub const qstringencoder = struct {
     /// ` encoding: qstringconverter_base_enums.Encoding `
     ///
     pub fn New2(encoding: i32) QtC.QStringEncoder {
-        return qtc.QStringEncoder_new2(@intCast(encoding));
+        return qtc.QStringEncoder_new2(@bitCast(encoding));
     }
 
     /// New3 constructs a new QStringEncoder object.
@@ -40,7 +40,7 @@ pub const qstringencoder = struct {
     /// ` flags: flag of qstringconverter_base_enums.Flag `
     ///
     pub fn New4(encoding: i32, flags: i32) QtC.QStringEncoder {
-        return qtc.QStringEncoder_new4(@intCast(encoding), @intCast(flags));
+        return qtc.QStringEncoder_new4(@bitCast(encoding), @bitCast(flags));
     }
 
     /// New5 constructs a new QStringEncoder object.
@@ -52,7 +52,7 @@ pub const qstringencoder = struct {
     /// ` flags: flag of qstringconverter_base_enums.Flag `
     ///
     pub fn New5(name: []const u8, flags: i32) QtC.QStringEncoder {
-        return qtc.QStringEncoder_new5(name.ptr, @intCast(flags));
+        return qtc.QStringEncoder_new5(name.ptr, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringencoder.html#requiredSpace)
@@ -64,7 +64,7 @@ pub const qstringencoder = struct {
     /// ` inputLength: i64 `
     ///
     pub fn RequiredSpace(self: ?*anyopaque, inputLength: i64) i64 {
-        return qtc.QStringEncoder_RequiredSpace(@ptrCast(self), @intCast(inputLength));
+        return qtc.QStringEncoder_RequiredSpace(@ptrCast(self), @bitCast(inputLength));
     }
 
     /// Inherited from QStringConverter
@@ -125,7 +125,7 @@ pub const qstringencoder = struct {
     /// ` e: qstringconverter_base_enums.Encoding `
     ///
     pub fn NameForEncoding(e: i32) [:0]const u8 {
-        const _ret = qtc.QStringConverter_NameForEncoding(@intCast(e));
+        const _ret = qtc.QStringConverter_NameForEncoding(@bitCast(e));
         return std.mem.span(_ret);
     }
 
@@ -178,7 +178,7 @@ pub const qstringdecoder = struct {
     /// ` encoding: qstringconverter_base_enums.Encoding `
     ///
     pub fn New(encoding: i32) QtC.QStringDecoder {
-        return qtc.QStringDecoder_new(@intCast(encoding));
+        return qtc.QStringDecoder_new(@bitCast(encoding));
     }
 
     /// New2 constructs a new QStringDecoder object.
@@ -206,7 +206,7 @@ pub const qstringdecoder = struct {
     /// ` flags: flag of qstringconverter_base_enums.Flag `
     ///
     pub fn New4(encoding: i32, flags: i32) QtC.QStringDecoder {
-        return qtc.QStringDecoder_new4(@intCast(encoding), @intCast(flags));
+        return qtc.QStringDecoder_new4(@bitCast(encoding), @bitCast(flags));
     }
 
     /// New5 constructs a new QStringDecoder object.
@@ -218,7 +218,7 @@ pub const qstringdecoder = struct {
     /// ` f: flag of qstringconverter_base_enums.Flag `
     ///
     pub fn New5(name: []const u8, f: i32) QtC.QStringDecoder {
-        return qtc.QStringDecoder_new5(name.ptr, @intCast(f));
+        return qtc.QStringDecoder_new5(name.ptr, @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringdecoder.html#requiredSpace)
@@ -230,7 +230,7 @@ pub const qstringdecoder = struct {
     /// ` inputLength: i64 `
     ///
     pub fn RequiredSpace(self: ?*anyopaque, inputLength: i64) i64 {
-        return qtc.QStringDecoder_RequiredSpace(@ptrCast(self), @intCast(inputLength));
+        return qtc.QStringDecoder_RequiredSpace(@ptrCast(self), @bitCast(inputLength));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringdecoder.html#appendToBuffer)
@@ -323,7 +323,7 @@ pub const qstringdecoder = struct {
     /// ` e: qstringconverter_base_enums.Encoding `
     ///
     pub fn NameForEncoding(e: i32) [:0]const u8 {
-        const _ret = qtc.QStringConverter_NameForEncoding(@intCast(e));
+        const _ret = qtc.QStringConverter_NameForEncoding(@bitCast(e));
         return std.mem.span(_ret);
     }
 

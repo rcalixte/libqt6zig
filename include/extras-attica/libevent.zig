@@ -214,7 +214,7 @@ pub const attica__event = struct {
     /// ` latitude: f64 `
     ///
     pub fn SetLatitude(self: ?*anyopaque, latitude: f64) void {
-        qtc.Attica__Event_SetLatitude(@ptrCast(self), @floatCast(latitude));
+        qtc.Attica__Event_SetLatitude(@ptrCast(self), @bitCast(latitude));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-event.html#latitude)
@@ -236,7 +236,7 @@ pub const attica__event = struct {
     /// ` longitude: f64 `
     ///
     pub fn SetLongitude(self: ?*anyopaque, longitude: f64) void {
-        qtc.Attica__Event_SetLongitude(@ptrCast(self), @floatCast(longitude));
+        qtc.Attica__Event_SetLongitude(@ptrCast(self), @bitCast(longitude));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-event.html#longitude)

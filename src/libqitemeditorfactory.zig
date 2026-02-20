@@ -86,7 +86,7 @@ pub const qitemeditorfactory = struct {
     /// ` parent: QtC.QWidget `
     ///
     pub fn CreateEditor(self: ?*anyopaque, userType: i32, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QItemEditorFactory_CreateEditor(@ptrCast(self), @intCast(userType), @ptrCast(parent));
+        return qtc.QItemEditorFactory_CreateEditor(@ptrCast(self), @bitCast(userType), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#createEditor)
@@ -100,7 +100,7 @@ pub const qitemeditorfactory = struct {
     /// ` callback: *const fn (self: QtC.QItemEditorFactory, userType: i32, parent: QtC.QWidget) callconv(.c) QtC.QWidget `
     ///
     pub fn OnCreateEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.QItemEditorFactory_OnCreateEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemEditorFactory_OnCreateEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#createEditor)
@@ -116,7 +116,7 @@ pub const qitemeditorfactory = struct {
     /// ` parent: QtC.QWidget `
     ///
     pub fn QBaseCreateEditor(self: ?*anyopaque, userType: i32, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QItemEditorFactory_QBaseCreateEditor(@ptrCast(self), @intCast(userType), @ptrCast(parent));
+        return qtc.QItemEditorFactory_QBaseCreateEditor(@ptrCast(self), @bitCast(userType), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#valuePropertyName)
@@ -130,7 +130,7 @@ pub const qitemeditorfactory = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ValuePropertyName(self: ?*anyopaque, userType: i32, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QItemEditorFactory_ValuePropertyName(@ptrCast(self), @intCast(userType));
+        var _bytearray: qtc.libqt_string = qtc.QItemEditorFactory_ValuePropertyName(@ptrCast(self), @bitCast(userType));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qitemeditorfactory.ValuePropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -150,7 +150,7 @@ pub const qitemeditorfactory = struct {
     /// ` callback: *const fn (self: QtC.QItemEditorFactory, userType: i32) callconv(.c) [*:0]u8 `
     ///
     pub fn OnValuePropertyName(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:0]u8) void {
-        qtc.QItemEditorFactory_OnValuePropertyName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemEditorFactory_OnValuePropertyName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#valuePropertyName)
@@ -166,7 +166,7 @@ pub const qitemeditorfactory = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseValuePropertyName(self: ?*anyopaque, userType: i32, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QItemEditorFactory_QBaseValuePropertyName(@ptrCast(self), @intCast(userType));
+        var _bytearray: qtc.libqt_string = qtc.QItemEditorFactory_QBaseValuePropertyName(@ptrCast(self), @bitCast(userType));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qitemeditorfactory.ValuePropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -184,7 +184,7 @@ pub const qitemeditorfactory = struct {
     /// ` creator: QtC.QItemEditorCreatorBase `
     ///
     pub fn RegisterEditor(self: ?*anyopaque, userType: i32, creator: ?*anyopaque) void {
-        qtc.QItemEditorFactory_RegisterEditor(@ptrCast(self), @intCast(userType), @ptrCast(creator));
+        qtc.QItemEditorFactory_RegisterEditor(@ptrCast(self), @bitCast(userType), @ptrCast(creator));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#defaultFactory)

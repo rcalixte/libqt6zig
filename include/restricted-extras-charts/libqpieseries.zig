@@ -45,7 +45,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QPieSeries_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -80,7 +80,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QPieSeries_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -107,7 +107,7 @@ pub const qpieseries = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPieSeries_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QPieSeries_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -119,7 +119,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QPieSeries_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -135,7 +135,7 @@ pub const qpieseries = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPieSeries_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QPieSeries_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -180,7 +180,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPieSeries_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#type)
@@ -254,7 +254,7 @@ pub const qpieseries = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QPieSeries_Append3(@ptrCast(self), label_str, @floatCast(value));
+        return qtc.QPieSeries_Append3(@ptrCast(self), label_str, @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#insert)
@@ -268,7 +268,7 @@ pub const qpieseries = struct {
     /// ` slice: QtC.QPieSlice `
     ///
     pub fn Insert(self: ?*anyopaque, index: i32, slice: ?*anyopaque) bool {
-        return qtc.QPieSeries_Insert(@ptrCast(self), @intCast(index), @ptrCast(slice));
+        return qtc.QPieSeries_Insert(@ptrCast(self), @bitCast(index), @ptrCast(slice));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#remove)
@@ -361,7 +361,7 @@ pub const qpieseries = struct {
     /// ` holeSize: f64 `
     ///
     pub fn SetHoleSize(self: ?*anyopaque, holeSize: f64) void {
-        qtc.QPieSeries_SetHoleSize(@ptrCast(self), @floatCast(holeSize));
+        qtc.QPieSeries_SetHoleSize(@ptrCast(self), @bitCast(holeSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#holeSize)
@@ -383,7 +383,7 @@ pub const qpieseries = struct {
     /// ` relativePosition: f64 `
     ///
     pub fn SetHorizontalPosition(self: ?*anyopaque, relativePosition: f64) void {
-        qtc.QPieSeries_SetHorizontalPosition(@ptrCast(self), @floatCast(relativePosition));
+        qtc.QPieSeries_SetHorizontalPosition(@ptrCast(self), @bitCast(relativePosition));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#horizontalPosition)
@@ -405,7 +405,7 @@ pub const qpieseries = struct {
     /// ` relativePosition: f64 `
     ///
     pub fn SetVerticalPosition(self: ?*anyopaque, relativePosition: f64) void {
-        qtc.QPieSeries_SetVerticalPosition(@ptrCast(self), @floatCast(relativePosition));
+        qtc.QPieSeries_SetVerticalPosition(@ptrCast(self), @bitCast(relativePosition));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#verticalPosition)
@@ -427,7 +427,7 @@ pub const qpieseries = struct {
     /// ` relativeSize: f64 `
     ///
     pub fn SetPieSize(self: ?*anyopaque, relativeSize: f64) void {
-        qtc.QPieSeries_SetPieSize(@ptrCast(self), @floatCast(relativeSize));
+        qtc.QPieSeries_SetPieSize(@ptrCast(self), @bitCast(relativeSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#pieSize)
@@ -449,7 +449,7 @@ pub const qpieseries = struct {
     /// ` startAngle: f64 `
     ///
     pub fn SetPieStartAngle(self: ?*anyopaque, startAngle: f64) void {
-        qtc.QPieSeries_SetPieStartAngle(@ptrCast(self), @floatCast(startAngle));
+        qtc.QPieSeries_SetPieStartAngle(@ptrCast(self), @bitCast(startAngle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#pieStartAngle)
@@ -471,7 +471,7 @@ pub const qpieseries = struct {
     /// ` endAngle: f64 `
     ///
     pub fn SetPieEndAngle(self: ?*anyopaque, endAngle: f64) void {
-        qtc.QPieSeries_SetPieEndAngle(@ptrCast(self), @floatCast(endAngle));
+        qtc.QPieSeries_SetPieEndAngle(@ptrCast(self), @bitCast(endAngle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#pieEndAngle)
@@ -503,7 +503,7 @@ pub const qpieseries = struct {
     /// ` position: qpieslice_enums.LabelPosition `
     ///
     pub fn SetLabelsPosition(self: ?*anyopaque, position: i32) void {
-        qtc.QPieSeries_SetLabelsPosition(@ptrCast(self), @intCast(position));
+        qtc.QPieSeries_SetLabelsPosition(@ptrCast(self), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#added)
@@ -531,7 +531,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, slices: qtc.libqt_list ([]QtC.QPieSlice)) callconv(.c) void `
     ///
     pub fn OnAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QPieSeries_Connect_Added(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_Connect_Added(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#removed)
@@ -559,7 +559,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, slices: qtc.libqt_list ([]QtC.QPieSlice)) callconv(.c) void `
     ///
     pub fn OnRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QPieSeries_Connect_Removed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_Connect_Removed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#clicked)
@@ -583,7 +583,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, slice: QtC.QPieSlice) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPieSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_Connect_Clicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#hovered)
@@ -609,7 +609,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, slice: QtC.QPieSlice, state: bool) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QPieSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_Connect_Hovered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#pressed)
@@ -633,7 +633,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, slice: QtC.QPieSlice) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPieSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_Connect_Pressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#released)
@@ -657,7 +657,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, slice: QtC.QPieSlice) callconv(.c) void `
     ///
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPieSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_Connect_Released(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#doubleClicked)
@@ -681,7 +681,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, slice: QtC.QPieSlice) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPieSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_Connect_DoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#countChanged)
@@ -703,7 +703,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries) callconv(.c) void `
     ///
     pub fn OnCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QPieSeries_Connect_CountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_Connect_CountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#sumChanged)
@@ -725,7 +725,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries) callconv(.c) void `
     ///
     pub fn OnSumChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QPieSeries_Connect_SumChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_Connect_SumChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -763,7 +763,7 @@ pub const qpieseries = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qpieseries.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -865,7 +865,7 @@ pub const qpieseries = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QAbstractSeries_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QAbstractSeries_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QAbstractSeries
@@ -998,7 +998,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries) callconv(.c) void `
     ///
     pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -1024,7 +1024,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -1050,7 +1050,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries) callconv(.c) void `
     ///
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -1076,7 +1076,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries) callconv(.c) void `
     ///
     pub fn OnUseOpenGLChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -1238,7 +1238,7 @@ pub const qpieseries = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1252,7 +1252,7 @@ pub const qpieseries = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1266,7 +1266,7 @@ pub const qpieseries = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1280,7 +1280,7 @@ pub const qpieseries = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1610,7 +1610,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1665,7 +1665,7 @@ pub const qpieseries = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1681,7 +1681,7 @@ pub const qpieseries = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1703,7 +1703,7 @@ pub const qpieseries = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1723,7 +1723,7 @@ pub const qpieseries = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1745,7 +1745,7 @@ pub const qpieseries = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1842,7 +1842,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1890,7 +1890,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPieSeries_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1942,7 +1942,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPieSeries_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1990,7 +1990,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPieSeries_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2038,7 +2038,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPieSeries_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2086,7 +2086,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPieSeries_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2134,7 +2134,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPieSeries_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2182,7 +2182,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPieSeries_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2226,7 +2226,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QPieSeries_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2270,7 +2270,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPieSeries_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2320,7 +2320,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPieSeries_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2368,7 +2368,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPieSeries_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPieSeries_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2384,7 +2384,7 @@ pub const qpieseries = struct {
     /// ` callback: *const fn (self: QtC.QPieSeries, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#dtor.QPieSeries)

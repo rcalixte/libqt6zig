@@ -19,7 +19,7 @@ pub const qtextoption = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn New2(alignment: i32) QtC.QTextOption {
-        return qtc.QTextOption_new2(@intCast(alignment));
+        return qtc.QTextOption_new2(@bitCast(alignment));
     }
 
     /// New3 constructs a new QTextOption object.
@@ -53,7 +53,7 @@ pub const qtextoption = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QTextOption_SetAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QTextOption_SetAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#alignment)
@@ -79,7 +79,7 @@ pub const qtextoption = struct {
     /// ` aDirection: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetTextDirection(self: ?*anyopaque, aDirection: i32) void {
-        qtc.QTextOption_SetTextDirection(@ptrCast(self), @intCast(aDirection));
+        qtc.QTextOption_SetTextDirection(@ptrCast(self), @bitCast(aDirection));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#textDirection)
@@ -105,7 +105,7 @@ pub const qtextoption = struct {
     /// ` wrap: qtextoption_enums.WrapMode `
     ///
     pub fn SetWrapMode(self: ?*anyopaque, wrap: i32) void {
-        qtc.QTextOption_SetWrapMode(@ptrCast(self), @intCast(wrap));
+        qtc.QTextOption_SetWrapMode(@ptrCast(self), @bitCast(wrap));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#wrapMode)
@@ -131,7 +131,7 @@ pub const qtextoption = struct {
     /// ` flags: flag of qtextoption_enums.Flag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QTextOption_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QTextOption_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#flags)
@@ -157,7 +157,7 @@ pub const qtextoption = struct {
     /// ` tabStopDistance: f64 `
     ///
     pub fn SetTabStopDistance(self: ?*anyopaque, tabStopDistance: f64) void {
-        qtc.QTextOption_SetTabStopDistance(@ptrCast(self), @floatCast(tabStopDistance));
+        qtc.QTextOption_SetTabStopDistance(@ptrCast(self), @bitCast(tabStopDistance));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#tabStopDistance)
@@ -308,7 +308,7 @@ pub const qtextoption__tab = struct {
     /// ` tabType: qtextoption_enums.TabType `
     ///
     pub fn New4(pos: f64, tabType: i32) QtC.QTextOption__Tab {
-        return qtc.QTextOption__Tab_new4(@floatCast(pos), @intCast(tabType));
+        return qtc.QTextOption__Tab_new4(@bitCast(pos), @bitCast(tabType));
     }
 
     /// New5 constructs a new QTextOption::Tab object.
@@ -322,7 +322,7 @@ pub const qtextoption__tab = struct {
     /// ` delim: QtC.QChar `
     ///
     pub fn New5(pos: f64, tabType: i32, delim: QtC.QChar) QtC.QTextOption__Tab {
-        return qtc.QTextOption__Tab_new5(@floatCast(pos), @intCast(tabType), @ptrCast(delim));
+        return qtc.QTextOption__Tab_new5(@bitCast(pos), @bitCast(tabType), @ptrCast(delim));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -392,7 +392,7 @@ pub const qtextoption__tab = struct {
     /// ` position: f64 `
     ///
     pub fn SetPosition(self: ?*anyopaque, position: f64) void {
-        qtc.QTextOption__Tab_SetPosition(@ptrCast(self), @floatCast(position));
+        qtc.QTextOption__Tab_SetPosition(@ptrCast(self), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#type-var)
@@ -418,7 +418,7 @@ pub const qtextoption__tab = struct {
     /// ` type: qtextoption_enums.TabType `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QTextOption__Tab_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QTextOption__Tab_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#delimiter-var)

@@ -56,7 +56,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QPdfWriter_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -91,7 +91,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QPdfWriter_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -118,7 +118,7 @@ pub const qpdfwriter = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPdfWriter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QPdfWriter_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -130,7 +130,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QPdfWriter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -146,7 +146,7 @@ pub const qpdfwriter = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPdfWriter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QPdfWriter_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -175,7 +175,7 @@ pub const qpdfwriter = struct {
     /// ` version: qpagedpaintdevice_enums.PdfVersion `
     ///
     pub fn SetPdfVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QPdfWriter_SetPdfVersion(@ptrCast(self), @intCast(version));
+        qtc.QPdfWriter_SetPdfVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#pdfVersion)
@@ -299,7 +299,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnNewPage(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QPdfWriter_OnNewPage(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnNewPage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#newPage)
@@ -323,7 +323,7 @@ pub const qpdfwriter = struct {
     /// ` resolution: i32 `
     ///
     pub fn SetResolution(self: ?*anyopaque, resolution: i32) void {
-        qtc.QPdfWriter_SetResolution(@ptrCast(self), @intCast(resolution));
+        qtc.QPdfWriter_SetResolution(@ptrCast(self), @bitCast(resolution));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#resolution)
@@ -413,7 +413,7 @@ pub const qpdfwriter = struct {
     /// ` model: qpdfwriter_enums.ColorModel `
     ///
     pub fn SetColorModel(self: ?*anyopaque, model: i32) void {
-        qtc.QPdfWriter_SetColorModel(@ptrCast(self), @intCast(model));
+        qtc.QPdfWriter_SetColorModel(@ptrCast(self), @bitCast(model));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#outputIntent)
@@ -459,7 +459,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
     ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QPdfWriter_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#paintEngine)
@@ -483,7 +483,7 @@ pub const qpdfwriter = struct {
     /// ` id: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn Metric(self: ?*anyopaque, id: i32) i32 {
-        return qtc.QPdfWriter_Metric(@ptrCast(self), @intCast(id));
+        return qtc.QPdfWriter_Metric(@ptrCast(self), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#metric)
@@ -497,7 +497,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, id: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QPdfWriter_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#metric)
@@ -511,7 +511,7 @@ pub const qpdfwriter = struct {
     /// ` id: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseMetric(self: ?*anyopaque, id: i32) i32 {
-        return qtc.QPdfWriter_QBaseMetric(@ptrCast(self), @intCast(id));
+        return qtc.QPdfWriter_QBaseMetric(@ptrCast(self), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -549,7 +549,7 @@ pub const qpdfwriter = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qpdfwriter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -715,7 +715,7 @@ pub const qpdfwriter = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -729,7 +729,7 @@ pub const qpdfwriter = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -743,7 +743,7 @@ pub const qpdfwriter = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -757,7 +757,7 @@ pub const qpdfwriter = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1087,7 +1087,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1142,7 +1142,7 @@ pub const qpdfwriter = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1158,7 +1158,7 @@ pub const qpdfwriter = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1180,7 +1180,7 @@ pub const qpdfwriter = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1200,7 +1200,7 @@ pub const qpdfwriter = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1222,7 +1222,7 @@ pub const qpdfwriter = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1319,7 +1319,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1521,7 +1521,7 @@ pub const qpdfwriter = struct {
     /// ` value: f64 `
     ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
 
     /// Inherited from QObject
@@ -1569,7 +1569,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPdfWriter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1621,7 +1621,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPdfWriter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1669,7 +1669,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfWriter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1717,7 +1717,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfWriter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1765,7 +1765,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfWriter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1813,7 +1813,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfWriter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1861,7 +1861,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfWriter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1909,7 +1909,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, pageLayout: QtC.QPageLayout) callconv(.c) bool `
     ///
     pub fn OnSetPageLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPdfWriter_OnSetPageLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnSetPageLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1957,7 +1957,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, pageSize: QtC.QPageSize) callconv(.c) bool `
     ///
     pub fn OnSetPageSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPdfWriter_OnSetPageSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnSetPageSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1973,7 +1973,7 @@ pub const qpdfwriter = struct {
     /// ` orientation: qpagelayout_enums.Orientation `
     ///
     pub fn SetPageOrientation(self: ?*anyopaque, orientation: i32) bool {
-        return qtc.QPdfWriter_SetPageOrientation(@ptrCast(self), @intCast(orientation));
+        return qtc.QPdfWriter_SetPageOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1989,7 +1989,7 @@ pub const qpdfwriter = struct {
     /// ` orientation: qpagelayout_enums.Orientation `
     ///
     pub fn QBaseSetPageOrientation(self: ?*anyopaque, orientation: i32) bool {
-        return qtc.QPdfWriter_QBaseSetPageOrientation(@ptrCast(self), @intCast(orientation));
+        return qtc.QPdfWriter_QBaseSetPageOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -2005,7 +2005,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, orientation: qpagelayout_enums.Orientation) callconv(.c) bool `
     ///
     pub fn OnSetPageOrientation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QPdfWriter_OnSetPageOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnSetPageOrientation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -2023,7 +2023,7 @@ pub const qpdfwriter = struct {
     /// ` units: qpagelayout_enums.Unit `
     ///
     pub fn SetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i32) bool {
-        return qtc.QPdfWriter_SetPageMargins(@ptrCast(self), @ptrCast(margins), @intCast(units));
+        return qtc.QPdfWriter_SetPageMargins(@ptrCast(self), @ptrCast(margins), @bitCast(units));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -2041,7 +2041,7 @@ pub const qpdfwriter = struct {
     /// ` units: qpagelayout_enums.Unit `
     ///
     pub fn QBaseSetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i32) bool {
-        return qtc.QPdfWriter_QBaseSetPageMargins(@ptrCast(self), @ptrCast(margins), @intCast(units));
+        return qtc.QPdfWriter_QBaseSetPageMargins(@ptrCast(self), @ptrCast(margins), @bitCast(units));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -2057,7 +2057,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit) callconv(.c) bool `
     ///
     pub fn OnSetPageMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QPdfWriter_OnSetPageMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnSetPageMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -2105,7 +2105,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, ranges: QtC.QPageRanges) callconv(.c) void `
     ///
     pub fn OnSetPageRanges(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfWriter_OnSetPageRanges(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnSetPageRanges(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -2149,7 +2149,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPdfWriter_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -2197,7 +2197,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfWriter_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -2245,7 +2245,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
     ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QPdfWriter_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -2289,7 +2289,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainter `
     ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QPdfWriter_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2333,7 +2333,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QPdfWriter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2377,7 +2377,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPdfWriter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2427,7 +2427,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPdfWriter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2475,7 +2475,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPdfWriter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -2493,7 +2493,7 @@ pub const qpdfwriter = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QPdfWriter_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QPdfWriter_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -2511,7 +2511,7 @@ pub const qpdfwriter = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QPdfWriter_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QPdfWriter_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -2527,7 +2527,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QPdfWriter_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfWriter_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2543,7 +2543,7 @@ pub const qpdfwriter = struct {
     /// ` callback: *const fn (self: QtC.QPdfWriter, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#dtor.QPdfWriter)

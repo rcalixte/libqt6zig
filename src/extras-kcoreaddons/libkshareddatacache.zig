@@ -18,7 +18,7 @@ pub const kshareddatacache = struct {
             .data = cacheName.ptr,
         };
 
-        return qtc.KSharedDataCache_new(cacheName_str, @intCast(defaultCacheSize));
+        return qtc.KSharedDataCache_new(cacheName_str, @bitCast(defaultCacheSize));
     }
 
     /// New2 constructs a new KSharedDataCache object.
@@ -37,7 +37,7 @@ pub const kshareddatacache = struct {
             .data = cacheName.ptr,
         };
 
-        return qtc.KSharedDataCache_new2(cacheName_str, @intCast(defaultCacheSize), @intCast(expectedItemSize));
+        return qtc.KSharedDataCache_new2(cacheName_str, @bitCast(defaultCacheSize), @bitCast(expectedItemSize));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html#evictionPolicy)
@@ -63,7 +63,7 @@ pub const kshareddatacache = struct {
     /// ` newPolicy: kshareddatacache_enums.EvictionPolicy `
     ///
     pub fn SetEvictionPolicy(self: ?*anyopaque, newPolicy: i32) void {
-        qtc.KSharedDataCache_SetEvictionPolicy(@ptrCast(self), @intCast(newPolicy));
+        qtc.KSharedDataCache_SetEvictionPolicy(@ptrCast(self), @bitCast(newPolicy));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html#insert)
@@ -167,7 +167,7 @@ pub const kshareddatacache = struct {
     /// ` newTimestamp: u32 `
     ///
     pub fn SetTimestamp(self: ?*anyopaque, newTimestamp: u32) void {
-        qtc.KSharedDataCache_SetTimestamp(@ptrCast(self), @intCast(newTimestamp));
+        qtc.KSharedDataCache_SetTimestamp(@ptrCast(self), @bitCast(newTimestamp));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html#dtor.KSharedDataCache)

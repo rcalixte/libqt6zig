@@ -50,7 +50,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QDesignerIntegrationInterface_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -85,7 +85,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -112,7 +112,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerIntegrationInterface_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDesignerIntegrationInterface_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -124,7 +124,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QDesignerIntegrationInterface_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -140,7 +140,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerIntegrationInterface_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDesignerIntegrationInterface_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -193,7 +193,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, widget: QtC.QWidget) callconv(.c) QtC.QWidget `
     ///
     pub fn OnContainerWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.QDesignerIntegrationInterface_OnContainerWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnContainerWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#containerWindow)
@@ -233,7 +233,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, parent: QtC.QWidget) callconv(.c) QtC.QDesignerResourceBrowserInterface `
     ///
     pub fn OnCreateResourceBrowser(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QDesignerResourceBrowserInterface) void {
-        qtc.QDesignerIntegrationInterface_OnCreateResourceBrowser(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnCreateResourceBrowser(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#createResourceBrowser)
@@ -279,7 +279,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnHeaderSuffix(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerIntegrationInterface_OnHeaderSuffix(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnHeaderSuffix(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#headerSuffix)
@@ -327,7 +327,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, headerSuffix: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetHeaderSuffix(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnSetHeaderSuffix(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnSetHeaderSuffix(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setHeaderSuffix)
@@ -369,7 +369,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsHeaderLowercase(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerIntegrationInterface_OnIsHeaderLowercase(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnIsHeaderLowercase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#isHeaderLowercase)
@@ -407,7 +407,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, headerLowerCase: bool) callconv(.c) void `
     ///
     pub fn OnSetHeaderLowercase(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnSetHeaderLowercase(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnSetHeaderLowercase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setHeaderLowercase)
@@ -449,7 +449,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnFeatures(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerIntegrationInterface_OnFeatures(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnFeatures(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#features)
@@ -477,7 +477,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` f: flag of abstractintegration_enums.FeatureFlag `
     ///
     pub fn HasFeature(self: ?*anyopaque, f: i32) bool {
-        return qtc.QDesignerIntegrationInterface_HasFeature(@ptrCast(self), @intCast(f));
+        return qtc.QDesignerIntegrationInterface_HasFeature(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#resourceFileWatcherBehaviour)
@@ -505,7 +505,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnResourceFileWatcherBehaviour(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerIntegrationInterface_OnResourceFileWatcherBehaviour(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#resourceFileWatcherBehaviour)
@@ -533,7 +533,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
     pub fn SetResourceFileWatcherBehaviour(self: ?*anyopaque, behaviour: i32) void {
-        qtc.QDesignerIntegrationInterface_SetResourceFileWatcherBehaviour(@ptrCast(self), @intCast(behaviour));
+        qtc.QDesignerIntegrationInterface_SetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(behaviour));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setResourceFileWatcherBehaviour)
@@ -547,7 +547,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour) callconv(.c) void `
     ///
     pub fn OnSetResourceFileWatcherBehaviour(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnSetResourceFileWatcherBehaviour(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnSetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setResourceFileWatcherBehaviour)
@@ -561,7 +561,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
     pub fn QBaseSetResourceFileWatcherBehaviour(self: ?*anyopaque, behaviour: i32) void {
-        qtc.QDesignerIntegrationInterface_QBaseSetResourceFileWatcherBehaviour(@ptrCast(self), @intCast(behaviour));
+        qtc.QDesignerIntegrationInterface_QBaseSetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(behaviour));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#contextHelpId)
@@ -593,7 +593,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnContextHelpId(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerIntegrationInterface_OnContextHelpId(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnContextHelpId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#contextHelpId)
@@ -847,7 +847,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` f: flag of abstractintegration_enums.FeatureFlag `
     ///
     pub fn SetFeatures(self: ?*anyopaque, f: i32) void {
-        qtc.QDesignerIntegrationInterface_SetFeatures(@ptrCast(self), @intCast(f));
+        qtc.QDesignerIntegrationInterface_SetFeatures(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setFeatures)
@@ -861,7 +861,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, f: flag of abstractintegration_enums.FeatureFlag) callconv(.c) void `
     ///
     pub fn OnSetFeatures(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnSetFeatures(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnSetFeatures(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setFeatures)
@@ -875,7 +875,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` f: flag of abstractintegration_enums.FeatureFlag `
     ///
     pub fn QBaseSetFeatures(self: ?*anyopaque, f: i32) void {
-        qtc.QDesignerIntegrationInterface_QBaseSetFeatures(@ptrCast(self), @intCast(f));
+        qtc.QDesignerIntegrationInterface_QBaseSetFeatures(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
@@ -909,7 +909,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, name: [*:0]const u8, value: QtC.QVariant, enableSubPropertyHandling: bool) callconv(.c) void `
     ///
     pub fn OnUpdateProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnUpdateProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnUpdateProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
@@ -963,7 +963,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, name: [*:0]const u8, value: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnUpdateProperty2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnUpdateProperty2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnUpdateProperty2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
@@ -1013,7 +1013,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, name: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnResetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnResetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnResetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#resetProperty)
@@ -1063,7 +1063,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, name: [*:0]const u8, value: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnAddDynamicProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnAddDynamicProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnAddDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#addDynamicProperty)
@@ -1113,7 +1113,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, name: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnRemoveDynamicProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnRemoveDynamicProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnRemoveDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#removeDynamicProperty)
@@ -1157,7 +1157,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, formWindow: QtC.QDesignerFormWindowInterface) callconv(.c) void `
     ///
     pub fn OnUpdateActiveFormWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnUpdateActiveFormWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnUpdateActiveFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateActiveFormWindow)
@@ -1197,7 +1197,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, formWindow: QtC.QDesignerFormWindowInterface) callconv(.c) void `
     ///
     pub fn OnSetupFormWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnSetupFormWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnSetupFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setupFormWindow)
@@ -1235,7 +1235,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateSelection(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnUpdateSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnUpdateSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateSelection)
@@ -1271,7 +1271,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateCustomWidgetPlugins(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnUpdateCustomWidgetPlugins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnUpdateCustomWidgetPlugins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateCustomWidgetPlugins)
@@ -1321,7 +1321,7 @@ pub const qdesignerintegrationinterface = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1459,7 +1459,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1473,7 +1473,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1487,7 +1487,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1501,7 +1501,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1831,7 +1831,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1886,7 +1886,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1902,7 +1902,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1924,7 +1924,7 @@ pub const qdesignerintegrationinterface = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1944,7 +1944,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1966,7 +1966,7 @@ pub const qdesignerintegrationinterface = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2063,7 +2063,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2111,7 +2111,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerIntegrationInterface_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2163,7 +2163,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerIntegrationInterface_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2211,7 +2211,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2259,7 +2259,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2307,7 +2307,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2355,7 +2355,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2403,7 +2403,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2447,7 +2447,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QDesignerIntegrationInterface_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2491,7 +2491,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerIntegrationInterface_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2541,7 +2541,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerIntegrationInterface_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2589,7 +2589,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerIntegrationInterface_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegrationInterface_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#dtor.QDesignerIntegrationInterface)
@@ -2650,7 +2650,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QDesignerIntegration_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -2685,7 +2685,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QDesignerIntegration_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -2712,7 +2712,7 @@ pub const qdesignerintegration = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerIntegration_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDesignerIntegration_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -2724,7 +2724,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QDesignerIntegration_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -2740,7 +2740,7 @@ pub const qdesignerintegration = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerIntegration_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDesignerIntegration_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2789,7 +2789,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnHeaderSuffix(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerIntegration_OnHeaderSuffix(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnHeaderSuffix(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#headerSuffix)
@@ -2837,7 +2837,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, headerSuffix: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetHeaderSuffix(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnSetHeaderSuffix(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnSetHeaderSuffix(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setHeaderSuffix)
@@ -2879,7 +2879,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsHeaderLowercase(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerIntegration_OnIsHeaderLowercase(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnIsHeaderLowercase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#isHeaderLowercase)
@@ -2917,7 +2917,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, headerLowerCase: bool) callconv(.c) void `
     ///
     pub fn OnSetHeaderLowercase(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnSetHeaderLowercase(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnSetHeaderLowercase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setHeaderLowercase)
@@ -2959,7 +2959,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnFeatures(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerIntegration_OnFeatures(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnFeatures(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#features)
@@ -2987,7 +2987,7 @@ pub const qdesignerintegration = struct {
     /// ` f: flag of abstractintegration_enums.FeatureFlag `
     ///
     pub fn SetFeatures(self: ?*anyopaque, f: i32) void {
-        qtc.QDesignerIntegration_SetFeatures(@ptrCast(self), @intCast(f));
+        qtc.QDesignerIntegration_SetFeatures(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setFeatures)
@@ -3001,7 +3001,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, f: flag of abstractintegration_enums.FeatureFlag) callconv(.c) void `
     ///
     pub fn OnSetFeatures(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnSetFeatures(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnSetFeatures(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setFeatures)
@@ -3015,7 +3015,7 @@ pub const qdesignerintegration = struct {
     /// ` f: flag of abstractintegration_enums.FeatureFlag `
     ///
     pub fn QBaseSetFeatures(self: ?*anyopaque, f: i32) void {
-        qtc.QDesignerIntegration_QBaseSetFeatures(@ptrCast(self), @intCast(f));
+        qtc.QDesignerIntegration_QBaseSetFeatures(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#resourceFileWatcherBehaviour)
@@ -3043,7 +3043,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnResourceFileWatcherBehaviour(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerIntegration_OnResourceFileWatcherBehaviour(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#resourceFileWatcherBehaviour)
@@ -3071,7 +3071,7 @@ pub const qdesignerintegration = struct {
     /// ` behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
     pub fn SetResourceFileWatcherBehaviour(self: ?*anyopaque, behaviour: i32) void {
-        qtc.QDesignerIntegration_SetResourceFileWatcherBehaviour(@ptrCast(self), @intCast(behaviour));
+        qtc.QDesignerIntegration_SetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(behaviour));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setResourceFileWatcherBehaviour)
@@ -3085,7 +3085,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour) callconv(.c) void `
     ///
     pub fn OnSetResourceFileWatcherBehaviour(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnSetResourceFileWatcherBehaviour(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnSetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setResourceFileWatcherBehaviour)
@@ -3099,7 +3099,7 @@ pub const qdesignerintegration = struct {
     /// ` behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
     pub fn QBaseSetResourceFileWatcherBehaviour(self: ?*anyopaque, behaviour: i32) void {
-        qtc.QDesignerIntegration_QBaseSetResourceFileWatcherBehaviour(@ptrCast(self), @intCast(behaviour));
+        qtc.QDesignerIntegration_QBaseSetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(behaviour));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#containerWindow)
@@ -3125,7 +3125,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, widget: QtC.QWidget) callconv(.c) QtC.QWidget `
     ///
     pub fn OnContainerWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.QDesignerIntegration_OnContainerWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnContainerWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#containerWindow)
@@ -3175,7 +3175,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, parent: QtC.QWidget) callconv(.c) QtC.QDesignerResourceBrowserInterface `
     ///
     pub fn OnCreateResourceBrowser(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QDesignerResourceBrowserInterface) void {
-        qtc.QDesignerIntegration_OnCreateResourceBrowser(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnCreateResourceBrowser(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#createResourceBrowser)
@@ -3221,7 +3221,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnContextHelpId(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerIntegration_OnContextHelpId(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnContextHelpId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#contextHelpId)
@@ -3273,7 +3273,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, name: [*:0]const u8, value: QtC.QVariant, enableSubPropertyHandling: bool) callconv(.c) void `
     ///
     pub fn OnUpdateProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnUpdateProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnUpdateProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateProperty)
@@ -3327,7 +3327,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, name: [*:0]const u8, value: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnUpdateProperty2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnUpdateProperty2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnUpdateProperty2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateProperty)
@@ -3377,7 +3377,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, name: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnResetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnResetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnResetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#resetProperty)
@@ -3427,7 +3427,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, name: [*:0]const u8, value: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnAddDynamicProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnAddDynamicProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnAddDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#addDynamicProperty)
@@ -3477,7 +3477,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, name: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnRemoveDynamicProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnRemoveDynamicProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnRemoveDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#removeDynamicProperty)
@@ -3521,7 +3521,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, formWindow: QtC.QDesignerFormWindowInterface) callconv(.c) void `
     ///
     pub fn OnUpdateActiveFormWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnUpdateActiveFormWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnUpdateActiveFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateActiveFormWindow)
@@ -3561,7 +3561,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, formWindow: QtC.QDesignerFormWindowInterface) callconv(.c) void `
     ///
     pub fn OnSetupFormWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnSetupFormWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnSetupFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setupFormWindow)
@@ -3599,7 +3599,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateSelection(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnUpdateSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnUpdateSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateSelection)
@@ -3635,7 +3635,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateCustomWidgetPlugins(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnUpdateCustomWidgetPlugins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnUpdateCustomWidgetPlugins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateCustomWidgetPlugins)
@@ -3685,7 +3685,7 @@ pub const qdesignerintegration = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3715,7 +3715,7 @@ pub const qdesignerintegration = struct {
     /// ` f: flag of abstractintegration_enums.FeatureFlag `
     ///
     pub fn HasFeature(self: ?*anyopaque, f: i32) bool {
-        return qtc.QDesignerIntegrationInterface_HasFeature(@ptrCast(self), @intCast(f));
+        return qtc.QDesignerIntegrationInterface_HasFeature(@ptrCast(self), @bitCast(f));
     }
 
     /// Inherited from QDesignerIntegrationInterface
@@ -4091,7 +4091,7 @@ pub const qdesignerintegration = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -4105,7 +4105,7 @@ pub const qdesignerintegration = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -4119,7 +4119,7 @@ pub const qdesignerintegration = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4133,7 +4133,7 @@ pub const qdesignerintegration = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4463,7 +4463,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4518,7 +4518,7 @@ pub const qdesignerintegration = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4534,7 +4534,7 @@ pub const qdesignerintegration = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4556,7 +4556,7 @@ pub const qdesignerintegration = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -4576,7 +4576,7 @@ pub const qdesignerintegration = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4598,7 +4598,7 @@ pub const qdesignerintegration = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4695,7 +4695,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4743,7 +4743,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerIntegration_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4795,7 +4795,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerIntegration_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4843,7 +4843,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4891,7 +4891,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4939,7 +4939,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4987,7 +4987,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5035,7 +5035,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5079,7 +5079,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QDesignerIntegration_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5123,7 +5123,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerIntegration_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5173,7 +5173,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerIntegration_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5221,7 +5221,7 @@ pub const qdesignerintegration = struct {
     /// ` callback: *const fn (self: QtC.QDesignerIntegration, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerIntegration_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerIntegration_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#dtor.QDesignerIntegration)

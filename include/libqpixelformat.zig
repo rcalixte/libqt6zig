@@ -57,7 +57,7 @@ pub const qpixelformat = struct {
     /// ` typeInterpretation: qpixelformat_enums.TypeInterpretation `
     ///
     pub fn New4(colorModel: i32, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: i32, alphaPosition: i32, premultiplied: i32, typeInterpretation: i32) QtC.QPixelFormat {
-        return qtc.QPixelFormat_new4(@intCast(colorModel), @intCast(firstSize), @intCast(secondSize), @intCast(thirdSize), @intCast(fourthSize), @intCast(fifthSize), @intCast(alphaSize), @intCast(alphaUsage), @intCast(alphaPosition), @intCast(premultiplied), @intCast(typeInterpretation));
+        return qtc.QPixelFormat_new4(@bitCast(colorModel), @bitCast(firstSize), @bitCast(secondSize), @bitCast(thirdSize), @bitCast(fourthSize), @bitCast(fifthSize), @bitCast(alphaSize), @bitCast(alphaUsage), @bitCast(alphaPosition), @bitCast(premultiplied), @bitCast(typeInterpretation));
     }
 
     /// New5 constructs a new QPixelFormat object.
@@ -99,7 +99,7 @@ pub const qpixelformat = struct {
     /// ` byteOrder: qpixelformat_enums.ByteOrder `
     ///
     pub fn New6(colorModel: i32, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: i32, alphaPosition: i32, premultiplied: i32, typeInterpretation: i32, byteOrder: i32) QtC.QPixelFormat {
-        return qtc.QPixelFormat_new6(@intCast(colorModel), @intCast(firstSize), @intCast(secondSize), @intCast(thirdSize), @intCast(fourthSize), @intCast(fifthSize), @intCast(alphaSize), @intCast(alphaUsage), @intCast(alphaPosition), @intCast(premultiplied), @intCast(typeInterpretation), @intCast(byteOrder));
+        return qtc.QPixelFormat_new6(@bitCast(colorModel), @bitCast(firstSize), @bitCast(secondSize), @bitCast(thirdSize), @bitCast(fourthSize), @bitCast(fifthSize), @bitCast(alphaSize), @bitCast(alphaUsage), @bitCast(alphaPosition), @bitCast(premultiplied), @bitCast(typeInterpretation), @bitCast(byteOrder));
     }
 
     /// New7 constructs a new QPixelFormat object.
@@ -133,7 +133,7 @@ pub const qpixelformat = struct {
     /// ` subEnum: u8 `
     ///
     pub fn New7(colorModel: i32, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: i32, alphaPosition: i32, premultiplied: i32, typeInterpretation: i32, byteOrder: i32, subEnum: u8) QtC.QPixelFormat {
-        return qtc.QPixelFormat_new7(@intCast(colorModel), @intCast(firstSize), @intCast(secondSize), @intCast(thirdSize), @intCast(fourthSize), @intCast(fifthSize), @intCast(alphaSize), @intCast(alphaUsage), @intCast(alphaPosition), @intCast(premultiplied), @intCast(typeInterpretation), @intCast(byteOrder), @intCast(subEnum));
+        return qtc.QPixelFormat_new7(@bitCast(colorModel), @bitCast(firstSize), @bitCast(secondSize), @bitCast(thirdSize), @bitCast(fourthSize), @bitCast(fifthSize), @bitCast(alphaSize), @bitCast(alphaUsage), @bitCast(alphaPosition), @bitCast(premultiplied), @bitCast(typeInterpretation), @bitCast(byteOrder), @bitCast(subEnum));
     }
 
     /// CopyAssign shallow copies `other` into `self`.

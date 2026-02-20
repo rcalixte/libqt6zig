@@ -349,7 +349,7 @@ pub const qimagereader = struct {
     /// ` quality: i32 `
     ///
     pub fn SetQuality(self: ?*anyopaque, quality: i32) void {
-        qtc.QImageReader_SetQuality(@ptrCast(self), @intCast(quality));
+        qtc.QImageReader_SetQuality(@ptrCast(self), @bitCast(quality));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#quality)
@@ -546,7 +546,7 @@ pub const qimagereader = struct {
     /// ` imageNumber: i32 `
     ///
     pub fn JumpToImage(self: ?*anyopaque, imageNumber: i32) bool {
-        return qtc.QImageReader_JumpToImage(@ptrCast(self), @intCast(imageNumber));
+        return qtc.QImageReader_JumpToImage(@ptrCast(self), @bitCast(imageNumber));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#loopCount)
@@ -638,7 +638,7 @@ pub const qimagereader = struct {
     /// ` option: qimageiohandler_enums.ImageOption `
     ///
     pub fn SupportsOption(self: ?*anyopaque, option: i32) bool {
-        return qtc.QImageReader_SupportsOption(@ptrCast(self), @intCast(option));
+        return qtc.QImageReader_SupportsOption(@ptrCast(self), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#imageFormat)
@@ -771,7 +771,7 @@ pub const qimagereader = struct {
     /// ` mbLimit: i32 `
     ///
     pub fn SetAllocationLimit(mbLimit: i32) void {
-        qtc.QImageReader_SetAllocationLimit(@intCast(mbLimit));
+        qtc.QImageReader_SetAllocationLimit(@bitCast(mbLimit));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -809,7 +809,7 @@ pub const qimagereader = struct {
     pub fn Tr3(sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
-        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagereader.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

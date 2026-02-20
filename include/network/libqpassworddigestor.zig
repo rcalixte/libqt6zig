@@ -30,7 +30,7 @@ pub const qpassworddigestor = struct {
             .len = param3.len,
             .data = param3.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QPasswordDigestor_DeriveKeyPbkdf1(@intCast(param1), param2_str, param3_str, @intCast(param4), @intCast(param5));
+        var _bytearray: qtc.libqt_string = qtc.QPasswordDigestor_DeriveKeyPbkdf1(@bitCast(param1), param2_str, param3_str, @bitCast(param4), @bitCast(param5));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qpassworddigestor.DeriveKeyPbkdf1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -62,7 +62,7 @@ pub const qpassworddigestor = struct {
             .len = param3.len,
             .data = param3.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QPasswordDigestor_DeriveKeyPbkdf2(@intCast(param1), param2_str, param3_str, @intCast(param4), @intCast(param5));
+        var _bytearray: qtc.libqt_string = qtc.QPasswordDigestor_DeriveKeyPbkdf2(@bitCast(param1), param2_str, param3_str, @bitCast(param4), @bitCast(param5));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qpassworddigestor.DeriveKeyPbkdf2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

@@ -554,7 +554,7 @@ pub const kbookmark = struct {
             .len = value.len,
             .data = value.ptr,
         };
-        qtc.KBookmark_SetMetaDataItem3(@ptrCast(self), key_str, value_str, @intCast(mode));
+        qtc.KBookmark_SetMetaDataItem3(@ptrCast(self), key_str, value_str, @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmark.html#dtor.KBookmark)
@@ -1362,7 +1362,7 @@ pub const kbookmarkgroup = struct {
             .len = value.len,
             .data = value.ptr,
         };
-        qtc.KBookmark_SetMetaDataItem3(@ptrCast(self), key_str, value_str, @intCast(mode));
+        qtc.KBookmark_SetMetaDataItem3(@ptrCast(self), key_str, value_str, @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkgroup.html#dtor.KBookmarkGroup)

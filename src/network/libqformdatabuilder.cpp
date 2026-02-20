@@ -2,6 +2,7 @@
 #include <QByteArrayView>
 #include <QFormDataBuilder>
 #include <QHttpHeaders>
+#include <QHttpMultiPart>
 #include <QIODevice>
 #include <qformdatabuilder.h>
 #include "libqformdatabuilder.h"
@@ -64,6 +65,14 @@ void QFormDataBuilder_Swap(QFormDataBuilder* self, QFormDataBuilder* other) {
 
 QFormDataPartBuilder* QFormDataBuilder_Part(QFormDataBuilder* self, const char* name) {
     return new QFormDataPartBuilder(self->part(QAnyStringView(name)));
+}
+
+QHttpMultiPart* QFormDataBuilder_BuildMultiPart(QFormDataBuilder* self) {
+    return self->buildMultiPart().release();
+}
+
+QHttpMultiPart* QFormDataBuilder_BuildMultiPart1(QFormDataBuilder* self, int options) {
+    return self->buildMultiPart(static_cast<QFormDataBuilder::Options>(options)).release();
 }
 
 void QFormDataBuilder_Delete(QFormDataBuilder* self) {

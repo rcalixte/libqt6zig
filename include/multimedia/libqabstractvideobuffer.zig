@@ -113,7 +113,7 @@ pub const qabstractvideobuffer__mapdata = struct {
     /// ` planeCount: i32 `
     ///
     pub fn SetPlaneCount(self: ?*anyopaque, planeCount: i32) void {
-        qtc.QAbstractVideoBuffer__MapData_SetPlaneCount(@ptrCast(self), @intCast(planeCount));
+        qtc.QAbstractVideoBuffer__MapData_SetPlaneCount(@ptrCast(self), @bitCast(planeCount));
     }
 
     /// Delete this object from C++ memory.

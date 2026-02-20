@@ -171,7 +171,7 @@ pub const kconfigbase = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        qtc.KConfigBase_DeleteGroup2(@ptrCast(self), group_str, @intCast(flags));
+        qtc.KConfigBase_DeleteGroup2(@ptrCast(self), group_str, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#dtor.KConfigBase)

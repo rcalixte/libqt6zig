@@ -16,6 +16,6 @@ pub const kpixmapsequenceloader = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        return qtc.KPixmapSequenceLoader_Load(param1_str, @intCast(param2));
+        return qtc.KPixmapSequenceLoader_Load(param1_str, @bitCast(param2));
     }
 };

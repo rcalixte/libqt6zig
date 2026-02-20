@@ -31,7 +31,7 @@ pub const qscistyle = struct {
             .data = description.ptr,
         };
 
-        return qtc.QsciStyle_new2(@intCast(style), description_str, @ptrCast(color), @ptrCast(paper), @ptrCast(font));
+        return qtc.QsciStyle_new2(@bitCast(style), description_str, @ptrCast(color), @ptrCast(paper), @ptrCast(font));
     }
 
     /// New3 constructs a new QsciStyle object.
@@ -51,7 +51,7 @@ pub const qscistyle = struct {
     /// ` style: i32 `
     ///
     pub fn New4(style: i32) QtC.QsciStyle {
-        return qtc.QsciStyle_new4(@intCast(style));
+        return qtc.QsciStyle_new4(@bitCast(style));
     }
 
     /// New5 constructs a new QsciStyle object.
@@ -76,7 +76,7 @@ pub const qscistyle = struct {
             .data = description.ptr,
         };
 
-        return qtc.QsciStyle_new5(@intCast(style), description_str, @ptrCast(color), @ptrCast(paper), @ptrCast(font), eolFill);
+        return qtc.QsciStyle_new5(@bitCast(style), description_str, @ptrCast(color), @ptrCast(paper), @ptrCast(font), eolFill);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
@@ -100,7 +100,7 @@ pub const qscistyle = struct {
     /// ` style: i32 `
     ///
     pub fn SetStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QsciStyle_SetStyle(@ptrCast(self), @intCast(style));
+        qtc.QsciStyle_SetStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
@@ -242,7 +242,7 @@ pub const qscistyle = struct {
     /// ` text_case: qscistyle_enums.TextCase `
     ///
     pub fn SetTextCase(self: ?*anyopaque, text_case: i32) void {
-        qtc.QsciStyle_SetTextCase(@ptrCast(self), @intCast(text_case));
+        qtc.QsciStyle_SetTextCase(@ptrCast(self), @bitCast(text_case));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)

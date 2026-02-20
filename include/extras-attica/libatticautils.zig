@@ -70,7 +70,7 @@ pub const attica__utils = struct {
     /// ` operation: qnetworkaccessmanager_enums.Operation `
     ///
     pub fn ToString(operation: i32) [:0]const u8 {
-        const _ret = qtc.Attica__Utils_ToString(@intCast(operation));
+        const _ret = qtc.Attica__Utils_ToString(@bitCast(operation));
         return std.mem.span(_ret);
     }
 

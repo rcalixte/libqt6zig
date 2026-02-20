@@ -43,7 +43,7 @@ pub const qxyseries = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QXYSeries_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QXYSeries_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -74,7 +74,7 @@ pub const qxyseries = struct {
     /// ` y: f64 `
     ///
     pub fn Append(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QXYSeries_Append(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QXYSeries_Append(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#append)
@@ -120,7 +120,7 @@ pub const qxyseries = struct {
     /// ` newY: f64 `
     ///
     pub fn Replace(self: ?*anyopaque, oldX: f64, oldY: f64, newX: f64, newY: f64) void {
-        qtc.QXYSeries_Replace(@ptrCast(self), @floatCast(oldX), @floatCast(oldY), @floatCast(newX), @floatCast(newY));
+        qtc.QXYSeries_Replace(@ptrCast(self), @bitCast(oldX), @bitCast(oldY), @bitCast(newX), @bitCast(newY));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#replace)
@@ -150,7 +150,7 @@ pub const qxyseries = struct {
     /// ` newY: f64 `
     ///
     pub fn Replace3(self: ?*anyopaque, index: i32, newX: f64, newY: f64) void {
-        qtc.QXYSeries_Replace3(@ptrCast(self), @intCast(index), @floatCast(newX), @floatCast(newY));
+        qtc.QXYSeries_Replace3(@ptrCast(self), @bitCast(index), @bitCast(newX), @bitCast(newY));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#replace)
@@ -164,7 +164,7 @@ pub const qxyseries = struct {
     /// ` newPoint: QtC.QPointF `
     ///
     pub fn Replace4(self: ?*anyopaque, index: i32, newPoint: ?*anyopaque) void {
-        qtc.QXYSeries_Replace4(@ptrCast(self), @intCast(index), @ptrCast(newPoint));
+        qtc.QXYSeries_Replace4(@ptrCast(self), @bitCast(index), @ptrCast(newPoint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#remove)
@@ -178,7 +178,7 @@ pub const qxyseries = struct {
     /// ` y: f64 `
     ///
     pub fn Remove(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QXYSeries_Remove(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QXYSeries_Remove(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#remove)
@@ -202,7 +202,7 @@ pub const qxyseries = struct {
     /// ` index: i32 `
     ///
     pub fn Remove3(self: ?*anyopaque, index: i32) void {
-        qtc.QXYSeries_Remove3(@ptrCast(self), @intCast(index));
+        qtc.QXYSeries_Remove3(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#removePoints)
@@ -216,7 +216,7 @@ pub const qxyseries = struct {
     /// ` count: i32 `
     ///
     pub fn RemovePoints(self: ?*anyopaque, index: i32, count: i32) void {
-        qtc.QXYSeries_RemovePoints(@ptrCast(self), @intCast(index), @intCast(count));
+        qtc.QXYSeries_RemovePoints(@ptrCast(self), @bitCast(index), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#insert)
@@ -230,7 +230,7 @@ pub const qxyseries = struct {
     /// ` point: QtC.QPointF `
     ///
     pub fn Insert(self: ?*anyopaque, index: i32, point: ?*anyopaque) void {
-        qtc.QXYSeries_Insert(@ptrCast(self), @intCast(index), @ptrCast(point));
+        qtc.QXYSeries_Insert(@ptrCast(self), @bitCast(index), @ptrCast(point));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#clear)
@@ -296,7 +296,7 @@ pub const qxyseries = struct {
     /// ` index: i32 `
     ///
     pub fn At(self: ?*anyopaque, index: i32) QtC.QPointF {
-        return qtc.QXYSeries_At(@ptrCast(self), @intCast(index));
+        return qtc.QXYSeries_At(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#operator-lt-lt)
@@ -576,7 +576,7 @@ pub const qxyseries = struct {
     /// ` index: i32 `
     ///
     pub fn IsPointSelected(self: ?*anyopaque, index: i32) bool {
-        return qtc.QXYSeries_IsPointSelected(@ptrCast(self), @intCast(index));
+        return qtc.QXYSeries_IsPointSelected(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#selectPoint)
@@ -588,7 +588,7 @@ pub const qxyseries = struct {
     /// ` index: i32 `
     ///
     pub fn SelectPoint(self: ?*anyopaque, index: i32) void {
-        qtc.QXYSeries_SelectPoint(@ptrCast(self), @intCast(index));
+        qtc.QXYSeries_SelectPoint(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#deselectPoint)
@@ -600,7 +600,7 @@ pub const qxyseries = struct {
     /// ` index: i32 `
     ///
     pub fn DeselectPoint(self: ?*anyopaque, index: i32) void {
-        qtc.QXYSeries_DeselectPoint(@ptrCast(self), @intCast(index));
+        qtc.QXYSeries_DeselectPoint(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#setPointSelected)
@@ -614,7 +614,7 @@ pub const qxyseries = struct {
     /// ` selected: bool `
     ///
     pub fn SetPointSelected(self: ?*anyopaque, index: i32, selected: bool) void {
-        qtc.QXYSeries_SetPointSelected(@ptrCast(self), @intCast(index), selected);
+        qtc.QXYSeries_SetPointSelected(@ptrCast(self), @bitCast(index), selected);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#selectAllPoints)
@@ -755,7 +755,7 @@ pub const qxyseries = struct {
     /// ` size: f64 `
     ///
     pub fn SetMarkerSize(self: ?*anyopaque, size: f64) void {
-        qtc.QXYSeries_SetMarkerSize(@ptrCast(self), @floatCast(size));
+        qtc.QXYSeries_SetMarkerSize(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#markerSize)
@@ -854,7 +854,7 @@ pub const qxyseries = struct {
     /// ` index: i32 `
     ///
     pub fn ClearPointConfiguration(self: ?*anyopaque, index: i32) void {
-        qtc.QXYSeries_ClearPointConfiguration(@ptrCast(self), @intCast(index));
+        qtc.QXYSeries_ClearPointConfiguration(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#clearPointConfiguration)
@@ -868,7 +868,7 @@ pub const qxyseries = struct {
     /// ` key: qxyseries_enums.PointConfiguration `
     ///
     pub fn ClearPointConfiguration2(self: ?*anyopaque, index: i32, key: i32) void {
-        qtc.QXYSeries_ClearPointConfiguration2(@ptrCast(self), @intCast(index), @intCast(key));
+        qtc.QXYSeries_ClearPointConfiguration2(@ptrCast(self), @bitCast(index), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#clearPointsConfiguration)
@@ -890,7 +890,7 @@ pub const qxyseries = struct {
     /// ` key: qxyseries_enums.PointConfiguration `
     ///
     pub fn ClearPointsConfiguration2(self: ?*anyopaque, key: i32) void {
-        qtc.QXYSeries_ClearPointsConfiguration2(@ptrCast(self), @intCast(key));
+        qtc.QXYSeries_ClearPointsConfiguration2(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#setPointConfiguration)
@@ -915,7 +915,7 @@ pub const qxyseries = struct {
         var configuration_it = configuration.iterator();
         while (configuration_it.next()) |it_entry| : (i += 1) {
             const configuration_key = it_entry.key_ptr.*;
-            configuration_keys[i] = @intCast(configuration_key);
+            configuration_keys[i] = @bitCast(configuration_key);
             configuration_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const configuration_map = qtc.libqt_map{
@@ -923,7 +923,7 @@ pub const qxyseries = struct {
             .keys = @ptrCast(configuration_keys.ptr),
             .values = @ptrCast(configuration_values.ptr),
         };
-        qtc.QXYSeries_SetPointConfiguration(@ptrCast(self), @intCast(index), configuration_map);
+        qtc.QXYSeries_SetPointConfiguration(@ptrCast(self), @bitCast(index), configuration_map);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#setPointConfiguration)
@@ -939,7 +939,7 @@ pub const qxyseries = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetPointConfiguration2(self: ?*anyopaque, index: i32, key: i32, value: ?*anyopaque) void {
-        qtc.QXYSeries_SetPointConfiguration2(@ptrCast(self), @intCast(index), @intCast(key), @ptrCast(value));
+        qtc.QXYSeries_SetPointConfiguration2(@ptrCast(self), @bitCast(index), @bitCast(key), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#setPointsConfiguration)
@@ -962,7 +962,7 @@ pub const qxyseries = struct {
         var pointsConfiguration_it = pointsConfiguration.iterator();
         while (pointsConfiguration_it.next()) |it_entry| : (i += 1) {
             const pointsConfiguration_key = it_entry.key_ptr.*;
-            pointsConfiguration_keys[i] = @intCast(pointsConfiguration_key);
+            pointsConfiguration_keys[i] = @bitCast(pointsConfiguration_key);
             pointsConfiguration_values[i] = it_entry.value_ptr.*;
         }
         const pointsConfiguration_map = qtc.libqt_map{
@@ -988,7 +988,7 @@ pub const qxyseries = struct {
     /// ` map_i32_qtcqvariant (key: qxyseries_enums.PointConfiguration) `
     ///
     pub fn PointConfiguration(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.QXYSeries_PointConfiguration(@ptrCast(self), @intCast(index));
+        const _map: qtc.libqt_map = qtc.QXYSeries_PointConfiguration(@ptrCast(self), @bitCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -1048,7 +1048,7 @@ pub const qxyseries = struct {
             .len = sourceData.len,
             .data = sourceData.ptr,
         };
-        qtc.QXYSeries_SizeBy(@ptrCast(self), sourceData_list, @floatCast(minSize), @floatCast(maxSize));
+        qtc.QXYSeries_SizeBy(@ptrCast(self), sourceData_list, @bitCast(minSize), @bitCast(maxSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#colorBy)
@@ -1088,7 +1088,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_Clicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#hovered)
@@ -1114,7 +1114,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, point: QtC.QPointF, state: bool) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_Hovered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pressed)
@@ -1138,7 +1138,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_Pressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#released)
@@ -1162,7 +1162,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_Released(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#doubleClicked)
@@ -1186,7 +1186,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_DoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointReplaced)
@@ -1198,7 +1198,7 @@ pub const qxyseries = struct {
     /// ` index: i32 `
     ///
     pub fn PointReplaced(self: ?*anyopaque, index: i32) void {
-        qtc.QXYSeries_PointReplaced(@ptrCast(self), @intCast(index));
+        qtc.QXYSeries_PointReplaced(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointReplaced)
@@ -1210,7 +1210,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, index: i32) callconv(.c) void `
     ///
     pub fn OnPointReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_PointReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_PointReplaced(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointRemoved)
@@ -1222,7 +1222,7 @@ pub const qxyseries = struct {
     /// ` index: i32 `
     ///
     pub fn PointRemoved(self: ?*anyopaque, index: i32) void {
-        qtc.QXYSeries_PointRemoved(@ptrCast(self), @intCast(index));
+        qtc.QXYSeries_PointRemoved(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointRemoved)
@@ -1234,7 +1234,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, index: i32) callconv(.c) void `
     ///
     pub fn OnPointRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_PointRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_PointRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointAdded)
@@ -1246,7 +1246,7 @@ pub const qxyseries = struct {
     /// ` index: i32 `
     ///
     pub fn PointAdded(self: ?*anyopaque, index: i32) void {
-        qtc.QXYSeries_PointAdded(@ptrCast(self), @intCast(index));
+        qtc.QXYSeries_PointAdded(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointAdded)
@@ -1258,7 +1258,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, index: i32) callconv(.c) void `
     ///
     pub fn OnPointAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_PointAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_PointAdded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#colorChanged)
@@ -1282,7 +1282,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_ColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#selectedColorChanged)
@@ -1306,7 +1306,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnSelectedColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_SelectedColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_SelectedColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointsReplaced)
@@ -1328,7 +1328,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries) callconv(.c) void `
     ///
     pub fn OnPointsReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_PointsReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_PointsReplaced(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointLabelsFormatChanged)
@@ -1356,7 +1356,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, format: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPointLabelsFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_PointLabelsFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_PointLabelsFormatChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointLabelsVisibilityChanged)
@@ -1380,7 +1380,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, visible: bool) callconv(.c) void `
     ///
     pub fn OnPointLabelsVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_PointLabelsVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_PointLabelsVisibilityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointLabelsFontChanged)
@@ -1404,7 +1404,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, font: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnPointLabelsFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_PointLabelsFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_PointLabelsFontChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointLabelsColorChanged)
@@ -1428,7 +1428,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnPointLabelsColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_PointLabelsColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_PointLabelsColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointLabelsClippingChanged)
@@ -1452,7 +1452,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, clipping: bool) callconv(.c) void `
     ///
     pub fn OnPointLabelsClippingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_PointLabelsClippingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_PointLabelsClippingChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointsRemoved)
@@ -1466,7 +1466,7 @@ pub const qxyseries = struct {
     /// ` count: i32 `
     ///
     pub fn PointsRemoved(self: ?*anyopaque, index: i32, count: i32) void {
-        qtc.QXYSeries_PointsRemoved(@ptrCast(self), @intCast(index), @intCast(count));
+        qtc.QXYSeries_PointsRemoved(@ptrCast(self), @bitCast(index), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointsRemoved)
@@ -1478,7 +1478,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, index: i32, count: i32) callconv(.c) void `
     ///
     pub fn OnPointsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_PointsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_PointsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#penChanged)
@@ -1502,7 +1502,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_PenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_PenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#selectedPointsChanged)
@@ -1524,7 +1524,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries) callconv(.c) void `
     ///
     pub fn OnSelectedPointsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_SelectedPointsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_SelectedPointsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#lightMarkerChanged)
@@ -1548,7 +1548,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, lightMarker: QtC.QImage) callconv(.c) void `
     ///
     pub fn OnLightMarkerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_LightMarkerChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_LightMarkerChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#selectedLightMarkerChanged)
@@ -1572,7 +1572,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, selectedLightMarker: QtC.QImage) callconv(.c) void `
     ///
     pub fn OnSelectedLightMarkerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_SelectedLightMarkerChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_SelectedLightMarkerChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#bestFitLineVisibilityChanged)
@@ -1596,7 +1596,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, visible: bool) callconv(.c) void `
     ///
     pub fn OnBestFitLineVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_BestFitLineVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_BestFitLineVisibilityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#bestFitLinePenChanged)
@@ -1620,7 +1620,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnBestFitLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_BestFitLinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_BestFitLinePenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#bestFitLineColorChanged)
@@ -1644,7 +1644,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnBestFitLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_BestFitLineColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_BestFitLineColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointsConfigurationChanged)
@@ -1667,7 +1667,7 @@ pub const qxyseries = struct {
         var configuration_it = configuration.iterator();
         while (configuration_it.next()) |it_entry| : (i += 1) {
             const configuration_key = it_entry.key_ptr.*;
-            configuration_keys[i] = @intCast(configuration_key);
+            configuration_keys[i] = @bitCast(configuration_key);
             configuration_values[i] = it_entry.value_ptr.*;
         }
         const configuration_map = qtc.libqt_map{
@@ -1687,7 +1687,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, configuration: qtc.libqt_map (map_i32_map_i32_qtcqvariant)) callconv(.c) void `
     ///
     pub fn OnPointsConfigurationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_map) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_PointsConfigurationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_PointsConfigurationChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#markerSizeChanged)
@@ -1699,7 +1699,7 @@ pub const qxyseries = struct {
     /// ` size: f64 `
     ///
     pub fn MarkerSizeChanged(self: ?*anyopaque, size: f64) void {
-        qtc.QXYSeries_MarkerSizeChanged(@ptrCast(self), @floatCast(size));
+        qtc.QXYSeries_MarkerSizeChanged(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#markerSizeChanged)
@@ -1711,7 +1711,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, size: f64) callconv(.c) void `
     ///
     pub fn OnMarkerSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QXYSeries_Connect_MarkerSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXYSeries_Connect_MarkerSizeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1749,7 +1749,7 @@ pub const qxyseries = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qxyseries.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1921,7 +1921,7 @@ pub const qxyseries = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QAbstractSeries_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QAbstractSeries_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QAbstractSeries
@@ -2054,7 +2054,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries) callconv(.c) void `
     ///
     pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -2080,7 +2080,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -2106,7 +2106,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries) callconv(.c) void `
     ///
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -2132,7 +2132,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries) callconv(.c) void `
     ///
     pub fn OnUseOpenGLChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -2324,7 +2324,7 @@ pub const qxyseries = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2338,7 +2338,7 @@ pub const qxyseries = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2352,7 +2352,7 @@ pub const qxyseries = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2366,7 +2366,7 @@ pub const qxyseries = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2696,7 +2696,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2751,7 +2751,7 @@ pub const qxyseries = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2767,7 +2767,7 @@ pub const qxyseries = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2789,7 +2789,7 @@ pub const qxyseries = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2809,7 +2809,7 @@ pub const qxyseries = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2831,7 +2831,7 @@ pub const qxyseries = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2928,7 +2928,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2944,7 +2944,7 @@ pub const qxyseries = struct {
     /// ` callback: *const fn (self: QtC.QXYSeries, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#dtor.QXYSeries)

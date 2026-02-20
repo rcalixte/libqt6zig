@@ -44,7 +44,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QTcpServer_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -79,7 +79,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QTcpServer_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -106,7 +106,7 @@ pub const qtcpserver = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTcpServer_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QTcpServer_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -118,7 +118,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QTcpServer_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -134,7 +134,7 @@ pub const qtcpserver = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTcpServer_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QTcpServer_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -193,7 +193,7 @@ pub const qtcpserver = struct {
     /// ` numConnections: i32 `
     ///
     pub fn SetMaxPendingConnections(self: ?*anyopaque, numConnections: i32) void {
-        qtc.QTcpServer_SetMaxPendingConnections(@ptrCast(self), @intCast(numConnections));
+        qtc.QTcpServer_SetMaxPendingConnections(@ptrCast(self), @bitCast(numConnections));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#maxPendingConnections)
@@ -215,7 +215,7 @@ pub const qtcpserver = struct {
     /// ` size: i32 `
     ///
     pub fn SetListenBacklogSize(self: ?*anyopaque, size: i32) void {
-        qtc.QTcpServer_SetListenBacklogSize(@ptrCast(self), @intCast(size));
+        qtc.QTcpServer_SetListenBacklogSize(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#listenBacklogSize)
@@ -267,7 +267,7 @@ pub const qtcpserver = struct {
     /// ` socketDescriptor: isize `
     ///
     pub fn SetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize) bool {
-        return qtc.QTcpServer_SetSocketDescriptor(@ptrCast(self), @intCast(socketDescriptor));
+        return qtc.QTcpServer_SetSocketDescriptor(@ptrCast(self), @bitCast(socketDescriptor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#waitForNewConnection)
@@ -301,7 +301,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnHasPendingConnections(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTcpServer_OnHasPendingConnections(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnHasPendingConnections(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#hasPendingConnections)
@@ -337,7 +337,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QTcpSocket `
     ///
     pub fn OnNextPendingConnection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTcpSocket) void {
-        qtc.QTcpServer_OnNextPendingConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnNextPendingConnection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#nextPendingConnection)
@@ -433,7 +433,7 @@ pub const qtcpserver = struct {
     /// ` handle: isize `
     ///
     pub fn IncomingConnection(self: ?*anyopaque, handle: isize) void {
-        qtc.QTcpServer_IncomingConnection(@ptrCast(self), @intCast(handle));
+        qtc.QTcpServer_IncomingConnection(@ptrCast(self), @bitCast(handle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#incomingConnection)
@@ -447,7 +447,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, handle: isize) callconv(.c) void `
     ///
     pub fn OnIncomingConnection(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize) callconv(.c) void) void {
-        qtc.QTcpServer_OnIncomingConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnIncomingConnection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#incomingConnection)
@@ -461,7 +461,7 @@ pub const qtcpserver = struct {
     /// ` handle: isize `
     ///
     pub fn QBaseIncomingConnection(self: ?*anyopaque, handle: isize) void {
-        qtc.QTcpServer_QBaseIncomingConnection(@ptrCast(self), @intCast(handle));
+        qtc.QTcpServer_QBaseIncomingConnection(@ptrCast(self), @bitCast(handle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#addPendingConnection)
@@ -487,7 +487,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, socket: QtC.QTcpSocket) callconv(.c) void `
     ///
     pub fn OnAddPendingConnection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTcpServer_OnAddPendingConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnAddPendingConnection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#addPendingConnection)
@@ -523,7 +523,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer) callconv(.c) void `
     ///
     pub fn OnNewConnection(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTcpServer_Connect_NewConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_Connect_NewConnection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#acceptError)
@@ -535,7 +535,7 @@ pub const qtcpserver = struct {
     /// ` socketError: qabstractsocket_enums.SocketError `
     ///
     pub fn AcceptError(self: ?*anyopaque, socketError: i32) void {
-        qtc.QTcpServer_AcceptError(@ptrCast(self), @intCast(socketError));
+        qtc.QTcpServer_AcceptError(@ptrCast(self), @bitCast(socketError));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#acceptError)
@@ -547,7 +547,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, socketError: qabstractsocket_enums.SocketError) callconv(.c) void `
     ///
     pub fn OnAcceptError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTcpServer_Connect_AcceptError(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_Connect_AcceptError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -585,7 +585,7 @@ pub const qtcpserver = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtcpserver.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -615,7 +615,7 @@ pub const qtcpserver = struct {
     /// ` port: u16 `
     ///
     pub fn Listen2(self: ?*anyopaque, address: ?*anyopaque, port: u16) bool {
-        return qtc.QTcpServer_Listen2(@ptrCast(self), @ptrCast(address), @intCast(port));
+        return qtc.QTcpServer_Listen2(@ptrCast(self), @ptrCast(address), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#waitForNewConnection)
@@ -627,7 +627,7 @@ pub const qtcpserver = struct {
     /// ` msec: i32 `
     ///
     pub fn WaitForNewConnection1(self: ?*anyopaque, msec: i32) bool {
-        return qtc.QTcpServer_WaitForNewConnection1(@ptrCast(self), @intCast(msec));
+        return qtc.QTcpServer_WaitForNewConnection1(@ptrCast(self), @bitCast(msec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#waitForNewConnection)
@@ -641,7 +641,7 @@ pub const qtcpserver = struct {
     /// ` timedOut: *bool `
     ///
     pub fn WaitForNewConnection2(self: ?*anyopaque, msec: i32, timedOut: *bool) bool {
-        return qtc.QTcpServer_WaitForNewConnection2(@ptrCast(self), @intCast(msec), @ptrCast(timedOut));
+        return qtc.QTcpServer_WaitForNewConnection2(@ptrCast(self), @bitCast(msec), @ptrCast(timedOut));
     }
 
     /// Inherited from QObject
@@ -775,7 +775,7 @@ pub const qtcpserver = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -789,7 +789,7 @@ pub const qtcpserver = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -803,7 +803,7 @@ pub const qtcpserver = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -817,7 +817,7 @@ pub const qtcpserver = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1147,7 +1147,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1202,7 +1202,7 @@ pub const qtcpserver = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1218,7 +1218,7 @@ pub const qtcpserver = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1240,7 +1240,7 @@ pub const qtcpserver = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1260,7 +1260,7 @@ pub const qtcpserver = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1282,7 +1282,7 @@ pub const qtcpserver = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1379,7 +1379,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1427,7 +1427,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTcpServer_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1479,7 +1479,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTcpServer_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1527,7 +1527,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTcpServer_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1575,7 +1575,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTcpServer_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1623,7 +1623,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTcpServer_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1671,7 +1671,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTcpServer_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1719,7 +1719,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTcpServer_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1763,7 +1763,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QTcpServer_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1807,7 +1807,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTcpServer_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1857,7 +1857,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTcpServer_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1905,7 +1905,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTcpServer_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#pendingConnectionAvailable)
@@ -1919,7 +1919,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer) callconv(.c) void `
     ///
     pub fn OnPendingConnectionAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTcpServer_Connect_PendingConnectionAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTcpServer_Connect_PendingConnectionAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1935,7 +1935,7 @@ pub const qtcpserver = struct {
     /// ` callback: *const fn (self: QtC.QTcpServer, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#dtor.QTcpServer)

@@ -80,7 +80,7 @@ pub const qglyphrun = struct {
     /// ` size: i32 `
     ///
     pub fn SetRawData(self: ?*anyopaque, glyphIndexArray: *const u32, glyphPositionArray: ?*anyopaque, size: i32) void {
-        qtc.QGlyphRun_SetRawData(@ptrCast(self), @ptrCast(glyphIndexArray), @ptrCast(glyphPositionArray), @intCast(size));
+        qtc.QGlyphRun_SetRawData(@ptrCast(self), @ptrCast(glyphIndexArray), @ptrCast(glyphPositionArray), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#glyphIndexes)
@@ -280,7 +280,7 @@ pub const qglyphrun = struct {
     /// ` flag: qglyphrun_enums.GlyphRunFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGlyphRun_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGlyphRun_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#setFlags)
@@ -292,7 +292,7 @@ pub const qglyphrun = struct {
     /// ` flags: flag of qglyphrun_enums.GlyphRunFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGlyphRun_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGlyphRun_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#flags)
@@ -417,7 +417,7 @@ pub const qglyphrun = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGlyphRun_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGlyphRun_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#dtor.QGlyphRun)

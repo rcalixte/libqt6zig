@@ -125,7 +125,7 @@ pub const kconfiggroup = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnSync(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KConfigGroup_OnSync(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigGroup_OnSync(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#sync)
@@ -161,7 +161,7 @@ pub const kconfiggroup = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnMarkAsClean(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KConfigGroup_OnMarkAsClean(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigGroup_OnMarkAsClean(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#markAsClean)
@@ -201,7 +201,7 @@ pub const kconfiggroup = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnAccessMode(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KConfigGroup_OnAccessMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigGroup_OnAccessMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#accessMode)
@@ -351,7 +351,7 @@ pub const kconfiggroup = struct {
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
     pub fn OnGroupList(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.KConfigGroup_OnGroupList(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigGroup_OnGroupList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#groupList)
@@ -1435,7 +1435,7 @@ pub const kconfiggroup = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsImmutable(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KConfigGroup_OnIsImmutable(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigGroup_OnIsImmutable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#isImmutable)
@@ -1600,7 +1600,7 @@ pub const kconfiggroup = struct {
     /// ` callback: *const fn (self: QtC.KConfigGroup, groupName: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnHasGroupImpl(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.KConfigGroup_OnHasGroupImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigGroup_OnHasGroupImpl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#hasGroupImpl)
@@ -1648,7 +1648,7 @@ pub const kconfiggroup = struct {
     /// ` callback: *const fn (self: QtC.KConfigGroup, groupName: [*:0]const u8) callconv(.c) QtC.KConfigGroup `
     ///
     pub fn OnGroupImpl(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.KConfigGroup) void {
-        qtc.KConfigGroup_OnGroupImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigGroup_OnGroupImpl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#groupImpl)
@@ -1696,7 +1696,7 @@ pub const kconfiggroup = struct {
     /// ` callback: *const fn (self: QtC.KConfigGroup, groupName: [*:0]const u8) callconv(.c) QtC.KConfigGroup `
     ///
     pub fn OnGroupImpl2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.KConfigGroup) void {
-        qtc.KConfigGroup_OnGroupImpl2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigGroup_OnGroupImpl2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#groupImpl)
@@ -1732,7 +1732,7 @@ pub const kconfiggroup = struct {
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        qtc.KConfigGroup_DeleteGroupImpl(@ptrCast(self), groupName_str, @intCast(flags));
+        qtc.KConfigGroup_DeleteGroupImpl(@ptrCast(self), groupName_str, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#deleteGroupImpl)
@@ -1746,7 +1746,7 @@ pub const kconfiggroup = struct {
     /// ` callback: *const fn (self: QtC.KConfigGroup, groupName: [*:0]const u8, flags: flag of kconfigbase_enums.WriteConfigFlag) callconv(.c) void `
     ///
     pub fn OnDeleteGroupImpl(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.KConfigGroup_OnDeleteGroupImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigGroup_OnDeleteGroupImpl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#deleteGroupImpl)
@@ -1766,7 +1766,7 @@ pub const kconfiggroup = struct {
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        qtc.KConfigGroup_QBaseDeleteGroupImpl(@ptrCast(self), groupName_str, @intCast(flags));
+        qtc.KConfigGroup_QBaseDeleteGroupImpl(@ptrCast(self), groupName_str, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#isGroupImmutableImpl)
@@ -1796,7 +1796,7 @@ pub const kconfiggroup = struct {
     /// ` callback: *const fn (self: QtC.KConfigGroup, groupName: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnIsGroupImmutableImpl(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.KConfigGroup_OnIsGroupImmutableImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigGroup_OnIsGroupImmutableImpl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#isGroupImmutableImpl)
@@ -1828,7 +1828,7 @@ pub const kconfiggroup = struct {
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     pub fn CopyTo2(self: ?*anyopaque, other: ?*anyopaque, pFlags: i32) void {
-        qtc.KConfigGroup_CopyTo2(@ptrCast(self), @ptrCast(other), @intCast(pFlags));
+        qtc.KConfigGroup_CopyTo2(@ptrCast(self), @ptrCast(other), @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#reparent)
@@ -1842,7 +1842,7 @@ pub const kconfiggroup = struct {
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     pub fn Reparent2(self: ?*anyopaque, parent: ?*anyopaque, pFlags: i32) void {
-        qtc.KConfigGroup_Reparent2(@ptrCast(self), @ptrCast(parent), @intCast(pFlags));
+        qtc.KConfigGroup_Reparent2(@ptrCast(self), @ptrCast(parent), @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#moveValuesTo)
@@ -1869,7 +1869,7 @@ pub const kconfiggroup = struct {
             .len = keys.len,
             .data = @ptrCast(keys_cStr.ptr),
         };
-        qtc.KConfigGroup_MoveValuesTo3(@ptrCast(self), keys_list, @ptrCast(other), @intCast(pFlags));
+        qtc.KConfigGroup_MoveValuesTo3(@ptrCast(self), keys_list, @ptrCast(other), @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#moveValuesTo)
@@ -1883,7 +1883,7 @@ pub const kconfiggroup = struct {
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     pub fn MoveValuesTo22(self: ?*anyopaque, other: ?*anyopaque, pFlags: i32) void {
-        qtc.KConfigGroup_MoveValuesTo22(@ptrCast(self), @ptrCast(other), @intCast(pFlags));
+        qtc.KConfigGroup_MoveValuesTo22(@ptrCast(self), @ptrCast(other), @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#deleteGroup)
@@ -1895,7 +1895,7 @@ pub const kconfiggroup = struct {
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     pub fn DeleteGroup1(self: ?*anyopaque, pFlags: i32) void {
-        qtc.KConfigGroup_DeleteGroup1(@ptrCast(self), @intCast(pFlags));
+        qtc.KConfigGroup_DeleteGroup1(@ptrCast(self), @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#readEntry)
@@ -2106,7 +2106,7 @@ pub const kconfiggroup = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        qtc.KConfigGroup_WriteEntry32(@ptrCast(self), key_str, @ptrCast(value), @intCast(pFlags));
+        qtc.KConfigGroup_WriteEntry32(@ptrCast(self), key_str, @ptrCast(value), @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writeEntry)
@@ -2123,7 +2123,7 @@ pub const kconfiggroup = struct {
     ///
     pub fn WriteEntry33(self: ?*anyopaque, key: [:0]const u8, value: ?*anyopaque, pFlags: i32) void {
         const key_Cstring = key.ptr;
-        qtc.KConfigGroup_WriteEntry33(@ptrCast(self), key_Cstring, @ptrCast(value), @intCast(pFlags));
+        qtc.KConfigGroup_WriteEntry33(@ptrCast(self), key_Cstring, @ptrCast(value), @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writeEntry)
@@ -2147,7 +2147,7 @@ pub const kconfiggroup = struct {
             .len = value.len,
             .data = value.ptr,
         };
-        qtc.KConfigGroup_WriteEntry34(@ptrCast(self), key_str, value_str, @intCast(pFlags));
+        qtc.KConfigGroup_WriteEntry34(@ptrCast(self), key_str, value_str, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writeEntry)
@@ -2168,7 +2168,7 @@ pub const kconfiggroup = struct {
             .len = value.len,
             .data = value.ptr,
         };
-        qtc.KConfigGroup_WriteEntry35(@ptrCast(self), key_Cstring, value_str, @intCast(pFlags));
+        qtc.KConfigGroup_WriteEntry35(@ptrCast(self), key_Cstring, value_str, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writeEntry)
@@ -2192,7 +2192,7 @@ pub const kconfiggroup = struct {
             .len = value.len,
             .data = value.ptr,
         };
-        qtc.KConfigGroup_WriteEntry36(@ptrCast(self), key_str, value_str, @intCast(pFlags));
+        qtc.KConfigGroup_WriteEntry36(@ptrCast(self), key_str, value_str, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writeEntry)
@@ -2213,7 +2213,7 @@ pub const kconfiggroup = struct {
             .len = value.len,
             .data = value.ptr,
         };
-        qtc.KConfigGroup_WriteEntry37(@ptrCast(self), key_Cstring, value_str, @intCast(pFlags));
+        qtc.KConfigGroup_WriteEntry37(@ptrCast(self), key_Cstring, value_str, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writeEntry)
@@ -2234,7 +2234,7 @@ pub const kconfiggroup = struct {
             .data = key.ptr,
         };
         const value_Cstring = value.ptr;
-        qtc.KConfigGroup_WriteEntry38(@ptrCast(self), key_str, value_Cstring, @intCast(pFlags));
+        qtc.KConfigGroup_WriteEntry38(@ptrCast(self), key_str, value_Cstring, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writeEntry)
@@ -2252,7 +2252,7 @@ pub const kconfiggroup = struct {
     pub fn WriteEntry39(self: ?*anyopaque, key: [:0]const u8, value: [:0]const u8, pFlags: i32) void {
         const key_Cstring = key.ptr;
         const value_Cstring = value.ptr;
-        qtc.KConfigGroup_WriteEntry39(@ptrCast(self), key_Cstring, value_Cstring, @intCast(pFlags));
+        qtc.KConfigGroup_WriteEntry39(@ptrCast(self), key_Cstring, value_Cstring, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writeEntry)
@@ -2286,7 +2286,7 @@ pub const kconfiggroup = struct {
             .len = value.len,
             .data = value_arr.ptr,
         };
-        qtc.KConfigGroup_WriteEntry310(@ptrCast(self), key_str, value_list, @intCast(pFlags));
+        qtc.KConfigGroup_WriteEntry310(@ptrCast(self), key_str, value_list, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writeEntry)
@@ -2317,7 +2317,7 @@ pub const kconfiggroup = struct {
             .len = value.len,
             .data = value_arr.ptr,
         };
-        qtc.KConfigGroup_WriteEntry311(@ptrCast(self), key_Cstring, value_list, @intCast(pFlags));
+        qtc.KConfigGroup_WriteEntry311(@ptrCast(self), key_Cstring, value_list, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writeEntry)
@@ -2341,7 +2341,7 @@ pub const kconfiggroup = struct {
             .len = value.len,
             .data = @ptrCast(value.ptr),
         };
-        qtc.KConfigGroup_WriteEntry312(@ptrCast(self), key_str, value_list, @intCast(pFlags));
+        qtc.KConfigGroup_WriteEntry312(@ptrCast(self), key_str, value_list, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writeEntry)
@@ -2362,7 +2362,7 @@ pub const kconfiggroup = struct {
             .len = value.len,
             .data = @ptrCast(value.ptr),
         };
-        qtc.KConfigGroup_WriteEntry313(@ptrCast(self), key_Cstring, value_list, @intCast(pFlags));
+        qtc.KConfigGroup_WriteEntry313(@ptrCast(self), key_Cstring, value_list, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writeXdgListEntry)
@@ -2396,7 +2396,7 @@ pub const kconfiggroup = struct {
             .len = value.len,
             .data = value_arr.ptr,
         };
-        qtc.KConfigGroup_WriteXdgListEntry3(@ptrCast(self), pKey_str, value_list, @intCast(pFlags));
+        qtc.KConfigGroup_WriteXdgListEntry3(@ptrCast(self), pKey_str, value_list, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writeXdgListEntry)
@@ -2427,7 +2427,7 @@ pub const kconfiggroup = struct {
             .len = value.len,
             .data = value_arr.ptr,
         };
-        qtc.KConfigGroup_WriteXdgListEntry32(@ptrCast(self), key_Cstring, value_list, @intCast(pFlags));
+        qtc.KConfigGroup_WriteXdgListEntry32(@ptrCast(self), key_Cstring, value_list, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writePathEntry)
@@ -2451,7 +2451,7 @@ pub const kconfiggroup = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        qtc.KConfigGroup_WritePathEntry32(@ptrCast(self), pKey_str, path_str, @intCast(pFlags));
+        qtc.KConfigGroup_WritePathEntry32(@ptrCast(self), pKey_str, path_str, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writePathEntry)
@@ -2472,7 +2472,7 @@ pub const kconfiggroup = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        qtc.KConfigGroup_WritePathEntry33(@ptrCast(self), Key_Cstring, path_str, @intCast(pFlags));
+        qtc.KConfigGroup_WritePathEntry33(@ptrCast(self), Key_Cstring, path_str, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writePathEntry)
@@ -2506,7 +2506,7 @@ pub const kconfiggroup = struct {
             .len = value.len,
             .data = value_arr.ptr,
         };
-        qtc.KConfigGroup_WritePathEntry34(@ptrCast(self), pKey_str, value_list, @intCast(pFlags));
+        qtc.KConfigGroup_WritePathEntry34(@ptrCast(self), pKey_str, value_list, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#writePathEntry)
@@ -2537,7 +2537,7 @@ pub const kconfiggroup = struct {
             .len = value.len,
             .data = value_arr.ptr,
         };
-        qtc.KConfigGroup_WritePathEntry35(@ptrCast(self), key_Cstring, value_list, @intCast(pFlags));
+        qtc.KConfigGroup_WritePathEntry35(@ptrCast(self), key_Cstring, value_list, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#deleteEntry)
@@ -2555,7 +2555,7 @@ pub const kconfiggroup = struct {
             .len = pKey.len,
             .data = pKey.ptr,
         };
-        qtc.KConfigGroup_DeleteEntry22(@ptrCast(self), pKey_str, @intCast(pFlags));
+        qtc.KConfigGroup_DeleteEntry22(@ptrCast(self), pKey_str, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#deleteEntry)
@@ -2570,7 +2570,7 @@ pub const kconfiggroup = struct {
     ///
     pub fn DeleteEntry23(self: ?*anyopaque, key: [:0]const u8, pFlags: i32) void {
         const key_Cstring = key.ptr;
-        qtc.KConfigGroup_DeleteEntry23(@ptrCast(self), key_Cstring, @intCast(pFlags));
+        qtc.KConfigGroup_DeleteEntry23(@ptrCast(self), key_Cstring, @bitCast(pFlags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#revertToDefault)
@@ -2588,7 +2588,7 @@ pub const kconfiggroup = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        qtc.KConfigGroup_RevertToDefault22(@ptrCast(self), key_str, @intCast(pFlag));
+        qtc.KConfigGroup_RevertToDefault22(@ptrCast(self), key_str, @bitCast(pFlag));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#revertToDefault)
@@ -2603,7 +2603,7 @@ pub const kconfiggroup = struct {
     ///
     pub fn RevertToDefault23(self: ?*anyopaque, key: [:0]const u8, pFlag: i32) void {
         const key_Cstring = key.ptr;
-        qtc.KConfigGroup_RevertToDefault23(@ptrCast(self), key_Cstring, @intCast(pFlag));
+        qtc.KConfigGroup_RevertToDefault23(@ptrCast(self), key_Cstring, @bitCast(pFlag));
     }
 
     /// Inherited from KConfigBase
@@ -2695,7 +2695,7 @@ pub const kconfiggroup = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        qtc.KConfigBase_DeleteGroup2(@ptrCast(self), group_str, @intCast(flags));
+        qtc.KConfigBase_DeleteGroup2(@ptrCast(self), group_str, @bitCast(flags));
     }
 
     /// Inherited from KConfigBase
@@ -2713,7 +2713,7 @@ pub const kconfiggroup = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KConfigGroup_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KConfigGroup_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from KConfigBase
@@ -2731,7 +2731,7 @@ pub const kconfiggroup = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KConfigGroup_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KConfigGroup_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from KConfigBase
@@ -2747,7 +2747,7 @@ pub const kconfiggroup = struct {
     /// ` callback: *const fn (self: QtC.KConfigGroup, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KConfigGroup_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigGroup_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#dtor.KConfigGroup)

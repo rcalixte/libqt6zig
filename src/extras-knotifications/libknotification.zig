@@ -60,7 +60,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KNotificationAction_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -95,7 +95,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KNotificationAction_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -122,7 +122,7 @@ pub const knotificationaction = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KNotificationAction_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KNotificationAction_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -134,7 +134,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KNotificationAction_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -150,7 +150,7 @@ pub const knotificationaction = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KNotificationAction_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KNotificationAction_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -221,7 +221,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotificationAction_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_Connect_Activated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotificationaction.html#labelChanged)
@@ -249,7 +249,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction, label: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLabelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KNotificationAction_Connect_LabelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_Connect_LabelChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -287,7 +287,7 @@ pub const knotificationaction = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knotificationaction.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -425,7 +425,7 @@ pub const knotificationaction = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -439,7 +439,7 @@ pub const knotificationaction = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -453,7 +453,7 @@ pub const knotificationaction = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -467,7 +467,7 @@ pub const knotificationaction = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -797,7 +797,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -852,7 +852,7 @@ pub const knotificationaction = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -868,7 +868,7 @@ pub const knotificationaction = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -890,7 +890,7 @@ pub const knotificationaction = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -910,7 +910,7 @@ pub const knotificationaction = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -932,7 +932,7 @@ pub const knotificationaction = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1029,7 +1029,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1077,7 +1077,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNotificationAction_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1129,7 +1129,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNotificationAction_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1177,7 +1177,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNotificationAction_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1225,7 +1225,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNotificationAction_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1273,7 +1273,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNotificationAction_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1321,7 +1321,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNotificationAction_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1369,7 +1369,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNotificationAction_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1413,7 +1413,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KNotificationAction_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1457,7 +1457,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KNotificationAction_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1507,7 +1507,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KNotificationAction_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1555,7 +1555,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNotificationAction_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotificationAction_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1571,7 +1571,7 @@ pub const knotificationaction = struct {
     /// ` callback: *const fn (self: QtC.KNotificationAction, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotificationaction.html#dtor.KNotificationAction)
@@ -1618,7 +1618,7 @@ pub const knotification = struct {
             .data = eventId.ptr,
         };
 
-        return qtc.KNotification_new2(eventId_str, @intCast(flags));
+        return qtc.KNotification_new2(eventId_str, @bitCast(flags));
     }
 
     /// New3 constructs a new KNotification object.
@@ -1637,7 +1637,7 @@ pub const knotification = struct {
             .data = eventId.ptr,
         };
 
-        return qtc.KNotification_new3(eventId_str, @intCast(flags), @ptrCast(parent));
+        return qtc.KNotification_new3(eventId_str, @bitCast(flags), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -1661,7 +1661,7 @@ pub const knotification = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KNotification_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -1696,7 +1696,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KNotification_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -1723,7 +1723,7 @@ pub const knotification = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KNotification_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KNotification_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -1735,7 +1735,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KNotification_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -1751,7 +1751,7 @@ pub const knotification = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KNotification_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KNotification_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1983,6 +1983,18 @@ pub const knotification = struct {
         return qtc.KNotification_ReplyAction(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://api.kde.org/knotification.html#setReplyAction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNotification `
+    ///
+    /// ` replyAction: QtC.KNotificationReplyAction (WARNING: The library takes ownership of this parameter's memory and attempting to access it will lead to a crash.) `
+    ///
+    pub fn SetReplyAction(self: ?*anyopaque, replyAction: QtC.KNotificationReplyAction) void {
+        qtc.KNotification_SetReplyAction(@ptrCast(self), @ptrCast(replyAction));
+    }
+
     /// ### [Upstream resources](https://api.kde.org/knotification.html#flags)
     ///
     /// ## Parameter(s):
@@ -2097,7 +2109,7 @@ pub const knotification = struct {
     /// ` urgency: knotification_enums.Urgency `
     ///
     pub fn SetUrgency(self: ?*anyopaque, urgency: i32) void {
-        qtc.KNotification_SetUrgency(@ptrCast(self), @intCast(urgency));
+        qtc.KNotification_SetUrgency(@ptrCast(self), @bitCast(urgency));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#setWindow)
@@ -2195,7 +2207,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnClosed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_Closed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_Closed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#ignored)
@@ -2217,7 +2229,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnIgnored(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_Ignored(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_Ignored(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#eventIdChanged)
@@ -2239,7 +2251,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnEventIdChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_EventIdChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_EventIdChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#titleChanged)
@@ -2261,7 +2273,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_TitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_TitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#textChanged)
@@ -2283,7 +2295,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_TextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#iconNameChanged)
@@ -2305,7 +2317,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnIconNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_IconNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_IconNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#defaultActionChanged)
@@ -2327,7 +2339,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnDefaultActionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_DefaultActionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_DefaultActionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#actionsChanged)
@@ -2349,7 +2361,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnActionsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_ActionsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_ActionsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#flagsChanged)
@@ -2371,7 +2383,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnFlagsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_FlagsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_FlagsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#componentNameChanged)
@@ -2393,7 +2405,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnComponentNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_ComponentNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_ComponentNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#urlsChanged)
@@ -2415,7 +2427,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnUrlsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_UrlsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_UrlsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#urgencyChanged)
@@ -2437,7 +2449,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnUrgencyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_UrgencyChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_UrgencyChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#autoDeleteChanged)
@@ -2459,7 +2471,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnAutoDeleteChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_AutoDeleteChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_AutoDeleteChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#xdgActivationTokenChanged)
@@ -2481,7 +2493,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnXdgActivationTokenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_XdgActivationTokenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_XdgActivationTokenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#hintsChanged)
@@ -2503,7 +2515,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnHintsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_Connect_HintsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_Connect_HintsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#close)
@@ -2657,7 +2669,7 @@ pub const knotification = struct {
     /// ` eventId: knotification_enums.StandardEvent `
     ///
     pub fn Event3(eventId: i32) QtC.KNotification {
-        return qtc.KNotification_Event3(@intCast(eventId));
+        return qtc.KNotification_Event3(@bitCast(eventId));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#event)
@@ -2681,7 +2693,7 @@ pub const knotification = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KNotification_Event4(@intCast(eventId), title_str, text_str, @ptrCast(pixmap));
+        return qtc.KNotification_Event4(@bitCast(eventId), title_str, text_str, @ptrCast(pixmap));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#event)
@@ -2741,7 +2753,7 @@ pub const knotification = struct {
             .len = iconName.len,
             .data = iconName.ptr,
         };
-        return qtc.KNotification_Event6(@intCast(eventId), title_str, text_str, iconName_str);
+        return qtc.KNotification_Event6(@bitCast(eventId), title_str, text_str, iconName_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#event)
@@ -2763,7 +2775,7 @@ pub const knotification = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KNotification_Event7(@intCast(eventId), title_str, text_str);
+        return qtc.KNotification_Event7(@bitCast(eventId), title_str, text_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#beep)
@@ -2807,7 +2819,7 @@ pub const knotification = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knotification.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3017,7 +3029,7 @@ pub const knotification = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KNotification_Event23(@intCast(eventId), text_str);
+        return qtc.KNotification_Event23(@bitCast(eventId), text_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#event)
@@ -3035,7 +3047,7 @@ pub const knotification = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KNotification_Event33(@intCast(eventId), text_str, @ptrCast(pixmap));
+        return qtc.KNotification_Event33(@bitCast(eventId), text_str, @ptrCast(pixmap));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#event)
@@ -3055,7 +3067,7 @@ pub const knotification = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KNotification_Event44(@intCast(eventId), text_str, @ptrCast(pixmap), @ptrCast(flags));
+        return qtc.KNotification_Event44(@bitCast(eventId), text_str, @ptrCast(pixmap), @ptrCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#event)
@@ -3081,7 +3093,7 @@ pub const knotification = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KNotification_Event54(@intCast(eventId), title_str, text_str, @ptrCast(pixmap), @ptrCast(flags));
+        return qtc.KNotification_Event54(@bitCast(eventId), title_str, text_str, @ptrCast(pixmap), @ptrCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#event)
@@ -3185,7 +3197,7 @@ pub const knotification = struct {
             .len = iconName.len,
             .data = iconName.ptr,
         };
-        return qtc.KNotification_Event56(@intCast(eventId), title_str, text_str, iconName_str, @ptrCast(flags));
+        return qtc.KNotification_Event56(@bitCast(eventId), title_str, text_str, iconName_str, @ptrCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#event)
@@ -3209,7 +3221,7 @@ pub const knotification = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KNotification_Event45(@intCast(eventId), title_str, text_str, @ptrCast(flags));
+        return qtc.KNotification_Event45(@bitCast(eventId), title_str, text_str, @ptrCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#beep)
@@ -3357,7 +3369,7 @@ pub const knotification = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -3371,7 +3383,7 @@ pub const knotification = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -3385,7 +3397,7 @@ pub const knotification = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -3399,7 +3411,7 @@ pub const knotification = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -3729,7 +3741,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3784,7 +3796,7 @@ pub const knotification = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3800,7 +3812,7 @@ pub const knotification = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3822,7 +3834,7 @@ pub const knotification = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -3842,7 +3854,7 @@ pub const knotification = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -3864,7 +3876,7 @@ pub const knotification = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -3961,7 +3973,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4013,7 +4025,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNotification_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4061,7 +4073,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4109,7 +4121,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4157,7 +4169,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4205,7 +4217,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4253,7 +4265,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNotification_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4297,7 +4309,7 @@ pub const knotification = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KNotification_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4341,7 +4353,7 @@ pub const knotification = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KNotification_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4391,7 +4403,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KNotification_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4439,7 +4451,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNotification_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KNotification_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4455,7 +4467,7 @@ pub const knotification = struct {
     /// ` callback: *const fn (self: QtC.KNotification, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotification.html#dtor.KNotification)

@@ -97,7 +97,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QPlaceManagerEngine_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -132,7 +132,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QPlaceManagerEngine_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -159,7 +159,7 @@ pub const qplacemanagerengine = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPlaceManagerEngine_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QPlaceManagerEngine_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -171,7 +171,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QPlaceManagerEngine_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -187,7 +187,7 @@ pub const qplacemanagerengine = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPlaceManagerEngine_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QPlaceManagerEngine_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -260,7 +260,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, placeId: [*:0]const u8) callconv(.c) QtC.QPlaceDetailsReply `
     ///
     pub fn OnGetPlaceDetails(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QPlaceDetailsReply) void {
-        qtc.QPlaceManagerEngine_OnGetPlaceDetails(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnGetPlaceDetails(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#getPlaceDetails)
@@ -304,7 +304,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, request: QtC.QPlaceContentRequest) callconv(.c) QtC.QPlaceContentReply `
     ///
     pub fn OnGetPlaceContent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPlaceContentReply) void {
-        qtc.QPlaceManagerEngine_OnGetPlaceContent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnGetPlaceContent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#getPlaceContent)
@@ -344,7 +344,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, request: QtC.QPlaceSearchRequest) callconv(.c) QtC.QPlaceSearchReply `
     ///
     pub fn OnSearch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPlaceSearchReply) void {
-        qtc.QPlaceManagerEngine_OnSearch(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnSearch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#search)
@@ -384,7 +384,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, request: QtC.QPlaceSearchRequest) callconv(.c) QtC.QPlaceSearchSuggestionReply `
     ///
     pub fn OnSearchSuggestions(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPlaceSearchSuggestionReply) void {
-        qtc.QPlaceManagerEngine_OnSearchSuggestions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnSearchSuggestions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#searchSuggestions)
@@ -424,7 +424,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, place: QtC.QPlace) callconv(.c) QtC.QPlaceIdReply `
     ///
     pub fn OnSavePlace(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPlaceIdReply) void {
-        qtc.QPlaceManagerEngine_OnSavePlace(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnSavePlace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#savePlace)
@@ -468,7 +468,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, placeId: [*:0]const u8) callconv(.c) QtC.QPlaceIdReply `
     ///
     pub fn OnRemovePlace(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QPlaceIdReply) void {
-        qtc.QPlaceManagerEngine_OnRemovePlace(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnRemovePlace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#removePlace)
@@ -518,7 +518,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, category: QtC.QPlaceCategory, parentId: [*:0]const u8) callconv(.c) QtC.QPlaceIdReply `
     ///
     pub fn OnSaveCategory(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QPlaceIdReply) void {
-        qtc.QPlaceManagerEngine_OnSaveCategory(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnSaveCategory(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#saveCategory)
@@ -568,7 +568,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, categoryId: [*:0]const u8) callconv(.c) QtC.QPlaceIdReply `
     ///
     pub fn OnRemoveCategory(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QPlaceIdReply) void {
-        qtc.QPlaceManagerEngine_OnRemoveCategory(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnRemoveCategory(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#removeCategory)
@@ -610,7 +610,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPlaceReply `
     ///
     pub fn OnInitializeCategories(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPlaceReply) void {
-        qtc.QPlaceManagerEngine_OnInitializeCategories(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnInitializeCategories(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#initializeCategories)
@@ -660,7 +660,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, categoryId: [*:0]const u8) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnParentCategoryId(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
-        qtc.QPlaceManagerEngine_OnParentCategoryId(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnParentCategoryId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#parentCategoryId)
@@ -733,7 +733,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, categoryId: [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
     pub fn OnChildCategoryIds(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QPlaceManagerEngine_OnChildCategoryIds(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnChildCategoryIds(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#childCategoryIds)
@@ -798,7 +798,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, categoryId: [*:0]const u8) callconv(.c) QtC.QPlaceCategory `
     ///
     pub fn OnCategory(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QPlaceCategory) void {
-        qtc.QPlaceManagerEngine_OnCategory(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnCategory(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#category)
@@ -859,7 +859,7 @@ pub const qplacemanagerengine = struct {
     /// ` C ABI representation of []QtC.QPlaceCategory `
     ///
     pub fn OnChildCategories(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) qtc.libqt_list) void {
-        qtc.QPlaceManagerEngine_OnChildCategories(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnChildCategories(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#childCategories)
@@ -921,7 +921,7 @@ pub const qplacemanagerengine = struct {
     /// ` C ABI representation of []QtC.QLocale `
     ///
     pub fn OnLocales(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QPlaceManagerEngine_OnLocales(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnLocales(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#locales)
@@ -970,7 +970,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, locales: qtc.libqt_list ([]QtC.QLocale)) callconv(.c) void `
     ///
     pub fn OnSetLocales(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_OnSetLocales(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnSetLocales(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#setLocales)
@@ -1016,7 +1016,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, icon: QtC.QPlaceIcon, size: QtC.QSize) callconv(.c) QtC.QUrl `
     ///
     pub fn OnConstructIconUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QUrl) void {
-        qtc.QPlaceManagerEngine_OnConstructIconUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnConstructIconUrl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#constructIconUrl)
@@ -1058,7 +1058,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, original: QtC.QPlace) callconv(.c) QtC.QPlace `
     ///
     pub fn OnCompatiblePlace(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPlace) void {
-        qtc.QPlaceManagerEngine_OnCompatiblePlace(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnCompatiblePlace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#compatiblePlace)
@@ -1098,7 +1098,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, request: QtC.QPlaceMatchRequest) callconv(.c) QtC.QPlaceMatchReply `
     ///
     pub fn OnMatchingPlaces(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPlaceMatchReply) void {
-        qtc.QPlaceManagerEngine_OnMatchingPlaces(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnMatchingPlaces(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#matchingPlaces)
@@ -1136,7 +1136,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, reply: QtC.QPlaceReply) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#errorOccurred)
@@ -1150,7 +1150,7 @@ pub const qplacemanagerengine = struct {
     /// ` errorVal: qplacereply_enums.Error `
     ///
     pub fn ErrorOccurred(self: ?*anyopaque, param1: ?*anyopaque, errorVal: i32) void {
-        qtc.QPlaceManagerEngine_ErrorOccurred(@ptrCast(self), @ptrCast(param1), @intCast(errorVal));
+        qtc.QPlaceManagerEngine_ErrorOccurred(@ptrCast(self), @ptrCast(param1), @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#errorOccurred)
@@ -1162,7 +1162,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, param1: QtC.QPlaceReply, errorVal: qplacereply_enums.Error) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#placeAdded)
@@ -1190,7 +1190,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, placeId: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPlaceAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_Connect_PlaceAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_Connect_PlaceAdded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#placeUpdated)
@@ -1218,7 +1218,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, placeId: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPlaceUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_Connect_PlaceUpdated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_Connect_PlaceUpdated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#placeRemoved)
@@ -1246,7 +1246,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, placeId: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPlaceRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_Connect_PlaceRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_Connect_PlaceRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#categoryAdded)
@@ -1276,7 +1276,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, category: QtC.QPlaceCategory, parentCategoryId: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCategoryAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_Connect_CategoryAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_Connect_CategoryAdded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#categoryUpdated)
@@ -1306,7 +1306,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, category: QtC.QPlaceCategory, parentCategoryId: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCategoryUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_Connect_CategoryUpdated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_Connect_CategoryUpdated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#categoryRemoved)
@@ -1340,7 +1340,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, categoryId: [*:0]const u8, parentCategoryId: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCategoryRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_Connect_CategoryRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_Connect_CategoryRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#dataChanged)
@@ -1362,7 +1362,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine) callconv(.c) void `
     ///
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_Connect_DataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_Connect_DataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#manager)
@@ -1386,7 +1386,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPlaceManager `
     ///
     pub fn OnManager(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPlaceManager) void {
-        qtc.QPlaceManagerEngine_OnManager(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnManager(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#manager)
@@ -1436,7 +1436,7 @@ pub const qplacemanagerengine = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacemanagerengine.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1460,7 +1460,7 @@ pub const qplacemanagerengine = struct {
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QPlaceManagerEngine_ErrorOccurred3(@ptrCast(self), @ptrCast(param1), @intCast(errorVal), errorString_str);
+        qtc.QPlaceManagerEngine_ErrorOccurred3(@ptrCast(self), @ptrCast(param1), @bitCast(errorVal), errorString_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#errorOccurred)
@@ -1472,7 +1472,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, param1: QtC.QPlaceReply, errorVal: qplacereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnErrorOccurred3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_Connect_ErrorOccurred3(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_Connect_ErrorOccurred3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1606,7 +1606,7 @@ pub const qplacemanagerengine = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1620,7 +1620,7 @@ pub const qplacemanagerengine = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1634,7 +1634,7 @@ pub const qplacemanagerengine = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1648,7 +1648,7 @@ pub const qplacemanagerengine = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1978,7 +1978,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2033,7 +2033,7 @@ pub const qplacemanagerengine = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2049,7 +2049,7 @@ pub const qplacemanagerengine = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2071,7 +2071,7 @@ pub const qplacemanagerengine = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2091,7 +2091,7 @@ pub const qplacemanagerengine = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2113,7 +2113,7 @@ pub const qplacemanagerengine = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2210,7 +2210,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2258,7 +2258,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPlaceManagerEngine_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2310,7 +2310,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPlaceManagerEngine_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2358,7 +2358,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2406,7 +2406,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2454,7 +2454,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2502,7 +2502,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2550,7 +2550,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceManagerEngine_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2594,7 +2594,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QPlaceManagerEngine_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2638,7 +2638,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPlaceManagerEngine_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2688,7 +2688,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPlaceManagerEngine_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2736,7 +2736,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPlaceManagerEngine_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceManagerEngine_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2752,7 +2752,7 @@ pub const qplacemanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#dtor.QPlaceManagerEngine)

@@ -11,7 +11,7 @@ pub const kcursorsaver = struct {
     /// ` shape: qnamespace_enums.CursorShape `
     ///
     pub fn New(shape: i32) QtC.KCursorSaver {
-        return qtc.KCursorSaver_new(@intCast(shape));
+        return qtc.KCursorSaver_new(@bitCast(shape));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcursorsaver.html#restoreCursor)

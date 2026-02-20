@@ -41,7 +41,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KIO__AskUserActionInterface_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KIO__AskUserActionInterface_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -94,7 +94,7 @@ pub const kio__askuseractioninterface = struct {
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.KIO__AskUserActionInterface_AskUserRename(@ptrCast(self), @ptrCast(job), title_str, @ptrCast(src), @ptrCast(dest), @intCast(options), @intCast(sizeSrc), @intCast(sizeDest), @ptrCast(ctimeSrc), @ptrCast(ctimeDest), @ptrCast(mtimeSrc), @ptrCast(mtimeDest));
+        qtc.KIO__AskUserActionInterface_AskUserRename(@ptrCast(self), @ptrCast(job), title_str, @ptrCast(src), @ptrCast(dest), @bitCast(options), @bitCast(sizeSrc), @bitCast(sizeDest), @ptrCast(ctimeSrc), @ptrCast(ctimeDest), @ptrCast(mtimeSrc), @ptrCast(mtimeDest));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askUserSkip)
@@ -114,7 +114,7 @@ pub const kio__askuseractioninterface = struct {
             .len = errorText.len,
             .data = errorText.ptr,
         };
-        qtc.KIO__AskUserActionInterface_AskUserSkip(@ptrCast(self), @ptrCast(job), @intCast(options), errorText_str);
+        qtc.KIO__AskUserActionInterface_AskUserSkip(@ptrCast(self), @ptrCast(job), @bitCast(options), errorText_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askUserDelete)
@@ -136,7 +136,7 @@ pub const kio__askuseractioninterface = struct {
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
-        qtc.KIO__AskUserActionInterface_AskUserDelete(@ptrCast(self), urls_list, @intCast(deletionType), @intCast(confirmationType), @ptrCast(parent));
+        qtc.KIO__AskUserActionInterface_AskUserDelete(@ptrCast(self), urls_list, @bitCast(deletionType), @bitCast(confirmationType), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#requestUserMessageBox)
@@ -198,7 +198,7 @@ pub const kio__askuseractioninterface = struct {
             .len = details.len,
             .data = details.ptr,
         };
-        qtc.KIO__AskUserActionInterface_RequestUserMessageBox(@ptrCast(self), @intCast(typeVal), text_str, title_str, primaryActionText_str, secondatyActionText_str, primaryActionIconName_str, secondatyActionIconName_str, dontAskAgainName_str, details_str, @ptrCast(parent));
+        qtc.KIO__AskUserActionInterface_RequestUserMessageBox(@ptrCast(self), @bitCast(typeVal), text_str, title_str, primaryActionText_str, secondatyActionText_str, primaryActionIconName_str, secondatyActionIconName_str, dontAskAgainName_str, details_str, @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askIgnoreSslErrors)
@@ -250,7 +250,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` parentJob: QtC.KJob `
     ///
     pub fn AskUserRenameResult(self: ?*anyopaque, result: i32, newUrl: ?*anyopaque, parentJob: ?*anyopaque) void {
-        qtc.KIO__AskUserActionInterface_AskUserRenameResult(@ptrCast(self), @intCast(result), @ptrCast(newUrl), @ptrCast(parentJob));
+        qtc.KIO__AskUserActionInterface_AskUserRenameResult(@ptrCast(self), @bitCast(result), @ptrCast(newUrl), @ptrCast(parentJob));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askUserRenameResult)
@@ -262,7 +262,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, result: jobuidelegateextension_enums.RenameDialog_Result, newUrl: QtC.QUrl, parentJob: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnAskUserRenameResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__AskUserActionInterface_Connect_AskUserRenameResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__AskUserActionInterface_Connect_AskUserRenameResult(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askUserSkipResult)
@@ -276,7 +276,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` parentJob: QtC.KJob `
     ///
     pub fn AskUserSkipResult(self: ?*anyopaque, result: i32, parentJob: ?*anyopaque) void {
-        qtc.KIO__AskUserActionInterface_AskUserSkipResult(@ptrCast(self), @intCast(result), @ptrCast(parentJob));
+        qtc.KIO__AskUserActionInterface_AskUserSkipResult(@ptrCast(self), @bitCast(result), @ptrCast(parentJob));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askUserSkipResult)
@@ -288,7 +288,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, result: jobuidelegateextension_enums.RenameDialog_Result, parentJob: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnAskUserSkipResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__AskUserActionInterface_Connect_AskUserSkipResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__AskUserActionInterface_Connect_AskUserSkipResult(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askUserDeleteResult)
@@ -310,7 +310,7 @@ pub const kio__askuseractioninterface = struct {
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
-        qtc.KIO__AskUserActionInterface_AskUserDeleteResult(@ptrCast(self), allowDelete, urls_list, @intCast(deletionType), @ptrCast(parent));
+        qtc.KIO__AskUserActionInterface_AskUserDeleteResult(@ptrCast(self), allowDelete, urls_list, @bitCast(deletionType), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askUserDeleteResult)
@@ -322,7 +322,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, allowDelete: bool, urls: qtc.libqt_list ([]QtC.QUrl), deletionType: askuseractioninterface_enums.DeletionType, parent: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnAskUserDeleteResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, qtc.libqt_list, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__AskUserActionInterface_Connect_AskUserDeleteResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__AskUserActionInterface_Connect_AskUserDeleteResult(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#messageBoxResult)
@@ -334,7 +334,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` result: i32 `
     ///
     pub fn MessageBoxResult(self: ?*anyopaque, result: i32) void {
-        qtc.KIO__AskUserActionInterface_MessageBoxResult(@ptrCast(self), @intCast(result));
+        qtc.KIO__AskUserActionInterface_MessageBoxResult(@ptrCast(self), @bitCast(result));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#messageBoxResult)
@@ -346,7 +346,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, result: i32) callconv(.c) void `
     ///
     pub fn OnMessageBoxResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__AskUserActionInterface_Connect_MessageBoxResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__AskUserActionInterface_Connect_MessageBoxResult(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askIgnoreSslErrorsResult)
@@ -358,7 +358,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` result: i32 `
     ///
     pub fn AskIgnoreSslErrorsResult(self: ?*anyopaque, result: i32) void {
-        qtc.KIO__AskUserActionInterface_AskIgnoreSslErrorsResult(@ptrCast(self), @intCast(result));
+        qtc.KIO__AskUserActionInterface_AskIgnoreSslErrorsResult(@ptrCast(self), @bitCast(result));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#askIgnoreSslErrorsResult)
@@ -370,7 +370,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, result: i32) callconv(.c) void `
     ///
     pub fn OnAskIgnoreSslErrorsResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__AskUserActionInterface_Connect_AskIgnoreSslErrorsResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__AskUserActionInterface_Connect_AskIgnoreSslErrorsResult(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -408,7 +408,7 @@ pub const kio__askuseractioninterface = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__askuseractioninterface.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -576,7 +576,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -590,7 +590,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -604,7 +604,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -618,7 +618,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -948,7 +948,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1003,7 +1003,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1019,7 +1019,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1041,7 +1041,7 @@ pub const kio__askuseractioninterface = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1061,7 +1061,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1083,7 +1083,7 @@ pub const kio__askuseractioninterface = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1180,7 +1180,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1196,7 +1196,7 @@ pub const kio__askuseractioninterface = struct {
     /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

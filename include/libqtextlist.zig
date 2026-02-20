@@ -37,7 +37,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QTextList_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -72,7 +72,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QTextList_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -99,7 +99,7 @@ pub const qtextlist = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTextList_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QTextList_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -111,7 +111,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QTextList_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -127,7 +127,7 @@ pub const qtextlist = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTextList_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QTextList_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -166,7 +166,7 @@ pub const qtextlist = struct {
     /// ` i: i32 `
     ///
     pub fn Item(self: ?*anyopaque, i: i32) QtC.QTextBlock {
-        return qtc.QTextList_Item(@ptrCast(self), @intCast(i));
+        return qtc.QTextList_Item(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlist.html#itemNumber)
@@ -208,7 +208,7 @@ pub const qtextlist = struct {
     /// ` i: i32 `
     ///
     pub fn RemoveItem(self: ?*anyopaque, i: i32) void {
-        qtc.QTextList_RemoveItem(@ptrCast(self), @intCast(i));
+        qtc.QTextList_RemoveItem(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlist.html#remove)
@@ -292,7 +292,7 @@ pub const qtextlist = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextlist.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -466,7 +466,7 @@ pub const qtextlist = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -480,7 +480,7 @@ pub const qtextlist = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -494,7 +494,7 @@ pub const qtextlist = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -508,7 +508,7 @@ pub const qtextlist = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -838,7 +838,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -893,7 +893,7 @@ pub const qtextlist = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -909,7 +909,7 @@ pub const qtextlist = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -931,7 +931,7 @@ pub const qtextlist = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -951,7 +951,7 @@ pub const qtextlist = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -973,7 +973,7 @@ pub const qtextlist = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1070,7 +1070,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextBlockGroup
@@ -1118,7 +1118,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, block: QtC.QTextBlock) callconv(.c) void `
     ///
     pub fn OnBlockInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextList_OnBlockInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnBlockInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextBlockGroup
@@ -1166,7 +1166,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, block: QtC.QTextBlock) callconv(.c) void `
     ///
     pub fn OnBlockRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextList_OnBlockRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnBlockRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextBlockGroup
@@ -1214,7 +1214,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, block: QtC.QTextBlock) callconv(.c) void `
     ///
     pub fn OnBlockFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextList_OnBlockFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnBlockFormatChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1262,7 +1262,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextList_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1314,7 +1314,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextList_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1362,7 +1362,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextList_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1410,7 +1410,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextList_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1458,7 +1458,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextList_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1506,7 +1506,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextList_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1554,7 +1554,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextList_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextBlockGroup
@@ -1618,7 +1618,7 @@ pub const qtextlist = struct {
     /// ` C ABI representation of []QtC.QTextBlock `
     ///
     pub fn OnBlockList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QTextList_OnBlockList(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnBlockList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1662,7 +1662,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QTextList_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1706,7 +1706,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTextList_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1756,7 +1756,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTextList_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1804,7 +1804,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextList_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextList_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1820,7 +1820,7 @@ pub const qtextlist = struct {
     /// ` callback: *const fn (self: QtC.QTextList, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlist.html#dtor.QTextList)

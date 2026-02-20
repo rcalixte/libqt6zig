@@ -36,7 +36,7 @@ pub const qlocale = struct {
     /// ` territory: qlocale_enums.Country `
     ///
     pub fn New3(language: u16, territory: u16) QtC.QLocale {
-        return qtc.QLocale_new3(@intCast(language), @intCast(territory));
+        return qtc.QLocale_new3(@bitCast(language), @bitCast(territory));
     }
 
     /// New4 constructs a new QLocale object.
@@ -46,7 +46,7 @@ pub const qlocale = struct {
     /// ` language: qlocale_enums.Language `
     ///
     pub fn New4(language: u16) QtC.QLocale {
-        return qtc.QLocale_new4(@intCast(language));
+        return qtc.QLocale_new4(@bitCast(language));
     }
 
     /// New5 constructs a new QLocale object.
@@ -68,7 +68,7 @@ pub const qlocale = struct {
     /// ` script: qlocale_enums.Script `
     ///
     pub fn New6(language: u16, script: u16) QtC.QLocale {
-        return qtc.QLocale_new6(@intCast(language), @intCast(script));
+        return qtc.QLocale_new6(@bitCast(language), @bitCast(script));
     }
 
     /// New7 constructs a new QLocale object.
@@ -82,7 +82,7 @@ pub const qlocale = struct {
     /// ` territory: qlocale_enums.Country `
     ///
     pub fn New7(language: u16, script: u16, territory: u16) QtC.QLocale {
-        return qtc.QLocale_new7(@intCast(language), @intCast(script), @intCast(territory));
+        return qtc.QLocale_new7(@bitCast(language), @bitCast(script), @bitCast(territory));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#operator-eq)
@@ -416,7 +416,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString(self: ?*anyopaque, i: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString(@ptrCast(self), @intCast(i));
+        var _str = qtc.QLocale_ToString(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -434,7 +434,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString2(self: ?*anyopaque, i: u64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString2(@ptrCast(self), @intCast(i));
+        var _str = qtc.QLocale_ToString2(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -452,7 +452,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString3(self: ?*anyopaque, i: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString3(@ptrCast(self), @intCast(i));
+        var _str = qtc.QLocale_ToString3(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -470,7 +470,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString4(self: ?*anyopaque, i: u64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString4(@ptrCast(self), @intCast(i));
+        var _str = qtc.QLocale_ToString4(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -488,7 +488,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString5(self: ?*anyopaque, i: i16, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString5(@ptrCast(self), @intCast(i));
+        var _str = qtc.QLocale_ToString5(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -506,7 +506,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString6(self: ?*anyopaque, i: u16, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString6(@ptrCast(self), @intCast(i));
+        var _str = qtc.QLocale_ToString6(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -524,7 +524,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString7(self: ?*anyopaque, i: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString7(@ptrCast(self), @intCast(i));
+        var _str = qtc.QLocale_ToString7(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -542,7 +542,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString8(self: ?*anyopaque, i: u32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString8(@ptrCast(self), @intCast(i));
+        var _str = qtc.QLocale_ToString8(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -560,7 +560,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString9(self: ?*anyopaque, f: f64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString9(@ptrCast(self), @floatCast(f));
+        var _str = qtc.QLocale_ToString9(@ptrCast(self), @bitCast(f));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -578,7 +578,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString10(self: ?*anyopaque, f: f32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString10(@ptrCast(self), @floatCast(f));
+        var _str = qtc.QLocale_ToString10(@ptrCast(self), @bitCast(f));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString10: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -726,7 +726,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString21(self: ?*anyopaque, date: QtC.QDate, format: i32, cal: QtC.QCalendar, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString21(@ptrCast(self), @ptrCast(date), @intCast(format), @ptrCast(cal));
+        var _str = qtc.QLocale_ToString21(@ptrCast(self), @ptrCast(date), @bitCast(format), @ptrCast(cal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString21: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -748,7 +748,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString22(self: ?*anyopaque, dateTime: ?*anyopaque, format: i32, cal: QtC.QCalendar, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString22(@ptrCast(self), @ptrCast(dateTime), @intCast(format), @ptrCast(cal));
+        var _str = qtc.QLocale_ToString22(@ptrCast(self), @ptrCast(dateTime), @bitCast(format), @ptrCast(cal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString22: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -934,7 +934,7 @@ pub const qlocale = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QLocale_ToDate3(@ptrCast(self), stringVal_str, @intCast(format), @ptrCast(cal));
+        return qtc.QLocale_ToDate3(@ptrCast(self), stringVal_str, @bitCast(format), @ptrCast(cal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -978,7 +978,7 @@ pub const qlocale = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QLocale_ToDateTime3(@ptrCast(self), stringVal_str, @intCast(format), @ptrCast(cal));
+        return qtc.QLocale_ToDateTime3(@ptrCast(self), stringVal_str, @bitCast(format), @ptrCast(cal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -1128,7 +1128,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MonthName(self: ?*anyopaque, param1: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_MonthName(@ptrCast(self), @intCast(param1));
+        var _str = qtc.QLocale_MonthName(@ptrCast(self), @bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.MonthName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1146,7 +1146,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StandaloneMonthName(self: ?*anyopaque, param1: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_StandaloneMonthName(@ptrCast(self), @intCast(param1));
+        var _str = qtc.QLocale_StandaloneMonthName(@ptrCast(self), @bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.StandaloneMonthName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1164,7 +1164,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DayName(self: ?*anyopaque, param1: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_DayName(@ptrCast(self), @intCast(param1));
+        var _str = qtc.QLocale_DayName(@ptrCast(self), @bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.DayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1182,7 +1182,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StandaloneDayName(self: ?*anyopaque, param1: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_StandaloneDayName(@ptrCast(self), @intCast(param1));
+        var _str = qtc.QLocale_StandaloneDayName(@ptrCast(self), @bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.StandaloneDayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1365,7 +1365,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToCurrencyString(self: ?*anyopaque, param1: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToCurrencyString(@ptrCast(self), @intCast(param1));
+        var _str = qtc.QLocale_ToCurrencyString(@ptrCast(self), @bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1383,7 +1383,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToCurrencyString2(self: ?*anyopaque, param1: u64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToCurrencyString2(@ptrCast(self), @intCast(param1));
+        var _str = qtc.QLocale_ToCurrencyString2(@ptrCast(self), @bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1401,7 +1401,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToCurrencyString3(self: ?*anyopaque, i: i16, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToCurrencyString3(@ptrCast(self), @intCast(i));
+        var _str = qtc.QLocale_ToCurrencyString3(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1419,7 +1419,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToCurrencyString4(self: ?*anyopaque, i: u16, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToCurrencyString4(@ptrCast(self), @intCast(i));
+        var _str = qtc.QLocale_ToCurrencyString4(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1437,7 +1437,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToCurrencyString5(self: ?*anyopaque, i: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToCurrencyString5(@ptrCast(self), @intCast(i));
+        var _str = qtc.QLocale_ToCurrencyString5(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1455,7 +1455,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToCurrencyString6(self: ?*anyopaque, i: u32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToCurrencyString6(@ptrCast(self), @intCast(i));
+        var _str = qtc.QLocale_ToCurrencyString6(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1473,7 +1473,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToCurrencyString7(self: ?*anyopaque, param1: f64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToCurrencyString7(@ptrCast(self), @floatCast(param1));
+        var _str = qtc.QLocale_ToCurrencyString7(@ptrCast(self), @bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1491,7 +1491,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToCurrencyString8(self: ?*anyopaque, i: f32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToCurrencyString8(@ptrCast(self), @floatCast(i));
+        var _str = qtc.QLocale_ToCurrencyString8(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1509,7 +1509,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FormattedDataSize(self: ?*anyopaque, bytes: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_FormattedDataSize(@ptrCast(self), @intCast(bytes));
+        var _str = qtc.QLocale_FormattedDataSize(@ptrCast(self), @bitCast(bytes));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.FormattedDataSize: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1552,7 +1552,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LanguageToCode(language: u16, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_LanguageToCode(@intCast(language));
+        var _str = qtc.QLocale_LanguageToCode(@bitCast(language));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.LanguageToCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1568,7 +1568,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TerritoryToCode(territory: u16, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_TerritoryToCode(@intCast(territory));
+        var _str = qtc.QLocale_TerritoryToCode(@bitCast(territory));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.TerritoryToCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1584,7 +1584,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CountryToCode(country: u16, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_CountryToCode(@intCast(country));
+        var _str = qtc.QLocale_CountryToCode(@bitCast(country));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.CountryToCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1600,7 +1600,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ScriptToCode(script: u16, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ScriptToCode(@intCast(script));
+        var _str = qtc.QLocale_ScriptToCode(@bitCast(script));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ScriptToCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1616,7 +1616,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LanguageToString(language: u16, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_LanguageToString(@intCast(language));
+        var _str = qtc.QLocale_LanguageToString(@bitCast(language));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.LanguageToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1632,7 +1632,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TerritoryToString(territory: u16, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_TerritoryToString(@intCast(territory));
+        var _str = qtc.QLocale_TerritoryToString(@bitCast(territory));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.TerritoryToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1648,7 +1648,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CountryToString(country: u16, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_CountryToString(@intCast(country));
+        var _str = qtc.QLocale_CountryToString(@bitCast(country));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.CountryToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1664,7 +1664,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ScriptToString(script: u16, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ScriptToString(@intCast(script));
+        var _str = qtc.QLocale_ScriptToString(@bitCast(script));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ScriptToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1706,7 +1706,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MatchingLocales(language: u16, script: u16, territory: u16, allocator: std.mem.Allocator) []QtC.QLocale {
-        const _arr: qtc.libqt_list = qtc.QLocale_MatchingLocales(@intCast(language), @intCast(script), @intCast(territory));
+        const _arr: qtc.libqt_list = qtc.QLocale_MatchingLocales(@bitCast(language), @bitCast(script), @bitCast(territory));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QLocale, _arr.len) catch @panic("qlocale.MatchingLocales: Memory allocation failed");
         const _data: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
@@ -1727,7 +1727,7 @@ pub const qlocale = struct {
     /// ` []qlocale_enums.Country `
     ///
     pub fn CountriesForLanguage(lang: u16, allocator: std.mem.Allocator) []u16 {
-        const _arr: qtc.libqt_list = qtc.QLocale_CountriesForLanguage(@intCast(lang));
+        const _arr: qtc.libqt_list = qtc.QLocale_CountriesForLanguage(@bitCast(lang));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(u16, _arr.len) catch @panic("qlocale.CountriesForLanguage: Memory allocation failed");
         const _data: [*]u16 = @ptrCast(@alignCast(_arr.data));
@@ -1744,7 +1744,7 @@ pub const qlocale = struct {
     /// ` options: flag of qlocale_enums.NumberOption `
     ///
     pub fn SetNumberOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QLocale_SetNumberOptions(@ptrCast(self), @intCast(options));
+        qtc.QLocale_SetNumberOptions(@ptrCast(self), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#numberOptions)
@@ -1824,7 +1824,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name1(self: ?*anyopaque, separator: i8, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_Name1(@ptrCast(self), @intCast(separator));
+        var _str = qtc.QLocale_Name1(@ptrCast(self), @bitCast(separator));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.Name1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1842,7 +1842,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Bcp47Name1(self: ?*anyopaque, separator: i8, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_Bcp47Name1(@ptrCast(self), @intCast(separator));
+        var _str = qtc.QLocale_Bcp47Name1(@ptrCast(self), @bitCast(separator));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.Bcp47Name1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2042,7 +2042,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString24(self: ?*anyopaque, f: f64, format: u8, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString24(@ptrCast(self), @floatCast(f), @intCast(format));
+        var _str = qtc.QLocale_ToString24(@ptrCast(self), @bitCast(f), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString24: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2064,7 +2064,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString32(self: ?*anyopaque, f: f64, format: u8, precision: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString32(@ptrCast(self), @floatCast(f), @intCast(format), @intCast(precision));
+        var _str = qtc.QLocale_ToString32(@ptrCast(self), @bitCast(f), @bitCast(format), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString32: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2084,7 +2084,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString25(self: ?*anyopaque, f: f32, format: u8, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString25(@ptrCast(self), @floatCast(f), @intCast(format));
+        var _str = qtc.QLocale_ToString25(@ptrCast(self), @bitCast(f), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString25: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2106,7 +2106,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString33(self: ?*anyopaque, f: f32, format: u8, precision: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString33(@ptrCast(self), @floatCast(f), @intCast(format), @intCast(precision));
+        var _str = qtc.QLocale_ToString33(@ptrCast(self), @bitCast(f), @bitCast(format), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString33: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2126,7 +2126,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString26(self: ?*anyopaque, date: QtC.QDate, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString26(@ptrCast(self), @ptrCast(date), @intCast(format));
+        var _str = qtc.QLocale_ToString26(@ptrCast(self), @ptrCast(date), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString26: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2146,7 +2146,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString27(self: ?*anyopaque, time: QtC.QTime, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString27(@ptrCast(self), @ptrCast(time), @intCast(format));
+        var _str = qtc.QLocale_ToString27(@ptrCast(self), @ptrCast(time), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString27: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2166,7 +2166,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString28(self: ?*anyopaque, dateTime: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_ToString28(@ptrCast(self), @ptrCast(dateTime), @intCast(format));
+        var _str = qtc.QLocale_ToString28(@ptrCast(self), @ptrCast(dateTime), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString28: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2184,7 +2184,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DateFormat1(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_DateFormat1(@ptrCast(self), @intCast(format));
+        var _str = qtc.QLocale_DateFormat1(@ptrCast(self), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.DateFormat1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2202,7 +2202,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TimeFormat1(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_TimeFormat1(@ptrCast(self), @intCast(format));
+        var _str = qtc.QLocale_TimeFormat1(@ptrCast(self), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.TimeFormat1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2220,7 +2220,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DateTimeFormat1(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_DateTimeFormat1(@ptrCast(self), @intCast(format));
+        var _str = qtc.QLocale_DateTimeFormat1(@ptrCast(self), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.DateTimeFormat1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2242,7 +2242,7 @@ pub const qlocale = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QLocale_ToTime22(@ptrCast(self), stringVal_str, @intCast(param2));
+        return qtc.QLocale_ToTime22(@ptrCast(self), stringVal_str, @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -2260,7 +2260,7 @@ pub const qlocale = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QLocale_ToDate22(@ptrCast(self), stringVal_str, @intCast(param2));
+        return qtc.QLocale_ToDate22(@ptrCast(self), stringVal_str, @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -2280,7 +2280,7 @@ pub const qlocale = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QLocale_ToDate32(@ptrCast(self), stringVal_str, @intCast(param2), @intCast(baseYear));
+        return qtc.QLocale_ToDate32(@ptrCast(self), stringVal_str, @bitCast(param2), @bitCast(baseYear));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -2304,7 +2304,7 @@ pub const qlocale = struct {
             .len = format.len,
             .data = format.ptr,
         };
-        return qtc.QLocale_ToDate33(@ptrCast(self), stringVal_str, format_str, @intCast(baseYear));
+        return qtc.QLocale_ToDate33(@ptrCast(self), stringVal_str, format_str, @bitCast(baseYear));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -2322,7 +2322,7 @@ pub const qlocale = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QLocale_ToDateTime22(@ptrCast(self), stringVal_str, @intCast(format));
+        return qtc.QLocale_ToDateTime22(@ptrCast(self), stringVal_str, @bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -2342,7 +2342,7 @@ pub const qlocale = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QLocale_ToDateTime32(@ptrCast(self), stringVal_str, @intCast(format), @intCast(baseYear));
+        return qtc.QLocale_ToDateTime32(@ptrCast(self), stringVal_str, @bitCast(format), @bitCast(baseYear));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -2366,7 +2366,7 @@ pub const qlocale = struct {
             .len = format.len,
             .data = format.ptr,
         };
-        return qtc.QLocale_ToDateTime33(@ptrCast(self), stringVal_str, format_str, @intCast(baseYear));
+        return qtc.QLocale_ToDateTime33(@ptrCast(self), stringVal_str, format_str, @bitCast(baseYear));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -2388,7 +2388,7 @@ pub const qlocale = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QLocale_ToDate42(@ptrCast(self), stringVal_str, @intCast(format), @ptrCast(cal), @intCast(baseYear));
+        return qtc.QLocale_ToDate42(@ptrCast(self), stringVal_str, @bitCast(format), @ptrCast(cal), @bitCast(baseYear));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -2414,7 +2414,7 @@ pub const qlocale = struct {
             .len = format.len,
             .data = format.ptr,
         };
-        return qtc.QLocale_ToDate43(@ptrCast(self), stringVal_str, format_str, @ptrCast(cal), @intCast(baseYear));
+        return qtc.QLocale_ToDate43(@ptrCast(self), stringVal_str, format_str, @ptrCast(cal), @bitCast(baseYear));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -2436,7 +2436,7 @@ pub const qlocale = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QLocale_ToDateTime42(@ptrCast(self), stringVal_str, @intCast(format), @ptrCast(cal), @intCast(baseYear));
+        return qtc.QLocale_ToDateTime42(@ptrCast(self), stringVal_str, @bitCast(format), @ptrCast(cal), @bitCast(baseYear));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -2462,7 +2462,7 @@ pub const qlocale = struct {
             .len = format.len,
             .data = format.ptr,
         };
-        return qtc.QLocale_ToDateTime43(@ptrCast(self), stringVal_str, format_str, @ptrCast(cal), @intCast(baseYear));
+        return qtc.QLocale_ToDateTime43(@ptrCast(self), stringVal_str, format_str, @ptrCast(cal), @bitCast(baseYear));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#monthName)
@@ -2478,7 +2478,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MonthName2(self: ?*anyopaque, param1: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_MonthName2(@ptrCast(self), @intCast(param1), @intCast(format));
+        var _str = qtc.QLocale_MonthName2(@ptrCast(self), @bitCast(param1), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.MonthName2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2498,7 +2498,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StandaloneMonthName2(self: ?*anyopaque, param1: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_StandaloneMonthName2(@ptrCast(self), @intCast(param1), @intCast(format));
+        var _str = qtc.QLocale_StandaloneMonthName2(@ptrCast(self), @bitCast(param1), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.StandaloneMonthName2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2518,7 +2518,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DayName2(self: ?*anyopaque, param1: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_DayName2(@ptrCast(self), @intCast(param1), @intCast(format));
+        var _str = qtc.QLocale_DayName2(@ptrCast(self), @bitCast(param1), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.DayName2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2538,7 +2538,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StandaloneDayName2(self: ?*anyopaque, param1: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_StandaloneDayName2(@ptrCast(self), @intCast(param1), @intCast(format));
+        var _str = qtc.QLocale_StandaloneDayName2(@ptrCast(self), @bitCast(param1), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.StandaloneDayName2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2556,7 +2556,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CurrencySymbol1(self: ?*anyopaque, param1: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_CurrencySymbol1(@ptrCast(self), @intCast(param1));
+        var _str = qtc.QLocale_CurrencySymbol1(@ptrCast(self), @bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.CurrencySymbol1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2580,7 +2580,7 @@ pub const qlocale = struct {
             .len = symbol.len,
             .data = symbol.ptr,
         };
-        var _str = qtc.QLocale_ToCurrencyString22(@ptrCast(self), @intCast(param1), symbol_str);
+        var _str = qtc.QLocale_ToCurrencyString22(@ptrCast(self), @bitCast(param1), symbol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString22: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2604,7 +2604,7 @@ pub const qlocale = struct {
             .len = symbol.len,
             .data = symbol.ptr,
         };
-        var _str = qtc.QLocale_ToCurrencyString23(@ptrCast(self), @intCast(param1), symbol_str);
+        var _str = qtc.QLocale_ToCurrencyString23(@ptrCast(self), @bitCast(param1), symbol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString23: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2628,7 +2628,7 @@ pub const qlocale = struct {
             .len = symbol.len,
             .data = symbol.ptr,
         };
-        var _str = qtc.QLocale_ToCurrencyString24(@ptrCast(self), @intCast(i), symbol_str);
+        var _str = qtc.QLocale_ToCurrencyString24(@ptrCast(self), @bitCast(i), symbol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString24: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2652,7 +2652,7 @@ pub const qlocale = struct {
             .len = symbol.len,
             .data = symbol.ptr,
         };
-        var _str = qtc.QLocale_ToCurrencyString25(@ptrCast(self), @intCast(i), symbol_str);
+        var _str = qtc.QLocale_ToCurrencyString25(@ptrCast(self), @bitCast(i), symbol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString25: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2676,7 +2676,7 @@ pub const qlocale = struct {
             .len = symbol.len,
             .data = symbol.ptr,
         };
-        var _str = qtc.QLocale_ToCurrencyString26(@ptrCast(self), @intCast(i), symbol_str);
+        var _str = qtc.QLocale_ToCurrencyString26(@ptrCast(self), @bitCast(i), symbol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString26: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2700,7 +2700,7 @@ pub const qlocale = struct {
             .len = symbol.len,
             .data = symbol.ptr,
         };
-        var _str = qtc.QLocale_ToCurrencyString27(@ptrCast(self), @intCast(i), symbol_str);
+        var _str = qtc.QLocale_ToCurrencyString27(@ptrCast(self), @bitCast(i), symbol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString27: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2724,7 +2724,7 @@ pub const qlocale = struct {
             .len = symbol.len,
             .data = symbol.ptr,
         };
-        var _str = qtc.QLocale_ToCurrencyString28(@ptrCast(self), @floatCast(param1), symbol_str);
+        var _str = qtc.QLocale_ToCurrencyString28(@ptrCast(self), @bitCast(param1), symbol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString28: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2750,7 +2750,7 @@ pub const qlocale = struct {
             .len = symbol.len,
             .data = symbol.ptr,
         };
-        var _str = qtc.QLocale_ToCurrencyString32(@ptrCast(self), @floatCast(param1), symbol_str, @intCast(precision));
+        var _str = qtc.QLocale_ToCurrencyString32(@ptrCast(self), @bitCast(param1), symbol_str, @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString32: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2774,7 +2774,7 @@ pub const qlocale = struct {
             .len = symbol.len,
             .data = symbol.ptr,
         };
-        var _str = qtc.QLocale_ToCurrencyString29(@ptrCast(self), @floatCast(i), symbol_str);
+        var _str = qtc.QLocale_ToCurrencyString29(@ptrCast(self), @bitCast(i), symbol_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString29: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2800,7 +2800,7 @@ pub const qlocale = struct {
             .len = symbol.len,
             .data = symbol.ptr,
         };
-        var _str = qtc.QLocale_ToCurrencyString33(@ptrCast(self), @floatCast(i), symbol_str, @intCast(precision));
+        var _str = qtc.QLocale_ToCurrencyString33(@ptrCast(self), @bitCast(i), symbol_str, @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToCurrencyString33: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2820,7 +2820,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FormattedDataSize2(self: ?*anyopaque, bytes: i64, precision: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_FormattedDataSize2(@ptrCast(self), @intCast(bytes), @intCast(precision));
+        var _str = qtc.QLocale_FormattedDataSize2(@ptrCast(self), @bitCast(bytes), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.FormattedDataSize2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2842,7 +2842,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FormattedDataSize3(self: ?*anyopaque, bytes: i64, precision: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_FormattedDataSize3(@ptrCast(self), @intCast(bytes), @intCast(precision), @intCast(format));
+        var _str = qtc.QLocale_FormattedDataSize3(@ptrCast(self), @bitCast(bytes), @bitCast(precision), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.FormattedDataSize3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2860,7 +2860,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn UiLanguages1(self: ?*anyopaque, separator: i8, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QLocale_UiLanguages1(@ptrCast(self), @intCast(separator));
+        const _arr: qtc.libqt_list = qtc.QLocale_UiLanguages1(@ptrCast(self), @bitCast(separator));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -2889,7 +2889,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LanguageToCode2(language: u16, codeTypes: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLocale_LanguageToCode2(@intCast(language), @intCast(codeTypes));
+        var _str = qtc.QLocale_LanguageToCode2(@bitCast(language), @bitCast(codeTypes));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.LanguageToCode2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2913,7 +2913,7 @@ pub const qlocale = struct {
             .len = str.len,
             .data = str.ptr,
         };
-        var _str = qtc.QLocale_QuoteString22(@ptrCast(self), str_str, @intCast(style));
+        var _str = qtc.QLocale_QuoteString22(@ptrCast(self), str_str, @bitCast(style));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.QuoteString22: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

@@ -17,7 +17,7 @@ pub const qprintengine = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetProperty(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QPrintEngine_SetProperty(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QPrintEngine_SetProperty(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#property)
@@ -29,7 +29,7 @@ pub const qprintengine = struct {
     /// ` key: qprintengine_enums.PrintEnginePropertyKey `
     ///
     pub fn Property(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QPrintEngine_Property(@ptrCast(self), @intCast(key));
+        return qtc.QPrintEngine_Property(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#newPage)
@@ -61,7 +61,7 @@ pub const qprintengine = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QPrintEngine_Metric(@ptrCast(self), @intCast(param1));
+        return qtc.QPrintEngine_Metric(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#printerState)

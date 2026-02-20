@@ -37,7 +37,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QAbstractTextDocumentLayout_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -72,7 +72,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -99,7 +99,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractTextDocumentLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAbstractTextDocumentLayout_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -111,7 +111,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractTextDocumentLayout_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -127,7 +127,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractTextDocumentLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAbstractTextDocumentLayout_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -172,7 +172,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, painter: QtC.QPainter, context: QtC.QAbstractTextDocumentLayout__PaintContext) callconv(.c) void `
     ///
     pub fn OnDraw(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnDraw(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#draw)
@@ -202,7 +202,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` accuracy: qnamespace_enums.HitTestAccuracy `
     ///
     pub fn HitTest(self: ?*anyopaque, point: ?*anyopaque, accuracy: i32) i32 {
-        return qtc.QAbstractTextDocumentLayout_HitTest(@ptrCast(self), @ptrCast(point), @intCast(accuracy));
+        return qtc.QAbstractTextDocumentLayout_HitTest(@ptrCast(self), @ptrCast(point), @bitCast(accuracy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#hitTest)
@@ -216,7 +216,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, point: QtC.QPointF, accuracy: qnamespace_enums.HitTestAccuracy) callconv(.c) i32 `
     ///
     pub fn OnHitTest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QAbstractTextDocumentLayout_OnHitTest(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnHitTest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#hitTest)
@@ -232,7 +232,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` accuracy: qnamespace_enums.HitTestAccuracy `
     ///
     pub fn QBaseHitTest(self: ?*anyopaque, point: ?*anyopaque, accuracy: i32) i32 {
-        return qtc.QAbstractTextDocumentLayout_QBaseHitTest(@ptrCast(self), @ptrCast(point), @intCast(accuracy));
+        return qtc.QAbstractTextDocumentLayout_QBaseHitTest(@ptrCast(self), @ptrCast(point), @bitCast(accuracy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#anchorAt)
@@ -316,7 +316,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnPageCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractTextDocumentLayout_OnPageCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnPageCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCount)
@@ -352,7 +352,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSizeF `
     ///
     pub fn OnDocumentSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSizeF) void {
-        qtc.QAbstractTextDocumentLayout_OnDocumentSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnDocumentSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSize)
@@ -390,7 +390,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, frame: QtC.QTextFrame) callconv(.c) QtC.QRectF `
     ///
     pub fn OnFrameBoundingRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRectF) void {
-        qtc.QAbstractTextDocumentLayout_OnFrameBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnFrameBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#frameBoundingRect)
@@ -430,7 +430,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, block: QtC.QTextBlock) callconv(.c) QtC.QRectF `
     ///
     pub fn OnBlockBoundingRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRectF) void {
-        qtc.QAbstractTextDocumentLayout_OnBlockBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnBlockBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#blockBoundingRect)
@@ -490,7 +490,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` component: QtC.QObject `
     ///
     pub fn RegisterHandler(self: ?*anyopaque, objectType: i32, component: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_RegisterHandler(@ptrCast(self), @intCast(objectType), @ptrCast(component));
+        qtc.QAbstractTextDocumentLayout_RegisterHandler(@ptrCast(self), @bitCast(objectType), @ptrCast(component));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#unregisterHandler)
@@ -502,7 +502,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` objectType: i32 `
     ///
     pub fn UnregisterHandler(self: ?*anyopaque, objectType: i32) void {
-        qtc.QAbstractTextDocumentLayout_UnregisterHandler(@ptrCast(self), @intCast(objectType));
+        qtc.QAbstractTextDocumentLayout_UnregisterHandler(@ptrCast(self), @bitCast(objectType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#handlerForObject)
@@ -514,7 +514,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` objectType: i32 `
     ///
     pub fn HandlerForObject(self: ?*anyopaque, objectType: i32) QtC.QTextObjectInterface {
-        return qtc.QAbstractTextDocumentLayout_HandlerForObject(@ptrCast(self), @intCast(objectType));
+        return qtc.QAbstractTextDocumentLayout_HandlerForObject(@ptrCast(self), @bitCast(objectType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#update)
@@ -536,7 +536,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout) callconv(.c) void `
     ///
     pub fn OnUpdate(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_Connect_Update(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_Connect_Update(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#updateBlock)
@@ -560,7 +560,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, block: QtC.QTextBlock) callconv(.c) void `
     ///
     pub fn OnUpdateBlock(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_Connect_UpdateBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_Connect_UpdateBlock(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSizeChanged)
@@ -584,7 +584,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, newSize: QtC.QSizeF) callconv(.c) void `
     ///
     pub fn OnDocumentSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_Connect_DocumentSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_Connect_DocumentSizeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCountChanged)
@@ -596,7 +596,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` newPages: i32 `
     ///
     pub fn PageCountChanged(self: ?*anyopaque, newPages: i32) void {
-        qtc.QAbstractTextDocumentLayout_PageCountChanged(@ptrCast(self), @intCast(newPages));
+        qtc.QAbstractTextDocumentLayout_PageCountChanged(@ptrCast(self), @bitCast(newPages));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCountChanged)
@@ -608,7 +608,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, newPages: i32) callconv(.c) void `
     ///
     pub fn OnPageCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_Connect_PageCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_Connect_PageCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentChanged)
@@ -624,7 +624,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` charsAdded: i32 `
     ///
     pub fn DocumentChanged(self: ?*anyopaque, from: i32, charsRemoved: i32, charsAdded: i32) void {
-        qtc.QAbstractTextDocumentLayout_DocumentChanged(@ptrCast(self), @intCast(from), @intCast(charsRemoved), @intCast(charsAdded));
+        qtc.QAbstractTextDocumentLayout_DocumentChanged(@ptrCast(self), @bitCast(from), @bitCast(charsRemoved), @bitCast(charsAdded));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentChanged)
@@ -638,7 +638,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, from: i32, charsRemoved: i32, charsAdded: i32) callconv(.c) void `
     ///
     pub fn OnDocumentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_OnDocumentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnDocumentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentChanged)
@@ -656,7 +656,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` charsAdded: i32 `
     ///
     pub fn QBaseDocumentChanged(self: ?*anyopaque, from: i32, charsRemoved: i32, charsAdded: i32) void {
-        qtc.QAbstractTextDocumentLayout_QBaseDocumentChanged(@ptrCast(self), @intCast(from), @intCast(charsRemoved), @intCast(charsAdded));
+        qtc.QAbstractTextDocumentLayout_QBaseDocumentChanged(@ptrCast(self), @bitCast(from), @bitCast(charsRemoved), @bitCast(charsAdded));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#resizeInlineObject)
@@ -672,7 +672,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` format: QtC.QTextFormat `
     ///
     pub fn ResizeInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_ResizeInlineObject(@ptrCast(self), @ptrCast(item), @intCast(posInDocument), @ptrCast(format));
+        qtc.QAbstractTextDocumentLayout_ResizeInlineObject(@ptrCast(self), @ptrCast(item), @bitCast(posInDocument), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#resizeInlineObject)
@@ -686,7 +686,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, item: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat) callconv(.c) void `
     ///
     pub fn OnResizeInlineObject(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QTextInlineObject, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_OnResizeInlineObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnResizeInlineObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#resizeInlineObject)
@@ -704,7 +704,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` format: QtC.QTextFormat `
     ///
     pub fn QBaseResizeInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_QBaseResizeInlineObject(@ptrCast(self), @ptrCast(item), @intCast(posInDocument), @ptrCast(format));
+        qtc.QAbstractTextDocumentLayout_QBaseResizeInlineObject(@ptrCast(self), @ptrCast(item), @bitCast(posInDocument), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#positionInlineObject)
@@ -720,7 +720,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` format: QtC.QTextFormat `
     ///
     pub fn PositionInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_PositionInlineObject(@ptrCast(self), @ptrCast(item), @intCast(posInDocument), @ptrCast(format));
+        qtc.QAbstractTextDocumentLayout_PositionInlineObject(@ptrCast(self), @ptrCast(item), @bitCast(posInDocument), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#positionInlineObject)
@@ -734,7 +734,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, item: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat) callconv(.c) void `
     ///
     pub fn OnPositionInlineObject(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QTextInlineObject, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_OnPositionInlineObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnPositionInlineObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#positionInlineObject)
@@ -752,7 +752,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` format: QtC.QTextFormat `
     ///
     pub fn QBasePositionInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_QBasePositionInlineObject(@ptrCast(self), @ptrCast(item), @intCast(posInDocument), @ptrCast(format));
+        qtc.QAbstractTextDocumentLayout_QBasePositionInlineObject(@ptrCast(self), @ptrCast(item), @bitCast(posInDocument), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#drawInlineObject)
@@ -772,7 +772,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` format: QtC.QTextFormat `
     ///
     pub fn DrawInlineObject(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, object: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_DrawInlineObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(object), @intCast(posInDocument), @ptrCast(format));
+        qtc.QAbstractTextDocumentLayout_DrawInlineObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(object), @bitCast(posInDocument), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#drawInlineObject)
@@ -786,7 +786,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, painter: QtC.QPainter, rect: QtC.QRectF, object: QtC.QTextInlineObject, posInDocument: i32, format: QtC.QTextFormat) callconv(.c) void `
     ///
     pub fn OnDrawInlineObject(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, QtC.QTextInlineObject, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_OnDrawInlineObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnDrawInlineObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#drawInlineObject)
@@ -808,7 +808,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` format: QtC.QTextFormat `
     ///
     pub fn QBaseDrawInlineObject(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, object: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_QBaseDrawInlineObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(object), @intCast(posInDocument), @ptrCast(format));
+        qtc.QAbstractTextDocumentLayout_QBaseDrawInlineObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(object), @bitCast(posInDocument), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex)
@@ -820,7 +820,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` pos: i32 `
     ///
     pub fn FormatIndex(self: ?*anyopaque, pos: i32) i32 {
-        return qtc.QAbstractTextDocumentLayout_FormatIndex(@ptrCast(self), @intCast(pos));
+        return qtc.QAbstractTextDocumentLayout_FormatIndex(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex)
@@ -834,7 +834,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, pos: i32) callconv(.c) i32 `
     ///
     pub fn OnFormatIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QAbstractTextDocumentLayout_OnFormatIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnFormatIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex)
@@ -848,7 +848,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` pos: i32 `
     ///
     pub fn QBaseFormatIndex(self: ?*anyopaque, pos: i32) i32 {
-        return qtc.QAbstractTextDocumentLayout_QBaseFormatIndex(@ptrCast(self), @intCast(pos));
+        return qtc.QAbstractTextDocumentLayout_QBaseFormatIndex(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format)
@@ -860,7 +860,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` pos: i32 `
     ///
     pub fn Format(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
-        return qtc.QAbstractTextDocumentLayout_Format(@ptrCast(self), @intCast(pos));
+        return qtc.QAbstractTextDocumentLayout_Format(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format)
@@ -874,7 +874,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, pos: i32) callconv(.c) QtC.QTextCharFormat `
     ///
     pub fn OnFormat(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QTextCharFormat) void {
-        qtc.QAbstractTextDocumentLayout_OnFormat(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnFormat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format)
@@ -888,7 +888,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` pos: i32 `
     ///
     pub fn QBaseFormat(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
-        return qtc.QAbstractTextDocumentLayout_QBaseFormat(@ptrCast(self), @intCast(pos));
+        return qtc.QAbstractTextDocumentLayout_QBaseFormat(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -926,7 +926,7 @@ pub const qabstracttextdocumentlayout = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracttextdocumentlayout.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -944,7 +944,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` component: QtC.QObject `
     ///
     pub fn UnregisterHandler2(self: ?*anyopaque, objectType: i32, component: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_UnregisterHandler2(@ptrCast(self), @intCast(objectType), @ptrCast(component));
+        qtc.QAbstractTextDocumentLayout_UnregisterHandler2(@ptrCast(self), @bitCast(objectType), @ptrCast(component));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#update)
@@ -968,7 +968,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, param1: QtC.QRectF) callconv(.c) void `
     ///
     pub fn OnUpdate1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_Connect_Update1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_Connect_Update1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1102,7 +1102,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1116,7 +1116,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1130,7 +1130,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1144,7 +1144,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1474,7 +1474,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1529,7 +1529,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1545,7 +1545,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1567,7 +1567,7 @@ pub const qabstracttextdocumentlayout = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1587,7 +1587,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1609,7 +1609,7 @@ pub const qabstracttextdocumentlayout = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1706,7 +1706,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1754,7 +1754,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTextDocumentLayout_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1806,7 +1806,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTextDocumentLayout_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1854,7 +1854,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1902,7 +1902,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1950,7 +1950,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1998,7 +1998,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2046,7 +2046,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTextDocumentLayout_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2090,7 +2090,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QAbstractTextDocumentLayout_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2134,7 +2134,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractTextDocumentLayout_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2184,7 +2184,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractTextDocumentLayout_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2232,7 +2232,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTextDocumentLayout_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTextDocumentLayout_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2248,7 +2248,7 @@ pub const qabstracttextdocumentlayout = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTextDocumentLayout, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#dtor.QAbstractTextDocumentLayout)
@@ -2279,7 +2279,7 @@ pub const qtextobjectinterface = struct {
     /// ` format: QtC.QTextFormat `
     ///
     pub fn IntrinsicSize(self: ?*anyopaque, doc: ?*anyopaque, posInDocument: i32, format: ?*anyopaque) QtC.QSizeF {
-        return qtc.QTextObjectInterface_IntrinsicSize(@ptrCast(self), @ptrCast(doc), @intCast(posInDocument), @ptrCast(format));
+        return qtc.QTextObjectInterface_IntrinsicSize(@ptrCast(self), @ptrCast(doc), @bitCast(posInDocument), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html#drawObject)
@@ -2299,7 +2299,7 @@ pub const qtextobjectinterface = struct {
     /// ` format: QtC.QTextFormat `
     ///
     pub fn DrawObject(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, doc: ?*anyopaque, posInDocument: i32, format: ?*anyopaque) void {
-        qtc.QTextObjectInterface_DrawObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(doc), @intCast(posInDocument), @ptrCast(format));
+        qtc.QTextObjectInterface_DrawObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(doc), @bitCast(posInDocument), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html#operator-eq)
@@ -2449,7 +2449,7 @@ pub const qabstracttextdocumentlayout__paintcontext = struct {
     /// ` cursorPosition: i32 `
     ///
     pub fn SetCursorPosition(self: ?*anyopaque, cursorPosition: i32) void {
-        qtc.QAbstractTextDocumentLayout__PaintContext_SetCursorPosition(@ptrCast(self), @intCast(cursorPosition));
+        qtc.QAbstractTextDocumentLayout__PaintContext_SetCursorPosition(@ptrCast(self), @bitCast(cursorPosition));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#palette-var)

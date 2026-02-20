@@ -39,7 +39,7 @@ pub const qgraphicsanchor = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsAnchor_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsAnchor_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -68,7 +68,7 @@ pub const qgraphicsanchor = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QGraphicsAnchor_SetSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QGraphicsAnchor_SetSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchor.html#unsetSpacing)
@@ -100,7 +100,7 @@ pub const qgraphicsanchor = struct {
     /// ` policy: qsizepolicy_enums.Policy `
     ///
     pub fn SetSizePolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QGraphicsAnchor_SetSizePolicy(@ptrCast(self), @intCast(policy));
+        qtc.QGraphicsAnchor_SetSizePolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchor.html#sizePolicy)
@@ -152,7 +152,7 @@ pub const qgraphicsanchor = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsanchor.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -320,7 +320,7 @@ pub const qgraphicsanchor = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -334,7 +334,7 @@ pub const qgraphicsanchor = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -348,7 +348,7 @@ pub const qgraphicsanchor = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -362,7 +362,7 @@ pub const qgraphicsanchor = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -692,7 +692,7 @@ pub const qgraphicsanchor = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsAnchor) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -747,7 +747,7 @@ pub const qgraphicsanchor = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -763,7 +763,7 @@ pub const qgraphicsanchor = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -785,7 +785,7 @@ pub const qgraphicsanchor = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -805,7 +805,7 @@ pub const qgraphicsanchor = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -827,7 +827,7 @@ pub const qgraphicsanchor = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -924,7 +924,7 @@ pub const qgraphicsanchor = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsAnchor, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -940,7 +940,7 @@ pub const qgraphicsanchor = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsAnchor, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchor.html#dtor.QGraphicsAnchor)
@@ -989,7 +989,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` secondEdge: qnamespace_enums.AnchorPoint `
     ///
     pub fn AddAnchor(self: ?*anyopaque, firstItem: ?*anyopaque, firstEdge: i32, secondItem: ?*anyopaque, secondEdge: i32) QtC.QGraphicsAnchor {
-        return qtc.QGraphicsAnchorLayout_AddAnchor(@ptrCast(self), @ptrCast(firstItem), @intCast(firstEdge), @ptrCast(secondItem), @intCast(secondEdge));
+        return qtc.QGraphicsAnchorLayout_AddAnchor(@ptrCast(self), @ptrCast(firstItem), @bitCast(firstEdge), @ptrCast(secondItem), @bitCast(secondEdge));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#anchor)
@@ -1007,7 +1007,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` secondEdge: qnamespace_enums.AnchorPoint `
     ///
     pub fn Anchor(self: ?*anyopaque, firstItem: ?*anyopaque, firstEdge: i32, secondItem: ?*anyopaque, secondEdge: i32) QtC.QGraphicsAnchor {
-        return qtc.QGraphicsAnchorLayout_Anchor(@ptrCast(self), @ptrCast(firstItem), @intCast(firstEdge), @ptrCast(secondItem), @intCast(secondEdge));
+        return qtc.QGraphicsAnchorLayout_Anchor(@ptrCast(self), @ptrCast(firstItem), @bitCast(firstEdge), @ptrCast(secondItem), @bitCast(secondEdge));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#addCornerAnchors)
@@ -1025,7 +1025,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` secondCorner: qnamespace_enums.Corner `
     ///
     pub fn AddCornerAnchors(self: ?*anyopaque, firstItem: ?*anyopaque, firstCorner: i32, secondItem: ?*anyopaque, secondCorner: i32) void {
-        qtc.QGraphicsAnchorLayout_AddCornerAnchors(@ptrCast(self), @ptrCast(firstItem), @intCast(firstCorner), @ptrCast(secondItem), @intCast(secondCorner));
+        qtc.QGraphicsAnchorLayout_AddCornerAnchors(@ptrCast(self), @ptrCast(firstItem), @bitCast(firstCorner), @ptrCast(secondItem), @bitCast(secondCorner));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#addAnchors)
@@ -1051,7 +1051,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetHorizontalSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QGraphicsAnchorLayout_SetHorizontalSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QGraphicsAnchorLayout_SetHorizontalSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#setVerticalSpacing)
@@ -1063,7 +1063,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetVerticalSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QGraphicsAnchorLayout_SetVerticalSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QGraphicsAnchorLayout_SetVerticalSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#setSpacing)
@@ -1075,7 +1075,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QGraphicsAnchorLayout_SetSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QGraphicsAnchorLayout_SetSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#horizontalSpacing)
@@ -1107,7 +1107,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` index: i32 `
     ///
     pub fn RemoveAt(self: ?*anyopaque, index: i32) void {
-        qtc.QGraphicsAnchorLayout_RemoveAt(@ptrCast(self), @intCast(index));
+        qtc.QGraphicsAnchorLayout_RemoveAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#removeAt)
@@ -1121,7 +1121,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsAnchorLayout, index: i32) callconv(.c) void `
     ///
     pub fn OnRemoveAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnRemoveAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsAnchorLayout_OnRemoveAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#removeAt)
@@ -1135,7 +1135,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseRemoveAt(self: ?*anyopaque, index: i32) void {
-        qtc.QGraphicsAnchorLayout_QBaseRemoveAt(@ptrCast(self), @intCast(index));
+        qtc.QGraphicsAnchorLayout_QBaseRemoveAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#setGeometry)
@@ -1161,7 +1161,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsAnchorLayout, rect: QtC.QRectF) callconv(.c) void `
     ///
     pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsAnchorLayout_OnSetGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#setGeometry)
@@ -1199,7 +1199,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsAnchorLayout_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsAnchorLayout_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#count)
@@ -1223,7 +1223,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` index: i32 `
     ///
     pub fn ItemAt(self: ?*anyopaque, index: i32) QtC.QGraphicsLayoutItem {
-        return qtc.QGraphicsAnchorLayout_ItemAt(@ptrCast(self), @intCast(index));
+        return qtc.QGraphicsAnchorLayout_ItemAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#itemAt)
@@ -1237,7 +1237,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsAnchorLayout, index: i32) callconv(.c) QtC.QGraphicsLayoutItem `
     ///
     pub fn OnItemAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QGraphicsLayoutItem) void {
-        qtc.QGraphicsAnchorLayout_OnItemAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsAnchorLayout_OnItemAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#itemAt)
@@ -1251,7 +1251,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseItemAt(self: ?*anyopaque, index: i32) QtC.QGraphicsLayoutItem {
-        return qtc.QGraphicsAnchorLayout_QBaseItemAt(@ptrCast(self), @intCast(index));
+        return qtc.QGraphicsAnchorLayout_QBaseItemAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#invalidate)
@@ -1275,7 +1275,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsAnchorLayout_OnInvalidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#invalidate)
@@ -1301,7 +1301,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` constraint: QtC.QSizeF `
     ///
     pub fn SizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsAnchorLayout_SizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
+        return qtc.QGraphicsAnchorLayout_SizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#sizeHint)
@@ -1315,7 +1315,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsAnchorLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF) callconv(.c) QtC.QSizeF `
     ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
-        qtc.QGraphicsAnchorLayout_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsAnchorLayout_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#sizeHint)
@@ -1331,7 +1331,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` constraint: QtC.QSizeF `
     ///
     pub fn QBaseSizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsAnchorLayout_QBaseSizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
+        return qtc.QGraphicsAnchorLayout_QBaseSizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#addAnchors)
@@ -1347,7 +1347,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` orientations: flag of qnamespace_enums.Orientation `
     ///
     pub fn AddAnchors3(self: ?*anyopaque, firstItem: ?*anyopaque, secondItem: ?*anyopaque, orientations: i32) void {
-        qtc.QGraphicsAnchorLayout_AddAnchors3(@ptrCast(self), @ptrCast(firstItem), @ptrCast(secondItem), @intCast(orientations));
+        qtc.QGraphicsAnchorLayout_AddAnchors3(@ptrCast(self), @ptrCast(firstItem), @ptrCast(secondItem), @bitCast(orientations));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1367,7 +1367,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` bottom: f64 `
     ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: f64, top: f64, right: f64, bottom: f64) void {
-        qtc.QGraphicsLayout_SetContentsMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+        qtc.QGraphicsLayout_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1441,7 +1441,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` vPolicy: qsizepolicy_enums.Policy `
     ///
     pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i32, vPolicy: i32) void {
-        qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy));
+        qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self), @bitCast(hPolicy), @bitCast(vPolicy));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1483,7 +1483,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` h: f64 `
     ///
     pub fn SetMinimumSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumSize2(@ptrCast(self), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsLayoutItem_SetMinimumSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1509,7 +1509,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` width: f64 `
     ///
     pub fn SetMinimumWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumWidth(@ptrCast(self), @floatCast(width));
+        qtc.QGraphicsLayoutItem_SetMinimumWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1535,7 +1535,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` height: f64 `
     ///
     pub fn SetMinimumHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumHeight(@ptrCast(self), @floatCast(height));
+        qtc.QGraphicsLayoutItem_SetMinimumHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1577,7 +1577,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` h: f64 `
     ///
     pub fn SetPreferredSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredSize2(@ptrCast(self), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsLayoutItem_SetPreferredSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1603,7 +1603,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` width: f64 `
     ///
     pub fn SetPreferredWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredWidth(@ptrCast(self), @floatCast(width));
+        qtc.QGraphicsLayoutItem_SetPreferredWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1629,7 +1629,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` height: f64 `
     ///
     pub fn SetPreferredHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredHeight(@ptrCast(self), @floatCast(height));
+        qtc.QGraphicsLayoutItem_SetPreferredHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1671,7 +1671,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` h: f64 `
     ///
     pub fn SetMaximumSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumSize2(@ptrCast(self), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsLayoutItem_SetMaximumSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1697,7 +1697,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` width: f64 `
     ///
     pub fn SetMaximumWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumWidth(@ptrCast(self), @floatCast(width));
+        qtc.QGraphicsLayoutItem_SetMaximumWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1723,7 +1723,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` height: f64 `
     ///
     pub fn SetMaximumHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumHeight(@ptrCast(self), @floatCast(height));
+        qtc.QGraphicsLayoutItem_SetMaximumHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1773,7 +1773,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` which: qnamespace_enums.SizeHint `
     ///
     pub fn EffectiveSizeHint(self: ?*anyopaque, which: i32) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self), @intCast(which));
+        return qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self), @bitCast(which));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1853,7 +1853,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` controlType: qsizepolicy_enums.ControlType `
     ///
     pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i32, vPolicy: i32, controlType: i32) void {
-        qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy), @intCast(controlType));
+        qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self), @bitCast(hPolicy), @bitCast(vPolicy), @bitCast(controlType));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1869,7 +1869,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` constraint: QtC.QSizeF `
     ///
     pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self), @intCast(which), @ptrCast(constraint));
+        return qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1929,7 +1929,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsAnchorLayout, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void `
     ///
     pub fn OnGetContentsMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, *f64, *f64, *f64, *f64) callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnGetContentsMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsAnchorLayout_OnGetContentsMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1973,7 +1973,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnUpdateGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsAnchorLayout_OnUpdateGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayout
@@ -2021,7 +2021,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsAnchorLayout, e: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnWidgetEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnWidgetEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsAnchorLayout_OnWidgetEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -2065,7 +2065,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGraphicsAnchorLayout_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsAnchorLayout_OnIsEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayout
@@ -2113,7 +2113,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsAnchorLayout, layoutItem: QtC.QGraphicsLayoutItem) callconv(.c) void `
     ///
     pub fn OnAddChildLayoutItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnAddChildLayoutItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsAnchorLayout_OnAddChildLayoutItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -2161,7 +2161,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsAnchorLayout, item: QtC.QGraphicsItem) callconv(.c) void `
     ///
     pub fn OnSetGraphicsItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnSetGraphicsItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsAnchorLayout_OnSetGraphicsItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -2209,7 +2209,7 @@ pub const qgraphicsanchorlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsAnchorLayout, ownedByLayout: bool) callconv(.c) void `
     ///
     pub fn OnSetOwnedByLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnSetOwnedByLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsAnchorLayout_OnSetOwnedByLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#dtor.QGraphicsAnchorLayout)

@@ -32,7 +32,7 @@ pub const qmetatype = struct {
     /// ` typeVal: i32 `
     ///
     pub fn New3(typeVal: i32) QtC.QMetaType {
-        return qtc.QMetaType_new3(@intCast(typeVal));
+        return qtc.QMetaType_new3(@bitCast(typeVal));
     }
 
     /// New4 constructs a new QMetaType object.
@@ -123,7 +123,7 @@ pub const qmetatype = struct {
     /// ` typeVal: i32 `
     ///
     pub fn TypeName(typeVal: i32) [:0]const u8 {
-        const _ret = qtc.QMetaType_TypeName(@intCast(typeVal));
+        const _ret = qtc.QMetaType_TypeName(@bitCast(typeVal));
         return std.mem.span(_ret);
     }
 
@@ -134,7 +134,7 @@ pub const qmetatype = struct {
     /// ` typeVal: i32 `
     ///
     pub fn SizeOf(typeVal: i32) i32 {
-        return qtc.QMetaType_SizeOf(@intCast(typeVal));
+        return qtc.QMetaType_SizeOf(@bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#typeFlags)
@@ -148,7 +148,7 @@ pub const qmetatype = struct {
     /// ` flag of qmetatype_enums.TypeFlag `
     ///
     pub fn TypeFlags(typeVal: i32) i32 {
-        return qtc.QMetaType_TypeFlags(@intCast(typeVal));
+        return qtc.QMetaType_TypeFlags(@bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#metaObjectForType)
@@ -158,7 +158,7 @@ pub const qmetatype = struct {
     /// ` typeVal: i32 `
     ///
     pub fn MetaObjectForType(typeVal: i32) QtC.QMetaObject {
-        return qtc.QMetaType_MetaObjectForType(@intCast(typeVal));
+        return qtc.QMetaType_MetaObjectForType(@bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#create)
@@ -168,7 +168,7 @@ pub const qmetatype = struct {
     /// ` typeVal: i32 `
     ///
     pub fn Create(typeVal: i32) ?*anyopaque {
-        return qtc.QMetaType_Create(@intCast(typeVal));
+        return qtc.QMetaType_Create(@bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#destroy)
@@ -180,7 +180,7 @@ pub const qmetatype = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn Destroy(typeVal: i32, data: ?*anyopaque) void {
-        qtc.QMetaType_Destroy(@intCast(typeVal), @ptrCast(data));
+        qtc.QMetaType_Destroy(@bitCast(typeVal), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#construct)
@@ -194,7 +194,7 @@ pub const qmetatype = struct {
     /// ` copyVal: ?*const anyopaque `
     ///
     pub fn Construct(typeVal: i32, where: ?*anyopaque, copyVal: ?*const anyopaque) ?*anyopaque {
-        return qtc.QMetaType_Construct(@intCast(typeVal), @ptrCast(where), @ptrCast(copyVal));
+        return qtc.QMetaType_Construct(@bitCast(typeVal), @ptrCast(where), @ptrCast(copyVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#destruct)
@@ -206,7 +206,7 @@ pub const qmetatype = struct {
     /// ` where: ?*anyopaque `
     ///
     pub fn Destruct(typeVal: i32, where: ?*anyopaque) void {
-        qtc.QMetaType_Destruct(@intCast(typeVal), @ptrCast(where));
+        qtc.QMetaType_Destruct(@bitCast(typeVal), @ptrCast(where));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isRegistered)
@@ -216,7 +216,7 @@ pub const qmetatype = struct {
     /// ` typeVal: i32 `
     ///
     pub fn IsRegistered(typeVal: i32) bool {
-        return qtc.QMetaType_IsRegistered(@intCast(typeVal));
+        return qtc.QMetaType_IsRegistered(@bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isValid)
@@ -497,7 +497,7 @@ pub const qmetatype = struct {
     /// ` data: ?*const anyopaque `
     ///
     pub fn Save2(stream: ?*anyopaque, typeVal: i32, data: ?*const anyopaque) bool {
-        return qtc.QMetaType_Save2(@ptrCast(stream), @intCast(typeVal), @ptrCast(data));
+        return qtc.QMetaType_Save2(@ptrCast(stream), @bitCast(typeVal), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#load)
@@ -511,7 +511,7 @@ pub const qmetatype = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn Load2(stream: ?*anyopaque, typeVal: i32, data: ?*anyopaque) bool {
-        return qtc.QMetaType_Load2(@ptrCast(stream), @intCast(typeVal), @ptrCast(data));
+        return qtc.QMetaType_Load2(@ptrCast(stream), @bitCast(typeVal), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#underlyingType)
@@ -573,7 +573,7 @@ pub const qmetatype = struct {
     /// ` typeId: i32 `
     ///
     pub fn DebugStream2(dbg: ?*anyopaque, rhs: ?*const anyopaque, typeId: i32) bool {
-        return qtc.QMetaType_DebugStream2(@ptrCast(dbg), @ptrCast(rhs), @intCast(typeId));
+        return qtc.QMetaType_DebugStream2(@ptrCast(dbg), @ptrCast(rhs), @bitCast(typeId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredDebugStreamOperator)
@@ -583,7 +583,7 @@ pub const qmetatype = struct {
     /// ` typeId: i32 `
     ///
     pub fn HasRegisteredDebugStreamOperator2(typeId: i32) bool {
-        return qtc.QMetaType_HasRegisteredDebugStreamOperator2(@intCast(typeId));
+        return qtc.QMetaType_HasRegisteredDebugStreamOperator2(@bitCast(typeId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#convert)
@@ -655,7 +655,7 @@ pub const qmetatype = struct {
     /// ` toTypeId: i32 `
     ///
     pub fn Convert2(from: ?*const anyopaque, fromTypeId: i32, to: ?*anyopaque, toTypeId: i32) bool {
-        return qtc.QMetaType_Convert2(@ptrCast(from), @intCast(fromTypeId), @ptrCast(to), @intCast(toTypeId));
+        return qtc.QMetaType_Convert2(@ptrCast(from), @bitCast(fromTypeId), @ptrCast(to), @bitCast(toTypeId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#compare)
@@ -671,7 +671,7 @@ pub const qmetatype = struct {
     /// ` result: *i32 `
     ///
     pub fn Compare2(lhs: ?*const anyopaque, rhs: ?*const anyopaque, typeId: i32, result: *i32) bool {
-        return qtc.QMetaType_Compare2(@ptrCast(lhs), @ptrCast(rhs), @intCast(typeId), @ptrCast(result));
+        return qtc.QMetaType_Compare2(@ptrCast(lhs), @ptrCast(rhs), @bitCast(typeId), @ptrCast(result));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#equals)
@@ -687,7 +687,7 @@ pub const qmetatype = struct {
     /// ` result: *i32 `
     ///
     pub fn Equals2(lhs: ?*const anyopaque, rhs: ?*const anyopaque, typeId: i32, result: *i32) bool {
-        return qtc.QMetaType_Equals2(@ptrCast(lhs), @ptrCast(rhs), @intCast(typeId), @ptrCast(result));
+        return qtc.QMetaType_Equals2(@ptrCast(lhs), @ptrCast(rhs), @bitCast(typeId), @ptrCast(result));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredConverterFunction)
@@ -757,7 +757,7 @@ pub const qmetatype = struct {
     /// ` copyVal: ?*const anyopaque `
     ///
     pub fn Create22(typeVal: i32, copyVal: ?*const anyopaque) ?*anyopaque {
-        return qtc.QMetaType_Create22(@intCast(typeVal), @ptrCast(copyVal));
+        return qtc.QMetaType_Create22(@bitCast(typeVal), @ptrCast(copyVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#id)
@@ -769,7 +769,7 @@ pub const qmetatype = struct {
     /// ` param1: i32 `
     ///
     pub fn Id1(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QMetaType_Id1(@ptrCast(self), @intCast(param1));
+        return qtc.QMetaType_Id1(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#create)

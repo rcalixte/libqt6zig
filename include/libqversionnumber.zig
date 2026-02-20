@@ -33,7 +33,7 @@ pub const qversionnumber = struct {
     /// ` maj: i32 `
     ///
     pub fn New3(maj: i32) QtC.QVersionNumber {
-        return qtc.QVersionNumber_new3(@intCast(maj));
+        return qtc.QVersionNumber_new3(@bitCast(maj));
     }
 
     /// New4 constructs a new QVersionNumber object.
@@ -45,7 +45,7 @@ pub const qversionnumber = struct {
     /// ` min: i32 `
     ///
     pub fn New4(maj: i32, min: i32) QtC.QVersionNumber {
-        return qtc.QVersionNumber_new4(@intCast(maj), @intCast(min));
+        return qtc.QVersionNumber_new4(@bitCast(maj), @bitCast(min));
     }
 
     /// New5 constructs a new QVersionNumber object.
@@ -59,7 +59,7 @@ pub const qversionnumber = struct {
     /// ` mic: i32 `
     ///
     pub fn New5(maj: i32, min: i32, mic: i32) QtC.QVersionNumber {
-        return qtc.QVersionNumber_new5(@intCast(maj), @intCast(min), @intCast(mic));
+        return qtc.QVersionNumber_new5(@bitCast(maj), @bitCast(min), @bitCast(mic));
     }
 
     /// New6 constructs a new QVersionNumber object.
@@ -158,7 +158,7 @@ pub const qversionnumber = struct {
     /// ` index: i64 `
     ///
     pub fn SegmentAt(self: ?*anyopaque, index: i64) i32 {
-        return qtc.QVersionNumber_SegmentAt(@ptrCast(self), @intCast(index));
+        return qtc.QVersionNumber_SegmentAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#segmentCount)

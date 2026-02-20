@@ -67,7 +67,7 @@ pub const kzip = struct {
     /// ` ef: kzip_enums.ExtraField `
     ///
     pub fn SetExtraField(self: ?*anyopaque, ef: i32) void {
-        qtc.KZip_SetExtraField(@ptrCast(self), @intCast(ef));
+        qtc.KZip_SetExtraField(@ptrCast(self), @bitCast(ef));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#extraField)
@@ -93,7 +93,7 @@ pub const kzip = struct {
     /// ` c: kzip_enums.Compression `
     ///
     pub fn SetCompression(self: ?*anyopaque, c: i32) void {
-        qtc.KZip_SetCompression(@ptrCast(self), @intCast(c));
+        qtc.KZip_SetCompression(@ptrCast(self), @bitCast(c));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#compression)
@@ -163,7 +163,7 @@ pub const kzip = struct {
     /// ` callback: *const fn (self: QtC.KZip, name: [*:0]const u8, target: [*:0]const u8, user: [*:0]const u8, group: [*:0]const u8, perm: u32, atime: QtC.QDateTime, mtime: QtC.QDateTime, ctime: QtC.QDateTime) callconv(.c) bool `
     ///
     pub fn OnDoWriteSymLink(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, u32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KZip_OnDoWriteSymLink(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnDoWriteSymLink(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#doWriteSymLink)
@@ -245,7 +245,7 @@ pub const kzip = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KZip_DoPrepareWriting(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(creationTime));
+        return qtc.KZip_DoPrepareWriting(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(creationTime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#doPrepareWriting)
@@ -259,7 +259,7 @@ pub const kzip = struct {
     /// ` callback: *const fn (self: QtC.KZip, name: [*:0]const u8, user: [*:0]const u8, group: [*:0]const u8, size: i64, perm: u32, atime: QtC.QDateTime, mtime: QtC.QDateTime, creationTime: QtC.QDateTime) callconv(.c) bool `
     ///
     pub fn OnDoPrepareWriting(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, i64, u32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KZip_OnDoPrepareWriting(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnDoPrepareWriting(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#doPrepareWriting)
@@ -299,7 +299,7 @@ pub const kzip = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KZip_QBaseDoPrepareWriting(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(creationTime));
+        return qtc.KZip_QBaseDoPrepareWriting(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(creationTime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#doFinishWriting)
@@ -311,7 +311,7 @@ pub const kzip = struct {
     /// ` size: i64 `
     ///
     pub fn DoFinishWriting(self: ?*anyopaque, size: i64) bool {
-        return qtc.KZip_DoFinishWriting(@ptrCast(self), @intCast(size));
+        return qtc.KZip_DoFinishWriting(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#doFinishWriting)
@@ -325,7 +325,7 @@ pub const kzip = struct {
     /// ` callback: *const fn (self: QtC.KZip, size: i64) callconv(.c) bool `
     ///
     pub fn OnDoFinishWriting(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.KZip_OnDoFinishWriting(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnDoFinishWriting(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#doFinishWriting)
@@ -339,7 +339,7 @@ pub const kzip = struct {
     /// ` size: i64 `
     ///
     pub fn QBaseDoFinishWriting(self: ?*anyopaque, size: i64) bool {
-        return qtc.KZip_QBaseDoFinishWriting(@ptrCast(self), @intCast(size));
+        return qtc.KZip_QBaseDoFinishWriting(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#doWriteData)
@@ -354,7 +354,7 @@ pub const kzip = struct {
     ///
     pub fn DoWriteData(self: ?*anyopaque, data: [:0]const u8, size: i64) bool {
         const data_Cstring = data.ptr;
-        return qtc.KZip_DoWriteData(@ptrCast(self), data_Cstring, @intCast(size));
+        return qtc.KZip_DoWriteData(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#doWriteData)
@@ -368,7 +368,7 @@ pub const kzip = struct {
     /// ` callback: *const fn (self: QtC.KZip, data: [*:0]const u8, size: i64) callconv(.c) bool `
     ///
     pub fn OnDoWriteData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) bool) void {
-        qtc.KZip_OnDoWriteData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnDoWriteData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#doWriteData)
@@ -385,7 +385,7 @@ pub const kzip = struct {
     ///
     pub fn QBaseDoWriteData(self: ?*anyopaque, data: [:0]const u8, size: i64) bool {
         const data_Cstring = data.ptr;
-        return qtc.KZip_QBaseDoWriteData(@ptrCast(self), data_Cstring, @intCast(size));
+        return qtc.KZip_QBaseDoWriteData(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#openArchive)
@@ -397,7 +397,7 @@ pub const kzip = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn OpenArchive(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KZip_OpenArchive(@ptrCast(self), @intCast(mode));
+        return qtc.KZip_OpenArchive(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#openArchive)
@@ -411,7 +411,7 @@ pub const kzip = struct {
     /// ` callback: *const fn (self: QtC.KZip, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
     pub fn OnOpenArchive(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KZip_OnOpenArchive(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnOpenArchive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#openArchive)
@@ -425,7 +425,7 @@ pub const kzip = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn QBaseOpenArchive(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KZip_QBaseOpenArchive(@ptrCast(self), @intCast(mode));
+        return qtc.KZip_QBaseOpenArchive(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#closeArchive)
@@ -449,7 +449,7 @@ pub const kzip = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnCloseArchive(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KZip_OnCloseArchive(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnCloseArchive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#closeArchive)
@@ -511,7 +511,7 @@ pub const kzip = struct {
     /// ` callback: *const fn (self: QtC.KZip, name: [*:0]const u8, user: [*:0]const u8, group: [*:0]const u8, perm: u32, atime: QtC.QDateTime, mtime: QtC.QDateTime, ctime: QtC.QDateTime) callconv(.c) bool `
     ///
     pub fn OnDoWriteDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, u32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KZip_OnDoWriteDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnDoWriteDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#doWriteDir)
@@ -563,7 +563,7 @@ pub const kzip = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KZip_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KZip_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#virtual_hook)
@@ -577,7 +577,7 @@ pub const kzip = struct {
     /// ` callback: *const fn (self: QtC.KZip, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KZip_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#virtual_hook)
@@ -593,7 +593,7 @@ pub const kzip = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KZip_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KZip_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -631,7 +631,7 @@ pub const kzip = struct {
     pub fn Tr3(sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
-        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kzip.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -869,7 +869,7 @@ pub const kzip = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting(@ptrCast(self), name_str, user_str, group_str, @intCast(size));
+        return qtc.KArchive_PrepareWriting(@ptrCast(self), name_str, user_str, group_str, @bitCast(size));
     }
 
     /// Inherited from KArchive
@@ -886,7 +886,7 @@ pub const kzip = struct {
     ///
     pub fn WriteData(self: ?*anyopaque, data: [:0]const u8, size: i64) bool {
         const data_Cstring = data.ptr;
-        return qtc.KArchive_WriteData(@ptrCast(self), data_Cstring, @intCast(size));
+        return qtc.KArchive_WriteData(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
     /// Inherited from KArchive
@@ -918,7 +918,7 @@ pub const kzip = struct {
     /// ` size: i64 `
     ///
     pub fn FinishWriting(self: ?*anyopaque, size: i64) bool {
-        return qtc.KArchive_FinishWriting(@ptrCast(self), @intCast(size));
+        return qtc.KArchive_FinishWriting(@ptrCast(self), @bitCast(size));
     }
 
     /// Inherited from KArchive
@@ -1598,7 +1598,7 @@ pub const kzip = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting5(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm);
+        return qtc.KArchive_PrepareWriting5(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm);
     }
 
     /// Inherited from KArchive
@@ -1634,7 +1634,7 @@ pub const kzip = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting6(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm, @ptrCast(atime));
+        return qtc.KArchive_PrepareWriting6(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime));
     }
 
     /// Inherited from KArchive
@@ -1672,7 +1672,7 @@ pub const kzip = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting7(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm, @ptrCast(atime), @ptrCast(mtime));
+        return qtc.KArchive_PrepareWriting7(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime));
     }
 
     /// Inherited from KArchive
@@ -1712,7 +1712,7 @@ pub const kzip = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting8(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
+        return qtc.KArchive_PrepareWriting8(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
     }
 
     /// Inherited from KArchive
@@ -1728,7 +1728,7 @@ pub const kzip = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn Open(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KZip_Open(@ptrCast(self), @intCast(mode));
+        return qtc.KZip_Open(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KArchive
@@ -1744,7 +1744,7 @@ pub const kzip = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn QBaseOpen(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KZip_QBaseOpen(@ptrCast(self), @intCast(mode));
+        return qtc.KZip_QBaseOpen(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KArchive
@@ -1760,7 +1760,7 @@ pub const kzip = struct {
     /// ` callback: *const fn (self: QtC.KZip, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
     pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KZip_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchive
@@ -1804,7 +1804,7 @@ pub const kzip = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KZip_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchive
@@ -1848,7 +1848,7 @@ pub const kzip = struct {
     /// ` callback: *const fn () callconv(.c) QtC.KArchiveDirectory `
     ///
     pub fn OnRootDir(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KArchiveDirectory) void {
-        qtc.KZip_OnRootDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnRootDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchive
@@ -1864,7 +1864,7 @@ pub const kzip = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn CreateDevice(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KZip_CreateDevice(@ptrCast(self), @intCast(mode));
+        return qtc.KZip_CreateDevice(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KArchive
@@ -1880,7 +1880,7 @@ pub const kzip = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn QBaseCreateDevice(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KZip_QBaseCreateDevice(@ptrCast(self), @intCast(mode));
+        return qtc.KZip_QBaseCreateDevice(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KArchive
@@ -1896,7 +1896,7 @@ pub const kzip = struct {
     /// ` callback: *const fn (self: QtC.KZip, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
     pub fn OnCreateDevice(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KZip_OnCreateDevice(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnCreateDevice(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchive
@@ -1952,7 +1952,7 @@ pub const kzip = struct {
     /// ` callback: *const fn (self: QtC.KZip, errorStr: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KZip_OnSetErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnSetErrorString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchive
@@ -2008,7 +2008,7 @@ pub const kzip = struct {
     /// ` callback: *const fn (self: QtC.KZip, path: [*:0]const u8) callconv(.c) QtC.KArchiveDirectory `
     ///
     pub fn OnFindOrCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.KArchiveDirectory) void {
-        qtc.KZip_OnFindOrCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnFindOrCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchive
@@ -2056,7 +2056,7 @@ pub const kzip = struct {
     /// ` callback: *const fn (self: QtC.KZip, dev: QtC.QIODevice) callconv(.c) void `
     ///
     pub fn OnSetDevice(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KZip_OnSetDevice(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnSetDevice(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchive
@@ -2104,7 +2104,7 @@ pub const kzip = struct {
     /// ` callback: *const fn (self: QtC.KZip, rootDir: QtC.KArchiveDirectory) callconv(.c) void `
     ///
     pub fn OnSetRootDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KZip_OnSetRootDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZip_OnSetRootDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzip.html#dtor.KZip)

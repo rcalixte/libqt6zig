@@ -33,7 +33,7 @@ pub const qkeysequence = struct {
     /// ` k1: i32 `
     ///
     pub fn New3(k1: i32) QtC.QKeySequence {
-        return qtc.QKeySequence_new3(@intCast(k1));
+        return qtc.QKeySequence_new3(@bitCast(k1));
     }
 
     /// New4 constructs a new QKeySequence object.
@@ -63,7 +63,7 @@ pub const qkeysequence = struct {
     /// ` key: qkeysequence_enums.StandardKey `
     ///
     pub fn New6(key: i32) QtC.QKeySequence {
-        return qtc.QKeySequence_new6(@intCast(key));
+        return qtc.QKeySequence_new6(@bitCast(key));
     }
 
     /// New7 constructs a new QKeySequence object.
@@ -80,7 +80,7 @@ pub const qkeysequence = struct {
             .data = key.ptr,
         };
 
-        return qtc.QKeySequence_new7(key_str, @intCast(format));
+        return qtc.QKeySequence_new7(key_str, @bitCast(format));
     }
 
     /// New8 constructs a new QKeySequence object.
@@ -92,7 +92,7 @@ pub const qkeysequence = struct {
     /// ` k2: i32 `
     ///
     pub fn New8(k1: i32, k2: i32) QtC.QKeySequence {
-        return qtc.QKeySequence_new8(@intCast(k1), @intCast(k2));
+        return qtc.QKeySequence_new8(@bitCast(k1), @bitCast(k2));
     }
 
     /// New9 constructs a new QKeySequence object.
@@ -106,7 +106,7 @@ pub const qkeysequence = struct {
     /// ` k3: i32 `
     ///
     pub fn New9(k1: i32, k2: i32, k3: i32) QtC.QKeySequence {
-        return qtc.QKeySequence_new9(@intCast(k1), @intCast(k2), @intCast(k3));
+        return qtc.QKeySequence_new9(@bitCast(k1), @bitCast(k2), @bitCast(k3));
     }
 
     /// New10 constructs a new QKeySequence object.
@@ -122,7 +122,7 @@ pub const qkeysequence = struct {
     /// ` k4: i32 `
     ///
     pub fn New10(k1: i32, k2: i32, k3: i32, k4: i32) QtC.QKeySequence {
-        return qtc.QKeySequence_new10(@intCast(k1), @intCast(k2), @intCast(k3), @intCast(k4));
+        return qtc.QKeySequence_new10(@bitCast(k1), @bitCast(k2), @bitCast(k3), @bitCast(k4));
     }
 
     /// New11 constructs a new QKeySequence object.
@@ -297,7 +297,7 @@ pub const qkeysequence = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn KeyBindings(key: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
-        const _arr: qtc.libqt_list = qtc.QKeySequence_KeyBindings(@intCast(key));
+        const _arr: qtc.libqt_list = qtc.QKeySequence_KeyBindings(@bitCast(key));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("qkeysequence.KeyBindings: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -324,7 +324,7 @@ pub const qkeysequence = struct {
     /// ` i: u32 `
     ///
     pub fn OperatorSubscript(self: ?*anyopaque, i: u32) QtC.QKeyCombination {
-        return qtc.QKeySequence_OperatorSubscript(@ptrCast(self), @intCast(i));
+        return qtc.QKeySequence_OperatorSubscript(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#operator-eq)
@@ -444,7 +444,7 @@ pub const qkeysequence = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString1(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QKeySequence_ToString1(@ptrCast(self), @intCast(format));
+        var _str = qtc.QKeySequence_ToString1(@ptrCast(self), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeysequence.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -464,7 +464,7 @@ pub const qkeysequence = struct {
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.QKeySequence_FromString2(str_str, @intCast(format));
+        return qtc.QKeySequence_FromString2(str_str, @bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#listFromString)
@@ -482,7 +482,7 @@ pub const qkeysequence = struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QKeySequence_ListFromString2(str_str, @intCast(format));
+        const _arr: qtc.libqt_list = qtc.QKeySequence_ListFromString2(str_str, @bitCast(format));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("qkeysequence.ListFromString2: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -505,7 +505,7 @@ pub const qkeysequence = struct {
             .len = list.len,
             .data = @ptrCast(list.ptr),
         };
-        var _str = qtc.QKeySequence_ListToString2(list_list, @intCast(format));
+        var _str = qtc.QKeySequence_ListToString2(list_list, @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeysequence.ListToString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

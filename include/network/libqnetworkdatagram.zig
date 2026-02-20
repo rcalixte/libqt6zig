@@ -68,7 +68,7 @@ pub const qnetworkdatagram = struct {
             .data = data.ptr,
         };
 
-        return qtc.QNetworkDatagram_new5(data_str, @ptrCast(destinationAddress), @intCast(port));
+        return qtc.QNetworkDatagram_new5(data_str, @ptrCast(destinationAddress), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#operator-eq)
@@ -144,7 +144,7 @@ pub const qnetworkdatagram = struct {
     /// ` index: u32 `
     ///
     pub fn SetInterfaceIndex(self: ?*anyopaque, index: u32) void {
-        qtc.QNetworkDatagram_SetInterfaceIndex(@ptrCast(self), @intCast(index));
+        qtc.QNetworkDatagram_SetInterfaceIndex(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#senderAddress)
@@ -210,7 +210,7 @@ pub const qnetworkdatagram = struct {
     /// ` port: u16 `
     ///
     pub fn SetDestination(self: ?*anyopaque, address: ?*anyopaque, port: u16) void {
-        qtc.QNetworkDatagram_SetDestination(@ptrCast(self), @ptrCast(address), @intCast(port));
+        qtc.QNetworkDatagram_SetDestination(@ptrCast(self), @ptrCast(address), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#hopLimit)
@@ -232,7 +232,7 @@ pub const qnetworkdatagram = struct {
     /// ` count: i32 `
     ///
     pub fn SetHopLimit(self: ?*anyopaque, count: i32) void {
-        qtc.QNetworkDatagram_SetHopLimit(@ptrCast(self), @intCast(count));
+        qtc.QNetworkDatagram_SetHopLimit(@ptrCast(self), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#data)
@@ -294,7 +294,7 @@ pub const qnetworkdatagram = struct {
     /// ` port: u16 `
     ///
     pub fn SetSender2(self: ?*anyopaque, address: ?*anyopaque, port: u16) void {
-        qtc.QNetworkDatagram_SetSender2(@ptrCast(self), @ptrCast(address), @intCast(port));
+        qtc.QNetworkDatagram_SetSender2(@ptrCast(self), @ptrCast(address), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#dtor.QNetworkDatagram)

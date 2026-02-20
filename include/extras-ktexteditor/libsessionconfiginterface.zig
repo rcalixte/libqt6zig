@@ -32,7 +32,7 @@ pub const ktexteditor__sessionconfiginterface = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__SessionConfigInterface, config: QtC.KConfigGroup) callconv(.c) void `
     ///
     pub fn OnReadSessionConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__SessionConfigInterface_OnReadSessionConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__SessionConfigInterface_OnReadSessionConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html#readSessionConfig)
@@ -72,7 +72,7 @@ pub const ktexteditor__sessionconfiginterface = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__SessionConfigInterface, config: QtC.KConfigGroup) callconv(.c) void `
     ///
     pub fn OnWriteSessionConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__SessionConfigInterface_OnWriteSessionConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__SessionConfigInterface_OnWriteSessionConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html#writeSessionConfig)

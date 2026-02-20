@@ -45,7 +45,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QSqlDriver_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -80,7 +80,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QSqlDriver_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -107,7 +107,7 @@ pub const qsqldriver = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSqlDriver_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QSqlDriver_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -119,7 +119,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QSqlDriver_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -135,7 +135,7 @@ pub const qsqldriver = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSqlDriver_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QSqlDriver_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -176,7 +176,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsOpen(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSqlDriver_OnIsOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnIsOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#isOpen)
@@ -222,7 +222,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnBeginTransaction(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSqlDriver_OnBeginTransaction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnBeginTransaction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#beginTransaction)
@@ -258,7 +258,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnCommitTransaction(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSqlDriver_OnCommitTransaction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnCommitTransaction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#commitTransaction)
@@ -294,7 +294,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnRollbackTransaction(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSqlDriver_OnRollbackTransaction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnRollbackTransaction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#rollbackTransaction)
@@ -320,7 +320,7 @@ pub const qsqldriver = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Tables(self: ?*anyopaque, tableType: i32, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QSqlDriver_Tables(@ptrCast(self), @intCast(tableType));
+        const _arr: qtc.libqt_list = qtc.QSqlDriver_Tables(@ptrCast(self), @bitCast(tableType));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -351,7 +351,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, tableType: qtsqlglobal_enums.TableType) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
     pub fn OnTables(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QSqlDriver_OnTables(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnTables(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#tables)
@@ -367,7 +367,7 @@ pub const qsqldriver = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseTables(self: ?*anyopaque, tableType: i32, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QSqlDriver_QBaseTables(@ptrCast(self), @intCast(tableType));
+        const _arr: qtc.libqt_list = qtc.QSqlDriver_QBaseTables(@ptrCast(self), @bitCast(tableType));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -412,7 +412,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, tableName: [*:0]const u8) callconv(.c) QtC.QSqlIndex `
     ///
     pub fn OnPrimaryIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QSqlIndex) void {
-        qtc.QSqlDriver_OnPrimaryIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnPrimaryIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#primaryIndex)
@@ -460,7 +460,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, tableName: [*:0]const u8) callconv(.c) QtC.QSqlRecord `
     ///
     pub fn OnRecord(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QSqlRecord) void {
-        qtc.QSqlDriver_OnRecord(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnRecord(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#record)
@@ -514,7 +514,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, field: QtC.QSqlField, trimStrings: bool) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnFormatValue(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) [*:0]const u8) void {
-        qtc.QSqlDriver_OnFormatValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnFormatValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#formatValue)
@@ -556,7 +556,7 @@ pub const qsqldriver = struct {
             .len = identifier.len,
             .data = identifier.ptr,
         };
-        var _str = qtc.QSqlDriver_EscapeIdentifier(@ptrCast(self), identifier_str, @intCast(typeVal));
+        var _str = qtc.QSqlDriver_EscapeIdentifier(@ptrCast(self), identifier_str, @bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldriver.EscapeIdentifier: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -576,7 +576,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, identifier: [*:0]const u8, typeVal: qsqldriver_enums.IdentifierType) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnEscapeIdentifier(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QSqlDriver_OnEscapeIdentifier(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnEscapeIdentifier(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#escapeIdentifier)
@@ -598,7 +598,7 @@ pub const qsqldriver = struct {
             .len = identifier.len,
             .data = identifier.ptr,
         };
-        var _str = qtc.QSqlDriver_QBaseEscapeIdentifier(@ptrCast(self), identifier_str, @intCast(typeVal));
+        var _str = qtc.QSqlDriver_QBaseEscapeIdentifier(@ptrCast(self), identifier_str, @bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldriver.EscapeIdentifier: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -626,7 +626,7 @@ pub const qsqldriver = struct {
             .len = tableName.len,
             .data = tableName.ptr,
         };
-        var _str = qtc.QSqlDriver_SqlStatement(@ptrCast(self), @intCast(typeVal), tableName_str, @ptrCast(rec), preparedStatement);
+        var _str = qtc.QSqlDriver_SqlStatement(@ptrCast(self), @bitCast(typeVal), tableName_str, @ptrCast(rec), preparedStatement);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldriver.SqlStatement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -646,7 +646,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, typeVal: qsqldriver_enums.StatementType, tableName: [*:0]const u8, rec: QtC.QSqlRecord, preparedStatement: bool) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnSqlStatement(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, ?*anyopaque, bool) callconv(.c) [*:0]const u8) void {
-        qtc.QSqlDriver_OnSqlStatement(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnSqlStatement(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#sqlStatement)
@@ -672,7 +672,7 @@ pub const qsqldriver = struct {
             .len = tableName.len,
             .data = tableName.ptr,
         };
-        var _str = qtc.QSqlDriver_QBaseSqlStatement(@ptrCast(self), @intCast(typeVal), tableName_str, @ptrCast(rec), preparedStatement);
+        var _str = qtc.QSqlDriver_QBaseSqlStatement(@ptrCast(self), @bitCast(typeVal), tableName_str, @ptrCast(rec), preparedStatement);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldriver.SqlStatement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -710,7 +710,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnHandle(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.QSqlDriver_OnHandle(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnHandle(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#handle)
@@ -734,7 +734,7 @@ pub const qsqldriver = struct {
     /// ` f: qsqldriver_enums.DriverFeature `
     ///
     pub fn HasFeature(self: ?*anyopaque, f: i32) bool {
-        return qtc.QSqlDriver_HasFeature(@ptrCast(self), @intCast(f));
+        return qtc.QSqlDriver_HasFeature(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#hasFeature)
@@ -748,7 +748,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, f: qsqldriver_enums.DriverFeature) callconv(.c) bool `
     ///
     pub fn OnHasFeature(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSqlDriver_OnHasFeature(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnHasFeature(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#hasFeature)
@@ -762,7 +762,7 @@ pub const qsqldriver = struct {
     /// ` f: qsqldriver_enums.DriverFeature `
     ///
     pub fn QBaseHasFeature(self: ?*anyopaque, f: i32) bool {
-        return qtc.QSqlDriver_QBaseHasFeature(@ptrCast(self), @intCast(f));
+        return qtc.QSqlDriver_QBaseHasFeature(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#close)
@@ -786,7 +786,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QSqlDriver_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#close)
@@ -822,7 +822,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSqlResult `
     ///
     pub fn OnCreateResult(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSqlResult) void {
-        qtc.QSqlDriver_OnCreateResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnCreateResult(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#createResult)
@@ -876,7 +876,7 @@ pub const qsqldriver = struct {
             .len = connOpts.len,
             .data = connOpts.ptr,
         };
-        return qtc.QSqlDriver_Open(@ptrCast(self), db_str, user_str, password_str, host_str, @intCast(port), connOpts_str);
+        return qtc.QSqlDriver_Open(@ptrCast(self), db_str, user_str, password_str, host_str, @bitCast(port), connOpts_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#open)
@@ -890,7 +890,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, db: [*:0]const u8, user: [*:0]const u8, password: [*:0]const u8, host: [*:0]const u8, port: i32, connOpts: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, i32, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QSqlDriver_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#open)
@@ -934,7 +934,7 @@ pub const qsqldriver = struct {
             .len = connOpts.len,
             .data = connOpts.ptr,
         };
-        return qtc.QSqlDriver_QBaseOpen(@ptrCast(self), db_str, user_str, password_str, host_str, @intCast(port), connOpts_str);
+        return qtc.QSqlDriver_QBaseOpen(@ptrCast(self), db_str, user_str, password_str, host_str, @bitCast(port), connOpts_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#subscribeToNotification)
@@ -964,7 +964,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, name: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnSubscribeToNotification(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QSqlDriver_OnSubscribeToNotification(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnSubscribeToNotification(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#subscribeToNotification)
@@ -1012,7 +1012,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, name: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnUnsubscribeFromNotification(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QSqlDriver_OnUnsubscribeFromNotification(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnUnsubscribeFromNotification(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#unsubscribeFromNotification)
@@ -1073,7 +1073,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
     pub fn OnSubscribedToNotifications(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QSqlDriver_OnSubscribedToNotifications(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnSubscribedToNotifications(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#subscribedToNotifications)
@@ -1120,7 +1120,7 @@ pub const qsqldriver = struct {
             .len = identifier.len,
             .data = identifier.ptr,
         };
-        return qtc.QSqlDriver_IsIdentifierEscaped(@ptrCast(self), identifier_str, @intCast(typeVal));
+        return qtc.QSqlDriver_IsIdentifierEscaped(@ptrCast(self), identifier_str, @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#isIdentifierEscaped)
@@ -1134,7 +1134,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, identifier: [*:0]const u8, typeVal: qsqldriver_enums.IdentifierType) callconv(.c) bool `
     ///
     pub fn OnIsIdentifierEscaped(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) bool) void {
-        qtc.QSqlDriver_OnIsIdentifierEscaped(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnIsIdentifierEscaped(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#isIdentifierEscaped)
@@ -1154,7 +1154,7 @@ pub const qsqldriver = struct {
             .len = identifier.len,
             .data = identifier.ptr,
         };
-        return qtc.QSqlDriver_QBaseIsIdentifierEscaped(@ptrCast(self), identifier_str, @intCast(typeVal));
+        return qtc.QSqlDriver_QBaseIsIdentifierEscaped(@ptrCast(self), identifier_str, @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#stripDelimiters)
@@ -1174,7 +1174,7 @@ pub const qsqldriver = struct {
             .len = identifier.len,
             .data = identifier.ptr,
         };
-        var _str = qtc.QSqlDriver_StripDelimiters(@ptrCast(self), identifier_str, @intCast(typeVal));
+        var _str = qtc.QSqlDriver_StripDelimiters(@ptrCast(self), identifier_str, @bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldriver.StripDelimiters: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1194,7 +1194,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, identifier: [*:0]const u8, typeVal: qsqldriver_enums.IdentifierType) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnStripDelimiters(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QSqlDriver_OnStripDelimiters(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnStripDelimiters(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#stripDelimiters)
@@ -1216,7 +1216,7 @@ pub const qsqldriver = struct {
             .len = identifier.len,
             .data = identifier.ptr,
         };
-        var _str = qtc.QSqlDriver_QBaseStripDelimiters(@ptrCast(self), identifier_str, @intCast(typeVal));
+        var _str = qtc.QSqlDriver_QBaseStripDelimiters(@ptrCast(self), identifier_str, @bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldriver.StripDelimiters: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1232,7 +1232,7 @@ pub const qsqldriver = struct {
     /// ` precisionPolicy: qtsqlglobal_enums.NumericalPrecisionPolicy `
     ///
     pub fn SetNumericalPrecisionPolicy(self: ?*anyopaque, precisionPolicy: i32) void {
-        qtc.QSqlDriver_SetNumericalPrecisionPolicy(@ptrCast(self), @intCast(precisionPolicy));
+        qtc.QSqlDriver_SetNumericalPrecisionPolicy(@ptrCast(self), @bitCast(precisionPolicy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#numericalPrecisionPolicy)
@@ -1272,7 +1272,7 @@ pub const qsqldriver = struct {
     /// ` typeVal: qsqldriver_enums.IdentifierType `
     ///
     pub fn MaximumIdentifierLength(self: ?*anyopaque, typeVal: i32) i32 {
-        return qtc.QSqlDriver_MaximumIdentifierLength(@ptrCast(self), @intCast(typeVal));
+        return qtc.QSqlDriver_MaximumIdentifierLength(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#maximumIdentifierLength)
@@ -1286,7 +1286,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, typeVal: qsqldriver_enums.IdentifierType) callconv(.c) i32 `
     ///
     pub fn OnMaximumIdentifierLength(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QSqlDriver_OnMaximumIdentifierLength(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnMaximumIdentifierLength(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#maximumIdentifierLength)
@@ -1300,7 +1300,7 @@ pub const qsqldriver = struct {
     /// ` typeVal: qsqldriver_enums.IdentifierType `
     ///
     pub fn QBaseMaximumIdentifierLength(self: ?*anyopaque, typeVal: i32) i32 {
-        return qtc.QSqlDriver_QBaseMaximumIdentifierLength(@ptrCast(self), @intCast(typeVal));
+        return qtc.QSqlDriver_QBaseMaximumIdentifierLength(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#cancelQuery)
@@ -1324,7 +1324,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnCancelQuery(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSqlDriver_OnCancelQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnCancelQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#cancelQuery)
@@ -1356,7 +1356,7 @@ pub const qsqldriver = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QSqlDriver_Notification(@ptrCast(self), name_str, @intCast(source), @ptrCast(payload));
+        qtc.QSqlDriver_Notification(@ptrCast(self), name_str, @bitCast(source), @ptrCast(payload));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#notification)
@@ -1368,7 +1368,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, name: [*:0]const u8, source: qsqldriver_enums.NotificationSource, payload: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnNotification(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlDriver_Connect_Notification(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_Connect_Notification(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setOpen)
@@ -1394,7 +1394,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, o: bool) callconv(.c) void `
     ///
     pub fn OnSetOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QSqlDriver_OnSetOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnSetOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setOpen)
@@ -1434,7 +1434,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, e: bool) callconv(.c) void `
     ///
     pub fn OnSetOpenError(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QSqlDriver_OnSetOpenError(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnSetOpenError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setOpenError)
@@ -1474,7 +1474,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, e: QtC.QSqlError) callconv(.c) void `
     ///
     pub fn OnSetLastError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlDriver_OnSetLastError(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnSetLastError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setLastError)
@@ -1526,7 +1526,7 @@ pub const qsqldriver = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldriver.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1664,7 +1664,7 @@ pub const qsqldriver = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1678,7 +1678,7 @@ pub const qsqldriver = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1692,7 +1692,7 @@ pub const qsqldriver = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1706,7 +1706,7 @@ pub const qsqldriver = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2036,7 +2036,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2091,7 +2091,7 @@ pub const qsqldriver = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2107,7 +2107,7 @@ pub const qsqldriver = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2129,7 +2129,7 @@ pub const qsqldriver = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2149,7 +2149,7 @@ pub const qsqldriver = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2171,7 +2171,7 @@ pub const qsqldriver = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2268,7 +2268,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2316,7 +2316,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlDriver_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2368,7 +2368,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlDriver_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2416,7 +2416,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlDriver_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2464,7 +2464,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlDriver_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2512,7 +2512,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlDriver_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2560,7 +2560,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlDriver_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2608,7 +2608,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlDriver_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2652,7 +2652,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QSqlDriver_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2696,7 +2696,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSqlDriver_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2746,7 +2746,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSqlDriver_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2794,7 +2794,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlDriver_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSqlDriver_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2810,7 +2810,7 @@ pub const qsqldriver = struct {
     /// ` callback: *const fn (self: QtC.QSqlDriver, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#dtor.QSqlDriver)

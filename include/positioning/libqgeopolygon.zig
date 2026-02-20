@@ -130,7 +130,7 @@ pub const qgeopolygon = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Hole(self: ?*anyopaque, index: i64, allocator: std.mem.Allocator) []QtC.QVariant {
-        const _arr: qtc.libqt_list = qtc.QGeoPolygon_Hole(@ptrCast(self), @intCast(index));
+        const _arr: qtc.libqt_list = qtc.QGeoPolygon_Hole(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QVariant, _arr.len) catch @panic("qgeopolygon.Hole: Memory allocation failed");
         const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
@@ -149,7 +149,7 @@ pub const qgeopolygon = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn HolePath(self: ?*anyopaque, index: i64, allocator: std.mem.Allocator) []QtC.QGeoCoordinate {
-        const _arr: qtc.libqt_list = qtc.QGeoPolygon_HolePath(@ptrCast(self), @intCast(index));
+        const _arr: qtc.libqt_list = qtc.QGeoPolygon_HolePath(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGeoCoordinate, _arr.len) catch @panic("qgeopolygon.HolePath: Memory allocation failed");
         const _data: [*]QtC.QGeoCoordinate = @ptrCast(@alignCast(_arr.data));
@@ -166,7 +166,7 @@ pub const qgeopolygon = struct {
     /// ` index: i64 `
     ///
     pub fn RemoveHole(self: ?*anyopaque, index: i64) void {
-        qtc.QGeoPolygon_RemoveHole(@ptrCast(self), @intCast(index));
+        qtc.QGeoPolygon_RemoveHole(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#holesCount)
@@ -190,7 +190,7 @@ pub const qgeopolygon = struct {
     /// ` degreesLongitude: f64 `
     ///
     pub fn Translate(self: ?*anyopaque, degreesLatitude: f64, degreesLongitude: f64) void {
-        qtc.QGeoPolygon_Translate(@ptrCast(self), @floatCast(degreesLatitude), @floatCast(degreesLongitude));
+        qtc.QGeoPolygon_Translate(@ptrCast(self), @bitCast(degreesLatitude), @bitCast(degreesLongitude));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#translated)
@@ -204,7 +204,7 @@ pub const qgeopolygon = struct {
     /// ` degreesLongitude: f64 `
     ///
     pub fn Translated(self: ?*anyopaque, degreesLatitude: f64, degreesLongitude: f64) QtC.QGeoPolygon {
-        return qtc.QGeoPolygon_Translated(@ptrCast(self), @floatCast(degreesLatitude), @floatCast(degreesLongitude));
+        return qtc.QGeoPolygon_Translated(@ptrCast(self), @bitCast(degreesLatitude), @bitCast(degreesLongitude));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#length)
@@ -250,7 +250,7 @@ pub const qgeopolygon = struct {
     /// ` coordinate: QtC.QGeoCoordinate `
     ///
     pub fn InsertCoordinate(self: ?*anyopaque, index: i64, coordinate: ?*anyopaque) void {
-        qtc.QGeoPolygon_InsertCoordinate(@ptrCast(self), @intCast(index), @ptrCast(coordinate));
+        qtc.QGeoPolygon_InsertCoordinate(@ptrCast(self), @bitCast(index), @ptrCast(coordinate));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#replaceCoordinate)
@@ -264,7 +264,7 @@ pub const qgeopolygon = struct {
     /// ` coordinate: QtC.QGeoCoordinate `
     ///
     pub fn ReplaceCoordinate(self: ?*anyopaque, index: i64, coordinate: ?*anyopaque) void {
-        qtc.QGeoPolygon_ReplaceCoordinate(@ptrCast(self), @intCast(index), @ptrCast(coordinate));
+        qtc.QGeoPolygon_ReplaceCoordinate(@ptrCast(self), @bitCast(index), @ptrCast(coordinate));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#coordinateAt)
@@ -276,7 +276,7 @@ pub const qgeopolygon = struct {
     /// ` index: i64 `
     ///
     pub fn CoordinateAt(self: ?*anyopaque, index: i64) QtC.QGeoCoordinate {
-        return qtc.QGeoPolygon_CoordinateAt(@ptrCast(self), @intCast(index));
+        return qtc.QGeoPolygon_CoordinateAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#containsCoordinate)
@@ -312,7 +312,7 @@ pub const qgeopolygon = struct {
     /// ` index: i64 `
     ///
     pub fn RemoveCoordinate2(self: ?*anyopaque, index: i64) void {
-        qtc.QGeoPolygon_RemoveCoordinate2(@ptrCast(self), @intCast(index));
+        qtc.QGeoPolygon_RemoveCoordinate2(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#toString)
@@ -340,7 +340,7 @@ pub const qgeopolygon = struct {
     /// ` indexFrom: i64 `
     ///
     pub fn Length1(self: ?*anyopaque, indexFrom: i64) f64 {
-        return qtc.QGeoPolygon_Length1(@ptrCast(self), @intCast(indexFrom));
+        return qtc.QGeoPolygon_Length1(@ptrCast(self), @bitCast(indexFrom));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#length)
@@ -354,7 +354,7 @@ pub const qgeopolygon = struct {
     /// ` indexTo: i64 `
     ///
     pub fn Length2(self: ?*anyopaque, indexFrom: i64, indexTo: i64) f64 {
-        return qtc.QGeoPolygon_Length2(@ptrCast(self), @intCast(indexFrom), @intCast(indexTo));
+        return qtc.QGeoPolygon_Length2(@ptrCast(self), @bitCast(indexFrom), @bitCast(indexTo));
     }
 
     /// Inherited from QGeoShape

@@ -54,7 +54,7 @@ pub const klocalimagecacheimplementation = struct {
     /// ` size: i32 `
     ///
     pub fn SetPixmapCacheLimit(self: ?*anyopaque, size: i32) void {
-        qtc.KLocalImageCacheImplementation_SetPixmapCacheLimit(@ptrCast(self), @intCast(size));
+        qtc.KLocalImageCacheImplementation_SetPixmapCacheLimit(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#dtor.KLocalImageCacheImplementation)

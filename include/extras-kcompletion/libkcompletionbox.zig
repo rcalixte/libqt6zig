@@ -53,7 +53,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KCompletionBox_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -88,7 +88,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KCompletionBox_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -115,7 +115,7 @@ pub const kcompletionbox = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KCompletionBox_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KCompletionBox_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -127,7 +127,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KCompletionBox_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -143,7 +143,7 @@ pub const kcompletionbox = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KCompletionBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KCompletionBox_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -184,7 +184,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KCompletionBox_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#sizeHint)
@@ -335,7 +335,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPopup(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnPopup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnPopup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#popup)
@@ -473,7 +473,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, visible: bool) callconv(.c) void `
     ///
     pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KCompletionBox_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#setVisible)
@@ -515,7 +515,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KCompletionBox_Connect_TextActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_Connect_TextActivated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#userCancelled)
@@ -543,7 +543,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnUserCancelled(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KCompletionBox_Connect_UserCancelled(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_Connect_UserCancelled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#calculateGeometry)
@@ -567,7 +567,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRect `
     ///
     pub fn OnCalculateGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
-        qtc.KCompletionBox_OnCalculateGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnCalculateGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#calculateGeometry)
@@ -603,7 +603,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnResizeAndReposition(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnResizeAndReposition(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnResizeAndReposition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#resizeAndReposition)
@@ -643,7 +643,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCompletionBox_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#eventFilter)
@@ -683,7 +683,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPoint `
     ///
     pub fn OnGlobalPositionHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPoint) void {
-        qtc.KCompletionBox_OnGlobalPositionHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnGlobalPositionHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#globalPositionHint)
@@ -721,7 +721,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, param1: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnSlotActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnSlotActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSlotActivated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#slotActivated)
@@ -773,7 +773,7 @@ pub const kcompletionbox = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcompletionbox.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -805,7 +805,7 @@ pub const kcompletionbox = struct {
             .len = items.len,
             .data = items_arr.ptr,
         };
-        qtc.KCompletionBox_InsertItems2(@ptrCast(self), items_list, @intCast(index));
+        qtc.KCompletionBox_InsertItems2(@ptrCast(self), items_list, @bitCast(index));
     }
 
     /// Inherited from QListWidget
@@ -819,7 +819,7 @@ pub const kcompletionbox = struct {
     /// ` row: i32 `
     ///
     pub fn Item(self: ?*anyopaque, row: i32) QtC.QListWidgetItem {
-        return qtc.QListWidget_Item(@ptrCast(self), @intCast(row));
+        return qtc.QListWidget_Item(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QListWidget
@@ -849,7 +849,7 @@ pub const kcompletionbox = struct {
     /// ` item: QtC.QListWidgetItem `
     ///
     pub fn InsertItem(self: ?*anyopaque, row: i32, item: ?*anyopaque) void {
-        qtc.QListWidget_InsertItem(@ptrCast(self), @intCast(row), @ptrCast(item));
+        qtc.QListWidget_InsertItem(@ptrCast(self), @bitCast(row), @ptrCast(item));
     }
 
     /// Inherited from QListWidget
@@ -869,7 +869,7 @@ pub const kcompletionbox = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        qtc.QListWidget_InsertItem2(@ptrCast(self), @intCast(row), label_str);
+        qtc.QListWidget_InsertItem2(@ptrCast(self), @bitCast(row), label_str);
     }
 
     /// Inherited from QListWidget
@@ -943,7 +943,7 @@ pub const kcompletionbox = struct {
     /// ` row: i32 `
     ///
     pub fn TakeItem(self: ?*anyopaque, row: i32) QtC.QListWidgetItem {
-        return qtc.QListWidget_TakeItem(@ptrCast(self), @intCast(row));
+        return qtc.QListWidget_TakeItem(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QListWidget
@@ -997,7 +997,7 @@ pub const kcompletionbox = struct {
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn SetCurrentItem2(self: ?*anyopaque, item: ?*anyopaque, command: i32) void {
-        qtc.QListWidget_SetCurrentItem2(@ptrCast(self), @ptrCast(item), @intCast(command));
+        qtc.QListWidget_SetCurrentItem2(@ptrCast(self), @ptrCast(item), @bitCast(command));
     }
 
     /// Inherited from QListWidget
@@ -1023,7 +1023,7 @@ pub const kcompletionbox = struct {
     /// ` row: i32 `
     ///
     pub fn SetCurrentRow(self: ?*anyopaque, row: i32) void {
-        qtc.QListWidget_SetCurrentRow(@ptrCast(self), @intCast(row));
+        qtc.QListWidget_SetCurrentRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QListWidget
@@ -1039,7 +1039,7 @@ pub const kcompletionbox = struct {
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn SetCurrentRow2(self: ?*anyopaque, row: i32, command: i32) void {
-        qtc.QListWidget_SetCurrentRow2(@ptrCast(self), @intCast(row), @intCast(command));
+        qtc.QListWidget_SetCurrentRow2(@ptrCast(self), @bitCast(row), @bitCast(command));
     }
 
     /// Inherited from QListWidget
@@ -1069,7 +1069,7 @@ pub const kcompletionbox = struct {
     /// ` y: i32 `
     ///
     pub fn ItemAt2(self: ?*anyopaque, x: i32, y: i32) QtC.QListWidgetItem {
-        return qtc.QListWidget_ItemAt2(@ptrCast(self), @intCast(x), @intCast(y));
+        return qtc.QListWidget_ItemAt2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QListWidget
@@ -1262,7 +1262,7 @@ pub const kcompletionbox = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QListWidget_FindItems(@ptrCast(self), text_str, @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QListWidget_FindItems(@ptrCast(self), text_str, @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QListWidgetItem, _arr.len) catch @panic("kcompletionbox.FindItems: Memory allocation failed");
         const _data: [*]QtC.QListWidgetItem = @ptrCast(@alignCast(_arr.data));
@@ -1349,7 +1349,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QListWidget_Connect_ItemPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QListWidget_Connect_ItemPressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -1377,7 +1377,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QListWidget_Connect_ItemClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QListWidget_Connect_ItemClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -1405,7 +1405,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QListWidget_Connect_ItemDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QListWidget_Connect_ItemDoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -1433,7 +1433,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QListWidget_Connect_ItemActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QListWidget_Connect_ItemActivated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -1461,7 +1461,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QListWidget_Connect_ItemEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QListWidget_Connect_ItemEntered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -1489,7 +1489,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, item: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QListWidget_Connect_ItemChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QListWidget_Connect_ItemChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -1519,7 +1519,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, current: QtC.QListWidgetItem, previous: QtC.QListWidgetItem) callconv(.c) void `
     ///
     pub fn OnCurrentItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QListWidget_Connect_CurrentItemChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QListWidget_Connect_CurrentItemChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -1551,7 +1551,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, currentText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCurrentTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QListWidget_Connect_CurrentTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QListWidget_Connect_CurrentTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -1565,7 +1565,7 @@ pub const kcompletionbox = struct {
     /// ` currentRow: i32 `
     ///
     pub fn CurrentRowChanged(self: ?*anyopaque, currentRow: i32) void {
-        qtc.QListWidget_CurrentRowChanged(@ptrCast(self), @intCast(currentRow));
+        qtc.QListWidget_CurrentRowChanged(@ptrCast(self), @bitCast(currentRow));
     }
 
     /// Inherited from QListWidget
@@ -1579,7 +1579,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, currentRow: i32) callconv(.c) void `
     ///
     pub fn OnCurrentRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QListWidget_Connect_CurrentRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QListWidget_Connect_CurrentRowChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -1605,7 +1605,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox) callconv(.c) void `
     ///
     pub fn OnItemSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QListWidget_Connect_ItemSelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QListWidget_Connect_ItemSelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -1619,7 +1619,7 @@ pub const kcompletionbox = struct {
     /// ` order: qnamespace_enums.SortOrder `
     ///
     pub fn SortItems1(self: ?*anyopaque, order: i32) void {
-        qtc.QListWidget_SortItems1(@ptrCast(self), @intCast(order));
+        qtc.QListWidget_SortItems1(@ptrCast(self), @bitCast(order));
     }
 
     /// Inherited from QListWidget
@@ -1635,7 +1635,7 @@ pub const kcompletionbox = struct {
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
     pub fn ScrollToItem2(self: ?*anyopaque, item: ?*anyopaque, hint: i32) void {
-        qtc.QListWidget_ScrollToItem2(@ptrCast(self), @ptrCast(item), @intCast(hint));
+        qtc.QListWidget_ScrollToItem2(@ptrCast(self), @ptrCast(item), @bitCast(hint));
     }
 
     /// Inherited from QListView
@@ -1649,7 +1649,7 @@ pub const kcompletionbox = struct {
     /// ` movement: qlistview_enums.Movement `
     ///
     pub fn SetMovement(self: ?*anyopaque, movement: i32) void {
-        qtc.QListView_SetMovement(@ptrCast(self), @intCast(movement));
+        qtc.QListView_SetMovement(@ptrCast(self), @bitCast(movement));
     }
 
     /// Inherited from QListView
@@ -1679,7 +1679,7 @@ pub const kcompletionbox = struct {
     /// ` flow: qlistview_enums.Flow `
     ///
     pub fn SetFlow(self: ?*anyopaque, flow: i32) void {
-        qtc.QListView_SetFlow(@ptrCast(self), @intCast(flow));
+        qtc.QListView_SetFlow(@ptrCast(self), @bitCast(flow));
     }
 
     /// Inherited from QListView
@@ -1735,7 +1735,7 @@ pub const kcompletionbox = struct {
     /// ` mode: qlistview_enums.ResizeMode `
     ///
     pub fn SetResizeMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QListView_SetResizeMode(@ptrCast(self), @intCast(mode));
+        qtc.QListView_SetResizeMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QListView
@@ -1765,7 +1765,7 @@ pub const kcompletionbox = struct {
     /// ` mode: qlistview_enums.LayoutMode `
     ///
     pub fn SetLayoutMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QListView_SetLayoutMode(@ptrCast(self), @intCast(mode));
+        qtc.QListView_SetLayoutMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QListView
@@ -1795,7 +1795,7 @@ pub const kcompletionbox = struct {
     /// ` space: i32 `
     ///
     pub fn SetSpacing(self: ?*anyopaque, space: i32) void {
-        qtc.QListView_SetSpacing(@ptrCast(self), @intCast(space));
+        qtc.QListView_SetSpacing(@ptrCast(self), @bitCast(space));
     }
 
     /// Inherited from QListView
@@ -1821,7 +1821,7 @@ pub const kcompletionbox = struct {
     /// ` batchSize: i32 `
     ///
     pub fn SetBatchSize(self: ?*anyopaque, batchSize: i32) void {
-        qtc.QListView_SetBatchSize(@ptrCast(self), @intCast(batchSize));
+        qtc.QListView_SetBatchSize(@ptrCast(self), @bitCast(batchSize));
     }
 
     /// Inherited from QListView
@@ -1873,7 +1873,7 @@ pub const kcompletionbox = struct {
     /// ` mode: qlistview_enums.ViewMode `
     ///
     pub fn SetViewMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QListView_SetViewMode(@ptrCast(self), @intCast(mode));
+        qtc.QListView_SetViewMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QListView
@@ -1915,7 +1915,7 @@ pub const kcompletionbox = struct {
     /// ` row: i32 `
     ///
     pub fn IsRowHidden(self: ?*anyopaque, row: i32) bool {
-        return qtc.QListView_IsRowHidden(@ptrCast(self), @intCast(row));
+        return qtc.QListView_IsRowHidden(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QListView
@@ -1931,7 +1931,7 @@ pub const kcompletionbox = struct {
     /// ` hide: bool `
     ///
     pub fn SetRowHidden(self: ?*anyopaque, row: i32, hide: bool) void {
-        qtc.QListView_SetRowHidden(@ptrCast(self), @intCast(row), hide);
+        qtc.QListView_SetRowHidden(@ptrCast(self), @bitCast(row), hide);
     }
 
     /// Inherited from QListView
@@ -1945,7 +1945,7 @@ pub const kcompletionbox = struct {
     /// ` column: i32 `
     ///
     pub fn SetModelColumn(self: ?*anyopaque, column: i32) void {
-        qtc.QListView_SetModelColumn(@ptrCast(self), @intCast(column));
+        qtc.QListView_SetModelColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QListView
@@ -2049,7 +2049,7 @@ pub const kcompletionbox = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetItemAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QListView_SetItemAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QListView_SetItemAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// Inherited from QListView
@@ -2097,7 +2097,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
     ///
     pub fn OnIndexesMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QListView_Connect_IndexesMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QListView_Connect_IndexesMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -2127,7 +2127,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, model: QtC.QAbstractItemModel) callconv(.c) void `
     ///
     pub fn OnSetModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_OnSetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -2207,7 +2207,7 @@ pub const kcompletionbox = struct {
     /// ` mode: qabstractitemview_enums.SelectionMode `
     ///
     pub fn SetSelectionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -2237,7 +2237,7 @@ pub const kcompletionbox = struct {
     /// ` behavior: qabstractitemview_enums.SelectionBehavior `
     ///
     pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i32) void {
-        qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self), @intCast(behavior));
+        qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self), @bitCast(behavior));
     }
 
     /// Inherited from QAbstractItemView
@@ -2291,7 +2291,7 @@ pub const kcompletionbox = struct {
     /// ` triggers: flag of qabstractitemview_enums.EditTrigger `
     ///
     pub fn SetEditTriggers(self: ?*anyopaque, triggers: i32) void {
-        qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self), @intCast(triggers));
+        qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self), @bitCast(triggers));
     }
 
     /// Inherited from QAbstractItemView
@@ -2321,7 +2321,7 @@ pub const kcompletionbox = struct {
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
     pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -2363,7 +2363,7 @@ pub const kcompletionbox = struct {
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
     pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -2431,7 +2431,7 @@ pub const kcompletionbox = struct {
     /// ` margin: i32 `
     ///
     pub fn SetAutoScrollMargin(self: ?*anyopaque, margin: i32) void {
-        qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self), @intCast(margin));
+        qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// Inherited from QAbstractItemView
@@ -2561,7 +2561,7 @@ pub const kcompletionbox = struct {
     /// ` behavior: qabstractitemview_enums.DragDropMode `
     ///
     pub fn SetDragDropMode(self: ?*anyopaque, behavior: i32) void {
-        qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self), @intCast(behavior));
+        qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self), @bitCast(behavior));
     }
 
     /// Inherited from QAbstractItemView
@@ -2591,7 +2591,7 @@ pub const kcompletionbox = struct {
     /// ` dropAction: qnamespace_enums.DropAction `
     ///
     pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i32) void {
-        qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self), @intCast(dropAction));
+        qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self), @bitCast(dropAction));
     }
 
     /// Inherited from QAbstractItemView
@@ -2673,7 +2673,7 @@ pub const kcompletionbox = struct {
     /// ` mode: qnamespace_enums.TextElideMode `
     ///
     pub fn SetTextElideMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -2749,7 +2749,7 @@ pub const kcompletionbox = struct {
     /// ` delegate: QtC.QAbstractItemDelegate `
     ///
     pub fn SetItemDelegateForRow(self: ?*anyopaque, row: i32, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self), @intCast(row), @ptrCast(delegate));
+        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self), @bitCast(row), @ptrCast(delegate));
     }
 
     /// Inherited from QAbstractItemView
@@ -2763,7 +2763,7 @@ pub const kcompletionbox = struct {
     /// ` row: i32 `
     ///
     pub fn ItemDelegateForRow(self: ?*anyopaque, row: i32) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemView
@@ -2779,7 +2779,7 @@ pub const kcompletionbox = struct {
     /// ` delegate: QtC.QAbstractItemDelegate `
     ///
     pub fn SetItemDelegateForColumn(self: ?*anyopaque, column: i32, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self), @intCast(column), @ptrCast(delegate));
+        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self), @bitCast(column), @ptrCast(delegate));
     }
 
     /// Inherited from QAbstractItemView
@@ -2793,7 +2793,7 @@ pub const kcompletionbox = struct {
     /// ` column: i32 `
     ///
     pub fn ItemDelegateForColumn(self: ?*anyopaque, column: i32) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemView
@@ -2913,7 +2913,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -2941,7 +2941,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -2969,7 +2969,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -2997,7 +2997,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -3025,7 +3025,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -3051,7 +3051,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox) callconv(.c) void `
     ///
     pub fn OnViewportEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -3079,7 +3079,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, size: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -3109,7 +3109,7 @@ pub const kcompletionbox = struct {
     /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @intCast(verticalScrollBarPolicy));
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @bitCast(verticalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -3165,7 +3165,7 @@ pub const kcompletionbox = struct {
     /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @intCast(horizontalScrollBarPolicy));
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @bitCast(horizontalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -3233,7 +3233,7 @@ pub const kcompletionbox = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
-        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
+        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @bitCast(alignment));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -3249,7 +3249,7 @@ pub const kcompletionbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("kcompletionbox.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
@@ -3322,7 +3322,7 @@ pub const kcompletionbox = struct {
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QFrame
@@ -3348,7 +3348,7 @@ pub const kcompletionbox = struct {
     /// ` frameStyle: i32 `
     ///
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self), @intCast(frameStyle));
+        qtc.QFrame_SetFrameStyle(@ptrCast(self), @bitCast(frameStyle));
     }
 
     /// Inherited from QFrame
@@ -3390,7 +3390,7 @@ pub const kcompletionbox = struct {
     /// ` frameShape: qframe_enums.Shape `
     ///
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self), @intCast(frameShape));
+        qtc.QFrame_SetFrameShape(@ptrCast(self), @bitCast(frameShape));
     }
 
     /// Inherited from QFrame
@@ -3420,7 +3420,7 @@ pub const kcompletionbox = struct {
     /// ` frameShadow: qframe_enums.Shadow `
     ///
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self), @intCast(frameShadow));
+        qtc.QFrame_SetFrameShadow(@ptrCast(self), @bitCast(frameShadow));
     }
 
     /// Inherited from QFrame
@@ -3446,7 +3446,7 @@ pub const kcompletionbox = struct {
     /// ` lineWidth: i32 `
     ///
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self), @intCast(lineWidth));
+        qtc.QFrame_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
     }
 
     /// Inherited from QFrame
@@ -3472,7 +3472,7 @@ pub const kcompletionbox = struct {
     /// ` midLineWidth: i32 `
     ///
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @intCast(midLineWidth));
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
     }
 
     /// Inherited from QFrame
@@ -3638,7 +3638,7 @@ pub const kcompletionbox = struct {
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
+        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -3964,7 +3964,7 @@ pub const kcompletionbox = struct {
     /// ` minh: i32 `
     ///
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -3994,7 +3994,7 @@ pub const kcompletionbox = struct {
     /// ` maxh: i32 `
     ///
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -4008,7 +4008,7 @@ pub const kcompletionbox = struct {
     /// ` minw: i32 `
     ///
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -4022,7 +4022,7 @@ pub const kcompletionbox = struct {
     /// ` minh: i32 `
     ///
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -4036,7 +4036,7 @@ pub const kcompletionbox = struct {
     /// ` maxw: i32 `
     ///
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -4050,7 +4050,7 @@ pub const kcompletionbox = struct {
     /// ` maxh: i32 `
     ///
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -4092,7 +4092,7 @@ pub const kcompletionbox = struct {
     /// ` h: i32 `
     ///
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4134,7 +4134,7 @@ pub const kcompletionbox = struct {
     /// ` baseh: i32 `
     ///
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
+        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -4164,7 +4164,7 @@ pub const kcompletionbox = struct {
     /// ` h: i32 `
     ///
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4178,7 +4178,7 @@ pub const kcompletionbox = struct {
     /// ` w: i32 `
     ///
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
+        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -4192,7 +4192,7 @@ pub const kcompletionbox = struct {
     /// ` h: i32 `
     ///
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
+        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4444,7 +4444,7 @@ pub const kcompletionbox = struct {
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -4474,7 +4474,7 @@ pub const kcompletionbox = struct {
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
+        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -4774,7 +4774,7 @@ pub const kcompletionbox = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4788,7 +4788,7 @@ pub const kcompletionbox = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5008,7 +5008,7 @@ pub const kcompletionbox = struct {
     /// ` level: f64 `
     ///
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -5082,7 +5082,7 @@ pub const kcompletionbox = struct {
     /// ` msec: i32 `
     ///
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -5252,7 +5252,7 @@ pub const kcompletionbox = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -5404,7 +5404,7 @@ pub const kcompletionbox = struct {
     /// ` reason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
+        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -5434,7 +5434,7 @@ pub const kcompletionbox = struct {
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -5516,7 +5516,7 @@ pub const kcompletionbox = struct {
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -5606,7 +5606,7 @@ pub const kcompletionbox = struct {
     /// ` id: i32 `
     ///
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -5620,7 +5620,7 @@ pub const kcompletionbox = struct {
     /// ` id: i32 `
     ///
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -5634,7 +5634,7 @@ pub const kcompletionbox = struct {
     /// ` id: i32 `
     ///
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -5720,7 +5720,7 @@ pub const kcompletionbox = struct {
     /// ` h: i32 `
     ///
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5768,7 +5768,7 @@ pub const kcompletionbox = struct {
     /// ` h: i32 `
     ///
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5948,7 +5948,7 @@ pub const kcompletionbox = struct {
     /// ` y: i32 `
     ///
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
+        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -5978,7 +5978,7 @@ pub const kcompletionbox = struct {
     /// ` h: i32 `
     ///
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -6012,7 +6012,7 @@ pub const kcompletionbox = struct {
     /// ` h: i32 `
     ///
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -6178,7 +6178,7 @@ pub const kcompletionbox = struct {
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -6192,7 +6192,7 @@ pub const kcompletionbox = struct {
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -6234,7 +6234,7 @@ pub const kcompletionbox = struct {
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -6266,7 +6266,7 @@ pub const kcompletionbox = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -6372,7 +6372,7 @@ pub const kcompletionbox = struct {
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
+        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -6388,7 +6388,7 @@ pub const kcompletionbox = struct {
     /// ` dy: i32 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -6406,7 +6406,7 @@ pub const kcompletionbox = struct {
     /// ` param3: QtC.QRect `
     ///
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
+        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
     }
 
     /// Inherited from QWidget
@@ -6675,7 +6675,7 @@ pub const kcompletionbox = struct {
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -6705,7 +6705,7 @@ pub const kcompletionbox = struct {
     /// ` param1: qnamespace_enums.WindowType `
     ///
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6719,7 +6719,7 @@ pub const kcompletionbox = struct {
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -6747,7 +6747,7 @@ pub const kcompletionbox = struct {
     /// ` param1: u64 `
     ///
     pub fn Find(param1: u64) QtC.QWidget {
-        return qtc.QWidget_Find(@intCast(param1));
+        return qtc.QWidget_Find(@bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6763,7 +6763,7 @@ pub const kcompletionbox = struct {
     /// ` y: i32 `
     ///
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
+        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -6805,7 +6805,7 @@ pub const kcompletionbox = struct {
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6819,7 +6819,7 @@ pub const kcompletionbox = struct {
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
+        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6965,7 +6965,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6993,7 +6993,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7025,7 +7025,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7053,7 +7053,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7083,7 +7083,7 @@ pub const kcompletionbox = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -7137,7 +7137,7 @@ pub const kcompletionbox = struct {
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -7191,7 +7191,7 @@ pub const kcompletionbox = struct {
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -7221,7 +7221,7 @@ pub const kcompletionbox = struct {
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
+        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -7237,7 +7237,7 @@ pub const kcompletionbox = struct {
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -7253,7 +7253,7 @@ pub const kcompletionbox = struct {
     /// ` enable: bool `
     ///
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -7269,7 +7269,7 @@ pub const kcompletionbox = struct {
     /// ` enable: bool `
     ///
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -7285,7 +7285,7 @@ pub const kcompletionbox = struct {
     /// ` on: bool `
     ///
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -7301,7 +7301,7 @@ pub const kcompletionbox = struct {
     /// ` on: bool `
     ///
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -7331,7 +7331,7 @@ pub const kcompletionbox = struct {
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
+        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
     }
 
     /// Inherited from QObject
@@ -7465,7 +7465,7 @@ pub const kcompletionbox = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -7479,7 +7479,7 @@ pub const kcompletionbox = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -7493,7 +7493,7 @@ pub const kcompletionbox = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -7507,7 +7507,7 @@ pub const kcompletionbox = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -7823,7 +7823,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7878,7 +7878,7 @@ pub const kcompletionbox = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -7894,7 +7894,7 @@ pub const kcompletionbox = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -7916,7 +7916,7 @@ pub const kcompletionbox = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -7936,7 +7936,7 @@ pub const kcompletionbox = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -7958,7 +7958,7 @@ pub const kcompletionbox = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -8055,7 +8055,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -8209,7 +8209,7 @@ pub const kcompletionbox = struct {
     /// ` value: f64 `
     ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
 
     /// Inherited from QListWidget
@@ -8257,7 +8257,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, selectionModel: QtC.QItemSelectionModel) callconv(.c) void `
     ///
     pub fn OnSetSelectionModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnSetSelectionModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSetSelectionModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -8305,7 +8305,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -8353,7 +8353,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, e: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCompletionBox_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -8433,7 +8433,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
     pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.KCompletionBox_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnMimeTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -8489,7 +8489,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, items: qtc.libqt_list ([]QtC.QListWidgetItem)) callconv(.c) QtC.QMimeData `
     ///
     pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
-        qtc.KCompletionBox_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -8509,7 +8509,7 @@ pub const kcompletionbox = struct {
     /// ` action: qnamespace_enums.DropAction `
     ///
     pub fn DropMimeData(self: ?*anyopaque, index: i32, data: ?*anyopaque, action: i32) bool {
-        return qtc.KCompletionBox_DropMimeData(@ptrCast(self), @intCast(index), @ptrCast(data), @intCast(action));
+        return qtc.KCompletionBox_DropMimeData(@ptrCast(self), @bitCast(index), @ptrCast(data), @bitCast(action));
     }
 
     /// Inherited from QListWidget
@@ -8529,7 +8529,7 @@ pub const kcompletionbox = struct {
     /// ` action: qnamespace_enums.DropAction `
     ///
     pub fn QBaseDropMimeData(self: ?*anyopaque, index: i32, data: ?*anyopaque, action: i32) bool {
-        return qtc.KCompletionBox_QBaseDropMimeData(@ptrCast(self), @intCast(index), @ptrCast(data), @intCast(action));
+        return qtc.KCompletionBox_QBaseDropMimeData(@ptrCast(self), @bitCast(index), @ptrCast(data), @bitCast(action));
     }
 
     /// Inherited from QListWidget
@@ -8545,7 +8545,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, index: i32, data: QtC.QMimeData, action: qnamespace_enums.DropAction) callconv(.c) bool `
     ///
     pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KCompletionBox_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListWidget
@@ -8597,7 +8597,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCompletionBox_OnSupportedDropActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8645,7 +8645,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) QtC.QRect `
     ///
     pub fn OnVisualRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.KCompletionBox_OnVisualRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnVisualRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8663,7 +8663,7 @@ pub const kcompletionbox = struct {
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
     pub fn ScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.KCompletionBox_ScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
+        qtc.KCompletionBox_ScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
     }
 
     /// Inherited from QListView
@@ -8681,7 +8681,7 @@ pub const kcompletionbox = struct {
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
     pub fn QBaseScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.KCompletionBox_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
+        qtc.KCompletionBox_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
     }
 
     /// Inherited from QListView
@@ -8697,7 +8697,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void `
     ///
     pub fn OnScrollTo(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnScrollTo(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnScrollTo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8745,7 +8745,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, p: QtC.QPoint) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnIndexAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KCompletionBox_OnIndexAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnIndexAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8789,7 +8789,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnDoItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnDoItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnDoItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8833,7 +8833,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8881,7 +8881,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnSetRootIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnSetRootIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSetRootIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8899,7 +8899,7 @@ pub const kcompletionbox = struct {
     /// ` dy: i32 `
     ///
     pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.KCompletionBox_ScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.KCompletionBox_ScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QListView
@@ -8917,7 +8917,7 @@ pub const kcompletionbox = struct {
     /// ` dy: i32 `
     ///
     pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.KCompletionBox_QBaseScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.KCompletionBox_QBaseScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QListView
@@ -8933,7 +8933,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, dx: i32, dy: i32) callconv(.c) void `
     ///
     pub fn OnScrollContentsBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnScrollContentsBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnScrollContentsBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8997,7 +8997,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.KCompletionBox_OnDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9017,7 +9017,7 @@ pub const kcompletionbox = struct {
     /// ` end: i32 `
     ///
     pub fn RowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.KCompletionBox_RowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.KCompletionBox_RowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QListView
@@ -9037,7 +9037,7 @@ pub const kcompletionbox = struct {
     /// ` end: i32 `
     ///
     pub fn QBaseRowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.KCompletionBox_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.KCompletionBox_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QListView
@@ -9053,7 +9053,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
     pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnRowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnRowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9073,7 +9073,7 @@ pub const kcompletionbox = struct {
     /// ` end: i32 `
     ///
     pub fn RowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.KCompletionBox_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.KCompletionBox_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QListView
@@ -9093,7 +9093,7 @@ pub const kcompletionbox = struct {
     /// ` end: i32 `
     ///
     pub fn QBaseRowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.KCompletionBox_QBaseRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.KCompletionBox_QBaseRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QListView
@@ -9109,7 +9109,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnRowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnRowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9157,7 +9157,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, e: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9205,7 +9205,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, e: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9253,7 +9253,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, e: QtC.QWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9301,7 +9301,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, e: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9349,7 +9349,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, e: QtC.QResizeEvent) callconv(.c) void `
     ///
     pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9397,7 +9397,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, e: QtC.QDragMoveEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9445,7 +9445,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, e: QtC.QDragLeaveEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9461,7 +9461,7 @@ pub const kcompletionbox = struct {
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
     pub fn StartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.KCompletionBox_StartDrag(@ptrCast(self), @intCast(supportedActions));
+        qtc.KCompletionBox_StartDrag(@ptrCast(self), @bitCast(supportedActions));
     }
 
     /// Inherited from QListView
@@ -9477,7 +9477,7 @@ pub const kcompletionbox = struct {
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
     pub fn QBaseStartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.KCompletionBox_QBaseStartDrag(@ptrCast(self), @intCast(supportedActions));
+        qtc.KCompletionBox_QBaseStartDrag(@ptrCast(self), @bitCast(supportedActions));
     }
 
     /// Inherited from QListView
@@ -9493,7 +9493,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void `
     ///
     pub fn OnStartDrag(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnStartDrag(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnStartDrag(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9541,7 +9541,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, option: QtC.QStyleOptionViewItem) callconv(.c) void `
     ///
     pub fn OnInitViewItemOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnInitViewItemOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnInitViewItemOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9589,7 +9589,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, e: QtC.QPaintEvent) callconv(.c) void `
     ///
     pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9633,7 +9633,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnHorizontalOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCompletionBox_OnHorizontalOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnHorizontalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9677,7 +9677,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnVerticalOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCompletionBox_OnVerticalOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnVerticalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9695,7 +9695,7 @@ pub const kcompletionbox = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn MoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
-        return qtc.KCompletionBox_MoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
+        return qtc.KCompletionBox_MoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
     }
 
     /// Inherited from QListView
@@ -9713,7 +9713,7 @@ pub const kcompletionbox = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn QBaseMoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
-        return qtc.KCompletionBox_QBaseMoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
+        return qtc.KCompletionBox_QBaseMoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
     }
 
     /// Inherited from QListView
@@ -9729,7 +9729,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnMoveCursor(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.KCompletionBox_OnMoveCursor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnMoveCursor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9747,7 +9747,7 @@ pub const kcompletionbox = struct {
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
-        qtc.KCompletionBox_SetSelection(@ptrCast(self), @ptrCast(rect), @intCast(command));
+        qtc.KCompletionBox_SetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
     }
 
     /// Inherited from QListView
@@ -9765,7 +9765,7 @@ pub const kcompletionbox = struct {
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn QBaseSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
-        qtc.KCompletionBox_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @intCast(command));
+        qtc.KCompletionBox_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
     }
 
     /// Inherited from QListView
@@ -9781,7 +9781,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
     pub fn OnSetSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnSetSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSetSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9829,7 +9829,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, selection: QtC.QItemSelection) callconv(.c) QtC.QRegion `
     ///
     pub fn OnVisualRegionForSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRegion) void {
-        qtc.KCompletionBox_OnVisualRegionForSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnVisualRegionForSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9893,7 +9893,7 @@ pub const kcompletionbox = struct {
     /// ` C ABI representation of []QtC.QModelIndex `
     ///
     pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KCompletionBox_OnSelectedIndexes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSelectedIndexes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9937,7 +9937,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateGeometries(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnUpdateGeometries(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnUpdateGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -9985,7 +9985,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnIsIndexHidden(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCompletionBox_OnIsIndexHidden(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnIsIndexHidden(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -10037,7 +10037,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, selected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void `
     ///
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnSelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -10089,7 +10089,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnCurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnCurrentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -10133,7 +10133,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnViewportSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KCompletionBox_OnViewportSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnViewportSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10189,7 +10189,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, search: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnKeyboardSearch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KCompletionBox_OnKeyboardSearch(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnKeyboardSearch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10205,7 +10205,7 @@ pub const kcompletionbox = struct {
     /// ` row: i32 `
     ///
     pub fn SizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.KCompletionBox_SizeHintForRow(@ptrCast(self), @intCast(row));
+        return qtc.KCompletionBox_SizeHintForRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemView
@@ -10221,7 +10221,7 @@ pub const kcompletionbox = struct {
     /// ` row: i32 `
     ///
     pub fn QBaseSizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.KCompletionBox_QBaseSizeHintForRow(@ptrCast(self), @intCast(row));
+        return qtc.KCompletionBox_QBaseSizeHintForRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemView
@@ -10237,7 +10237,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, row: i32) callconv(.c) i32 `
     ///
     pub fn OnSizeHintForRow(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KCompletionBox_OnSizeHintForRow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSizeHintForRow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10253,7 +10253,7 @@ pub const kcompletionbox = struct {
     /// ` column: i32 `
     ///
     pub fn SizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.KCompletionBox_SizeHintForColumn(@ptrCast(self), @intCast(column));
+        return qtc.KCompletionBox_SizeHintForColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemView
@@ -10269,7 +10269,7 @@ pub const kcompletionbox = struct {
     /// ` column: i32 `
     ///
     pub fn QBaseSizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.KCompletionBox_QBaseSizeHintForColumn(@ptrCast(self), @intCast(column));
+        return qtc.KCompletionBox_QBaseSizeHintForColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemView
@@ -10285,7 +10285,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, column: i32) callconv(.c) i32 `
     ///
     pub fn OnSizeHintForColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KCompletionBox_OnSizeHintForColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSizeHintForColumn(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10333,7 +10333,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) QtC.QAbstractItemDelegate `
     ///
     pub fn OnItemDelegateForIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAbstractItemDelegate) void {
-        qtc.KCompletionBox_OnItemDelegateForIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnItemDelegateForIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10349,7 +10349,7 @@ pub const kcompletionbox = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.KCompletionBox_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.KCompletionBox_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QAbstractItemView
@@ -10365,7 +10365,7 @@ pub const kcompletionbox = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.KCompletionBox_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.KCompletionBox_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QAbstractItemView
@@ -10381,7 +10381,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KCompletionBox_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10425,7 +10425,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSelectAll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnSelectAll(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSelectAll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10469,7 +10469,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateEditorData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnUpdateEditorData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnUpdateEditorData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10513,7 +10513,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateEditorGeometries(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnUpdateEditorGeometries(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnUpdateEditorGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10529,7 +10529,7 @@ pub const kcompletionbox = struct {
     /// ` action: i32 `
     ///
     pub fn VerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.KCompletionBox_VerticalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.KCompletionBox_VerticalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QAbstractItemView
@@ -10545,7 +10545,7 @@ pub const kcompletionbox = struct {
     /// ` action: i32 `
     ///
     pub fn QBaseVerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.KCompletionBox_QBaseVerticalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.KCompletionBox_QBaseVerticalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QAbstractItemView
@@ -10561,7 +10561,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, action: i32) callconv(.c) void `
     ///
     pub fn OnVerticalScrollbarAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnVerticalScrollbarAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnVerticalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10577,7 +10577,7 @@ pub const kcompletionbox = struct {
     /// ` action: i32 `
     ///
     pub fn HorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.KCompletionBox_HorizontalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.KCompletionBox_HorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QAbstractItemView
@@ -10593,7 +10593,7 @@ pub const kcompletionbox = struct {
     /// ` action: i32 `
     ///
     pub fn QBaseHorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.KCompletionBox_QBaseHorizontalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.KCompletionBox_QBaseHorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QAbstractItemView
@@ -10609,7 +10609,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, action: i32) callconv(.c) void `
     ///
     pub fn OnHorizontalScrollbarAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnHorizontalScrollbarAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnHorizontalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10625,7 +10625,7 @@ pub const kcompletionbox = struct {
     /// ` value: i32 `
     ///
     pub fn VerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.KCompletionBox_VerticalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.KCompletionBox_VerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -10641,7 +10641,7 @@ pub const kcompletionbox = struct {
     /// ` value: i32 `
     ///
     pub fn QBaseVerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.KCompletionBox_QBaseVerticalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.KCompletionBox_QBaseVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -10657,7 +10657,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, value: i32) callconv(.c) void `
     ///
     pub fn OnVerticalScrollbarValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnVerticalScrollbarValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10673,7 +10673,7 @@ pub const kcompletionbox = struct {
     /// ` value: i32 `
     ///
     pub fn HorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.KCompletionBox_HorizontalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.KCompletionBox_HorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -10689,7 +10689,7 @@ pub const kcompletionbox = struct {
     /// ` value: i32 `
     ///
     pub fn QBaseHorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.KCompletionBox_QBaseHorizontalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.KCompletionBox_QBaseHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -10705,7 +10705,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, value: i32) callconv(.c) void `
     ///
     pub fn OnHorizontalScrollbarValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnHorizontalScrollbarValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10723,7 +10723,7 @@ pub const kcompletionbox = struct {
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
     pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.KCompletionBox_CloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
+        qtc.KCompletionBox_CloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemView
@@ -10741,7 +10741,7 @@ pub const kcompletionbox = struct {
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
     pub fn QBaseCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.KCompletionBox_QBaseCloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
+        qtc.KCompletionBox_QBaseCloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemView
@@ -10757,7 +10757,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
     pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnCloseEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnCloseEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10805,7 +10805,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, editor: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnCommitData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnCommitData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10853,7 +10853,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, editor: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnEditorDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnEditorDestroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnEditorDestroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10873,7 +10873,7 @@ pub const kcompletionbox = struct {
     /// ` event: QtC.QEvent `
     ///
     pub fn Edit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.KCompletionBox_Edit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
+        return qtc.KCompletionBox_Edit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -10893,7 +10893,7 @@ pub const kcompletionbox = struct {
     /// ` event: QtC.QEvent `
     ///
     pub fn QBaseEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.KCompletionBox_QBaseEdit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
+        return qtc.KCompletionBox_QBaseEdit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -10909,7 +10909,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEdit2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCompletionBox_OnEdit2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnEdit2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10969,7 +10969,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex, event: QtC.QEvent) callconv(.c) i32 `
     ///
     pub fn OnSelectionCommand(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KCompletionBox_OnSelectionCommand(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSelectionCommand(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11017,7 +11017,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, next: bool) callconv(.c) bool `
     ///
     pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KCompletionBox_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11065,7 +11065,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnViewportEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCompletionBox_OnViewportEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnViewportEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11113,7 +11113,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11161,7 +11161,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11209,7 +11209,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QDragEnterEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11257,7 +11257,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11305,7 +11305,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11353,7 +11353,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11401,7 +11401,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -11445,7 +11445,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KCompletionBox_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -11493,7 +11493,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, viewport: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnSetupViewport(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnSetupViewport(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSetupViewport(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -11541,7 +11541,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, param1: QtC.QContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -11589,7 +11589,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, param1: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -11637,7 +11637,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, option: QtC.QStyleOptionFrame) callconv(.c) void `
     ///
     pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11681,7 +11681,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCompletionBox_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11697,7 +11697,7 @@ pub const kcompletionbox = struct {
     /// ` param1: i32 `
     ///
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KCompletionBox_HeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.KCompletionBox_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -11713,7 +11713,7 @@ pub const kcompletionbox = struct {
     /// ` param1: i32 `
     ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KCompletionBox_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.KCompletionBox_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -11729,7 +11729,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, param1: i32) callconv(.c) i32 `
     ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KCompletionBox_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11773,7 +11773,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KCompletionBox_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11817,7 +11817,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
     ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.KCompletionBox_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11865,7 +11865,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11913,7 +11913,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QEnterEvent) callconv(.c) void `
     ///
     pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11961,7 +11961,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12009,7 +12009,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QMoveEvent) callconv(.c) void `
     ///
     pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12057,7 +12057,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QCloseEvent) callconv(.c) void `
     ///
     pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12105,7 +12105,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QTabletEvent) callconv(.c) void `
     ///
     pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12153,7 +12153,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QActionEvent) callconv(.c) void `
     ///
     pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12201,7 +12201,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QShowEvent) callconv(.c) void `
     ///
     pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12249,7 +12249,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QHideEvent) callconv(.c) void `
     ///
     pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12313,7 +12313,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.KCompletionBox_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12329,7 +12329,7 @@ pub const kcompletionbox = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KCompletionBox_Metric(@ptrCast(self), @intCast(param1));
+        return qtc.KCompletionBox_Metric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -12345,7 +12345,7 @@ pub const kcompletionbox = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KCompletionBox_QBaseMetric(@ptrCast(self), @intCast(param1));
+        return qtc.KCompletionBox_QBaseMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -12361,7 +12361,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KCompletionBox_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12409,7 +12409,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12457,7 +12457,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
     ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.KCompletionBox_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12501,7 +12501,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainter `
     ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.KCompletionBox_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12549,7 +12549,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12597,7 +12597,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12645,7 +12645,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12693,7 +12693,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -12711,7 +12711,7 @@ pub const kcompletionbox = struct {
     /// ` height: i32 `
     ///
     pub fn ResizeContents(self: ?*anyopaque, width: i32, height: i32) void {
-        qtc.KCompletionBox_ResizeContents(@ptrCast(self), @intCast(width), @intCast(height));
+        qtc.KCompletionBox_ResizeContents(@ptrCast(self), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QListView
@@ -12729,7 +12729,7 @@ pub const kcompletionbox = struct {
     /// ` height: i32 `
     ///
     pub fn QBaseResizeContents(self: ?*anyopaque, width: i32, height: i32) void {
-        qtc.KCompletionBox_QBaseResizeContents(@ptrCast(self), @intCast(width), @intCast(height));
+        qtc.KCompletionBox_QBaseResizeContents(@ptrCast(self), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QListView
@@ -12745,7 +12745,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, width: i32, height: i32) callconv(.c) void `
     ///
     pub fn OnResizeContents(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnResizeContents(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnResizeContents(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -12789,7 +12789,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnContentsSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KCompletionBox_OnContentsSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnContentsSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -12837,7 +12837,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, index: QtC.QModelIndex) callconv(.c) QtC.QRect `
     ///
     pub fn OnRectForIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.KCompletionBox_OnRectForIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnRectForIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -12889,7 +12889,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, position: QtC.QPoint, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnSetPositionForIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnSetPositionForIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSetPositionForIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12941,7 +12941,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnState(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCompletionBox_OnState(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12957,7 +12957,7 @@ pub const kcompletionbox = struct {
     /// ` state: qabstractitemview_enums.State `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.KCompletionBox_SetState(@ptrCast(self), @intCast(state));
+        qtc.KCompletionBox_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QAbstractItemView
@@ -12973,7 +12973,7 @@ pub const kcompletionbox = struct {
     /// ` state: qabstractitemview_enums.State `
     ///
     pub fn QBaseSetState(self: ?*anyopaque, state: i32) void {
-        qtc.KCompletionBox_QBaseSetState(@ptrCast(self), @intCast(state));
+        qtc.KCompletionBox_QBaseSetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QAbstractItemView
@@ -12989,7 +12989,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, state: qabstractitemview_enums.State) callconv(.c) void `
     ///
     pub fn OnSetState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnSetState(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSetState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -13033,7 +13033,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnScheduleDelayedItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnScheduleDelayedItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnScheduleDelayedItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -13077,7 +13077,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnExecuteDelayedItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnExecuteDelayedItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnExecuteDelayedItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -13125,7 +13125,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, region: QtC.QRegion) callconv(.c) void `
     ///
     pub fn OnSetDirtyRegion(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnSetDirtyRegion(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSetDirtyRegion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -13143,7 +13143,7 @@ pub const kcompletionbox = struct {
     /// ` dy: i32 `
     ///
     pub fn ScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.KCompletionBox_ScrollDirtyRegion(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.KCompletionBox_ScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QAbstractItemView
@@ -13161,7 +13161,7 @@ pub const kcompletionbox = struct {
     /// ` dy: i32 `
     ///
     pub fn QBaseScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.KCompletionBox_QBaseScrollDirtyRegion(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.KCompletionBox_QBaseScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QAbstractItemView
@@ -13177,7 +13177,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, dx: i32, dy: i32) callconv(.c) void `
     ///
     pub fn OnScrollDirtyRegion(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnScrollDirtyRegion(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnScrollDirtyRegion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -13221,7 +13221,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPoint `
     ///
     pub fn OnDirtyRegionOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPoint) void {
-        qtc.KCompletionBox_OnDirtyRegionOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnDirtyRegionOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -13265,7 +13265,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnStartAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnStartAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnStartAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -13309,7 +13309,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnStopAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnStopAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnStopAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -13353,7 +13353,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnDoAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnDoAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnDoAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -13405,7 +13405,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDropIndicatorPosition(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCompletionBox_OnDropIndicatorPosition(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnDropIndicatorPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -13427,7 +13427,7 @@ pub const kcompletionbox = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.KCompletionBox_SetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.KCompletionBox_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -13449,7 +13449,7 @@ pub const kcompletionbox = struct {
     /// ` bottom: i32 `
     ///
     pub fn QBaseSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.KCompletionBox_QBaseSetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.KCompletionBox_QBaseSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -13465,7 +13465,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
     pub fn OnSetViewportMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.KCompletionBox_OnSetViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSetViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -13509,7 +13509,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMargins `
     ///
     pub fn OnViewportMargins(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMargins) void {
-        qtc.KCompletionBox_OnViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -13557,7 +13557,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, param1: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBox_OnDrawFrame(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnDrawFrame(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13601,7 +13601,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13645,7 +13645,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13689,7 +13689,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCompletionBox_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13733,7 +13733,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KCompletionBox_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13777,7 +13777,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KCompletionBox_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13821,7 +13821,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KCompletionBox_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13865,7 +13865,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCompletionBox_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13915,7 +13915,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KCompletionBox_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13963,7 +13963,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCompletionBox_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -13981,7 +13981,7 @@ pub const kcompletionbox = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KCompletionBox_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.KCompletionBox_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -13999,7 +13999,7 @@ pub const kcompletionbox = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KCompletionBox_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.KCompletionBox_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -14015,7 +14015,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.KCompletionBox_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBox_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -14031,7 +14031,7 @@ pub const kcompletionbox = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#dtor.KCompletionBox)

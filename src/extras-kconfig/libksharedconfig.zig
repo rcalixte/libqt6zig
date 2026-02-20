@@ -579,6 +579,6 @@ pub const ksharedconfig = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        qtc.KConfigBase_DeleteGroup2(@ptrCast(self), group_str, @intCast(flags));
+        qtc.KConfigBase_DeleteGroup2(@ptrCast(self), group_str, @bitCast(flags));
     }
 };

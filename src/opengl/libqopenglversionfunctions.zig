@@ -42,7 +42,7 @@ pub const qopenglversionstatus = struct {
     /// ` functionStatus: qopenglversionfunctions_enums.OpenGLStatus `
     ///
     pub fn New4(majorVersion: i32, minorVersion: i32, functionStatus: i32) QtC.QOpenGLVersionStatus {
-        return qtc.QOpenGLVersionStatus_new4(@intCast(majorVersion), @intCast(minorVersion), @intCast(functionStatus));
+        return qtc.QOpenGLVersionStatus_new4(@bitCast(majorVersion), @bitCast(minorVersion), @bitCast(functionStatus));
     }
 
     /// New5 constructs a new QOpenGLVersionStatus object.
@@ -101,7 +101,7 @@ pub const qopenglversionstatus = struct {
     /// ` status: qopenglversionfunctions_enums.OpenGLStatus `
     ///
     pub fn SetStatus(self: ?*anyopaque, status: i32) void {
-        qtc.QOpenGLVersionStatus_SetStatus(@ptrCast(self), @intCast(status));
+        qtc.QOpenGLVersionStatus_SetStatus(@ptrCast(self), @bitCast(status));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#operator-eq)

@@ -13,7 +13,7 @@ pub const kkeyserver = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ModToStringUser(param1: u32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KKeyServer_ModToStringUser(@intCast(param1));
+        var _str = qtc.KKeyServer_ModToStringUser(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kkeyserver.ModToStringUser: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -41,7 +41,7 @@ pub const kkeyserver = struct {
     /// ` param1: i32 `
     ///
     pub fn IsShiftAsModifierAllowed(param1: i32) bool {
-        return qtc.KKeyServer_IsShiftAsModifierAllowed(@intCast(param1));
+        return qtc.KKeyServer_IsShiftAsModifierAllowed(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#initializeMods)
@@ -119,7 +119,7 @@ pub const kkeyserver = struct {
     /// ` param2: *i32 `
     ///
     pub fn KeyQtToSymX(param1: i32, param2: *i32) bool {
-        return qtc.KKeyServer_KeyQtToSymX(@intCast(param1), @ptrCast(param2));
+        return qtc.KKeyServer_KeyQtToSymX(@bitCast(param1), @ptrCast(param2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#keyQtToSymXs)
@@ -131,7 +131,7 @@ pub const kkeyserver = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn KeyQtToSymXs(param1: i32, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.KKeyServer_KeyQtToSymXs(@intCast(param1));
+        const _arr: qtc.libqt_list = qtc.KKeyServer_KeyQtToSymXs(@bitCast(param1));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("kkeyserver.KeyQtToSymXs: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -148,7 +148,7 @@ pub const kkeyserver = struct {
     /// ` param2: *i32 `
     ///
     pub fn KeyQtToCodeX(param1: i32, param2: *i32) bool {
-        return qtc.KKeyServer_KeyQtToCodeX(@intCast(param1), @ptrCast(param2));
+        return qtc.KKeyServer_KeyQtToCodeX(@bitCast(param1), @ptrCast(param2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#keyQtToCodeXs)
@@ -160,7 +160,7 @@ pub const kkeyserver = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn KeyQtToCodeXs(param1: i32, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.KKeyServer_KeyQtToCodeXs(@intCast(param1));
+        const _arr: qtc.libqt_list = qtc.KKeyServer_KeyQtToCodeXs(@bitCast(param1));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("kkeyserver.KeyQtToCodeXs: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -177,7 +177,7 @@ pub const kkeyserver = struct {
     /// ` param2: *u32 `
     ///
     pub fn KeyQtToModX(param1: i32, param2: *u32) bool {
-        return qtc.KKeyServer_KeyQtToModX(@intCast(param1), @ptrCast(param2));
+        return qtc.KKeyServer_KeyQtToModX(@bitCast(param1), @ptrCast(param2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#symXModXToKeyQt)
@@ -191,7 +191,7 @@ pub const kkeyserver = struct {
     /// ` param3: *i32 `
     ///
     pub fn SymXModXToKeyQt(param1: u32, param2: u16, param3: *i32) bool {
-        return qtc.KKeyServer_SymXModXToKeyQt(@intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KKeyServer_SymXModXToKeyQt(@bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#modXToQt)
@@ -203,6 +203,6 @@ pub const kkeyserver = struct {
     /// ` param2: *i32 `
     ///
     pub fn ModXToQt(param1: u32, param2: *i32) bool {
-        return qtc.KKeyServer_ModXToQt(@intCast(param1), @ptrCast(param2));
+        return qtc.KKeyServer_ModXToQt(@bitCast(param1), @ptrCast(param2));
     }
 };

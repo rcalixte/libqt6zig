@@ -39,7 +39,7 @@ pub const qcalendar = struct {
     /// ` system: qcalendar_enums.System `
     ///
     pub fn New4(system: i32) QtC.QCalendar {
-        return qtc.QCalendar_new4(@intCast(system));
+        return qtc.QCalendar_new4(@bitCast(system));
     }
 
     /// New5 constructs a new QCalendar object.
@@ -105,7 +105,7 @@ pub const qcalendar = struct {
     /// ` month: i32 `
     ///
     pub fn DaysInMonth(self: ?*anyopaque, month: i32) i32 {
-        return qtc.QCalendar_DaysInMonth(@ptrCast(self), @intCast(month));
+        return qtc.QCalendar_DaysInMonth(@ptrCast(self), @bitCast(month));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#daysInYear)
@@ -117,7 +117,7 @@ pub const qcalendar = struct {
     /// ` year: i32 `
     ///
     pub fn DaysInYear(self: ?*anyopaque, year: i32) i32 {
-        return qtc.QCalendar_DaysInYear(@ptrCast(self), @intCast(year));
+        return qtc.QCalendar_DaysInYear(@ptrCast(self), @bitCast(year));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#monthsInYear)
@@ -129,7 +129,7 @@ pub const qcalendar = struct {
     /// ` year: i32 `
     ///
     pub fn MonthsInYear(self: ?*anyopaque, year: i32) i32 {
-        return qtc.QCalendar_MonthsInYear(@ptrCast(self), @intCast(year));
+        return qtc.QCalendar_MonthsInYear(@ptrCast(self), @bitCast(year));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isDateValid)
@@ -145,7 +145,7 @@ pub const qcalendar = struct {
     /// ` day: i32 `
     ///
     pub fn IsDateValid(self: ?*anyopaque, year: i32, month: i32, day: i32) bool {
-        return qtc.QCalendar_IsDateValid(@ptrCast(self), @intCast(year), @intCast(month), @intCast(day));
+        return qtc.QCalendar_IsDateValid(@ptrCast(self), @bitCast(year), @bitCast(month), @bitCast(day));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isLeapYear)
@@ -157,7 +157,7 @@ pub const qcalendar = struct {
     /// ` year: i32 `
     ///
     pub fn IsLeapYear(self: ?*anyopaque, year: i32) bool {
-        return qtc.QCalendar_IsLeapYear(@ptrCast(self), @intCast(year));
+        return qtc.QCalendar_IsLeapYear(@ptrCast(self), @bitCast(year));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isGregorian)
@@ -279,7 +279,7 @@ pub const qcalendar = struct {
     /// ` day: i32 `
     ///
     pub fn DateFromParts(self: ?*anyopaque, year: i32, month: i32, day: i32) QtC.QDate {
-        return qtc.QCalendar_DateFromParts(@ptrCast(self), @intCast(year), @intCast(month), @intCast(day));
+        return qtc.QCalendar_DateFromParts(@ptrCast(self), @bitCast(year), @bitCast(month), @bitCast(day));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#dateFromParts)
@@ -305,7 +305,7 @@ pub const qcalendar = struct {
     /// ` dow: i32 `
     ///
     pub fn MatchCenturyToWeekday(self: ?*anyopaque, parts: ?*anyopaque, dow: i32) QtC.QDate {
-        return qtc.QCalendar_MatchCenturyToWeekday(@ptrCast(self), @ptrCast(parts), @intCast(dow));
+        return qtc.QCalendar_MatchCenturyToWeekday(@ptrCast(self), @ptrCast(parts), @bitCast(dow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#partsFromDate)
@@ -345,7 +345,7 @@ pub const qcalendar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MonthName(self: ?*anyopaque, locale: ?*anyopaque, month: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCalendar_MonthName(@ptrCast(self), @ptrCast(locale), @intCast(month));
+        var _str = qtc.QCalendar_MonthName(@ptrCast(self), @ptrCast(locale), @bitCast(month));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.MonthName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -365,7 +365,7 @@ pub const qcalendar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StandaloneMonthName(self: ?*anyopaque, locale: ?*anyopaque, month: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCalendar_StandaloneMonthName(@ptrCast(self), @ptrCast(locale), @intCast(month));
+        var _str = qtc.QCalendar_StandaloneMonthName(@ptrCast(self), @ptrCast(locale), @bitCast(month));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.StandaloneMonthName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -385,7 +385,7 @@ pub const qcalendar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WeekDayName(self: ?*anyopaque, locale: ?*anyopaque, day: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCalendar_WeekDayName(@ptrCast(self), @ptrCast(locale), @intCast(day));
+        var _str = qtc.QCalendar_WeekDayName(@ptrCast(self), @ptrCast(locale), @bitCast(day));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.WeekDayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -405,7 +405,7 @@ pub const qcalendar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StandaloneWeekDayName(self: ?*anyopaque, locale: ?*anyopaque, day: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCalendar_StandaloneWeekDayName(@ptrCast(self), @ptrCast(locale), @intCast(day));
+        var _str = qtc.QCalendar_StandaloneWeekDayName(@ptrCast(self), @ptrCast(locale), @bitCast(day));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.StandaloneWeekDayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -448,7 +448,7 @@ pub const qcalendar = struct {
     /// ` year: i32 `
     ///
     pub fn DaysInMonth2(self: ?*anyopaque, month: i32, year: i32) i32 {
-        return qtc.QCalendar_DaysInMonth2(@ptrCast(self), @intCast(month), @intCast(year));
+        return qtc.QCalendar_DaysInMonth2(@ptrCast(self), @bitCast(month), @bitCast(year));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#monthName)
@@ -466,7 +466,7 @@ pub const qcalendar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MonthName3(self: ?*anyopaque, locale: ?*anyopaque, month: i32, year: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCalendar_MonthName3(@ptrCast(self), @ptrCast(locale), @intCast(month), @intCast(year));
+        var _str = qtc.QCalendar_MonthName3(@ptrCast(self), @ptrCast(locale), @bitCast(month), @bitCast(year));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.MonthName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -490,7 +490,7 @@ pub const qcalendar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MonthName4(self: ?*anyopaque, locale: ?*anyopaque, month: i32, year: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCalendar_MonthName4(@ptrCast(self), @ptrCast(locale), @intCast(month), @intCast(year), @intCast(format));
+        var _str = qtc.QCalendar_MonthName4(@ptrCast(self), @ptrCast(locale), @bitCast(month), @bitCast(year), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.MonthName4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -512,7 +512,7 @@ pub const qcalendar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StandaloneMonthName3(self: ?*anyopaque, locale: ?*anyopaque, month: i32, year: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCalendar_StandaloneMonthName3(@ptrCast(self), @ptrCast(locale), @intCast(month), @intCast(year));
+        var _str = qtc.QCalendar_StandaloneMonthName3(@ptrCast(self), @ptrCast(locale), @bitCast(month), @bitCast(year));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.StandaloneMonthName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -536,7 +536,7 @@ pub const qcalendar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StandaloneMonthName4(self: ?*anyopaque, locale: ?*anyopaque, month: i32, year: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCalendar_StandaloneMonthName4(@ptrCast(self), @ptrCast(locale), @intCast(month), @intCast(year), @intCast(format));
+        var _str = qtc.QCalendar_StandaloneMonthName4(@ptrCast(self), @ptrCast(locale), @bitCast(month), @bitCast(year), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.StandaloneMonthName4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -558,7 +558,7 @@ pub const qcalendar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WeekDayName3(self: ?*anyopaque, locale: ?*anyopaque, day: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCalendar_WeekDayName3(@ptrCast(self), @ptrCast(locale), @intCast(day), @intCast(format));
+        var _str = qtc.QCalendar_WeekDayName3(@ptrCast(self), @ptrCast(locale), @bitCast(day), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.WeekDayName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -580,7 +580,7 @@ pub const qcalendar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StandaloneWeekDayName3(self: ?*anyopaque, locale: ?*anyopaque, day: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCalendar_StandaloneWeekDayName3(@ptrCast(self), @ptrCast(locale), @intCast(day), @intCast(format));
+        var _str = qtc.QCalendar_StandaloneWeekDayName3(@ptrCast(self), @ptrCast(locale), @bitCast(day), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.StandaloneWeekDayName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -635,7 +635,7 @@ pub const qcalendar__yearmonthday = struct {
     /// ` y: i32 `
     ///
     pub fn New4(y: i32) QtC.QCalendar__YearMonthDay {
-        return qtc.QCalendar__YearMonthDay_new4(@intCast(y));
+        return qtc.QCalendar__YearMonthDay_new4(@bitCast(y));
     }
 
     /// New5 constructs a new QCalendar::YearMonthDay object.
@@ -647,7 +647,7 @@ pub const qcalendar__yearmonthday = struct {
     /// ` m: i32 `
     ///
     pub fn New5(y: i32, m: i32) QtC.QCalendar__YearMonthDay {
-        return qtc.QCalendar__YearMonthDay_new5(@intCast(y), @intCast(m));
+        return qtc.QCalendar__YearMonthDay_new5(@bitCast(y), @bitCast(m));
     }
 
     /// New6 constructs a new QCalendar::YearMonthDay object.
@@ -661,7 +661,7 @@ pub const qcalendar__yearmonthday = struct {
     /// ` d: i32 `
     ///
     pub fn New6(y: i32, m: i32, d: i32) QtC.QCalendar__YearMonthDay {
-        return qtc.QCalendar__YearMonthDay_new6(@intCast(y), @intCast(m), @intCast(d));
+        return qtc.QCalendar__YearMonthDay_new6(@bitCast(y), @bitCast(m), @bitCast(d));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -717,7 +717,7 @@ pub const qcalendar__yearmonthday = struct {
     /// ` year: i32 `
     ///
     pub fn SetYear(self: ?*anyopaque, year: i32) void {
-        qtc.QCalendar__YearMonthDay_SetYear(@ptrCast(self), @intCast(year));
+        qtc.QCalendar__YearMonthDay_SetYear(@ptrCast(self), @bitCast(year));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#month-var)
@@ -739,7 +739,7 @@ pub const qcalendar__yearmonthday = struct {
     /// ` month: i32 `
     ///
     pub fn SetMonth(self: ?*anyopaque, month: i32) void {
-        qtc.QCalendar__YearMonthDay_SetMonth(@ptrCast(self), @intCast(month));
+        qtc.QCalendar__YearMonthDay_SetMonth(@ptrCast(self), @bitCast(month));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#day-var)
@@ -761,7 +761,7 @@ pub const qcalendar__yearmonthday = struct {
     /// ` day: i32 `
     ///
     pub fn SetDay(self: ?*anyopaque, day: i32) void {
-        qtc.QCalendar__YearMonthDay_SetDay(@ptrCast(self), @intCast(day));
+        qtc.QCalendar__YearMonthDay_SetDay(@ptrCast(self), @bitCast(day));
     }
 
     /// Delete this object from C++ memory.

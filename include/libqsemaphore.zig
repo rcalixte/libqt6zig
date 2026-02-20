@@ -16,7 +16,7 @@ pub const qsemaphore = struct {
     /// ` n: i32 `
     ///
     pub fn New2(n: i32) QtC.QSemaphore {
-        return qtc.QSemaphore_new2(@intCast(n));
+        return qtc.QSemaphore_new2(@bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#acquire)
@@ -50,7 +50,7 @@ pub const qsemaphore = struct {
     /// ` timeout: i32 `
     ///
     pub fn TryAcquire2(self: ?*anyopaque, n: i32, timeout: i32) bool {
-        return qtc.QSemaphore_TryAcquire2(@ptrCast(self), @intCast(n), @intCast(timeout));
+        return qtc.QSemaphore_TryAcquire2(@ptrCast(self), @bitCast(n), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#tryAcquire)
@@ -64,7 +64,7 @@ pub const qsemaphore = struct {
     /// ` timeout: QtC.QDeadlineTimer `
     ///
     pub fn TryAcquire3(self: ?*anyopaque, n: i32, timeout: QtC.QDeadlineTimer) bool {
-        return qtc.QSemaphore_TryAcquire3(@ptrCast(self), @intCast(n), @ptrCast(timeout));
+        return qtc.QSemaphore_TryAcquire3(@ptrCast(self), @bitCast(n), @ptrCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#release)
@@ -106,7 +106,7 @@ pub const qsemaphore = struct {
     /// ` n: i32 `
     ///
     pub fn Acquire1(self: ?*anyopaque, n: i32) void {
-        qtc.QSemaphore_Acquire1(@ptrCast(self), @intCast(n));
+        qtc.QSemaphore_Acquire1(@ptrCast(self), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#tryAcquire)
@@ -118,7 +118,7 @@ pub const qsemaphore = struct {
     /// ` n: i32 `
     ///
     pub fn TryAcquire1(self: ?*anyopaque, n: i32) bool {
-        return qtc.QSemaphore_TryAcquire1(@ptrCast(self), @intCast(n));
+        return qtc.QSemaphore_TryAcquire1(@ptrCast(self), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#release)
@@ -130,7 +130,7 @@ pub const qsemaphore = struct {
     /// ` n: i32 `
     ///
     pub fn Release1(self: ?*anyopaque, n: i32) void {
-        qtc.QSemaphore_Release1(@ptrCast(self), @intCast(n));
+        qtc.QSemaphore_Release1(@ptrCast(self), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#dtor.QSemaphore)
@@ -183,7 +183,7 @@ pub const qsemaphorereleaser = struct {
     /// ` n: i32 `
     ///
     pub fn New4(sem: ?*anyopaque, n: i32) QtC.QSemaphoreReleaser {
-        return qtc.QSemaphoreReleaser_new4(@ptrCast(sem), @intCast(n));
+        return qtc.QSemaphoreReleaser_new4(@ptrCast(sem), @bitCast(n));
     }
 
     /// New5 constructs a new QSemaphoreReleaser object.
@@ -195,7 +195,7 @@ pub const qsemaphorereleaser = struct {
     /// ` n: i32 `
     ///
     pub fn New5(sem: ?*anyopaque, n: i32) QtC.QSemaphoreReleaser {
-        return qtc.QSemaphoreReleaser_new5(@ptrCast(sem), @intCast(n));
+        return qtc.QSemaphoreReleaser_new5(@ptrCast(sem), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsemaphorereleaser.html#swap)

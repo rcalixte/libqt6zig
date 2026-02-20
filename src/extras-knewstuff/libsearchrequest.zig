@@ -12,7 +12,7 @@ pub const knscore = struct {
     /// ` param1: searchrequest_enums.SortMode `
     ///
     pub fn GetEnumMetaObject(param1: i32) QtC.QMetaObject {
-        return qtc.KNSCore_GetEnumMetaObject(@intCast(param1));
+        return qtc.KNSCore_GetEnumMetaObject(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore.html#qt_getEnumName)
@@ -22,7 +22,7 @@ pub const knscore = struct {
     /// ` param1: searchrequest_enums.SortMode `
     ///
     pub fn GetEnumName(param1: i32) [:0]const u8 {
-        const _ret = qtc.KNSCore_GetEnumName(@intCast(param1));
+        const _ret = qtc.KNSCore_GetEnumName(@bitCast(param1));
         return std.mem.span(_ret);
     }
 
@@ -33,7 +33,7 @@ pub const knscore = struct {
     /// ` param1: searchrequest_enums.Filter `
     ///
     pub fn GetEnumMetaObject2(param1: i32) QtC.QMetaObject {
-        return qtc.KNSCore_GetEnumMetaObject2(@intCast(param1));
+        return qtc.KNSCore_GetEnumMetaObject2(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore.html#qt_getEnumName)
@@ -43,7 +43,7 @@ pub const knscore = struct {
     /// ` param1: searchrequest_enums.Filter `
     ///
     pub fn GetEnumName2(param1: i32) [:0]const u8 {
-        const _ret = qtc.KNSCore_GetEnumName2(@intCast(param1));
+        const _ret = qtc.KNSCore_GetEnumName2(@bitCast(param1));
         return std.mem.span(_ret);
     }
 };
@@ -73,7 +73,7 @@ pub const knscore__searchrequest = struct {
     /// ` sortMode_: searchrequest_enums.SortMode `
     ///
     pub fn New3(sortMode_: i32) QtC.KNSCore__SearchRequest {
-        return qtc.KNSCore__SearchRequest_new3(@intCast(sortMode_));
+        return qtc.KNSCore__SearchRequest_new3(@bitCast(sortMode_));
     }
 
     /// New4 constructs a new KNSCore::SearchRequest object.
@@ -85,7 +85,7 @@ pub const knscore__searchrequest = struct {
     /// ` filter_: searchrequest_enums.Filter `
     ///
     pub fn New4(sortMode_: i32, filter_: i32) QtC.KNSCore__SearchRequest {
-        return qtc.KNSCore__SearchRequest_new4(@intCast(sortMode_), @intCast(filter_));
+        return qtc.KNSCore__SearchRequest_new4(@bitCast(sortMode_), @bitCast(filter_));
     }
 
     /// New5 constructs a new KNSCore::SearchRequest object.
@@ -104,7 +104,7 @@ pub const knscore__searchrequest = struct {
             .data = searchTerm_.ptr,
         };
 
-        return qtc.KNSCore__SearchRequest_new5(@intCast(sortMode_), @intCast(filter_), searchTerm__str);
+        return qtc.KNSCore__SearchRequest_new5(@bitCast(sortMode_), @bitCast(filter_), searchTerm__str);
     }
 
     /// New6 constructs a new KNSCore::SearchRequest object.
@@ -139,7 +139,7 @@ pub const knscore__searchrequest = struct {
             .data = categories__arr.ptr,
         };
 
-        return qtc.KNSCore__SearchRequest_new6(@intCast(sortMode_), @intCast(filter_), searchTerm__str, categories__list);
+        return qtc.KNSCore__SearchRequest_new6(@bitCast(sortMode_), @bitCast(filter_), searchTerm__str, categories__list);
     }
 
     /// New7 constructs a new KNSCore::SearchRequest object.
@@ -176,7 +176,7 @@ pub const knscore__searchrequest = struct {
             .data = categories__arr.ptr,
         };
 
-        return qtc.KNSCore__SearchRequest_new7(@intCast(sortMode_), @intCast(filter_), searchTerm__str, categories__list, @intCast(page_));
+        return qtc.KNSCore__SearchRequest_new7(@bitCast(sortMode_), @bitCast(filter_), searchTerm__str, categories__list, @bitCast(page_));
     }
 
     /// New8 constructs a new KNSCore::SearchRequest object.
@@ -215,7 +215,7 @@ pub const knscore__searchrequest = struct {
             .data = categories__arr.ptr,
         };
 
-        return qtc.KNSCore__SearchRequest_new8(@intCast(sortMode_), @intCast(filter_), searchTerm__str, categories__list, @intCast(page_), @intCast(pageSize_));
+        return qtc.KNSCore__SearchRequest_new8(@bitCast(sortMode_), @bitCast(filter_), searchTerm__str, categories__list, @bitCast(page_), @bitCast(pageSize_));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-searchrequest.html#sortMode)

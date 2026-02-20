@@ -102,7 +102,7 @@ pub const netpoint = struct {
     /// ` x: i32 `
     ///
     pub fn SetX(self: ?*anyopaque, x: i32) void {
-        qtc.NETPoint_SetX(@ptrCast(self), @intCast(x));
+        qtc.NETPoint_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netpoint.html#y-var)
@@ -124,7 +124,7 @@ pub const netpoint = struct {
     /// ` y: i32 `
     ///
     pub fn SetY(self: ?*anyopaque, y: i32) void {
-        qtc.NETPoint_SetY(@ptrCast(self), @intCast(y));
+        qtc.NETPoint_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netpoint.html#dtor.NETPoint)
@@ -241,7 +241,7 @@ pub const netsize = struct {
     /// ` width: i32 `
     ///
     pub fn SetWidth(self: ?*anyopaque, width: i32) void {
-        qtc.NETSize_SetWidth(@ptrCast(self), @intCast(width));
+        qtc.NETSize_SetWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netsize.html#height-var)
@@ -263,7 +263,7 @@ pub const netsize = struct {
     /// ` height: i32 `
     ///
     pub fn SetHeight(self: ?*anyopaque, height: i32) void {
-        qtc.NETSize_SetHeight(@ptrCast(self), @intCast(height));
+        qtc.NETSize_SetHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netsize.html#dtor.NETSize)
@@ -588,7 +588,7 @@ pub const netextendedstrut = struct {
     /// ` left_width: i32 `
     ///
     pub fn SetLeftWidth(self: ?*anyopaque, left_width: i32) void {
-        qtc.NETExtendedStrut_SetLeftWidth(@ptrCast(self), @intCast(left_width));
+        qtc.NETExtendedStrut_SetLeftWidth(@ptrCast(self), @bitCast(left_width));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#left_start-var)
@@ -610,7 +610,7 @@ pub const netextendedstrut = struct {
     /// ` left_start: i32 `
     ///
     pub fn SetLeftStart(self: ?*anyopaque, left_start: i32) void {
-        qtc.NETExtendedStrut_SetLeftStart(@ptrCast(self), @intCast(left_start));
+        qtc.NETExtendedStrut_SetLeftStart(@ptrCast(self), @bitCast(left_start));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#left_end-var)
@@ -632,7 +632,7 @@ pub const netextendedstrut = struct {
     /// ` left_end: i32 `
     ///
     pub fn SetLeftEnd(self: ?*anyopaque, left_end: i32) void {
-        qtc.NETExtendedStrut_SetLeftEnd(@ptrCast(self), @intCast(left_end));
+        qtc.NETExtendedStrut_SetLeftEnd(@ptrCast(self), @bitCast(left_end));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_width-var)
@@ -654,7 +654,7 @@ pub const netextendedstrut = struct {
     /// ` right_width: i32 `
     ///
     pub fn SetRightWidth(self: ?*anyopaque, right_width: i32) void {
-        qtc.NETExtendedStrut_SetRightWidth(@ptrCast(self), @intCast(right_width));
+        qtc.NETExtendedStrut_SetRightWidth(@ptrCast(self), @bitCast(right_width));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_start-var)
@@ -676,7 +676,7 @@ pub const netextendedstrut = struct {
     /// ` right_start: i32 `
     ///
     pub fn SetRightStart(self: ?*anyopaque, right_start: i32) void {
-        qtc.NETExtendedStrut_SetRightStart(@ptrCast(self), @intCast(right_start));
+        qtc.NETExtendedStrut_SetRightStart(@ptrCast(self), @bitCast(right_start));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_end-var)
@@ -698,7 +698,7 @@ pub const netextendedstrut = struct {
     /// ` right_end: i32 `
     ///
     pub fn SetRightEnd(self: ?*anyopaque, right_end: i32) void {
-        qtc.NETExtendedStrut_SetRightEnd(@ptrCast(self), @intCast(right_end));
+        qtc.NETExtendedStrut_SetRightEnd(@ptrCast(self), @bitCast(right_end));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_width-var)
@@ -720,7 +720,7 @@ pub const netextendedstrut = struct {
     /// ` top_width: i32 `
     ///
     pub fn SetTopWidth(self: ?*anyopaque, top_width: i32) void {
-        qtc.NETExtendedStrut_SetTopWidth(@ptrCast(self), @intCast(top_width));
+        qtc.NETExtendedStrut_SetTopWidth(@ptrCast(self), @bitCast(top_width));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_start-var)
@@ -742,7 +742,7 @@ pub const netextendedstrut = struct {
     /// ` top_start: i32 `
     ///
     pub fn SetTopStart(self: ?*anyopaque, top_start: i32) void {
-        qtc.NETExtendedStrut_SetTopStart(@ptrCast(self), @intCast(top_start));
+        qtc.NETExtendedStrut_SetTopStart(@ptrCast(self), @bitCast(top_start));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_end-var)
@@ -764,7 +764,7 @@ pub const netextendedstrut = struct {
     /// ` top_end: i32 `
     ///
     pub fn SetTopEnd(self: ?*anyopaque, top_end: i32) void {
-        qtc.NETExtendedStrut_SetTopEnd(@ptrCast(self), @intCast(top_end));
+        qtc.NETExtendedStrut_SetTopEnd(@ptrCast(self), @bitCast(top_end));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_width-var)
@@ -786,7 +786,7 @@ pub const netextendedstrut = struct {
     /// ` bottom_width: i32 `
     ///
     pub fn SetBottomWidth(self: ?*anyopaque, bottom_width: i32) void {
-        qtc.NETExtendedStrut_SetBottomWidth(@ptrCast(self), @intCast(bottom_width));
+        qtc.NETExtendedStrut_SetBottomWidth(@ptrCast(self), @bitCast(bottom_width));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_start-var)
@@ -808,7 +808,7 @@ pub const netextendedstrut = struct {
     /// ` bottom_start: i32 `
     ///
     pub fn SetBottomStart(self: ?*anyopaque, bottom_start: i32) void {
-        qtc.NETExtendedStrut_SetBottomStart(@ptrCast(self), @intCast(bottom_start));
+        qtc.NETExtendedStrut_SetBottomStart(@ptrCast(self), @bitCast(bottom_start));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_end-var)
@@ -830,7 +830,7 @@ pub const netextendedstrut = struct {
     /// ` bottom_end: i32 `
     ///
     pub fn SetBottomEnd(self: ?*anyopaque, bottom_end: i32) void {
-        qtc.NETExtendedStrut_SetBottomEnd(@ptrCast(self), @intCast(bottom_end));
+        qtc.NETExtendedStrut_SetBottomEnd(@ptrCast(self), @bitCast(bottom_end));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#dtor.NETExtendedStrut)
@@ -917,7 +917,7 @@ pub const netstrut = struct {
     /// ` left: i32 `
     ///
     pub fn SetLeft(self: ?*anyopaque, left: i32) void {
-        qtc.NETStrut_SetLeft(@ptrCast(self), @intCast(left));
+        qtc.NETStrut_SetLeft(@ptrCast(self), @bitCast(left));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netstrut.html#right-var)
@@ -939,7 +939,7 @@ pub const netstrut = struct {
     /// ` right: i32 `
     ///
     pub fn SetRight(self: ?*anyopaque, right: i32) void {
-        qtc.NETStrut_SetRight(@ptrCast(self), @intCast(right));
+        qtc.NETStrut_SetRight(@ptrCast(self), @bitCast(right));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netstrut.html#top-var)
@@ -961,7 +961,7 @@ pub const netstrut = struct {
     /// ` top: i32 `
     ///
     pub fn SetTop(self: ?*anyopaque, top: i32) void {
-        qtc.NETStrut_SetTop(@ptrCast(self), @intCast(top));
+        qtc.NETStrut_SetTop(@ptrCast(self), @bitCast(top));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netstrut.html#bottom-var)
@@ -983,7 +983,7 @@ pub const netstrut = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetBottom(self: ?*anyopaque, bottom: i32) void {
-        qtc.NETStrut_SetBottom(@ptrCast(self), @intCast(bottom));
+        qtc.NETStrut_SetBottom(@ptrCast(self), @bitCast(bottom));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netstrut.html#dtor.NETStrut)
@@ -1070,7 +1070,7 @@ pub const netfullscreenmonitors = struct {
     /// ` top: i32 `
     ///
     pub fn SetTop(self: ?*anyopaque, top: i32) void {
-        qtc.NETFullscreenMonitors_SetTop(@ptrCast(self), @intCast(top));
+        qtc.NETFullscreenMonitors_SetTop(@ptrCast(self), @bitCast(top));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#bottom-var)
@@ -1092,7 +1092,7 @@ pub const netfullscreenmonitors = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetBottom(self: ?*anyopaque, bottom: i32) void {
-        qtc.NETFullscreenMonitors_SetBottom(@ptrCast(self), @intCast(bottom));
+        qtc.NETFullscreenMonitors_SetBottom(@ptrCast(self), @bitCast(bottom));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#left-var)
@@ -1114,7 +1114,7 @@ pub const netfullscreenmonitors = struct {
     /// ` left: i32 `
     ///
     pub fn SetLeft(self: ?*anyopaque, left: i32) void {
-        qtc.NETFullscreenMonitors_SetLeft(@ptrCast(self), @intCast(left));
+        qtc.NETFullscreenMonitors_SetLeft(@ptrCast(self), @bitCast(left));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#right-var)
@@ -1136,7 +1136,7 @@ pub const netfullscreenmonitors = struct {
     /// ` right: i32 `
     ///
     pub fn SetRight(self: ?*anyopaque, right: i32) void {
-        qtc.NETFullscreenMonitors_SetRight(@ptrCast(self), @intCast(right));
+        qtc.NETFullscreenMonitors_SetRight(@ptrCast(self), @bitCast(right));
     }
 
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#isSet)
@@ -1217,7 +1217,7 @@ pub const net = struct {
     /// ` time2: u64 `
     ///
     pub fn TimestampCompare(time1: u64, time2: u64) i32 {
-        return qtc.NET_TimestampCompare(@intCast(time1), @intCast(time2));
+        return qtc.NET_TimestampCompare(@bitCast(time1), @bitCast(time2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/net.html#timestampDiff)
@@ -1229,7 +1229,7 @@ pub const net = struct {
     /// ` time2: u64 `
     ///
     pub fn TimestampDiff(time1: u64, time2: u64) i32 {
-        return qtc.NET_TimestampDiff(@intCast(time1), @intCast(time2));
+        return qtc.NET_TimestampDiff(@bitCast(time1), @bitCast(time2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/net.html#dtor.NET)

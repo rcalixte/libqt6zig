@@ -28,7 +28,7 @@ pub const qfutureinterfacebase = struct {
     /// ` initialState: qfutureinterface_enums.State `
     ///
     pub fn New3(initialState: i32) QtC.QFutureInterfaceBase {
-        return qtc.QFutureInterfaceBase_new3(@intCast(initialState));
+        return qtc.QFutureInterfaceBase_new3(@bitCast(initialState));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#operator-eq)
@@ -84,7 +84,7 @@ pub const qfutureinterfacebase = struct {
     /// ` endIndex: i32 `
     ///
     pub fn ReportResultsReady(self: ?*anyopaque, beginIndex: i32, endIndex: i32) void {
-        qtc.QFutureInterfaceBase_ReportResultsReady(@ptrCast(self), @intCast(beginIndex), @intCast(endIndex));
+        qtc.QFutureInterfaceBase_ReportResultsReady(@ptrCast(self), @bitCast(beginIndex), @bitCast(endIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#setRunnable)
@@ -144,7 +144,7 @@ pub const qfutureinterfacebase = struct {
     /// ` maximum: i32 `
     ///
     pub fn SetProgressRange(self: ?*anyopaque, minimum: i32, maximum: i32) void {
-        qtc.QFutureInterfaceBase_SetProgressRange(@ptrCast(self), @intCast(minimum), @intCast(maximum));
+        qtc.QFutureInterfaceBase_SetProgressRange(@ptrCast(self), @bitCast(minimum), @bitCast(maximum));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#progressMinimum)
@@ -186,7 +186,7 @@ pub const qfutureinterfacebase = struct {
     /// ` progressValue: i32 `
     ///
     pub fn SetProgressValue(self: ?*anyopaque, progressValue: i32) void {
-        qtc.QFutureInterfaceBase_SetProgressValue(@ptrCast(self), @intCast(progressValue));
+        qtc.QFutureInterfaceBase_SetProgressValue(@ptrCast(self), @bitCast(progressValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#progressValue)
@@ -214,7 +214,7 @@ pub const qfutureinterfacebase = struct {
             .len = progressText.len,
             .data = progressText.ptr,
         };
-        qtc.QFutureInterfaceBase_SetProgressValueAndText(@ptrCast(self), @intCast(progressValue), progressText_str);
+        qtc.QFutureInterfaceBase_SetProgressValueAndText(@ptrCast(self), @bitCast(progressValue), progressText_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#progressText)
@@ -242,7 +242,7 @@ pub const qfutureinterfacebase = struct {
     /// ` resultCount: i32 `
     ///
     pub fn SetExpectedResultCount(self: ?*anyopaque, resultCount: i32) void {
-        qtc.QFutureInterfaceBase_SetExpectedResultCount(@ptrCast(self), @intCast(resultCount));
+        qtc.QFutureInterfaceBase_SetExpectedResultCount(@ptrCast(self), @bitCast(resultCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#expectedResultCount)
@@ -274,7 +274,7 @@ pub const qfutureinterfacebase = struct {
     /// ` state: qfutureinterface_enums.State `
     ///
     pub fn QueryState(self: ?*anyopaque, state: i32) bool {
-        return qtc.QFutureInterfaceBase_QueryState(@ptrCast(self), @intCast(state));
+        return qtc.QFutureInterfaceBase_QueryState(@ptrCast(self), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#isRunning)
@@ -388,7 +388,7 @@ pub const qfutureinterfacebase = struct {
     /// ` index: i32 `
     ///
     pub fn IsResultReadyAt(self: ?*anyopaque, index: i32) bool {
-        return qtc.QFutureInterfaceBase_IsResultReadyAt(@ptrCast(self), @intCast(index));
+        return qtc.QFutureInterfaceBase_IsResultReadyAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#isValid)
@@ -504,7 +504,7 @@ pub const qfutureinterfacebase = struct {
     /// ` resultIndex: i32 `
     ///
     pub fn WaitForResult(self: ?*anyopaque, resultIndex: i32) void {
-        qtc.QFutureInterfaceBase_WaitForResult(@ptrCast(self), @intCast(resultIndex));
+        qtc.QFutureInterfaceBase_WaitForResult(@ptrCast(self), @bitCast(resultIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#waitForResume)

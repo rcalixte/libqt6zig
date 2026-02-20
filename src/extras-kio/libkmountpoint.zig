@@ -50,7 +50,7 @@ pub const kmountpoint = struct {
     /// ` self: QtC.KMountPoint `
     ///
     pub fn DeviceId(self: ?*anyopaque) u64 {
-        return @intCast(qtc.KMountPoint_DeviceId(@ptrCast(self)));
+        return @bitCast(qtc.KMountPoint_DeviceId(@ptrCast(self)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#realDeviceName)
@@ -147,7 +147,7 @@ pub const kmountpoint = struct {
     /// ` flag: kmountpoint_enums.FileSystemFlag `
     ///
     pub fn TestFileSystemFlag(self: ?*anyopaque, flag: i32) bool {
-        return qtc.KMountPoint_TestFileSystemFlag(@ptrCast(self), @intCast(flag));
+        return qtc.KMountPoint_TestFileSystemFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#possibleMountPoints)
@@ -157,7 +157,7 @@ pub const kmountpoint = struct {
     /// ` infoNeeded: flag of kmountpoint_enums.DetailsNeededFlag `
     ///
     pub fn PossibleMountPoints1(infoNeeded: i32) QtC.KMountPoint__List {
-        return qtc.KMountPoint_PossibleMountPoints1(@intCast(infoNeeded));
+        return qtc.KMountPoint_PossibleMountPoints1(@bitCast(infoNeeded));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#currentMountPoints)
@@ -167,7 +167,7 @@ pub const kmountpoint = struct {
     /// ` infoNeeded: flag of kmountpoint_enums.DetailsNeededFlag `
     ///
     pub fn CurrentMountPoints1(infoNeeded: i32) QtC.KMountPoint__List {
-        return qtc.KMountPoint_CurrentMountPoints1(@intCast(infoNeeded));
+        return qtc.KMountPoint_CurrentMountPoints1(@bitCast(infoNeeded));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#dtor.KMountPoint)

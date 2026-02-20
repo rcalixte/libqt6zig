@@ -76,7 +76,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QWaveDecoder_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -111,7 +111,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QWaveDecoder_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -138,7 +138,7 @@ pub const qwavedecoder = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWaveDecoder_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QWaveDecoder_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -150,7 +150,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QWaveDecoder_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -166,7 +166,7 @@ pub const qwavedecoder = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWaveDecoder_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QWaveDecoder_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -231,7 +231,7 @@ pub const qwavedecoder = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn Open(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QWaveDecoder_Open(@ptrCast(self), @intCast(mode));
+        return qtc.QWaveDecoder_Open(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#open)
@@ -245,7 +245,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
     pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QWaveDecoder_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#open)
@@ -259,7 +259,7 @@ pub const qwavedecoder = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn QBaseOpen(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QWaveDecoder_QBaseOpen(@ptrCast(self), @intCast(mode));
+        return qtc.QWaveDecoder_QBaseOpen(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#close)
@@ -283,7 +283,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QWaveDecoder_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#close)
@@ -307,7 +307,7 @@ pub const qwavedecoder = struct {
     /// ` pos: i64 `
     ///
     pub fn Seek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QWaveDecoder_Seek(@ptrCast(self), @intCast(pos));
+        return qtc.QWaveDecoder_Seek(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#seek)
@@ -321,7 +321,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, pos: i64) callconv(.c) bool `
     ///
     pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QWaveDecoder_OnSeek(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnSeek(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#seek)
@@ -335,7 +335,7 @@ pub const qwavedecoder = struct {
     /// ` pos: i64 `
     ///
     pub fn QBaseSeek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QWaveDecoder_QBaseSeek(@ptrCast(self), @intCast(pos));
+        return qtc.QWaveDecoder_QBaseSeek(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#pos)
@@ -359,7 +359,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
     pub fn OnPos(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QWaveDecoder_OnPos(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnPos(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#pos)
@@ -407,7 +407,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
     pub fn OnSize(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QWaveDecoder_OnSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#size)
@@ -443,7 +443,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsSequential(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWaveDecoder_OnIsSequential(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnIsSequential(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#isSequential)
@@ -479,7 +479,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
     pub fn OnBytesAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QWaveDecoder_OnBytesAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnBytesAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#bytesAvailable)
@@ -513,7 +513,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder) callconv(.c) void `
     ///
     pub fn OnFormatKnown(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWaveDecoder_Connect_FormatKnown(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_Connect_FormatKnown(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#parsingError)
@@ -535,7 +535,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder) callconv(.c) void `
     ///
     pub fn OnParsingError(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWaveDecoder_Connect_ParsingError(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_Connect_ParsingError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -573,7 +573,7 @@ pub const qwavedecoder = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwavedecoder.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -705,7 +705,7 @@ pub const qwavedecoder = struct {
     /// ` channel: i32 `
     ///
     pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self), @intCast(channel));
+        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -731,7 +731,7 @@ pub const qwavedecoder = struct {
     /// ` channel: i32 `
     ///
     pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self), @intCast(channel));
+        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -748,7 +748,7 @@ pub const qwavedecoder = struct {
     ///
     pub fn Read(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @intCast(maxlen));
+        return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -764,7 +764,7 @@ pub const qwavedecoder = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwavedecoder.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -803,7 +803,7 @@ pub const qwavedecoder = struct {
     ///
     pub fn ReadLine(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @intCast(maxlen));
+        return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -886,7 +886,7 @@ pub const qwavedecoder = struct {
     ///
     pub fn Write(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write(@ptrCast(self), data_Cstring, @intCast(lenVal));
+        return qtc.QIODevice_Write(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
     /// Inherited from QIODevice
@@ -936,7 +936,7 @@ pub const qwavedecoder = struct {
     ///
     pub fn Peek(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @intCast(maxlen));
+        return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -952,7 +952,7 @@ pub const qwavedecoder = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwavedecoder.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -970,7 +970,7 @@ pub const qwavedecoder = struct {
     /// ` maxSize: i64 `
     ///
     pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QIODevice_Skip(@ptrCast(self), @intCast(maxSize));
+        return qtc.QIODevice_Skip(@ptrCast(self), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -984,7 +984,7 @@ pub const qwavedecoder = struct {
     /// ` c: u8 `
     ///
     pub fn UngetChar(self: ?*anyopaque, c: u8) void {
-        qtc.QIODevice_UngetChar(@ptrCast(self), @intCast(c));
+        qtc.QIODevice_UngetChar(@ptrCast(self), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -998,7 +998,7 @@ pub const qwavedecoder = struct {
     /// ` c: u8 `
     ///
     pub fn PutChar(self: ?*anyopaque, c: u8) bool {
-        return qtc.QIODevice_PutChar(@ptrCast(self), @intCast(c));
+        return qtc.QIODevice_PutChar(@ptrCast(self), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -1057,7 +1057,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder) callconv(.c) void `
     ///
     pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1071,7 +1071,7 @@ pub const qwavedecoder = struct {
     /// ` channel: i32 `
     ///
     pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_ChannelReadyRead(@ptrCast(self), @intCast(channel));
+        qtc.QIODevice_ChannelReadyRead(@ptrCast(self), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -1085,7 +1085,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, channel: i32) callconv(.c) void `
     ///
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1099,7 +1099,7 @@ pub const qwavedecoder = struct {
     /// ` bytes: i64 `
     ///
     pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
-        qtc.QIODevice_BytesWritten(@ptrCast(self), @intCast(bytes));
+        qtc.QIODevice_BytesWritten(@ptrCast(self), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -1113,7 +1113,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, bytes: i64) callconv(.c) void `
     ///
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1129,7 +1129,7 @@ pub const qwavedecoder = struct {
     /// ` bytes: i64 `
     ///
     pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
-        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self), @intCast(channel), @intCast(bytes));
+        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self), @bitCast(channel), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -1143,7 +1143,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, channel: i32, bytes: i64) callconv(.c) void `
     ///
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1169,7 +1169,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder) callconv(.c) void `
     ///
     pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1195,7 +1195,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder) callconv(.c) void `
     ///
     pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1211,7 +1211,7 @@ pub const qwavedecoder = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwavedecoder.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1349,7 +1349,7 @@ pub const qwavedecoder = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1363,7 +1363,7 @@ pub const qwavedecoder = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1377,7 +1377,7 @@ pub const qwavedecoder = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1391,7 +1391,7 @@ pub const qwavedecoder = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1721,7 +1721,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1776,7 +1776,7 @@ pub const qwavedecoder = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1792,7 +1792,7 @@ pub const qwavedecoder = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1814,7 +1814,7 @@ pub const qwavedecoder = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1834,7 +1834,7 @@ pub const qwavedecoder = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1856,7 +1856,7 @@ pub const qwavedecoder = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1953,7 +1953,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1997,7 +1997,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnAtEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWaveDecoder_OnAtEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnAtEnd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2041,7 +2041,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWaveDecoder_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2085,7 +2085,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
     pub fn OnBytesToWrite(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QWaveDecoder_OnBytesToWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnBytesToWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2129,7 +2129,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnCanReadLine(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWaveDecoder_OnCanReadLine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnCanReadLine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2145,7 +2145,7 @@ pub const qwavedecoder = struct {
     /// ` msecs: i32 `
     ///
     pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QWaveDecoder_WaitForReadyRead(@ptrCast(self), @intCast(msecs));
+        return qtc.QWaveDecoder_WaitForReadyRead(@ptrCast(self), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -2161,7 +2161,7 @@ pub const qwavedecoder = struct {
     /// ` msecs: i32 `
     ///
     pub fn QBaseWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QWaveDecoder_QBaseWaitForReadyRead(@ptrCast(self), @intCast(msecs));
+        return qtc.QWaveDecoder_QBaseWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -2177,7 +2177,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, msecs: i32) callconv(.c) bool `
     ///
     pub fn OnWaitForReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QWaveDecoder_OnWaitForReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnWaitForReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2193,7 +2193,7 @@ pub const qwavedecoder = struct {
     /// ` msecs: i32 `
     ///
     pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QWaveDecoder_WaitForBytesWritten(@ptrCast(self), @intCast(msecs));
+        return qtc.QWaveDecoder_WaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -2209,7 +2209,7 @@ pub const qwavedecoder = struct {
     /// ` msecs: i32 `
     ///
     pub fn QBaseWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QWaveDecoder_QBaseWaitForBytesWritten(@ptrCast(self), @intCast(msecs));
+        return qtc.QWaveDecoder_QBaseWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -2225,7 +2225,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, msecs: i32) callconv(.c) bool `
     ///
     pub fn OnWaitForBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QWaveDecoder_OnWaitForBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnWaitForBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2244,7 +2244,7 @@ pub const qwavedecoder = struct {
     ///
     pub fn ReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QWaveDecoder_ReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
+        return qtc.QWaveDecoder_ReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -2263,7 +2263,7 @@ pub const qwavedecoder = struct {
     ///
     pub fn QBaseReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QWaveDecoder_QBaseReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
+        return qtc.QWaveDecoder_QBaseReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -2279,7 +2279,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
     pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
-        qtc.QWaveDecoder_OnReadLineData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnReadLineData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2295,7 +2295,7 @@ pub const qwavedecoder = struct {
     /// ` maxSize: i64 `
     ///
     pub fn SkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QWaveDecoder_SkipData(@ptrCast(self), @intCast(maxSize));
+        return qtc.QWaveDecoder_SkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -2311,7 +2311,7 @@ pub const qwavedecoder = struct {
     /// ` maxSize: i64 `
     ///
     pub fn QBaseSkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QWaveDecoder_QBaseSkipData(@ptrCast(self), @intCast(maxSize));
+        return qtc.QWaveDecoder_QBaseSkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -2327,7 +2327,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, maxSize: i64) callconv(.c) i64 `
     ///
     pub fn OnSkipData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) i64) void {
-        qtc.QWaveDecoder_OnSkipData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnSkipData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2375,7 +2375,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWaveDecoder_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2427,7 +2427,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWaveDecoder_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2475,7 +2475,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWaveDecoder_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2523,7 +2523,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWaveDecoder_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2571,7 +2571,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWaveDecoder_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2619,7 +2619,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWaveDecoder_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2667,7 +2667,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWaveDecoder_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2683,7 +2683,7 @@ pub const qwavedecoder = struct {
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QWaveDecoder_SetOpenMode(@ptrCast(self), @intCast(openMode));
+        qtc.QWaveDecoder_SetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -2699,7 +2699,7 @@ pub const qwavedecoder = struct {
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QWaveDecoder_QBaseSetOpenMode(@ptrCast(self), @intCast(openMode));
+        qtc.QWaveDecoder_QBaseSetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -2715,7 +2715,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
     ///
     pub fn OnSetOpenMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWaveDecoder_OnSetOpenMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnSetOpenMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2771,7 +2771,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, errorString: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWaveDecoder_OnSetErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnSetErrorString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2815,7 +2815,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QWaveDecoder_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2859,7 +2859,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWaveDecoder_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2909,7 +2909,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QWaveDecoder_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2957,7 +2957,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWaveDecoder_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWaveDecoder_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2973,7 +2973,7 @@ pub const qwavedecoder = struct {
     /// ` callback: *const fn (self: QtC.QWaveDecoder, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#dtor.QWaveDecoder)

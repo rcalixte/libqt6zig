@@ -112,7 +112,7 @@ pub const kplotaxis = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TickLabel(self: ?*anyopaque, value: f64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KPlotAxis_TickLabel(@ptrCast(self), @floatCast(value));
+        var _str = qtc.KPlotAxis_TickLabel(@ptrCast(self), @bitCast(value));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kplotaxis.TickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -170,7 +170,7 @@ pub const kplotaxis = struct {
     /// ` length: f64 `
     ///
     pub fn SetTickMarks(self: ?*anyopaque, x0: f64, length: f64) void {
-        qtc.KPlotAxis_SetTickMarks(@ptrCast(self), @floatCast(x0), @floatCast(length));
+        qtc.KPlotAxis_SetTickMarks(@ptrCast(self), @bitCast(x0), @bitCast(length));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotaxis.html#majorTickMarks)
@@ -216,7 +216,7 @@ pub const kplotaxis = struct {
     /// ` format: u8 `
     ///
     pub fn SetTickLabelFormat1(self: ?*anyopaque, format: u8) void {
-        qtc.KPlotAxis_SetTickLabelFormat1(@ptrCast(self), @intCast(format));
+        qtc.KPlotAxis_SetTickLabelFormat1(@ptrCast(self), @bitCast(format));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotaxis.html#setTickLabelFormat)
@@ -230,7 +230,7 @@ pub const kplotaxis = struct {
     /// ` fieldWidth: i32 `
     ///
     pub fn SetTickLabelFormat2(self: ?*anyopaque, format: u8, fieldWidth: i32) void {
-        qtc.KPlotAxis_SetTickLabelFormat2(@ptrCast(self), @intCast(format), @intCast(fieldWidth));
+        qtc.KPlotAxis_SetTickLabelFormat2(@ptrCast(self), @bitCast(format), @bitCast(fieldWidth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotaxis.html#setTickLabelFormat)
@@ -246,7 +246,7 @@ pub const kplotaxis = struct {
     /// ` precision: i32 `
     ///
     pub fn SetTickLabelFormat3(self: ?*anyopaque, format: u8, fieldWidth: i32, precision: i32) void {
-        qtc.KPlotAxis_SetTickLabelFormat3(@ptrCast(self), @intCast(format), @intCast(fieldWidth), @intCast(precision));
+        qtc.KPlotAxis_SetTickLabelFormat3(@ptrCast(self), @bitCast(format), @bitCast(fieldWidth), @bitCast(precision));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotaxis.html#dtor.KPlotAxis)

@@ -106,7 +106,7 @@ pub const qsslconfiguration = struct {
     /// ` protocol: qssl_enums.SslProtocol `
     ///
     pub fn SetProtocol(self: ?*anyopaque, protocol: i32) void {
-        qtc.QSslConfiguration_SetProtocol(@ptrCast(self), @intCast(protocol));
+        qtc.QSslConfiguration_SetProtocol(@ptrCast(self), @bitCast(protocol));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#peerVerifyMode)
@@ -132,7 +132,7 @@ pub const qsslconfiguration = struct {
     /// ` mode: qsslsocket_enums.PeerVerifyMode `
     ///
     pub fn SetPeerVerifyMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QSslConfiguration_SetPeerVerifyMode(@ptrCast(self), @intCast(mode));
+        qtc.QSslConfiguration_SetPeerVerifyMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#peerVerifyDepth)
@@ -154,7 +154,7 @@ pub const qsslconfiguration = struct {
     /// ` depth: i32 `
     ///
     pub fn SetPeerVerifyDepth(self: ?*anyopaque, depth: i32) void {
-        qtc.QSslConfiguration_SetPeerVerifyDepth(@ptrCast(self), @intCast(depth));
+        qtc.QSslConfiguration_SetPeerVerifyDepth(@ptrCast(self), @bitCast(depth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#localCertificateChain)
@@ -452,7 +452,7 @@ pub const qsslconfiguration = struct {
     /// ` on: bool `
     ///
     pub fn SetSslOption(self: ?*anyopaque, option: i32, on: bool) void {
-        qtc.QSslConfiguration_SetSslOption(@ptrCast(self), @intCast(option), on);
+        qtc.QSslConfiguration_SetSslOption(@ptrCast(self), @bitCast(option), on);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#testSslOption)
@@ -464,7 +464,7 @@ pub const qsslconfiguration = struct {
     /// ` option: qssl_enums.SslOption `
     ///
     pub fn TestSslOption(self: ?*anyopaque, option: i32) bool {
-        return qtc.QSslConfiguration_TestSslOption(@ptrCast(self), @intCast(option));
+        return qtc.QSslConfiguration_TestSslOption(@ptrCast(self), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#sessionTicket)
@@ -899,7 +899,7 @@ pub const qsslconfiguration = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QSslConfiguration_AddCaCertificates22(@ptrCast(self), path_str, @intCast(format));
+        return qtc.QSslConfiguration_AddCaCertificates22(@ptrCast(self), path_str, @bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#addCaCertificates)
@@ -919,7 +919,7 @@ pub const qsslconfiguration = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QSslConfiguration_AddCaCertificates3(@ptrCast(self), path_str, @intCast(format), @intCast(syntax));
+        return qtc.QSslConfiguration_AddCaCertificates3(@ptrCast(self), path_str, @bitCast(format), @bitCast(syntax));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setBackendConfiguration)

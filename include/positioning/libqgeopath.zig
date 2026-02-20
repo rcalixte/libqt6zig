@@ -184,7 +184,7 @@ pub const qgeopath = struct {
     /// ` degreesLongitude: f64 `
     ///
     pub fn Translate(self: ?*anyopaque, degreesLatitude: f64, degreesLongitude: f64) void {
-        qtc.QGeoPath_Translate(@ptrCast(self), @floatCast(degreesLatitude), @floatCast(degreesLongitude));
+        qtc.QGeoPath_Translate(@ptrCast(self), @bitCast(degreesLatitude), @bitCast(degreesLongitude));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#translated)
@@ -198,7 +198,7 @@ pub const qgeopath = struct {
     /// ` degreesLongitude: f64 `
     ///
     pub fn Translated(self: ?*anyopaque, degreesLatitude: f64, degreesLongitude: f64) QtC.QGeoPath {
-        return qtc.QGeoPath_Translated(@ptrCast(self), @floatCast(degreesLatitude), @floatCast(degreesLongitude));
+        return qtc.QGeoPath_Translated(@ptrCast(self), @bitCast(degreesLatitude), @bitCast(degreesLongitude));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#length)
@@ -244,7 +244,7 @@ pub const qgeopath = struct {
     /// ` coordinate: QtC.QGeoCoordinate `
     ///
     pub fn InsertCoordinate(self: ?*anyopaque, index: i64, coordinate: ?*anyopaque) void {
-        qtc.QGeoPath_InsertCoordinate(@ptrCast(self), @intCast(index), @ptrCast(coordinate));
+        qtc.QGeoPath_InsertCoordinate(@ptrCast(self), @bitCast(index), @ptrCast(coordinate));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#replaceCoordinate)
@@ -258,7 +258,7 @@ pub const qgeopath = struct {
     /// ` coordinate: QtC.QGeoCoordinate `
     ///
     pub fn ReplaceCoordinate(self: ?*anyopaque, index: i64, coordinate: ?*anyopaque) void {
-        qtc.QGeoPath_ReplaceCoordinate(@ptrCast(self), @intCast(index), @ptrCast(coordinate));
+        qtc.QGeoPath_ReplaceCoordinate(@ptrCast(self), @bitCast(index), @ptrCast(coordinate));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#coordinateAt)
@@ -270,7 +270,7 @@ pub const qgeopath = struct {
     /// ` index: i64 `
     ///
     pub fn CoordinateAt(self: ?*anyopaque, index: i64) QtC.QGeoCoordinate {
-        return qtc.QGeoPath_CoordinateAt(@ptrCast(self), @intCast(index));
+        return qtc.QGeoPath_CoordinateAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#containsCoordinate)
@@ -306,7 +306,7 @@ pub const qgeopath = struct {
     /// ` index: i64 `
     ///
     pub fn RemoveCoordinate2(self: ?*anyopaque, index: i64) void {
-        qtc.QGeoPath_RemoveCoordinate2(@ptrCast(self), @intCast(index));
+        qtc.QGeoPath_RemoveCoordinate2(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#toString)
@@ -334,7 +334,7 @@ pub const qgeopath = struct {
     /// ` indexFrom: i64 `
     ///
     pub fn Length1(self: ?*anyopaque, indexFrom: i64) f64 {
-        return qtc.QGeoPath_Length1(@ptrCast(self), @intCast(indexFrom));
+        return qtc.QGeoPath_Length1(@ptrCast(self), @bitCast(indexFrom));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#length)
@@ -348,7 +348,7 @@ pub const qgeopath = struct {
     /// ` indexTo: i64 `
     ///
     pub fn Length2(self: ?*anyopaque, indexFrom: i64, indexTo: i64) f64 {
-        return qtc.QGeoPath_Length2(@ptrCast(self), @intCast(indexFrom), @intCast(indexTo));
+        return qtc.QGeoPath_Length2(@ptrCast(self), @bitCast(indexFrom), @bitCast(indexTo));
     }
 
     /// Inherited from QGeoShape

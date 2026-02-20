@@ -14,7 +14,7 @@ pub const qoperatingsystemversionbase = struct {
     /// ` vmajor: i32 `
     ///
     pub fn New(osType: i32, vmajor: i32) QtC.QOperatingSystemVersionBase {
-        return qtc.QOperatingSystemVersionBase_new(@intCast(osType), @intCast(vmajor));
+        return qtc.QOperatingSystemVersionBase_new(@bitCast(osType), @bitCast(vmajor));
     }
 
     /// New2 constructs a new QOperatingSystemVersionBase object.
@@ -38,7 +38,7 @@ pub const qoperatingsystemversionbase = struct {
     /// ` vminor: i32 `
     ///
     pub fn New3(osType: i32, vmajor: i32, vminor: i32) QtC.QOperatingSystemVersionBase {
-        return qtc.QOperatingSystemVersionBase_new3(@intCast(osType), @intCast(vmajor), @intCast(vminor));
+        return qtc.QOperatingSystemVersionBase_new3(@bitCast(osType), @bitCast(vmajor), @bitCast(vminor));
     }
 
     /// New4 constructs a new QOperatingSystemVersionBase object.
@@ -54,7 +54,7 @@ pub const qoperatingsystemversionbase = struct {
     /// ` vmicro: i32 `
     ///
     pub fn New4(osType: i32, vmajor: i32, vminor: i32, vmicro: i32) QtC.QOperatingSystemVersionBase {
-        return qtc.QOperatingSystemVersionBase_new4(@intCast(osType), @intCast(vmajor), @intCast(vminor), @intCast(vmicro));
+        return qtc.QOperatingSystemVersionBase_new4(@bitCast(osType), @bitCast(vmajor), @bitCast(vminor), @bitCast(vmicro));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#current)
@@ -223,7 +223,7 @@ pub const qoperatingsystemversionunexported = struct {
     /// ` param4: i32 `
     ///
     pub fn New4(param1: i32, param2: i32, param3: i32, param4: i32) QtC.QOperatingSystemVersionUnexported {
-        return qtc.QOperatingSystemVersionUnexported_new4(@intCast(param1), @intCast(param2), @intCast(param3), @intCast(param4));
+        return qtc.QOperatingSystemVersionUnexported_new4(@bitCast(param1), @bitCast(param2), @bitCast(param3), @bitCast(param4));
     }
 
     /// Inherited from QOperatingSystemVersionBase
@@ -392,7 +392,7 @@ pub const qoperatingsystemversion = struct {
     /// ` vmajor: i32 `
     ///
     pub fn New2(osType: i32, vmajor: i32) QtC.QOperatingSystemVersion {
-        return qtc.QOperatingSystemVersion_new2(@intCast(osType), @intCast(vmajor));
+        return qtc.QOperatingSystemVersion_new2(@bitCast(osType), @bitCast(vmajor));
     }
 
     /// New3 constructs a new QOperatingSystemVersion object.
@@ -416,7 +416,7 @@ pub const qoperatingsystemversion = struct {
     /// ` vminor: i32 `
     ///
     pub fn New4(osType: i32, vmajor: i32, vminor: i32) QtC.QOperatingSystemVersion {
-        return qtc.QOperatingSystemVersion_new4(@intCast(osType), @intCast(vmajor), @intCast(vminor));
+        return qtc.QOperatingSystemVersion_new4(@bitCast(osType), @bitCast(vmajor), @bitCast(vminor));
     }
 
     /// New5 constructs a new QOperatingSystemVersion object.
@@ -432,7 +432,7 @@ pub const qoperatingsystemversion = struct {
     /// ` vmicro: i32 `
     ///
     pub fn New5(osType: i32, vmajor: i32, vminor: i32, vmicro: i32) QtC.QOperatingSystemVersion {
-        return qtc.QOperatingSystemVersion_new5(@intCast(osType), @intCast(vmajor), @intCast(vminor), @intCast(vmicro));
+        return qtc.QOperatingSystemVersion_new5(@bitCast(osType), @bitCast(vmajor), @bitCast(vminor), @bitCast(vmicro));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversion.html#currentType)

@@ -17,7 +17,7 @@ pub const qopenglbuffer = struct {
     /// ` typeVal: qopenglbuffer_enums.Type `
     ///
     pub fn New2(typeVal: i32) QtC.QOpenGLBuffer {
-        return qtc.QOpenGLBuffer_new2(@intCast(typeVal));
+        return qtc.QOpenGLBuffer_new2(@bitCast(typeVal));
     }
 
     /// New3 constructs a new QOpenGLBuffer object.
@@ -91,7 +91,7 @@ pub const qopenglbuffer = struct {
     /// ` value: qopenglbuffer_enums.UsagePattern `
     ///
     pub fn SetUsagePattern(self: ?*anyopaque, value: i32) void {
-        qtc.QOpenGLBuffer_SetUsagePattern(@ptrCast(self), @intCast(value));
+        qtc.QOpenGLBuffer_SetUsagePattern(@ptrCast(self), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#create)
@@ -151,7 +151,7 @@ pub const qopenglbuffer = struct {
     /// ` typeVal: qopenglbuffer_enums.Type `
     ///
     pub fn Release2(typeVal: i32) void {
-        qtc.QOpenGLBuffer_Release2(@intCast(typeVal));
+        qtc.QOpenGLBuffer_Release2(@bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#bufferId)
@@ -187,7 +187,7 @@ pub const qopenglbuffer = struct {
     /// ` count: i32 `
     ///
     pub fn Read(self: ?*anyopaque, offset: i32, data: ?*anyopaque, count: i32) bool {
-        return qtc.QOpenGLBuffer_Read(@ptrCast(self), @intCast(offset), @ptrCast(data), @intCast(count));
+        return qtc.QOpenGLBuffer_Read(@ptrCast(self), @bitCast(offset), @ptrCast(data), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#write)
@@ -203,7 +203,7 @@ pub const qopenglbuffer = struct {
     /// ` count: i32 `
     ///
     pub fn Write(self: ?*anyopaque, offset: i32, data: ?*const anyopaque, count: i32) void {
-        qtc.QOpenGLBuffer_Write(@ptrCast(self), @intCast(offset), @ptrCast(data), @intCast(count));
+        qtc.QOpenGLBuffer_Write(@ptrCast(self), @bitCast(offset), @ptrCast(data), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#allocate)
@@ -217,7 +217,7 @@ pub const qopenglbuffer = struct {
     /// ` count: i32 `
     ///
     pub fn Allocate(self: ?*anyopaque, data: ?*const anyopaque, count: i32) void {
-        qtc.QOpenGLBuffer_Allocate(@ptrCast(self), @ptrCast(data), @intCast(count));
+        qtc.QOpenGLBuffer_Allocate(@ptrCast(self), @ptrCast(data), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#allocate)
@@ -229,7 +229,7 @@ pub const qopenglbuffer = struct {
     /// ` count: i32 `
     ///
     pub fn Allocate2(self: ?*anyopaque, count: i32) void {
-        qtc.QOpenGLBuffer_Allocate2(@ptrCast(self), @intCast(count));
+        qtc.QOpenGLBuffer_Allocate2(@ptrCast(self), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#map)
@@ -241,7 +241,7 @@ pub const qopenglbuffer = struct {
     /// ` access: qopenglbuffer_enums.Access `
     ///
     pub fn Map(self: ?*anyopaque, access: i32) ?*anyopaque {
-        return qtc.QOpenGLBuffer_Map(@ptrCast(self), @intCast(access));
+        return qtc.QOpenGLBuffer_Map(@ptrCast(self), @bitCast(access));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#mapRange)
@@ -257,7 +257,7 @@ pub const qopenglbuffer = struct {
     /// ` access: flag of qopenglbuffer_enums.RangeAccessFlag `
     ///
     pub fn MapRange(self: ?*anyopaque, offset: i32, count: i32, access: i32) ?*anyopaque {
-        return qtc.QOpenGLBuffer_MapRange(@ptrCast(self), @intCast(offset), @intCast(count), @intCast(access));
+        return qtc.QOpenGLBuffer_MapRange(@ptrCast(self), @bitCast(offset), @bitCast(count), @bitCast(access));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#unmap)

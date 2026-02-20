@@ -12,7 +12,7 @@ pub const kpassword = struct {
     /// ` param1: kpassword_enums.RevealMode `
     ///
     pub fn GetEnumMetaObject(param1: i32) QtC.QMetaObject {
-        return qtc.KPassword_GetEnumMetaObject(@intCast(param1));
+        return qtc.KPassword_GetEnumMetaObject(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpassword.html#qt_getEnumName)
@@ -22,7 +22,7 @@ pub const kpassword = struct {
     /// ` param1: kpassword_enums.RevealMode `
     ///
     pub fn GetEnumName(param1: i32) [:0]const u8 {
-        const _ret = qtc.KPassword_GetEnumName(@intCast(param1));
+        const _ret = qtc.KPassword_GetEnumName(@bitCast(param1));
         return std.mem.span(_ret);
     }
 };

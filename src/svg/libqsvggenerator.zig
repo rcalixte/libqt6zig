@@ -19,7 +19,7 @@ pub const qsvggenerator = struct {
     /// ` version: qsvggenerator_enums.SvgVersion `
     ///
     pub fn New2(version: i32) QtC.QSvgGenerator {
-        return qtc.QSvgGenerator_new2(@intCast(version));
+        return qtc.QSvgGenerator_new2(@bitCast(version));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#title)
@@ -215,7 +215,7 @@ pub const qsvggenerator = struct {
     /// ` dpi: i32 `
     ///
     pub fn SetResolution(self: ?*anyopaque, dpi: i32) void {
-        qtc.QSvgGenerator_SetResolution(@ptrCast(self), @intCast(dpi));
+        qtc.QSvgGenerator_SetResolution(@ptrCast(self), @bitCast(dpi));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#resolution)
@@ -263,7 +263,7 @@ pub const qsvggenerator = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
     ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QSvgGenerator_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSvgGenerator_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#paintEngine)
@@ -287,7 +287,7 @@ pub const qsvggenerator = struct {
     /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn Metric(self: ?*anyopaque, metric: i32) i32 {
-        return qtc.QSvgGenerator_Metric(@ptrCast(self), @intCast(metric));
+        return qtc.QSvgGenerator_Metric(@ptrCast(self), @bitCast(metric));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#metric)
@@ -301,7 +301,7 @@ pub const qsvggenerator = struct {
     /// ` callback: *const fn (self: QtC.QSvgGenerator, metric: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QSvgGenerator_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSvgGenerator_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#metric)
@@ -315,7 +315,7 @@ pub const qsvggenerator = struct {
     /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseMetric(self: ?*anyopaque, metric: i32) i32 {
-        return qtc.QSvgGenerator_QBaseMetric(@ptrCast(self), @intCast(metric));
+        return qtc.QSvgGenerator_QBaseMetric(@ptrCast(self), @bitCast(metric));
     }
 
     /// Inherited from QPaintDevice
@@ -493,7 +493,7 @@ pub const qsvggenerator = struct {
     /// ` value: f64 `
     ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
 
     /// Inherited from QPaintDevice
@@ -537,7 +537,7 @@ pub const qsvggenerator = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSvgGenerator_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSvgGenerator_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -585,7 +585,7 @@ pub const qsvggenerator = struct {
     /// ` callback: *const fn (self: QtC.QSvgGenerator, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSvgGenerator_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSvgGenerator_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -633,7 +633,7 @@ pub const qsvggenerator = struct {
     /// ` callback: *const fn (self: QtC.QSvgGenerator, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
     ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QSvgGenerator_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSvgGenerator_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -677,7 +677,7 @@ pub const qsvggenerator = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainter `
     ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QSvgGenerator_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSvgGenerator_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -695,7 +695,7 @@ pub const qsvggenerator = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QSvgGenerator_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QSvgGenerator_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -713,7 +713,7 @@ pub const qsvggenerator = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QSvgGenerator_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QSvgGenerator_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -729,7 +729,7 @@ pub const qsvggenerator = struct {
     /// ` callback: *const fn (self: QtC.QSvgGenerator, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QSvgGenerator_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSvgGenerator_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#dtor.QSvgGenerator)

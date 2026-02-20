@@ -149,7 +149,7 @@ pub const qmetamethod = struct {
     /// ` index: i32 `
     ///
     pub fn ParameterType(self: ?*anyopaque, index: i32) i32 {
-        return qtc.QMetaMethod_ParameterType(@ptrCast(self), @intCast(index));
+        return qtc.QMetaMethod_ParameterType(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#parameterMetaType)
@@ -161,7 +161,7 @@ pub const qmetamethod = struct {
     /// ` index: i32 `
     ///
     pub fn ParameterMetaType(self: ?*anyopaque, index: i32) QtC.QMetaType {
-        return qtc.QMetaMethod_ParameterMetaType(@ptrCast(self), @intCast(index));
+        return qtc.QMetaMethod_ParameterMetaType(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#getParameterTypes)
@@ -214,7 +214,7 @@ pub const qmetamethod = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ParameterTypeName(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QMetaMethod_ParameterTypeName(@ptrCast(self), @intCast(index));
+        var _bytearray: qtc.libqt_string = qtc.QMetaMethod_ParameterTypeName(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetamethod.ParameterTypeName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -360,7 +360,7 @@ pub const qmetamethod = struct {
     /// ` returnValue: QtC.QGenericReturnArgument `
     ///
     pub fn Invoke(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, returnValue: QtC.QGenericReturnArgument) bool {
-        return qtc.QMetaMethod_Invoke(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(returnValue));
+        return qtc.QMetaMethod_Invoke(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(returnValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -390,7 +390,7 @@ pub const qmetamethod = struct {
     /// ` val0: QtC.QGenericArgument `
     ///
     pub fn Invoke3(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, val0: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke3(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(val0));
+        return qtc.QMetaMethod_Invoke3(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(val0));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -460,7 +460,7 @@ pub const qmetamethod = struct {
     /// ` val0: QtC.QGenericArgument `
     ///
     pub fn Invoke42(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke42(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(returnValue), @ptrCast(val0));
+        return qtc.QMetaMethod_Invoke42(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(returnValue), @ptrCast(val0));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -480,7 +480,7 @@ pub const qmetamethod = struct {
     /// ` val1: QtC.QGenericArgument `
     ///
     pub fn Invoke5(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke5(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1));
+        return qtc.QMetaMethod_Invoke5(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -502,7 +502,7 @@ pub const qmetamethod = struct {
     /// ` val2: QtC.QGenericArgument `
     ///
     pub fn Invoke6(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke6(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2));
+        return qtc.QMetaMethod_Invoke6(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -526,7 +526,7 @@ pub const qmetamethod = struct {
     /// ` val3: QtC.QGenericArgument `
     ///
     pub fn Invoke7(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke7(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3));
+        return qtc.QMetaMethod_Invoke7(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -552,7 +552,7 @@ pub const qmetamethod = struct {
     /// ` val4: QtC.QGenericArgument `
     ///
     pub fn Invoke8(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke8(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4));
+        return qtc.QMetaMethod_Invoke8(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -580,7 +580,7 @@ pub const qmetamethod = struct {
     /// ` val5: QtC.QGenericArgument `
     ///
     pub fn Invoke9(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke9(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5));
+        return qtc.QMetaMethod_Invoke9(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -610,7 +610,7 @@ pub const qmetamethod = struct {
     /// ` val6: QtC.QGenericArgument `
     ///
     pub fn Invoke10(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke10(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6));
+        return qtc.QMetaMethod_Invoke10(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -642,7 +642,7 @@ pub const qmetamethod = struct {
     /// ` val7: QtC.QGenericArgument `
     ///
     pub fn Invoke11(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke11(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7));
+        return qtc.QMetaMethod_Invoke11(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -676,7 +676,7 @@ pub const qmetamethod = struct {
     /// ` val8: QtC.QGenericArgument `
     ///
     pub fn Invoke12(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke12(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8));
+        return qtc.QMetaMethod_Invoke12(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -712,7 +712,7 @@ pub const qmetamethod = struct {
     /// ` val9: QtC.QGenericArgument `
     ///
     pub fn Invoke13(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke13(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
+        return qtc.QMetaMethod_Invoke13(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -980,7 +980,7 @@ pub const qmetamethod = struct {
     /// ` val1: QtC.QGenericArgument `
     ///
     pub fn Invoke44(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke44(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(val0), @ptrCast(val1));
+        return qtc.QMetaMethod_Invoke44(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(val0), @ptrCast(val1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -1000,7 +1000,7 @@ pub const qmetamethod = struct {
     /// ` val2: QtC.QGenericArgument `
     ///
     pub fn Invoke53(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke53(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2));
+        return qtc.QMetaMethod_Invoke53(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -1022,7 +1022,7 @@ pub const qmetamethod = struct {
     /// ` val3: QtC.QGenericArgument `
     ///
     pub fn Invoke63(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke63(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3));
+        return qtc.QMetaMethod_Invoke63(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -1046,7 +1046,7 @@ pub const qmetamethod = struct {
     /// ` val4: QtC.QGenericArgument `
     ///
     pub fn Invoke73(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke73(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4));
+        return qtc.QMetaMethod_Invoke73(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -1072,7 +1072,7 @@ pub const qmetamethod = struct {
     /// ` val5: QtC.QGenericArgument `
     ///
     pub fn Invoke83(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke83(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5));
+        return qtc.QMetaMethod_Invoke83(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -1100,7 +1100,7 @@ pub const qmetamethod = struct {
     /// ` val6: QtC.QGenericArgument `
     ///
     pub fn Invoke93(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke93(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6));
+        return qtc.QMetaMethod_Invoke93(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -1130,7 +1130,7 @@ pub const qmetamethod = struct {
     /// ` val7: QtC.QGenericArgument `
     ///
     pub fn Invoke103(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke103(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7));
+        return qtc.QMetaMethod_Invoke103(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -1162,7 +1162,7 @@ pub const qmetamethod = struct {
     /// ` val8: QtC.QGenericArgument `
     ///
     pub fn Invoke113(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke113(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8));
+        return qtc.QMetaMethod_Invoke113(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -1196,7 +1196,7 @@ pub const qmetamethod = struct {
     /// ` val9: QtC.QGenericArgument `
     ///
     pub fn Invoke123(self: ?*anyopaque, object: ?*anyopaque, connectionType: i32, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke123(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
+        return qtc.QMetaMethod_Invoke123(@ptrCast(self), @ptrCast(object), @bitCast(connectionType), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -2027,7 +2027,7 @@ pub const qmetaenum = struct {
     /// ` index: i32 `
     ///
     pub fn Key(self: ?*anyopaque, index: i32) [:0]const u8 {
-        const _ret = qtc.QMetaEnum_Key(@ptrCast(self), @intCast(index));
+        const _ret = qtc.QMetaEnum_Key(@ptrCast(self), @bitCast(index));
         return std.mem.span(_ret);
     }
 
@@ -2040,7 +2040,7 @@ pub const qmetaenum = struct {
     /// ` index: i32 `
     ///
     pub fn Value(self: ?*anyopaque, index: i32) i32 {
-        return qtc.QMetaEnum_Value(@ptrCast(self), @intCast(index));
+        return qtc.QMetaEnum_Value(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaenum.html#scope)
@@ -2076,7 +2076,7 @@ pub const qmetaenum = struct {
     /// ` value: i32 `
     ///
     pub fn ValueToKey(self: ?*anyopaque, value: i32) [:0]const u8 {
-        const _ret = qtc.QMetaEnum_ValueToKey(@ptrCast(self), @intCast(value));
+        const _ret = qtc.QMetaEnum_ValueToKey(@ptrCast(self), @bitCast(value));
         return std.mem.span(_ret);
     }
 
@@ -2104,7 +2104,7 @@ pub const qmetaenum = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ValueToKeys(self: ?*anyopaque, value: i32, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QMetaEnum_ValueToKeys(@ptrCast(self), @intCast(value));
+        var _bytearray: qtc.libqt_string = qtc.QMetaEnum_ValueToKeys(@ptrCast(self), @bitCast(value));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetaenum.ValueToKeys: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

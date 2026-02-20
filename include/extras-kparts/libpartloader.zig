@@ -12,7 +12,7 @@ pub const kparts = struct {
     /// ` param1: partloader_enums.PartCapability `
     ///
     pub fn GetEnumMetaObject(param1: i32) QtC.QMetaObject {
-        return qtc.KParts_GetEnumMetaObject(@intCast(param1));
+        return qtc.KParts_GetEnumMetaObject(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts.html#qt_getEnumName)
@@ -22,7 +22,7 @@ pub const kparts = struct {
     /// ` param1: partloader_enums.PartCapability `
     ///
     pub fn GetEnumName(param1: i32) [:0]const u8 {
-        const _ret = qtc.KParts_GetEnumName(@intCast(param1));
+        const _ret = qtc.KParts_GetEnumName(@bitCast(param1));
         return std.mem.span(_ret);
     }
 
@@ -33,7 +33,7 @@ pub const kparts = struct {
     /// ` param1: flag of partloader_enums.PartCapability `
     ///
     pub fn GetEnumMetaObject2(param1: i32) QtC.QMetaObject {
-        return qtc.KParts_GetEnumMetaObject2(@intCast(param1));
+        return qtc.KParts_GetEnumMetaObject2(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts.html#qt_getEnumName)
@@ -43,7 +43,7 @@ pub const kparts = struct {
     /// ` param1: flag of partloader_enums.PartCapability `
     ///
     pub fn GetEnumName2(param1: i32) [:0]const u8 {
-        const _ret = qtc.KParts_GetEnumName2(@intCast(param1));
+        const _ret = qtc.KParts_GetEnumName2(@bitCast(param1));
         return std.mem.span(_ret);
     }
 };

@@ -129,7 +129,7 @@ pub const qwebenginepermission = struct {
     /// ` permissionType: qwebenginepermission_enums.PermissionType `
     ///
     pub fn IsPersistent(permissionType: u8) bool {
-        return qtc.QWebEnginePermission_IsPersistent(@intCast(permissionType));
+        return qtc.QWebEnginePermission_IsPersistent(@bitCast(permissionType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#dtor.QWebEnginePermission)

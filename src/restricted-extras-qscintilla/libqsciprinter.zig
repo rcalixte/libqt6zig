@@ -22,7 +22,7 @@ pub const qsciprinter = struct {
     /// ` mode: qprinter_enums.PrinterMode `
     ///
     pub fn New2(mode: i32) QtC.QsciPrinter {
-        return qtc.QsciPrinter_new2(@intCast(mode));
+        return qtc.QsciPrinter_new2(@bitCast(mode));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -40,7 +40,7 @@ pub const qsciprinter = struct {
     /// ` pagenr: i32 `
     ///
     pub fn FormatPage(self: ?*anyopaque, painter: ?*anyopaque, drawing: bool, area: ?*anyopaque, pagenr: i32) void {
-        qtc.QsciPrinter_FormatPage(@ptrCast(self), @ptrCast(painter), drawing, @ptrCast(area), @intCast(pagenr));
+        qtc.QsciPrinter_FormatPage(@ptrCast(self), @ptrCast(painter), drawing, @ptrCast(area), @bitCast(pagenr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -54,7 +54,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, painter: QtC.QPainter, drawing: bool, area: QtC.QRect, pagenr: i32) callconv(.c) void `
     ///
     pub fn OnFormatPage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciPrinter_OnFormatPage(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnFormatPage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -74,7 +74,7 @@ pub const qsciprinter = struct {
     /// ` pagenr: i32 `
     ///
     pub fn QBaseFormatPage(self: ?*anyopaque, painter: ?*anyopaque, drawing: bool, area: ?*anyopaque, pagenr: i32) void {
-        qtc.QsciPrinter_QBaseFormatPage(@ptrCast(self), @ptrCast(painter), drawing, @ptrCast(area), @intCast(pagenr));
+        qtc.QsciPrinter_QBaseFormatPage(@ptrCast(self), @ptrCast(painter), drawing, @ptrCast(area), @bitCast(pagenr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -96,7 +96,7 @@ pub const qsciprinter = struct {
     /// ` magnification: i32 `
     ///
     pub fn SetMagnification(self: ?*anyopaque, magnification: i32) void {
-        qtc.QsciPrinter_SetMagnification(@ptrCast(self), @intCast(magnification));
+        qtc.QsciPrinter_SetMagnification(@ptrCast(self), @bitCast(magnification));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -110,7 +110,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, magnification: i32) callconv(.c) void `
     ///
     pub fn OnSetMagnification(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciPrinter_OnSetMagnification(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnSetMagnification(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -124,7 +124,7 @@ pub const qsciprinter = struct {
     /// ` magnification: i32 `
     ///
     pub fn QBaseSetMagnification(self: ?*anyopaque, magnification: i32) void {
-        qtc.QsciPrinter_QBaseSetMagnification(@ptrCast(self), @intCast(magnification));
+        qtc.QsciPrinter_QBaseSetMagnification(@ptrCast(self), @bitCast(magnification));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -142,7 +142,7 @@ pub const qsciprinter = struct {
     /// ` to: i32 `
     ///
     pub fn PrintRange(self: ?*anyopaque, qsb: ?*anyopaque, painter: ?*anyopaque, from: i32, to: i32) i32 {
-        return qtc.QsciPrinter_PrintRange(@ptrCast(self), @ptrCast(qsb), @ptrCast(painter), @intCast(from), @intCast(to));
+        return qtc.QsciPrinter_PrintRange(@ptrCast(self), @ptrCast(qsb), @ptrCast(painter), @bitCast(from), @bitCast(to));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -156,7 +156,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, qsb: QtC.QsciScintillaBase, painter: QtC.QPainter, from: i32, to: i32) callconv(.c) i32 `
     ///
     pub fn OnPrintRange(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) i32) void {
-        qtc.QsciPrinter_OnPrintRange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnPrintRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -176,7 +176,7 @@ pub const qsciprinter = struct {
     /// ` to: i32 `
     ///
     pub fn QBasePrintRange(self: ?*anyopaque, qsb: ?*anyopaque, painter: ?*anyopaque, from: i32, to: i32) i32 {
-        return qtc.QsciPrinter_QBasePrintRange(@ptrCast(self), @ptrCast(qsb), @ptrCast(painter), @intCast(from), @intCast(to));
+        return qtc.QsciPrinter_QBasePrintRange(@ptrCast(self), @ptrCast(qsb), @ptrCast(painter), @bitCast(from), @bitCast(to));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -192,7 +192,7 @@ pub const qsciprinter = struct {
     /// ` to: i32 `
     ///
     pub fn PrintRange2(self: ?*anyopaque, qsb: ?*anyopaque, from: i32, to: i32) i32 {
-        return qtc.QsciPrinter_PrintRange2(@ptrCast(self), @ptrCast(qsb), @intCast(from), @intCast(to));
+        return qtc.QsciPrinter_PrintRange2(@ptrCast(self), @ptrCast(qsb), @bitCast(from), @bitCast(to));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -206,7 +206,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, qsb: QtC.QsciScintillaBase, from: i32, to: i32) callconv(.c) i32 `
     ///
     pub fn OnPrintRange2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) i32) void {
-        qtc.QsciPrinter_OnPrintRange2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnPrintRange2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -224,7 +224,7 @@ pub const qsciprinter = struct {
     /// ` to: i32 `
     ///
     pub fn QBasePrintRange2(self: ?*anyopaque, qsb: ?*anyopaque, from: i32, to: i32) i32 {
-        return qtc.QsciPrinter_QBasePrintRange2(@ptrCast(self), @ptrCast(qsb), @intCast(from), @intCast(to));
+        return qtc.QsciPrinter_QBasePrintRange2(@ptrCast(self), @ptrCast(qsb), @bitCast(from), @bitCast(to));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -250,7 +250,7 @@ pub const qsciprinter = struct {
     /// ` wmode: qsciscintilla_enums.WrapMode `
     ///
     pub fn SetWrapMode(self: ?*anyopaque, wmode: i32) void {
-        qtc.QsciPrinter_SetWrapMode(@ptrCast(self), @intCast(wmode));
+        qtc.QsciPrinter_SetWrapMode(@ptrCast(self), @bitCast(wmode));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -264,7 +264,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, wmode: qsciscintilla_enums.WrapMode) callconv(.c) void `
     ///
     pub fn OnSetWrapMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciPrinter_OnSetWrapMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnSetWrapMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -278,7 +278,7 @@ pub const qsciprinter = struct {
     /// ` wmode: qsciscintilla_enums.WrapMode `
     ///
     pub fn QBaseSetWrapMode(self: ?*anyopaque, wmode: i32) void {
-        qtc.QsciPrinter_QBaseSetWrapMode(@ptrCast(self), @intCast(wmode));
+        qtc.QsciPrinter_QBaseSetWrapMode(@ptrCast(self), @bitCast(wmode));
     }
 
     /// Inherited from QPrinter
@@ -292,7 +292,7 @@ pub const qsciprinter = struct {
     /// ` format: qprinter_enums.OutputFormat `
     ///
     pub fn SetOutputFormat(self: ?*anyopaque, format: i32) void {
-        qtc.QPrinter_SetOutputFormat(@ptrCast(self), @intCast(format));
+        qtc.QPrinter_SetOutputFormat(@ptrCast(self), @bitCast(format));
     }
 
     /// Inherited from QPrinter
@@ -322,7 +322,7 @@ pub const qsciprinter = struct {
     /// ` version: qpagedpaintdevice_enums.PdfVersion `
     ///
     pub fn SetPdfVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QPrinter_SetPdfVersion(@ptrCast(self), @intCast(version));
+        qtc.QPrinter_SetPdfVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QPrinter
@@ -544,7 +544,7 @@ pub const qsciprinter = struct {
     /// ` pageOrder: qprinter_enums.PageOrder `
     ///
     pub fn SetPageOrder(self: ?*anyopaque, pageOrder: i32) void {
-        qtc.QPrinter_SetPageOrder(@ptrCast(self), @intCast(pageOrder));
+        qtc.QPrinter_SetPageOrder(@ptrCast(self), @bitCast(pageOrder));
     }
 
     /// Inherited from QPrinter
@@ -574,7 +574,7 @@ pub const qsciprinter = struct {
     /// ` resolution: i32 `
     ///
     pub fn SetResolution(self: ?*anyopaque, resolution: i32) void {
-        qtc.QPrinter_SetResolution(@ptrCast(self), @intCast(resolution));
+        qtc.QPrinter_SetResolution(@ptrCast(self), @bitCast(resolution));
     }
 
     /// Inherited from QPrinter
@@ -600,7 +600,7 @@ pub const qsciprinter = struct {
     /// ` colorMode: qprinter_enums.ColorMode `
     ///
     pub fn SetColorMode(self: ?*anyopaque, colorMode: i32) void {
-        qtc.QPrinter_SetColorMode(@ptrCast(self), @intCast(colorMode));
+        qtc.QPrinter_SetColorMode(@ptrCast(self), @bitCast(colorMode));
     }
 
     /// Inherited from QPrinter
@@ -682,7 +682,7 @@ pub const qsciprinter = struct {
     /// ` copyCount: i32 `
     ///
     pub fn SetCopyCount(self: ?*anyopaque, copyCount: i32) void {
-        qtc.QPrinter_SetCopyCount(@ptrCast(self), @intCast(copyCount));
+        qtc.QPrinter_SetCopyCount(@ptrCast(self), @bitCast(copyCount));
     }
 
     /// Inherited from QPrinter
@@ -720,7 +720,7 @@ pub const qsciprinter = struct {
     /// ` paperSource: qprinter_enums.PaperSource `
     ///
     pub fn SetPaperSource(self: ?*anyopaque, paperSource: i32) void {
-        qtc.QPrinter_SetPaperSource(@ptrCast(self), @intCast(paperSource));
+        qtc.QPrinter_SetPaperSource(@ptrCast(self), @bitCast(paperSource));
     }
 
     /// Inherited from QPrinter
@@ -750,7 +750,7 @@ pub const qsciprinter = struct {
     /// ` duplex: qprinter_enums.DuplexMode `
     ///
     pub fn SetDuplex(self: ?*anyopaque, duplex: i32) void {
-        qtc.QPrinter_SetDuplex(@ptrCast(self), @intCast(duplex));
+        qtc.QPrinter_SetDuplex(@ptrCast(self), @bitCast(duplex));
     }
 
     /// Inherited from QPrinter
@@ -825,7 +825,7 @@ pub const qsciprinter = struct {
     /// ` param1: qprinter_enums.Unit `
     ///
     pub fn PaperRect(self: ?*anyopaque, param1: i32) QtC.QRectF {
-        return qtc.QPrinter_PaperRect(@ptrCast(self), @intCast(param1));
+        return qtc.QPrinter_PaperRect(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QPrinter
@@ -839,7 +839,7 @@ pub const qsciprinter = struct {
     /// ` param1: qprinter_enums.Unit `
     ///
     pub fn PageRect(self: ?*anyopaque, param1: i32) QtC.QRectF {
-        return qtc.QPrinter_PageRect(@ptrCast(self), @intCast(param1));
+        return qtc.QPrinter_PageRect(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QPrinter
@@ -931,7 +931,7 @@ pub const qsciprinter = struct {
     /// ` toPage: i32 `
     ///
     pub fn SetFromTo(self: ?*anyopaque, fromPage: i32, toPage: i32) void {
-        qtc.QPrinter_SetFromTo(@ptrCast(self), @intCast(fromPage), @intCast(toPage));
+        qtc.QPrinter_SetFromTo(@ptrCast(self), @bitCast(fromPage), @bitCast(toPage));
     }
 
     /// Inherited from QPrinter
@@ -969,7 +969,7 @@ pub const qsciprinter = struct {
     /// ` range: qprinter_enums.PrintRange `
     ///
     pub fn SetPrintRange(self: ?*anyopaque, range: i32) void {
-        qtc.QPrinter_SetPrintRange(@ptrCast(self), @intCast(range));
+        qtc.QPrinter_SetPrintRange(@ptrCast(self), @bitCast(range));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1171,7 +1171,7 @@ pub const qsciprinter = struct {
     /// ` value: f64 `
     ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
 
     /// Inherited from QPrinter
@@ -1215,7 +1215,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciPrinter_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPrinter
@@ -1259,7 +1259,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnNewPage(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QsciPrinter_OnNewPage(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnNewPage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPrinter
@@ -1303,7 +1303,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
     ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QsciPrinter_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPrinter
@@ -1319,7 +1319,7 @@ pub const qsciprinter = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QsciPrinter_Metric(@ptrCast(self), @intCast(param1));
+        return qtc.QsciPrinter_Metric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QPrinter
@@ -1335,7 +1335,7 @@ pub const qsciprinter = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QsciPrinter_QBaseMetric(@ptrCast(self), @intCast(param1));
+        return qtc.QsciPrinter_QBaseMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QPrinter
@@ -1351,7 +1351,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QsciPrinter_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1399,7 +1399,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, pageLayout: QtC.QPageLayout) callconv(.c) bool `
     ///
     pub fn OnSetPageLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciPrinter_OnSetPageLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnSetPageLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1447,7 +1447,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, pageSize: QtC.QPageSize) callconv(.c) bool `
     ///
     pub fn OnSetPageSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciPrinter_OnSetPageSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnSetPageSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1463,7 +1463,7 @@ pub const qsciprinter = struct {
     /// ` orientation: qpagelayout_enums.Orientation `
     ///
     pub fn SetPageOrientation(self: ?*anyopaque, orientation: i32) bool {
-        return qtc.QsciPrinter_SetPageOrientation(@ptrCast(self), @intCast(orientation));
+        return qtc.QsciPrinter_SetPageOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1479,7 +1479,7 @@ pub const qsciprinter = struct {
     /// ` orientation: qpagelayout_enums.Orientation `
     ///
     pub fn QBaseSetPageOrientation(self: ?*anyopaque, orientation: i32) bool {
-        return qtc.QsciPrinter_QBaseSetPageOrientation(@ptrCast(self), @intCast(orientation));
+        return qtc.QsciPrinter_QBaseSetPageOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1495,7 +1495,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, orientation: qpagelayout_enums.Orientation) callconv(.c) bool `
     ///
     pub fn OnSetPageOrientation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QsciPrinter_OnSetPageOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnSetPageOrientation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1513,7 +1513,7 @@ pub const qsciprinter = struct {
     /// ` units: qpagelayout_enums.Unit `
     ///
     pub fn SetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i32) bool {
-        return qtc.QsciPrinter_SetPageMargins(@ptrCast(self), @ptrCast(margins), @intCast(units));
+        return qtc.QsciPrinter_SetPageMargins(@ptrCast(self), @ptrCast(margins), @bitCast(units));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1531,7 +1531,7 @@ pub const qsciprinter = struct {
     /// ` units: qpagelayout_enums.Unit `
     ///
     pub fn QBaseSetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i32) bool {
-        return qtc.QsciPrinter_QBaseSetPageMargins(@ptrCast(self), @ptrCast(margins), @intCast(units));
+        return qtc.QsciPrinter_QBaseSetPageMargins(@ptrCast(self), @ptrCast(margins), @bitCast(units));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1547,7 +1547,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit) callconv(.c) bool `
     ///
     pub fn OnSetPageMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QsciPrinter_OnSetPageMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnSetPageMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1595,7 +1595,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, ranges: QtC.QPageRanges) callconv(.c) void `
     ///
     pub fn OnSetPageRanges(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciPrinter_OnSetPageRanges(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnSetPageRanges(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1643,7 +1643,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciPrinter_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1691,7 +1691,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
     ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QsciPrinter_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1735,7 +1735,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainter `
     ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QsciPrinter_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPrinter
@@ -1787,7 +1787,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, printEngine: QtC.QPrintEngine, paintEngine: QtC.QPaintEngine) callconv(.c) void `
     ///
     pub fn OnSetEngines(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciPrinter_OnSetEngines(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnSetEngines(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1805,7 +1805,7 @@ pub const qsciprinter = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QsciPrinter_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QsciPrinter_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -1823,7 +1823,7 @@ pub const qsciprinter = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QsciPrinter_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QsciPrinter_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -1839,7 +1839,7 @@ pub const qsciprinter = struct {
     /// ` callback: *const fn (self: QtC.QsciPrinter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QsciPrinter_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciPrinter_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)

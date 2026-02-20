@@ -18,7 +18,7 @@ pub const kencodingprober = struct {
     /// ` proberType: kencodingprober_enums.ProberType `
     ///
     pub fn New2(proberType: i32) QtC.KEncodingProber {
-        return qtc.KEncodingProber_new2(@intCast(proberType));
+        return qtc.KEncodingProber_new2(@bitCast(proberType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -84,7 +84,7 @@ pub const kencodingprober = struct {
     ///
     pub fn Feed2(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i32 {
         const data_Cstring = data.ptr;
-        return qtc.KEncodingProber_Feed2(@ptrCast(self), data_Cstring, @intCast(lenVal));
+        return qtc.KEncodingProber_Feed2(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#state)
@@ -150,7 +150,7 @@ pub const kencodingprober = struct {
     /// ` proberType: kencodingprober_enums.ProberType `
     ///
     pub fn SetProberType(self: ?*anyopaque, proberType: i32) void {
-        qtc.KEncodingProber_SetProberType(@ptrCast(self), @intCast(proberType));
+        qtc.KEncodingProber_SetProberType(@ptrCast(self), @bitCast(proberType));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#proberTypeForName)
@@ -180,7 +180,7 @@ pub const kencodingprober = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn NameForProberType(proberType: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KEncodingProber_NameForProberType(@intCast(proberType));
+        var _str = qtc.KEncodingProber_NameForProberType(@bitCast(proberType));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingprober.NameForProberType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -222,7 +222,7 @@ pub const kencodingprober = struct {
     pub fn Tr3(sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
-        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingprober.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

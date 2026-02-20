@@ -36,7 +36,7 @@ pub const qhashseed = struct {
     /// ` d: u64 `
     ///
     pub fn New4(d: u64) QtC.QHashSeed {
-        return qtc.QHashSeed_new4(@intCast(d));
+        return qtc.QHashSeed_new4(@bitCast(d));
     }
 
     /// CopyAssign shallow copies `other` into `self`.

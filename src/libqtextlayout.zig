@@ -139,7 +139,7 @@ pub const qtextinlineobject = struct {
     /// ` w: f64 `
     ///
     pub fn SetWidth(self: ?*anyopaque, w: f64) void {
-        qtc.QTextInlineObject_SetWidth(@ptrCast(self), @floatCast(w));
+        qtc.QTextInlineObject_SetWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextinlineobject.html#setAscent)
@@ -151,7 +151,7 @@ pub const qtextinlineobject = struct {
     /// ` a: f64 `
     ///
     pub fn SetAscent(self: ?*anyopaque, a: f64) void {
-        qtc.QTextInlineObject_SetAscent(@ptrCast(self), @floatCast(a));
+        qtc.QTextInlineObject_SetAscent(@ptrCast(self), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextinlineobject.html#setDescent)
@@ -163,7 +163,7 @@ pub const qtextinlineobject = struct {
     /// ` d: f64 `
     ///
     pub fn SetDescent(self: ?*anyopaque, d: f64) void {
-        qtc.QTextInlineObject_SetDescent(@ptrCast(self), @floatCast(d));
+        qtc.QTextInlineObject_SetDescent(@ptrCast(self), @bitCast(d));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextinlineobject.html#textPosition)
@@ -381,7 +381,7 @@ pub const qtextlayout = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTextLayout_SetPreeditArea(@ptrCast(self), @intCast(position), text_str);
+        qtc.QTextLayout_SetPreeditArea(@ptrCast(self), @bitCast(position), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#preeditAreaPosition)
@@ -484,7 +484,7 @@ pub const qtextlayout = struct {
     /// ` style: qnamespace_enums.CursorMoveStyle `
     ///
     pub fn SetCursorMoveStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTextLayout_SetCursorMoveStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextLayout_SetCursorMoveStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#cursorMoveStyle)
@@ -560,7 +560,7 @@ pub const qtextlayout = struct {
     /// ` i: i32 `
     ///
     pub fn LineAt(self: ?*anyopaque, i: i32) QtC.QTextLine {
-        return qtc.QTextLayout_LineAt(@ptrCast(self), @intCast(i));
+        return qtc.QTextLayout_LineAt(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#lineForTextPosition)
@@ -572,7 +572,7 @@ pub const qtextlayout = struct {
     /// ` pos: i32 `
     ///
     pub fn LineForTextPosition(self: ?*anyopaque, pos: i32) QtC.QTextLine {
-        return qtc.QTextLayout_LineForTextPosition(@ptrCast(self), @intCast(pos));
+        return qtc.QTextLayout_LineForTextPosition(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#isValidCursorPosition)
@@ -584,7 +584,7 @@ pub const qtextlayout = struct {
     /// ` pos: i32 `
     ///
     pub fn IsValidCursorPosition(self: ?*anyopaque, pos: i32) bool {
-        return qtc.QTextLayout_IsValidCursorPosition(@ptrCast(self), @intCast(pos));
+        return qtc.QTextLayout_IsValidCursorPosition(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#nextCursorPosition)
@@ -596,7 +596,7 @@ pub const qtextlayout = struct {
     /// ` oldPos: i32 `
     ///
     pub fn NextCursorPosition(self: ?*anyopaque, oldPos: i32) i32 {
-        return qtc.QTextLayout_NextCursorPosition(@ptrCast(self), @intCast(oldPos));
+        return qtc.QTextLayout_NextCursorPosition(@ptrCast(self), @bitCast(oldPos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#previousCursorPosition)
@@ -608,7 +608,7 @@ pub const qtextlayout = struct {
     /// ` oldPos: i32 `
     ///
     pub fn PreviousCursorPosition(self: ?*anyopaque, oldPos: i32) i32 {
-        return qtc.QTextLayout_PreviousCursorPosition(@ptrCast(self), @intCast(oldPos));
+        return qtc.QTextLayout_PreviousCursorPosition(@ptrCast(self), @bitCast(oldPos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#leftCursorPosition)
@@ -620,7 +620,7 @@ pub const qtextlayout = struct {
     /// ` oldPos: i32 `
     ///
     pub fn LeftCursorPosition(self: ?*anyopaque, oldPos: i32) i32 {
-        return qtc.QTextLayout_LeftCursorPosition(@ptrCast(self), @intCast(oldPos));
+        return qtc.QTextLayout_LeftCursorPosition(@ptrCast(self), @bitCast(oldPos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#rightCursorPosition)
@@ -632,7 +632,7 @@ pub const qtextlayout = struct {
     /// ` oldPos: i32 `
     ///
     pub fn RightCursorPosition(self: ?*anyopaque, oldPos: i32) i32 {
-        return qtc.QTextLayout_RightCursorPosition(@ptrCast(self), @intCast(oldPos));
+        return qtc.QTextLayout_RightCursorPosition(@ptrCast(self), @bitCast(oldPos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#draw)
@@ -662,7 +662,7 @@ pub const qtextlayout = struct {
     /// ` cursorPosition: i32 `
     ///
     pub fn DrawCursor(self: ?*anyopaque, p: ?*anyopaque, pos: ?*anyopaque, cursorPosition: i32) void {
-        qtc.QTextLayout_DrawCursor(@ptrCast(self), @ptrCast(p), @ptrCast(pos), @intCast(cursorPosition));
+        qtc.QTextLayout_DrawCursor(@ptrCast(self), @ptrCast(p), @ptrCast(pos), @bitCast(cursorPosition));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#drawCursor)
@@ -680,7 +680,7 @@ pub const qtextlayout = struct {
     /// ` width: i32 `
     ///
     pub fn DrawCursor2(self: ?*anyopaque, p: ?*anyopaque, pos: ?*anyopaque, cursorPosition: i32, width: i32) void {
-        qtc.QTextLayout_DrawCursor2(@ptrCast(self), @ptrCast(p), @ptrCast(pos), @intCast(cursorPosition), @intCast(width));
+        qtc.QTextLayout_DrawCursor2(@ptrCast(self), @ptrCast(p), @ptrCast(pos), @bitCast(cursorPosition), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#position)
@@ -750,7 +750,7 @@ pub const qtextlayout = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GlyphRuns(self: ?*anyopaque, from: i32, length: i32, flags: u16, allocator: std.mem.Allocator) []QtC.QGlyphRun {
-        const _arr: qtc.libqt_list = qtc.QTextLayout_GlyphRuns(@ptrCast(self), @intCast(from), @intCast(length), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QTextLayout_GlyphRuns(@ptrCast(self), @bitCast(from), @bitCast(length), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextlayout.GlyphRuns: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
@@ -784,7 +784,7 @@ pub const qtextlayout = struct {
     /// ` flags: i32 `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QTextLayout_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QTextLayout_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#nextCursorPosition)
@@ -798,7 +798,7 @@ pub const qtextlayout = struct {
     /// ` mode: qtextlayout_enums.CursorMode `
     ///
     pub fn NextCursorPosition2(self: ?*anyopaque, oldPos: i32, mode: i32) i32 {
-        return qtc.QTextLayout_NextCursorPosition2(@ptrCast(self), @intCast(oldPos), @intCast(mode));
+        return qtc.QTextLayout_NextCursorPosition2(@ptrCast(self), @bitCast(oldPos), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#previousCursorPosition)
@@ -812,7 +812,7 @@ pub const qtextlayout = struct {
     /// ` mode: qtextlayout_enums.CursorMode `
     ///
     pub fn PreviousCursorPosition2(self: ?*anyopaque, oldPos: i32, mode: i32) i32 {
-        return qtc.QTextLayout_PreviousCursorPosition2(@ptrCast(self), @intCast(oldPos), @intCast(mode));
+        return qtc.QTextLayout_PreviousCursorPosition2(@ptrCast(self), @bitCast(oldPos), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#draw)
@@ -868,7 +868,7 @@ pub const qtextlayout = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GlyphRuns1(self: ?*anyopaque, from: i32, allocator: std.mem.Allocator) []QtC.QGlyphRun {
-        const _arr: qtc.libqt_list = qtc.QTextLayout_GlyphRuns1(@ptrCast(self), @intCast(from));
+        const _arr: qtc.libqt_list = qtc.QTextLayout_GlyphRuns1(@ptrCast(self), @bitCast(from));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextlayout.GlyphRuns1: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
@@ -889,7 +889,7 @@ pub const qtextlayout = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GlyphRuns22(self: ?*anyopaque, from: i32, length: i32, allocator: std.mem.Allocator) []QtC.QGlyphRun {
-        const _arr: qtc.libqt_list = qtc.QTextLayout_GlyphRuns22(@ptrCast(self), @intCast(from), @intCast(length));
+        const _arr: qtc.libqt_list = qtc.QTextLayout_GlyphRuns22(@ptrCast(self), @bitCast(from), @bitCast(length));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextlayout.GlyphRuns22: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
@@ -1125,7 +1125,7 @@ pub const qtextline = struct {
     /// ` cursorPos: i32 `
     ///
     pub fn CursorToX2(self: ?*anyopaque, cursorPos: i32) f64 {
-        return qtc.QTextLine_CursorToX2(@ptrCast(self), @intCast(cursorPos));
+        return qtc.QTextLine_CursorToX2(@ptrCast(self), @bitCast(cursorPos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextline.html#xToCursor)
@@ -1137,7 +1137,7 @@ pub const qtextline = struct {
     /// ` x: f64 `
     ///
     pub fn XToCursor(self: ?*anyopaque, x: f64) i32 {
-        return qtc.QTextLine_XToCursor(@ptrCast(self), @floatCast(x));
+        return qtc.QTextLine_XToCursor(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextline.html#setLineWidth)
@@ -1149,7 +1149,7 @@ pub const qtextline = struct {
     /// ` width: f64 `
     ///
     pub fn SetLineWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QTextLine_SetLineWidth(@ptrCast(self), @floatCast(width));
+        qtc.QTextLine_SetLineWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextline.html#setNumColumns)
@@ -1161,7 +1161,7 @@ pub const qtextline = struct {
     /// ` columns: i32 `
     ///
     pub fn SetNumColumns(self: ?*anyopaque, columns: i32) void {
-        qtc.QTextLine_SetNumColumns(@ptrCast(self), @intCast(columns));
+        qtc.QTextLine_SetNumColumns(@ptrCast(self), @bitCast(columns));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextline.html#setNumColumns)
@@ -1175,7 +1175,7 @@ pub const qtextline = struct {
     /// ` alignmentWidth: f64 `
     ///
     pub fn SetNumColumns2(self: ?*anyopaque, columns: i32, alignmentWidth: f64) void {
-        qtc.QTextLine_SetNumColumns2(@ptrCast(self), @intCast(columns), @floatCast(alignmentWidth));
+        qtc.QTextLine_SetNumColumns2(@ptrCast(self), @bitCast(columns), @bitCast(alignmentWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextline.html#setPosition)
@@ -1259,7 +1259,7 @@ pub const qtextline = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GlyphRuns(self: ?*anyopaque, from: i32, length: i32, flags: u16, allocator: std.mem.Allocator) []QtC.QGlyphRun {
-        const _arr: qtc.libqt_list = qtc.QTextLine_GlyphRuns(@ptrCast(self), @intCast(from), @intCast(length), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QTextLine_GlyphRuns(@ptrCast(self), @bitCast(from), @bitCast(length), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextline.GlyphRuns: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
@@ -1295,7 +1295,7 @@ pub const qtextline = struct {
     /// ` edge: qtextlayout_enums.Edge `
     ///
     pub fn CursorToX22(self: ?*anyopaque, cursorPos: *i32, edge: i32) f64 {
-        return qtc.QTextLine_CursorToX22(@ptrCast(self), @ptrCast(cursorPos), @intCast(edge));
+        return qtc.QTextLine_CursorToX22(@ptrCast(self), @ptrCast(cursorPos), @bitCast(edge));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextline.html#cursorToX)
@@ -1309,7 +1309,7 @@ pub const qtextline = struct {
     /// ` edge: qtextlayout_enums.Edge `
     ///
     pub fn CursorToX23(self: ?*anyopaque, cursorPos: i32, edge: i32) f64 {
-        return qtc.QTextLine_CursorToX23(@ptrCast(self), @intCast(cursorPos), @intCast(edge));
+        return qtc.QTextLine_CursorToX23(@ptrCast(self), @bitCast(cursorPos), @bitCast(edge));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextline.html#xToCursor)
@@ -1323,7 +1323,7 @@ pub const qtextline = struct {
     /// ` param2: qtextlayout_enums.CursorPosition `
     ///
     pub fn XToCursor2(self: ?*anyopaque, x: f64, param2: i32) i32 {
-        return qtc.QTextLine_XToCursor2(@ptrCast(self), @floatCast(x), @intCast(param2));
+        return qtc.QTextLine_XToCursor2(@ptrCast(self), @bitCast(x), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextline.html#glyphRuns)
@@ -1337,7 +1337,7 @@ pub const qtextline = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GlyphRuns1(self: ?*anyopaque, from: i32, allocator: std.mem.Allocator) []QtC.QGlyphRun {
-        const _arr: qtc.libqt_list = qtc.QTextLine_GlyphRuns1(@ptrCast(self), @intCast(from));
+        const _arr: qtc.libqt_list = qtc.QTextLine_GlyphRuns1(@ptrCast(self), @bitCast(from));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextline.GlyphRuns1: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
@@ -1358,7 +1358,7 @@ pub const qtextline = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GlyphRuns22(self: ?*anyopaque, from: i32, length: i32, allocator: std.mem.Allocator) []QtC.QGlyphRun {
-        const _arr: qtc.libqt_list = qtc.QTextLine_GlyphRuns22(@ptrCast(self), @intCast(from), @intCast(length));
+        const _arr: qtc.libqt_list = qtc.QTextLine_GlyphRuns22(@ptrCast(self), @bitCast(from), @bitCast(length));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextline.GlyphRuns22: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
@@ -1416,7 +1416,7 @@ pub const qtextlayout__formatrange = struct {
     /// ` start: i32 `
     ///
     pub fn SetStart(self: ?*anyopaque, start: i32) void {
-        qtc.QTextLayout__FormatRange_SetStart(@ptrCast(self), @intCast(start));
+        qtc.QTextLayout__FormatRange_SetStart(@ptrCast(self), @bitCast(start));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout-formatrange.html#length-var)
@@ -1438,7 +1438,7 @@ pub const qtextlayout__formatrange = struct {
     /// ` length: i32 `
     ///
     pub fn SetLength(self: ?*anyopaque, length: i32) void {
-        qtc.QTextLayout__FormatRange_SetLength(@ptrCast(self), @intCast(length));
+        qtc.QTextLayout__FormatRange_SetLength(@ptrCast(self), @bitCast(length));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout-formatrange.html#format-var)

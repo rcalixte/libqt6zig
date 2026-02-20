@@ -30,7 +30,7 @@ pub const attica__comment = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CommentTypeToString(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Attica__Comment_CommentTypeToString(@intCast(typeVal));
+        var _str = qtc.Attica__Comment_CommentTypeToString(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__comment.CommentTypeToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -154,7 +154,7 @@ pub const attica__comment = struct {
     /// ` childCount: i32 `
     ///
     pub fn SetChildCount(self: ?*anyopaque, childCount: i32) void {
-        qtc.Attica__Comment_SetChildCount(@ptrCast(self), @intCast(childCount));
+        qtc.Attica__Comment_SetChildCount(@ptrCast(self), @bitCast(childCount));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#childCount)
@@ -230,7 +230,7 @@ pub const attica__comment = struct {
     /// ` score: i32 `
     ///
     pub fn SetScore(self: ?*anyopaque, score: i32) void {
-        qtc.Attica__Comment_SetScore(@ptrCast(self), @intCast(score));
+        qtc.Attica__Comment_SetScore(@ptrCast(self), @bitCast(score));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#score)

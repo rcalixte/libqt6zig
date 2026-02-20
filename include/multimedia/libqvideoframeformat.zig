@@ -22,7 +22,7 @@ pub const qvideoframeformat = struct {
     /// ` pixelFormat: qvideoframeformat_enums.PixelFormat `
     ///
     pub fn New2(size: ?*anyopaque, pixelFormat: i32) QtC.QVideoFrameFormat {
-        return qtc.QVideoFrameFormat_new2(@ptrCast(size), @intCast(pixelFormat));
+        return qtc.QVideoFrameFormat_new2(@ptrCast(size), @bitCast(pixelFormat));
     }
 
     /// New3 constructs a new QVideoFrameFormat object.
@@ -150,7 +150,7 @@ pub const qvideoframeformat = struct {
     /// ` height: i32 `
     ///
     pub fn SetFrameSize2(self: ?*anyopaque, width: i32, height: i32) void {
-        qtc.QVideoFrameFormat_SetFrameSize2(@ptrCast(self), @intCast(width), @intCast(height));
+        qtc.QVideoFrameFormat_SetFrameSize2(@ptrCast(self), @bitCast(width), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframeformat.html#frameWidth)
@@ -228,7 +228,7 @@ pub const qvideoframeformat = struct {
     /// ` direction: qvideoframeformat_enums.Direction `
     ///
     pub fn SetScanLineDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QVideoFrameFormat_SetScanLineDirection(@ptrCast(self), @intCast(direction));
+        qtc.QVideoFrameFormat_SetScanLineDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframeformat.html#frameRate)
@@ -250,7 +250,7 @@ pub const qvideoframeformat = struct {
     /// ` rate: f64 `
     ///
     pub fn SetFrameRate(self: ?*anyopaque, rate: f64) void {
-        qtc.QVideoFrameFormat_SetFrameRate(@ptrCast(self), @floatCast(rate));
+        qtc.QVideoFrameFormat_SetFrameRate(@ptrCast(self), @bitCast(rate));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframeformat.html#streamFrameRate)
@@ -272,7 +272,7 @@ pub const qvideoframeformat = struct {
     /// ` rate: f64 `
     ///
     pub fn SetStreamFrameRate(self: ?*anyopaque, rate: f64) void {
-        qtc.QVideoFrameFormat_SetStreamFrameRate(@ptrCast(self), @floatCast(rate));
+        qtc.QVideoFrameFormat_SetStreamFrameRate(@ptrCast(self), @bitCast(rate));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframeformat.html#yCbCrColorSpace)
@@ -298,7 +298,7 @@ pub const qvideoframeformat = struct {
     /// ` colorSpace: qvideoframeformat_enums.YCbCrColorSpace `
     ///
     pub fn SetYCbCrColorSpace(self: ?*anyopaque, colorSpace: i32) void {
-        qtc.QVideoFrameFormat_SetYCbCrColorSpace(@ptrCast(self), @intCast(colorSpace));
+        qtc.QVideoFrameFormat_SetYCbCrColorSpace(@ptrCast(self), @bitCast(colorSpace));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframeformat.html#colorSpace)
@@ -324,7 +324,7 @@ pub const qvideoframeformat = struct {
     /// ` colorSpace: qvideoframeformat_enums.ColorSpace `
     ///
     pub fn SetColorSpace(self: ?*anyopaque, colorSpace: i32) void {
-        qtc.QVideoFrameFormat_SetColorSpace(@ptrCast(self), @intCast(colorSpace));
+        qtc.QVideoFrameFormat_SetColorSpace(@ptrCast(self), @bitCast(colorSpace));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframeformat.html#colorTransfer)
@@ -350,7 +350,7 @@ pub const qvideoframeformat = struct {
     /// ` colorTransfer: qvideoframeformat_enums.ColorTransfer `
     ///
     pub fn SetColorTransfer(self: ?*anyopaque, colorTransfer: i32) void {
-        qtc.QVideoFrameFormat_SetColorTransfer(@ptrCast(self), @intCast(colorTransfer));
+        qtc.QVideoFrameFormat_SetColorTransfer(@ptrCast(self), @bitCast(colorTransfer));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframeformat.html#colorRange)
@@ -376,7 +376,7 @@ pub const qvideoframeformat = struct {
     /// ` range: qvideoframeformat_enums.ColorRange `
     ///
     pub fn SetColorRange(self: ?*anyopaque, range: i32) void {
-        qtc.QVideoFrameFormat_SetColorRange(@ptrCast(self), @intCast(range));
+        qtc.QVideoFrameFormat_SetColorRange(@ptrCast(self), @bitCast(range));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframeformat.html#isMirrored)
@@ -424,7 +424,7 @@ pub const qvideoframeformat = struct {
     /// ` rotation: qtvideo_enums.Rotation `
     ///
     pub fn SetRotation(self: ?*anyopaque, rotation: i32) void {
-        qtc.QVideoFrameFormat_SetRotation(@ptrCast(self), @intCast(rotation));
+        qtc.QVideoFrameFormat_SetRotation(@ptrCast(self), @bitCast(rotation));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframeformat.html#vertexShaderFileName)
@@ -478,7 +478,7 @@ pub const qvideoframeformat = struct {
     /// ` lum: f32 `
     ///
     pub fn SetMaxLuminance(self: ?*anyopaque, lum: f32) void {
-        qtc.QVideoFrameFormat_SetMaxLuminance(@ptrCast(self), @floatCast(lum));
+        qtc.QVideoFrameFormat_SetMaxLuminance(@ptrCast(self), @bitCast(lum));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframeformat.html#pixelFormatFromImageFormat)
@@ -492,7 +492,7 @@ pub const qvideoframeformat = struct {
     /// ` qvideoframeformat_enums.PixelFormat `
     ///
     pub fn PixelFormatFromImageFormat(format: i32) i32 {
-        return qtc.QVideoFrameFormat_PixelFormatFromImageFormat(@intCast(format));
+        return qtc.QVideoFrameFormat_PixelFormatFromImageFormat(@bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframeformat.html#imageFormatFromPixelFormat)
@@ -506,7 +506,7 @@ pub const qvideoframeformat = struct {
     /// ` qimage_enums.Format `
     ///
     pub fn ImageFormatFromPixelFormat(format: i32) i32 {
-        return qtc.QVideoFrameFormat_ImageFormatFromPixelFormat(@intCast(format));
+        return qtc.QVideoFrameFormat_ImageFormatFromPixelFormat(@bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframeformat.html#pixelFormatToString)
@@ -518,7 +518,7 @@ pub const qvideoframeformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PixelFormatToString(pixelFormat: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QVideoFrameFormat_PixelFormatToString(@intCast(pixelFormat));
+        var _str = qtc.QVideoFrameFormat_PixelFormatToString(@bitCast(pixelFormat));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideoframeformat.PixelFormatToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

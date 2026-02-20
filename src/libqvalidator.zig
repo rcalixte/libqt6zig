@@ -44,7 +44,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QValidator_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -79,7 +79,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QValidator_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -106,7 +106,7 @@ pub const qvalidator = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QValidator_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QValidator_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -118,7 +118,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QValidator_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -134,7 +134,7 @@ pub const qvalidator = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QValidator_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QValidator_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -209,7 +209,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, param1: [*:0]const u8, param2: *i32) callconv(.c) i32 `
     ///
     pub fn OnValidate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
-        qtc.QValidator_OnValidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnValidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#validate)
@@ -263,7 +263,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnFixup(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QValidator_OnFixup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnFixup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#fixup)
@@ -303,7 +303,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator) callconv(.c) void `
     ///
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QValidator_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_Connect_Changed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -341,7 +341,7 @@ pub const qvalidator = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvalidator.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -479,7 +479,7 @@ pub const qvalidator = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -493,7 +493,7 @@ pub const qvalidator = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -507,7 +507,7 @@ pub const qvalidator = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -521,7 +521,7 @@ pub const qvalidator = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -851,7 +851,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -906,7 +906,7 @@ pub const qvalidator = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -922,7 +922,7 @@ pub const qvalidator = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -944,7 +944,7 @@ pub const qvalidator = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -964,7 +964,7 @@ pub const qvalidator = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -986,7 +986,7 @@ pub const qvalidator = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1083,7 +1083,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1131,7 +1131,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QValidator_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1183,7 +1183,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QValidator_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1231,7 +1231,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QValidator_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1279,7 +1279,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QValidator_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1327,7 +1327,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QValidator_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1375,7 +1375,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QValidator_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1423,7 +1423,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QValidator_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1467,7 +1467,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QValidator_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1511,7 +1511,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QValidator_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1561,7 +1561,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QValidator_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1609,7 +1609,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QValidator_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1625,7 +1625,7 @@ pub const qvalidator = struct {
     /// ` callback: *const fn (self: QtC.QValidator, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#dtor.QValidator)
@@ -1658,7 +1658,7 @@ pub const qintvalidator = struct {
     /// ` top: i32 `
     ///
     pub fn New2(bottom: i32, top: i32) QtC.QIntValidator {
-        return qtc.QIntValidator_new2(@intCast(bottom), @intCast(top));
+        return qtc.QIntValidator_new2(@bitCast(bottom), @bitCast(top));
     }
 
     /// New3 constructs a new QIntValidator object.
@@ -1682,7 +1682,7 @@ pub const qintvalidator = struct {
     /// ` parent: QtC.QObject `
     ///
     pub fn New4(bottom: i32, top: i32, parent: ?*anyopaque) QtC.QIntValidator {
-        return qtc.QIntValidator_new4(@intCast(bottom), @intCast(top), @ptrCast(parent));
+        return qtc.QIntValidator_new4(@bitCast(bottom), @bitCast(top), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -1706,7 +1706,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QIntValidator_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -1741,7 +1741,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QIntValidator_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -1768,7 +1768,7 @@ pub const qintvalidator = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QIntValidator_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QIntValidator_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -1780,7 +1780,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QIntValidator_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -1796,7 +1796,7 @@ pub const qintvalidator = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QIntValidator_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QIntValidator_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1849,7 +1849,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, param1: [*:0]const u8, param2: *i32) callconv(.c) i32 `
     ///
     pub fn OnValidate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
-        qtc.QIntValidator_OnValidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnValidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#validate)
@@ -1903,7 +1903,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, input: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnFixup(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QIntValidator_OnFixup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnFixup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#fixup)
@@ -1933,7 +1933,7 @@ pub const qintvalidator = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetBottom(self: ?*anyopaque, bottom: i32) void {
-        qtc.QIntValidator_SetBottom(@ptrCast(self), @intCast(bottom));
+        qtc.QIntValidator_SetBottom(@ptrCast(self), @bitCast(bottom));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#setTop)
@@ -1945,7 +1945,7 @@ pub const qintvalidator = struct {
     /// ` top: i32 `
     ///
     pub fn SetTop(self: ?*anyopaque, top: i32) void {
-        qtc.QIntValidator_SetTop(@ptrCast(self), @intCast(top));
+        qtc.QIntValidator_SetTop(@ptrCast(self), @bitCast(top));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#setRange)
@@ -1959,7 +1959,7 @@ pub const qintvalidator = struct {
     /// ` top: i32 `
     ///
     pub fn SetRange(self: ?*anyopaque, bottom: i32, top: i32) void {
-        qtc.QIntValidator_SetRange(@ptrCast(self), @intCast(bottom), @intCast(top));
+        qtc.QIntValidator_SetRange(@ptrCast(self), @bitCast(bottom), @bitCast(top));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#bottom)
@@ -1991,7 +1991,7 @@ pub const qintvalidator = struct {
     /// ` bottom: i32 `
     ///
     pub fn BottomChanged(self: ?*anyopaque, bottom: i32) void {
-        qtc.QIntValidator_BottomChanged(@ptrCast(self), @intCast(bottom));
+        qtc.QIntValidator_BottomChanged(@ptrCast(self), @bitCast(bottom));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#bottomChanged)
@@ -2003,7 +2003,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, bottom: i32) callconv(.c) void `
     ///
     pub fn OnBottomChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIntValidator_Connect_BottomChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_Connect_BottomChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#topChanged)
@@ -2015,7 +2015,7 @@ pub const qintvalidator = struct {
     /// ` top: i32 `
     ///
     pub fn TopChanged(self: ?*anyopaque, top: i32) void {
-        qtc.QIntValidator_TopChanged(@ptrCast(self), @intCast(top));
+        qtc.QIntValidator_TopChanged(@ptrCast(self), @bitCast(top));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#topChanged)
@@ -2027,7 +2027,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, top: i32) callconv(.c) void `
     ///
     pub fn OnTopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIntValidator_Connect_TopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_Connect_TopChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2065,7 +2065,7 @@ pub const qintvalidator = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qintvalidator.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2121,7 +2121,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator) callconv(.c) void `
     ///
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QValidator_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_Connect_Changed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2255,7 +2255,7 @@ pub const qintvalidator = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2269,7 +2269,7 @@ pub const qintvalidator = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2283,7 +2283,7 @@ pub const qintvalidator = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2297,7 +2297,7 @@ pub const qintvalidator = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2627,7 +2627,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2682,7 +2682,7 @@ pub const qintvalidator = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2698,7 +2698,7 @@ pub const qintvalidator = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2720,7 +2720,7 @@ pub const qintvalidator = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2740,7 +2740,7 @@ pub const qintvalidator = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2762,7 +2762,7 @@ pub const qintvalidator = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2859,7 +2859,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2907,7 +2907,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QIntValidator_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2959,7 +2959,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QIntValidator_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3007,7 +3007,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QIntValidator_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3055,7 +3055,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QIntValidator_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3103,7 +3103,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QIntValidator_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3151,7 +3151,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QIntValidator_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3199,7 +3199,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QIntValidator_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3243,7 +3243,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QIntValidator_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3287,7 +3287,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QIntValidator_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3337,7 +3337,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QIntValidator_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3385,7 +3385,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QIntValidator_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIntValidator_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3401,7 +3401,7 @@ pub const qintvalidator = struct {
     /// ` callback: *const fn (self: QtC.QIntValidator, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#dtor.QIntValidator)
@@ -3436,7 +3436,7 @@ pub const qdoublevalidator = struct {
     /// ` decimals: i32 `
     ///
     pub fn New2(bottom: f64, top: f64, decimals: i32) QtC.QDoubleValidator {
-        return qtc.QDoubleValidator_new2(@floatCast(bottom), @floatCast(top), @intCast(decimals));
+        return qtc.QDoubleValidator_new2(@bitCast(bottom), @bitCast(top), @bitCast(decimals));
     }
 
     /// New3 constructs a new QDoubleValidator object.
@@ -3462,7 +3462,7 @@ pub const qdoublevalidator = struct {
     /// ` parent: QtC.QObject `
     ///
     pub fn New4(bottom: f64, top: f64, decimals: i32, parent: ?*anyopaque) QtC.QDoubleValidator {
-        return qtc.QDoubleValidator_new4(@floatCast(bottom), @floatCast(top), @intCast(decimals), @ptrCast(parent));
+        return qtc.QDoubleValidator_new4(@bitCast(bottom), @bitCast(top), @bitCast(decimals), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -3486,7 +3486,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QDoubleValidator_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -3521,7 +3521,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QDoubleValidator_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -3548,7 +3548,7 @@ pub const qdoublevalidator = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDoubleValidator_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDoubleValidator_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -3560,7 +3560,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QDoubleValidator_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -3576,7 +3576,7 @@ pub const qdoublevalidator = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDoubleValidator_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDoubleValidator_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3629,7 +3629,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, param1: [*:0]const u8, param2: *i32) callconv(.c) i32 `
     ///
     pub fn OnValidate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
-        qtc.QDoubleValidator_OnValidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnValidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#validate)
@@ -3683,7 +3683,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, input: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnFixup(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDoubleValidator_OnFixup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnFixup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#fixup)
@@ -3717,7 +3717,7 @@ pub const qdoublevalidator = struct {
     /// ` decimals: i32 `
     ///
     pub fn SetRange(self: ?*anyopaque, bottom: f64, top: f64, decimals: i32) void {
-        qtc.QDoubleValidator_SetRange(@ptrCast(self), @floatCast(bottom), @floatCast(top), @intCast(decimals));
+        qtc.QDoubleValidator_SetRange(@ptrCast(self), @bitCast(bottom), @bitCast(top), @bitCast(decimals));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setRange)
@@ -3731,7 +3731,7 @@ pub const qdoublevalidator = struct {
     /// ` top: f64 `
     ///
     pub fn SetRange2(self: ?*anyopaque, bottom: f64, top: f64) void {
-        qtc.QDoubleValidator_SetRange2(@ptrCast(self), @floatCast(bottom), @floatCast(top));
+        qtc.QDoubleValidator_SetRange2(@ptrCast(self), @bitCast(bottom), @bitCast(top));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setBottom)
@@ -3743,7 +3743,7 @@ pub const qdoublevalidator = struct {
     /// ` bottom: f64 `
     ///
     pub fn SetBottom(self: ?*anyopaque, bottom: f64) void {
-        qtc.QDoubleValidator_SetBottom(@ptrCast(self), @floatCast(bottom));
+        qtc.QDoubleValidator_SetBottom(@ptrCast(self), @bitCast(bottom));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setTop)
@@ -3755,7 +3755,7 @@ pub const qdoublevalidator = struct {
     /// ` top: f64 `
     ///
     pub fn SetTop(self: ?*anyopaque, top: f64) void {
-        qtc.QDoubleValidator_SetTop(@ptrCast(self), @floatCast(top));
+        qtc.QDoubleValidator_SetTop(@ptrCast(self), @bitCast(top));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setDecimals)
@@ -3767,7 +3767,7 @@ pub const qdoublevalidator = struct {
     /// ` decimals: i32 `
     ///
     pub fn SetDecimals(self: ?*anyopaque, decimals: i32) void {
-        qtc.QDoubleValidator_SetDecimals(@ptrCast(self), @intCast(decimals));
+        qtc.QDoubleValidator_SetDecimals(@ptrCast(self), @bitCast(decimals));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setNotation)
@@ -3779,7 +3779,7 @@ pub const qdoublevalidator = struct {
     /// ` notation: qvalidator_enums.Notation `
     ///
     pub fn SetNotation(self: ?*anyopaque, notation: i32) void {
-        qtc.QDoubleValidator_SetNotation(@ptrCast(self), @intCast(notation));
+        qtc.QDoubleValidator_SetNotation(@ptrCast(self), @bitCast(notation));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#bottom)
@@ -3835,7 +3835,7 @@ pub const qdoublevalidator = struct {
     /// ` bottom: f64 `
     ///
     pub fn BottomChanged(self: ?*anyopaque, bottom: f64) void {
-        qtc.QDoubleValidator_BottomChanged(@ptrCast(self), @floatCast(bottom));
+        qtc.QDoubleValidator_BottomChanged(@ptrCast(self), @bitCast(bottom));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#bottomChanged)
@@ -3847,7 +3847,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, bottom: f64) callconv(.c) void `
     ///
     pub fn OnBottomChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QDoubleValidator_Connect_BottomChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_Connect_BottomChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#topChanged)
@@ -3859,7 +3859,7 @@ pub const qdoublevalidator = struct {
     /// ` top: f64 `
     ///
     pub fn TopChanged(self: ?*anyopaque, top: f64) void {
-        qtc.QDoubleValidator_TopChanged(@ptrCast(self), @floatCast(top));
+        qtc.QDoubleValidator_TopChanged(@ptrCast(self), @bitCast(top));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#topChanged)
@@ -3871,7 +3871,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, top: f64) callconv(.c) void `
     ///
     pub fn OnTopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QDoubleValidator_Connect_TopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_Connect_TopChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#decimalsChanged)
@@ -3883,7 +3883,7 @@ pub const qdoublevalidator = struct {
     /// ` decimals: i32 `
     ///
     pub fn DecimalsChanged(self: ?*anyopaque, decimals: i32) void {
-        qtc.QDoubleValidator_DecimalsChanged(@ptrCast(self), @intCast(decimals));
+        qtc.QDoubleValidator_DecimalsChanged(@ptrCast(self), @bitCast(decimals));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#decimalsChanged)
@@ -3895,7 +3895,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, decimals: i32) callconv(.c) void `
     ///
     pub fn OnDecimalsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDoubleValidator_Connect_DecimalsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_Connect_DecimalsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#notationChanged)
@@ -3907,7 +3907,7 @@ pub const qdoublevalidator = struct {
     /// ` notation: qvalidator_enums.Notation `
     ///
     pub fn NotationChanged(self: ?*anyopaque, notation: i32) void {
-        qtc.QDoubleValidator_NotationChanged(@ptrCast(self), @intCast(notation));
+        qtc.QDoubleValidator_NotationChanged(@ptrCast(self), @bitCast(notation));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#notationChanged)
@@ -3919,7 +3919,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, notation: qvalidator_enums.Notation) callconv(.c) void `
     ///
     pub fn OnNotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDoubleValidator_Connect_NotationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_Connect_NotationChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3957,7 +3957,7 @@ pub const qdoublevalidator = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublevalidator.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4013,7 +4013,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator) callconv(.c) void `
     ///
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QValidator_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_Connect_Changed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4147,7 +4147,7 @@ pub const qdoublevalidator = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -4161,7 +4161,7 @@ pub const qdoublevalidator = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -4175,7 +4175,7 @@ pub const qdoublevalidator = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4189,7 +4189,7 @@ pub const qdoublevalidator = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4519,7 +4519,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4574,7 +4574,7 @@ pub const qdoublevalidator = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4590,7 +4590,7 @@ pub const qdoublevalidator = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4612,7 +4612,7 @@ pub const qdoublevalidator = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -4632,7 +4632,7 @@ pub const qdoublevalidator = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4654,7 +4654,7 @@ pub const qdoublevalidator = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4751,7 +4751,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4799,7 +4799,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDoubleValidator_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4851,7 +4851,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDoubleValidator_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4899,7 +4899,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDoubleValidator_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4947,7 +4947,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDoubleValidator_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4995,7 +4995,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDoubleValidator_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5043,7 +5043,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDoubleValidator_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5091,7 +5091,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDoubleValidator_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5135,7 +5135,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QDoubleValidator_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5179,7 +5179,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDoubleValidator_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5229,7 +5229,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDoubleValidator_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5277,7 +5277,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDoubleValidator_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDoubleValidator_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5293,7 +5293,7 @@ pub const qdoublevalidator = struct {
     /// ` callback: *const fn (self: QtC.QDoubleValidator, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#dtor.QDoubleValidator)
@@ -5370,7 +5370,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QRegularExpressionValidator_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -5405,7 +5405,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QRegularExpressionValidator_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -5432,7 +5432,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QRegularExpressionValidator_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QRegularExpressionValidator_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -5444,7 +5444,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QRegularExpressionValidator_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -5460,7 +5460,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QRegularExpressionValidator_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QRegularExpressionValidator_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5513,7 +5513,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, input: [*:0]const u8, pos: *i32) callconv(.c) i32 `
     ///
     pub fn OnValidate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
-        qtc.QRegularExpressionValidator_OnValidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnValidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#validate)
@@ -5583,7 +5583,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, re: QtC.QRegularExpression) callconv(.c) void `
     ///
     pub fn OnRegularExpressionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QRegularExpressionValidator_Connect_RegularExpressionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_Connect_RegularExpressionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5621,7 +5621,7 @@ pub const qregularexpressionvalidator = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qregularexpressionvalidator.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5677,7 +5677,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator) callconv(.c) void `
     ///
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QValidator_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValidator_Connect_Changed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5811,7 +5811,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -5825,7 +5825,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -5839,7 +5839,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5853,7 +5853,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6183,7 +6183,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6238,7 +6238,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6254,7 +6254,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6276,7 +6276,7 @@ pub const qregularexpressionvalidator = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -6296,7 +6296,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -6318,7 +6318,7 @@ pub const qregularexpressionvalidator = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -6415,7 +6415,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValidator
@@ -6471,7 +6471,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnFixup(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QRegularExpressionValidator_OnFixup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnFixup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6519,7 +6519,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QRegularExpressionValidator_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6571,7 +6571,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QRegularExpressionValidator_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6619,7 +6619,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QRegularExpressionValidator_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6667,7 +6667,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QRegularExpressionValidator_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6715,7 +6715,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QRegularExpressionValidator_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6763,7 +6763,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QRegularExpressionValidator_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6811,7 +6811,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QRegularExpressionValidator_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6855,7 +6855,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QRegularExpressionValidator_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6899,7 +6899,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QRegularExpressionValidator_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6949,7 +6949,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QRegularExpressionValidator_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6997,7 +6997,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QRegularExpressionValidator_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRegularExpressionValidator_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7013,7 +7013,7 @@ pub const qregularexpressionvalidator = struct {
     /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#dtor.QRegularExpressionValidator)

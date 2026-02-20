@@ -38,7 +38,7 @@ pub const qpoint = struct {
     /// ` ypos: i32 `
     ///
     pub fn New4(xpos: i32, ypos: i32) QtC.QPoint {
-        return qtc.QPoint_new4(@intCast(xpos), @intCast(ypos));
+        return qtc.QPoint_new4(@bitCast(xpos), @bitCast(ypos));
     }
 
     /// New5 constructs a new QPoint object.
@@ -114,7 +114,7 @@ pub const qpoint = struct {
     /// ` x: i32 `
     ///
     pub fn SetX(self: ?*anyopaque, x: i32) void {
-        qtc.QPoint_SetX(@ptrCast(self), @intCast(x));
+        qtc.QPoint_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#setY)
@@ -126,7 +126,7 @@ pub const qpoint = struct {
     /// ` y: i32 `
     ///
     pub fn SetY(self: ?*anyopaque, y: i32) void {
-        qtc.QPoint_SetY(@ptrCast(self), @intCast(y));
+        qtc.QPoint_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#manhattanLength)
@@ -202,7 +202,7 @@ pub const qpoint = struct {
     /// ` factor: f32 `
     ///
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, factor: f32) QtC.QPoint {
-        return qtc.QPoint_OperatorMultiplyAssign(@ptrCast(self), @floatCast(factor));
+        return qtc.QPoint_OperatorMultiplyAssign(@ptrCast(self), @bitCast(factor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#operator-2a-eq)
@@ -214,7 +214,7 @@ pub const qpoint = struct {
     /// ` factor: f64 `
     ///
     pub fn OperatorMultiplyAssign2(self: ?*anyopaque, factor: f64) QtC.QPoint {
-        return qtc.QPoint_OperatorMultiplyAssign2(@ptrCast(self), @floatCast(factor));
+        return qtc.QPoint_OperatorMultiplyAssign2(@ptrCast(self), @bitCast(factor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#operator-2a-eq)
@@ -226,7 +226,7 @@ pub const qpoint = struct {
     /// ` factor: i32 `
     ///
     pub fn OperatorMultiplyAssign3(self: ?*anyopaque, factor: i32) QtC.QPoint {
-        return qtc.QPoint_OperatorMultiplyAssign3(@ptrCast(self), @intCast(factor));
+        return qtc.QPoint_OperatorMultiplyAssign3(@ptrCast(self), @bitCast(factor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#operator-2f-eq)
@@ -238,7 +238,7 @@ pub const qpoint = struct {
     /// ` divisor: f64 `
     ///
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f64) QtC.QPoint {
-        return qtc.QPoint_OperatorDivideAssign(@ptrCast(self), @floatCast(divisor));
+        return qtc.QPoint_OperatorDivideAssign(@ptrCast(self), @bitCast(divisor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#dotProduct)
@@ -323,7 +323,7 @@ pub const qpointf = struct {
     /// ` ypos: f64 `
     ///
     pub fn New5(xpos: f64, ypos: f64) QtC.QPointF {
-        return qtc.QPointF_new5(@floatCast(xpos), @floatCast(ypos));
+        return qtc.QPointF_new5(@bitCast(xpos), @bitCast(ypos));
     }
 
     /// New6 constructs a new QPointF object.
@@ -409,7 +409,7 @@ pub const qpointf = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QPointF_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QPointF_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#setY)
@@ -421,7 +421,7 @@ pub const qpointf = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QPointF_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QPointF_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#transposed)
@@ -487,7 +487,7 @@ pub const qpointf = struct {
     /// ` c: f64 `
     ///
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, c: f64) QtC.QPointF {
-        return qtc.QPointF_OperatorMultiplyAssign(@ptrCast(self), @floatCast(c));
+        return qtc.QPointF_OperatorMultiplyAssign(@ptrCast(self), @bitCast(c));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#operator-2f-eq)
@@ -499,7 +499,7 @@ pub const qpointf = struct {
     /// ` c: f64 `
     ///
     pub fn OperatorDivideAssign(self: ?*anyopaque, c: f64) QtC.QPointF {
-        return qtc.QPointF_OperatorDivideAssign(@ptrCast(self), @floatCast(c));
+        return qtc.QPointF_OperatorDivideAssign(@ptrCast(self), @bitCast(c));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#dotProduct)

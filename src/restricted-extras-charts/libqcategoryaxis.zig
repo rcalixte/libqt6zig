@@ -46,7 +46,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QCategoryAxis_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -81,7 +81,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QCategoryAxis_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -108,7 +108,7 @@ pub const qcategoryaxis = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QCategoryAxis_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QCategoryAxis_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -120,7 +120,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QCategoryAxis_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -136,7 +136,7 @@ pub const qcategoryaxis = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QCategoryAxis_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QCategoryAxis_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -181,7 +181,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCategoryAxis_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#type)
@@ -215,7 +215,7 @@ pub const qcategoryaxis = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        qtc.QCategoryAxis_Append(@ptrCast(self), label_str, @floatCast(categoryEndValue));
+        qtc.QCategoryAxis_Append(@ptrCast(self), label_str, @bitCast(categoryEndValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#remove)
@@ -275,7 +275,7 @@ pub const qcategoryaxis = struct {
     /// ` min: f64 `
     ///
     pub fn SetStartValue(self: ?*anyopaque, min: f64) void {
-        qtc.QCategoryAxis_SetStartValue(@ptrCast(self), @floatCast(min));
+        qtc.QCategoryAxis_SetStartValue(@ptrCast(self), @bitCast(min));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#endValue)
@@ -354,7 +354,7 @@ pub const qcategoryaxis = struct {
     /// ` position: qcategoryaxis_enums.AxisLabelsPosition `
     ///
     pub fn SetLabelsPosition(self: ?*anyopaque, position: i32) void {
-        qtc.QCategoryAxis_SetLabelsPosition(@ptrCast(self), @intCast(position));
+        qtc.QCategoryAxis_SetLabelsPosition(@ptrCast(self), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#categoriesChanged)
@@ -376,7 +376,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis) callconv(.c) void `
     ///
     pub fn OnCategoriesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCategoryAxis_Connect_CategoriesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_Connect_CategoriesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#labelsPositionChanged)
@@ -388,7 +388,7 @@ pub const qcategoryaxis = struct {
     /// ` position: qcategoryaxis_enums.AxisLabelsPosition `
     ///
     pub fn LabelsPositionChanged(self: ?*anyopaque, position: i32) void {
-        qtc.QCategoryAxis_LabelsPositionChanged(@ptrCast(self), @intCast(position));
+        qtc.QCategoryAxis_LabelsPositionChanged(@ptrCast(self), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#labelsPositionChanged)
@@ -400,7 +400,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, position: qcategoryaxis_enums.AxisLabelsPosition) callconv(.c) void `
     ///
     pub fn OnLabelsPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QCategoryAxis_Connect_LabelsPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_Connect_LabelsPositionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -438,7 +438,7 @@ pub const qcategoryaxis = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcategoryaxis.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -472,7 +472,7 @@ pub const qcategoryaxis = struct {
     /// ` min: f64 `
     ///
     pub fn SetMin(self: ?*anyopaque, min: f64) void {
-        qtc.QValueAxis_SetMin(@ptrCast(self), @floatCast(min));
+        qtc.QValueAxis_SetMin(@ptrCast(self), @bitCast(min));
     }
 
     /// Inherited from QValueAxis
@@ -498,7 +498,7 @@ pub const qcategoryaxis = struct {
     /// ` max: f64 `
     ///
     pub fn SetMax(self: ?*anyopaque, max: f64) void {
-        qtc.QValueAxis_SetMax(@ptrCast(self), @floatCast(max));
+        qtc.QValueAxis_SetMax(@ptrCast(self), @bitCast(max));
     }
 
     /// Inherited from QValueAxis
@@ -526,7 +526,7 @@ pub const qcategoryaxis = struct {
     /// ` max: f64 `
     ///
     pub fn SetRange(self: ?*anyopaque, min: f64, max: f64) void {
-        qtc.QValueAxis_SetRange(@ptrCast(self), @floatCast(min), @floatCast(max));
+        qtc.QValueAxis_SetRange(@ptrCast(self), @bitCast(min), @bitCast(max));
     }
 
     /// Inherited from QValueAxis
@@ -540,7 +540,7 @@ pub const qcategoryaxis = struct {
     /// ` count: i32 `
     ///
     pub fn SetTickCount(self: ?*anyopaque, count: i32) void {
-        qtc.QValueAxis_SetTickCount(@ptrCast(self), @intCast(count));
+        qtc.QValueAxis_SetTickCount(@ptrCast(self), @bitCast(count));
     }
 
     /// Inherited from QValueAxis
@@ -566,7 +566,7 @@ pub const qcategoryaxis = struct {
     /// ` count: i32 `
     ///
     pub fn SetMinorTickCount(self: ?*anyopaque, count: i32) void {
-        qtc.QValueAxis_SetMinorTickCount(@ptrCast(self), @intCast(count));
+        qtc.QValueAxis_SetMinorTickCount(@ptrCast(self), @bitCast(count));
     }
 
     /// Inherited from QValueAxis
@@ -592,7 +592,7 @@ pub const qcategoryaxis = struct {
     /// ` anchor: f64 `
     ///
     pub fn SetTickAnchor(self: ?*anyopaque, anchor: f64) void {
-        qtc.QValueAxis_SetTickAnchor(@ptrCast(self), @floatCast(anchor));
+        qtc.QValueAxis_SetTickAnchor(@ptrCast(self), @bitCast(anchor));
     }
 
     /// Inherited from QValueAxis
@@ -618,7 +618,7 @@ pub const qcategoryaxis = struct {
     /// ` insterval: f64 `
     ///
     pub fn SetTickInterval(self: ?*anyopaque, insterval: f64) void {
-        qtc.QValueAxis_SetTickInterval(@ptrCast(self), @floatCast(insterval));
+        qtc.QValueAxis_SetTickInterval(@ptrCast(self), @bitCast(insterval));
     }
 
     /// Inherited from QValueAxis
@@ -644,7 +644,7 @@ pub const qcategoryaxis = struct {
     /// ` typeVal: qvalueaxis_enums.TickType `
     ///
     pub fn SetTickType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QValueAxis_SetTickType(@ptrCast(self), @intCast(typeVal));
+        qtc.QValueAxis_SetTickType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QValueAxis
@@ -722,7 +722,7 @@ pub const qcategoryaxis = struct {
     /// ` min: f64 `
     ///
     pub fn MinChanged(self: ?*anyopaque, min: f64) void {
-        qtc.QValueAxis_MinChanged(@ptrCast(self), @floatCast(min));
+        qtc.QValueAxis_MinChanged(@ptrCast(self), @bitCast(min));
     }
 
     /// Inherited from QValueAxis
@@ -736,7 +736,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, min: f64) callconv(.c) void `
     ///
     pub fn OnMinChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_MinChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValueAxis_Connect_MinChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -750,7 +750,7 @@ pub const qcategoryaxis = struct {
     /// ` max: f64 `
     ///
     pub fn MaxChanged(self: ?*anyopaque, max: f64) void {
-        qtc.QValueAxis_MaxChanged(@ptrCast(self), @floatCast(max));
+        qtc.QValueAxis_MaxChanged(@ptrCast(self), @bitCast(max));
     }
 
     /// Inherited from QValueAxis
@@ -764,7 +764,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, max: f64) callconv(.c) void `
     ///
     pub fn OnMaxChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_MaxChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValueAxis_Connect_MaxChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -780,7 +780,7 @@ pub const qcategoryaxis = struct {
     /// ` max: f64 `
     ///
     pub fn RangeChanged(self: ?*anyopaque, min: f64, max: f64) void {
-        qtc.QValueAxis_RangeChanged(@ptrCast(self), @floatCast(min), @floatCast(max));
+        qtc.QValueAxis_RangeChanged(@ptrCast(self), @bitCast(min), @bitCast(max));
     }
 
     /// Inherited from QValueAxis
@@ -794,7 +794,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, min: f64, max: f64) callconv(.c) void `
     ///
     pub fn OnRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_RangeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValueAxis_Connect_RangeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -808,7 +808,7 @@ pub const qcategoryaxis = struct {
     /// ` tickCount: i32 `
     ///
     pub fn TickCountChanged(self: ?*anyopaque, tickCount: i32) void {
-        qtc.QValueAxis_TickCountChanged(@ptrCast(self), @intCast(tickCount));
+        qtc.QValueAxis_TickCountChanged(@ptrCast(self), @bitCast(tickCount));
     }
 
     /// Inherited from QValueAxis
@@ -822,7 +822,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, tickCount: i32) callconv(.c) void `
     ///
     pub fn OnTickCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_TickCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValueAxis_Connect_TickCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -836,7 +836,7 @@ pub const qcategoryaxis = struct {
     /// ` tickCount: i32 `
     ///
     pub fn MinorTickCountChanged(self: ?*anyopaque, tickCount: i32) void {
-        qtc.QValueAxis_MinorTickCountChanged(@ptrCast(self), @intCast(tickCount));
+        qtc.QValueAxis_MinorTickCountChanged(@ptrCast(self), @bitCast(tickCount));
     }
 
     /// Inherited from QValueAxis
@@ -850,7 +850,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, tickCount: i32) callconv(.c) void `
     ///
     pub fn OnMinorTickCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_MinorTickCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValueAxis_Connect_MinorTickCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -882,7 +882,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, format: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLabelFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_LabelFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValueAxis_Connect_LabelFormatChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -896,7 +896,7 @@ pub const qcategoryaxis = struct {
     /// ` interval: f64 `
     ///
     pub fn TickIntervalChanged(self: ?*anyopaque, interval: f64) void {
-        qtc.QValueAxis_TickIntervalChanged(@ptrCast(self), @floatCast(interval));
+        qtc.QValueAxis_TickIntervalChanged(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QValueAxis
@@ -910,7 +910,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, interval: f64) callconv(.c) void `
     ///
     pub fn OnTickIntervalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_TickIntervalChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValueAxis_Connect_TickIntervalChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -924,7 +924,7 @@ pub const qcategoryaxis = struct {
     /// ` anchor: f64 `
     ///
     pub fn TickAnchorChanged(self: ?*anyopaque, anchor: f64) void {
-        qtc.QValueAxis_TickAnchorChanged(@ptrCast(self), @floatCast(anchor));
+        qtc.QValueAxis_TickAnchorChanged(@ptrCast(self), @bitCast(anchor));
     }
 
     /// Inherited from QValueAxis
@@ -938,7 +938,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, anchor: f64) callconv(.c) void `
     ///
     pub fn OnTickAnchorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_TickAnchorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValueAxis_Connect_TickAnchorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -952,7 +952,7 @@ pub const qcategoryaxis = struct {
     /// ` typeVal: qvalueaxis_enums.TickType `
     ///
     pub fn TickTypeChanged(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QValueAxis_TickTypeChanged(@ptrCast(self), @intCast(typeVal));
+        qtc.QValueAxis_TickTypeChanged(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QValueAxis
@@ -966,7 +966,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, typeVal: qvalueaxis_enums.TickType) callconv(.c) void `
     ///
     pub fn OnTickTypeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_TickTypeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QValueAxis_Connect_TickTypeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1332,7 +1332,7 @@ pub const qcategoryaxis = struct {
     /// ` angle: i32 `
     ///
     pub fn SetLabelsAngle(self: ?*anyopaque, angle: i32) void {
-        qtc.QAbstractAxis_SetLabelsAngle(@ptrCast(self), @intCast(angle));
+        qtc.QAbstractAxis_SetLabelsAngle(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QAbstractAxis
@@ -1754,7 +1754,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_VisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1782,7 +1782,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LinePenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1810,7 +1810,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnLineVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LineVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LineVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1838,7 +1838,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnLabelsVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LabelsVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1866,7 +1866,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, brush: QtC.QBrush) callconv(.c) void `
     ///
     pub fn OnLabelsBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LabelsBrushChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1894,7 +1894,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnLabelsFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LabelsFontChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1908,7 +1908,7 @@ pub const qcategoryaxis = struct {
     /// ` angle: i32 `
     ///
     pub fn LabelsAngleChanged(self: ?*anyopaque, angle: i32) void {
-        qtc.QAbstractAxis_LabelsAngleChanged(@ptrCast(self), @intCast(angle));
+        qtc.QAbstractAxis_LabelsAngleChanged(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QAbstractAxis
@@ -1922,7 +1922,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, angle: i32) callconv(.c) void `
     ///
     pub fn OnLabelsAngleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsAngleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LabelsAngleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1950,7 +1950,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnGridLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_GridLinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_GridLinePenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1978,7 +1978,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnGridVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_GridVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_GridVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2006,7 +2006,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnMinorGridVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_MinorGridVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_MinorGridVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2034,7 +2034,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnMinorGridLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_MinorGridLinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_MinorGridLinePenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2062,7 +2062,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnGridLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_GridLineColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_GridLineColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2090,7 +2090,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnMinorGridLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_MinorGridLineColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_MinorGridLineColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2118,7 +2118,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_ColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2146,7 +2146,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnLabelsColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LabelsColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2178,7 +2178,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTitleTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2206,7 +2206,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, brush: QtC.QBrush) callconv(.c) void `
     ///
     pub fn OnTitleBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_TitleBrushChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2234,7 +2234,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnTitleVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_TitleVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2262,7 +2262,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, font: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnTitleFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_TitleFontChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2290,7 +2290,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnShadesVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_ShadesVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2318,7 +2318,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnShadesColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_ShadesColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2346,7 +2346,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnShadesBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesBorderColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_ShadesBorderColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2374,7 +2374,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnShadesPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesPenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_ShadesPenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2402,7 +2402,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, brush: QtC.QBrush) callconv(.c) void `
     ///
     pub fn OnShadesBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_ShadesBrushChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2430,7 +2430,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, reverse: bool) callconv(.c) void `
     ///
     pub fn OnReverseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ReverseChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_ReverseChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2458,7 +2458,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, editable: bool) callconv(.c) void `
     ///
     pub fn OnLabelsEditableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsEditableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LabelsEditableChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2486,7 +2486,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, labelsTruncated: bool) callconv(.c) void `
     ///
     pub fn OnLabelsTruncatedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsTruncatedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LabelsTruncatedChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2514,7 +2514,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, truncateLabels: bool) callconv(.c) void `
     ///
     pub fn OnTruncateLabelsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TruncateLabelsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_TruncateLabelsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2788,7 +2788,7 @@ pub const qcategoryaxis = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2802,7 +2802,7 @@ pub const qcategoryaxis = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2816,7 +2816,7 @@ pub const qcategoryaxis = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2830,7 +2830,7 @@ pub const qcategoryaxis = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -3160,7 +3160,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3215,7 +3215,7 @@ pub const qcategoryaxis = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3231,7 +3231,7 @@ pub const qcategoryaxis = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3253,7 +3253,7 @@ pub const qcategoryaxis = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -3273,7 +3273,7 @@ pub const qcategoryaxis = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -3295,7 +3295,7 @@ pub const qcategoryaxis = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -3392,7 +3392,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3440,7 +3440,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCategoryAxis_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3492,7 +3492,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCategoryAxis_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3540,7 +3540,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCategoryAxis_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3588,7 +3588,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCategoryAxis_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3636,7 +3636,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCategoryAxis_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3684,7 +3684,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCategoryAxis_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3732,7 +3732,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCategoryAxis_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3776,7 +3776,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QCategoryAxis_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3820,7 +3820,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCategoryAxis_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3870,7 +3870,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QCategoryAxis_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3918,7 +3918,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCategoryAxis_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCategoryAxis_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3934,7 +3934,7 @@ pub const qcategoryaxis = struct {
     /// ` callback: *const fn (self: QtC.QCategoryAxis, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#dtor.QCategoryAxis)

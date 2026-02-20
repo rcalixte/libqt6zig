@@ -322,7 +322,7 @@ pub const qnetworkrequestfactory = struct {
     /// ` timeout: i64 of milliseconds `
     ///
     pub fn SetTransferTimeout(self: ?*anyopaque, timeout: i64) void {
-        qtc.QNetworkRequestFactory_SetTransferTimeout(@ptrCast(self), @intCast(timeout));
+        qtc.QNetworkRequestFactory_SetTransferTimeout(@ptrCast(self), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#transferTimeout)
@@ -380,7 +380,7 @@ pub const qnetworkrequestfactory = struct {
     /// ` priority: qnetworkrequest_enums.Priority `
     ///
     pub fn SetPriority(self: ?*anyopaque, priority: i32) void {
-        qtc.QNetworkRequestFactory_SetPriority(@ptrCast(self), @intCast(priority));
+        qtc.QNetworkRequestFactory_SetPriority(@ptrCast(self), @bitCast(priority));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#priority)
@@ -406,7 +406,7 @@ pub const qnetworkrequestfactory = struct {
     /// ` attribute: qnetworkrequest_enums.Attribute `
     ///
     pub fn Attribute(self: ?*anyopaque, attribute: i32) QtC.QVariant {
-        return qtc.QNetworkRequestFactory_Attribute(@ptrCast(self), @intCast(attribute));
+        return qtc.QNetworkRequestFactory_Attribute(@ptrCast(self), @bitCast(attribute));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#attribute)
@@ -420,7 +420,7 @@ pub const qnetworkrequestfactory = struct {
     /// ` defaultValue: QtC.QVariant `
     ///
     pub fn Attribute2(self: ?*anyopaque, attribute: i32, defaultValue: ?*anyopaque) QtC.QVariant {
-        return qtc.QNetworkRequestFactory_Attribute2(@ptrCast(self), @intCast(attribute), @ptrCast(defaultValue));
+        return qtc.QNetworkRequestFactory_Attribute2(@ptrCast(self), @bitCast(attribute), @ptrCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#setAttribute)
@@ -434,7 +434,7 @@ pub const qnetworkrequestfactory = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetAttribute(self: ?*anyopaque, attribute: i32, value: ?*anyopaque) void {
-        qtc.QNetworkRequestFactory_SetAttribute(@ptrCast(self), @intCast(attribute), @ptrCast(value));
+        qtc.QNetworkRequestFactory_SetAttribute(@ptrCast(self), @bitCast(attribute), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#clearAttribute)
@@ -446,7 +446,7 @@ pub const qnetworkrequestfactory = struct {
     /// ` attribute: qnetworkrequest_enums.Attribute `
     ///
     pub fn ClearAttribute(self: ?*anyopaque, attribute: i32) void {
-        qtc.QNetworkRequestFactory_ClearAttribute(@ptrCast(self), @intCast(attribute));
+        qtc.QNetworkRequestFactory_ClearAttribute(@ptrCast(self), @bitCast(attribute));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#clearAttributes)

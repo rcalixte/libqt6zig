@@ -19,9 +19,7 @@ typedef KIO::AuthInfo KIO__AuthInfo;
 #endif
 typedef KIO::MetaData KIO__MetaData;
 typedef KIO::UDSEntry KIO__UDSEntry;
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__WorkerBase)
 typedef KIO::WorkerBase KIO__WorkerBase;
-#endif
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__WorkerResult)
 typedef KIO::WorkerResult KIO__WorkerResult;
 #endif

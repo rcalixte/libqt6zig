@@ -30,7 +30,7 @@ pub const kprocesslist__kprocessinfo = struct {
             .data = user.ptr,
         };
 
-        return qtc.KProcessList__KProcessInfo_new2(@intCast(pid), command_str, user_str);
+        return qtc.KProcessList__KProcessInfo_new2(@bitCast(pid), command_str, user_str);
     }
 
     /// New3 constructs a new KProcessList::KProcessInfo object.
@@ -59,7 +59,7 @@ pub const kprocesslist__kprocessinfo = struct {
             .data = user.ptr,
         };
 
-        return qtc.KProcessList__KProcessInfo_new3(@intCast(pid), command_str, name_str, user_str);
+        return qtc.KProcessList__KProcessInfo_new3(@bitCast(pid), command_str, name_str, user_str);
     }
 
     /// New4 constructs a new KProcessList::KProcessInfo object.
@@ -187,6 +187,6 @@ pub const kprocesslist = struct {
     /// ` param1: i64 `
     ///
     pub fn ProcessInfo(param1: i64) QtC.KProcessList__KProcessInfo {
-        return qtc.KProcessList_ProcessInfo(@intCast(param1));
+        return qtc.KProcessList_ProcessInfo(@bitCast(param1));
     }
 };

@@ -43,7 +43,7 @@ pub const ktexteditor__texthintprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__TextHintProvider, view: QtC.KTextEditor__View, position: QtC.KTextEditor__Cursor) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnTextHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
-        qtc.KTextEditor__TextHintProvider_OnTextHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__TextHintProvider_OnTextHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-texthintprovider.html#textHint)

@@ -37,7 +37,7 @@ pub const qcommandlineparser = struct {
     /// ` parsingMode: qcommandlineparser_enums.SingleDashWordOptionMode `
     ///
     pub fn SetSingleDashWordOptionMode(self: ?*anyopaque, parsingMode: i32) void {
-        qtc.QCommandLineParser_SetSingleDashWordOptionMode(@ptrCast(self), @intCast(parsingMode));
+        qtc.QCommandLineParser_SetSingleDashWordOptionMode(@ptrCast(self), @bitCast(parsingMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#setOptionsAfterPositionalArgumentsMode)
@@ -49,7 +49,7 @@ pub const qcommandlineparser = struct {
     /// ` mode: qcommandlineparser_enums.OptionsAfterPositionalArgumentsMode `
     ///
     pub fn SetOptionsAfterPositionalArgumentsMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QCommandLineParser_SetOptionsAfterPositionalArgumentsMode(@ptrCast(self), @intCast(mode));
+        qtc.QCommandLineParser_SetOptionsAfterPositionalArgumentsMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#addOption)
@@ -526,7 +526,7 @@ pub const qcommandlineparser = struct {
     pub fn Tr3(sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
-        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -570,7 +570,7 @@ pub const qcommandlineparser = struct {
     /// ` exitCode: i32 `
     ///
     pub fn ShowHelp1(self: ?*anyopaque, exitCode: i32) void {
-        qtc.QCommandLineParser_ShowHelp1(@ptrCast(self), @intCast(exitCode));
+        qtc.QCommandLineParser_ShowHelp1(@ptrCast(self), @bitCast(exitCode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#dtor.QCommandLineParser)

@@ -28,7 +28,7 @@ pub const qhostinfo = struct {
     /// ` lookupId: i32 `
     ///
     pub fn New3(lookupId: i32) QtC.QHostInfo {
-        return qtc.QHostInfo_new3(@intCast(lookupId));
+        return qtc.QHostInfo_new3(@bitCast(lookupId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#operator-eq)
@@ -143,7 +143,7 @@ pub const qhostinfo = struct {
     /// ` errorVal: qhostinfo_enums.HostInfoError `
     ///
     pub fn SetError(self: ?*anyopaque, errorVal: i32) void {
-        qtc.QHostInfo_SetError(@ptrCast(self), @intCast(errorVal));
+        qtc.QHostInfo_SetError(@ptrCast(self), @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#errorString)
@@ -187,7 +187,7 @@ pub const qhostinfo = struct {
     /// ` id: i32 `
     ///
     pub fn SetLookupId(self: ?*anyopaque, id: i32) void {
-        qtc.QHostInfo_SetLookupId(@ptrCast(self), @intCast(id));
+        qtc.QHostInfo_SetLookupId(@ptrCast(self), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#lookupId)
@@ -226,7 +226,7 @@ pub const qhostinfo = struct {
     /// ` lookupId: i32 `
     ///
     pub fn AbortHostLookup(lookupId: i32) void {
-        qtc.QHostInfo_AbortHostLookup(@intCast(lookupId));
+        qtc.QHostInfo_AbortHostLookup(@bitCast(lookupId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#fromName)

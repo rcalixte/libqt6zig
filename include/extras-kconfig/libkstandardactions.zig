@@ -15,7 +15,7 @@ pub const kstandardactions = struct {
     /// ` param2: QtC.QObject `
     ///
     pub fn KguiCreateInternal(param1: i32, param2: ?*anyopaque) QtC.QAction {
-        return qtc.KStandardActions_KguiCreateInternal(@intCast(param1), @ptrCast(param2));
+        return qtc.KStandardActions_KguiCreateInternal(@bitCast(param1), @ptrCast(param2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardactions.html#name)
@@ -27,7 +27,7 @@ pub const kstandardactions = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(param1: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KStandardActions_Name(@intCast(param1));
+        var _str = qtc.KStandardActions_Name(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardactions.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -64,7 +64,7 @@ pub const kstandardactions = struct {
     /// ` kstandardshortcut_enums.StandardShortcut `
     ///
     pub fn ShortcutForActionId(param1: i32) i32 {
-        return qtc.KStandardActions_ShortcutForActionId(@intCast(param1));
+        return qtc.KStandardActions_ShortcutForActionId(@bitCast(param1));
     }
 };
 

@@ -53,7 +53,7 @@ pub const qtextstream = struct {
             .data = array.ptr,
         };
 
-        return qtc.QTextStream_new4(array_str, @intCast(openMode));
+        return qtc.QTextStream_new4(array_str, @bitCast(openMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#setEncoding)
@@ -65,7 +65,7 @@ pub const qtextstream = struct {
     /// ` encoding: qstringconverter_base_enums.Encoding `
     ///
     pub fn SetEncoding(self: ?*anyopaque, encoding: i32) void {
-        qtc.QTextStream_SetEncoding(@ptrCast(self), @intCast(encoding));
+        qtc.QTextStream_SetEncoding(@ptrCast(self), @bitCast(encoding));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#encoding)
@@ -209,7 +209,7 @@ pub const qtextstream = struct {
     /// ` status: qtextstream_enums.Status `
     ///
     pub fn SetStatus(self: ?*anyopaque, status: i32) void {
-        qtc.QTextStream_SetStatus(@ptrCast(self), @intCast(status));
+        qtc.QTextStream_SetStatus(@ptrCast(self), @bitCast(status));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#resetStatus)
@@ -261,7 +261,7 @@ pub const qtextstream = struct {
     /// ` pos: i64 `
     ///
     pub fn Seek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QTextStream_Seek(@ptrCast(self), @intCast(pos));
+        return qtc.QTextStream_Seek(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#pos)
@@ -327,7 +327,7 @@ pub const qtextstream = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Read(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextStream_Read(@ptrCast(self), @intCast(maxlen));
+        var _str = qtc.QTextStream_Read(@ptrCast(self), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.Read: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -343,7 +343,7 @@ pub const qtextstream = struct {
     /// ` alignment: qtextstream_enums.FieldAlignment `
     ///
     pub fn SetFieldAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QTextStream_SetFieldAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QTextStream_SetFieldAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#fieldAlignment)
@@ -391,7 +391,7 @@ pub const qtextstream = struct {
     /// ` width: i32 `
     ///
     pub fn SetFieldWidth(self: ?*anyopaque, width: i32) void {
-        qtc.QTextStream_SetFieldWidth(@ptrCast(self), @intCast(width));
+        qtc.QTextStream_SetFieldWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#fieldWidth)
@@ -413,7 +413,7 @@ pub const qtextstream = struct {
     /// ` flags: flag of qtextstream_enums.NumberFlag `
     ///
     pub fn SetNumberFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QTextStream_SetNumberFlags(@ptrCast(self), @intCast(flags));
+        qtc.QTextStream_SetNumberFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#numberFlags)
@@ -439,7 +439,7 @@ pub const qtextstream = struct {
     /// ` base: i32 `
     ///
     pub fn SetIntegerBase(self: ?*anyopaque, base: i32) void {
-        qtc.QTextStream_SetIntegerBase(@ptrCast(self), @intCast(base));
+        qtc.QTextStream_SetIntegerBase(@ptrCast(self), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#integerBase)
@@ -461,7 +461,7 @@ pub const qtextstream = struct {
     /// ` notation: qtextstream_enums.RealNumberNotation `
     ///
     pub fn SetRealNumberNotation(self: ?*anyopaque, notation: i32) void {
-        qtc.QTextStream_SetRealNumberNotation(@ptrCast(self), @intCast(notation));
+        qtc.QTextStream_SetRealNumberNotation(@ptrCast(self), @bitCast(notation));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#realNumberNotation)
@@ -487,7 +487,7 @@ pub const qtextstream = struct {
     /// ` precision: i32 `
     ///
     pub fn SetRealNumberPrecision(self: ?*anyopaque, precision: i32) void {
-        qtc.QTextStream_SetRealNumberPrecision(@ptrCast(self), @intCast(precision));
+        qtc.QTextStream_SetRealNumberPrecision(@ptrCast(self), @bitCast(precision));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#realNumberPrecision)
@@ -720,7 +720,7 @@ pub const qtextstream = struct {
     /// ` ch: u8 `
     ///
     pub fn OperatorShiftLeft2(self: ?*anyopaque, ch: u8) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftLeft2(@ptrCast(self), @intCast(ch));
+        return qtc.QTextStream_OperatorShiftLeft2(@ptrCast(self), @bitCast(ch));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
@@ -732,7 +732,7 @@ pub const qtextstream = struct {
     /// ` i: i16 `
     ///
     pub fn OperatorShiftLeft4(self: ?*anyopaque, i: i16) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftLeft4(@ptrCast(self), @intCast(i));
+        return qtc.QTextStream_OperatorShiftLeft4(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
@@ -744,7 +744,7 @@ pub const qtextstream = struct {
     /// ` i: u16 `
     ///
     pub fn OperatorShiftLeft5(self: ?*anyopaque, i: u16) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftLeft5(@ptrCast(self), @intCast(i));
+        return qtc.QTextStream_OperatorShiftLeft5(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
@@ -756,7 +756,7 @@ pub const qtextstream = struct {
     /// ` i: i32 `
     ///
     pub fn OperatorShiftLeft6(self: ?*anyopaque, i: i32) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftLeft6(@ptrCast(self), @intCast(i));
+        return qtc.QTextStream_OperatorShiftLeft6(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
@@ -768,7 +768,7 @@ pub const qtextstream = struct {
     /// ` i: u32 `
     ///
     pub fn OperatorShiftLeft7(self: ?*anyopaque, i: u32) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftLeft7(@ptrCast(self), @intCast(i));
+        return qtc.QTextStream_OperatorShiftLeft7(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
@@ -780,7 +780,7 @@ pub const qtextstream = struct {
     /// ` i: i64 `
     ///
     pub fn OperatorShiftLeft8(self: ?*anyopaque, i: i64) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftLeft8(@ptrCast(self), @intCast(i));
+        return qtc.QTextStream_OperatorShiftLeft8(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
@@ -792,7 +792,7 @@ pub const qtextstream = struct {
     /// ` i: u64 `
     ///
     pub fn OperatorShiftLeft9(self: ?*anyopaque, i: u64) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftLeft9(@ptrCast(self), @intCast(i));
+        return qtc.QTextStream_OperatorShiftLeft9(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
@@ -804,7 +804,7 @@ pub const qtextstream = struct {
     /// ` i: i64 `
     ///
     pub fn OperatorShiftLeft10(self: ?*anyopaque, i: i64) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftLeft10(@ptrCast(self), @intCast(i));
+        return qtc.QTextStream_OperatorShiftLeft10(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
@@ -816,7 +816,7 @@ pub const qtextstream = struct {
     /// ` i: u64 `
     ///
     pub fn OperatorShiftLeft11(self: ?*anyopaque, i: u64) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftLeft11(@ptrCast(self), @intCast(i));
+        return qtc.QTextStream_OperatorShiftLeft11(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
@@ -828,7 +828,7 @@ pub const qtextstream = struct {
     /// ` f: f32 `
     ///
     pub fn OperatorShiftLeft12(self: ?*anyopaque, f: f32) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftLeft12(@ptrCast(self), @floatCast(f));
+        return qtc.QTextStream_OperatorShiftLeft12(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
@@ -840,7 +840,7 @@ pub const qtextstream = struct {
     /// ` f: f64 `
     ///
     pub fn OperatorShiftLeft13(self: ?*anyopaque, f: f64) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftLeft13(@ptrCast(self), @floatCast(f));
+        return qtc.QTextStream_OperatorShiftLeft13(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
@@ -911,7 +911,7 @@ pub const qtextstream = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextStream_ReadLine1(@ptrCast(self), @intCast(maxlen));
+        var _str = qtc.QTextStream_ReadLine1(@ptrCast(self), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

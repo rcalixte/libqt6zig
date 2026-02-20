@@ -30,7 +30,7 @@ pub const qdesignercontainerextension = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerContainerExtension_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerContainerExtension_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#count)
@@ -54,7 +54,7 @@ pub const qdesignercontainerextension = struct {
     /// ` index: i32 `
     ///
     pub fn Widget(self: ?*anyopaque, index: i32) QtC.QWidget {
-        return qtc.QDesignerContainerExtension_Widget(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerContainerExtension_Widget(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#widget)
@@ -68,7 +68,7 @@ pub const qdesignercontainerextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerContainerExtension, index: i32) callconv(.c) QtC.QWidget `
     ///
     pub fn OnWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QWidget) void {
-        qtc.QDesignerContainerExtension_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerContainerExtension_OnWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#widget)
@@ -82,7 +82,7 @@ pub const qdesignercontainerextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseWidget(self: ?*anyopaque, index: i32) QtC.QWidget {
-        return qtc.QDesignerContainerExtension_QBaseWidget(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerContainerExtension_QBaseWidget(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#currentIndex)
@@ -106,7 +106,7 @@ pub const qdesignercontainerextension = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCurrentIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerContainerExtension_OnCurrentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerContainerExtension_OnCurrentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#currentIndex)
@@ -130,7 +130,7 @@ pub const qdesignercontainerextension = struct {
     /// ` index: i32 `
     ///
     pub fn SetCurrentIndex(self: ?*anyopaque, index: i32) void {
-        qtc.QDesignerContainerExtension_SetCurrentIndex(@ptrCast(self), @intCast(index));
+        qtc.QDesignerContainerExtension_SetCurrentIndex(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#setCurrentIndex)
@@ -144,7 +144,7 @@ pub const qdesignercontainerextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerContainerExtension, index: i32) callconv(.c) void `
     ///
     pub fn OnSetCurrentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerContainerExtension_OnSetCurrentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerContainerExtension_OnSetCurrentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#setCurrentIndex)
@@ -158,7 +158,7 @@ pub const qdesignercontainerextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseSetCurrentIndex(self: ?*anyopaque, index: i32) void {
-        qtc.QDesignerContainerExtension_QBaseSetCurrentIndex(@ptrCast(self), @intCast(index));
+        qtc.QDesignerContainerExtension_QBaseSetCurrentIndex(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#canAddWidget)
@@ -182,7 +182,7 @@ pub const qdesignercontainerextension = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnCanAddWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerContainerExtension_OnCanAddWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerContainerExtension_OnCanAddWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#canAddWidget)
@@ -220,7 +220,7 @@ pub const qdesignercontainerextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerContainerExtension, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnAddWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerContainerExtension_OnAddWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerContainerExtension_OnAddWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#addWidget)
@@ -248,7 +248,7 @@ pub const qdesignercontainerextension = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn InsertWidget(self: ?*anyopaque, index: i32, widget: ?*anyopaque) void {
-        qtc.QDesignerContainerExtension_InsertWidget(@ptrCast(self), @intCast(index), @ptrCast(widget));
+        qtc.QDesignerContainerExtension_InsertWidget(@ptrCast(self), @bitCast(index), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#insertWidget)
@@ -262,7 +262,7 @@ pub const qdesignercontainerextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerContainerExtension, index: i32, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnInsertWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerContainerExtension_OnInsertWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerContainerExtension_OnInsertWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#insertWidget)
@@ -278,7 +278,7 @@ pub const qdesignercontainerextension = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn QBaseInsertWidget(self: ?*anyopaque, index: i32, widget: ?*anyopaque) void {
-        qtc.QDesignerContainerExtension_QBaseInsertWidget(@ptrCast(self), @intCast(index), @ptrCast(widget));
+        qtc.QDesignerContainerExtension_QBaseInsertWidget(@ptrCast(self), @bitCast(index), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#canRemove)
@@ -290,7 +290,7 @@ pub const qdesignercontainerextension = struct {
     /// ` index: i32 `
     ///
     pub fn CanRemove(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerContainerExtension_CanRemove(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerContainerExtension_CanRemove(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#canRemove)
@@ -304,7 +304,7 @@ pub const qdesignercontainerextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerContainerExtension, index: i32) callconv(.c) bool `
     ///
     pub fn OnCanRemove(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QDesignerContainerExtension_OnCanRemove(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerContainerExtension_OnCanRemove(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#canRemove)
@@ -318,7 +318,7 @@ pub const qdesignercontainerextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseCanRemove(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerContainerExtension_QBaseCanRemove(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerContainerExtension_QBaseCanRemove(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#remove)
@@ -330,7 +330,7 @@ pub const qdesignercontainerextension = struct {
     /// ` index: i32 `
     ///
     pub fn Remove(self: ?*anyopaque, index: i32) void {
-        qtc.QDesignerContainerExtension_Remove(@ptrCast(self), @intCast(index));
+        qtc.QDesignerContainerExtension_Remove(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#remove)
@@ -344,7 +344,7 @@ pub const qdesignercontainerextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerContainerExtension, index: i32) callconv(.c) void `
     ///
     pub fn OnRemove(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerContainerExtension_OnRemove(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerContainerExtension_OnRemove(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#remove)
@@ -358,7 +358,7 @@ pub const qdesignercontainerextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseRemove(self: ?*anyopaque, index: i32) void {
-        qtc.QDesignerContainerExtension_QBaseRemove(@ptrCast(self), @intCast(index));
+        qtc.QDesignerContainerExtension_QBaseRemove(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#dtor.QDesignerContainerExtension)

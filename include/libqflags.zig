@@ -30,7 +30,7 @@ pub const qflag = struct {
     /// ` value: i32 `
     ///
     pub fn New3(value: i32) QtC.QFlag {
-        return qtc.QFlag_new3(@intCast(value));
+        return qtc.QFlag_new3(@bitCast(value));
     }
 
     /// New4 constructs a new QFlag object.
@@ -40,7 +40,7 @@ pub const qflag = struct {
     /// ` value: u32 `
     ///
     pub fn New4(value: u32) QtC.QFlag {
-        return qtc.QFlag_new4(@intCast(value));
+        return qtc.QFlag_new4(@bitCast(value));
     }
 
     /// New5 constructs a new QFlag object.
@@ -50,7 +50,7 @@ pub const qflag = struct {
     /// ` value: i16 `
     ///
     pub fn New5(value: i16) QtC.QFlag {
-        return qtc.QFlag_new5(@intCast(value));
+        return qtc.QFlag_new5(@bitCast(value));
     }
 
     /// New6 constructs a new QFlag object.
@@ -60,7 +60,7 @@ pub const qflag = struct {
     /// ` value: u16 `
     ///
     pub fn New6(value: u16) QtC.QFlag {
-        return qtc.QFlag_new6(@intCast(value));
+        return qtc.QFlag_new6(@bitCast(value));
     }
 
     /// New7 constructs a new QFlag object.
@@ -159,7 +159,7 @@ pub const qincompatibleflag = struct {
     /// ` i: i32 `
     ///
     pub fn New3(i: i32) QtC.QIncompatibleFlag {
-        return qtc.QIncompatibleFlag_new3(@intCast(i));
+        return qtc.QIncompatibleFlag_new3(@bitCast(i));
     }
 
     /// New4 constructs a new QIncompatibleFlag object.

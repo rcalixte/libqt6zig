@@ -45,7 +45,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QPlaceContentReply_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -80,7 +80,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QPlaceContentReply_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -107,7 +107,7 @@ pub const qplacecontentreply = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPlaceContentReply_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QPlaceContentReply_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -119,7 +119,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QPlaceContentReply_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -135,7 +135,7 @@ pub const qplacecontentreply = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPlaceContentReply_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QPlaceContentReply_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -180,7 +180,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPlaceContentReply_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#type)
@@ -285,7 +285,7 @@ pub const qplacecontentreply = struct {
         var content_it = content.iterator();
         while (content_it.next()) |it_entry| : (i += 1) {
             const content_key = it_entry.key_ptr.*;
-            content_keys[i] = @intCast(content_key);
+            content_keys[i] = @bitCast(content_key);
             content_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const content_map = qtc.libqt_map{
@@ -307,7 +307,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, content: qtc.libqt_map (map_i32_qtcqplacecontent)) callconv(.c) void `
     ///
     pub fn OnSetContent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_map) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnSetContent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnSetContent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setContent)
@@ -332,7 +332,7 @@ pub const qplacecontentreply = struct {
         var content_it = content.iterator();
         while (content_it.next()) |it_entry| : (i += 1) {
             const content_key = it_entry.key_ptr.*;
-            content_keys[i] = @intCast(content_key);
+            content_keys[i] = @bitCast(content_key);
             content_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const content_map = qtc.libqt_map{
@@ -352,7 +352,7 @@ pub const qplacecontentreply = struct {
     /// ` total: i32 `
     ///
     pub fn SetTotalCount(self: ?*anyopaque, total: i32) void {
-        qtc.QPlaceContentReply_SetTotalCount(@ptrCast(self), @intCast(total));
+        qtc.QPlaceContentReply_SetTotalCount(@ptrCast(self), @bitCast(total));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setTotalCount)
@@ -366,7 +366,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, total: i32) callconv(.c) void `
     ///
     pub fn OnSetTotalCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnSetTotalCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnSetTotalCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setTotalCount)
@@ -380,7 +380,7 @@ pub const qplacecontentreply = struct {
     /// ` total: i32 `
     ///
     pub fn QBaseSetTotalCount(self: ?*anyopaque, total: i32) void {
-        qtc.QPlaceContentReply_QBaseSetTotalCount(@ptrCast(self), @intCast(total));
+        qtc.QPlaceContentReply_QBaseSetTotalCount(@ptrCast(self), @bitCast(total));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setRequest)
@@ -406,7 +406,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, request: QtC.QPlaceContentRequest) callconv(.c) void `
     ///
     pub fn OnSetRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnSetRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnSetRequest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setRequest)
@@ -446,7 +446,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, previous: QtC.QPlaceContentRequest) callconv(.c) void `
     ///
     pub fn OnSetPreviousPageRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnSetPreviousPageRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnSetPreviousPageRequest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setPreviousPageRequest)
@@ -486,7 +486,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, next: QtC.QPlaceContentRequest) callconv(.c) void `
     ///
     pub fn OnSetNextPageRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnSetNextPageRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnSetNextPageRequest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setNextPageRequest)
@@ -538,7 +538,7 @@ pub const qplacecontentreply = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacecontentreply.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -614,7 +614,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceReply_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceReply_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPlaceReply
@@ -640,7 +640,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply) callconv(.c) void `
     ///
     pub fn OnContentUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceReply_Connect_ContentUpdated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceReply_Connect_ContentUpdated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPlaceReply
@@ -666,7 +666,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply) callconv(.c) void `
     ///
     pub fn OnAborted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceReply_Connect_Aborted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceReply_Connect_Aborted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPlaceReply
@@ -680,7 +680,7 @@ pub const qplacecontentreply = struct {
     /// ` errorVal: qplacereply_enums.Error `
     ///
     pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i32) void {
-        qtc.QPlaceReply_ErrorOccurred(@ptrCast(self), @intCast(errorVal));
+        qtc.QPlaceReply_ErrorOccurred(@ptrCast(self), @bitCast(errorVal));
     }
 
     /// Inherited from QPlaceReply
@@ -694,7 +694,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, errorVal: qplacereply_enums.Error) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPlaceReply_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceReply_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPlaceReply
@@ -714,7 +714,7 @@ pub const qplacecontentreply = struct {
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QPlaceReply_ErrorOccurred2(@ptrCast(self), @intCast(errorVal), errorString_str);
+        qtc.QPlaceReply_ErrorOccurred2(@ptrCast(self), @bitCast(errorVal), errorString_str);
     }
 
     /// Inherited from QPlaceReply
@@ -728,7 +728,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, errorVal: qplacereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnErrorOccurred2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QPlaceReply_Connect_ErrorOccurred2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceReply_Connect_ErrorOccurred2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -862,7 +862,7 @@ pub const qplacecontentreply = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -876,7 +876,7 @@ pub const qplacecontentreply = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -890,7 +890,7 @@ pub const qplacecontentreply = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -904,7 +904,7 @@ pub const qplacecontentreply = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1234,7 +1234,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1289,7 +1289,7 @@ pub const qplacecontentreply = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1305,7 +1305,7 @@ pub const qplacecontentreply = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1327,7 +1327,7 @@ pub const qplacecontentreply = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1347,7 +1347,7 @@ pub const qplacecontentreply = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1369,7 +1369,7 @@ pub const qplacecontentreply = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1466,7 +1466,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPlaceReply
@@ -1510,7 +1510,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAbort(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnAbort(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnAbort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1558,7 +1558,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPlaceContentReply_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1610,7 +1610,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPlaceContentReply_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1658,7 +1658,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1706,7 +1706,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1754,7 +1754,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1802,7 +1802,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1850,7 +1850,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPlaceReply
@@ -1898,7 +1898,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, finished: bool) callconv(.c) void `
     ///
     pub fn OnSetFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnSetFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnSetFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPlaceReply
@@ -1920,7 +1920,7 @@ pub const qplacecontentreply = struct {
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QPlaceContentReply_SetError(@ptrCast(self), @intCast(errorVal), errorString_str);
+        qtc.QPlaceContentReply_SetError(@ptrCast(self), @bitCast(errorVal), errorString_str);
     }
 
     /// Inherited from QPlaceReply
@@ -1942,7 +1942,7 @@ pub const qplacecontentreply = struct {
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QPlaceContentReply_QBaseSetError(@ptrCast(self), @intCast(errorVal), errorString_str);
+        qtc.QPlaceContentReply_QBaseSetError(@ptrCast(self), @bitCast(errorVal), errorString_str);
     }
 
     /// Inherited from QPlaceReply
@@ -1958,7 +1958,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, errorVal: qplacereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnSetError(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnSetError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2002,7 +2002,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QPlaceContentReply_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2046,7 +2046,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPlaceContentReply_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2096,7 +2096,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPlaceContentReply_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2144,7 +2144,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPlaceContentReply_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlaceContentReply_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2160,7 +2160,7 @@ pub const qplacecontentreply = struct {
     /// ` callback: *const fn (self: QtC.QPlaceContentReply, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#dtor.QPlaceContentReply)

@@ -40,7 +40,7 @@ pub const qabstractbarseries = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractBarSeries_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAbstractBarSeries_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -69,7 +69,7 @@ pub const qabstractbarseries = struct {
     /// ` width: f64 `
     ///
     pub fn SetBarWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QAbstractBarSeries_SetBarWidth(@ptrCast(self), @floatCast(width));
+        qtc.QAbstractBarSeries_SetBarWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#barWidth)
@@ -145,7 +145,7 @@ pub const qabstractbarseries = struct {
     /// ` set: QtC.QBarSet `
     ///
     pub fn Insert(self: ?*anyopaque, index: i32, set: ?*anyopaque) bool {
-        return qtc.QAbstractBarSeries_Insert(@ptrCast(self), @intCast(index), @ptrCast(set));
+        return qtc.QAbstractBarSeries_Insert(@ptrCast(self), @bitCast(index), @ptrCast(set));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#count)
@@ -246,7 +246,7 @@ pub const qabstractbarseries = struct {
     /// ` angle: f64 `
     ///
     pub fn SetLabelsAngle(self: ?*anyopaque, angle: f64) void {
-        qtc.QAbstractBarSeries_SetLabelsAngle(@ptrCast(self), @floatCast(angle));
+        qtc.QAbstractBarSeries_SetLabelsAngle(@ptrCast(self), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsAngle)
@@ -268,7 +268,7 @@ pub const qabstractbarseries = struct {
     /// ` position: qabstractbarseries_enums.LabelsPosition `
     ///
     pub fn SetLabelsPosition(self: ?*anyopaque, position: i32) void {
-        qtc.QAbstractBarSeries_SetLabelsPosition(@ptrCast(self), @intCast(position));
+        qtc.QAbstractBarSeries_SetLabelsPosition(@ptrCast(self), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsPosition)
@@ -294,7 +294,7 @@ pub const qabstractbarseries = struct {
     /// ` precision: i32 `
     ///
     pub fn SetLabelsPrecision(self: ?*anyopaque, precision: i32) void {
-        qtc.QAbstractBarSeries_SetLabelsPrecision(@ptrCast(self), @intCast(precision));
+        qtc.QAbstractBarSeries_SetLabelsPrecision(@ptrCast(self), @bitCast(precision));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsPrecision)
@@ -318,7 +318,7 @@ pub const qabstractbarseries = struct {
     /// ` barset: QtC.QBarSet `
     ///
     pub fn Clicked(self: ?*anyopaque, index: i32, barset: ?*anyopaque) void {
-        qtc.QAbstractBarSeries_Clicked(@ptrCast(self), @intCast(index), @ptrCast(barset));
+        qtc.QAbstractBarSeries_Clicked(@ptrCast(self), @bitCast(index), @ptrCast(barset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#clicked)
@@ -330,7 +330,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractBarSeries_Connect_Clicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#hovered)
@@ -346,7 +346,7 @@ pub const qabstractbarseries = struct {
     /// ` barset: QtC.QBarSet `
     ///
     pub fn Hovered(self: ?*anyopaque, status: bool, index: i32, barset: ?*anyopaque) void {
-        qtc.QAbstractBarSeries_Hovered(@ptrCast(self), status, @intCast(index), @ptrCast(barset));
+        qtc.QAbstractBarSeries_Hovered(@ptrCast(self), status, @bitCast(index), @ptrCast(barset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#hovered)
@@ -358,7 +358,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries, status: bool, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractBarSeries_Connect_Hovered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#pressed)
@@ -372,7 +372,7 @@ pub const qabstractbarseries = struct {
     /// ` barset: QtC.QBarSet `
     ///
     pub fn Pressed(self: ?*anyopaque, index: i32, barset: ?*anyopaque) void {
-        qtc.QAbstractBarSeries_Pressed(@ptrCast(self), @intCast(index), @ptrCast(barset));
+        qtc.QAbstractBarSeries_Pressed(@ptrCast(self), @bitCast(index), @ptrCast(barset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#pressed)
@@ -384,7 +384,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractBarSeries_Connect_Pressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#released)
@@ -398,7 +398,7 @@ pub const qabstractbarseries = struct {
     /// ` barset: QtC.QBarSet `
     ///
     pub fn Released(self: ?*anyopaque, index: i32, barset: ?*anyopaque) void {
-        qtc.QAbstractBarSeries_Released(@ptrCast(self), @intCast(index), @ptrCast(barset));
+        qtc.QAbstractBarSeries_Released(@ptrCast(self), @bitCast(index), @ptrCast(barset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#released)
@@ -410,7 +410,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractBarSeries_Connect_Released(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#doubleClicked)
@@ -424,7 +424,7 @@ pub const qabstractbarseries = struct {
     /// ` barset: QtC.QBarSet `
     ///
     pub fn DoubleClicked(self: ?*anyopaque, index: i32, barset: ?*anyopaque) void {
-        qtc.QAbstractBarSeries_DoubleClicked(@ptrCast(self), @intCast(index), @ptrCast(barset));
+        qtc.QAbstractBarSeries_DoubleClicked(@ptrCast(self), @bitCast(index), @ptrCast(barset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#doubleClicked)
@@ -436,7 +436,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractBarSeries_Connect_DoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#countChanged)
@@ -458,7 +458,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries) callconv(.c) void `
     ///
     pub fn OnCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_CountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractBarSeries_Connect_CountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsVisibleChanged)
@@ -480,7 +480,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries) callconv(.c) void `
     ///
     pub fn OnLabelsVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_LabelsVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractBarSeries_Connect_LabelsVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsFormatChanged)
@@ -508,7 +508,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries, format: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLabelsFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_LabelsFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractBarSeries_Connect_LabelsFormatChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsPositionChanged)
@@ -520,7 +520,7 @@ pub const qabstractbarseries = struct {
     /// ` position: qabstractbarseries_enums.LabelsPosition `
     ///
     pub fn LabelsPositionChanged(self: ?*anyopaque, position: i32) void {
-        qtc.QAbstractBarSeries_LabelsPositionChanged(@ptrCast(self), @intCast(position));
+        qtc.QAbstractBarSeries_LabelsPositionChanged(@ptrCast(self), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsPositionChanged)
@@ -532,7 +532,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries, position: qabstractbarseries_enums.LabelsPosition) callconv(.c) void `
     ///
     pub fn OnLabelsPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_LabelsPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractBarSeries_Connect_LabelsPositionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsAngleChanged)
@@ -544,7 +544,7 @@ pub const qabstractbarseries = struct {
     /// ` angle: f64 `
     ///
     pub fn LabelsAngleChanged(self: ?*anyopaque, angle: f64) void {
-        qtc.QAbstractBarSeries_LabelsAngleChanged(@ptrCast(self), @floatCast(angle));
+        qtc.QAbstractBarSeries_LabelsAngleChanged(@ptrCast(self), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsAngleChanged)
@@ -556,7 +556,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries, angle: f64) callconv(.c) void `
     ///
     pub fn OnLabelsAngleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_LabelsAngleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractBarSeries_Connect_LabelsAngleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsPrecisionChanged)
@@ -568,7 +568,7 @@ pub const qabstractbarseries = struct {
     /// ` precision: i32 `
     ///
     pub fn LabelsPrecisionChanged(self: ?*anyopaque, precision: i32) void {
-        qtc.QAbstractBarSeries_LabelsPrecisionChanged(@ptrCast(self), @intCast(precision));
+        qtc.QAbstractBarSeries_LabelsPrecisionChanged(@ptrCast(self), @bitCast(precision));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsPrecisionChanged)
@@ -580,7 +580,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries, precision: i32) callconv(.c) void `
     ///
     pub fn OnLabelsPrecisionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_LabelsPrecisionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractBarSeries_Connect_LabelsPrecisionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#barsetsAdded)
@@ -608,7 +608,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries, sets: qtc.libqt_list ([]QtC.QBarSet)) callconv(.c) void `
     ///
     pub fn OnBarsetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_BarsetsAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractBarSeries_Connect_BarsetsAdded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#barsetsRemoved)
@@ -636,7 +636,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries, sets: qtc.libqt_list ([]QtC.QBarSet)) callconv(.c) void `
     ///
     pub fn OnBarsetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_BarsetsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractBarSeries_Connect_BarsetsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -674,7 +674,7 @@ pub const qabstractbarseries = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractbarseries.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -792,7 +792,7 @@ pub const qabstractbarseries = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QAbstractSeries_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QAbstractSeries_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QAbstractSeries
@@ -925,7 +925,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries) callconv(.c) void `
     ///
     pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -951,7 +951,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -977,7 +977,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries) callconv(.c) void `
     ///
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -1003,7 +1003,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries) callconv(.c) void `
     ///
     pub fn OnUseOpenGLChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -1195,7 +1195,7 @@ pub const qabstractbarseries = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1209,7 +1209,7 @@ pub const qabstractbarseries = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1223,7 +1223,7 @@ pub const qabstractbarseries = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1237,7 +1237,7 @@ pub const qabstractbarseries = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1567,7 +1567,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1622,7 +1622,7 @@ pub const qabstractbarseries = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1638,7 +1638,7 @@ pub const qabstractbarseries = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1660,7 +1660,7 @@ pub const qabstractbarseries = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1680,7 +1680,7 @@ pub const qabstractbarseries = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1702,7 +1702,7 @@ pub const qabstractbarseries = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1799,7 +1799,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1815,7 +1815,7 @@ pub const qabstractbarseries = struct {
     /// ` callback: *const fn (self: QtC.QAbstractBarSeries, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#dtor.QAbstractBarSeries)

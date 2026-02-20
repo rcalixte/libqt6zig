@@ -33,7 +33,7 @@ pub const qtilerules = struct {
     /// ` verticalRule: qnamespace_enums.TileRule `
     ///
     pub fn New3(horizontalRule: i32, verticalRule: i32) QtC.QTileRules {
-        return qtc.QTileRules_new3(@intCast(horizontalRule), @intCast(verticalRule));
+        return qtc.QTileRules_new3(@bitCast(horizontalRule), @bitCast(verticalRule));
     }
 
     /// New4 constructs a new QTileRules object.
@@ -59,7 +59,7 @@ pub const qtilerules = struct {
     /// ` rule: qnamespace_enums.TileRule `
     ///
     pub fn New6(rule: i32) QtC.QTileRules {
-        return qtc.QTileRules_new6(@intCast(rule));
+        return qtc.QTileRules_new6(@bitCast(rule));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -109,7 +109,7 @@ pub const qtilerules = struct {
     /// ` horizontal: qnamespace_enums.TileRule `
     ///
     pub fn SetHorizontal(self: ?*anyopaque, horizontal: i32) void {
-        qtc.QTileRules_SetHorizontal(@ptrCast(self), @intCast(horizontal));
+        qtc.QTileRules_SetHorizontal(@ptrCast(self), @bitCast(horizontal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#vertical-var)
@@ -135,7 +135,7 @@ pub const qtilerules = struct {
     /// ` vertical: qnamespace_enums.TileRule `
     ///
     pub fn SetVertical(self: ?*anyopaque, vertical: i32) void {
-        qtc.QTileRules_SetVertical(@ptrCast(self), @intCast(vertical));
+        qtc.QTileRules_SetVertical(@ptrCast(self), @bitCast(vertical));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#dtor.QTileRules)

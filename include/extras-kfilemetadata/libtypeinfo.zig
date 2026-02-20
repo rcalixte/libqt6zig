@@ -18,7 +18,7 @@ pub const kfilemetadata__typeinfo = struct {
     /// ` typeVal: types_enums.Type `
     ///
     pub fn New2(typeVal: i32) QtC.KFileMetaData__TypeInfo {
-        return qtc.KFileMetaData__TypeInfo_new2(@intCast(typeVal));
+        return qtc.KFileMetaData__TypeInfo_new2(@bitCast(typeVal));
     }
 
     /// New3 constructs a new KFileMetaData::TypeInfo object.

@@ -22,7 +22,7 @@ pub const kio__jobuidelegateextension = struct {
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
-        return qtc.KIO__JobUiDelegateExtension_AskDeleteConfirmation(@ptrCast(self), urls_list, @intCast(deletionType), @intCast(confirmationType));
+        return qtc.KIO__JobUiDelegateExtension_AskDeleteConfirmation(@ptrCast(self), urls_list, @bitCast(deletionType), @bitCast(confirmationType));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html#updateUrlInClipboard)

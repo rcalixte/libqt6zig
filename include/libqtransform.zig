@@ -32,7 +32,7 @@ pub const qtransform = struct {
     /// ` param1: qnamespace_enums.Initialization `
     ///
     pub fn New3(param1: i32) QtC.QTransform {
-        return qtc.QTransform_new3(@intCast(param1));
+        return qtc.QTransform_new3(@bitCast(param1));
     }
 
     /// New4 constructs a new QTransform object.
@@ -64,7 +64,7 @@ pub const qtransform = struct {
     /// ` h33: f64 `
     ///
     pub fn New5(h11: f64, h12: f64, h13: f64, h21: f64, h22: f64, h23: f64, h31: f64, h32: f64, h33: f64) QtC.QTransform {
-        return qtc.QTransform_new5(@floatCast(h11), @floatCast(h12), @floatCast(h13), @floatCast(h21), @floatCast(h22), @floatCast(h23), @floatCast(h31), @floatCast(h32), @floatCast(h33));
+        return qtc.QTransform_new5(@bitCast(h11), @bitCast(h12), @bitCast(h13), @bitCast(h21), @bitCast(h22), @bitCast(h23), @bitCast(h31), @bitCast(h32), @bitCast(h33));
     }
 
     /// New6 constructs a new QTransform object.
@@ -84,7 +84,7 @@ pub const qtransform = struct {
     /// ` dy: f64 `
     ///
     pub fn New6(h11: f64, h12: f64, h21: f64, h22: f64, dx: f64, dy: f64) QtC.QTransform {
-        return qtc.QTransform_new6(@floatCast(h11), @floatCast(h12), @floatCast(h21), @floatCast(h22), @floatCast(dx), @floatCast(dy));
+        return qtc.QTransform_new6(@bitCast(h11), @bitCast(h12), @bitCast(h21), @bitCast(h22), @bitCast(dx), @bitCast(dy));
     }
 
     /// New7 constructs a new QTransform object.
@@ -352,7 +352,7 @@ pub const qtransform = struct {
     /// ` m33: f64 `
     ///
     pub fn SetMatrix(self: ?*anyopaque, m11: f64, m12: f64, m13: f64, m21: f64, m22: f64, m23: f64, m31: f64, m32: f64, m33: f64) void {
-        qtc.QTransform_SetMatrix(@ptrCast(self), @floatCast(m11), @floatCast(m12), @floatCast(m13), @floatCast(m21), @floatCast(m22), @floatCast(m23), @floatCast(m31), @floatCast(m32), @floatCast(m33));
+        qtc.QTransform_SetMatrix(@ptrCast(self), @bitCast(m11), @bitCast(m12), @bitCast(m13), @bitCast(m21), @bitCast(m22), @bitCast(m23), @bitCast(m31), @bitCast(m32), @bitCast(m33));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#inverted)
@@ -396,7 +396,7 @@ pub const qtransform = struct {
     /// ` dy: f64 `
     ///
     pub fn Translate(self: ?*anyopaque, dx: f64, dy: f64) QtC.QTransform {
-        return qtc.QTransform_Translate(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        return qtc.QTransform_Translate(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#scale)
@@ -410,7 +410,7 @@ pub const qtransform = struct {
     /// ` sy: f64 `
     ///
     pub fn Scale(self: ?*anyopaque, sx: f64, sy: f64) QtC.QTransform {
-        return qtc.QTransform_Scale(@ptrCast(self), @floatCast(sx), @floatCast(sy));
+        return qtc.QTransform_Scale(@ptrCast(self), @bitCast(sx), @bitCast(sy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#shear)
@@ -424,7 +424,7 @@ pub const qtransform = struct {
     /// ` sv: f64 `
     ///
     pub fn Shear(self: ?*anyopaque, sh: f64, sv: f64) QtC.QTransform {
-        return qtc.QTransform_Shear(@ptrCast(self), @floatCast(sh), @floatCast(sv));
+        return qtc.QTransform_Shear(@ptrCast(self), @bitCast(sh), @bitCast(sv));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#rotate)
@@ -440,7 +440,7 @@ pub const qtransform = struct {
     /// ` distanceToPlane: f64 `
     ///
     pub fn Rotate(self: ?*anyopaque, a: f64, axis: i32, distanceToPlane: f64) QtC.QTransform {
-        return qtc.QTransform_Rotate(@ptrCast(self), @floatCast(a), @intCast(axis), @floatCast(distanceToPlane));
+        return qtc.QTransform_Rotate(@ptrCast(self), @bitCast(a), @bitCast(axis), @bitCast(distanceToPlane));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#rotate)
@@ -452,7 +452,7 @@ pub const qtransform = struct {
     /// ` a: f64 `
     ///
     pub fn Rotate2(self: ?*anyopaque, a: f64) QtC.QTransform {
-        return qtc.QTransform_Rotate2(@ptrCast(self), @floatCast(a));
+        return qtc.QTransform_Rotate2(@ptrCast(self), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#rotateRadians)
@@ -468,7 +468,7 @@ pub const qtransform = struct {
     /// ` distanceToPlane: f64 `
     ///
     pub fn RotateRadians(self: ?*anyopaque, a: f64, axis: i32, distanceToPlane: f64) QtC.QTransform {
-        return qtc.QTransform_RotateRadians(@ptrCast(self), @floatCast(a), @intCast(axis), @floatCast(distanceToPlane));
+        return qtc.QTransform_RotateRadians(@ptrCast(self), @bitCast(a), @bitCast(axis), @bitCast(distanceToPlane));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#rotateRadians)
@@ -480,7 +480,7 @@ pub const qtransform = struct {
     /// ` a: f64 `
     ///
     pub fn RotateRadians2(self: ?*anyopaque, a: f64) QtC.QTransform {
-        return qtc.QTransform_RotateRadians2(@ptrCast(self), @floatCast(a));
+        return qtc.QTransform_RotateRadians2(@ptrCast(self), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#operator-eq-eq)
@@ -662,7 +662,7 @@ pub const qtransform = struct {
     /// ` ty: *i32 `
     ///
     pub fn Map9(self: ?*anyopaque, x: i32, y: i32, tx: *i32, ty: *i32) void {
-        qtc.QTransform_Map9(@ptrCast(self), @intCast(x), @intCast(y), @ptrCast(tx), @ptrCast(ty));
+        qtc.QTransform_Map9(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(tx), @ptrCast(ty));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#map)
@@ -680,7 +680,7 @@ pub const qtransform = struct {
     /// ` ty: *f64 `
     ///
     pub fn Map10(self: ?*anyopaque, x: f64, y: f64, tx: *f64, ty: *f64) void {
-        qtc.QTransform_Map10(@ptrCast(self), @floatCast(x), @floatCast(y), @ptrCast(tx), @ptrCast(ty));
+        qtc.QTransform_Map10(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(tx), @ptrCast(ty));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#operator-2a-eq)
@@ -692,7 +692,7 @@ pub const qtransform = struct {
     /// ` div: f64 `
     ///
     pub fn OperatorMultiplyAssign2(self: ?*anyopaque, div: f64) QtC.QTransform {
-        return qtc.QTransform_OperatorMultiplyAssign2(@ptrCast(self), @floatCast(div));
+        return qtc.QTransform_OperatorMultiplyAssign2(@ptrCast(self), @bitCast(div));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#operator-2f-eq)
@@ -704,7 +704,7 @@ pub const qtransform = struct {
     /// ` div: f64 `
     ///
     pub fn OperatorDivideAssign(self: ?*anyopaque, div: f64) QtC.QTransform {
-        return qtc.QTransform_OperatorDivideAssign(@ptrCast(self), @floatCast(div));
+        return qtc.QTransform_OperatorDivideAssign(@ptrCast(self), @bitCast(div));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#operator-2b-eq)
@@ -716,7 +716,7 @@ pub const qtransform = struct {
     /// ` div: f64 `
     ///
     pub fn OperatorPlusAssign(self: ?*anyopaque, div: f64) QtC.QTransform {
-        return qtc.QTransform_OperatorPlusAssign(@ptrCast(self), @floatCast(div));
+        return qtc.QTransform_OperatorPlusAssign(@ptrCast(self), @bitCast(div));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#operator--eq)
@@ -728,7 +728,7 @@ pub const qtransform = struct {
     /// ` div: f64 `
     ///
     pub fn OperatorMinusAssign(self: ?*anyopaque, div: f64) QtC.QTransform {
-        return qtc.QTransform_OperatorMinusAssign(@ptrCast(self), @floatCast(div));
+        return qtc.QTransform_OperatorMinusAssign(@ptrCast(self), @bitCast(div));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#fromTranslate)
@@ -740,7 +740,7 @@ pub const qtransform = struct {
     /// ` dy: f64 `
     ///
     pub fn FromTranslate(dx: f64, dy: f64) QtC.QTransform {
-        return qtc.QTransform_FromTranslate(@floatCast(dx), @floatCast(dy));
+        return qtc.QTransform_FromTranslate(@bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#fromScale)
@@ -752,7 +752,7 @@ pub const qtransform = struct {
     /// ` dy: f64 `
     ///
     pub fn FromScale(dx: f64, dy: f64) QtC.QTransform {
-        return qtc.QTransform_FromScale(@floatCast(dx), @floatCast(dy));
+        return qtc.QTransform_FromScale(@bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#inverted)
@@ -778,7 +778,7 @@ pub const qtransform = struct {
     /// ` axis: qnamespace_enums.Axis `
     ///
     pub fn Rotate22(self: ?*anyopaque, a: f64, axis: i32) QtC.QTransform {
-        return qtc.QTransform_Rotate22(@ptrCast(self), @floatCast(a), @intCast(axis));
+        return qtc.QTransform_Rotate22(@ptrCast(self), @bitCast(a), @bitCast(axis));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#rotateRadians)
@@ -792,7 +792,7 @@ pub const qtransform = struct {
     /// ` axis: qnamespace_enums.Axis `
     ///
     pub fn RotateRadians22(self: ?*anyopaque, a: f64, axis: i32) QtC.QTransform {
-        return qtc.QTransform_RotateRadians22(@ptrCast(self), @floatCast(a), @intCast(axis));
+        return qtc.QTransform_RotateRadians22(@ptrCast(self), @bitCast(a), @bitCast(axis));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#dtor.QTransform)

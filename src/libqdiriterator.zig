@@ -45,7 +45,7 @@ pub const qdiriterator = struct {
             .data = path.ptr,
         };
 
-        return qtc.QDirIterator_new3(path_str, @intCast(filter));
+        return qtc.QDirIterator_new3(path_str, @bitCast(filter));
     }
 
     /// New4 constructs a new QDirIterator object.
@@ -88,7 +88,7 @@ pub const qdiriterator = struct {
     /// ` flags: flag of qdiriterator_enums.IteratorFlag `
     ///
     pub fn New5(dir: ?*anyopaque, flags: i32) QtC.QDirIterator {
-        return qtc.QDirIterator_new5(@ptrCast(dir), @intCast(flags));
+        return qtc.QDirIterator_new5(@ptrCast(dir), @bitCast(flags));
     }
 
     /// New6 constructs a new QDirIterator object.
@@ -105,7 +105,7 @@ pub const qdiriterator = struct {
             .data = path.ptr,
         };
 
-        return qtc.QDirIterator_new6(path_str, @intCast(flags));
+        return qtc.QDirIterator_new6(path_str, @bitCast(flags));
     }
 
     /// New7 constructs a new QDirIterator object.
@@ -124,7 +124,7 @@ pub const qdiriterator = struct {
             .data = path.ptr,
         };
 
-        return qtc.QDirIterator_new7(path_str, @intCast(filter), @intCast(flags));
+        return qtc.QDirIterator_new7(path_str, @bitCast(filter), @bitCast(flags));
     }
 
     /// New8 constructs a new QDirIterator object.
@@ -157,7 +157,7 @@ pub const qdiriterator = struct {
             .data = nameFilters_arr.ptr,
         };
 
-        return qtc.QDirIterator_new8(path_str, nameFilters_list, @intCast(filters));
+        return qtc.QDirIterator_new8(path_str, nameFilters_list, @bitCast(filters));
     }
 
     /// New9 constructs a new QDirIterator object.
@@ -192,7 +192,7 @@ pub const qdiriterator = struct {
             .data = nameFilters_arr.ptr,
         };
 
-        return qtc.QDirIterator_new9(path_str, nameFilters_list, @intCast(filters), @intCast(flags));
+        return qtc.QDirIterator_new9(path_str, nameFilters_list, @bitCast(filters), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#next)

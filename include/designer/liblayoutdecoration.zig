@@ -48,7 +48,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` C ABI representation of []QtC.QWidget `
     ///
     pub fn OnWidgets(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_list) void {
-        qtc.QDesignerLayoutDecorationExtension_OnWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnWidgets(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#widgets)
@@ -81,7 +81,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` index: i32 `
     ///
     pub fn ItemInfo(self: ?*anyopaque, index: i32) QtC.QRect {
-        return qtc.QDesignerLayoutDecorationExtension_ItemInfo(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerLayoutDecorationExtension_ItemInfo(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#itemInfo)
@@ -95,7 +95,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerLayoutDecorationExtension, index: i32) callconv(.c) QtC.QRect `
     ///
     pub fn OnItemInfo(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QRect) void {
-        qtc.QDesignerLayoutDecorationExtension_OnItemInfo(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnItemInfo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#itemInfo)
@@ -109,7 +109,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseItemInfo(self: ?*anyopaque, index: i32) QtC.QRect {
-        return qtc.QDesignerLayoutDecorationExtension_QBaseItemInfo(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerLayoutDecorationExtension_QBaseItemInfo(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#indexOf)
@@ -135,7 +135,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerLayoutDecorationExtension, widget: QtC.QWidget) callconv(.c) i32 `
     ///
     pub fn OnIndexOf(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QDesignerLayoutDecorationExtension_OnIndexOf(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnIndexOf(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#indexOf)
@@ -175,7 +175,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerLayoutDecorationExtension, item: QtC.QLayoutItem) callconv(.c) i32 `
     ///
     pub fn OnIndexOf2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QDesignerLayoutDecorationExtension_OnIndexOf2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnIndexOf2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#indexOf)
@@ -217,7 +217,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCurrentInsertMode(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerLayoutDecorationExtension_OnCurrentInsertMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnCurrentInsertMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#currentInsertMode)
@@ -257,7 +257,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCurrentIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerLayoutDecorationExtension_OnCurrentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnCurrentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#currentIndex)
@@ -294,7 +294,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` callback: *const fn () callconv(.c) struct_i32_i32 `
     ///
     pub fn OnCurrentCell(self: ?*anyopaque, callback: *const fn () callconv(.c) struct_i32_i32) void {
-        qtc.QDesignerLayoutDecorationExtension_OnCurrentCell(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnCurrentCell(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#currentCell)
@@ -335,7 +335,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerLayoutDecorationExtension, widget: QtC.QWidget, cell: struct_i32_i32) callconv(.c) void `
     ///
     pub fn OnInsertWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, struct_i32_i32) callconv(.c) void) void {
-        qtc.QDesignerLayoutDecorationExtension_OnInsertWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnInsertWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertWidget)
@@ -377,7 +377,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerLayoutDecorationExtension, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnRemoveWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerLayoutDecorationExtension_OnRemoveWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnRemoveWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#removeWidget)
@@ -403,7 +403,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` row: i32 `
     ///
     pub fn InsertRow(self: ?*anyopaque, row: i32) void {
-        qtc.QDesignerLayoutDecorationExtension_InsertRow(@ptrCast(self), @intCast(row));
+        qtc.QDesignerLayoutDecorationExtension_InsertRow(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertRow)
@@ -417,7 +417,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerLayoutDecorationExtension, row: i32) callconv(.c) void `
     ///
     pub fn OnInsertRow(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerLayoutDecorationExtension_OnInsertRow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnInsertRow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertRow)
@@ -431,7 +431,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` row: i32 `
     ///
     pub fn QBaseInsertRow(self: ?*anyopaque, row: i32) void {
-        qtc.QDesignerLayoutDecorationExtension_QBaseInsertRow(@ptrCast(self), @intCast(row));
+        qtc.QDesignerLayoutDecorationExtension_QBaseInsertRow(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertColumn)
@@ -443,7 +443,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` column: i32 `
     ///
     pub fn InsertColumn(self: ?*anyopaque, column: i32) void {
-        qtc.QDesignerLayoutDecorationExtension_InsertColumn(@ptrCast(self), @intCast(column));
+        qtc.QDesignerLayoutDecorationExtension_InsertColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertColumn)
@@ -457,7 +457,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerLayoutDecorationExtension, column: i32) callconv(.c) void `
     ///
     pub fn OnInsertColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerLayoutDecorationExtension_OnInsertColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnInsertColumn(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertColumn)
@@ -471,7 +471,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` column: i32 `
     ///
     pub fn QBaseInsertColumn(self: ?*anyopaque, column: i32) void {
-        qtc.QDesignerLayoutDecorationExtension_QBaseInsertColumn(@ptrCast(self), @intCast(column));
+        qtc.QDesignerLayoutDecorationExtension_QBaseInsertColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#simplify)
@@ -495,7 +495,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSimplify(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerLayoutDecorationExtension_OnSimplify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnSimplify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#simplify)
@@ -533,7 +533,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerLayoutDecorationExtension, pos: QtC.QPoint) callconv(.c) i32 `
     ///
     pub fn OnFindItemAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QDesignerLayoutDecorationExtension_OnFindItemAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnFindItemAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#findItemAt)
@@ -561,7 +561,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` column: i32 `
     ///
     pub fn FindItemAt2(self: ?*anyopaque, row: i32, column: i32) i32 {
-        return qtc.QDesignerLayoutDecorationExtension_FindItemAt2(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QDesignerLayoutDecorationExtension_FindItemAt2(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#findItemAt)
@@ -575,7 +575,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerLayoutDecorationExtension, row: i32, column: i32) callconv(.c) i32 `
     ///
     pub fn OnFindItemAt2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) i32) void {
-        qtc.QDesignerLayoutDecorationExtension_OnFindItemAt2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnFindItemAt2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#findItemAt)
@@ -591,7 +591,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` column: i32 `
     ///
     pub fn QBaseFindItemAt2(self: ?*anyopaque, row: i32, column: i32) i32 {
-        return qtc.QDesignerLayoutDecorationExtension_QBaseFindItemAt2(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QDesignerLayoutDecorationExtension_QBaseFindItemAt2(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#adjustIndicator)
@@ -605,7 +605,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` index: i32 `
     ///
     pub fn AdjustIndicator(self: ?*anyopaque, pos: ?*anyopaque, index: i32) void {
-        qtc.QDesignerLayoutDecorationExtension_AdjustIndicator(@ptrCast(self), @ptrCast(pos), @intCast(index));
+        qtc.QDesignerLayoutDecorationExtension_AdjustIndicator(@ptrCast(self), @ptrCast(pos), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#adjustIndicator)
@@ -619,7 +619,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerLayoutDecorationExtension, pos: QtC.QPoint, index: i32) callconv(.c) void `
     ///
     pub fn OnAdjustIndicator(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerLayoutDecorationExtension_OnAdjustIndicator(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerLayoutDecorationExtension_OnAdjustIndicator(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#adjustIndicator)
@@ -635,7 +635,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseAdjustIndicator(self: ?*anyopaque, pos: ?*anyopaque, index: i32) void {
-        qtc.QDesignerLayoutDecorationExtension_QBaseAdjustIndicator(@ptrCast(self), @ptrCast(pos), @intCast(index));
+        qtc.QDesignerLayoutDecorationExtension_QBaseAdjustIndicator(@ptrCast(self), @ptrCast(pos), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#dtor.QDesignerLayoutDecorationExtension)

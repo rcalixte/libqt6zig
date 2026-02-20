@@ -43,7 +43,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QVBarModelMapper_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -78,7 +78,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QVBarModelMapper_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -105,7 +105,7 @@ pub const qvbarmodelmapper = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QVBarModelMapper_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QVBarModelMapper_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -117,7 +117,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QVBarModelMapper_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -133,7 +133,7 @@ pub const qvbarmodelmapper = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QVBarModelMapper_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QVBarModelMapper_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -216,7 +216,7 @@ pub const qvbarmodelmapper = struct {
     /// ` firstBarSetColumn: i32 `
     ///
     pub fn SetFirstBarSetColumn(self: ?*anyopaque, firstBarSetColumn: i32) void {
-        qtc.QVBarModelMapper_SetFirstBarSetColumn(@ptrCast(self), @intCast(firstBarSetColumn));
+        qtc.QVBarModelMapper_SetFirstBarSetColumn(@ptrCast(self), @bitCast(firstBarSetColumn));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvbarmodelmapper-qtcharts.html#lastBarSetColumn)
@@ -238,7 +238,7 @@ pub const qvbarmodelmapper = struct {
     /// ` lastBarSetColumn: i32 `
     ///
     pub fn SetLastBarSetColumn(self: ?*anyopaque, lastBarSetColumn: i32) void {
-        qtc.QVBarModelMapper_SetLastBarSetColumn(@ptrCast(self), @intCast(lastBarSetColumn));
+        qtc.QVBarModelMapper_SetLastBarSetColumn(@ptrCast(self), @bitCast(lastBarSetColumn));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvbarmodelmapper-qtcharts.html#firstRow)
@@ -260,7 +260,7 @@ pub const qvbarmodelmapper = struct {
     /// ` firstRow: i32 `
     ///
     pub fn SetFirstRow(self: ?*anyopaque, firstRow: i32) void {
-        qtc.QVBarModelMapper_SetFirstRow(@ptrCast(self), @intCast(firstRow));
+        qtc.QVBarModelMapper_SetFirstRow(@ptrCast(self), @bitCast(firstRow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvbarmodelmapper-qtcharts.html#rowCount)
@@ -282,7 +282,7 @@ pub const qvbarmodelmapper = struct {
     /// ` rowCount: i32 `
     ///
     pub fn SetRowCount(self: ?*anyopaque, rowCount: i32) void {
-        qtc.QVBarModelMapper_SetRowCount(@ptrCast(self), @intCast(rowCount));
+        qtc.QVBarModelMapper_SetRowCount(@ptrCast(self), @bitCast(rowCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvbarmodelmapper-qtcharts.html#seriesReplaced)
@@ -304,7 +304,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper) callconv(.c) void `
     ///
     pub fn OnSeriesReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVBarModelMapper_Connect_SeriesReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_Connect_SeriesReplaced(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvbarmodelmapper-qtcharts.html#modelReplaced)
@@ -326,7 +326,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper) callconv(.c) void `
     ///
     pub fn OnModelReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVBarModelMapper_Connect_ModelReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_Connect_ModelReplaced(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvbarmodelmapper-qtcharts.html#firstBarSetColumnChanged)
@@ -348,7 +348,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper) callconv(.c) void `
     ///
     pub fn OnFirstBarSetColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVBarModelMapper_Connect_FirstBarSetColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_Connect_FirstBarSetColumnChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvbarmodelmapper-qtcharts.html#lastBarSetColumnChanged)
@@ -370,7 +370,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper) callconv(.c) void `
     ///
     pub fn OnLastBarSetColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVBarModelMapper_Connect_LastBarSetColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_Connect_LastBarSetColumnChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvbarmodelmapper-qtcharts.html#firstRowChanged)
@@ -392,7 +392,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper) callconv(.c) void `
     ///
     pub fn OnFirstRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVBarModelMapper_Connect_FirstRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_Connect_FirstRowChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvbarmodelmapper-qtcharts.html#rowCountChanged)
@@ -414,7 +414,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper) callconv(.c) void `
     ///
     pub fn OnRowCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVBarModelMapper_Connect_RowCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_Connect_RowCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -452,7 +452,7 @@ pub const qvbarmodelmapper = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvbarmodelmapper.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -590,7 +590,7 @@ pub const qvbarmodelmapper = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -604,7 +604,7 @@ pub const qvbarmodelmapper = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -618,7 +618,7 @@ pub const qvbarmodelmapper = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -632,7 +632,7 @@ pub const qvbarmodelmapper = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -962,7 +962,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1017,7 +1017,7 @@ pub const qvbarmodelmapper = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1033,7 +1033,7 @@ pub const qvbarmodelmapper = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1055,7 +1055,7 @@ pub const qvbarmodelmapper = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1075,7 +1075,7 @@ pub const qvbarmodelmapper = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1097,7 +1097,7 @@ pub const qvbarmodelmapper = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1194,7 +1194,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1242,7 +1242,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVBarModelMapper_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1294,7 +1294,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVBarModelMapper_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1342,7 +1342,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBarModelMapper_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1390,7 +1390,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBarModelMapper_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1438,7 +1438,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBarModelMapper_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1486,7 +1486,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBarModelMapper_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1534,7 +1534,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBarModelMapper_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBarModelMapper
@@ -1578,7 +1578,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnFirst(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVBarModelMapper_OnFirst(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnFirst(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBarModelMapper
@@ -1594,7 +1594,7 @@ pub const qvbarmodelmapper = struct {
     /// ` first: i32 `
     ///
     pub fn SetFirst(self: ?*anyopaque, first: i32) void {
-        qtc.QVBarModelMapper_SetFirst(@ptrCast(self), @intCast(first));
+        qtc.QVBarModelMapper_SetFirst(@ptrCast(self), @bitCast(first));
     }
 
     /// Inherited from QBarModelMapper
@@ -1610,7 +1610,7 @@ pub const qvbarmodelmapper = struct {
     /// ` first: i32 `
     ///
     pub fn QBaseSetFirst(self: ?*anyopaque, first: i32) void {
-        qtc.QVBarModelMapper_QBaseSetFirst(@ptrCast(self), @intCast(first));
+        qtc.QVBarModelMapper_QBaseSetFirst(@ptrCast(self), @bitCast(first));
     }
 
     /// Inherited from QBarModelMapper
@@ -1626,7 +1626,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, first: i32) callconv(.c) void `
     ///
     pub fn OnSetFirst(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVBarModelMapper_OnSetFirst(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnSetFirst(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBarModelMapper
@@ -1670,7 +1670,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVBarModelMapper_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBarModelMapper
@@ -1686,7 +1686,7 @@ pub const qvbarmodelmapper = struct {
     /// ` count: i32 `
     ///
     pub fn SetCount(self: ?*anyopaque, count: i32) void {
-        qtc.QVBarModelMapper_SetCount(@ptrCast(self), @intCast(count));
+        qtc.QVBarModelMapper_SetCount(@ptrCast(self), @bitCast(count));
     }
 
     /// Inherited from QBarModelMapper
@@ -1702,7 +1702,7 @@ pub const qvbarmodelmapper = struct {
     /// ` count: i32 `
     ///
     pub fn QBaseSetCount(self: ?*anyopaque, count: i32) void {
-        qtc.QVBarModelMapper_QBaseSetCount(@ptrCast(self), @intCast(count));
+        qtc.QVBarModelMapper_QBaseSetCount(@ptrCast(self), @bitCast(count));
     }
 
     /// Inherited from QBarModelMapper
@@ -1718,7 +1718,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, count: i32) callconv(.c) void `
     ///
     pub fn OnSetCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVBarModelMapper_OnSetCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnSetCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBarModelMapper
@@ -1762,7 +1762,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnFirstBarSetSection(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVBarModelMapper_OnFirstBarSetSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnFirstBarSetSection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBarModelMapper
@@ -1778,7 +1778,7 @@ pub const qvbarmodelmapper = struct {
     /// ` firstBarSetSection: i32 `
     ///
     pub fn SetFirstBarSetSection(self: ?*anyopaque, firstBarSetSection: i32) void {
-        qtc.QVBarModelMapper_SetFirstBarSetSection(@ptrCast(self), @intCast(firstBarSetSection));
+        qtc.QVBarModelMapper_SetFirstBarSetSection(@ptrCast(self), @bitCast(firstBarSetSection));
     }
 
     /// Inherited from QBarModelMapper
@@ -1794,7 +1794,7 @@ pub const qvbarmodelmapper = struct {
     /// ` firstBarSetSection: i32 `
     ///
     pub fn QBaseSetFirstBarSetSection(self: ?*anyopaque, firstBarSetSection: i32) void {
-        qtc.QVBarModelMapper_QBaseSetFirstBarSetSection(@ptrCast(self), @intCast(firstBarSetSection));
+        qtc.QVBarModelMapper_QBaseSetFirstBarSetSection(@ptrCast(self), @bitCast(firstBarSetSection));
     }
 
     /// Inherited from QBarModelMapper
@@ -1810,7 +1810,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, firstBarSetSection: i32) callconv(.c) void `
     ///
     pub fn OnSetFirstBarSetSection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVBarModelMapper_OnSetFirstBarSetSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnSetFirstBarSetSection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBarModelMapper
@@ -1854,7 +1854,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnLastBarSetSection(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVBarModelMapper_OnLastBarSetSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnLastBarSetSection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBarModelMapper
@@ -1870,7 +1870,7 @@ pub const qvbarmodelmapper = struct {
     /// ` lastBarSetSection: i32 `
     ///
     pub fn SetLastBarSetSection(self: ?*anyopaque, lastBarSetSection: i32) void {
-        qtc.QVBarModelMapper_SetLastBarSetSection(@ptrCast(self), @intCast(lastBarSetSection));
+        qtc.QVBarModelMapper_SetLastBarSetSection(@ptrCast(self), @bitCast(lastBarSetSection));
     }
 
     /// Inherited from QBarModelMapper
@@ -1886,7 +1886,7 @@ pub const qvbarmodelmapper = struct {
     /// ` lastBarSetSection: i32 `
     ///
     pub fn QBaseSetLastBarSetSection(self: ?*anyopaque, lastBarSetSection: i32) void {
-        qtc.QVBarModelMapper_QBaseSetLastBarSetSection(@ptrCast(self), @intCast(lastBarSetSection));
+        qtc.QVBarModelMapper_QBaseSetLastBarSetSection(@ptrCast(self), @bitCast(lastBarSetSection));
     }
 
     /// Inherited from QBarModelMapper
@@ -1902,7 +1902,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, lastBarSetSection: i32) callconv(.c) void `
     ///
     pub fn OnSetLastBarSetSection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVBarModelMapper_OnSetLastBarSetSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnSetLastBarSetSection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBarModelMapper
@@ -1954,7 +1954,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnOrientation(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVBarModelMapper_OnOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnOrientation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBarModelMapper
@@ -1970,7 +1970,7 @@ pub const qvbarmodelmapper = struct {
     /// ` orientation: qnamespace_enums.Orientation `
     ///
     pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QVBarModelMapper_SetOrientation(@ptrCast(self), @intCast(orientation));
+        qtc.QVBarModelMapper_SetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QBarModelMapper
@@ -1986,7 +1986,7 @@ pub const qvbarmodelmapper = struct {
     /// ` orientation: qnamespace_enums.Orientation `
     ///
     pub fn QBaseSetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QVBarModelMapper_QBaseSetOrientation(@ptrCast(self), @intCast(orientation));
+        qtc.QVBarModelMapper_QBaseSetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QBarModelMapper
@@ -2002,7 +2002,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, orientation: qnamespace_enums.Orientation) callconv(.c) void `
     ///
     pub fn OnSetOrientation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVBarModelMapper_OnSetOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnSetOrientation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2046,7 +2046,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QVBarModelMapper_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2090,7 +2090,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVBarModelMapper_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2140,7 +2140,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QVBarModelMapper_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2188,7 +2188,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVBarModelMapper_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVBarModelMapper_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2204,7 +2204,7 @@ pub const qvbarmodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVBarModelMapper, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvbarmodelmapper-qtcharts.html#dtor.QVBarModelMapper)

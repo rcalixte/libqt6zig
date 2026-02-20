@@ -192,7 +192,7 @@ pub const attica__person = struct {
     /// ` latitude: f64 `
     ///
     pub fn SetLatitude(self: ?*anyopaque, latitude: f64) void {
-        qtc.Attica__Person_SetLatitude(@ptrCast(self), @floatCast(latitude));
+        qtc.Attica__Person_SetLatitude(@ptrCast(self), @bitCast(latitude));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#latitude)
@@ -214,7 +214,7 @@ pub const attica__person = struct {
     /// ` longitude: f64 `
     ///
     pub fn SetLongitude(self: ?*anyopaque, longitude: f64) void {
-        qtc.Attica__Person_SetLongitude(@ptrCast(self), @floatCast(longitude));
+        qtc.Attica__Person_SetLongitude(@ptrCast(self), @bitCast(longitude));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#longitude)

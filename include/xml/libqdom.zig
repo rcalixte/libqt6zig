@@ -148,7 +148,7 @@ pub const qdomimplementation = struct {
     /// ` policy: qdom_enums.InvalidDataPolicy `
     ///
     pub fn SetInvalidDataPolicy(policy: i32) void {
-        qtc.QDomImplementation_SetInvalidDataPolicy(@intCast(policy));
+        qtc.QDomImplementation_SetInvalidDataPolicy(@bitCast(policy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomimplementation.html#isNull)
@@ -869,7 +869,7 @@ pub const qdomnode = struct {
     /// ` param2: i32 `
     ///
     pub fn Save(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @intCast(param2));
+        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -957,7 +957,7 @@ pub const qdomnode = struct {
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
     pub fn Save3(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -1188,7 +1188,7 @@ pub const qdomnodelist = struct {
     /// ` index: i32 `
     ///
     pub fn Item(self: ?*anyopaque, index: i32) QtC.QDomNode {
-        return qtc.QDomNodeList_Item(@ptrCast(self), @intCast(index));
+        return qtc.QDomNodeList_Item(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnodelist.html#at)
@@ -1200,7 +1200,7 @@ pub const qdomnodelist = struct {
     /// ` index: i32 `
     ///
     pub fn At(self: ?*anyopaque, index: i32) QtC.QDomNode {
-        return qtc.QDomNodeList_At(@ptrCast(self), @intCast(index));
+        return qtc.QDomNodeList_At(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnodelist.html#length)
@@ -2149,7 +2149,7 @@ pub const qdomdocumenttype = struct {
     /// ` param2: i32 `
     ///
     pub fn Save(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @intCast(param2));
+        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QDomNode
@@ -2253,7 +2253,7 @@ pub const qdomdocumenttype = struct {
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
     pub fn Save3(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// Inherited from QDomNode
@@ -2919,7 +2919,7 @@ pub const qdomdocument = struct {
     /// ` options: flag of qdom_enums.ParseOption `
     ///
     pub fn SetContent22(self: ?*anyopaque, data: []const u8, options: i32) QtC.QDomDocument__ParseResult {
-        return qtc.QDomDocument_SetContent22(@ptrCast(self), data.ptr, @intCast(options));
+        return qtc.QDomDocument_SetContent22(@ptrCast(self), data.ptr, @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)
@@ -2933,7 +2933,7 @@ pub const qdomdocument = struct {
     /// ` options: flag of qdom_enums.ParseOption `
     ///
     pub fn SetContent23(self: ?*anyopaque, device: ?*anyopaque, options: i32) QtC.QDomDocument__ParseResult {
-        return qtc.QDomDocument_SetContent23(@ptrCast(self), @ptrCast(device), @intCast(options));
+        return qtc.QDomDocument_SetContent23(@ptrCast(self), @ptrCast(device), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)
@@ -2947,7 +2947,7 @@ pub const qdomdocument = struct {
     /// ` options: flag of qdom_enums.ParseOption `
     ///
     pub fn SetContent24(self: ?*anyopaque, reader: ?*anyopaque, options: i32) QtC.QDomDocument__ParseResult {
-        return qtc.QDomDocument_SetContent24(@ptrCast(self), @ptrCast(reader), @intCast(options));
+        return qtc.QDomDocument_SetContent24(@ptrCast(self), @ptrCast(reader), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#toString)
@@ -2961,7 +2961,7 @@ pub const qdomdocument = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString1(self: ?*anyopaque, indent: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDomDocument_ToString1(@ptrCast(self), @intCast(indent));
+        var _str = qtc.QDomDocument_ToString1(@ptrCast(self), @bitCast(indent));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocument.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2979,7 +2979,7 @@ pub const qdomdocument = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToByteArray1(self: ?*anyopaque, indent: i32, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QDomDocument_ToByteArray1(@ptrCast(self), @intCast(indent));
+        var _bytearray: qtc.libqt_string = qtc.QDomDocument_ToByteArray1(@ptrCast(self), @bitCast(indent));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdomdocument.ToByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3751,7 +3751,7 @@ pub const qdomdocument = struct {
     /// ` param2: i32 `
     ///
     pub fn Save(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @intCast(param2));
+        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QDomNode
@@ -3855,7 +3855,7 @@ pub const qdomdocument = struct {
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
     pub fn Save3(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// Inherited from QDomNode
@@ -4146,7 +4146,7 @@ pub const qdomnamednodemap = struct {
     /// ` index: i32 `
     ///
     pub fn Item(self: ?*anyopaque, index: i32) QtC.QDomNode {
-        return qtc.QDomNamedNodeMap_Item(@ptrCast(self), @intCast(index));
+        return qtc.QDomNamedNodeMap_Item(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#namedItemNS)
@@ -5083,7 +5083,7 @@ pub const qdomdocumentfragment = struct {
     /// ` param2: i32 `
     ///
     pub fn Save(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @intCast(param2));
+        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QDomNode
@@ -5187,7 +5187,7 @@ pub const qdomdocumentfragment = struct {
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
     pub fn Save3(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// Inherited from QDomNode
@@ -5414,7 +5414,7 @@ pub const qdomcharacterdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SubstringData(self: ?*anyopaque, offset: u64, count: u64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self), @intCast(offset), @intCast(count));
+        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self), @bitCast(offset), @bitCast(count));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcharacterdata.SubstringData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5452,7 +5452,7 @@ pub const qdomcharacterdata = struct {
             .len = arg.len,
             .data = arg.ptr,
         };
-        qtc.QDomCharacterData_InsertData(@ptrCast(self), @intCast(offset), arg_str);
+        qtc.QDomCharacterData_InsertData(@ptrCast(self), @bitCast(offset), arg_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#deleteData)
@@ -5466,7 +5466,7 @@ pub const qdomcharacterdata = struct {
     /// ` count: u64 `
     ///
     pub fn DeleteData(self: ?*anyopaque, offset: u64, count: u64) void {
-        qtc.QDomCharacterData_DeleteData(@ptrCast(self), @intCast(offset), @intCast(count));
+        qtc.QDomCharacterData_DeleteData(@ptrCast(self), @bitCast(offset), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#replaceData)
@@ -5486,7 +5486,7 @@ pub const qdomcharacterdata = struct {
             .len = arg.len,
             .data = arg.ptr,
         };
-        qtc.QDomCharacterData_ReplaceData(@ptrCast(self), @intCast(offset), @intCast(count), arg_str);
+        qtc.QDomCharacterData_ReplaceData(@ptrCast(self), @bitCast(offset), @bitCast(count), arg_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#length)
@@ -6310,7 +6310,7 @@ pub const qdomcharacterdata = struct {
     /// ` param2: i32 `
     ///
     pub fn Save(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @intCast(param2));
+        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QDomNode
@@ -6414,7 +6414,7 @@ pub const qdomcharacterdata = struct {
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
     pub fn Save3(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// Inherited from QDomNode
@@ -7475,7 +7475,7 @@ pub const qdomattr = struct {
     /// ` param2: i32 `
     ///
     pub fn Save(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @intCast(param2));
+        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QDomNode
@@ -7579,7 +7579,7 @@ pub const qdomattr = struct {
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
     pub fn Save3(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// Inherited from QDomNode
@@ -7852,7 +7852,7 @@ pub const qdomelement = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDomElement_SetAttribute2(@ptrCast(self), name_str, @intCast(value));
+        qtc.QDomElement_SetAttribute2(@ptrCast(self), name_str, @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttribute)
@@ -7870,7 +7870,7 @@ pub const qdomelement = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDomElement_SetAttribute3(@ptrCast(self), name_str, @intCast(value));
+        qtc.QDomElement_SetAttribute3(@ptrCast(self), name_str, @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttribute)
@@ -7888,7 +7888,7 @@ pub const qdomelement = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDomElement_SetAttribute4(@ptrCast(self), name_str, @intCast(value));
+        qtc.QDomElement_SetAttribute4(@ptrCast(self), name_str, @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttribute)
@@ -7906,7 +7906,7 @@ pub const qdomelement = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDomElement_SetAttribute5(@ptrCast(self), name_str, @intCast(value));
+        qtc.QDomElement_SetAttribute5(@ptrCast(self), name_str, @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttribute)
@@ -7924,7 +7924,7 @@ pub const qdomelement = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDomElement_SetAttribute6(@ptrCast(self), name_str, @floatCast(value));
+        qtc.QDomElement_SetAttribute6(@ptrCast(self), name_str, @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttribute)
@@ -7942,7 +7942,7 @@ pub const qdomelement = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDomElement_SetAttribute7(@ptrCast(self), name_str, @floatCast(value));
+        qtc.QDomElement_SetAttribute7(@ptrCast(self), name_str, @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#removeAttribute)
@@ -8110,7 +8110,7 @@ pub const qdomelement = struct {
             .len = qName.len,
             .data = qName.ptr,
         };
-        qtc.QDomElement_SetAttributeNS2(@ptrCast(self), nsURI_str, qName_str, @intCast(value));
+        qtc.QDomElement_SetAttributeNS2(@ptrCast(self), nsURI_str, qName_str, @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttributeNS)
@@ -8134,7 +8134,7 @@ pub const qdomelement = struct {
             .len = qName.len,
             .data = qName.ptr,
         };
-        qtc.QDomElement_SetAttributeNS3(@ptrCast(self), nsURI_str, qName_str, @intCast(value));
+        qtc.QDomElement_SetAttributeNS3(@ptrCast(self), nsURI_str, qName_str, @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttributeNS)
@@ -8158,7 +8158,7 @@ pub const qdomelement = struct {
             .len = qName.len,
             .data = qName.ptr,
         };
-        qtc.QDomElement_SetAttributeNS4(@ptrCast(self), nsURI_str, qName_str, @intCast(value));
+        qtc.QDomElement_SetAttributeNS4(@ptrCast(self), nsURI_str, qName_str, @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttributeNS)
@@ -8182,7 +8182,7 @@ pub const qdomelement = struct {
             .len = qName.len,
             .data = qName.ptr,
         };
-        qtc.QDomElement_SetAttributeNS5(@ptrCast(self), nsURI_str, qName_str, @intCast(value));
+        qtc.QDomElement_SetAttributeNS5(@ptrCast(self), nsURI_str, qName_str, @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttributeNS)
@@ -8206,7 +8206,7 @@ pub const qdomelement = struct {
             .len = qName.len,
             .data = qName.ptr,
         };
-        qtc.QDomElement_SetAttributeNS6(@ptrCast(self), nsURI_str, qName_str, @floatCast(value));
+        qtc.QDomElement_SetAttributeNS6(@ptrCast(self), nsURI_str, qName_str, @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#removeAttributeNS)
@@ -9196,7 +9196,7 @@ pub const qdomelement = struct {
     /// ` param2: i32 `
     ///
     pub fn Save(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @intCast(param2));
+        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QDomNode
@@ -9300,7 +9300,7 @@ pub const qdomelement = struct {
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
     pub fn Save3(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// Inherited from QDomNode
@@ -9523,7 +9523,7 @@ pub const qdomtext = struct {
     /// ` offset: i32 `
     ///
     pub fn SplitText(self: ?*anyopaque, offset: i32) QtC.QDomText {
-        return qtc.QDomText_SplitText(@ptrCast(self), @intCast(offset));
+        return qtc.QDomText_SplitText(@ptrCast(self), @bitCast(offset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomtext.html#nodeType)
@@ -9555,7 +9555,7 @@ pub const qdomtext = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SubstringData(self: ?*anyopaque, offset: u64, count: u64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self), @intCast(offset), @intCast(count));
+        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self), @bitCast(offset), @bitCast(count));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomtext.SubstringData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9597,7 +9597,7 @@ pub const qdomtext = struct {
             .len = arg.len,
             .data = arg.ptr,
         };
-        qtc.QDomCharacterData_InsertData(@ptrCast(self), @intCast(offset), arg_str);
+        qtc.QDomCharacterData_InsertData(@ptrCast(self), @bitCast(offset), arg_str);
     }
 
     /// Inherited from QDomCharacterData
@@ -9613,7 +9613,7 @@ pub const qdomtext = struct {
     /// ` count: u64 `
     ///
     pub fn DeleteData(self: ?*anyopaque, offset: u64, count: u64) void {
-        qtc.QDomCharacterData_DeleteData(@ptrCast(self), @intCast(offset), @intCast(count));
+        qtc.QDomCharacterData_DeleteData(@ptrCast(self), @bitCast(offset), @bitCast(count));
     }
 
     /// Inherited from QDomCharacterData
@@ -9635,7 +9635,7 @@ pub const qdomtext = struct {
             .len = arg.len,
             .data = arg.ptr,
         };
-        qtc.QDomCharacterData_ReplaceData(@ptrCast(self), @intCast(offset), @intCast(count), arg_str);
+        qtc.QDomCharacterData_ReplaceData(@ptrCast(self), @bitCast(offset), @bitCast(count), arg_str);
     }
 
     /// Inherited from QDomCharacterData
@@ -10451,7 +10451,7 @@ pub const qdomtext = struct {
     /// ` param2: i32 `
     ///
     pub fn Save(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @intCast(param2));
+        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QDomNode
@@ -10555,7 +10555,7 @@ pub const qdomtext = struct {
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
     pub fn Save3(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// Inherited from QDomNode
@@ -10798,7 +10798,7 @@ pub const qdomcomment = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SubstringData(self: ?*anyopaque, offset: u64, count: u64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self), @intCast(offset), @intCast(count));
+        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self), @bitCast(offset), @bitCast(count));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcomment.SubstringData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10840,7 +10840,7 @@ pub const qdomcomment = struct {
             .len = arg.len,
             .data = arg.ptr,
         };
-        qtc.QDomCharacterData_InsertData(@ptrCast(self), @intCast(offset), arg_str);
+        qtc.QDomCharacterData_InsertData(@ptrCast(self), @bitCast(offset), arg_str);
     }
 
     /// Inherited from QDomCharacterData
@@ -10856,7 +10856,7 @@ pub const qdomcomment = struct {
     /// ` count: u64 `
     ///
     pub fn DeleteData(self: ?*anyopaque, offset: u64, count: u64) void {
-        qtc.QDomCharacterData_DeleteData(@ptrCast(self), @intCast(offset), @intCast(count));
+        qtc.QDomCharacterData_DeleteData(@ptrCast(self), @bitCast(offset), @bitCast(count));
     }
 
     /// Inherited from QDomCharacterData
@@ -10878,7 +10878,7 @@ pub const qdomcomment = struct {
             .len = arg.len,
             .data = arg.ptr,
         };
-        qtc.QDomCharacterData_ReplaceData(@ptrCast(self), @intCast(offset), @intCast(count), arg_str);
+        qtc.QDomCharacterData_ReplaceData(@ptrCast(self), @bitCast(offset), @bitCast(count), arg_str);
     }
 
     /// Inherited from QDomCharacterData
@@ -11694,7 +11694,7 @@ pub const qdomcomment = struct {
     /// ` param2: i32 `
     ///
     pub fn Save(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @intCast(param2));
+        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QDomNode
@@ -11798,7 +11798,7 @@ pub const qdomcomment = struct {
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
     pub fn Save3(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// Inherited from QDomNode
@@ -12037,7 +12037,7 @@ pub const qdomcdatasection = struct {
     /// ` offset: i32 `
     ///
     pub fn SplitText(self: ?*anyopaque, offset: i32) QtC.QDomText {
-        return qtc.QDomText_SplitText(@ptrCast(self), @intCast(offset));
+        return qtc.QDomText_SplitText(@ptrCast(self), @bitCast(offset));
     }
 
     /// Inherited from QDomCharacterData
@@ -12055,7 +12055,7 @@ pub const qdomcdatasection = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SubstringData(self: ?*anyopaque, offset: u64, count: u64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self), @intCast(offset), @intCast(count));
+        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self), @bitCast(offset), @bitCast(count));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcdatasection.SubstringData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -12097,7 +12097,7 @@ pub const qdomcdatasection = struct {
             .len = arg.len,
             .data = arg.ptr,
         };
-        qtc.QDomCharacterData_InsertData(@ptrCast(self), @intCast(offset), arg_str);
+        qtc.QDomCharacterData_InsertData(@ptrCast(self), @bitCast(offset), arg_str);
     }
 
     /// Inherited from QDomCharacterData
@@ -12113,7 +12113,7 @@ pub const qdomcdatasection = struct {
     /// ` count: u64 `
     ///
     pub fn DeleteData(self: ?*anyopaque, offset: u64, count: u64) void {
-        qtc.QDomCharacterData_DeleteData(@ptrCast(self), @intCast(offset), @intCast(count));
+        qtc.QDomCharacterData_DeleteData(@ptrCast(self), @bitCast(offset), @bitCast(count));
     }
 
     /// Inherited from QDomCharacterData
@@ -12135,7 +12135,7 @@ pub const qdomcdatasection = struct {
             .len = arg.len,
             .data = arg.ptr,
         };
-        qtc.QDomCharacterData_ReplaceData(@ptrCast(self), @intCast(offset), @intCast(count), arg_str);
+        qtc.QDomCharacterData_ReplaceData(@ptrCast(self), @bitCast(offset), @bitCast(count), arg_str);
     }
 
     /// Inherited from QDomCharacterData
@@ -12951,7 +12951,7 @@ pub const qdomcdatasection = struct {
     /// ` param2: i32 `
     ///
     pub fn Save(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @intCast(param2));
+        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QDomNode
@@ -13055,7 +13055,7 @@ pub const qdomcdatasection = struct {
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
     pub fn Save3(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// Inherited from QDomNode
@@ -14080,7 +14080,7 @@ pub const qdomnotation = struct {
     /// ` param2: i32 `
     ///
     pub fn Save(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @intCast(param2));
+        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QDomNode
@@ -14184,7 +14184,7 @@ pub const qdomnotation = struct {
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
     pub fn Save3(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// Inherited from QDomNode
@@ -15225,7 +15225,7 @@ pub const qdomentity = struct {
     /// ` param2: i32 `
     ///
     pub fn Save(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @intCast(param2));
+        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QDomNode
@@ -15329,7 +15329,7 @@ pub const qdomentity = struct {
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
     pub fn Save3(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// Inherited from QDomNode
@@ -16322,7 +16322,7 @@ pub const qdomentityreference = struct {
     /// ` param2: i32 `
     ///
     pub fn Save(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @intCast(param2));
+        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QDomNode
@@ -16426,7 +16426,7 @@ pub const qdomentityreference = struct {
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
     pub fn Save3(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// Inherited from QDomNode
@@ -17467,7 +17467,7 @@ pub const qdomprocessinginstruction = struct {
     /// ` param2: i32 `
     ///
     pub fn Save(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @intCast(param2));
+        qtc.QDomNode_Save(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QDomNode
@@ -17571,7 +17571,7 @@ pub const qdomprocessinginstruction = struct {
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
     pub fn Save3(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.QDomNode_Save3(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// Inherited from QDomNode
@@ -17818,7 +17818,7 @@ pub const qdomdocument__parseresult = struct {
     /// ` errorLine: i64 `
     ///
     pub fn SetErrorLine(self: ?*anyopaque, errorLine: i64) void {
-        qtc.QDomDocument__ParseResult_SetErrorLine(@ptrCast(self), @intCast(errorLine));
+        qtc.QDomDocument__ParseResult_SetErrorLine(@ptrCast(self), @bitCast(errorLine));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument-parseresult.html#errorColumn-var)
@@ -17840,7 +17840,7 @@ pub const qdomdocument__parseresult = struct {
     /// ` errorColumn: i64 `
     ///
     pub fn SetErrorColumn(self: ?*anyopaque, errorColumn: i64) void {
-        qtc.QDomDocument__ParseResult_SetErrorColumn(@ptrCast(self), @intCast(errorColumn));
+        qtc.QDomDocument__ParseResult_SetErrorColumn(@ptrCast(self), @bitCast(errorColumn));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument-parseresult.html#operator)

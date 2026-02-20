@@ -170,7 +170,7 @@ pub const kcolorcollection = struct {
     /// ` editable: kcolorcollection_enums.Editable `
     ///
     pub fn SetEditable(self: ?*anyopaque, editable: i32) void {
-        qtc.KColorCollection_SetEditable(@ptrCast(self), @intCast(editable));
+        qtc.KColorCollection_SetEditable(@ptrCast(self), @bitCast(editable));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#count)
@@ -192,7 +192,7 @@ pub const kcolorcollection = struct {
     /// ` index: i32 `
     ///
     pub fn Color(self: ?*anyopaque, index: i32) QtC.QColor {
-        return qtc.KColorCollection_Color(@ptrCast(self), @intCast(index));
+        return qtc.KColorCollection_Color(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#findColor)
@@ -218,7 +218,7 @@ pub const kcolorcollection = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name2(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KColorCollection_Name2(@ptrCast(self), @intCast(index));
+        var _str = qtc.KColorCollection_Name2(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcolorcollection.Name2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -266,7 +266,7 @@ pub const kcolorcollection = struct {
     /// ` newColor: QtC.QColor `
     ///
     pub fn ChangeColor(self: ?*anyopaque, index: i32, newColor: ?*anyopaque) i32 {
-        return qtc.KColorCollection_ChangeColor(@ptrCast(self), @intCast(index), @ptrCast(newColor));
+        return qtc.KColorCollection_ChangeColor(@ptrCast(self), @bitCast(index), @ptrCast(newColor));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#changeColor)
@@ -318,7 +318,7 @@ pub const kcolorcollection = struct {
             .len = newColorName.len,
             .data = newColorName.ptr,
         };
-        return qtc.KColorCollection_ChangeColor3(@ptrCast(self), @intCast(index), @ptrCast(newColor), newColorName_str);
+        return qtc.KColorCollection_ChangeColor3(@ptrCast(self), @bitCast(index), @ptrCast(newColor), newColorName_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#changeColor)

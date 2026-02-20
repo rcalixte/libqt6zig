@@ -223,7 +223,7 @@ pub const qplace = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Content(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) map_i32_qtcqplacecontent {
-        const _map: qtc.libqt_map = qtc.QPlace_Content(@ptrCast(self), @intCast(typeVal));
+        const _map: qtc.libqt_map = qtc.QPlace_Content(@ptrCast(self), @bitCast(typeVal));
         var _ret: map_i32_qtcqplacecontent = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -262,7 +262,7 @@ pub const qplace = struct {
         var content_it = content.iterator();
         while (content_it.next()) |it_entry| : (i += 1) {
             const content_key = it_entry.key_ptr.*;
-            content_keys[i] = @intCast(content_key);
+            content_keys[i] = @bitCast(content_key);
             content_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const content_map = qtc.libqt_map{
@@ -270,7 +270,7 @@ pub const qplace = struct {
             .keys = @ptrCast(content_keys.ptr),
             .values = @ptrCast(content_values.ptr),
         };
-        qtc.QPlace_SetContent(@ptrCast(self), @intCast(typeVal), content_map);
+        qtc.QPlace_SetContent(@ptrCast(self), @bitCast(typeVal), content_map);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#insertContent)
@@ -295,7 +295,7 @@ pub const qplace = struct {
         var content_it = content.iterator();
         while (content_it.next()) |it_entry| : (i += 1) {
             const content_key = it_entry.key_ptr.*;
-            content_keys[i] = @intCast(content_key);
+            content_keys[i] = @bitCast(content_key);
             content_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const content_map = qtc.libqt_map{
@@ -303,7 +303,7 @@ pub const qplace = struct {
             .keys = @ptrCast(content_keys.ptr),
             .values = @ptrCast(content_values.ptr),
         };
-        qtc.QPlace_InsertContent(@ptrCast(self), @intCast(typeVal), content_map);
+        qtc.QPlace_InsertContent(@ptrCast(self), @bitCast(typeVal), content_map);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#totalContentCount)
@@ -315,7 +315,7 @@ pub const qplace = struct {
     /// ` typeVal: qplacecontent_enums.Type `
     ///
     pub fn TotalContentCount(self: ?*anyopaque, typeVal: i32) i32 {
-        return qtc.QPlace_TotalContentCount(@ptrCast(self), @intCast(typeVal));
+        return qtc.QPlace_TotalContentCount(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#setTotalContentCount)
@@ -329,7 +329,7 @@ pub const qplace = struct {
     /// ` total: i32 `
     ///
     pub fn SetTotalContentCount(self: ?*anyopaque, typeVal: i32, total: i32) void {
-        qtc.QPlace_SetTotalContentCount(@ptrCast(self), @intCast(typeVal), @intCast(total));
+        qtc.QPlace_SetTotalContentCount(@ptrCast(self), @bitCast(typeVal), @bitCast(total));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#name)
@@ -682,7 +682,7 @@ pub const qplace = struct {
     /// ` visibility: qlocation_enums.Visibility `
     ///
     pub fn SetVisibility(self: ?*anyopaque, visibility: i32) void {
-        qtc.QPlace_SetVisibility(@ptrCast(self), @intCast(visibility));
+        qtc.QPlace_SetVisibility(@ptrCast(self), @bitCast(visibility));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#isEmpty)

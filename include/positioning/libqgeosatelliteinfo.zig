@@ -53,7 +53,7 @@ pub const qgeosatelliteinfo = struct {
     /// ` system: qgeosatelliteinfo_enums.SatelliteSystem `
     ///
     pub fn SetSatelliteSystem(self: ?*anyopaque, system: i32) void {
-        qtc.QGeoSatelliteInfo_SetSatelliteSystem(@ptrCast(self), @intCast(system));
+        qtc.QGeoSatelliteInfo_SetSatelliteSystem(@ptrCast(self), @bitCast(system));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#satelliteSystem)
@@ -79,7 +79,7 @@ pub const qgeosatelliteinfo = struct {
     /// ` satId: i32 `
     ///
     pub fn SetSatelliteIdentifier(self: ?*anyopaque, satId: i32) void {
-        qtc.QGeoSatelliteInfo_SetSatelliteIdentifier(@ptrCast(self), @intCast(satId));
+        qtc.QGeoSatelliteInfo_SetSatelliteIdentifier(@ptrCast(self), @bitCast(satId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#satelliteIdentifier)
@@ -101,7 +101,7 @@ pub const qgeosatelliteinfo = struct {
     /// ` signalStrength: i32 `
     ///
     pub fn SetSignalStrength(self: ?*anyopaque, signalStrength: i32) void {
-        qtc.QGeoSatelliteInfo_SetSignalStrength(@ptrCast(self), @intCast(signalStrength));
+        qtc.QGeoSatelliteInfo_SetSignalStrength(@ptrCast(self), @bitCast(signalStrength));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#signalStrength)
@@ -125,7 +125,7 @@ pub const qgeosatelliteinfo = struct {
     /// ` value: f64 `
     ///
     pub fn SetAttribute(self: ?*anyopaque, attribute: i32, value: f64) void {
-        qtc.QGeoSatelliteInfo_SetAttribute(@ptrCast(self), @intCast(attribute), @floatCast(value));
+        qtc.QGeoSatelliteInfo_SetAttribute(@ptrCast(self), @bitCast(attribute), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#attribute)
@@ -137,7 +137,7 @@ pub const qgeosatelliteinfo = struct {
     /// ` attribute: qgeosatelliteinfo_enums.Attribute `
     ///
     pub fn Attribute(self: ?*anyopaque, attribute: i32) f64 {
-        return qtc.QGeoSatelliteInfo_Attribute(@ptrCast(self), @intCast(attribute));
+        return qtc.QGeoSatelliteInfo_Attribute(@ptrCast(self), @bitCast(attribute));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#removeAttribute)
@@ -149,7 +149,7 @@ pub const qgeosatelliteinfo = struct {
     /// ` attribute: qgeosatelliteinfo_enums.Attribute `
     ///
     pub fn RemoveAttribute(self: ?*anyopaque, attribute: i32) void {
-        qtc.QGeoSatelliteInfo_RemoveAttribute(@ptrCast(self), @intCast(attribute));
+        qtc.QGeoSatelliteInfo_RemoveAttribute(@ptrCast(self), @bitCast(attribute));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#hasAttribute)
@@ -161,7 +161,7 @@ pub const qgeosatelliteinfo = struct {
     /// ` attribute: qgeosatelliteinfo_enums.Attribute `
     ///
     pub fn HasAttribute(self: ?*anyopaque, attribute: i32) bool {
-        return qtc.QGeoSatelliteInfo_HasAttribute(@ptrCast(self), @intCast(attribute));
+        return qtc.QGeoSatelliteInfo_HasAttribute(@ptrCast(self), @bitCast(attribute));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#detach)

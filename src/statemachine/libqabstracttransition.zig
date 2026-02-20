@@ -44,7 +44,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QAbstractTransition_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -79,7 +79,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QAbstractTransition_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -106,7 +106,7 @@ pub const qabstracttransition = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractTransition_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAbstractTransition_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -118,7 +118,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractTransition_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -134,7 +134,7 @@ pub const qabstracttransition = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractTransition_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAbstractTransition_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -242,7 +242,7 @@ pub const qabstracttransition = struct {
     /// ` typeVal: qabstracttransition_enums.TransitionType `
     ///
     pub fn SetTransitionType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QAbstractTransition_SetTransitionType(@ptrCast(self), @intCast(typeVal));
+        qtc.QAbstractTransition_SetTransitionType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttransition.html#machine)
@@ -319,7 +319,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventTest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTransition_OnEventTest(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnEventTest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttransition.html#eventTest)
@@ -359,7 +359,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnOnTransition(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTransition_OnOnTransition(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnOnTransition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttransition.html#onTransition)
@@ -399,7 +399,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, e: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTransition_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttransition.html#event)
@@ -451,7 +451,7 @@ pub const qabstracttransition = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracttransition.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -589,7 +589,7 @@ pub const qabstracttransition = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -603,7 +603,7 @@ pub const qabstracttransition = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -617,7 +617,7 @@ pub const qabstracttransition = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -631,7 +631,7 @@ pub const qabstracttransition = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -961,7 +961,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1016,7 +1016,7 @@ pub const qabstracttransition = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1032,7 +1032,7 @@ pub const qabstracttransition = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1054,7 +1054,7 @@ pub const qabstracttransition = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1074,7 +1074,7 @@ pub const qabstracttransition = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1096,7 +1096,7 @@ pub const qabstracttransition = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1193,7 +1193,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1245,7 +1245,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTransition_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1293,7 +1293,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTransition_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1341,7 +1341,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTransition_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1389,7 +1389,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTransition_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1437,7 +1437,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTransition_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1485,7 +1485,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTransition_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1529,7 +1529,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QAbstractTransition_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1573,7 +1573,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractTransition_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1623,7 +1623,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractTransition_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1671,7 +1671,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTransition_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttransition.html#triggered)
@@ -1685,7 +1685,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition) callconv(.c) void `
     ///
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTransition_Connect_Triggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_Connect_Triggered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttransition.html#targetStateChanged)
@@ -1699,7 +1699,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition) callconv(.c) void `
     ///
     pub fn OnTargetStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTransition_Connect_TargetStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_Connect_TargetStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttransition.html#targetStatesChanged)
@@ -1713,7 +1713,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition) callconv(.c) void `
     ///
     pub fn OnTargetStatesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTransition_Connect_TargetStatesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTransition_Connect_TargetStatesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1729,7 +1729,7 @@ pub const qabstracttransition = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTransition, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttransition.html#dtor.QAbstractTransition)

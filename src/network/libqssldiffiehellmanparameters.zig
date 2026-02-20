@@ -139,7 +139,7 @@ pub const qssldiffiehellmanparameters = struct {
             .len = encoded.len,
             .data = encoded.ptr,
         };
-        return qtc.QSslDiffieHellmanParameters_FromEncoded22(encoded_str, @intCast(format));
+        return qtc.QSslDiffieHellmanParameters_FromEncoded22(encoded_str, @bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#fromEncoded)
@@ -151,7 +151,7 @@ pub const qssldiffiehellmanparameters = struct {
     /// ` format: qssl_enums.EncodingFormat `
     ///
     pub fn FromEncoded23(device: ?*anyopaque, format: i32) QtC.QSslDiffieHellmanParameters {
-        return qtc.QSslDiffieHellmanParameters_FromEncoded23(@ptrCast(device), @intCast(format));
+        return qtc.QSslDiffieHellmanParameters_FromEncoded23(@ptrCast(device), @bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#dtor.QSslDiffieHellmanParameters)

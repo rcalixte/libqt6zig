@@ -96,7 +96,7 @@ pub const qaccessible = struct {
     /// ` uniqueId: u32 `
     ///
     pub fn AccessibleInterface(uniqueId: u32) QtC.QAccessibleInterface {
-        return qtc.QAccessible_AccessibleInterface(@intCast(uniqueId));
+        return qtc.QAccessible_AccessibleInterface(@bitCast(uniqueId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#registerAccessibleInterface)
@@ -116,7 +116,7 @@ pub const qaccessible = struct {
     /// ` uniqueId: u32 `
     ///
     pub fn DeleteAccessibleInterface(uniqueId: u32) void {
-        qtc.QAccessible_DeleteAccessibleInterface(@intCast(uniqueId));
+        qtc.QAccessible_DeleteAccessibleInterface(@bitCast(uniqueId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#updateAccessibility)
@@ -170,7 +170,7 @@ pub const qaccessible = struct {
     /// ` boundaryType: qaccessible_base_enums.TextBoundaryType `
     ///
     pub fn QAccessibleTextBoundaryHelper(cursor: ?*anyopaque, boundaryType: i32) struct_i32_i32 {
-        const _pair = qtc.QAccessible_QAccessibleTextBoundaryHelper(@ptrCast(cursor), @intCast(boundaryType));
+        const _pair = qtc.QAccessible_QAccessibleTextBoundaryHelper(@ptrCast(cursor), @bitCast(boundaryType));
         return @bitCast(_pair);
     }
 
@@ -258,7 +258,7 @@ pub const qaccessible__state = struct {
     /// ` disabled: u64 `
     ///
     pub fn SetDisabled(self: ?*anyopaque, disabled: u64) void {
-        qtc.QAccessible__State_SetDisabled(@ptrCast(self), @intCast(disabled));
+        qtc.QAccessible__State_SetDisabled(@ptrCast(self), @bitCast(disabled));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selected-var)
@@ -280,7 +280,7 @@ pub const qaccessible__state = struct {
     /// ` selected: u64 `
     ///
     pub fn SetSelected(self: ?*anyopaque, selected: u64) void {
-        qtc.QAccessible__State_SetSelected(@ptrCast(self), @intCast(selected));
+        qtc.QAccessible__State_SetSelected(@ptrCast(self), @bitCast(selected));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#focusable-var)
@@ -302,7 +302,7 @@ pub const qaccessible__state = struct {
     /// ` focusable: u64 `
     ///
     pub fn SetFocusable(self: ?*anyopaque, focusable: u64) void {
-        qtc.QAccessible__State_SetFocusable(@ptrCast(self), @intCast(focusable));
+        qtc.QAccessible__State_SetFocusable(@ptrCast(self), @bitCast(focusable));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#focused-var)
@@ -324,7 +324,7 @@ pub const qaccessible__state = struct {
     /// ` focused: u64 `
     ///
     pub fn SetFocused(self: ?*anyopaque, focused: u64) void {
-        qtc.QAccessible__State_SetFocused(@ptrCast(self), @intCast(focused));
+        qtc.QAccessible__State_SetFocused(@ptrCast(self), @bitCast(focused));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#pressed-var)
@@ -346,7 +346,7 @@ pub const qaccessible__state = struct {
     /// ` pressed: u64 `
     ///
     pub fn SetPressed(self: ?*anyopaque, pressed: u64) void {
-        qtc.QAccessible__State_SetPressed(@ptrCast(self), @intCast(pressed));
+        qtc.QAccessible__State_SetPressed(@ptrCast(self), @bitCast(pressed));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checkable-var)
@@ -368,7 +368,7 @@ pub const qaccessible__state = struct {
     /// ` checkable: u64 `
     ///
     pub fn SetCheckable(self: ?*anyopaque, checkable: u64) void {
-        qtc.QAccessible__State_SetCheckable(@ptrCast(self), @intCast(checkable));
+        qtc.QAccessible__State_SetCheckable(@ptrCast(self), @bitCast(checkable));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checked-var)
@@ -390,7 +390,7 @@ pub const qaccessible__state = struct {
     /// ` checked: u64 `
     ///
     pub fn SetChecked(self: ?*anyopaque, checked: u64) void {
-        qtc.QAccessible__State_SetChecked(@ptrCast(self), @intCast(checked));
+        qtc.QAccessible__State_SetChecked(@ptrCast(self), @bitCast(checked));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checkStateMixed-var)
@@ -412,7 +412,7 @@ pub const qaccessible__state = struct {
     /// ` checkStateMixed: u64 `
     ///
     pub fn SetCheckStateMixed(self: ?*anyopaque, checkStateMixed: u64) void {
-        qtc.QAccessible__State_SetCheckStateMixed(@ptrCast(self), @intCast(checkStateMixed));
+        qtc.QAccessible__State_SetCheckStateMixed(@ptrCast(self), @bitCast(checkStateMixed));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#readOnly-var)
@@ -434,7 +434,7 @@ pub const qaccessible__state = struct {
     /// ` readOnly: u64 `
     ///
     pub fn SetReadOnly(self: ?*anyopaque, readOnly: u64) void {
-        qtc.QAccessible__State_SetReadOnly(@ptrCast(self), @intCast(readOnly));
+        qtc.QAccessible__State_SetReadOnly(@ptrCast(self), @bitCast(readOnly));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#hotTracked-var)
@@ -456,7 +456,7 @@ pub const qaccessible__state = struct {
     /// ` hotTracked: u64 `
     ///
     pub fn SetHotTracked(self: ?*anyopaque, hotTracked: u64) void {
-        qtc.QAccessible__State_SetHotTracked(@ptrCast(self), @intCast(hotTracked));
+        qtc.QAccessible__State_SetHotTracked(@ptrCast(self), @bitCast(hotTracked));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#defaultButton-var)
@@ -478,7 +478,7 @@ pub const qaccessible__state = struct {
     /// ` defaultButton: u64 `
     ///
     pub fn SetDefaultButton(self: ?*anyopaque, defaultButton: u64) void {
-        qtc.QAccessible__State_SetDefaultButton(@ptrCast(self), @intCast(defaultButton));
+        qtc.QAccessible__State_SetDefaultButton(@ptrCast(self), @bitCast(defaultButton));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#expanded-var)
@@ -500,7 +500,7 @@ pub const qaccessible__state = struct {
     /// ` expanded: u64 `
     ///
     pub fn SetExpanded(self: ?*anyopaque, expanded: u64) void {
-        qtc.QAccessible__State_SetExpanded(@ptrCast(self), @intCast(expanded));
+        qtc.QAccessible__State_SetExpanded(@ptrCast(self), @bitCast(expanded));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#collapsed-var)
@@ -522,7 +522,7 @@ pub const qaccessible__state = struct {
     /// ` collapsed: u64 `
     ///
     pub fn SetCollapsed(self: ?*anyopaque, collapsed: u64) void {
-        qtc.QAccessible__State_SetCollapsed(@ptrCast(self), @intCast(collapsed));
+        qtc.QAccessible__State_SetCollapsed(@ptrCast(self), @bitCast(collapsed));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#busy-var)
@@ -544,7 +544,7 @@ pub const qaccessible__state = struct {
     /// ` busy: u64 `
     ///
     pub fn SetBusy(self: ?*anyopaque, busy: u64) void {
-        qtc.QAccessible__State_SetBusy(@ptrCast(self), @intCast(busy));
+        qtc.QAccessible__State_SetBusy(@ptrCast(self), @bitCast(busy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#expandable-var)
@@ -566,7 +566,7 @@ pub const qaccessible__state = struct {
     /// ` expandable: u64 `
     ///
     pub fn SetExpandable(self: ?*anyopaque, expandable: u64) void {
-        qtc.QAccessible__State_SetExpandable(@ptrCast(self), @intCast(expandable));
+        qtc.QAccessible__State_SetExpandable(@ptrCast(self), @bitCast(expandable));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#marqueed-var)
@@ -588,7 +588,7 @@ pub const qaccessible__state = struct {
     /// ` marqueed: u64 `
     ///
     pub fn SetMarqueed(self: ?*anyopaque, marqueed: u64) void {
-        qtc.QAccessible__State_SetMarqueed(@ptrCast(self), @intCast(marqueed));
+        qtc.QAccessible__State_SetMarqueed(@ptrCast(self), @bitCast(marqueed));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#animated-var)
@@ -610,7 +610,7 @@ pub const qaccessible__state = struct {
     /// ` animated: u64 `
     ///
     pub fn SetAnimated(self: ?*anyopaque, animated: u64) void {
-        qtc.QAccessible__State_SetAnimated(@ptrCast(self), @intCast(animated));
+        qtc.QAccessible__State_SetAnimated(@ptrCast(self), @bitCast(animated));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#invisible-var)
@@ -632,7 +632,7 @@ pub const qaccessible__state = struct {
     /// ` invisible: u64 `
     ///
     pub fn SetInvisible(self: ?*anyopaque, invisible: u64) void {
-        qtc.QAccessible__State_SetInvisible(@ptrCast(self), @intCast(invisible));
+        qtc.QAccessible__State_SetInvisible(@ptrCast(self), @bitCast(invisible));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#offscreen-var)
@@ -654,7 +654,7 @@ pub const qaccessible__state = struct {
     /// ` offscreen: u64 `
     ///
     pub fn SetOffscreen(self: ?*anyopaque, offscreen: u64) void {
-        qtc.QAccessible__State_SetOffscreen(@ptrCast(self), @intCast(offscreen));
+        qtc.QAccessible__State_SetOffscreen(@ptrCast(self), @bitCast(offscreen));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#sizeable-var)
@@ -676,7 +676,7 @@ pub const qaccessible__state = struct {
     /// ` sizeable: u64 `
     ///
     pub fn SetSizeable(self: ?*anyopaque, sizeable: u64) void {
-        qtc.QAccessible__State_SetSizeable(@ptrCast(self), @intCast(sizeable));
+        qtc.QAccessible__State_SetSizeable(@ptrCast(self), @bitCast(sizeable));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#movable-var)
@@ -698,7 +698,7 @@ pub const qaccessible__state = struct {
     /// ` movable: u64 `
     ///
     pub fn SetMovable(self: ?*anyopaque, movable: u64) void {
-        qtc.QAccessible__State_SetMovable(@ptrCast(self), @intCast(movable));
+        qtc.QAccessible__State_SetMovable(@ptrCast(self), @bitCast(movable));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selfVoicing-var)
@@ -720,7 +720,7 @@ pub const qaccessible__state = struct {
     /// ` selfVoicing: u64 `
     ///
     pub fn SetSelfVoicing(self: ?*anyopaque, selfVoicing: u64) void {
-        qtc.QAccessible__State_SetSelfVoicing(@ptrCast(self), @intCast(selfVoicing));
+        qtc.QAccessible__State_SetSelfVoicing(@ptrCast(self), @bitCast(selfVoicing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selectable-var)
@@ -742,7 +742,7 @@ pub const qaccessible__state = struct {
     /// ` selectable: u64 `
     ///
     pub fn SetSelectable(self: ?*anyopaque, selectable: u64) void {
-        qtc.QAccessible__State_SetSelectable(@ptrCast(self), @intCast(selectable));
+        qtc.QAccessible__State_SetSelectable(@ptrCast(self), @bitCast(selectable));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#linked-var)
@@ -764,7 +764,7 @@ pub const qaccessible__state = struct {
     /// ` linked: u64 `
     ///
     pub fn SetLinked(self: ?*anyopaque, linked: u64) void {
-        qtc.QAccessible__State_SetLinked(@ptrCast(self), @intCast(linked));
+        qtc.QAccessible__State_SetLinked(@ptrCast(self), @bitCast(linked));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#traversed-var)
@@ -786,7 +786,7 @@ pub const qaccessible__state = struct {
     /// ` traversed: u64 `
     ///
     pub fn SetTraversed(self: ?*anyopaque, traversed: u64) void {
-        qtc.QAccessible__State_SetTraversed(@ptrCast(self), @intCast(traversed));
+        qtc.QAccessible__State_SetTraversed(@ptrCast(self), @bitCast(traversed));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#multiSelectable-var)
@@ -808,7 +808,7 @@ pub const qaccessible__state = struct {
     /// ` multiSelectable: u64 `
     ///
     pub fn SetMultiSelectable(self: ?*anyopaque, multiSelectable: u64) void {
-        qtc.QAccessible__State_SetMultiSelectable(@ptrCast(self), @intCast(multiSelectable));
+        qtc.QAccessible__State_SetMultiSelectable(@ptrCast(self), @bitCast(multiSelectable));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#extSelectable-var)
@@ -830,7 +830,7 @@ pub const qaccessible__state = struct {
     /// ` extSelectable: u64 `
     ///
     pub fn SetExtSelectable(self: ?*anyopaque, extSelectable: u64) void {
-        qtc.QAccessible__State_SetExtSelectable(@ptrCast(self), @intCast(extSelectable));
+        qtc.QAccessible__State_SetExtSelectable(@ptrCast(self), @bitCast(extSelectable));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#passwordEdit-var)
@@ -852,7 +852,7 @@ pub const qaccessible__state = struct {
     /// ` passwordEdit: u64 `
     ///
     pub fn SetPasswordEdit(self: ?*anyopaque, passwordEdit: u64) void {
-        qtc.QAccessible__State_SetPasswordEdit(@ptrCast(self), @intCast(passwordEdit));
+        qtc.QAccessible__State_SetPasswordEdit(@ptrCast(self), @bitCast(passwordEdit));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#hasPopup-var)
@@ -874,7 +874,7 @@ pub const qaccessible__state = struct {
     /// ` hasPopup: u64 `
     ///
     pub fn SetHasPopup(self: ?*anyopaque, hasPopup: u64) void {
-        qtc.QAccessible__State_SetHasPopup(@ptrCast(self), @intCast(hasPopup));
+        qtc.QAccessible__State_SetHasPopup(@ptrCast(self), @bitCast(hasPopup));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#modal-var)
@@ -896,7 +896,7 @@ pub const qaccessible__state = struct {
     /// ` modal: u64 `
     ///
     pub fn SetModal(self: ?*anyopaque, modal: u64) void {
-        qtc.QAccessible__State_SetModal(@ptrCast(self), @intCast(modal));
+        qtc.QAccessible__State_SetModal(@ptrCast(self), @bitCast(modal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#active-var)
@@ -918,7 +918,7 @@ pub const qaccessible__state = struct {
     /// ` active: u64 `
     ///
     pub fn SetActive(self: ?*anyopaque, active: u64) void {
-        qtc.QAccessible__State_SetActive(@ptrCast(self), @intCast(active));
+        qtc.QAccessible__State_SetActive(@ptrCast(self), @bitCast(active));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#invalid-var)
@@ -940,7 +940,7 @@ pub const qaccessible__state = struct {
     /// ` invalid: u64 `
     ///
     pub fn SetInvalid(self: ?*anyopaque, invalid: u64) void {
-        qtc.QAccessible__State_SetInvalid(@ptrCast(self), @intCast(invalid));
+        qtc.QAccessible__State_SetInvalid(@ptrCast(self), @bitCast(invalid));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#editable-var)
@@ -962,7 +962,7 @@ pub const qaccessible__state = struct {
     /// ` editable: u64 `
     ///
     pub fn SetEditable(self: ?*anyopaque, editable: u64) void {
-        qtc.QAccessible__State_SetEditable(@ptrCast(self), @intCast(editable));
+        qtc.QAccessible__State_SetEditable(@ptrCast(self), @bitCast(editable));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#multiLine-var)
@@ -984,7 +984,7 @@ pub const qaccessible__state = struct {
     /// ` multiLine: u64 `
     ///
     pub fn SetMultiLine(self: ?*anyopaque, multiLine: u64) void {
-        qtc.QAccessible__State_SetMultiLine(@ptrCast(self), @intCast(multiLine));
+        qtc.QAccessible__State_SetMultiLine(@ptrCast(self), @bitCast(multiLine));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selectableText-var)
@@ -1006,7 +1006,7 @@ pub const qaccessible__state = struct {
     /// ` selectableText: u64 `
     ///
     pub fn SetSelectableText(self: ?*anyopaque, selectableText: u64) void {
-        qtc.QAccessible__State_SetSelectableText(@ptrCast(self), @intCast(selectableText));
+        qtc.QAccessible__State_SetSelectableText(@ptrCast(self), @bitCast(selectableText));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#supportsAutoCompletion-var)
@@ -1028,7 +1028,7 @@ pub const qaccessible__state = struct {
     /// ` supportsAutoCompletion: u64 `
     ///
     pub fn SetSupportsAutoCompletion(self: ?*anyopaque, supportsAutoCompletion: u64) void {
-        qtc.QAccessible__State_SetSupportsAutoCompletion(@ptrCast(self), @intCast(supportsAutoCompletion));
+        qtc.QAccessible__State_SetSupportsAutoCompletion(@ptrCast(self), @bitCast(supportsAutoCompletion));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#searchEdit-var)
@@ -1050,7 +1050,7 @@ pub const qaccessible__state = struct {
     /// ` searchEdit: u64 `
     ///
     pub fn SetSearchEdit(self: ?*anyopaque, searchEdit: u64) void {
-        qtc.QAccessible__State_SetSearchEdit(@ptrCast(self), @intCast(searchEdit));
+        qtc.QAccessible__State_SetSearchEdit(@ptrCast(self), @bitCast(searchEdit));
     }
 
     /// Delete this object from C++ memory.

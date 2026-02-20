@@ -41,7 +41,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#name)
@@ -89,7 +89,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, name: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnSetName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnSetName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setName)
@@ -139,7 +139,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnGroup(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnGroup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnGroup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#group)
@@ -187,7 +187,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, group: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetGroup(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnSetGroup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnSetGroup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setGroup)
@@ -237,7 +237,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnToolTip(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnToolTip(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnToolTip(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#toolTip)
@@ -285,7 +285,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, toolTip: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetToolTip(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnSetToolTip(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnSetToolTip(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setToolTip)
@@ -335,7 +335,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnWhatsThis(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnWhatsThis(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnWhatsThis(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#whatsThis)
@@ -383,7 +383,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, whatsThis: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetWhatsThis(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnSetWhatsThis(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnSetWhatsThis(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setWhatsThis)
@@ -433,7 +433,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnIncludeFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnIncludeFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnIncludeFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#includeFile)
@@ -481,7 +481,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, includeFile: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetIncludeFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnSetIncludeFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnSetIncludeFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setIncludeFile)
@@ -523,7 +523,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QIcon `
     ///
     pub fn OnIcon(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QIcon) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnIcon(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#icon)
@@ -561,7 +561,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnSetIcon(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnSetIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnSetIcon(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setIcon)
@@ -599,7 +599,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsCompat(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnIsCompat(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnIsCompat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#isCompat)
@@ -637,7 +637,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, compat: bool) callconv(.c) void `
     ///
     pub fn OnSetCompat(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnSetCompat(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnSetCompat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setCompat)
@@ -675,7 +675,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsContainer(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnIsContainer(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnIsContainer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#isContainer)
@@ -713,7 +713,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, container: bool) callconv(.c) void `
     ///
     pub fn OnSetContainer(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnSetContainer(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnSetContainer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setContainer)
@@ -751,7 +751,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsCustom(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnIsCustom(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnIsCustom(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#isCustom)
@@ -789,7 +789,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, custom: bool) callconv(.c) void `
     ///
     pub fn OnSetCustom(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnSetCustom(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnSetCustom(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setCustom)
@@ -835,7 +835,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnPluginPath(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnPluginPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnPluginPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#pluginPath)
@@ -883,7 +883,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, path: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetPluginPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnSetPluginPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnSetPluginPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setPluginPath)
@@ -925,7 +925,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsPromoted(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnIsPromoted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnIsPromoted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#isPromoted)
@@ -963,7 +963,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, b: bool) callconv(.c) void `
     ///
     pub fn OnSetPromoted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnSetPromoted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnSetPromoted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setPromoted)
@@ -1009,7 +1009,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnExtends(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnExtends(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnExtends(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#extends)
@@ -1057,7 +1057,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, s: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetExtends(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnSetExtends(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnSetExtends(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setExtends)
@@ -1105,7 +1105,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, list: qtc.libqt_list ([]QtC.QVariant)) callconv(.c) void `
     ///
     pub fn OnSetDefaultPropertyValues(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnSetDefaultPropertyValues(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnSetDefaultPropertyValues(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setDefaultPropertyValues)
@@ -1160,7 +1160,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     /// ` C ABI representation of []QtC.QVariant `
     ///
     pub fn OnDefaultPropertyValues(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_OnDefaultPropertyValues(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseItemInterface_OnDefaultPropertyValues(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#defaultPropertyValues)
@@ -1234,7 +1234,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -1269,7 +1269,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -1296,7 +1296,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerWidgetDataBaseInterface_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDesignerWidgetDataBaseInterface_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -1308,7 +1308,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -1324,7 +1324,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDesignerWidgetDataBaseInterface_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1365,7 +1365,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#count)
@@ -1389,7 +1389,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` index: i32 `
     ///
     pub fn Item(self: ?*anyopaque, index: i32) QtC.QDesignerWidgetDataBaseItemInterface {
-        return qtc.QDesignerWidgetDataBaseInterface_Item(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerWidgetDataBaseInterface_Item(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#item)
@@ -1403,7 +1403,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, index: i32) callconv(.c) QtC.QDesignerWidgetDataBaseItemInterface `
     ///
     pub fn OnItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QDesignerWidgetDataBaseItemInterface) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#item)
@@ -1417,7 +1417,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseItem(self: ?*anyopaque, index: i32) QtC.QDesignerWidgetDataBaseItemInterface {
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseItem(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerWidgetDataBaseInterface_QBaseItem(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#indexOf)
@@ -1443,7 +1443,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, item: QtC.QDesignerWidgetDataBaseItemInterface) callconv(.c) i32 `
     ///
     pub fn OnIndexOf(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnIndexOf(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnIndexOf(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#indexOf)
@@ -1471,7 +1471,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` item: QtC.QDesignerWidgetDataBaseItemInterface `
     ///
     pub fn Insert(self: ?*anyopaque, index: i32, item: ?*anyopaque) void {
-        qtc.QDesignerWidgetDataBaseInterface_Insert(@ptrCast(self), @intCast(index), @ptrCast(item));
+        qtc.QDesignerWidgetDataBaseInterface_Insert(@ptrCast(self), @bitCast(index), @ptrCast(item));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#insert)
@@ -1485,7 +1485,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, index: i32, item: QtC.QDesignerWidgetDataBaseItemInterface) callconv(.c) void `
     ///
     pub fn OnInsert(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnInsert(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnInsert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#insert)
@@ -1501,7 +1501,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` item: QtC.QDesignerWidgetDataBaseItemInterface `
     ///
     pub fn QBaseInsert(self: ?*anyopaque, index: i32, item: ?*anyopaque) void {
-        qtc.QDesignerWidgetDataBaseInterface_QBaseInsert(@ptrCast(self), @intCast(index), @ptrCast(item));
+        qtc.QDesignerWidgetDataBaseInterface_QBaseInsert(@ptrCast(self), @bitCast(index), @ptrCast(item));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#append)
@@ -1527,7 +1527,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, item: QtC.QDesignerWidgetDataBaseItemInterface) callconv(.c) void `
     ///
     pub fn OnAppend(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnAppend(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnAppend(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#append)
@@ -1569,7 +1569,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, object: QtC.QObject, resolveName: bool) callconv(.c) i32 `
     ///
     pub fn OnIndexOfObject(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) i32) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnIndexOfObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnIndexOfObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#indexOfObject)
@@ -1617,7 +1617,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, className: [*:0]const u8, resolveName: bool) callconv(.c) i32 `
     ///
     pub fn OnIndexOfClassName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) i32) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnIndexOfClassName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnIndexOfClassName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#indexOfClassName)
@@ -1661,7 +1661,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QDesignerFormEditorInterface `
     ///
     pub fn OnCore(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDesignerFormEditorInterface) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnCore(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnCore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#core)
@@ -1719,7 +1719,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface) callconv(.c) void `
     ///
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseInterface_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_Connect_Changed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1757,7 +1757,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseinterface.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1923,7 +1923,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1937,7 +1937,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1951,7 +1951,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1965,7 +1965,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2295,7 +2295,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2350,7 +2350,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2366,7 +2366,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2388,7 +2388,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2408,7 +2408,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2430,7 +2430,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2527,7 +2527,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2575,7 +2575,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2627,7 +2627,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2675,7 +2675,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2723,7 +2723,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2771,7 +2771,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2819,7 +2819,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2867,7 +2867,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2911,7 +2911,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2955,7 +2955,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3005,7 +3005,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3053,7 +3053,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerWidgetDataBaseInterface_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerWidgetDataBaseInterface_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3069,7 +3069,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseInterface, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#dtor.QDesignerWidgetDataBaseInterface)

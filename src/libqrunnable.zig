@@ -30,7 +30,7 @@ pub const qrunnable = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRun(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QRunnable_OnRun(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QRunnable_OnRun(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#run)

@@ -78,7 +78,7 @@ pub const kstringhandler = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        var _str = qtc.KStringHandler_Lsqueeze(param1_str, @intCast(param2));
+        var _str = qtc.KStringHandler_Lsqueeze(param1_str, @bitCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.Lsqueeze: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -100,7 +100,7 @@ pub const kstringhandler = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        var _str = qtc.KStringHandler_Csqueeze(param1_str, @intCast(param2));
+        var _str = qtc.KStringHandler_Csqueeze(param1_str, @bitCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.Csqueeze: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -122,7 +122,7 @@ pub const kstringhandler = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        var _str = qtc.KStringHandler_Rsqueeze(param1_str, @intCast(param2));
+        var _str = qtc.KStringHandler_Rsqueeze(param1_str, @bitCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.Rsqueeze: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -150,7 +150,7 @@ pub const kstringhandler = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit2(param1_str, param2_str, @intCast(param3));
+        const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit2(param1_str, param2_str, @bitCast(param3));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -185,7 +185,7 @@ pub const kstringhandler = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit3(@ptrCast(param1), param2_str, @intCast(param3));
+        const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit3(@ptrCast(param1), param2_str, @bitCast(param3));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -220,7 +220,7 @@ pub const kstringhandler = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit4(@ptrCast(param1), param2_str, @intCast(param3));
+        const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit4(@ptrCast(param1), param2_str, @bitCast(param3));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {

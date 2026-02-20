@@ -112,7 +112,7 @@ pub const qcbormap = struct {
     /// ` key: i64 `
     ///
     pub fn Value(self: ?*anyopaque, key: i64) QtC.QCborValue {
-        return qtc.QCborMap_Value(@ptrCast(self), @intCast(key));
+        return qtc.QCborMap_Value(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#value)
@@ -152,7 +152,7 @@ pub const qcbormap = struct {
     /// ` key: i64 `
     ///
     pub fn OperatorSubscript(self: ?*anyopaque, key: i64) QtC.QCborValue {
-        return qtc.QCborMap_OperatorSubscript(@ptrCast(self), @intCast(key));
+        return qtc.QCborMap_OperatorSubscript(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#operator-5b-5d)
@@ -192,7 +192,7 @@ pub const qcbormap = struct {
     /// ` key: i64 `
     ///
     pub fn OperatorSubscript5(self: ?*anyopaque, key: i64) QtC.QCborValueRef {
-        return qtc.QCborMap_OperatorSubscript5(@ptrCast(self), @intCast(key));
+        return qtc.QCborMap_OperatorSubscript5(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#operator-5b-5d)
@@ -232,7 +232,7 @@ pub const qcbormap = struct {
     /// ` key: i64 `
     ///
     pub fn Take(self: ?*anyopaque, key: i64) QtC.QCborValue {
-        return qtc.QCborMap_Take(@ptrCast(self), @intCast(key));
+        return qtc.QCborMap_Take(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#take)
@@ -272,7 +272,7 @@ pub const qcbormap = struct {
     /// ` key: i64 `
     ///
     pub fn Remove(self: ?*anyopaque, key: i64) void {
-        qtc.QCborMap_Remove(@ptrCast(self), @intCast(key));
+        qtc.QCborMap_Remove(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#remove)
@@ -312,7 +312,7 @@ pub const qcbormap = struct {
     /// ` key: i64 `
     ///
     pub fn Contains(self: ?*anyopaque, key: i64) bool {
-        return qtc.QCborMap_Contains(@ptrCast(self), @intCast(key));
+        return qtc.QCborMap_Contains(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#contains)
@@ -502,7 +502,7 @@ pub const qcbormap = struct {
     /// ` key: i64 `
     ///
     pub fn Find(self: ?*anyopaque, key: i64) QtC.QCborMap__Iterator {
-        return qtc.QCborMap_Find(@ptrCast(self), @intCast(key));
+        return qtc.QCborMap_Find(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#find)
@@ -542,7 +542,7 @@ pub const qcbormap = struct {
     /// ` key: i64 `
     ///
     pub fn ConstFind(self: ?*anyopaque, key: i64) QtC.QCborMap__ConstIterator {
-        return qtc.QCborMap_ConstFind(@ptrCast(self), @intCast(key));
+        return qtc.QCborMap_ConstFind(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#constFind)
@@ -582,7 +582,7 @@ pub const qcbormap = struct {
     /// ` key: i64 `
     ///
     pub fn Find5(self: ?*anyopaque, key: i64) QtC.QCborMap__ConstIterator {
-        return qtc.QCborMap_Find5(@ptrCast(self), @intCast(key));
+        return qtc.QCborMap_Find5(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#find)
@@ -624,7 +624,7 @@ pub const qcbormap = struct {
     /// ` value_: QtC.QCborValue `
     ///
     pub fn Insert(self: ?*anyopaque, key: i64, value_: ?*anyopaque) QtC.QCborMap__Iterator {
-        return qtc.QCborMap_Insert(@ptrCast(self), @intCast(key), @ptrCast(value_));
+        return qtc.QCborMap_Insert(@ptrCast(self), @bitCast(key), @ptrCast(value_));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#insert)
@@ -892,7 +892,7 @@ pub const qcbormap__iterator = struct {
     /// ` j: i64 `
     ///
     pub fn OperatorSubscript(self: ?*anyopaque, j: i64) struct_qtcqcborvalue_qtcqcborvalue {
-        const _pair = qtc.QCborMap__Iterator_OperatorSubscript(@ptrCast(self), @intCast(j));
+        const _pair = qtc.QCborMap__Iterator_OperatorSubscript(@ptrCast(self), @bitCast(j));
         return @bitCast(_pair);
     }
 
@@ -955,7 +955,7 @@ pub const qcbormap__iterator = struct {
     /// ` param1: i32 `
     ///
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QCborMap__Iterator {
-        return qtc.QCborMap__Iterator_OperatorPlusPlus2(@ptrCast(self), @intCast(param1));
+        return qtc.QCborMap__Iterator_OperatorPlusPlus2(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator--)
@@ -977,7 +977,7 @@ pub const qcbormap__iterator = struct {
     /// ` param1: i32 `
     ///
     pub fn OperatorMinusMinus2(self: ?*anyopaque, param1: i32) QtC.QCborMap__Iterator {
-        return qtc.QCborMap__Iterator_OperatorMinusMinus2(@ptrCast(self), @intCast(param1));
+        return qtc.QCborMap__Iterator_OperatorMinusMinus2(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-2b-eq)
@@ -989,7 +989,7 @@ pub const qcbormap__iterator = struct {
     /// ` j: i64 `
     ///
     pub fn OperatorPlusAssign(self: ?*anyopaque, j: i64) QtC.QCborMap__Iterator {
-        return qtc.QCborMap__Iterator_OperatorPlusAssign(@ptrCast(self), @intCast(j));
+        return qtc.QCborMap__Iterator_OperatorPlusAssign(@ptrCast(self), @bitCast(j));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator--eq)
@@ -1001,7 +1001,7 @@ pub const qcbormap__iterator = struct {
     /// ` j: i64 `
     ///
     pub fn OperatorMinusAssign(self: ?*anyopaque, j: i64) QtC.QCborMap__Iterator {
-        return qtc.QCborMap__Iterator_OperatorMinusAssign(@ptrCast(self), @intCast(j));
+        return qtc.QCborMap__Iterator_OperatorMinusAssign(@ptrCast(self), @bitCast(j));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-2b)
@@ -1013,7 +1013,7 @@ pub const qcbormap__iterator = struct {
     /// ` j: i64 `
     ///
     pub fn OperatorPlus(self: ?*anyopaque, j: i64) QtC.QCborMap__Iterator {
-        return qtc.QCborMap__Iterator_OperatorPlus(@ptrCast(self), @intCast(j));
+        return qtc.QCborMap__Iterator_OperatorPlus(@ptrCast(self), @bitCast(j));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-)
@@ -1025,7 +1025,7 @@ pub const qcbormap__iterator = struct {
     /// ` j: i64 `
     ///
     pub fn OperatorMinus(self: ?*anyopaque, j: i64) QtC.QCborMap__Iterator {
-        return qtc.QCborMap__Iterator_OperatorMinus(@ptrCast(self), @intCast(j));
+        return qtc.QCborMap__Iterator_OperatorMinus(@ptrCast(self), @bitCast(j));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-)
@@ -1111,7 +1111,7 @@ pub const qcbormap__constiterator = struct {
     /// ` j: i64 `
     ///
     pub fn OperatorSubscript(self: ?*anyopaque, j: i64) struct_qtcqcborvalue_qtcqcborvalue {
-        const _pair = qtc.QCborMap__ConstIterator_OperatorSubscript(@ptrCast(self), @intCast(j));
+        const _pair = qtc.QCborMap__ConstIterator_OperatorSubscript(@ptrCast(self), @bitCast(j));
         return @bitCast(_pair);
     }
 
@@ -1164,7 +1164,7 @@ pub const qcbormap__constiterator = struct {
     /// ` param1: i32 `
     ///
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QCborMap__ConstIterator {
-        return qtc.QCborMap__ConstIterator_OperatorPlusPlus2(@ptrCast(self), @intCast(param1));
+        return qtc.QCborMap__ConstIterator_OperatorPlusPlus2(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator--)
@@ -1186,7 +1186,7 @@ pub const qcbormap__constiterator = struct {
     /// ` param1: i32 `
     ///
     pub fn OperatorMinusMinus2(self: ?*anyopaque, param1: i32) QtC.QCborMap__ConstIterator {
-        return qtc.QCborMap__ConstIterator_OperatorMinusMinus2(@ptrCast(self), @intCast(param1));
+        return qtc.QCborMap__ConstIterator_OperatorMinusMinus2(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-2b-eq)
@@ -1198,7 +1198,7 @@ pub const qcbormap__constiterator = struct {
     /// ` j: i64 `
     ///
     pub fn OperatorPlusAssign(self: ?*anyopaque, j: i64) QtC.QCborMap__ConstIterator {
-        return qtc.QCborMap__ConstIterator_OperatorPlusAssign(@ptrCast(self), @intCast(j));
+        return qtc.QCborMap__ConstIterator_OperatorPlusAssign(@ptrCast(self), @bitCast(j));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator--eq)
@@ -1210,7 +1210,7 @@ pub const qcbormap__constiterator = struct {
     /// ` j: i64 `
     ///
     pub fn OperatorMinusAssign(self: ?*anyopaque, j: i64) QtC.QCborMap__ConstIterator {
-        return qtc.QCborMap__ConstIterator_OperatorMinusAssign(@ptrCast(self), @intCast(j));
+        return qtc.QCborMap__ConstIterator_OperatorMinusAssign(@ptrCast(self), @bitCast(j));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-2b)
@@ -1222,7 +1222,7 @@ pub const qcbormap__constiterator = struct {
     /// ` j: i64 `
     ///
     pub fn OperatorPlus(self: ?*anyopaque, j: i64) QtC.QCborMap__ConstIterator {
-        return qtc.QCborMap__ConstIterator_OperatorPlus(@ptrCast(self), @intCast(j));
+        return qtc.QCborMap__ConstIterator_OperatorPlus(@ptrCast(self), @bitCast(j));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-)
@@ -1234,7 +1234,7 @@ pub const qcbormap__constiterator = struct {
     /// ` j: i64 `
     ///
     pub fn OperatorMinus(self: ?*anyopaque, j: i64) QtC.QCborMap__ConstIterator {
-        return qtc.QCborMap__ConstIterator_OperatorMinus(@ptrCast(self), @intCast(j));
+        return qtc.QCborMap__ConstIterator_OperatorMinus(@ptrCast(self), @bitCast(j));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-)

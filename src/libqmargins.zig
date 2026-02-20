@@ -42,7 +42,7 @@ pub const qmargins = struct {
     /// ` bottom: i32 `
     ///
     pub fn New4(left: i32, top: i32, right: i32, bottom: i32) QtC.QMargins {
-        return qtc.QMargins_new4(@intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        return qtc.QMargins_new4(@bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// New5 constructs a new QMargins object.
@@ -138,7 +138,7 @@ pub const qmargins = struct {
     /// ` left: i32 `
     ///
     pub fn SetLeft(self: ?*anyopaque, left: i32) void {
-        qtc.QMargins_SetLeft(@ptrCast(self), @intCast(left));
+        qtc.QMargins_SetLeft(@ptrCast(self), @bitCast(left));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#setTop)
@@ -150,7 +150,7 @@ pub const qmargins = struct {
     /// ` top: i32 `
     ///
     pub fn SetTop(self: ?*anyopaque, top: i32) void {
-        qtc.QMargins_SetTop(@ptrCast(self), @intCast(top));
+        qtc.QMargins_SetTop(@ptrCast(self), @bitCast(top));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#setRight)
@@ -162,7 +162,7 @@ pub const qmargins = struct {
     /// ` right: i32 `
     ///
     pub fn SetRight(self: ?*anyopaque, right: i32) void {
-        qtc.QMargins_SetRight(@ptrCast(self), @intCast(right));
+        qtc.QMargins_SetRight(@ptrCast(self), @bitCast(right));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#setBottom)
@@ -174,7 +174,7 @@ pub const qmargins = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetBottom(self: ?*anyopaque, bottom: i32) void {
-        qtc.QMargins_SetBottom(@ptrCast(self), @intCast(bottom));
+        qtc.QMargins_SetBottom(@ptrCast(self), @bitCast(bottom));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator-2b-eq)
@@ -210,7 +210,7 @@ pub const qmargins = struct {
     /// ` param1: i32 `
     ///
     pub fn OperatorPlusAssign2(self: ?*anyopaque, param1: i32) QtC.QMargins {
-        return qtc.QMargins_OperatorPlusAssign2(@ptrCast(self), @intCast(param1));
+        return qtc.QMargins_OperatorPlusAssign2(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator--eq)
@@ -222,7 +222,7 @@ pub const qmargins = struct {
     /// ` param1: i32 `
     ///
     pub fn OperatorMinusAssign2(self: ?*anyopaque, param1: i32) QtC.QMargins {
-        return qtc.QMargins_OperatorMinusAssign2(@ptrCast(self), @intCast(param1));
+        return qtc.QMargins_OperatorMinusAssign2(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator-2a-eq)
@@ -234,7 +234,7 @@ pub const qmargins = struct {
     /// ` param1: i32 `
     ///
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, param1: i32) QtC.QMargins {
-        return qtc.QMargins_OperatorMultiplyAssign(@ptrCast(self), @intCast(param1));
+        return qtc.QMargins_OperatorMultiplyAssign(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator-2f-eq)
@@ -246,7 +246,7 @@ pub const qmargins = struct {
     /// ` param1: i32 `
     ///
     pub fn OperatorDivideAssign(self: ?*anyopaque, param1: i32) QtC.QMargins {
-        return qtc.QMargins_OperatorDivideAssign(@ptrCast(self), @intCast(param1));
+        return qtc.QMargins_OperatorDivideAssign(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator-2a-eq)
@@ -258,7 +258,7 @@ pub const qmargins = struct {
     /// ` param1: f64 `
     ///
     pub fn OperatorMultiplyAssign2(self: ?*anyopaque, param1: f64) QtC.QMargins {
-        return qtc.QMargins_OperatorMultiplyAssign2(@ptrCast(self), @floatCast(param1));
+        return qtc.QMargins_OperatorMultiplyAssign2(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator-2f-eq)
@@ -270,7 +270,7 @@ pub const qmargins = struct {
     /// ` param1: f64 `
     ///
     pub fn OperatorDivideAssign2(self: ?*anyopaque, param1: f64) QtC.QMargins {
-        return qtc.QMargins_OperatorDivideAssign2(@ptrCast(self), @floatCast(param1));
+        return qtc.QMargins_OperatorDivideAssign2(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#toMarginsF)
@@ -337,7 +337,7 @@ pub const qmarginsf = struct {
     /// ` bottom: f64 `
     ///
     pub fn New4(left: f64, top: f64, right: f64, bottom: f64) QtC.QMarginsF {
-        return qtc.QMarginsF_new4(@floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+        return qtc.QMarginsF_new4(@bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// New5 constructs a new QMarginsF object.
@@ -443,7 +443,7 @@ pub const qmarginsf = struct {
     /// ` aleft: f64 `
     ///
     pub fn SetLeft(self: ?*anyopaque, aleft: f64) void {
-        qtc.QMarginsF_SetLeft(@ptrCast(self), @floatCast(aleft));
+        qtc.QMarginsF_SetLeft(@ptrCast(self), @bitCast(aleft));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#setTop)
@@ -455,7 +455,7 @@ pub const qmarginsf = struct {
     /// ` atop: f64 `
     ///
     pub fn SetTop(self: ?*anyopaque, atop: f64) void {
-        qtc.QMarginsF_SetTop(@ptrCast(self), @floatCast(atop));
+        qtc.QMarginsF_SetTop(@ptrCast(self), @bitCast(atop));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#setRight)
@@ -467,7 +467,7 @@ pub const qmarginsf = struct {
     /// ` aright: f64 `
     ///
     pub fn SetRight(self: ?*anyopaque, aright: f64) void {
-        qtc.QMarginsF_SetRight(@ptrCast(self), @floatCast(aright));
+        qtc.QMarginsF_SetRight(@ptrCast(self), @bitCast(aright));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#setBottom)
@@ -479,7 +479,7 @@ pub const qmarginsf = struct {
     /// ` abottom: f64 `
     ///
     pub fn SetBottom(self: ?*anyopaque, abottom: f64) void {
-        qtc.QMarginsF_SetBottom(@ptrCast(self), @floatCast(abottom));
+        qtc.QMarginsF_SetBottom(@ptrCast(self), @bitCast(abottom));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#operator-2b-eq)
@@ -515,7 +515,7 @@ pub const qmarginsf = struct {
     /// ` addend: f64 `
     ///
     pub fn OperatorPlusAssign2(self: ?*anyopaque, addend: f64) QtC.QMarginsF {
-        return qtc.QMarginsF_OperatorPlusAssign2(@ptrCast(self), @floatCast(addend));
+        return qtc.QMarginsF_OperatorPlusAssign2(@ptrCast(self), @bitCast(addend));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#operator--eq)
@@ -527,7 +527,7 @@ pub const qmarginsf = struct {
     /// ` subtrahend: f64 `
     ///
     pub fn OperatorMinusAssign2(self: ?*anyopaque, subtrahend: f64) QtC.QMarginsF {
-        return qtc.QMarginsF_OperatorMinusAssign2(@ptrCast(self), @floatCast(subtrahend));
+        return qtc.QMarginsF_OperatorMinusAssign2(@ptrCast(self), @bitCast(subtrahend));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#operator-2a-eq)
@@ -539,7 +539,7 @@ pub const qmarginsf = struct {
     /// ` factor: f64 `
     ///
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, factor: f64) QtC.QMarginsF {
-        return qtc.QMarginsF_OperatorMultiplyAssign(@ptrCast(self), @floatCast(factor));
+        return qtc.QMarginsF_OperatorMultiplyAssign(@ptrCast(self), @bitCast(factor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#operator-2f-eq)
@@ -551,7 +551,7 @@ pub const qmarginsf = struct {
     /// ` divisor: f64 `
     ///
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f64) QtC.QMarginsF {
-        return qtc.QMarginsF_OperatorDivideAssign(@ptrCast(self), @floatCast(divisor));
+        return qtc.QMarginsF_OperatorDivideAssign(@ptrCast(self), @bitCast(divisor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#toMargins)

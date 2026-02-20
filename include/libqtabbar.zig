@@ -48,7 +48,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QTabBar_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -83,7 +83,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QTabBar_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -110,7 +110,7 @@ pub const qtabbar = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTabBar_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QTabBar_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -122,7 +122,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QTabBar_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -138,7 +138,7 @@ pub const qtabbar = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTabBar_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QTabBar_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -181,7 +181,7 @@ pub const qtabbar = struct {
     /// ` shape: qtabbar_enums.Shape `
     ///
     pub fn SetShape(self: ?*anyopaque, shape: i32) void {
-        qtc.QTabBar_SetShape(@ptrCast(self), @intCast(shape));
+        qtc.QTabBar_SetShape(@ptrCast(self), @bitCast(shape));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#addTab)
@@ -233,7 +233,7 @@ pub const qtabbar = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QTabBar_InsertTab(@ptrCast(self), @intCast(index), text_str);
+        return qtc.QTabBar_InsertTab(@ptrCast(self), @bitCast(index), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#insertTab)
@@ -253,7 +253,7 @@ pub const qtabbar = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QTabBar_InsertTab2(@ptrCast(self), @intCast(index), @ptrCast(icon), text_str);
+        return qtc.QTabBar_InsertTab2(@ptrCast(self), @bitCast(index), @ptrCast(icon), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#removeTab)
@@ -265,7 +265,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn RemoveTab(self: ?*anyopaque, index: i32) void {
-        qtc.QTabBar_RemoveTab(@ptrCast(self), @intCast(index));
+        qtc.QTabBar_RemoveTab(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#moveTab)
@@ -279,7 +279,7 @@ pub const qtabbar = struct {
     /// ` to: i32 `
     ///
     pub fn MoveTab(self: ?*anyopaque, from: i32, to: i32) void {
-        qtc.QTabBar_MoveTab(@ptrCast(self), @intCast(from), @intCast(to));
+        qtc.QTabBar_MoveTab(@ptrCast(self), @bitCast(from), @bitCast(to));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#isTabEnabled)
@@ -291,7 +291,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn IsTabEnabled(self: ?*anyopaque, index: i32) bool {
-        return qtc.QTabBar_IsTabEnabled(@ptrCast(self), @intCast(index));
+        return qtc.QTabBar_IsTabEnabled(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#setTabEnabled)
@@ -305,7 +305,7 @@ pub const qtabbar = struct {
     /// ` enabled: bool `
     ///
     pub fn SetTabEnabled(self: ?*anyopaque, index: i32, enabled: bool) void {
-        qtc.QTabBar_SetTabEnabled(@ptrCast(self), @intCast(index), enabled);
+        qtc.QTabBar_SetTabEnabled(@ptrCast(self), @bitCast(index), enabled);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#isTabVisible)
@@ -317,7 +317,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn IsTabVisible(self: ?*anyopaque, index: i32) bool {
-        return qtc.QTabBar_IsTabVisible(@ptrCast(self), @intCast(index));
+        return qtc.QTabBar_IsTabVisible(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#setTabVisible)
@@ -331,7 +331,7 @@ pub const qtabbar = struct {
     /// ` visible: bool `
     ///
     pub fn SetTabVisible(self: ?*anyopaque, index: i32, visible: bool) void {
-        qtc.QTabBar_SetTabVisible(@ptrCast(self), @intCast(index), visible);
+        qtc.QTabBar_SetTabVisible(@ptrCast(self), @bitCast(index), visible);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabText)
@@ -345,7 +345,7 @@ pub const qtabbar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TabText(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTabBar_TabText(@ptrCast(self), @intCast(index));
+        var _str = qtc.QTabBar_TabText(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabbar.TabText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -367,7 +367,7 @@ pub const qtabbar = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTabBar_SetTabText(@ptrCast(self), @intCast(index), text_str);
+        qtc.QTabBar_SetTabText(@ptrCast(self), @bitCast(index), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabTextColor)
@@ -379,7 +379,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn TabTextColor(self: ?*anyopaque, index: i32) QtC.QColor {
-        return qtc.QTabBar_TabTextColor(@ptrCast(self), @intCast(index));
+        return qtc.QTabBar_TabTextColor(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#setTabTextColor)
@@ -393,7 +393,7 @@ pub const qtabbar = struct {
     /// ` color: QtC.QColor `
     ///
     pub fn SetTabTextColor(self: ?*anyopaque, index: i32, color: ?*anyopaque) void {
-        qtc.QTabBar_SetTabTextColor(@ptrCast(self), @intCast(index), @ptrCast(color));
+        qtc.QTabBar_SetTabTextColor(@ptrCast(self), @bitCast(index), @ptrCast(color));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabIcon)
@@ -405,7 +405,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn TabIcon(self: ?*anyopaque, index: i32) QtC.QIcon {
-        return qtc.QTabBar_TabIcon(@ptrCast(self), @intCast(index));
+        return qtc.QTabBar_TabIcon(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#setTabIcon)
@@ -419,7 +419,7 @@ pub const qtabbar = struct {
     /// ` icon: QtC.QIcon `
     ///
     pub fn SetTabIcon(self: ?*anyopaque, index: i32, icon: ?*anyopaque) void {
-        qtc.QTabBar_SetTabIcon(@ptrCast(self), @intCast(index), @ptrCast(icon));
+        qtc.QTabBar_SetTabIcon(@ptrCast(self), @bitCast(index), @ptrCast(icon));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#elideMode)
@@ -445,7 +445,7 @@ pub const qtabbar = struct {
     /// ` mode: qnamespace_enums.TextElideMode `
     ///
     pub fn SetElideMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QTabBar_SetElideMode(@ptrCast(self), @intCast(mode));
+        qtc.QTabBar_SetElideMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#setTabToolTip)
@@ -463,7 +463,7 @@ pub const qtabbar = struct {
             .len = tip.len,
             .data = tip.ptr,
         };
-        qtc.QTabBar_SetTabToolTip(@ptrCast(self), @intCast(index), tip_str);
+        qtc.QTabBar_SetTabToolTip(@ptrCast(self), @bitCast(index), tip_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabToolTip)
@@ -477,7 +477,7 @@ pub const qtabbar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TabToolTip(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTabBar_TabToolTip(@ptrCast(self), @intCast(index));
+        var _str = qtc.QTabBar_TabToolTip(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabbar.TabToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -499,7 +499,7 @@ pub const qtabbar = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTabBar_SetTabWhatsThis(@ptrCast(self), @intCast(index), text_str);
+        qtc.QTabBar_SetTabWhatsThis(@ptrCast(self), @bitCast(index), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabWhatsThis)
@@ -513,7 +513,7 @@ pub const qtabbar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TabWhatsThis(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTabBar_TabWhatsThis(@ptrCast(self), @intCast(index));
+        var _str = qtc.QTabBar_TabWhatsThis(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabbar.TabWhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -531,7 +531,7 @@ pub const qtabbar = struct {
     /// ` data: QtC.QVariant `
     ///
     pub fn SetTabData(self: ?*anyopaque, index: i32, data: ?*anyopaque) void {
-        qtc.QTabBar_SetTabData(@ptrCast(self), @intCast(index), @ptrCast(data));
+        qtc.QTabBar_SetTabData(@ptrCast(self), @bitCast(index), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabData)
@@ -543,7 +543,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn TabData(self: ?*anyopaque, index: i32) QtC.QVariant {
-        return qtc.QTabBar_TabData(@ptrCast(self), @intCast(index));
+        return qtc.QTabBar_TabData(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabRect)
@@ -555,7 +555,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn TabRect(self: ?*anyopaque, index: i32) QtC.QRect {
-        return qtc.QTabBar_TabRect(@ptrCast(self), @intCast(index));
+        return qtc.QTabBar_TabRect(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabAt)
@@ -611,7 +611,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QTabBar_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#sizeHint)
@@ -647,7 +647,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QTabBar_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#minimumSizeHint)
@@ -763,7 +763,7 @@ pub const qtabbar = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn SetTabButton(self: ?*anyopaque, index: i32, position: i32, widget: ?*anyopaque) void {
-        qtc.QTabBar_SetTabButton(@ptrCast(self), @intCast(index), @intCast(position), @ptrCast(widget));
+        qtc.QTabBar_SetTabButton(@ptrCast(self), @bitCast(index), @bitCast(position), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabButton)
@@ -777,7 +777,7 @@ pub const qtabbar = struct {
     /// ` position: qtabbar_enums.ButtonPosition `
     ///
     pub fn TabButton(self: ?*anyopaque, index: i32, position: i32) QtC.QWidget {
-        return qtc.QTabBar_TabButton(@ptrCast(self), @intCast(index), @intCast(position));
+        return qtc.QTabBar_TabButton(@ptrCast(self), @bitCast(index), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#selectionBehaviorOnRemove)
@@ -803,7 +803,7 @@ pub const qtabbar = struct {
     /// ` behavior: qtabbar_enums.SelectionBehavior `
     ///
     pub fn SetSelectionBehaviorOnRemove(self: ?*anyopaque, behavior: i32) void {
-        qtc.QTabBar_SetSelectionBehaviorOnRemove(@ptrCast(self), @intCast(behavior));
+        qtc.QTabBar_SetSelectionBehaviorOnRemove(@ptrCast(self), @bitCast(behavior));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#expanding)
@@ -927,7 +927,7 @@ pub const qtabbar = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AccessibleTabName(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTabBar_AccessibleTabName(@ptrCast(self), @intCast(index));
+        var _str = qtc.QTabBar_AccessibleTabName(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabbar.AccessibleTabName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -949,7 +949,7 @@ pub const qtabbar = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QTabBar_SetAccessibleTabName(@ptrCast(self), @intCast(index), name_str);
+        qtc.QTabBar_SetAccessibleTabName(@ptrCast(self), @bitCast(index), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#setCurrentIndex)
@@ -961,7 +961,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn SetCurrentIndex(self: ?*anyopaque, index: i32) void {
-        qtc.QTabBar_SetCurrentIndex(@ptrCast(self), @intCast(index));
+        qtc.QTabBar_SetCurrentIndex(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#currentChanged)
@@ -973,7 +973,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn CurrentChanged(self: ?*anyopaque, index: i32) void {
-        qtc.QTabBar_CurrentChanged(@ptrCast(self), @intCast(index));
+        qtc.QTabBar_CurrentChanged(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#currentChanged)
@@ -985,7 +985,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, index: i32) callconv(.c) void `
     ///
     pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTabBar_Connect_CurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_Connect_CurrentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabCloseRequested)
@@ -997,7 +997,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn TabCloseRequested(self: ?*anyopaque, index: i32) void {
-        qtc.QTabBar_TabCloseRequested(@ptrCast(self), @intCast(index));
+        qtc.QTabBar_TabCloseRequested(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabCloseRequested)
@@ -1009,7 +1009,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, index: i32) callconv(.c) void `
     ///
     pub fn OnTabCloseRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTabBar_Connect_TabCloseRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_Connect_TabCloseRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabMoved)
@@ -1023,7 +1023,7 @@ pub const qtabbar = struct {
     /// ` to: i32 `
     ///
     pub fn TabMoved(self: ?*anyopaque, from: i32, to: i32) void {
-        qtc.QTabBar_TabMoved(@ptrCast(self), @intCast(from), @intCast(to));
+        qtc.QTabBar_TabMoved(@ptrCast(self), @bitCast(from), @bitCast(to));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabMoved)
@@ -1035,7 +1035,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, from: i32, to: i32) callconv(.c) void `
     ///
     pub fn OnTabMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTabBar_Connect_TabMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_Connect_TabMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabBarClicked)
@@ -1047,7 +1047,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn TabBarClicked(self: ?*anyopaque, index: i32) void {
-        qtc.QTabBar_TabBarClicked(@ptrCast(self), @intCast(index));
+        qtc.QTabBar_TabBarClicked(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabBarClicked)
@@ -1059,7 +1059,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, index: i32) callconv(.c) void `
     ///
     pub fn OnTabBarClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTabBar_Connect_TabBarClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_Connect_TabBarClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabBarDoubleClicked)
@@ -1071,7 +1071,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn TabBarDoubleClicked(self: ?*anyopaque, index: i32) void {
-        qtc.QTabBar_TabBarDoubleClicked(@ptrCast(self), @intCast(index));
+        qtc.QTabBar_TabBarDoubleClicked(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabBarDoubleClicked)
@@ -1083,7 +1083,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, index: i32) callconv(.c) void `
     ///
     pub fn OnTabBarDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTabBar_Connect_TabBarDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_Connect_TabBarDoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabSizeHint)
@@ -1095,7 +1095,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn TabSizeHint(self: ?*anyopaque, index: i32) QtC.QSize {
-        return qtc.QTabBar_TabSizeHint(@ptrCast(self), @intCast(index));
+        return qtc.QTabBar_TabSizeHint(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabSizeHint)
@@ -1109,7 +1109,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, index: i32) callconv(.c) QtC.QSize `
     ///
     pub fn OnTabSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QSize) void {
-        qtc.QTabBar_OnTabSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnTabSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabSizeHint)
@@ -1123,7 +1123,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseTabSizeHint(self: ?*anyopaque, index: i32) QtC.QSize {
-        return qtc.QTabBar_QBaseTabSizeHint(@ptrCast(self), @intCast(index));
+        return qtc.QTabBar_QBaseTabSizeHint(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#minimumTabSizeHint)
@@ -1135,7 +1135,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn MinimumTabSizeHint(self: ?*anyopaque, index: i32) QtC.QSize {
-        return qtc.QTabBar_MinimumTabSizeHint(@ptrCast(self), @intCast(index));
+        return qtc.QTabBar_MinimumTabSizeHint(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#minimumTabSizeHint)
@@ -1149,7 +1149,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, index: i32) callconv(.c) QtC.QSize `
     ///
     pub fn OnMinimumTabSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QSize) void {
-        qtc.QTabBar_OnMinimumTabSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnMinimumTabSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#minimumTabSizeHint)
@@ -1163,7 +1163,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseMinimumTabSizeHint(self: ?*anyopaque, index: i32) QtC.QSize {
-        return qtc.QTabBar_QBaseMinimumTabSizeHint(@ptrCast(self), @intCast(index));
+        return qtc.QTabBar_QBaseMinimumTabSizeHint(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabInserted)
@@ -1175,7 +1175,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn TabInserted(self: ?*anyopaque, index: i32) void {
-        qtc.QTabBar_TabInserted(@ptrCast(self), @intCast(index));
+        qtc.QTabBar_TabInserted(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabInserted)
@@ -1189,7 +1189,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, index: i32) callconv(.c) void `
     ///
     pub fn OnTabInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTabBar_OnTabInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnTabInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabInserted)
@@ -1203,7 +1203,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseTabInserted(self: ?*anyopaque, index: i32) void {
-        qtc.QTabBar_QBaseTabInserted(@ptrCast(self), @intCast(index));
+        qtc.QTabBar_QBaseTabInserted(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabRemoved)
@@ -1215,7 +1215,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn TabRemoved(self: ?*anyopaque, index: i32) void {
-        qtc.QTabBar_TabRemoved(@ptrCast(self), @intCast(index));
+        qtc.QTabBar_TabRemoved(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabRemoved)
@@ -1229,7 +1229,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, index: i32) callconv(.c) void `
     ///
     pub fn OnTabRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTabBar_OnTabRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnTabRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabRemoved)
@@ -1243,7 +1243,7 @@ pub const qtabbar = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseTabRemoved(self: ?*anyopaque, index: i32) void {
-        qtc.QTabBar_QBaseTabRemoved(@ptrCast(self), @intCast(index));
+        qtc.QTabBar_QBaseTabRemoved(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabLayoutChange)
@@ -1267,7 +1267,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnTabLayoutChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTabBar_OnTabLayoutChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnTabLayoutChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#tabLayoutChange)
@@ -1305,7 +1305,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTabBar_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#event)
@@ -1345,7 +1345,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: QtC.QResizeEvent) callconv(.c) void `
     ///
     pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#resizeEvent)
@@ -1385,7 +1385,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: QtC.QShowEvent) callconv(.c) void `
     ///
     pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#showEvent)
@@ -1425,7 +1425,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: QtC.QHideEvent) callconv(.c) void `
     ///
     pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#hideEvent)
@@ -1465,7 +1465,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: QtC.QPaintEvent) callconv(.c) void `
     ///
     pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#paintEvent)
@@ -1505,7 +1505,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#mousePressEvent)
@@ -1545,7 +1545,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#mouseMoveEvent)
@@ -1585,7 +1585,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#mouseReleaseEvent)
@@ -1625,7 +1625,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#mouseDoubleClickEvent)
@@ -1665,7 +1665,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#wheelEvent)
@@ -1705,7 +1705,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#keyPressEvent)
@@ -1745,7 +1745,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#changeEvent)
@@ -1785,7 +1785,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#timerEvent)
@@ -1813,7 +1813,7 @@ pub const qtabbar = struct {
     /// ` tabIndex: i32 `
     ///
     pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque, tabIndex: i32) void {
-        qtc.QTabBar_InitStyleOption(@ptrCast(self), @ptrCast(option), @intCast(tabIndex));
+        qtc.QTabBar_InitStyleOption(@ptrCast(self), @ptrCast(option), @bitCast(tabIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#initStyleOption)
@@ -1827,7 +1827,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, option: QtC.QStyleOptionTab, tabIndex: i32) callconv(.c) void `
     ///
     pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTabBar_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#initStyleOption)
@@ -1843,7 +1843,7 @@ pub const qtabbar = struct {
     /// ` tabIndex: i32 `
     ///
     pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque, tabIndex: i32) void {
-        qtc.QTabBar_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option), @intCast(tabIndex));
+        qtc.QTabBar_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option), @bitCast(tabIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1881,7 +1881,7 @@ pub const qtabbar = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtabbar.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2025,7 +2025,7 @@ pub const qtabbar = struct {
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
+        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -2351,7 +2351,7 @@ pub const qtabbar = struct {
     /// ` minh: i32 `
     ///
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2381,7 +2381,7 @@ pub const qtabbar = struct {
     /// ` maxh: i32 `
     ///
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2395,7 +2395,7 @@ pub const qtabbar = struct {
     /// ` minw: i32 `
     ///
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -2409,7 +2409,7 @@ pub const qtabbar = struct {
     /// ` minh: i32 `
     ///
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2423,7 +2423,7 @@ pub const qtabbar = struct {
     /// ` maxw: i32 `
     ///
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -2437,7 +2437,7 @@ pub const qtabbar = struct {
     /// ` maxh: i32 `
     ///
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2479,7 +2479,7 @@ pub const qtabbar = struct {
     /// ` h: i32 `
     ///
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2521,7 +2521,7 @@ pub const qtabbar = struct {
     /// ` baseh: i32 `
     ///
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
+        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -2551,7 +2551,7 @@ pub const qtabbar = struct {
     /// ` h: i32 `
     ///
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2565,7 +2565,7 @@ pub const qtabbar = struct {
     /// ` w: i32 `
     ///
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
+        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -2579,7 +2579,7 @@ pub const qtabbar = struct {
     /// ` h: i32 `
     ///
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
+        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2831,7 +2831,7 @@ pub const qtabbar = struct {
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -2861,7 +2861,7 @@ pub const qtabbar = struct {
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
+        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -3161,7 +3161,7 @@ pub const qtabbar = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3175,7 +3175,7 @@ pub const qtabbar = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3395,7 +3395,7 @@ pub const qtabbar = struct {
     /// ` level: f64 `
     ///
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -3469,7 +3469,7 @@ pub const qtabbar = struct {
     /// ` msec: i32 `
     ///
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -3639,7 +3639,7 @@ pub const qtabbar = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -3791,7 +3791,7 @@ pub const qtabbar = struct {
     /// ` reason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
+        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -3821,7 +3821,7 @@ pub const qtabbar = struct {
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3903,7 +3903,7 @@ pub const qtabbar = struct {
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3993,7 +3993,7 @@ pub const qtabbar = struct {
     /// ` id: i32 `
     ///
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4007,7 +4007,7 @@ pub const qtabbar = struct {
     /// ` id: i32 `
     ///
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4021,7 +4021,7 @@ pub const qtabbar = struct {
     /// ` id: i32 `
     ///
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4119,7 +4119,7 @@ pub const qtabbar = struct {
     /// ` h: i32 `
     ///
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4167,7 +4167,7 @@ pub const qtabbar = struct {
     /// ` h: i32 `
     ///
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4347,7 +4347,7 @@ pub const qtabbar = struct {
     /// ` y: i32 `
     ///
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
+        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -4377,7 +4377,7 @@ pub const qtabbar = struct {
     /// ` h: i32 `
     ///
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4411,7 +4411,7 @@ pub const qtabbar = struct {
     /// ` h: i32 `
     ///
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4577,7 +4577,7 @@ pub const qtabbar = struct {
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4591,7 +4591,7 @@ pub const qtabbar = struct {
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4633,7 +4633,7 @@ pub const qtabbar = struct {
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -4665,7 +4665,7 @@ pub const qtabbar = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -4771,7 +4771,7 @@ pub const qtabbar = struct {
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
+        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -4787,7 +4787,7 @@ pub const qtabbar = struct {
     /// ` dy: i32 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -4805,7 +4805,7 @@ pub const qtabbar = struct {
     /// ` param3: QtC.QRect `
     ///
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
+        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
     }
 
     /// Inherited from QWidget
@@ -5074,7 +5074,7 @@ pub const qtabbar = struct {
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5104,7 +5104,7 @@ pub const qtabbar = struct {
     /// ` param1: qnamespace_enums.WindowType `
     ///
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5118,7 +5118,7 @@ pub const qtabbar = struct {
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5146,7 +5146,7 @@ pub const qtabbar = struct {
     /// ` param1: u64 `
     ///
     pub fn Find(param1: u64) QtC.QWidget {
-        return qtc.QWidget_Find(@intCast(param1));
+        return qtc.QWidget_Find(@bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5162,7 +5162,7 @@ pub const qtabbar = struct {
     /// ` y: i32 `
     ///
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
+        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -5204,7 +5204,7 @@ pub const qtabbar = struct {
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5218,7 +5218,7 @@ pub const qtabbar = struct {
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
+        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5364,7 +5364,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5392,7 +5392,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5424,7 +5424,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5452,7 +5452,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5482,7 +5482,7 @@ pub const qtabbar = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -5536,7 +5536,7 @@ pub const qtabbar = struct {
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5590,7 +5590,7 @@ pub const qtabbar = struct {
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5620,7 +5620,7 @@ pub const qtabbar = struct {
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
+        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -5636,7 +5636,7 @@ pub const qtabbar = struct {
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -5652,7 +5652,7 @@ pub const qtabbar = struct {
     /// ` enable: bool `
     ///
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5668,7 +5668,7 @@ pub const qtabbar = struct {
     /// ` enable: bool `
     ///
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5684,7 +5684,7 @@ pub const qtabbar = struct {
     /// ` on: bool `
     ///
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5700,7 +5700,7 @@ pub const qtabbar = struct {
     /// ` on: bool `
     ///
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5730,7 +5730,7 @@ pub const qtabbar = struct {
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
+        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
     }
 
     /// Inherited from QObject
@@ -5864,7 +5864,7 @@ pub const qtabbar = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -5878,7 +5878,7 @@ pub const qtabbar = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -5892,7 +5892,7 @@ pub const qtabbar = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5906,7 +5906,7 @@ pub const qtabbar = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6222,7 +6222,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6277,7 +6277,7 @@ pub const qtabbar = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6293,7 +6293,7 @@ pub const qtabbar = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6315,7 +6315,7 @@ pub const qtabbar = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -6335,7 +6335,7 @@ pub const qtabbar = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -6357,7 +6357,7 @@ pub const qtabbar = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -6454,7 +6454,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -6608,7 +6608,7 @@ pub const qtabbar = struct {
     /// ` value: f64 `
     ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
 
     /// Inherited from QWidget
@@ -6652,7 +6652,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTabBar_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6700,7 +6700,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, visible: bool) callconv(.c) void `
     ///
     pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTabBar_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6716,7 +6716,7 @@ pub const qtabbar = struct {
     /// ` param1: i32 `
     ///
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTabBar_HeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QTabBar_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6732,7 +6732,7 @@ pub const qtabbar = struct {
     /// ` param1: i32 `
     ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTabBar_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QTabBar_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6748,7 +6748,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: i32) callconv(.c) i32 `
     ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTabBar_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6792,7 +6792,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTabBar_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6836,7 +6836,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
     ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QTabBar_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6884,7 +6884,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6932,7 +6932,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6980,7 +6980,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7028,7 +7028,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QEnterEvent) callconv(.c) void `
     ///
     pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7076,7 +7076,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7124,7 +7124,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QMoveEvent) callconv(.c) void `
     ///
     pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7172,7 +7172,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QCloseEvent) callconv(.c) void `
     ///
     pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7220,7 +7220,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7268,7 +7268,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QTabletEvent) callconv(.c) void `
     ///
     pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7316,7 +7316,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QActionEvent) callconv(.c) void `
     ///
     pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7364,7 +7364,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QDragEnterEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7412,7 +7412,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QDragMoveEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7460,7 +7460,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QDragLeaveEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7508,7 +7508,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7572,7 +7572,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QTabBar_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7588,7 +7588,7 @@ pub const qtabbar = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTabBar_Metric(@ptrCast(self), @intCast(param1));
+        return qtc.QTabBar_Metric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7604,7 +7604,7 @@ pub const qtabbar = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTabBar_QBaseMetric(@ptrCast(self), @intCast(param1));
+        return qtc.QTabBar_QBaseMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7620,7 +7620,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTabBar_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7668,7 +7668,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7716,7 +7716,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
     ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QTabBar_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7760,7 +7760,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainter `
     ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QTabBar_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7808,7 +7808,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7824,7 +7824,7 @@ pub const qtabbar = struct {
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QTabBar_InputMethodQuery(@ptrCast(self), @intCast(param1));
+        return qtc.QTabBar_InputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7840,7 +7840,7 @@ pub const qtabbar = struct {
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QTabBar_QBaseInputMethodQuery(@ptrCast(self), @intCast(param1));
+        return qtc.QTabBar_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7856,7 +7856,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QTabBar_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7904,7 +7904,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, next: bool) callconv(.c) bool `
     ///
     pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QTabBar_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7956,7 +7956,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTabBar_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8004,7 +8004,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8052,7 +8052,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8100,7 +8100,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8148,7 +8148,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTabBar_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8192,7 +8192,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTabBar_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8236,7 +8236,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTabBar_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8280,7 +8280,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTabBar_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8324,7 +8324,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTabBar_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8368,7 +8368,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTabBar_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8412,7 +8412,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QTabBar_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8456,7 +8456,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTabBar_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8506,7 +8506,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTabBar_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8554,7 +8554,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTabBar_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -8572,7 +8572,7 @@ pub const qtabbar = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QTabBar_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QTabBar_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8590,7 +8590,7 @@ pub const qtabbar = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QTabBar_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QTabBar_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8606,7 +8606,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QTabBar_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabBar_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8622,7 +8622,7 @@ pub const qtabbar = struct {
     /// ` callback: *const fn (self: QtC.QTabBar, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabbar.html#dtor.QTabBar)

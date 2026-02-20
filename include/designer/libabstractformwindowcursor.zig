@@ -31,7 +31,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QDesignerFormWindowInterface `
     ///
     pub fn OnFormWindow(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDesignerFormWindowInterface) void {
-        qtc.QDesignerFormWindowCursorInterface_OnFormWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowCursorInterface_OnFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#formWindow)
@@ -57,7 +57,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` mode: abstractformwindowcursor_enums.MoveMode `
     ///
     pub fn MovePosition(self: ?*anyopaque, op: i32, mode: i32) bool {
-        return qtc.QDesignerFormWindowCursorInterface_MovePosition(@ptrCast(self), @intCast(op), @intCast(mode));
+        return qtc.QDesignerFormWindowCursorInterface_MovePosition(@ptrCast(self), @bitCast(op), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#movePosition)
@@ -71,7 +71,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowCursorInterface, op: abstractformwindowcursor_enums.MoveOperation, mode: abstractformwindowcursor_enums.MoveMode) callconv(.c) bool `
     ///
     pub fn OnMovePosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) bool) void {
-        qtc.QDesignerFormWindowCursorInterface_OnMovePosition(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowCursorInterface_OnMovePosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#movePosition)
@@ -87,7 +87,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` mode: abstractformwindowcursor_enums.MoveMode `
     ///
     pub fn QBaseMovePosition(self: ?*anyopaque, op: i32, mode: i32) bool {
-        return qtc.QDesignerFormWindowCursorInterface_QBaseMovePosition(@ptrCast(self), @intCast(op), @intCast(mode));
+        return qtc.QDesignerFormWindowCursorInterface_QBaseMovePosition(@ptrCast(self), @bitCast(op), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#position)
@@ -111,7 +111,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnPosition(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerFormWindowCursorInterface_OnPosition(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowCursorInterface_OnPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#position)
@@ -137,7 +137,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` mode: abstractformwindowcursor_enums.MoveMode `
     ///
     pub fn SetPosition(self: ?*anyopaque, pos: i32, mode: i32) void {
-        qtc.QDesignerFormWindowCursorInterface_SetPosition(@ptrCast(self), @intCast(pos), @intCast(mode));
+        qtc.QDesignerFormWindowCursorInterface_SetPosition(@ptrCast(self), @bitCast(pos), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#setPosition)
@@ -151,7 +151,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowCursorInterface, pos: i32, mode: abstractformwindowcursor_enums.MoveMode) callconv(.c) void `
     ///
     pub fn OnSetPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QDesignerFormWindowCursorInterface_OnSetPosition(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowCursorInterface_OnSetPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#setPosition)
@@ -167,7 +167,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` mode: abstractformwindowcursor_enums.MoveMode `
     ///
     pub fn QBaseSetPosition(self: ?*anyopaque, pos: i32, mode: i32) void {
-        qtc.QDesignerFormWindowCursorInterface_QBaseSetPosition(@ptrCast(self), @intCast(pos), @intCast(mode));
+        qtc.QDesignerFormWindowCursorInterface_QBaseSetPosition(@ptrCast(self), @bitCast(pos), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#current)
@@ -191,7 +191,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QWidget `
     ///
     pub fn OnCurrent(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
-        qtc.QDesignerFormWindowCursorInterface_OnCurrent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowCursorInterface_OnCurrent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#current)
@@ -227,7 +227,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnWidgetCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerFormWindowCursorInterface_OnWidgetCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowCursorInterface_OnWidgetCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#widgetCount)
@@ -251,7 +251,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` index: i32 `
     ///
     pub fn Widget(self: ?*anyopaque, index: i32) QtC.QWidget {
-        return qtc.QDesignerFormWindowCursorInterface_Widget(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerFormWindowCursorInterface_Widget(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#widget)
@@ -265,7 +265,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowCursorInterface, index: i32) callconv(.c) QtC.QWidget `
     ///
     pub fn OnWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QWidget) void {
-        qtc.QDesignerFormWindowCursorInterface_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowCursorInterface_OnWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#widget)
@@ -279,7 +279,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseWidget(self: ?*anyopaque, index: i32) QtC.QWidget {
-        return qtc.QDesignerFormWindowCursorInterface_QBaseWidget(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerFormWindowCursorInterface_QBaseWidget(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#hasSelection)
@@ -303,7 +303,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnHasSelection(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerFormWindowCursorInterface_OnHasSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowCursorInterface_OnHasSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#hasSelection)
@@ -339,7 +339,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSelectedWidgetCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerFormWindowCursorInterface_OnSelectedWidgetCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowCursorInterface_OnSelectedWidgetCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#selectedWidgetCount)
@@ -363,7 +363,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` index: i32 `
     ///
     pub fn SelectedWidget(self: ?*anyopaque, index: i32) QtC.QWidget {
-        return qtc.QDesignerFormWindowCursorInterface_SelectedWidget(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerFormWindowCursorInterface_SelectedWidget(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#selectedWidget)
@@ -377,7 +377,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowCursorInterface, index: i32) callconv(.c) QtC.QWidget `
     ///
     pub fn OnSelectedWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QWidget) void {
-        qtc.QDesignerFormWindowCursorInterface_OnSelectedWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowCursorInterface_OnSelectedWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#selectedWidget)
@@ -391,7 +391,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseSelectedWidget(self: ?*anyopaque, index: i32) QtC.QWidget {
-        return qtc.QDesignerFormWindowCursorInterface_QBaseSelectedWidget(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerFormWindowCursorInterface_QBaseSelectedWidget(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#setProperty)
@@ -423,7 +423,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowCursorInterface, name: [*:0]const u8, value: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowCursorInterface_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowCursorInterface_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#setProperty)
@@ -477,7 +477,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowCursorInterface, widget: QtC.QWidget, name: [*:0]const u8, value: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetWidgetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowCursorInterface_OnSetWidgetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowCursorInterface_OnSetWidgetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#setWidgetProperty)
@@ -531,7 +531,7 @@ pub const qdesignerformwindowcursorinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowCursorInterface, widget: QtC.QWidget, name: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnResetWidgetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerFormWindowCursorInterface_OnResetWidgetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowCursorInterface_OnResetWidgetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowcursorinterface.html#resetWidgetProperty)

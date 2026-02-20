@@ -23,6 +23,6 @@ pub const kapplicationtrader = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        return qtc.KApplicationTrader_IsSubsequence(param1_str, param2_str, @intCast(param3));
+        return qtc.KApplicationTrader_IsSubsequence(param1_str, param2_str, @bitCast(param3));
     }
 };

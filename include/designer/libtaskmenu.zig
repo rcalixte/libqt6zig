@@ -31,7 +31,7 @@ pub const qdesignertaskmenuextension = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QAction `
     ///
     pub fn OnPreferredEditAction(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAction) void {
-        qtc.QDesignerTaskMenuExtension_OnPreferredEditAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerTaskMenuExtension_OnPreferredEditAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignertaskmenuextension.html#preferredEditAction)
@@ -80,7 +80,7 @@ pub const qdesignertaskmenuextension = struct {
     /// ` C ABI representation of []QtC.QAction `
     ///
     pub fn OnTaskActions(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QDesignerTaskMenuExtension_OnTaskActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerTaskMenuExtension_OnTaskActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignertaskmenuextension.html#taskActions)

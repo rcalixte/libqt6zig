@@ -66,7 +66,7 @@ pub const kcursor = struct {
     /// ` ms: i32 `
     ///
     pub fn SetHideCursorDelay(ms: i32) void {
-        qtc.KCursor_SetHideCursorDelay(@intCast(ms));
+        qtc.KCursor_SetHideCursorDelay(@bitCast(ms));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcursor.html#hideCursorDelay)

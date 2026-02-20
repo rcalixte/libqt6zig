@@ -95,7 +95,7 @@ pub const qgeoroutesegment = struct {
     /// ` secs: i32 `
     ///
     pub fn SetTravelTime(self: ?*anyopaque, secs: i32) void {
-        qtc.QGeoRouteSegment_SetTravelTime(@ptrCast(self), @intCast(secs));
+        qtc.QGeoRouteSegment_SetTravelTime(@ptrCast(self), @bitCast(secs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#travelTime)
@@ -117,7 +117,7 @@ pub const qgeoroutesegment = struct {
     /// ` distance: f64 `
     ///
     pub fn SetDistance(self: ?*anyopaque, distance: f64) void {
-        qtc.QGeoRouteSegment_SetDistance(@ptrCast(self), @floatCast(distance));
+        qtc.QGeoRouteSegment_SetDistance(@ptrCast(self), @bitCast(distance));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#distance)

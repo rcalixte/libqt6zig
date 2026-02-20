@@ -84,7 +84,7 @@ pub const qhttp2configuration = struct {
     /// ` size: u32 `
     ///
     pub fn SetSessionReceiveWindowSize(self: ?*anyopaque, size: u32) bool {
-        return qtc.QHttp2Configuration_SetSessionReceiveWindowSize(@ptrCast(self), @intCast(size));
+        return qtc.QHttp2Configuration_SetSessionReceiveWindowSize(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttp2configuration.html#sessionReceiveWindowSize)
@@ -106,7 +106,7 @@ pub const qhttp2configuration = struct {
     /// ` size: u32 `
     ///
     pub fn SetStreamReceiveWindowSize(self: ?*anyopaque, size: u32) bool {
-        return qtc.QHttp2Configuration_SetStreamReceiveWindowSize(@ptrCast(self), @intCast(size));
+        return qtc.QHttp2Configuration_SetStreamReceiveWindowSize(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttp2configuration.html#streamReceiveWindowSize)
@@ -128,7 +128,7 @@ pub const qhttp2configuration = struct {
     /// ` size: u32 `
     ///
     pub fn SetMaxFrameSize(self: ?*anyopaque, size: u32) bool {
-        return qtc.QHttp2Configuration_SetMaxFrameSize(@ptrCast(self), @intCast(size));
+        return qtc.QHttp2Configuration_SetMaxFrameSize(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttp2configuration.html#maxFrameSize)

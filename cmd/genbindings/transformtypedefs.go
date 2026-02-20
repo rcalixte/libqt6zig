@@ -58,11 +58,18 @@ func applyTypedefs(p CppParameter, className string) CppParameter {
 
 		tType := resolveStructType(t2.RenderTypeQtCpp(), className, "")
 		p.ParameterType = containerType + "<" + tType + ">"
+		p.UniquePtr = t2.UniquePtr
 
-		if p.QtCppOriginalType == nil {
+		if p.UniquePtr {
+			tmp := p // copy
+			p.QtCppOriginalType = &tmp
+			p.QtCppOriginalType.ParameterType = containerType + "<std::unique_ptr<" + tType + ">>"
+
+		} else if p.QtCppOriginalType == nil {
 			tmp := p // copy
 			p.QtCppOriginalType = &tmp
 			p.QtCppOriginalType.ParameterType = p.ParameterType
+
 		} else {
 			if _, ok := KnownTypedefs[p.QtCppOriginalType.ParameterType]; ok {
 				p.QtCppOriginalType.ParameterType = p.ParameterType
@@ -130,6 +137,19 @@ func applyTypedefs(p CppParameter, className string) CppParameter {
 			if _, ok := KnownTypedefs[p.QtCppOriginalType.ParameterType]; ok {
 				p.QtCppOriginalType.ParameterType = p.ParameterType
 			}
+		}
+
+	} else if t, ok := p.UniquePtrOf(); ok {
+		t2 := applyTypedefs(t, className)
+		t2.QtCppOriginalType = nil
+
+		p.ParameterType = t2.RenderTypeQtCpp()
+		p.UniquePtr = true
+
+		if p.QtCppOriginalType == nil {
+			tmp := p // copy
+			p.QtCppOriginalType = &tmp
+			p.QtCppOriginalType.ParameterType = p.ParameterType
 		}
 	}
 

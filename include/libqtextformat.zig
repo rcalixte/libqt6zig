@@ -43,7 +43,7 @@ pub const qtextlength = struct {
     /// ` value: f64 `
     ///
     pub fn New4(typeVal: i32, value: f64) QtC.QTextLength {
-        return qtc.QTextLength_new4(@intCast(typeVal), @floatCast(value));
+        return qtc.QTextLength_new4(@bitCast(typeVal), @bitCast(value));
     }
 
     /// New5 constructs a new QTextLength object.
@@ -103,7 +103,7 @@ pub const qtextlength = struct {
     /// ` maximumLength: f64 `
     ///
     pub fn Value(self: ?*anyopaque, maximumLength: f64) f64 {
-        return qtc.QTextLength_Value(@ptrCast(self), @floatCast(maximumLength));
+        return qtc.QTextLength_Value(@ptrCast(self), @bitCast(maximumLength));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlength.html#rawValue)
@@ -178,7 +178,7 @@ pub const qtextformat = struct {
     /// ` typeVal: i32 `
     ///
     pub fn New2(typeVal: i32) QtC.QTextFormat {
-        return qtc.QTextFormat_new2(@intCast(typeVal));
+        return qtc.QTextFormat_new2(@bitCast(typeVal));
     }
 
     /// New3 constructs a new QTextFormat object.
@@ -276,7 +276,7 @@ pub const qtextformat = struct {
     /// ` object: i32 `
     ///
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @bitCast(object));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#property)
@@ -288,7 +288,7 @@ pub const qtextformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
-        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_Property(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
@@ -302,7 +302,7 @@ pub const qtextformat = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @bitCast(propertyId), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#clearProperty)
@@ -314,7 +314,7 @@ pub const qtextformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#hasProperty)
@@ -326,7 +326,7 @@ pub const qtextformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#boolProperty)
@@ -338,7 +338,7 @@ pub const qtextformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#intProperty)
@@ -350,7 +350,7 @@ pub const qtextformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#doubleProperty)
@@ -362,7 +362,7 @@ pub const qtextformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#stringProperty)
@@ -376,7 +376,7 @@ pub const qtextformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextformat.StringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -392,7 +392,7 @@ pub const qtextformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
-        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#penProperty)
@@ -404,7 +404,7 @@ pub const qtextformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
-        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#brushProperty)
@@ -416,7 +416,7 @@ pub const qtextformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
-        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#lengthProperty)
@@ -428,7 +428,7 @@ pub const qtextformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
-        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#lengthVectorProperty)
@@ -442,7 +442,7 @@ pub const qtextformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -465,7 +465,7 @@ pub const qtextformat = struct {
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @bitCast(propertyId), lengths_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#properties)
@@ -513,7 +513,7 @@ pub const qtextformat = struct {
     /// ` typeVal: i32 `
     ///
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#objectType)
@@ -709,7 +709,7 @@ pub const qtextformat = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
@@ -956,7 +956,7 @@ pub const qtextcharformat = struct {
     /// ` size: f64 `
     ///
     pub fn SetFontPointSize(self: ?*anyopaque, size: f64) void {
-        qtc.QTextCharFormat_SetFontPointSize(@ptrCast(self), @floatCast(size));
+        qtc.QTextCharFormat_SetFontPointSize(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontPointSize)
@@ -978,7 +978,7 @@ pub const qtextcharformat = struct {
     /// ` weight: i32 `
     ///
     pub fn SetFontWeight(self: ?*anyopaque, weight: i32) void {
-        qtc.QTextCharFormat_SetFontWeight(@ptrCast(self), @intCast(weight));
+        qtc.QTextCharFormat_SetFontWeight(@ptrCast(self), @bitCast(weight));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontWeight)
@@ -1022,7 +1022,7 @@ pub const qtextcharformat = struct {
     /// ` capitalization: qfont_enums.Capitalization `
     ///
     pub fn SetFontCapitalization(self: ?*anyopaque, capitalization: i32) void {
-        qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @intCast(capitalization));
+        qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @bitCast(capitalization));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontCapitalization)
@@ -1048,7 +1048,7 @@ pub const qtextcharformat = struct {
     /// ` letterSpacingType: qfont_enums.SpacingType `
     ///
     pub fn SetFontLetterSpacingType(self: ?*anyopaque, letterSpacingType: i32) void {
-        qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @intCast(letterSpacingType));
+        qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @bitCast(letterSpacingType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacingType)
@@ -1074,7 +1074,7 @@ pub const qtextcharformat = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetFontLetterSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacing)
@@ -1096,7 +1096,7 @@ pub const qtextcharformat = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetFontWordSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QTextCharFormat_SetFontWordSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextCharFormat_SetFontWordSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontWordSpacing)
@@ -1228,7 +1228,7 @@ pub const qtextcharformat = struct {
     /// ` factor: i32 `
     ///
     pub fn SetFontStretch(self: ?*anyopaque, factor: i32) void {
-        qtc.QTextCharFormat_SetFontStretch(@ptrCast(self), @intCast(factor));
+        qtc.QTextCharFormat_SetFontStretch(@ptrCast(self), @bitCast(factor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontStretch)
@@ -1250,7 +1250,7 @@ pub const qtextcharformat = struct {
     /// ` hint: qfont_enums.StyleHint `
     ///
     pub fn SetFontStyleHint(self: ?*anyopaque, hint: i32) void {
-        qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @intCast(hint));
+        qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleStrategy)
@@ -1262,7 +1262,7 @@ pub const qtextcharformat = struct {
     /// ` strategy: qfont_enums.StyleStrategy `
     ///
     pub fn SetFontStyleStrategy(self: ?*anyopaque, strategy: i32) void {
-        qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @intCast(strategy));
+        qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @bitCast(strategy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleHint)
@@ -1302,7 +1302,7 @@ pub const qtextcharformat = struct {
     /// ` hintingPreference: qfont_enums.HintingPreference `
     ///
     pub fn SetFontHintingPreference(self: ?*anyopaque, hintingPreference: i32) void {
-        qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @intCast(hintingPreference));
+        qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @bitCast(hintingPreference));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontHintingPreference)
@@ -1350,7 +1350,7 @@ pub const qtextcharformat = struct {
     /// ` style: qtextformat_enums.UnderlineStyle `
     ///
     pub fn SetUnderlineStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#underlineStyle)
@@ -1376,7 +1376,7 @@ pub const qtextcharformat = struct {
     /// ` alignment: qtextformat_enums.VerticalAlignment `
     ///
     pub fn SetVerticalAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#verticalAlignment)
@@ -1456,7 +1456,7 @@ pub const qtextcharformat = struct {
     /// ` baseline: f64 `
     ///
     pub fn SetSuperScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self), @bitCast(baseline));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#superScriptBaseline)
@@ -1478,7 +1478,7 @@ pub const qtextcharformat = struct {
     /// ` baseline: f64 `
     ///
     pub fn SetSubScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self), @bitCast(baseline));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#subScriptBaseline)
@@ -1500,7 +1500,7 @@ pub const qtextcharformat = struct {
     /// ` baseline: f64 `
     ///
     pub fn SetBaselineOffset(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextCharFormat_SetBaselineOffset(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetBaselineOffset(@ptrCast(self), @bitCast(baseline));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#baselineOffset)
@@ -1629,7 +1629,7 @@ pub const qtextcharformat = struct {
     /// ` tableCellRowSpan: i32 `
     ///
     pub fn SetTableCellRowSpan(self: ?*anyopaque, tableCellRowSpan: i32) void {
-        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self), @intCast(tableCellRowSpan));
+        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self), @bitCast(tableCellRowSpan));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#tableCellRowSpan)
@@ -1651,7 +1651,7 @@ pub const qtextcharformat = struct {
     /// ` tableCellColumnSpan: i32 `
     ///
     pub fn SetTableCellColumnSpan(self: ?*anyopaque, tableCellColumnSpan: i32) void {
-        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self), @intCast(tableCellColumnSpan));
+        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self), @bitCast(tableCellColumnSpan));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#tableCellColumnSpan)
@@ -1675,7 +1675,7 @@ pub const qtextcharformat = struct {
     /// ` behavior: qtextformat_enums.FontPropertiesInheritanceBehavior `
     ///
     pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, behavior: i32) void {
-        qtc.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @intCast(behavior));
+        qtc.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @bitCast(behavior));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
@@ -1689,7 +1689,7 @@ pub const qtextcharformat = struct {
     /// ` strategy: qfont_enums.StyleStrategy `
     ///
     pub fn SetFontStyleHint2(self: ?*anyopaque, hint: i32, strategy: i32) void {
-        qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @intCast(hint), @intCast(strategy));
+        qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @bitCast(hint), @bitCast(strategy));
     }
 
     /// Inherited from QTextFormat
@@ -1781,7 +1781,7 @@ pub const qtextcharformat = struct {
     /// ` object: i32 `
     ///
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @bitCast(object));
     }
 
     /// Inherited from QTextFormat
@@ -1795,7 +1795,7 @@ pub const qtextcharformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
-        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_Property(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1811,7 +1811,7 @@ pub const qtextcharformat = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @bitCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
@@ -1825,7 +1825,7 @@ pub const qtextcharformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1839,7 +1839,7 @@ pub const qtextcharformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1853,7 +1853,7 @@ pub const qtextcharformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1867,7 +1867,7 @@ pub const qtextcharformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1881,7 +1881,7 @@ pub const qtextcharformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1897,7 +1897,7 @@ pub const qtextcharformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextcharformat.StringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1915,7 +1915,7 @@ pub const qtextcharformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
-        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1929,7 +1929,7 @@ pub const qtextcharformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
-        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1943,7 +1943,7 @@ pub const qtextcharformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
-        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1957,7 +1957,7 @@ pub const qtextcharformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
-        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1973,7 +1973,7 @@ pub const qtextcharformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextcharformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -1998,7 +1998,7 @@ pub const qtextcharformat = struct {
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @bitCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
@@ -2052,7 +2052,7 @@ pub const qtextcharformat = struct {
     /// ` typeVal: i32 `
     ///
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QTextFormat
@@ -2286,7 +2286,7 @@ pub const qtextcharformat = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QTextFormat
@@ -2431,7 +2431,7 @@ pub const qtextblockformat = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QTextBlockFormat_SetAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QTextBlockFormat_SetAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#alignment)
@@ -2457,7 +2457,7 @@ pub const qtextblockformat = struct {
     /// ` margin: f64 `
     ///
     pub fn SetTopMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextBlockFormat_SetTopMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextBlockFormat_SetTopMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#topMargin)
@@ -2479,7 +2479,7 @@ pub const qtextblockformat = struct {
     /// ` margin: f64 `
     ///
     pub fn SetBottomMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextBlockFormat_SetBottomMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextBlockFormat_SetBottomMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#bottomMargin)
@@ -2501,7 +2501,7 @@ pub const qtextblockformat = struct {
     /// ` margin: f64 `
     ///
     pub fn SetLeftMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextBlockFormat_SetLeftMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextBlockFormat_SetLeftMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#leftMargin)
@@ -2523,7 +2523,7 @@ pub const qtextblockformat = struct {
     /// ` margin: f64 `
     ///
     pub fn SetRightMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextBlockFormat_SetRightMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextBlockFormat_SetRightMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#rightMargin)
@@ -2545,7 +2545,7 @@ pub const qtextblockformat = struct {
     /// ` aindent: f64 `
     ///
     pub fn SetTextIndent(self: ?*anyopaque, aindent: f64) void {
-        qtc.QTextBlockFormat_SetTextIndent(@ptrCast(self), @floatCast(aindent));
+        qtc.QTextBlockFormat_SetTextIndent(@ptrCast(self), @bitCast(aindent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#textIndent)
@@ -2567,7 +2567,7 @@ pub const qtextblockformat = struct {
     /// ` indent: i32 `
     ///
     pub fn SetIndent(self: ?*anyopaque, indent: i32) void {
-        qtc.QTextBlockFormat_SetIndent(@ptrCast(self), @intCast(indent));
+        qtc.QTextBlockFormat_SetIndent(@ptrCast(self), @bitCast(indent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#indent)
@@ -2589,7 +2589,7 @@ pub const qtextblockformat = struct {
     /// ` alevel: i32 `
     ///
     pub fn SetHeadingLevel(self: ?*anyopaque, alevel: i32) void {
-        qtc.QTextBlockFormat_SetHeadingLevel(@ptrCast(self), @intCast(alevel));
+        qtc.QTextBlockFormat_SetHeadingLevel(@ptrCast(self), @bitCast(alevel));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#headingLevel)
@@ -2613,7 +2613,7 @@ pub const qtextblockformat = struct {
     /// ` heightType: i32 `
     ///
     pub fn SetLineHeight(self: ?*anyopaque, height: f64, heightType: i32) void {
-        qtc.QTextBlockFormat_SetLineHeight(@ptrCast(self), @floatCast(height), @intCast(heightType));
+        qtc.QTextBlockFormat_SetLineHeight(@ptrCast(self), @bitCast(height), @bitCast(heightType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#lineHeight)
@@ -2627,7 +2627,7 @@ pub const qtextblockformat = struct {
     /// ` scaling: f64 `
     ///
     pub fn LineHeight(self: ?*anyopaque, scriptLineHeight: f64, scaling: f64) f64 {
-        return qtc.QTextBlockFormat_LineHeight(@ptrCast(self), @floatCast(scriptLineHeight), @floatCast(scaling));
+        return qtc.QTextBlockFormat_LineHeight(@ptrCast(self), @bitCast(scriptLineHeight), @bitCast(scaling));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#lineHeight)
@@ -2681,7 +2681,7 @@ pub const qtextblockformat = struct {
     /// ` flags: flag of qtextformat_enums.PageBreakFlag `
     ///
     pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i32) void {
-        qtc.QTextBlockFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
+        qtc.QTextBlockFormat_SetPageBreakPolicy(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#pageBreakPolicy)
@@ -2740,7 +2740,7 @@ pub const qtextblockformat = struct {
     /// ` marker: qtextformat_enums.MarkerType `
     ///
     pub fn SetMarker(self: ?*anyopaque, marker: i32) void {
-        qtc.QTextBlockFormat_SetMarker(@ptrCast(self), @intCast(marker));
+        qtc.QTextBlockFormat_SetMarker(@ptrCast(self), @bitCast(marker));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#marker)
@@ -2846,7 +2846,7 @@ pub const qtextblockformat = struct {
     /// ` object: i32 `
     ///
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @bitCast(object));
     }
 
     /// Inherited from QTextFormat
@@ -2860,7 +2860,7 @@ pub const qtextblockformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
-        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_Property(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -2876,7 +2876,7 @@ pub const qtextblockformat = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @bitCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
@@ -2890,7 +2890,7 @@ pub const qtextblockformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -2904,7 +2904,7 @@ pub const qtextblockformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -2918,7 +2918,7 @@ pub const qtextblockformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -2932,7 +2932,7 @@ pub const qtextblockformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -2946,7 +2946,7 @@ pub const qtextblockformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -2962,7 +2962,7 @@ pub const qtextblockformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextblockformat.StringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2980,7 +2980,7 @@ pub const qtextblockformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
-        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -2994,7 +2994,7 @@ pub const qtextblockformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
-        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -3008,7 +3008,7 @@ pub const qtextblockformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
-        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -3022,7 +3022,7 @@ pub const qtextblockformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
-        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -3038,7 +3038,7 @@ pub const qtextblockformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextblockformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -3063,7 +3063,7 @@ pub const qtextblockformat = struct {
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @bitCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
@@ -3117,7 +3117,7 @@ pub const qtextblockformat = struct {
     /// ` typeVal: i32 `
     ///
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QTextFormat
@@ -3351,7 +3351,7 @@ pub const qtextblockformat = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QTextFormat
@@ -3496,7 +3496,7 @@ pub const qtextlistformat = struct {
     /// ` style: qtextformat_enums.Style `
     ///
     pub fn SetStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTextListFormat_SetStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextListFormat_SetStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#style)
@@ -3522,7 +3522,7 @@ pub const qtextlistformat = struct {
     /// ` indent: i32 `
     ///
     pub fn SetIndent(self: ?*anyopaque, indent: i32) void {
-        qtc.QTextListFormat_SetIndent(@ptrCast(self), @intCast(indent));
+        qtc.QTextListFormat_SetIndent(@ptrCast(self), @bitCast(indent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#indent)
@@ -3608,7 +3608,7 @@ pub const qtextlistformat = struct {
     /// ` indent: i32 `
     ///
     pub fn SetStart(self: ?*anyopaque, indent: i32) void {
-        qtc.QTextListFormat_SetStart(@ptrCast(self), @intCast(indent));
+        qtc.QTextListFormat_SetStart(@ptrCast(self), @bitCast(indent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#start)
@@ -3710,7 +3710,7 @@ pub const qtextlistformat = struct {
     /// ` object: i32 `
     ///
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @bitCast(object));
     }
 
     /// Inherited from QTextFormat
@@ -3724,7 +3724,7 @@ pub const qtextlistformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
-        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_Property(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -3740,7 +3740,7 @@ pub const qtextlistformat = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @bitCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
@@ -3754,7 +3754,7 @@ pub const qtextlistformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -3768,7 +3768,7 @@ pub const qtextlistformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -3782,7 +3782,7 @@ pub const qtextlistformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -3796,7 +3796,7 @@ pub const qtextlistformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -3810,7 +3810,7 @@ pub const qtextlistformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -3826,7 +3826,7 @@ pub const qtextlistformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextlistformat.StringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3844,7 +3844,7 @@ pub const qtextlistformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
-        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -3858,7 +3858,7 @@ pub const qtextlistformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
-        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -3872,7 +3872,7 @@ pub const qtextlistformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
-        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -3886,7 +3886,7 @@ pub const qtextlistformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
-        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -3902,7 +3902,7 @@ pub const qtextlistformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextlistformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -3927,7 +3927,7 @@ pub const qtextlistformat = struct {
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @bitCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
@@ -3981,7 +3981,7 @@ pub const qtextlistformat = struct {
     /// ` typeVal: i32 `
     ///
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QTextFormat
@@ -4215,7 +4215,7 @@ pub const qtextlistformat = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QTextFormat
@@ -4392,7 +4392,7 @@ pub const qtextimageformat = struct {
     /// ` width: f64 `
     ///
     pub fn SetWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QTextImageFormat_SetWidth(@ptrCast(self), @floatCast(width));
+        qtc.QTextImageFormat_SetWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#width)
@@ -4436,7 +4436,7 @@ pub const qtextimageformat = struct {
     /// ` height: f64 `
     ///
     pub fn SetHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QTextImageFormat_SetHeight(@ptrCast(self), @floatCast(height));
+        qtc.QTextImageFormat_SetHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#height)
@@ -4458,7 +4458,7 @@ pub const qtextimageformat = struct {
     /// ` quality: i32 `
     ///
     pub fn SetQuality(self: ?*anyopaque, quality: i32) void {
-        qtc.QTextImageFormat_SetQuality(@ptrCast(self), @intCast(quality));
+        qtc.QTextImageFormat_SetQuality(@ptrCast(self), @bitCast(quality));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#setQuality)
@@ -4624,7 +4624,7 @@ pub const qtextimageformat = struct {
     /// ` size: f64 `
     ///
     pub fn SetFontPointSize(self: ?*anyopaque, size: f64) void {
-        qtc.QTextCharFormat_SetFontPointSize(@ptrCast(self), @floatCast(size));
+        qtc.QTextCharFormat_SetFontPointSize(@ptrCast(self), @bitCast(size));
     }
 
     /// Inherited from QTextCharFormat
@@ -4650,7 +4650,7 @@ pub const qtextimageformat = struct {
     /// ` weight: i32 `
     ///
     pub fn SetFontWeight(self: ?*anyopaque, weight: i32) void {
-        qtc.QTextCharFormat_SetFontWeight(@ptrCast(self), @intCast(weight));
+        qtc.QTextCharFormat_SetFontWeight(@ptrCast(self), @bitCast(weight));
     }
 
     /// Inherited from QTextCharFormat
@@ -4702,7 +4702,7 @@ pub const qtextimageformat = struct {
     /// ` capitalization: qfont_enums.Capitalization `
     ///
     pub fn SetFontCapitalization(self: ?*anyopaque, capitalization: i32) void {
-        qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @intCast(capitalization));
+        qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @bitCast(capitalization));
     }
 
     /// Inherited from QTextCharFormat
@@ -4732,7 +4732,7 @@ pub const qtextimageformat = struct {
     /// ` letterSpacingType: qfont_enums.SpacingType `
     ///
     pub fn SetFontLetterSpacingType(self: ?*anyopaque, letterSpacingType: i32) void {
-        qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @intCast(letterSpacingType));
+        qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @bitCast(letterSpacingType));
     }
 
     /// Inherited from QTextCharFormat
@@ -4762,7 +4762,7 @@ pub const qtextimageformat = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetFontLetterSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// Inherited from QTextCharFormat
@@ -4788,7 +4788,7 @@ pub const qtextimageformat = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetFontWordSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QTextCharFormat_SetFontWordSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextCharFormat_SetFontWordSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// Inherited from QTextCharFormat
@@ -4944,7 +4944,7 @@ pub const qtextimageformat = struct {
     /// ` factor: i32 `
     ///
     pub fn SetFontStretch(self: ?*anyopaque, factor: i32) void {
-        qtc.QTextCharFormat_SetFontStretch(@ptrCast(self), @intCast(factor));
+        qtc.QTextCharFormat_SetFontStretch(@ptrCast(self), @bitCast(factor));
     }
 
     /// Inherited from QTextCharFormat
@@ -4970,7 +4970,7 @@ pub const qtextimageformat = struct {
     /// ` hint: qfont_enums.StyleHint `
     ///
     pub fn SetFontStyleHint(self: ?*anyopaque, hint: i32) void {
-        qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @intCast(hint));
+        qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @bitCast(hint));
     }
 
     /// Inherited from QTextCharFormat
@@ -4984,7 +4984,7 @@ pub const qtextimageformat = struct {
     /// ` strategy: qfont_enums.StyleStrategy `
     ///
     pub fn SetFontStyleStrategy(self: ?*anyopaque, strategy: i32) void {
-        qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @intCast(strategy));
+        qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @bitCast(strategy));
     }
 
     /// Inherited from QTextCharFormat
@@ -5030,7 +5030,7 @@ pub const qtextimageformat = struct {
     /// ` hintingPreference: qfont_enums.HintingPreference `
     ///
     pub fn SetFontHintingPreference(self: ?*anyopaque, hintingPreference: i32) void {
-        qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @intCast(hintingPreference));
+        qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @bitCast(hintingPreference));
     }
 
     /// Inherited from QTextCharFormat
@@ -5086,7 +5086,7 @@ pub const qtextimageformat = struct {
     /// ` style: qtextformat_enums.UnderlineStyle `
     ///
     pub fn SetUnderlineStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QTextCharFormat
@@ -5116,7 +5116,7 @@ pub const qtextimageformat = struct {
     /// ` alignment: qtextformat_enums.VerticalAlignment `
     ///
     pub fn SetVerticalAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// Inherited from QTextCharFormat
@@ -5208,7 +5208,7 @@ pub const qtextimageformat = struct {
     /// ` baseline: f64 `
     ///
     pub fn SetSuperScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self), @bitCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
@@ -5234,7 +5234,7 @@ pub const qtextimageformat = struct {
     /// ` baseline: f64 `
     ///
     pub fn SetSubScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self), @bitCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
@@ -5260,7 +5260,7 @@ pub const qtextimageformat = struct {
     /// ` baseline: f64 `
     ///
     pub fn SetBaselineOffset(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextCharFormat_SetBaselineOffset(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetBaselineOffset(@ptrCast(self), @bitCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
@@ -5405,7 +5405,7 @@ pub const qtextimageformat = struct {
     /// ` tableCellRowSpan: i32 `
     ///
     pub fn SetTableCellRowSpan(self: ?*anyopaque, tableCellRowSpan: i32) void {
-        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self), @intCast(tableCellRowSpan));
+        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self), @bitCast(tableCellRowSpan));
     }
 
     /// Inherited from QTextCharFormat
@@ -5431,7 +5431,7 @@ pub const qtextimageformat = struct {
     /// ` tableCellColumnSpan: i32 `
     ///
     pub fn SetTableCellColumnSpan(self: ?*anyopaque, tableCellColumnSpan: i32) void {
-        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self), @intCast(tableCellColumnSpan));
+        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self), @bitCast(tableCellColumnSpan));
     }
 
     /// Inherited from QTextCharFormat
@@ -5459,7 +5459,7 @@ pub const qtextimageformat = struct {
     /// ` behavior: qtextformat_enums.FontPropertiesInheritanceBehavior `
     ///
     pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, behavior: i32) void {
-        qtc.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @intCast(behavior));
+        qtc.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @bitCast(behavior));
     }
 
     /// Inherited from QTextCharFormat
@@ -5475,7 +5475,7 @@ pub const qtextimageformat = struct {
     /// ` strategy: qfont_enums.StyleStrategy `
     ///
     pub fn SetFontStyleHint2(self: ?*anyopaque, hint: i32, strategy: i32) void {
-        qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @intCast(hint), @intCast(strategy));
+        qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @bitCast(hint), @bitCast(strategy));
     }
 
     /// Inherited from QTextFormat
@@ -5567,7 +5567,7 @@ pub const qtextimageformat = struct {
     /// ` object: i32 `
     ///
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @bitCast(object));
     }
 
     /// Inherited from QTextFormat
@@ -5581,7 +5581,7 @@ pub const qtextimageformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
-        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_Property(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -5597,7 +5597,7 @@ pub const qtextimageformat = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @bitCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
@@ -5611,7 +5611,7 @@ pub const qtextimageformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -5625,7 +5625,7 @@ pub const qtextimageformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -5639,7 +5639,7 @@ pub const qtextimageformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -5653,7 +5653,7 @@ pub const qtextimageformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -5667,7 +5667,7 @@ pub const qtextimageformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -5683,7 +5683,7 @@ pub const qtextimageformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextimageformat.StringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5701,7 +5701,7 @@ pub const qtextimageformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
-        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -5715,7 +5715,7 @@ pub const qtextimageformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
-        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -5729,7 +5729,7 @@ pub const qtextimageformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
-        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -5743,7 +5743,7 @@ pub const qtextimageformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
-        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -5759,7 +5759,7 @@ pub const qtextimageformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextimageformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -5784,7 +5784,7 @@ pub const qtextimageformat = struct {
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @bitCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
@@ -5838,7 +5838,7 @@ pub const qtextimageformat = struct {
     /// ` typeVal: i32 `
     ///
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QTextFormat
@@ -6072,7 +6072,7 @@ pub const qtextimageformat = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QTextFormat
@@ -6217,7 +6217,7 @@ pub const qtextframeformat = struct {
     /// ` f: qtextformat_enums.Position `
     ///
     pub fn SetPosition(self: ?*anyopaque, f: i32) void {
-        qtc.QTextFrameFormat_SetPosition(@ptrCast(self), @intCast(f));
+        qtc.QTextFrameFormat_SetPosition(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#position)
@@ -6243,7 +6243,7 @@ pub const qtextframeformat = struct {
     /// ` border: f64 `
     ///
     pub fn SetBorder(self: ?*anyopaque, border: f64) void {
-        qtc.QTextFrameFormat_SetBorder(@ptrCast(self), @floatCast(border));
+        qtc.QTextFrameFormat_SetBorder(@ptrCast(self), @bitCast(border));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#border)
@@ -6287,7 +6287,7 @@ pub const qtextframeformat = struct {
     /// ` style: qtextformat_enums.BorderStyle `
     ///
     pub fn SetBorderStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTextFrameFormat_SetBorderStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextFrameFormat_SetBorderStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#borderStyle)
@@ -6313,7 +6313,7 @@ pub const qtextframeformat = struct {
     /// ` margin: f64 `
     ///
     pub fn SetMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextFrameFormat_SetMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#margin)
@@ -6335,7 +6335,7 @@ pub const qtextframeformat = struct {
     /// ` margin: f64 `
     ///
     pub fn SetTopMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextFrameFormat_SetTopMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetTopMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#topMargin)
@@ -6357,7 +6357,7 @@ pub const qtextframeformat = struct {
     /// ` margin: f64 `
     ///
     pub fn SetBottomMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextFrameFormat_SetBottomMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetBottomMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#bottomMargin)
@@ -6379,7 +6379,7 @@ pub const qtextframeformat = struct {
     /// ` margin: f64 `
     ///
     pub fn SetLeftMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextFrameFormat_SetLeftMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetLeftMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#leftMargin)
@@ -6401,7 +6401,7 @@ pub const qtextframeformat = struct {
     /// ` margin: f64 `
     ///
     pub fn SetRightMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextFrameFormat_SetRightMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetRightMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#rightMargin)
@@ -6423,7 +6423,7 @@ pub const qtextframeformat = struct {
     /// ` padding: f64 `
     ///
     pub fn SetPadding(self: ?*anyopaque, padding: f64) void {
-        qtc.QTextFrameFormat_SetPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextFrameFormat_SetPadding(@ptrCast(self), @bitCast(padding));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#padding)
@@ -6445,7 +6445,7 @@ pub const qtextframeformat = struct {
     /// ` width: f64 `
     ///
     pub fn SetWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QTextFrameFormat_SetWidth(@ptrCast(self), @floatCast(width));
+        qtc.QTextFrameFormat_SetWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setWidth)
@@ -6479,7 +6479,7 @@ pub const qtextframeformat = struct {
     /// ` height: f64 `
     ///
     pub fn SetHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QTextFrameFormat_SetHeight(@ptrCast(self), @floatCast(height));
+        qtc.QTextFrameFormat_SetHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setHeight)
@@ -6513,7 +6513,7 @@ pub const qtextframeformat = struct {
     /// ` flags: flag of qtextformat_enums.PageBreakFlag `
     ///
     pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i32) void {
-        qtc.QTextFrameFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
+        qtc.QTextFrameFormat_SetPageBreakPolicy(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#pageBreakPolicy)
@@ -6619,7 +6619,7 @@ pub const qtextframeformat = struct {
     /// ` object: i32 `
     ///
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @bitCast(object));
     }
 
     /// Inherited from QTextFormat
@@ -6633,7 +6633,7 @@ pub const qtextframeformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
-        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_Property(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -6649,7 +6649,7 @@ pub const qtextframeformat = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @bitCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
@@ -6663,7 +6663,7 @@ pub const qtextframeformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -6677,7 +6677,7 @@ pub const qtextframeformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -6691,7 +6691,7 @@ pub const qtextframeformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -6705,7 +6705,7 @@ pub const qtextframeformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -6719,7 +6719,7 @@ pub const qtextframeformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -6735,7 +6735,7 @@ pub const qtextframeformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextframeformat.StringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6753,7 +6753,7 @@ pub const qtextframeformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
-        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -6767,7 +6767,7 @@ pub const qtextframeformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
-        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -6781,7 +6781,7 @@ pub const qtextframeformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
-        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -6795,7 +6795,7 @@ pub const qtextframeformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
-        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -6811,7 +6811,7 @@ pub const qtextframeformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextframeformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -6836,7 +6836,7 @@ pub const qtextframeformat = struct {
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @bitCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
@@ -6890,7 +6890,7 @@ pub const qtextframeformat = struct {
     /// ` typeVal: i32 `
     ///
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QTextFormat
@@ -7124,7 +7124,7 @@ pub const qtextframeformat = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QTextFormat
@@ -7279,7 +7279,7 @@ pub const qtexttableformat = struct {
     /// ` columns: i32 `
     ///
     pub fn SetColumns(self: ?*anyopaque, columns: i32) void {
-        qtc.QTextTableFormat_SetColumns(@ptrCast(self), @intCast(columns));
+        qtc.QTextTableFormat_SetColumns(@ptrCast(self), @bitCast(columns));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#setColumnWidthConstraints)
@@ -7344,7 +7344,7 @@ pub const qtexttableformat = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetCellSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QTextTableFormat_SetCellSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextTableFormat_SetCellSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#cellPadding)
@@ -7366,7 +7366,7 @@ pub const qtexttableformat = struct {
     /// ` padding: f64 `
     ///
     pub fn SetCellPadding(self: ?*anyopaque, padding: f64) void {
-        qtc.QTextTableFormat_SetCellPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextTableFormat_SetCellPadding(@ptrCast(self), @bitCast(padding));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#setAlignment)
@@ -7378,7 +7378,7 @@ pub const qtexttableformat = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QTextTableFormat_SetAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QTextTableFormat_SetAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#alignment)
@@ -7404,7 +7404,7 @@ pub const qtexttableformat = struct {
     /// ` count: i32 `
     ///
     pub fn SetHeaderRowCount(self: ?*anyopaque, count: i32) void {
-        qtc.QTextTableFormat_SetHeaderRowCount(@ptrCast(self), @intCast(count));
+        qtc.QTextTableFormat_SetHeaderRowCount(@ptrCast(self), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#headerRowCount)
@@ -7450,7 +7450,7 @@ pub const qtexttableformat = struct {
     /// ` f: qtextformat_enums.Position `
     ///
     pub fn SetPosition(self: ?*anyopaque, f: i32) void {
-        qtc.QTextFrameFormat_SetPosition(@ptrCast(self), @intCast(f));
+        qtc.QTextFrameFormat_SetPosition(@ptrCast(self), @bitCast(f));
     }
 
     /// Inherited from QTextFrameFormat
@@ -7480,7 +7480,7 @@ pub const qtexttableformat = struct {
     /// ` border: f64 `
     ///
     pub fn SetBorder(self: ?*anyopaque, border: f64) void {
-        qtc.QTextFrameFormat_SetBorder(@ptrCast(self), @floatCast(border));
+        qtc.QTextFrameFormat_SetBorder(@ptrCast(self), @bitCast(border));
     }
 
     /// Inherited from QTextFrameFormat
@@ -7532,7 +7532,7 @@ pub const qtexttableformat = struct {
     /// ` style: qtextformat_enums.BorderStyle `
     ///
     pub fn SetBorderStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTextFrameFormat_SetBorderStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextFrameFormat_SetBorderStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QTextFrameFormat
@@ -7562,7 +7562,7 @@ pub const qtexttableformat = struct {
     /// ` margin: f64 `
     ///
     pub fn SetMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextFrameFormat_SetMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// Inherited from QTextFrameFormat
@@ -7588,7 +7588,7 @@ pub const qtexttableformat = struct {
     /// ` margin: f64 `
     ///
     pub fn SetTopMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextFrameFormat_SetTopMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetTopMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// Inherited from QTextFrameFormat
@@ -7614,7 +7614,7 @@ pub const qtexttableformat = struct {
     /// ` margin: f64 `
     ///
     pub fn SetBottomMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextFrameFormat_SetBottomMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetBottomMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// Inherited from QTextFrameFormat
@@ -7640,7 +7640,7 @@ pub const qtexttableformat = struct {
     /// ` margin: f64 `
     ///
     pub fn SetLeftMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextFrameFormat_SetLeftMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetLeftMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// Inherited from QTextFrameFormat
@@ -7666,7 +7666,7 @@ pub const qtexttableformat = struct {
     /// ` margin: f64 `
     ///
     pub fn SetRightMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextFrameFormat_SetRightMargin(@ptrCast(self), @floatCast(margin));
+        qtc.QTextFrameFormat_SetRightMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// Inherited from QTextFrameFormat
@@ -7692,7 +7692,7 @@ pub const qtexttableformat = struct {
     /// ` padding: f64 `
     ///
     pub fn SetPadding(self: ?*anyopaque, padding: f64) void {
-        qtc.QTextFrameFormat_SetPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextFrameFormat_SetPadding(@ptrCast(self), @bitCast(padding));
     }
 
     /// Inherited from QTextFrameFormat
@@ -7718,7 +7718,7 @@ pub const qtexttableformat = struct {
     /// ` width: f64 `
     ///
     pub fn SetWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QTextFrameFormat_SetWidth(@ptrCast(self), @floatCast(width));
+        qtc.QTextFrameFormat_SetWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// Inherited from QTextFrameFormat
@@ -7758,7 +7758,7 @@ pub const qtexttableformat = struct {
     /// ` height: f64 `
     ///
     pub fn SetHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QTextFrameFormat_SetHeight(@ptrCast(self), @floatCast(height));
+        qtc.QTextFrameFormat_SetHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// Inherited from QTextFrameFormat
@@ -7798,7 +7798,7 @@ pub const qtexttableformat = struct {
     /// ` flags: flag of qtextformat_enums.PageBreakFlag `
     ///
     pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i32) void {
-        qtc.QTextFrameFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
+        qtc.QTextFrameFormat_SetPageBreakPolicy(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QTextFrameFormat
@@ -7906,7 +7906,7 @@ pub const qtexttableformat = struct {
     /// ` object: i32 `
     ///
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @bitCast(object));
     }
 
     /// Inherited from QTextFormat
@@ -7920,7 +7920,7 @@ pub const qtexttableformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
-        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_Property(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -7936,7 +7936,7 @@ pub const qtexttableformat = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @bitCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
@@ -7950,7 +7950,7 @@ pub const qtexttableformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -7964,7 +7964,7 @@ pub const qtexttableformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -7978,7 +7978,7 @@ pub const qtexttableformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -7992,7 +7992,7 @@ pub const qtexttableformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -8006,7 +8006,7 @@ pub const qtexttableformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -8022,7 +8022,7 @@ pub const qtexttableformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttableformat.StringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -8040,7 +8040,7 @@ pub const qtexttableformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
-        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -8054,7 +8054,7 @@ pub const qtexttableformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
-        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -8068,7 +8068,7 @@ pub const qtexttableformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
-        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -8082,7 +8082,7 @@ pub const qtexttableformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
-        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -8098,7 +8098,7 @@ pub const qtexttableformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtexttableformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -8123,7 +8123,7 @@ pub const qtexttableformat = struct {
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @bitCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
@@ -8177,7 +8177,7 @@ pub const qtexttableformat = struct {
     /// ` typeVal: i32 `
     ///
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QTextFormat
@@ -8411,7 +8411,7 @@ pub const qtexttableformat = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QTextFormat
@@ -8556,7 +8556,7 @@ pub const qtexttablecellformat = struct {
     /// ` padding: f64 `
     ///
     pub fn SetTopPadding(self: ?*anyopaque, padding: f64) void {
-        qtc.QTextTableCellFormat_SetTopPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextTableCellFormat_SetTopPadding(@ptrCast(self), @bitCast(padding));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#topPadding)
@@ -8578,7 +8578,7 @@ pub const qtexttablecellformat = struct {
     /// ` padding: f64 `
     ///
     pub fn SetBottomPadding(self: ?*anyopaque, padding: f64) void {
-        qtc.QTextTableCellFormat_SetBottomPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextTableCellFormat_SetBottomPadding(@ptrCast(self), @bitCast(padding));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#bottomPadding)
@@ -8600,7 +8600,7 @@ pub const qtexttablecellformat = struct {
     /// ` padding: f64 `
     ///
     pub fn SetLeftPadding(self: ?*anyopaque, padding: f64) void {
-        qtc.QTextTableCellFormat_SetLeftPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextTableCellFormat_SetLeftPadding(@ptrCast(self), @bitCast(padding));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#leftPadding)
@@ -8622,7 +8622,7 @@ pub const qtexttablecellformat = struct {
     /// ` padding: f64 `
     ///
     pub fn SetRightPadding(self: ?*anyopaque, padding: f64) void {
-        qtc.QTextTableCellFormat_SetRightPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextTableCellFormat_SetRightPadding(@ptrCast(self), @bitCast(padding));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#rightPadding)
@@ -8644,7 +8644,7 @@ pub const qtexttablecellformat = struct {
     /// ` padding: f64 `
     ///
     pub fn SetPadding(self: ?*anyopaque, padding: f64) void {
-        qtc.QTextTableCellFormat_SetPadding(@ptrCast(self), @floatCast(padding));
+        qtc.QTextTableCellFormat_SetPadding(@ptrCast(self), @bitCast(padding));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setTopBorder)
@@ -8656,7 +8656,7 @@ pub const qtexttablecellformat = struct {
     /// ` width: f64 `
     ///
     pub fn SetTopBorder(self: ?*anyopaque, width: f64) void {
-        qtc.QTextTableCellFormat_SetTopBorder(@ptrCast(self), @floatCast(width));
+        qtc.QTextTableCellFormat_SetTopBorder(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#topBorder)
@@ -8678,7 +8678,7 @@ pub const qtexttablecellformat = struct {
     /// ` width: f64 `
     ///
     pub fn SetBottomBorder(self: ?*anyopaque, width: f64) void {
-        qtc.QTextTableCellFormat_SetBottomBorder(@ptrCast(self), @floatCast(width));
+        qtc.QTextTableCellFormat_SetBottomBorder(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#bottomBorder)
@@ -8700,7 +8700,7 @@ pub const qtexttablecellformat = struct {
     /// ` width: f64 `
     ///
     pub fn SetLeftBorder(self: ?*anyopaque, width: f64) void {
-        qtc.QTextTableCellFormat_SetLeftBorder(@ptrCast(self), @floatCast(width));
+        qtc.QTextTableCellFormat_SetLeftBorder(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#leftBorder)
@@ -8722,7 +8722,7 @@ pub const qtexttablecellformat = struct {
     /// ` width: f64 `
     ///
     pub fn SetRightBorder(self: ?*anyopaque, width: f64) void {
-        qtc.QTextTableCellFormat_SetRightBorder(@ptrCast(self), @floatCast(width));
+        qtc.QTextTableCellFormat_SetRightBorder(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#rightBorder)
@@ -8744,7 +8744,7 @@ pub const qtexttablecellformat = struct {
     /// ` width: f64 `
     ///
     pub fn SetBorder(self: ?*anyopaque, width: f64) void {
-        qtc.QTextTableCellFormat_SetBorder(@ptrCast(self), @floatCast(width));
+        qtc.QTextTableCellFormat_SetBorder(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setTopBorderStyle)
@@ -8756,7 +8756,7 @@ pub const qtexttablecellformat = struct {
     /// ` style: qtextformat_enums.BorderStyle `
     ///
     pub fn SetTopBorderStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTextTableCellFormat_SetTopBorderStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextTableCellFormat_SetTopBorderStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#topBorderStyle)
@@ -8782,7 +8782,7 @@ pub const qtexttablecellformat = struct {
     /// ` style: qtextformat_enums.BorderStyle `
     ///
     pub fn SetBottomBorderStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTextTableCellFormat_SetBottomBorderStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextTableCellFormat_SetBottomBorderStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#bottomBorderStyle)
@@ -8808,7 +8808,7 @@ pub const qtexttablecellformat = struct {
     /// ` style: qtextformat_enums.BorderStyle `
     ///
     pub fn SetLeftBorderStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTextTableCellFormat_SetLeftBorderStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextTableCellFormat_SetLeftBorderStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#leftBorderStyle)
@@ -8834,7 +8834,7 @@ pub const qtexttablecellformat = struct {
     /// ` style: qtextformat_enums.BorderStyle `
     ///
     pub fn SetRightBorderStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTextTableCellFormat_SetRightBorderStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextTableCellFormat_SetRightBorderStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#rightBorderStyle)
@@ -8860,7 +8860,7 @@ pub const qtexttablecellformat = struct {
     /// ` style: qtextformat_enums.BorderStyle `
     ///
     pub fn SetBorderStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTextTableCellFormat_SetBorderStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextTableCellFormat_SetBorderStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setTopBorderBrush)
@@ -9106,7 +9106,7 @@ pub const qtexttablecellformat = struct {
     /// ` size: f64 `
     ///
     pub fn SetFontPointSize(self: ?*anyopaque, size: f64) void {
-        qtc.QTextCharFormat_SetFontPointSize(@ptrCast(self), @floatCast(size));
+        qtc.QTextCharFormat_SetFontPointSize(@ptrCast(self), @bitCast(size));
     }
 
     /// Inherited from QTextCharFormat
@@ -9132,7 +9132,7 @@ pub const qtexttablecellformat = struct {
     /// ` weight: i32 `
     ///
     pub fn SetFontWeight(self: ?*anyopaque, weight: i32) void {
-        qtc.QTextCharFormat_SetFontWeight(@ptrCast(self), @intCast(weight));
+        qtc.QTextCharFormat_SetFontWeight(@ptrCast(self), @bitCast(weight));
     }
 
     /// Inherited from QTextCharFormat
@@ -9184,7 +9184,7 @@ pub const qtexttablecellformat = struct {
     /// ` capitalization: qfont_enums.Capitalization `
     ///
     pub fn SetFontCapitalization(self: ?*anyopaque, capitalization: i32) void {
-        qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @intCast(capitalization));
+        qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @bitCast(capitalization));
     }
 
     /// Inherited from QTextCharFormat
@@ -9214,7 +9214,7 @@ pub const qtexttablecellformat = struct {
     /// ` letterSpacingType: qfont_enums.SpacingType `
     ///
     pub fn SetFontLetterSpacingType(self: ?*anyopaque, letterSpacingType: i32) void {
-        qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @intCast(letterSpacingType));
+        qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @bitCast(letterSpacingType));
     }
 
     /// Inherited from QTextCharFormat
@@ -9244,7 +9244,7 @@ pub const qtexttablecellformat = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetFontLetterSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// Inherited from QTextCharFormat
@@ -9270,7 +9270,7 @@ pub const qtexttablecellformat = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetFontWordSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QTextCharFormat_SetFontWordSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextCharFormat_SetFontWordSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// Inherited from QTextCharFormat
@@ -9426,7 +9426,7 @@ pub const qtexttablecellformat = struct {
     /// ` factor: i32 `
     ///
     pub fn SetFontStretch(self: ?*anyopaque, factor: i32) void {
-        qtc.QTextCharFormat_SetFontStretch(@ptrCast(self), @intCast(factor));
+        qtc.QTextCharFormat_SetFontStretch(@ptrCast(self), @bitCast(factor));
     }
 
     /// Inherited from QTextCharFormat
@@ -9452,7 +9452,7 @@ pub const qtexttablecellformat = struct {
     /// ` hint: qfont_enums.StyleHint `
     ///
     pub fn SetFontStyleHint(self: ?*anyopaque, hint: i32) void {
-        qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @intCast(hint));
+        qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @bitCast(hint));
     }
 
     /// Inherited from QTextCharFormat
@@ -9466,7 +9466,7 @@ pub const qtexttablecellformat = struct {
     /// ` strategy: qfont_enums.StyleStrategy `
     ///
     pub fn SetFontStyleStrategy(self: ?*anyopaque, strategy: i32) void {
-        qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @intCast(strategy));
+        qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @bitCast(strategy));
     }
 
     /// Inherited from QTextCharFormat
@@ -9512,7 +9512,7 @@ pub const qtexttablecellformat = struct {
     /// ` hintingPreference: qfont_enums.HintingPreference `
     ///
     pub fn SetFontHintingPreference(self: ?*anyopaque, hintingPreference: i32) void {
-        qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @intCast(hintingPreference));
+        qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @bitCast(hintingPreference));
     }
 
     /// Inherited from QTextCharFormat
@@ -9568,7 +9568,7 @@ pub const qtexttablecellformat = struct {
     /// ` style: qtextformat_enums.UnderlineStyle `
     ///
     pub fn SetUnderlineStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QTextCharFormat
@@ -9598,7 +9598,7 @@ pub const qtexttablecellformat = struct {
     /// ` alignment: qtextformat_enums.VerticalAlignment `
     ///
     pub fn SetVerticalAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// Inherited from QTextCharFormat
@@ -9690,7 +9690,7 @@ pub const qtexttablecellformat = struct {
     /// ` baseline: f64 `
     ///
     pub fn SetSuperScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self), @bitCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
@@ -9716,7 +9716,7 @@ pub const qtexttablecellformat = struct {
     /// ` baseline: f64 `
     ///
     pub fn SetSubScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self), @bitCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
@@ -9742,7 +9742,7 @@ pub const qtexttablecellformat = struct {
     /// ` baseline: f64 `
     ///
     pub fn SetBaselineOffset(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextCharFormat_SetBaselineOffset(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetBaselineOffset(@ptrCast(self), @bitCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
@@ -9887,7 +9887,7 @@ pub const qtexttablecellformat = struct {
     /// ` tableCellRowSpan: i32 `
     ///
     pub fn SetTableCellRowSpan(self: ?*anyopaque, tableCellRowSpan: i32) void {
-        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self), @intCast(tableCellRowSpan));
+        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self), @bitCast(tableCellRowSpan));
     }
 
     /// Inherited from QTextCharFormat
@@ -9913,7 +9913,7 @@ pub const qtexttablecellformat = struct {
     /// ` tableCellColumnSpan: i32 `
     ///
     pub fn SetTableCellColumnSpan(self: ?*anyopaque, tableCellColumnSpan: i32) void {
-        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self), @intCast(tableCellColumnSpan));
+        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self), @bitCast(tableCellColumnSpan));
     }
 
     /// Inherited from QTextCharFormat
@@ -9941,7 +9941,7 @@ pub const qtexttablecellformat = struct {
     /// ` behavior: qtextformat_enums.FontPropertiesInheritanceBehavior `
     ///
     pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, behavior: i32) void {
-        qtc.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @intCast(behavior));
+        qtc.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @bitCast(behavior));
     }
 
     /// Inherited from QTextCharFormat
@@ -9957,7 +9957,7 @@ pub const qtexttablecellformat = struct {
     /// ` strategy: qfont_enums.StyleStrategy `
     ///
     pub fn SetFontStyleHint2(self: ?*anyopaque, hint: i32, strategy: i32) void {
-        qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @intCast(hint), @intCast(strategy));
+        qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @bitCast(hint), @bitCast(strategy));
     }
 
     /// Inherited from QTextFormat
@@ -10049,7 +10049,7 @@ pub const qtexttablecellformat = struct {
     /// ` object: i32 `
     ///
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @bitCast(object));
     }
 
     /// Inherited from QTextFormat
@@ -10063,7 +10063,7 @@ pub const qtexttablecellformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
-        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_Property(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -10079,7 +10079,7 @@ pub const qtexttablecellformat = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @bitCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
@@ -10093,7 +10093,7 @@ pub const qtexttablecellformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -10107,7 +10107,7 @@ pub const qtexttablecellformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -10121,7 +10121,7 @@ pub const qtexttablecellformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -10135,7 +10135,7 @@ pub const qtexttablecellformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -10149,7 +10149,7 @@ pub const qtexttablecellformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -10165,7 +10165,7 @@ pub const qtexttablecellformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttablecellformat.StringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10183,7 +10183,7 @@ pub const qtexttablecellformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
-        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -10197,7 +10197,7 @@ pub const qtexttablecellformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
-        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -10211,7 +10211,7 @@ pub const qtexttablecellformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
-        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -10225,7 +10225,7 @@ pub const qtexttablecellformat = struct {
     /// ` propertyId: i32 `
     ///
     pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
-        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -10241,7 +10241,7 @@ pub const qtexttablecellformat = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtexttablecellformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -10266,7 +10266,7 @@ pub const qtexttablecellformat = struct {
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @bitCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
@@ -10320,7 +10320,7 @@ pub const qtexttablecellformat = struct {
     /// ` typeVal: i32 `
     ///
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QTextFormat
@@ -10554,7 +10554,7 @@ pub const qtexttablecellformat = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QTextFormat

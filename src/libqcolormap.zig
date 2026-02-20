@@ -100,7 +100,7 @@ pub const qcolormap = struct {
     /// ` pixel: u32 `
     ///
     pub fn ColorAt(self: ?*anyopaque, pixel: u32) QtC.QColor {
-        return qtc.QColormap_ColorAt(@ptrCast(self), @intCast(pixel));
+        return qtc.QColormap_ColorAt(@ptrCast(self), @bitCast(pixel));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#colormap)
@@ -127,7 +127,7 @@ pub const qcolormap = struct {
     /// ` screen: i32 `
     ///
     pub fn Instance1(screen: i32) QtC.QColormap {
-        return qtc.QColormap_Instance1(@intCast(screen));
+        return qtc.QColormap_Instance1(@bitCast(screen));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#dtor.QColormap)

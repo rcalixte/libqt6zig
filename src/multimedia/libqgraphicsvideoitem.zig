@@ -44,7 +44,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGraphicsVideoItem_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -79,7 +79,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -106,7 +106,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsVideoItem_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsVideoItem_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -118,7 +118,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsVideoItem_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -134,7 +134,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsVideoItem_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsVideoItem_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -187,7 +187,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
     pub fn SetAspectRatioMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsVideoItem_SetAspectRatioMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsVideoItem_SetAspectRatioMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#offset)
@@ -265,7 +265,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsVideoItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#boundingRect)
@@ -307,7 +307,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#paint)
@@ -349,7 +349,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsVideoItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#type)
@@ -385,7 +385,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, size: QtC.QSizeF) callconv(.c) void `
     ///
     pub fn OnNativeSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_Connect_NativeSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_Connect_NativeSizeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#timerEvent)
@@ -411,7 +411,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#timerEvent)
@@ -439,7 +439,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsVideoItem_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsVideoItem_ItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#itemChange)
@@ -453,7 +453,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsVideoItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#itemChange)
@@ -469,7 +469,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsVideoItem_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsVideoItem_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -507,7 +507,7 @@ pub const qgraphicsvideoitem = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsvideoitem.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -525,7 +525,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QGraphicsObject_GrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QGraphicsObject_GrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QGraphicsObject
@@ -539,7 +539,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QGraphicsObject_UngrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QGraphicsObject_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QGraphicsObject
@@ -565,7 +565,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void `
     ///
     pub fn OnParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -591,7 +591,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void `
     ///
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -617,7 +617,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -643,7 +643,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -669,7 +669,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void `
     ///
     pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -695,7 +695,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void `
     ///
     pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -721,7 +721,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void `
     ///
     pub fn OnZChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -747,7 +747,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void `
     ///
     pub fn OnRotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -773,7 +773,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void `
     ///
     pub fn OnScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -799,7 +799,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void `
     ///
     pub fn OnChildrenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -825,7 +825,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void `
     ///
     pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -851,7 +851,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void `
     ///
     pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -867,7 +867,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
+        qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QObject
@@ -1001,7 +1001,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1015,7 +1015,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1029,7 +1029,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1043,7 +1043,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1373,7 +1373,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1428,7 +1428,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1444,7 +1444,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1466,7 +1466,7 @@ pub const qgraphicsvideoitem = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1486,7 +1486,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1508,7 +1508,7 @@ pub const qgraphicsvideoitem = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1605,7 +1605,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -1850,7 +1850,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// Inherited from QGraphicsItem
@@ -1864,7 +1864,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsItem
@@ -1894,7 +1894,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -1924,7 +1924,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @bitCast(panelModality));
     }
 
     /// Inherited from QGraphicsItem
@@ -2202,7 +2202,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QGraphicsItem
@@ -2258,7 +2258,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @bitCast(buttons));
     }
 
     /// Inherited from QGraphicsItem
@@ -2560,7 +2560,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// Inherited from QGraphicsItem
@@ -2586,7 +2586,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -2628,7 +2628,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -2644,7 +2644,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` dy: f64 `
     ///
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -2676,7 +2676,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` h: f64 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -2768,7 +2768,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QGraphicsItem
@@ -2794,7 +2794,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` scale: f64 `
     ///
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self), @floatCast(scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// Inherited from QGraphicsItem
@@ -2885,7 +2885,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` ay: f64 `
     ///
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @floatCast(ax), @floatCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @bitCast(ax), @bitCast(ay));
     }
 
     /// Inherited from QGraphicsItem
@@ -2911,7 +2911,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` z: f64 `
     ///
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @floatCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @bitCast(z));
     }
 
     /// Inherited from QGraphicsItem
@@ -3024,7 +3024,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` h: f64 `
     ///
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -3064,7 +3064,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` granularity: f64 `
     ///
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @floatCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @bitCast(granularity));
     }
 
     /// Inherited from QGraphicsItem
@@ -3096,7 +3096,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` height: f64 `
     ///
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(width), @floatCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QGraphicsItem
@@ -3112,7 +3112,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` dy: f64 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_Scroll(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -3394,7 +3394,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -3410,7 +3410,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -3426,7 +3426,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -3448,7 +3448,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -3468,7 +3468,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -3488,7 +3488,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -3506,7 +3506,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -3522,7 +3522,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -3538,7 +3538,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -3560,7 +3560,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -3580,7 +3580,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -3600,7 +3600,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -3654,7 +3654,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` key: i32 `
     ///
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_Data(@ptrCast(self), @intCast(key));
+        return qtc.QGraphicsItem_Data(@ptrCast(self), @bitCast(key));
     }
 
     /// Inherited from QGraphicsItem
@@ -3670,7 +3670,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetData(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QGraphicsItem_SetData(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -3700,7 +3700,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QGraphicsItem
@@ -3744,7 +3744,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// Inherited from QGraphicsItem
@@ -3760,7 +3760,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` cacheSize: QtC.QSize `
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @bitCast(mode), @ptrCast(cacheSize));
     }
 
     /// Inherited from QGraphicsItem
@@ -3788,7 +3788,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @bitCast(focusReason));
     }
 
     /// Inherited from QGraphicsItem
@@ -3818,7 +3818,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -3836,7 +3836,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -3858,7 +3858,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -3882,7 +3882,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -3930,7 +3930,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsvideoitem.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -3981,7 +3981,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` rect: QtC.QRectF `
     ///
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @floatCast(dx), @floatCast(dy), @ptrCast(rect));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// Inherited from QGraphicsObject
@@ -4029,7 +4029,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, ev: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsVideoItem_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4081,7 +4081,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsVideoItem_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4129,7 +4129,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4177,7 +4177,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4225,7 +4225,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4273,7 +4273,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4289,7 +4289,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` phase: i32 `
     ///
     pub fn Advance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsVideoItem_Advance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsVideoItem_Advance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -4305,7 +4305,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` phase: i32 `
     ///
     pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsVideoItem_QBaseAdvance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsVideoItem_QBaseAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -4321,7 +4321,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, phase: i32) callconv(.c) void `
     ///
     pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnAdvance(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4365,7 +4365,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsVideoItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnShape(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4413,7 +4413,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, point: QtC.QPointF) callconv(.c) bool `
     ///
     pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsVideoItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnContains(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4431,7 +4431,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsVideoItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsVideoItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -4449,7 +4449,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsVideoItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsVideoItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -4465,7 +4465,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsVideoItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnCollidesWithItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4483,7 +4483,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsVideoItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsVideoItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -4501,7 +4501,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsVideoItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsVideoItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -4517,7 +4517,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsVideoItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnCollidesWithPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4565,7 +4565,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, item: QtC.QGraphicsItem) callconv(.c) bool `
     ///
     pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsVideoItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnIsObscuredBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4609,7 +4609,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsVideoItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnOpaqueArea(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4661,7 +4661,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsVideoItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnSceneEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4709,7 +4709,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsVideoItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnSceneEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4757,7 +4757,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4805,7 +4805,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4853,7 +4853,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4901,7 +4901,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4949,7 +4949,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4997,7 +4997,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5045,7 +5045,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5093,7 +5093,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnHoverEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5141,7 +5141,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnHoverMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5189,7 +5189,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnHoverLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5237,7 +5237,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5285,7 +5285,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5333,7 +5333,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5381,7 +5381,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5429,7 +5429,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5477,7 +5477,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5525,7 +5525,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5573,7 +5573,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5589,7 +5589,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsVideoItem_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsVideoItem_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -5605,7 +5605,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsVideoItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsVideoItem_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -5621,7 +5621,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsVideoItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5637,7 +5637,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsVideoItem_SupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsVideoItem_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// Inherited from QGraphicsItem
@@ -5653,7 +5653,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsVideoItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsVideoItem_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// Inherited from QGraphicsItem
@@ -5669,7 +5669,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
     pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsVideoItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnSupportsExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5687,7 +5687,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsVideoItem_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// Inherited from QGraphicsItem
@@ -5705,7 +5705,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsVideoItem_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// Inherited from QGraphicsItem
@@ -5721,7 +5721,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnSetExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5769,7 +5769,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsVideoItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -5813,7 +5813,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5857,7 +5857,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsVideoItem_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5901,7 +5901,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsVideoItem_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5951,7 +5951,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsVideoItem_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5999,7 +5999,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsVideoItem_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -6043,7 +6043,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnAddToIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -6087,7 +6087,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnRemoveFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -6131,7 +6131,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsVideoItem_OnPrepareGeometryChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6147,7 +6147,7 @@ pub const qgraphicsvideoitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsVideoItem, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#dtor.QGraphicsVideoItem)

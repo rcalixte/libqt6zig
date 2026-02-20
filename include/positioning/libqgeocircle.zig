@@ -50,7 +50,7 @@ pub const qgeocircle = struct {
     /// ` radius: f64 `
     ///
     pub fn New5(center: ?*anyopaque, radius: f64) QtC.QGeoCircle {
-        return qtc.QGeoCircle_new5(@ptrCast(center), @floatCast(radius));
+        return qtc.QGeoCircle_new5(@ptrCast(center), @bitCast(radius));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocircle.html#operator-eq)
@@ -96,7 +96,7 @@ pub const qgeocircle = struct {
     /// ` radius: f64 `
     ///
     pub fn SetRadius(self: ?*anyopaque, radius: f64) void {
-        qtc.QGeoCircle_SetRadius(@ptrCast(self), @floatCast(radius));
+        qtc.QGeoCircle_SetRadius(@ptrCast(self), @bitCast(radius));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocircle.html#radius)
@@ -120,7 +120,7 @@ pub const qgeocircle = struct {
     /// ` degreesLongitude: f64 `
     ///
     pub fn Translate(self: ?*anyopaque, degreesLatitude: f64, degreesLongitude: f64) void {
-        qtc.QGeoCircle_Translate(@ptrCast(self), @floatCast(degreesLatitude), @floatCast(degreesLongitude));
+        qtc.QGeoCircle_Translate(@ptrCast(self), @bitCast(degreesLatitude), @bitCast(degreesLongitude));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocircle.html#translated)
@@ -134,7 +134,7 @@ pub const qgeocircle = struct {
     /// ` degreesLongitude: f64 `
     ///
     pub fn Translated(self: ?*anyopaque, degreesLatitude: f64, degreesLongitude: f64) QtC.QGeoCircle {
-        return qtc.QGeoCircle_Translated(@ptrCast(self), @floatCast(degreesLatitude), @floatCast(degreesLongitude));
+        return qtc.QGeoCircle_Translated(@ptrCast(self), @bitCast(degreesLatitude), @bitCast(degreesLongitude));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocircle.html#extendCircle)

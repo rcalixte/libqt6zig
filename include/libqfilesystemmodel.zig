@@ -49,7 +49,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QFileSystemModel_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -84,7 +84,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QFileSystemModel_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -111,7 +111,7 @@ pub const qfilesystemmodel = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFileSystemModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QFileSystemModel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -123,7 +123,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QFileSystemModel_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -139,7 +139,7 @@ pub const qfilesystemmodel = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFileSystemModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QFileSystemModel_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -184,7 +184,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, newPath: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnRootPathChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QFileSystemModel_Connect_RootPathChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_Connect_RootPathChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#fileRenamed)
@@ -224,7 +224,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, path: [*:0]const u8, oldName: [*:0]const u8, newName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnFileRenamed(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.QFileSystemModel_Connect_FileRenamed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_Connect_FileRenamed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#directoryLoaded)
@@ -252,7 +252,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, path: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnDirectoryLoaded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QFileSystemModel_Connect_DirectoryLoaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_Connect_DirectoryLoaded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#index)
@@ -268,7 +268,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QFileSystemModel_Index(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QFileSystemModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#index)
@@ -282,7 +282,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QFileSystemModel_OnIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#index)
@@ -300,7 +300,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QFileSystemModel_QBaseIndex(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QFileSystemModel_QBaseIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#index)
@@ -342,7 +342,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, child: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnParent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QFileSystemModel_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#parent)
@@ -372,7 +372,7 @@ pub const qfilesystemmodel = struct {
     /// ` idx: QtC.QModelIndex `
     ///
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QFileSystemModel_Sibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
+        return qtc.QFileSystemModel_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#sibling)
@@ -386,7 +386,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, row: i32, column: i32, idx: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnSibling(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QFileSystemModel_OnSibling(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnSibling(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#sibling)
@@ -404,7 +404,7 @@ pub const qfilesystemmodel = struct {
     /// ` idx: QtC.QModelIndex `
     ///
     pub fn QBaseSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QFileSystemModel_QBaseSibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
+        return qtc.QFileSystemModel_QBaseSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#hasChildren)
@@ -430,7 +430,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnHasChildren(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnHasChildren(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnHasChildren(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#hasChildren)
@@ -470,7 +470,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnCanFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnCanFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnCanFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#canFetchMore)
@@ -510,7 +510,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#fetchMore)
@@ -550,7 +550,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnRowCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QFileSystemModel_OnRowCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnRowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#rowCount)
@@ -590,7 +590,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnColumnCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QFileSystemModel_OnColumnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnColumnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#columnCount)
@@ -628,7 +628,7 @@ pub const qfilesystemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QFileSystemModel_Data(@ptrCast(self), @ptrCast(index), @intCast(role));
+        return qtc.QFileSystemModel_Data(@ptrCast(self), @ptrCast(index), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#data)
@@ -642,7 +642,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, index: QtC.QModelIndex, role: i32) callconv(.c) QtC.QVariant `
     ///
     pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QFileSystemModel_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#data)
@@ -658,7 +658,7 @@ pub const qfilesystemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseData(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QFileSystemModel_QBaseData(@ptrCast(self), @ptrCast(index), @intCast(role));
+        return qtc.QFileSystemModel_QBaseData(@ptrCast(self), @ptrCast(index), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setData)
@@ -674,7 +674,7 @@ pub const qfilesystemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.QFileSystemModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
+        return qtc.QFileSystemModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setData)
@@ -688,7 +688,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32) callconv(.c) bool `
     ///
     pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnSetData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setData)
@@ -706,7 +706,7 @@ pub const qfilesystemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.QFileSystemModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
+        return qtc.QFileSystemModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#headerData)
@@ -722,7 +722,7 @@ pub const qfilesystemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.QFileSystemModel_HeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
+        return qtc.QFileSystemModel_HeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#headerData)
@@ -736,7 +736,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QtC.QVariant `
     ///
     pub fn OnHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QFileSystemModel_OnHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#headerData)
@@ -754,7 +754,7 @@ pub const qfilesystemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.QFileSystemModel_QBaseHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
+        return qtc.QFileSystemModel_QBaseHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#flags)
@@ -784,7 +784,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, index: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnFlags(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QFileSystemModel_OnFlags(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnFlags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#flags)
@@ -816,7 +816,7 @@ pub const qfilesystemmodel = struct {
     /// ` order: qnamespace_enums.SortOrder `
     ///
     pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QFileSystemModel_Sort(@ptrCast(self), @intCast(column), @intCast(order));
+        qtc.QFileSystemModel_Sort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#sort)
@@ -830,7 +830,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
     pub fn OnSort(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnSort(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#sort)
@@ -846,7 +846,7 @@ pub const qfilesystemmodel = struct {
     /// ` order: qnamespace_enums.SortOrder `
     ///
     pub fn QBaseSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QFileSystemModel_QBaseSort(@ptrCast(self), @intCast(column), @intCast(order));
+        qtc.QFileSystemModel_QBaseSort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeTypes)
@@ -889,7 +889,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
     pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QFileSystemModel_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnMimeTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeTypes)
@@ -948,7 +948,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
     ///
     pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
-        qtc.QFileSystemModel_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeData)
@@ -986,7 +986,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QFileSystemModel_DropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QFileSystemModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#dropMimeData)
@@ -1000,7 +1000,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#dropMimeData)
@@ -1022,7 +1022,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QFileSystemModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QFileSystemModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#supportedDropActions)
@@ -1050,7 +1050,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFileSystemModel_OnSupportedDropActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#supportedDropActions)
@@ -1116,7 +1116,7 @@ pub const qfilesystemmodel = struct {
     /// ` C ABI representation of map_i32_u8 `
     ///
     pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.QFileSystemModel_OnRoleNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnRoleNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#roleNames)
@@ -1226,7 +1226,7 @@ pub const qfilesystemmodel = struct {
     /// ` filters: flag of qdir_enums.Filter `
     ///
     pub fn SetFilter(self: ?*anyopaque, filters: i32) void {
-        qtc.QFileSystemModel_SetFilter(@ptrCast(self), @intCast(filters));
+        qtc.QFileSystemModel_SetFilter(@ptrCast(self), @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#filter)
@@ -1371,7 +1371,7 @@ pub const qfilesystemmodel = struct {
     /// ` option: qfilesystemmodel_enums.Option `
     ///
     pub fn SetOption(self: ?*anyopaque, option: i32) void {
-        qtc.QFileSystemModel_SetOption(@ptrCast(self), @intCast(option));
+        qtc.QFileSystemModel_SetOption(@ptrCast(self), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#testOption)
@@ -1383,7 +1383,7 @@ pub const qfilesystemmodel = struct {
     /// ` option: qfilesystemmodel_enums.Option `
     ///
     pub fn TestOption(self: ?*anyopaque, option: i32) bool {
-        return qtc.QFileSystemModel_TestOption(@ptrCast(self), @intCast(option));
+        return qtc.QFileSystemModel_TestOption(@ptrCast(self), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setOptions)
@@ -1395,7 +1395,7 @@ pub const qfilesystemmodel = struct {
     /// ` options: flag of qfilesystemmodel_enums.Option `
     ///
     pub fn SetOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QFileSystemModel_SetOptions(@ptrCast(self), @intCast(options));
+        qtc.QFileSystemModel_SetOptions(@ptrCast(self), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#options)
@@ -1621,7 +1621,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#timerEvent)
@@ -1661,7 +1661,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#event)
@@ -1713,7 +1713,7 @@ pub const qfilesystemmodel = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfilesystemmodel.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1735,7 +1735,7 @@ pub const qfilesystemmodel = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QFileSystemModel_Index22(@ptrCast(self), path_str, @intCast(column));
+        return qtc.QFileSystemModel_Index22(@ptrCast(self), path_str, @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#myComputer)
@@ -1747,7 +1747,7 @@ pub const qfilesystemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn MyComputer1(self: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QFileSystemModel_MyComputer1(@ptrCast(self), @intCast(role));
+        return qtc.QFileSystemModel_MyComputer1(@ptrCast(self), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#setOption)
@@ -1761,7 +1761,7 @@ pub const qfilesystemmodel = struct {
     /// ` on: bool `
     ///
     pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
-        qtc.QFileSystemModel_SetOption2(@ptrCast(self), @intCast(option), on);
+        qtc.QFileSystemModel_SetOption2(@ptrCast(self), @bitCast(option), on);
     }
 
     /// Inherited from QAbstractItemModel
@@ -1777,7 +1777,7 @@ pub const qfilesystemmodel = struct {
     /// ` column: i32 `
     ///
     pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
-        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1791,7 +1791,7 @@ pub const qfilesystemmodel = struct {
     /// ` row: i32 `
     ///
     pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1805,7 +1805,7 @@ pub const qfilesystemmodel = struct {
     /// ` column: i32 `
     ///
     pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1819,7 +1819,7 @@ pub const qfilesystemmodel = struct {
     /// ` row: i32 `
     ///
     pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1833,7 +1833,7 @@ pub const qfilesystemmodel = struct {
     /// ` column: i32 `
     ///
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1853,7 +1853,7 @@ pub const qfilesystemmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1873,7 +1873,7 @@ pub const qfilesystemmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1917,7 +1917,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1935,7 +1935,7 @@ pub const qfilesystemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @intCast(orientation), @intCast(first), @intCast(last));
+        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1949,7 +1949,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1975,7 +1975,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel) callconv(.c) void `
     ///
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2001,7 +2001,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2019,7 +2019,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2035,7 +2035,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @intCast(row), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2051,7 +2051,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2067,7 +2067,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @intCast(row), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2083,7 +2083,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2099,7 +2099,7 @@ pub const qfilesystemmodel = struct {
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @bitCast(options));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2135,7 +2135,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2167,7 +2167,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2187,7 +2187,7 @@ pub const qfilesystemmodel = struct {
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @intCast(hint));
+        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2201,7 +2201,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2233,7 +2233,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2253,7 +2253,7 @@ pub const qfilesystemmodel = struct {
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @intCast(hint));
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2267,7 +2267,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2401,7 +2401,7 @@ pub const qfilesystemmodel = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2415,7 +2415,7 @@ pub const qfilesystemmodel = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2429,7 +2429,7 @@ pub const qfilesystemmodel = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2443,7 +2443,7 @@ pub const qfilesystemmodel = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2773,7 +2773,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2816,7 +2816,7 @@ pub const qfilesystemmodel = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2832,7 +2832,7 @@ pub const qfilesystemmodel = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2854,7 +2854,7 @@ pub const qfilesystemmodel = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2874,7 +2874,7 @@ pub const qfilesystemmodel = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2896,7 +2896,7 @@ pub const qfilesystemmodel = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2993,7 +2993,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3015,7 +3015,7 @@ pub const qfilesystemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.QFileSystemModel_SetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
+        return qtc.QFileSystemModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3037,7 +3037,7 @@ pub const qfilesystemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.QFileSystemModel_QBaseSetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
+        return qtc.QFileSystemModel_QBaseSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3053,7 +3053,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32) callconv(.c) bool `
     ///
     pub fn OnSetHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnSetHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnSetHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3137,7 +3137,7 @@ pub const qfilesystemmodel = struct {
     /// ` C ABI representation of map_i32_qtcqvariant `
     ///
     pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
-        qtc.QFileSystemModel_OnItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3166,7 +3166,7 @@ pub const qfilesystemmodel = struct {
         var roles_it = roles.iterator();
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
-            roles_keys[i] = @intCast(roles_key);
+            roles_keys[i] = @bitCast(roles_key);
             roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
@@ -3203,7 +3203,7 @@ pub const qfilesystemmodel = struct {
         var roles_it = roles.iterator();
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
-            roles_keys[i] = @intCast(roles_key);
+            roles_keys[i] = @bitCast(roles_key);
             roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
@@ -3227,7 +3227,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, index: QtC.QModelIndex, roles: qtc.libqt_map (map_i32_qtcqvariant)) callconv(.c) bool `
     ///
     pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnSetItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3275,7 +3275,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, index: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnClearItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnClearItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnClearItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3299,7 +3299,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QFileSystemModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QFileSystemModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3323,7 +3323,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QFileSystemModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QFileSystemModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3339,7 +3339,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnCanDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnCanDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnCanDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3391,7 +3391,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSupportedDragActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFileSystemModel_OnSupportedDragActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnSupportedDragActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3411,7 +3411,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QFileSystemModel_InsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QFileSystemModel_InsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3431,7 +3431,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QFileSystemModel_QBaseInsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QFileSystemModel_QBaseInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3447,7 +3447,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3467,7 +3467,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QFileSystemModel_InsertColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QFileSystemModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3487,7 +3487,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QFileSystemModel_QBaseInsertColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QFileSystemModel_QBaseInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3503,7 +3503,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3523,7 +3523,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QFileSystemModel_RemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QFileSystemModel_RemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3543,7 +3543,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QFileSystemModel_QBaseRemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QFileSystemModel_QBaseRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3559,7 +3559,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3579,7 +3579,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QFileSystemModel_RemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QFileSystemModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3599,7 +3599,7 @@ pub const qfilesystemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QFileSystemModel_QBaseRemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QFileSystemModel_QBaseRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3615,7 +3615,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3639,7 +3639,7 @@ pub const qfilesystemmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QFileSystemModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QFileSystemModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3663,7 +3663,7 @@ pub const qfilesystemmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn QBaseMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QFileSystemModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QFileSystemModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3679,7 +3679,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
     pub fn OnMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3703,7 +3703,7 @@ pub const qfilesystemmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QFileSystemModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QFileSystemModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3727,7 +3727,7 @@ pub const qfilesystemmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn QBaseMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QFileSystemModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QFileSystemModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3743,7 +3743,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
     pub fn OnMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3791,7 +3791,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnBuddy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QFileSystemModel_OnBuddy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnBuddy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3817,7 +3817,7 @@ pub const qfilesystemmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QFileSystemModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QFileSystemModel_Match(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qfilesystemmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -3848,7 +3848,7 @@ pub const qfilesystemmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QFileSystemModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QFileSystemModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qfilesystemmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -3875,7 +3875,7 @@ pub const qfilesystemmodel = struct {
     /// ` C ABI representation of []QtC.QModelIndex `
     ///
     pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.QFileSystemModel_OnMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnMatch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3923,7 +3923,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, index: QtC.QModelIndex) callconv(.c) QtC.QSize `
     ///
     pub fn OnSpan(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.QFileSystemModel_OnSpan(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnSpan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3975,7 +3975,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan) callconv(.c) void `
     ///
     pub fn OnMultiData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.QModelRoleDataSpan) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnMultiData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnMultiData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4019,7 +4019,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnSubmit(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnSubmit(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnSubmit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4063,7 +4063,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRevert(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileSystemModel_OnRevert(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnRevert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4107,7 +4107,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnResetInternalData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileSystemModel_OnResetInternalData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnResetInternalData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4159,7 +4159,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4207,7 +4207,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4255,7 +4255,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4303,7 +4303,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4351,7 +4351,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4369,7 +4369,7 @@ pub const qfilesystemmodel = struct {
     /// ` column: i32 `
     ///
     pub fn CreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.QFileSystemModel_CreateIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QFileSystemModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4387,7 +4387,7 @@ pub const qfilesystemmodel = struct {
     /// ` column: i32 `
     ///
     pub fn QBaseCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.QFileSystemModel_QBaseCreateIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QFileSystemModel_QBaseCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4403,7 +4403,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, row: i32, column: i32) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnCreateIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.QFileSystemModel_OnCreateIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnCreateIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4463,7 +4463,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
     ///
     pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnEncodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnEncodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4485,7 +4485,7 @@ pub const qfilesystemmodel = struct {
     /// ` stream: QtC.QDataStream `
     ///
     pub fn DecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.QFileSystemModel_DecodeData(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent), @ptrCast(stream));
+        return qtc.QFileSystemModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4507,7 +4507,7 @@ pub const qfilesystemmodel = struct {
     /// ` stream: QtC.QDataStream `
     ///
     pub fn QBaseDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.QFileSystemModel_QBaseDecodeData(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent), @ptrCast(stream));
+        return qtc.QFileSystemModel_QBaseDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4523,7 +4523,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, row: i32, column: i32, parent: QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) bool `
     ///
     pub fn OnDecodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnDecodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnDecodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4543,7 +4543,7 @@ pub const qfilesystemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QFileSystemModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QFileSystemModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4563,7 +4563,7 @@ pub const qfilesystemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QFileSystemModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QFileSystemModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4579,7 +4579,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnBeginInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnBeginInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4623,7 +4623,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndInsertRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileSystemModel_OnEndInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnEndInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4643,7 +4643,7 @@ pub const qfilesystemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QFileSystemModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QFileSystemModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4663,7 +4663,7 @@ pub const qfilesystemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QFileSystemModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QFileSystemModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4679,7 +4679,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnBeginRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnBeginRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4723,7 +4723,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndRemoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileSystemModel_OnEndRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnEndRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4747,7 +4747,7 @@ pub const qfilesystemmodel = struct {
     /// ` destinationRow: i32 `
     ///
     pub fn BeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.QFileSystemModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationRow));
+        return qtc.QFileSystemModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4771,7 +4771,7 @@ pub const qfilesystemmodel = struct {
     /// ` destinationRow: i32 `
     ///
     pub fn QBaseBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.QFileSystemModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationRow));
+        return qtc.QFileSystemModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4787,7 +4787,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
     pub fn OnBeginMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnBeginMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnBeginMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4831,7 +4831,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndMoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileSystemModel_OnEndMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnEndMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4851,7 +4851,7 @@ pub const qfilesystemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QFileSystemModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QFileSystemModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4871,7 +4871,7 @@ pub const qfilesystemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QFileSystemModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QFileSystemModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4887,7 +4887,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnBeginInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnBeginInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4931,7 +4931,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndInsertColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileSystemModel_OnEndInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnEndInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4951,7 +4951,7 @@ pub const qfilesystemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QFileSystemModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QFileSystemModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4971,7 +4971,7 @@ pub const qfilesystemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QFileSystemModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QFileSystemModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4987,7 +4987,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnBeginRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnBeginRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5031,7 +5031,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndRemoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileSystemModel_OnEndRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnEndRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5055,7 +5055,7 @@ pub const qfilesystemmodel = struct {
     /// ` destinationColumn: i32 `
     ///
     pub fn BeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.QFileSystemModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationColumn));
+        return qtc.QFileSystemModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5079,7 +5079,7 @@ pub const qfilesystemmodel = struct {
     /// ` destinationColumn: i32 `
     ///
     pub fn QBaseBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.QFileSystemModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationColumn));
+        return qtc.QFileSystemModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5095,7 +5095,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
     pub fn OnBeginMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnBeginMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnBeginMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5139,7 +5139,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndMoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileSystemModel_OnEndMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnEndMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5183,7 +5183,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnBeginResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileSystemModel_OnBeginResetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnBeginResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5227,7 +5227,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileSystemModel_OnEndResetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnEndResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5279,7 +5279,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, from: QtC.QModelIndex, to: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnChangePersistentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnChangePersistentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnChangePersistentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5347,7 +5347,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
     ///
     pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QFileSystemModel_OnChangePersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnChangePersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5411,7 +5411,7 @@ pub const qfilesystemmodel = struct {
     /// ` C ABI representation of []QtC.QModelIndex `
     ///
     pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QFileSystemModel_OnPersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnPersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5455,7 +5455,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QFileSystemModel_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5499,7 +5499,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFileSystemModel_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5549,7 +5549,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QFileSystemModel_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5597,7 +5597,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSystemModel_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileSystemModel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5613,7 +5613,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5629,7 +5629,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5645,7 +5645,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5661,7 +5661,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5677,7 +5677,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5693,7 +5693,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5709,7 +5709,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5725,7 +5725,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5741,7 +5741,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel) callconv(.c) void `
     ///
     pub fn OnModelAboutToBeReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5757,7 +5757,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel) callconv(.c) void `
     ///
     pub fn OnModelReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5773,7 +5773,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5789,7 +5789,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
     pub fn OnRowsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5805,7 +5805,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5821,7 +5821,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
     pub fn OnColumnsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5837,7 +5837,7 @@ pub const qfilesystemmodel = struct {
     /// ` callback: *const fn (self: QtC.QFileSystemModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#dtor.QFileSystemModel)

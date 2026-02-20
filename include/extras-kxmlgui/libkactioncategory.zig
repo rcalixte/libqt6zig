@@ -61,7 +61,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KActionCategory_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KActionCategory_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -96,7 +96,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn (self: QtC.KActionCategory, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KActionCategory_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KActionCategory_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -123,7 +123,7 @@ pub const kactioncategory = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KActionCategory_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KActionCategory_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -135,7 +135,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn (self: QtC.KActionCategory, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KActionCategory_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KActionCategory_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -151,7 +151,7 @@ pub const kactioncategory = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KActionCategory_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KActionCategory_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -198,7 +198,7 @@ pub const kactioncategory = struct {
     /// ` actionType: kstandardaction_enums.StandardAction `
     ///
     pub fn AddAction2(self: ?*anyopaque, actionType: i32) QtC.QAction {
-        return qtc.KActionCategory_AddAction2(@ptrCast(self), @intCast(actionType));
+        return qtc.KActionCategory_AddAction2(@ptrCast(self), @bitCast(actionType));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kactioncategory.html#addAction)
@@ -216,7 +216,7 @@ pub const kactioncategory = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KActionCategory_AddAction3(@ptrCast(self), @intCast(actionType), name_str);
+        return qtc.KActionCategory_AddAction3(@ptrCast(self), @bitCast(actionType), name_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kactioncategory.html#addAction)
@@ -244,7 +244,7 @@ pub const kactioncategory = struct {
     /// ` actionType: kstandardactions_enums.StandardAction `
     ///
     pub fn AddAction5(self: ?*anyopaque, actionType: i32) QtC.QAction {
-        return qtc.KActionCategory_AddAction5(@ptrCast(self), @intCast(actionType));
+        return qtc.KActionCategory_AddAction5(@ptrCast(self), @bitCast(actionType));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kactioncategory.html#actions)
@@ -341,7 +341,7 @@ pub const kactioncategory = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kactioncategory.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -359,7 +359,7 @@ pub const kactioncategory = struct {
     /// ` receiver: QtC.QObject `
     ///
     pub fn AddAction22(self: ?*anyopaque, actionType: i32, receiver: ?*anyopaque) QtC.QAction {
-        return qtc.KActionCategory_AddAction22(@ptrCast(self), @intCast(actionType), @ptrCast(receiver));
+        return qtc.KActionCategory_AddAction22(@ptrCast(self), @bitCast(actionType), @ptrCast(receiver));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kactioncategory.html#addAction)
@@ -376,7 +376,7 @@ pub const kactioncategory = struct {
     ///
     pub fn AddAction32(self: ?*anyopaque, actionType: i32, receiver: ?*anyopaque, member: [:0]const u8) QtC.QAction {
         const member_Cstring = member.ptr;
-        return qtc.KActionCategory_AddAction32(@ptrCast(self), @intCast(actionType), @ptrCast(receiver), member_Cstring);
+        return qtc.KActionCategory_AddAction32(@ptrCast(self), @bitCast(actionType), @ptrCast(receiver), member_Cstring);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kactioncategory.html#addAction)
@@ -396,7 +396,7 @@ pub const kactioncategory = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KActionCategory_AddAction33(@ptrCast(self), @intCast(actionType), name_str, @ptrCast(receiver));
+        return qtc.KActionCategory_AddAction33(@ptrCast(self), @bitCast(actionType), name_str, @ptrCast(receiver));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kactioncategory.html#addAction)
@@ -419,7 +419,7 @@ pub const kactioncategory = struct {
             .data = name.ptr,
         };
         const member_Cstring = member.ptr;
-        return qtc.KActionCategory_AddAction42(@ptrCast(self), @intCast(actionType), name_str, @ptrCast(receiver), member_Cstring);
+        return qtc.KActionCategory_AddAction42(@ptrCast(self), @bitCast(actionType), name_str, @ptrCast(receiver), member_Cstring);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kactioncategory.html#addAction)
@@ -592,7 +592,7 @@ pub const kactioncategory = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -606,7 +606,7 @@ pub const kactioncategory = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -620,7 +620,7 @@ pub const kactioncategory = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -634,7 +634,7 @@ pub const kactioncategory = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -964,7 +964,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn (self: QtC.KActionCategory) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1019,7 +1019,7 @@ pub const kactioncategory = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1035,7 +1035,7 @@ pub const kactioncategory = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1057,7 +1057,7 @@ pub const kactioncategory = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1077,7 +1077,7 @@ pub const kactioncategory = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1099,7 +1099,7 @@ pub const kactioncategory = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1196,7 +1196,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn (self: QtC.KActionCategory, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1244,7 +1244,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn (self: QtC.KActionCategory, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KActionCategory_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KActionCategory_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1296,7 +1296,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn (self: QtC.KActionCategory, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KActionCategory_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KActionCategory_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1344,7 +1344,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn (self: QtC.KActionCategory, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KActionCategory_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KActionCategory_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1392,7 +1392,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn (self: QtC.KActionCategory, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KActionCategory_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KActionCategory_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1440,7 +1440,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn (self: QtC.KActionCategory, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KActionCategory_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KActionCategory_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1488,7 +1488,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn (self: QtC.KActionCategory, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KActionCategory_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KActionCategory_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1536,7 +1536,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn (self: QtC.KActionCategory, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KActionCategory_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KActionCategory_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1580,7 +1580,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KActionCategory_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KActionCategory_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1624,7 +1624,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KActionCategory_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KActionCategory_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1674,7 +1674,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn (self: QtC.KActionCategory, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KActionCategory_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KActionCategory_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1722,7 +1722,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn (self: QtC.KActionCategory, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KActionCategory_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KActionCategory_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1738,7 +1738,7 @@ pub const kactioncategory = struct {
     /// ` callback: *const fn (self: QtC.KActionCategory, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kactioncategory.html#dtor.KActionCategory)

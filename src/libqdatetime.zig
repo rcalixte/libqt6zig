@@ -43,7 +43,7 @@ pub const qdate = struct {
     /// ` d: i32 `
     ///
     pub fn New4(y: i32, m: i32, d: i32) QtC.QDate {
-        return qtc.QDate_new4(@intCast(y), @intCast(m), @intCast(d));
+        return qtc.QDate_new4(@bitCast(y), @bitCast(m), @bitCast(d));
     }
 
     /// New5 constructs a new QDate object.
@@ -59,7 +59,7 @@ pub const qdate = struct {
     /// ` cal: QtC.QCalendar `
     ///
     pub fn New5(y: i32, m: i32, d: i32, cal: QtC.QCalendar) QtC.QDate {
-        return qtc.QDate_new5(@intCast(y), @intCast(m), @intCast(d), @ptrCast(cal));
+        return qtc.QDate_new5(@bitCast(y), @bitCast(m), @bitCast(d), @ptrCast(cal));
     }
 
     /// New6 constructs a new QDate object.
@@ -289,7 +289,7 @@ pub const qdate = struct {
     /// ` spec: qnamespace_enums.TimeSpec `
     ///
     pub fn StartOfDay(self: ?*anyopaque, spec: i32) QtC.QDateTime {
-        return qtc.QDate_StartOfDay(@ptrCast(self), @intCast(spec));
+        return qtc.QDate_StartOfDay(@ptrCast(self), @bitCast(spec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#endOfDay)
@@ -301,7 +301,7 @@ pub const qdate = struct {
     /// ` spec: qnamespace_enums.TimeSpec `
     ///
     pub fn EndOfDay(self: ?*anyopaque, spec: i32) QtC.QDateTime {
-        return qtc.QDate_EndOfDay(@ptrCast(self), @intCast(spec));
+        return qtc.QDate_EndOfDay(@ptrCast(self), @bitCast(spec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#startOfDay)
@@ -423,7 +423,7 @@ pub const qdate = struct {
     /// ` day: i32 `
     ///
     pub fn SetDate(self: ?*anyopaque, year: i32, month: i32, day: i32) bool {
-        return qtc.QDate_SetDate(@ptrCast(self), @intCast(year), @intCast(month), @intCast(day));
+        return qtc.QDate_SetDate(@ptrCast(self), @bitCast(year), @bitCast(month), @bitCast(day));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#setDate)
@@ -441,7 +441,7 @@ pub const qdate = struct {
     /// ` cal: QtC.QCalendar `
     ///
     pub fn SetDate2(self: ?*anyopaque, year: i32, month: i32, day: i32, cal: QtC.QCalendar) bool {
-        return qtc.QDate_SetDate2(@ptrCast(self), @intCast(year), @intCast(month), @intCast(day), @ptrCast(cal));
+        return qtc.QDate_SetDate2(@ptrCast(self), @bitCast(year), @bitCast(month), @bitCast(day), @ptrCast(cal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#getDate)
@@ -469,7 +469,7 @@ pub const qdate = struct {
     /// ` days: i64 `
     ///
     pub fn AddDays(self: ?*anyopaque, days: i64) QtC.QDate {
-        return qtc.QDate_AddDays(@ptrCast(self), @intCast(days));
+        return qtc.QDate_AddDays(@ptrCast(self), @bitCast(days));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#addMonths)
@@ -481,7 +481,7 @@ pub const qdate = struct {
     /// ` months: i32 `
     ///
     pub fn AddMonths(self: ?*anyopaque, months: i32) QtC.QDate {
-        return qtc.QDate_AddMonths(@ptrCast(self), @intCast(months));
+        return qtc.QDate_AddMonths(@ptrCast(self), @bitCast(months));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#addYears)
@@ -493,7 +493,7 @@ pub const qdate = struct {
     /// ` years: i32 `
     ///
     pub fn AddYears(self: ?*anyopaque, years: i32) QtC.QDate {
-        return qtc.QDate_AddYears(@ptrCast(self), @intCast(years));
+        return qtc.QDate_AddYears(@ptrCast(self), @bitCast(years));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#addMonths)
@@ -507,7 +507,7 @@ pub const qdate = struct {
     /// ` cal: QtC.QCalendar `
     ///
     pub fn AddMonths2(self: ?*anyopaque, months: i32, cal: QtC.QCalendar) QtC.QDate {
-        return qtc.QDate_AddMonths2(@ptrCast(self), @intCast(months), @ptrCast(cal));
+        return qtc.QDate_AddMonths2(@ptrCast(self), @bitCast(months), @ptrCast(cal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#addYears)
@@ -521,7 +521,7 @@ pub const qdate = struct {
     /// ` cal: QtC.QCalendar `
     ///
     pub fn AddYears2(self: ?*anyopaque, years: i32, cal: QtC.QCalendar) QtC.QDate {
-        return qtc.QDate_AddYears2(@ptrCast(self), @intCast(years), @ptrCast(cal));
+        return qtc.QDate_AddYears2(@ptrCast(self), @bitCast(years), @ptrCast(cal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#daysTo)
@@ -619,7 +619,7 @@ pub const qdate = struct {
             .len = format.len,
             .data = format.ptr,
         };
-        return qtc.QDate_FromString11(stringVal_str, format_str, @intCast(baseYear), @ptrCast(cal));
+        return qtc.QDate_FromString11(stringVal_str, format_str, @bitCast(baseYear), @ptrCast(cal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#isValid)
@@ -633,7 +633,7 @@ pub const qdate = struct {
     /// ` d: i32 `
     ///
     pub fn IsValid2(y: i32, m: i32, d: i32) bool {
-        return qtc.QDate_IsValid2(@intCast(y), @intCast(m), @intCast(d));
+        return qtc.QDate_IsValid2(@bitCast(y), @bitCast(m), @bitCast(d));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#isLeapYear)
@@ -643,7 +643,7 @@ pub const qdate = struct {
     /// ` year: i32 `
     ///
     pub fn IsLeapYear(year: i32) bool {
-        return qtc.QDate_IsLeapYear(@intCast(year));
+        return qtc.QDate_IsLeapYear(@bitCast(year));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#fromJulianDay)
@@ -653,7 +653,7 @@ pub const qdate = struct {
     /// ` jd_: i64 `
     ///
     pub fn FromJulianDay(jd_: i64) QtC.QDate {
-        return qtc.QDate_FromJulianDay(@intCast(jd_));
+        return qtc.QDate_FromJulianDay(@bitCast(jd_));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#toJulianDay)
@@ -689,7 +689,7 @@ pub const qdate = struct {
     /// ` offsetSeconds: i32 `
     ///
     pub fn StartOfDay22(self: ?*anyopaque, spec: i32, offsetSeconds: i32) QtC.QDateTime {
-        return qtc.QDate_StartOfDay22(@ptrCast(self), @intCast(spec), @intCast(offsetSeconds));
+        return qtc.QDate_StartOfDay22(@ptrCast(self), @bitCast(spec), @bitCast(offsetSeconds));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#endOfDay)
@@ -703,7 +703,7 @@ pub const qdate = struct {
     /// ` offsetSeconds: i32 `
     ///
     pub fn EndOfDay22(self: ?*anyopaque, spec: i32, offsetSeconds: i32) QtC.QDateTime {
-        return qtc.QDate_EndOfDay22(@ptrCast(self), @intCast(spec), @intCast(offsetSeconds));
+        return qtc.QDate_EndOfDay22(@ptrCast(self), @bitCast(spec), @bitCast(offsetSeconds));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#toString)
@@ -717,7 +717,7 @@ pub const qdate = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString1(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDate_ToString1(@ptrCast(self), @intCast(format));
+        var _str = qtc.QDate_ToString1(@ptrCast(self), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdate.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -737,7 +737,7 @@ pub const qdate = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QDate_FromString23(stringVal_str, @intCast(format));
+        return qtc.QDate_FromString23(stringVal_str, @bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#fromString)
@@ -759,7 +759,7 @@ pub const qdate = struct {
             .len = format.len,
             .data = format.ptr,
         };
-        return qtc.QDate_FromString34(stringVal_str, format_str, @intCast(baseYear));
+        return qtc.QDate_FromString34(stringVal_str, format_str, @bitCast(baseYear));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#dtor.QDate)
@@ -812,7 +812,7 @@ pub const qtime = struct {
     /// ` m: i32 `
     ///
     pub fn New4(h: i32, m: i32) QtC.QTime {
-        return qtc.QTime_new4(@intCast(h), @intCast(m));
+        return qtc.QTime_new4(@bitCast(h), @bitCast(m));
     }
 
     /// New5 constructs a new QTime object.
@@ -836,7 +836,7 @@ pub const qtime = struct {
     /// ` s: i32 `
     ///
     pub fn New6(h: i32, m: i32, s: i32) QtC.QTime {
-        return qtc.QTime_new6(@intCast(h), @intCast(m), @intCast(s));
+        return qtc.QTime_new6(@bitCast(h), @bitCast(m), @bitCast(s));
     }
 
     /// New7 constructs a new QTime object.
@@ -852,7 +852,7 @@ pub const qtime = struct {
     /// ` ms: i32 `
     ///
     pub fn New7(h: i32, m: i32, s: i32, ms: i32) QtC.QTime {
-        return qtc.QTime_new7(@intCast(h), @intCast(m), @intCast(s), @intCast(ms));
+        return qtc.QTime_new7(@bitCast(h), @bitCast(m), @bitCast(s), @bitCast(ms));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -990,7 +990,7 @@ pub const qtime = struct {
     /// ` s: i32 `
     ///
     pub fn SetHMS(self: ?*anyopaque, h: i32, m: i32, s: i32) bool {
-        return qtc.QTime_SetHMS(@ptrCast(self), @intCast(h), @intCast(m), @intCast(s));
+        return qtc.QTime_SetHMS(@ptrCast(self), @bitCast(h), @bitCast(m), @bitCast(s));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtime.html#addSecs)
@@ -1002,7 +1002,7 @@ pub const qtime = struct {
     /// ` secs: i32 `
     ///
     pub fn AddSecs(self: ?*anyopaque, secs: i32) QtC.QTime {
-        return qtc.QTime_AddSecs(@ptrCast(self), @intCast(secs));
+        return qtc.QTime_AddSecs(@ptrCast(self), @bitCast(secs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtime.html#secsTo)
@@ -1026,7 +1026,7 @@ pub const qtime = struct {
     /// ` ms: i32 `
     ///
     pub fn AddMSecs(self: ?*anyopaque, ms: i32) QtC.QTime {
-        return qtc.QTime_AddMSecs(@ptrCast(self), @intCast(ms));
+        return qtc.QTime_AddMSecs(@ptrCast(self), @bitCast(ms));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtime.html#msecsTo)
@@ -1048,7 +1048,7 @@ pub const qtime = struct {
     /// ` msecs: i32 `
     ///
     pub fn FromMSecsSinceStartOfDay(msecs: i32) QtC.QTime {
-        return qtc.QTime_FromMSecsSinceStartOfDay(@intCast(msecs));
+        return qtc.QTime_FromMSecsSinceStartOfDay(@bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtime.html#msecsSinceStartOfDay)
@@ -1112,7 +1112,7 @@ pub const qtime = struct {
     /// ` s: i32 `
     ///
     pub fn IsValid2(h: i32, m: i32, s: i32) bool {
-        return qtc.QTime_IsValid2(@intCast(h), @intCast(m), @intCast(s));
+        return qtc.QTime_IsValid2(@bitCast(h), @bitCast(m), @bitCast(s));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtime.html#toString)
@@ -1126,7 +1126,7 @@ pub const qtime = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString1(self: ?*anyopaque, f: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTime_ToString1(@ptrCast(self), @intCast(f));
+        var _str = qtc.QTime_ToString1(@ptrCast(self), @bitCast(f));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtime.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1148,7 +1148,7 @@ pub const qtime = struct {
     /// ` ms: i32 `
     ///
     pub fn SetHMS4(self: ?*anyopaque, h: i32, m: i32, s: i32, ms: i32) bool {
-        return qtc.QTime_SetHMS4(@ptrCast(self), @intCast(h), @intCast(m), @intCast(s), @intCast(ms));
+        return qtc.QTime_SetHMS4(@ptrCast(self), @bitCast(h), @bitCast(m), @bitCast(s), @bitCast(ms));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtime.html#fromString)
@@ -1164,7 +1164,7 @@ pub const qtime = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QTime_FromString23(stringVal_str, @intCast(format));
+        return qtc.QTime_FromString23(stringVal_str, @bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtime.html#isValid)
@@ -1180,7 +1180,7 @@ pub const qtime = struct {
     /// ` ms: i32 `
     ///
     pub fn IsValid4(h: i32, m: i32, s: i32, ms: i32) bool {
-        return qtc.QTime_IsValid4(@intCast(h), @intCast(m), @intCast(s), @intCast(ms));
+        return qtc.QTime_IsValid4(@bitCast(h), @bitCast(m), @bitCast(s), @bitCast(ms));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtime.html#dtor.QTime)
@@ -1215,7 +1215,7 @@ pub const qdatetime = struct {
     /// ` spec: qnamespace_enums.TimeSpec `
     ///
     pub fn New2(date: QtC.QDate, time: QtC.QTime, spec: i32) QtC.QDateTime {
-        return qtc.QDateTime_new2(@ptrCast(date), @ptrCast(time), @intCast(spec));
+        return qtc.QDateTime_new2(@ptrCast(date), @ptrCast(time), @bitCast(spec));
     }
 
     /// New3 constructs a new QDateTime object.
@@ -1267,7 +1267,7 @@ pub const qdatetime = struct {
     /// ` offsetSeconds: i32 `
     ///
     pub fn New6(date: QtC.QDate, time: QtC.QTime, spec: i32, offsetSeconds: i32) QtC.QDateTime {
-        return qtc.QDateTime_new6(@ptrCast(date), @ptrCast(time), @intCast(spec), @intCast(offsetSeconds));
+        return qtc.QDateTime_new6(@ptrCast(date), @ptrCast(time), @bitCast(spec), @bitCast(offsetSeconds));
     }
 
     /// New7 constructs a new QDateTime object.
@@ -1283,7 +1283,7 @@ pub const qdatetime = struct {
     /// ` resolve: qdatetime_enums.TransitionResolution `
     ///
     pub fn New7(date: QtC.QDate, time: QtC.QTime, timeZone: ?*anyopaque, resolve: i32) QtC.QDateTime {
-        return qtc.QDateTime_new7(@ptrCast(date), @ptrCast(time), @ptrCast(timeZone), @intCast(resolve));
+        return qtc.QDateTime_new7(@ptrCast(date), @ptrCast(time), @ptrCast(timeZone), @bitCast(resolve));
     }
 
     /// New8 constructs a new QDateTime object.
@@ -1297,7 +1297,7 @@ pub const qdatetime = struct {
     /// ` resolve: qdatetime_enums.TransitionResolution `
     ///
     pub fn New8(date: QtC.QDate, time: QtC.QTime, resolve: i32) QtC.QDateTime {
-        return qtc.QDateTime_new8(@ptrCast(date), @ptrCast(time), @intCast(resolve));
+        return qtc.QDateTime_new8(@ptrCast(date), @ptrCast(time), @bitCast(resolve));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#operator-eq)
@@ -1487,7 +1487,7 @@ pub const qdatetime = struct {
     /// ` spec: qnamespace_enums.TimeSpec `
     ///
     pub fn SetTimeSpec(self: ?*anyopaque, spec: i32) void {
-        qtc.QDateTime_SetTimeSpec(@ptrCast(self), @intCast(spec));
+        qtc.QDateTime_SetTimeSpec(@ptrCast(self), @bitCast(spec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#setOffsetFromUtc)
@@ -1499,7 +1499,7 @@ pub const qdatetime = struct {
     /// ` offsetSeconds: i32 `
     ///
     pub fn SetOffsetFromUtc(self: ?*anyopaque, offsetSeconds: i32) void {
-        qtc.QDateTime_SetOffsetFromUtc(@ptrCast(self), @intCast(offsetSeconds));
+        qtc.QDateTime_SetOffsetFromUtc(@ptrCast(self), @bitCast(offsetSeconds));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#setTimeZone)
@@ -1523,7 +1523,7 @@ pub const qdatetime = struct {
     /// ` msecs: i64 `
     ///
     pub fn SetMSecsSinceEpoch(self: ?*anyopaque, msecs: i64) void {
-        qtc.QDateTime_SetMSecsSinceEpoch(@ptrCast(self), @intCast(msecs));
+        qtc.QDateTime_SetMSecsSinceEpoch(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#setSecsSinceEpoch)
@@ -1535,7 +1535,7 @@ pub const qdatetime = struct {
     /// ` secs: i64 `
     ///
     pub fn SetSecsSinceEpoch(self: ?*anyopaque, secs: i64) void {
-        qtc.QDateTime_SetSecsSinceEpoch(@ptrCast(self), @intCast(secs));
+        qtc.QDateTime_SetSecsSinceEpoch(@ptrCast(self), @bitCast(secs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#toString)
@@ -1609,7 +1609,7 @@ pub const qdatetime = struct {
     /// ` days: i64 `
     ///
     pub fn AddDays(self: ?*anyopaque, days: i64) QtC.QDateTime {
-        return qtc.QDateTime_AddDays(@ptrCast(self), @intCast(days));
+        return qtc.QDateTime_AddDays(@ptrCast(self), @bitCast(days));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#addMonths)
@@ -1621,7 +1621,7 @@ pub const qdatetime = struct {
     /// ` months: i32 `
     ///
     pub fn AddMonths(self: ?*anyopaque, months: i32) QtC.QDateTime {
-        return qtc.QDateTime_AddMonths(@ptrCast(self), @intCast(months));
+        return qtc.QDateTime_AddMonths(@ptrCast(self), @bitCast(months));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#addYears)
@@ -1633,7 +1633,7 @@ pub const qdatetime = struct {
     /// ` years: i32 `
     ///
     pub fn AddYears(self: ?*anyopaque, years: i32) QtC.QDateTime {
-        return qtc.QDateTime_AddYears(@ptrCast(self), @intCast(years));
+        return qtc.QDateTime_AddYears(@ptrCast(self), @bitCast(years));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#addSecs)
@@ -1645,7 +1645,7 @@ pub const qdatetime = struct {
     /// ` secs: i64 `
     ///
     pub fn AddSecs(self: ?*anyopaque, secs: i64) QtC.QDateTime {
-        return qtc.QDateTime_AddSecs(@ptrCast(self), @intCast(secs));
+        return qtc.QDateTime_AddSecs(@ptrCast(self), @bitCast(secs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#addMSecs)
@@ -1657,7 +1657,7 @@ pub const qdatetime = struct {
     /// ` msecs: i64 `
     ///
     pub fn AddMSecs(self: ?*anyopaque, msecs: i64) QtC.QDateTime {
-        return qtc.QDateTime_AddMSecs(@ptrCast(self), @intCast(msecs));
+        return qtc.QDateTime_AddMSecs(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#addDuration)
@@ -1669,7 +1669,7 @@ pub const qdatetime = struct {
     /// ` msecs: i64 of milliseconds `
     ///
     pub fn AddDuration(self: ?*anyopaque, msecs: i64) QtC.QDateTime {
-        return qtc.QDateTime_AddDuration(@ptrCast(self), @intCast(msecs));
+        return qtc.QDateTime_AddDuration(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#toTimeSpec)
@@ -1681,7 +1681,7 @@ pub const qdatetime = struct {
     /// ` spec: qnamespace_enums.TimeSpec `
     ///
     pub fn ToTimeSpec(self: ?*anyopaque, spec: i32) QtC.QDateTime {
-        return qtc.QDateTime_ToTimeSpec(@ptrCast(self), @intCast(spec));
+        return qtc.QDateTime_ToTimeSpec(@ptrCast(self), @bitCast(spec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#toLocalTime)
@@ -1713,7 +1713,7 @@ pub const qdatetime = struct {
     /// ` offsetSeconds: i32 `
     ///
     pub fn ToOffsetFromUtc(self: ?*anyopaque, offsetSeconds: i32) QtC.QDateTime {
-        return qtc.QDateTime_ToOffsetFromUtc(@ptrCast(self), @intCast(offsetSeconds));
+        return qtc.QDateTime_ToOffsetFromUtc(@ptrCast(self), @bitCast(offsetSeconds));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#toTimeZone)
@@ -1863,7 +1863,7 @@ pub const qdatetime = struct {
             .len = format.len,
             .data = format.ptr,
         };
-        return qtc.QDateTime_FromString11(stringVal_str, format_str, @intCast(baseYear), @ptrCast(cal));
+        return qtc.QDateTime_FromString11(stringVal_str, format_str, @bitCast(baseYear), @ptrCast(cal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#fromMSecsSinceEpoch)
@@ -1875,7 +1875,7 @@ pub const qdatetime = struct {
     /// ` spec: qnamespace_enums.TimeSpec `
     ///
     pub fn FromMSecsSinceEpoch(msecs: i64, spec: i32) QtC.QDateTime {
-        return qtc.QDateTime_FromMSecsSinceEpoch(@intCast(msecs), @intCast(spec));
+        return qtc.QDateTime_FromMSecsSinceEpoch(@bitCast(msecs), @bitCast(spec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#fromSecsSinceEpoch)
@@ -1887,7 +1887,7 @@ pub const qdatetime = struct {
     /// ` spec: qnamespace_enums.TimeSpec `
     ///
     pub fn FromSecsSinceEpoch(secs: i64, spec: i32) QtC.QDateTime {
-        return qtc.QDateTime_FromSecsSinceEpoch(@intCast(secs), @intCast(spec));
+        return qtc.QDateTime_FromSecsSinceEpoch(@bitCast(secs), @bitCast(spec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#fromMSecsSinceEpoch)
@@ -1899,7 +1899,7 @@ pub const qdatetime = struct {
     /// ` timeZone: QtC.QTimeZone `
     ///
     pub fn FromMSecsSinceEpoch2(msecs: i64, timeZone: ?*anyopaque) QtC.QDateTime {
-        return qtc.QDateTime_FromMSecsSinceEpoch2(@intCast(msecs), @ptrCast(timeZone));
+        return qtc.QDateTime_FromMSecsSinceEpoch2(@bitCast(msecs), @ptrCast(timeZone));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#fromSecsSinceEpoch)
@@ -1911,7 +1911,7 @@ pub const qdatetime = struct {
     /// ` timeZone: QtC.QTimeZone `
     ///
     pub fn FromSecsSinceEpoch2(secs: i64, timeZone: ?*anyopaque) QtC.QDateTime {
-        return qtc.QDateTime_FromSecsSinceEpoch2(@intCast(secs), @ptrCast(timeZone));
+        return qtc.QDateTime_FromSecsSinceEpoch2(@bitCast(secs), @ptrCast(timeZone));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#fromMSecsSinceEpoch)
@@ -1921,7 +1921,7 @@ pub const qdatetime = struct {
     /// ` msecs: i64 `
     ///
     pub fn FromMSecsSinceEpoch3(msecs: i64) QtC.QDateTime {
-        return qtc.QDateTime_FromMSecsSinceEpoch3(@intCast(msecs));
+        return qtc.QDateTime_FromMSecsSinceEpoch3(@bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#fromSecsSinceEpoch)
@@ -1931,7 +1931,7 @@ pub const qdatetime = struct {
     /// ` secs: i64 `
     ///
     pub fn FromSecsSinceEpoch3(secs: i64) QtC.QDateTime {
-        return qtc.QDateTime_FromSecsSinceEpoch3(@intCast(secs));
+        return qtc.QDateTime_FromSecsSinceEpoch3(@bitCast(secs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#currentMSecsSinceEpoch)
@@ -1955,7 +1955,7 @@ pub const qdatetime = struct {
     /// ` duration: i64 of milliseconds `
     ///
     pub fn OperatorPlusAssign(self: ?*anyopaque, duration: i64) QtC.QDateTime {
-        return qtc.QDateTime_OperatorPlusAssign(@ptrCast(self), @intCast(duration));
+        return qtc.QDateTime_OperatorPlusAssign(@ptrCast(self), @bitCast(duration));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#operator--eq)
@@ -1967,7 +1967,7 @@ pub const qdatetime = struct {
     /// ` duration: i64 of milliseconds `
     ///
     pub fn OperatorMinusAssign(self: ?*anyopaque, duration: i64) QtC.QDateTime {
-        return qtc.QDateTime_OperatorMinusAssign(@ptrCast(self), @intCast(duration));
+        return qtc.QDateTime_OperatorMinusAssign(@ptrCast(self), @bitCast(duration));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#setDate)
@@ -1981,7 +1981,7 @@ pub const qdatetime = struct {
     /// ` resolve: qdatetime_enums.TransitionResolution `
     ///
     pub fn SetDate2(self: ?*anyopaque, date: QtC.QDate, resolve: i32) void {
-        qtc.QDateTime_SetDate2(@ptrCast(self), @ptrCast(date), @intCast(resolve));
+        qtc.QDateTime_SetDate2(@ptrCast(self), @ptrCast(date), @bitCast(resolve));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#setTime)
@@ -1995,7 +1995,7 @@ pub const qdatetime = struct {
     /// ` resolve: qdatetime_enums.TransitionResolution `
     ///
     pub fn SetTime2(self: ?*anyopaque, time: QtC.QTime, resolve: i32) void {
-        qtc.QDateTime_SetTime2(@ptrCast(self), @ptrCast(time), @intCast(resolve));
+        qtc.QDateTime_SetTime2(@ptrCast(self), @ptrCast(time), @bitCast(resolve));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#setTimeZone)
@@ -2009,7 +2009,7 @@ pub const qdatetime = struct {
     /// ` resolve: qdatetime_enums.TransitionResolution `
     ///
     pub fn SetTimeZone2(self: ?*anyopaque, toZone: ?*anyopaque, resolve: i32) void {
-        qtc.QDateTime_SetTimeZone2(@ptrCast(self), @ptrCast(toZone), @intCast(resolve));
+        qtc.QDateTime_SetTimeZone2(@ptrCast(self), @ptrCast(toZone), @bitCast(resolve));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#toString)
@@ -2023,7 +2023,7 @@ pub const qdatetime = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString1(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDateTime_ToString1(@ptrCast(self), @intCast(format));
+        var _str = qtc.QDateTime_ToString1(@ptrCast(self), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetime.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2043,7 +2043,7 @@ pub const qdatetime = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QDateTime_FromString23(stringVal_str, @intCast(format));
+        return qtc.QDateTime_FromString23(stringVal_str, @bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#fromString)
@@ -2065,7 +2065,7 @@ pub const qdatetime = struct {
             .len = format.len,
             .data = format.ptr,
         };
-        return qtc.QDateTime_FromString34(stringVal_str, format_str, @intCast(baseYear));
+        return qtc.QDateTime_FromString34(stringVal_str, format_str, @bitCast(baseYear));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#fromMSecsSinceEpoch)
@@ -2079,7 +2079,7 @@ pub const qdatetime = struct {
     /// ` offsetFromUtc: i32 `
     ///
     pub fn FromMSecsSinceEpoch32(msecs: i64, spec: i32, offsetFromUtc: i32) QtC.QDateTime {
-        return qtc.QDateTime_FromMSecsSinceEpoch32(@intCast(msecs), @intCast(spec), @intCast(offsetFromUtc));
+        return qtc.QDateTime_FromMSecsSinceEpoch32(@bitCast(msecs), @bitCast(spec), @bitCast(offsetFromUtc));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#fromSecsSinceEpoch)
@@ -2093,7 +2093,7 @@ pub const qdatetime = struct {
     /// ` offsetFromUtc: i32 `
     ///
     pub fn FromSecsSinceEpoch32(secs: i64, spec: i32, offsetFromUtc: i32) QtC.QDateTime {
-        return qtc.QDateTime_FromSecsSinceEpoch32(@intCast(secs), @intCast(spec), @intCast(offsetFromUtc));
+        return qtc.QDateTime_FromSecsSinceEpoch32(@bitCast(secs), @bitCast(spec), @bitCast(offsetFromUtc));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#dtor.QDateTime)

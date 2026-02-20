@@ -104,7 +104,7 @@ pub const kstandardactions__kstandardactionsinfo = struct {
     /// ` id: kstandardactions_enums.StandardAction `
     ///
     pub fn SetId(self: ?*anyopaque, id: i32) void {
-        qtc.KStandardActions__KStandardActionsInfo_SetId(@ptrCast(self), @intCast(id));
+        qtc.KStandardActions__KStandardActionsInfo_SetId(@ptrCast(self), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardactions-kstandardactionsinfo.html#idAccel-var)
@@ -130,7 +130,7 @@ pub const kstandardactions__kstandardactionsinfo = struct {
     /// ` idAccel: kstandardshortcut_enums.StandardShortcut `
     ///
     pub fn SetIdAccel(self: ?*anyopaque, idAccel: i32) void {
-        qtc.KStandardActions__KStandardActionsInfo_SetIdAccel(@ptrCast(self), @intCast(idAccel));
+        qtc.KStandardActions__KStandardActionsInfo_SetIdAccel(@ptrCast(self), @bitCast(idAccel));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardactions-kstandardactionsinfo.html#psLabel-var)
@@ -201,7 +201,7 @@ pub const kstandardactions = struct {
     /// ` param1: kstandardactions_enums.StandardAction `
     ///
     pub fn InfoPtr(param1: i32) QtC.KStandardActions__KStandardActionsInfo {
-        return qtc.KStandardActions_InfoPtr(@intCast(param1));
+        return qtc.KStandardActions_InfoPtr(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardactions.html#internal_stdNames)

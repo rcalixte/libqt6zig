@@ -34,7 +34,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnProcess(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.Konsole__Filter_OnProcess(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnProcess(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -70,7 +70,7 @@ pub const konsole__filter = struct {
     /// ` column: i32 `
     ///
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
-        return qtc.Konsole__Filter_HotSpotAt(@ptrCast(self), @intCast(line), @intCast(column));
+        return qtc.Konsole__Filter_HotSpotAt(@ptrCast(self), @bitCast(line), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -96,7 +96,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void `
     ///
     pub fn OnAddHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnAddHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnAddHotSpot(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -142,7 +142,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnBuffer(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.Konsole__Filter_OnBuffer(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnBuffer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -176,7 +176,7 @@ pub const konsole__filter = struct {
     /// ` startColumn: *i32 `
     ///
     pub fn GetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
-        qtc.Konsole__Filter_GetLineColumn(@ptrCast(self), @intCast(position), @ptrCast(startLine), @ptrCast(startColumn));
+        qtc.Konsole__Filter_GetLineColumn(@ptrCast(self), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -190,7 +190,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void `
     ///
     pub fn OnGetLineColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, *i32, *i32) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnGetLineColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnGetLineColumn(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -208,7 +208,7 @@ pub const konsole__filter = struct {
     /// ` startColumn: *i32 `
     ///
     pub fn QBaseGetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
-        qtc.Konsole__Filter_QBaseGetLineColumn(@ptrCast(self), @intCast(position), @ptrCast(startLine), @ptrCast(startColumn));
+        qtc.Konsole__Filter_QBaseGetLineColumn(@ptrCast(self), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// Inherited from QObject
@@ -361,7 +361,7 @@ pub const konsole__filter = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -375,7 +375,7 @@ pub const konsole__filter = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -389,7 +389,7 @@ pub const konsole__filter = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -403,7 +403,7 @@ pub const konsole__filter = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -733,7 +733,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -814,7 +814,7 @@ pub const konsole__filter = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__filter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -834,7 +834,7 @@ pub const konsole__filter = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -850,7 +850,7 @@ pub const konsole__filter = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -872,7 +872,7 @@ pub const konsole__filter = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -892,7 +892,7 @@ pub const konsole__filter = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -914,7 +914,7 @@ pub const konsole__filter = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1011,7 +1011,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1055,7 +1055,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.Konsole__Filter_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1105,7 +1105,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.Konsole__Filter_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1125,7 +1125,7 @@ pub const konsole__filter = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__Filter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.Konsole__Filter_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Inherited from QObject
@@ -1145,7 +1145,7 @@ pub const konsole__filter = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__Filter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.Konsole__Filter_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Inherited from QObject
@@ -1161,7 +1161,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.Konsole__Filter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1209,7 +1209,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__Filter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1261,7 +1261,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__Filter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1309,7 +1309,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1357,7 +1357,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1405,7 +1405,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1453,7 +1453,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1501,7 +1501,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1545,7 +1545,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.Konsole__Filter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1589,7 +1589,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.Konsole__Filter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1639,7 +1639,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Konsole__Filter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1687,7 +1687,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__Filter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1703,7 +1703,7 @@ pub const konsole__filter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -1768,7 +1768,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnProcess(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnProcess(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnProcess(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1798,7 +1798,7 @@ pub const konsole__regexpfilter = struct {
     /// ` endColumn: i32 `
     ///
     pub fn NewHotSpot(self: ?*anyopaque, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) QtC.Konsole__RegExpFilter__HotSpot {
-        return qtc.Konsole__RegExpFilter_NewHotSpot(@ptrCast(self), @intCast(startLine), @intCast(startColumn), @intCast(endLine), @intCast(endColumn));
+        return qtc.Konsole__RegExpFilter_NewHotSpot(@ptrCast(self), @bitCast(startLine), @bitCast(startColumn), @bitCast(endLine), @bitCast(endColumn));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1812,7 +1812,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot `
     ///
     pub fn OnNewHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot) void {
-        qtc.Konsole__RegExpFilter_OnNewHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnNewHotSpot(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1832,7 +1832,7 @@ pub const konsole__regexpfilter = struct {
     /// ` endColumn: i32 `
     ///
     pub fn QBaseNewHotSpot(self: ?*anyopaque, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) QtC.Konsole__RegExpFilter__HotSpot {
-        return qtc.Konsole__RegExpFilter_QBaseNewHotSpot(@ptrCast(self), @intCast(startLine), @intCast(startColumn), @intCast(endLine), @intCast(endColumn));
+        return qtc.Konsole__RegExpFilter_QBaseNewHotSpot(@ptrCast(self), @bitCast(startLine), @bitCast(startColumn), @bitCast(endLine), @bitCast(endColumn));
     }
 
     /// Inherited from Konsole::Filter
@@ -1860,7 +1860,7 @@ pub const konsole__regexpfilter = struct {
     /// ` column: i32 `
     ///
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
-        return qtc.Konsole__Filter_HotSpotAt(@ptrCast(self), @intCast(line), @intCast(column));
+        return qtc.Konsole__Filter_HotSpotAt(@ptrCast(self), @bitCast(line), @bitCast(column));
     }
 
     /// Inherited from QObject
@@ -2013,7 +2013,7 @@ pub const konsole__regexpfilter = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2027,7 +2027,7 @@ pub const konsole__regexpfilter = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2041,7 +2041,7 @@ pub const konsole__regexpfilter = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2055,7 +2055,7 @@ pub const konsole__regexpfilter = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2385,7 +2385,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2466,7 +2466,7 @@ pub const konsole__regexpfilter = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__regexpfilter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2486,7 +2486,7 @@ pub const konsole__regexpfilter = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2502,7 +2502,7 @@ pub const konsole__regexpfilter = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2524,7 +2524,7 @@ pub const konsole__regexpfilter = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2544,7 +2544,7 @@ pub const konsole__regexpfilter = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2566,7 +2566,7 @@ pub const konsole__regexpfilter = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2663,7 +2663,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2707,7 +2707,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.Konsole__RegExpFilter_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2757,7 +2757,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.Konsole__RegExpFilter_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2777,7 +2777,7 @@ pub const konsole__regexpfilter = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__RegExpFilter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.Konsole__RegExpFilter_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Inherited from QObject
@@ -2797,7 +2797,7 @@ pub const konsole__regexpfilter = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__RegExpFilter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.Konsole__RegExpFilter_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Inherited from QObject
@@ -2813,7 +2813,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.Konsole__RegExpFilter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2861,7 +2861,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__RegExpFilter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2913,7 +2913,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__RegExpFilter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2961,7 +2961,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3009,7 +3009,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3057,7 +3057,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3105,7 +3105,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3153,7 +3153,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
@@ -3201,7 +3201,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void `
     ///
     pub fn OnAddHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnAddHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnAddHotSpot(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
@@ -3259,7 +3259,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnBuffer(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.Konsole__RegExpFilter_OnBuffer(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnBuffer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
@@ -3279,7 +3279,7 @@ pub const konsole__regexpfilter = struct {
     /// ` startColumn: *i32 `
     ///
     pub fn GetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
-        qtc.Konsole__RegExpFilter_GetLineColumn(@ptrCast(self), @intCast(position), @ptrCast(startLine), @ptrCast(startColumn));
+        qtc.Konsole__RegExpFilter_GetLineColumn(@ptrCast(self), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// Inherited from Konsole::Filter
@@ -3299,7 +3299,7 @@ pub const konsole__regexpfilter = struct {
     /// ` startColumn: *i32 `
     ///
     pub fn QBaseGetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
-        qtc.Konsole__RegExpFilter_QBaseGetLineColumn(@ptrCast(self), @intCast(position), @ptrCast(startLine), @ptrCast(startColumn));
+        qtc.Konsole__RegExpFilter_QBaseGetLineColumn(@ptrCast(self), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// Inherited from Konsole::Filter
@@ -3315,7 +3315,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void `
     ///
     pub fn OnGetLineColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, *i32, *i32) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnGetLineColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnGetLineColumn(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3359,7 +3359,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.Konsole__RegExpFilter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3403,7 +3403,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.Konsole__RegExpFilter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3453,7 +3453,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Konsole__RegExpFilter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3501,7 +3501,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__RegExpFilter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3517,7 +3517,7 @@ pub const konsole__regexpfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -3560,7 +3560,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.Konsole__UrlFilter_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -3595,7 +3595,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.Konsole__UrlFilter_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -3622,7 +3622,7 @@ pub const konsole__urlfilter = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__UrlFilter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.Konsole__UrlFilter_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -3634,7 +3634,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.Konsole__UrlFilter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -3650,7 +3650,7 @@ pub const konsole__urlfilter = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__UrlFilter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.Konsole__UrlFilter_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3685,7 +3685,7 @@ pub const konsole__urlfilter = struct {
     /// ` param4: i32 `
     ///
     pub fn NewHotSpot(self: ?*anyopaque, param1: i32, param2: i32, param3: i32, param4: i32) QtC.Konsole__RegExpFilter__HotSpot {
-        return qtc.Konsole__UrlFilter_NewHotSpot(@ptrCast(self), @intCast(param1), @intCast(param2), @intCast(param3), @intCast(param4));
+        return qtc.Konsole__UrlFilter_NewHotSpot(@ptrCast(self), @bitCast(param1), @bitCast(param2), @bitCast(param3), @bitCast(param4));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -3699,7 +3699,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, param1: i32, param2: i32, param3: i32, param4: i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot `
     ///
     pub fn OnNewHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot) void {
-        qtc.Konsole__UrlFilter_OnNewHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnNewHotSpot(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -3719,7 +3719,7 @@ pub const konsole__urlfilter = struct {
     /// ` param4: i32 `
     ///
     pub fn QBaseNewHotSpot(self: ?*anyopaque, param1: i32, param2: i32, param3: i32, param4: i32) QtC.Konsole__RegExpFilter__HotSpot {
-        return qtc.Konsole__UrlFilter_QBaseNewHotSpot(@ptrCast(self), @intCast(param1), @intCast(param2), @intCast(param3), @intCast(param4));
+        return qtc.Konsole__UrlFilter_QBaseNewHotSpot(@ptrCast(self), @bitCast(param1), @bitCast(param2), @bitCast(param3), @bitCast(param4));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -3745,7 +3745,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, url: QtC.QUrl, fromContextMenu: bool) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_Connect_Activated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3783,7 +3783,7 @@ pub const konsole__urlfilter = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__urlfilter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3841,7 +3841,7 @@ pub const konsole__urlfilter = struct {
     /// ` column: i32 `
     ///
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
-        return qtc.Konsole__Filter_HotSpotAt(@ptrCast(self), @intCast(line), @intCast(column));
+        return qtc.Konsole__Filter_HotSpotAt(@ptrCast(self), @bitCast(line), @bitCast(column));
     }
 
     /// Inherited from QObject
@@ -3975,7 +3975,7 @@ pub const konsole__urlfilter = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -3989,7 +3989,7 @@ pub const konsole__urlfilter = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -4003,7 +4003,7 @@ pub const konsole__urlfilter = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4017,7 +4017,7 @@ pub const konsole__urlfilter = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4347,7 +4347,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4402,7 +4402,7 @@ pub const konsole__urlfilter = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4418,7 +4418,7 @@ pub const konsole__urlfilter = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4440,7 +4440,7 @@ pub const konsole__urlfilter = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -4460,7 +4460,7 @@ pub const konsole__urlfilter = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4482,7 +4482,7 @@ pub const konsole__urlfilter = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4579,7 +4579,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::RegExpFilter
@@ -4623,7 +4623,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnProcess(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnProcess(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnProcess(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4671,7 +4671,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__UrlFilter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4723,7 +4723,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__UrlFilter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4771,7 +4771,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4819,7 +4819,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4867,7 +4867,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4915,7 +4915,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4963,7 +4963,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
@@ -5011,7 +5011,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void `
     ///
     pub fn OnAddHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnAddHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnAddHotSpot(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
@@ -5069,7 +5069,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnBuffer(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.Konsole__UrlFilter_OnBuffer(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnBuffer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
@@ -5089,7 +5089,7 @@ pub const konsole__urlfilter = struct {
     /// ` startColumn: *i32 `
     ///
     pub fn GetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
-        qtc.Konsole__UrlFilter_GetLineColumn(@ptrCast(self), @intCast(position), @ptrCast(startLine), @ptrCast(startColumn));
+        qtc.Konsole__UrlFilter_GetLineColumn(@ptrCast(self), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// Inherited from Konsole::Filter
@@ -5109,7 +5109,7 @@ pub const konsole__urlfilter = struct {
     /// ` startColumn: *i32 `
     ///
     pub fn QBaseGetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
-        qtc.Konsole__UrlFilter_QBaseGetLineColumn(@ptrCast(self), @intCast(position), @ptrCast(startLine), @ptrCast(startColumn));
+        qtc.Konsole__UrlFilter_QBaseGetLineColumn(@ptrCast(self), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// Inherited from Konsole::Filter
@@ -5125,7 +5125,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void `
     ///
     pub fn OnGetLineColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, *i32, *i32) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnGetLineColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnGetLineColumn(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5169,7 +5169,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.Konsole__UrlFilter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5213,7 +5213,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.Konsole__UrlFilter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5263,7 +5263,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Konsole__UrlFilter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5311,7 +5311,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__UrlFilter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5327,7 +5327,7 @@ pub const konsole__urlfilter = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -5374,7 +5374,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.Konsole__FilterObject_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -5409,7 +5409,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.Konsole__FilterObject_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -5436,7 +5436,7 @@ pub const konsole__filterobject = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__FilterObject_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.Konsole__FilterObject_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -5448,7 +5448,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.Konsole__FilterObject_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -5464,7 +5464,7 @@ pub const konsole__filterobject = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__FilterObject_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.Konsole__FilterObject_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5531,7 +5531,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject, url: QtC.QUrl, fromContextMenu: bool) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.Konsole__FilterObject_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_Connect_Activated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5569,7 +5569,7 @@ pub const konsole__filterobject = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__filterobject.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5707,7 +5707,7 @@ pub const konsole__filterobject = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -5721,7 +5721,7 @@ pub const konsole__filterobject = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -5735,7 +5735,7 @@ pub const konsole__filterobject = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5749,7 +5749,7 @@ pub const konsole__filterobject = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6079,7 +6079,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6134,7 +6134,7 @@ pub const konsole__filterobject = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6150,7 +6150,7 @@ pub const konsole__filterobject = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6172,7 +6172,7 @@ pub const konsole__filterobject = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -6192,7 +6192,7 @@ pub const konsole__filterobject = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -6214,7 +6214,7 @@ pub const konsole__filterobject = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -6311,7 +6311,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6359,7 +6359,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__FilterObject_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6411,7 +6411,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__FilterObject_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6459,7 +6459,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__FilterObject_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6507,7 +6507,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__FilterObject_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6555,7 +6555,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__FilterObject_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6603,7 +6603,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__FilterObject_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6651,7 +6651,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__FilterObject_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6695,7 +6695,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.Konsole__FilterObject_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6739,7 +6739,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.Konsole__FilterObject_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6789,7 +6789,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Konsole__FilterObject_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6837,7 +6837,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__FilterObject_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__FilterObject_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6853,7 +6853,7 @@ pub const konsole__filterobject = struct {
     /// ` callback: *const fn (self: QtC.Konsole__FilterObject, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -6956,7 +6956,7 @@ pub const konsole__filterchain = struct {
     /// ` column: i32 `
     ///
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
-        return qtc.Konsole__FilterChain_HotSpotAt(@ptrCast(self), @intCast(line), @intCast(column));
+        return qtc.Konsole__FilterChain_HotSpotAt(@ptrCast(self), @bitCast(line), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -7108,7 +7108,7 @@ pub const konsole__terminalimagefilterchain = struct {
     /// ` column: i32 `
     ///
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
-        return qtc.Konsole__FilterChain_HotSpotAt(@ptrCast(self), @intCast(line), @intCast(column));
+        return qtc.Konsole__FilterChain_HotSpotAt(@ptrCast(self), @bitCast(line), @bitCast(column));
     }
 
     /// Inherited from Konsole::FilterChain
@@ -7170,7 +7170,7 @@ pub const konsole__filter__hotspot = struct {
     /// ` endColumn: i32 `
     ///
     pub fn New(startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) QtC.Konsole__Filter__HotSpot {
-        return qtc.Konsole__Filter__HotSpot_new(@intCast(startLine), @intCast(startColumn), @intCast(endLine), @intCast(endColumn));
+        return qtc.Konsole__Filter__HotSpot_new(@bitCast(startLine), @bitCast(startColumn), @bitCast(endLine), @bitCast(endColumn));
     }
 
     /// New2 constructs a new Konsole::Filter::HotSpot object.
@@ -7264,7 +7264,7 @@ pub const konsole__filter__hotspot = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter__HotSpot, action: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnActivate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Konsole__Filter__HotSpot_OnActivate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter__HotSpot_OnActivate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -7319,7 +7319,7 @@ pub const konsole__filter__hotspot = struct {
     /// ` C ABI representation of []QtC.QAction `
     ///
     pub fn OnActions(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.Konsole__Filter__HotSpot_OnActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter__HotSpot_OnActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -7350,7 +7350,7 @@ pub const konsole__filter__hotspot = struct {
     /// ` typeVal: Filter_enums.Type `
     ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.Konsole__Filter__HotSpot_SetType(@ptrCast(self), @intCast(typeVal));
+        qtc.Konsole__Filter__HotSpot_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -7364,7 +7364,7 @@ pub const konsole__filter__hotspot = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Filter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void `
     ///
     pub fn OnSetType(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Konsole__Filter__HotSpot_OnSetType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Filter__HotSpot_OnSetType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -7378,7 +7378,7 @@ pub const konsole__filter__hotspot = struct {
     /// ` typeVal: Filter_enums.Type `
     ///
     pub fn QBaseSetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.Konsole__Filter__HotSpot_QBaseSetType(@ptrCast(self), @intCast(typeVal));
+        qtc.Konsole__Filter__HotSpot_QBaseSetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Delete this object from C++ memory.
@@ -7407,7 +7407,7 @@ pub const konsole__regexpfilter__hotspot = struct {
     /// ` endColumn: i32 `
     ///
     pub fn New(startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) QtC.Konsole__RegExpFilter__HotSpot {
-        return qtc.Konsole__RegExpFilter__HotSpot_new(@intCast(startLine), @intCast(startColumn), @intCast(endLine), @intCast(endColumn));
+        return qtc.Konsole__RegExpFilter__HotSpot_new(@bitCast(startLine), @bitCast(startColumn), @bitCast(endLine), @bitCast(endColumn));
     }
 
     /// New2 constructs a new Konsole::RegExpFilter::HotSpot object.
@@ -7447,7 +7447,7 @@ pub const konsole__regexpfilter__hotspot = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter__HotSpot, action: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnActivate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter__HotSpot_OnActivate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter__HotSpot_OnActivate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -7646,7 +7646,7 @@ pub const konsole__regexpfilter__hotspot = struct {
     /// ` C ABI representation of []QtC.QAction `
     ///
     pub fn OnActions(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.Konsole__RegExpFilter__HotSpot_OnActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter__HotSpot_OnActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
@@ -7662,7 +7662,7 @@ pub const konsole__regexpfilter__hotspot = struct {
     /// ` typeVal: Filter_enums.Type `
     ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.Konsole__RegExpFilter__HotSpot_SetType(@ptrCast(self), @intCast(typeVal));
+        qtc.Konsole__RegExpFilter__HotSpot_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
@@ -7678,7 +7678,7 @@ pub const konsole__regexpfilter__hotspot = struct {
     /// ` typeVal: Filter_enums.Type `
     ///
     pub fn QBaseSetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.Konsole__RegExpFilter__HotSpot_QBaseSetType(@ptrCast(self), @intCast(typeVal));
+        qtc.Konsole__RegExpFilter__HotSpot_QBaseSetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
@@ -7694,7 +7694,7 @@ pub const konsole__regexpfilter__hotspot = struct {
     /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void `
     ///
     pub fn OnSetType(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter__HotSpot_OnSetType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__RegExpFilter__HotSpot_OnSetType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -7723,7 +7723,7 @@ pub const konsole__urlfilter__hotspot = struct {
     /// ` endColumn: i32 `
     ///
     pub fn New(startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) QtC.Konsole__UrlFilter__HotSpot {
-        return qtc.Konsole__UrlFilter__HotSpot_new(@intCast(startLine), @intCast(startColumn), @intCast(endLine), @intCast(endColumn));
+        return qtc.Konsole__UrlFilter__HotSpot_new(@bitCast(startLine), @bitCast(startColumn), @bitCast(endLine), @bitCast(endColumn));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -7770,7 +7770,7 @@ pub const konsole__urlfilter__hotspot = struct {
     /// ` C ABI representation of []QtC.QAction `
     ///
     pub fn OnActions(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.Konsole__UrlFilter__HotSpot_OnActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter__HotSpot_OnActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -7819,7 +7819,7 @@ pub const konsole__urlfilter__hotspot = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter__HotSpot, action: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnActivate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter__HotSpot_OnActivate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter__HotSpot_OnActivate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -7974,7 +7974,7 @@ pub const konsole__urlfilter__hotspot = struct {
     /// ` typeVal: Filter_enums.Type `
     ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.Konsole__UrlFilter__HotSpot_SetType(@ptrCast(self), @intCast(typeVal));
+        qtc.Konsole__UrlFilter__HotSpot_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
@@ -7990,7 +7990,7 @@ pub const konsole__urlfilter__hotspot = struct {
     /// ` typeVal: Filter_enums.Type `
     ///
     pub fn QBaseSetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.Konsole__UrlFilter__HotSpot_QBaseSetType(@ptrCast(self), @intCast(typeVal));
+        qtc.Konsole__UrlFilter__HotSpot_QBaseSetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
@@ -8006,7 +8006,7 @@ pub const konsole__urlfilter__hotspot = struct {
     /// ` callback: *const fn (self: QtC.Konsole__UrlFilter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void `
     ///
     pub fn OnSetType(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter__HotSpot_OnSetType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__UrlFilter__HotSpot_OnSetType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

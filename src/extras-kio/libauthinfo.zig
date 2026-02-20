@@ -432,7 +432,7 @@ pub const kio__authinfo = struct {
             .len = fieldName.len,
             .data = fieldName.ptr,
         };
-        qtc.KIO__AuthInfo_SetExtraFieldFlags(@ptrCast(self), fieldName_str, @intCast(flags));
+        qtc.KIO__AuthInfo_SetExtraFieldFlags(@ptrCast(self), fieldName_str, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-authinfo.html#getExtraField)

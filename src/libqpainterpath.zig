@@ -75,7 +75,7 @@ pub const qpainterpath = struct {
     /// ` size: i32 `
     ///
     pub fn Reserve(self: ?*anyopaque, size: i32) void {
-        qtc.QPainterPath_Reserve(@ptrCast(self), @intCast(size));
+        qtc.QPainterPath_Reserve(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#capacity)
@@ -121,7 +121,7 @@ pub const qpainterpath = struct {
     /// ` y: f64 `
     ///
     pub fn MoveTo2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QPainterPath_MoveTo2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QPainterPath_MoveTo2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#lineTo)
@@ -147,7 +147,7 @@ pub const qpainterpath = struct {
     /// ` y: f64 `
     ///
     pub fn LineTo2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QPainterPath_LineTo2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QPainterPath_LineTo2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#arcMoveTo)
@@ -161,7 +161,7 @@ pub const qpainterpath = struct {
     /// ` angle: f64 `
     ///
     pub fn ArcMoveTo(self: ?*anyopaque, rect: ?*anyopaque, angle: f64) void {
-        qtc.QPainterPath_ArcMoveTo(@ptrCast(self), @ptrCast(rect), @floatCast(angle));
+        qtc.QPainterPath_ArcMoveTo(@ptrCast(self), @ptrCast(rect), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#arcMoveTo)
@@ -181,7 +181,7 @@ pub const qpainterpath = struct {
     /// ` angle: f64 `
     ///
     pub fn ArcMoveTo2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, angle: f64) void {
-        qtc.QPainterPath_ArcMoveTo2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @floatCast(angle));
+        qtc.QPainterPath_ArcMoveTo2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#arcTo)
@@ -197,7 +197,7 @@ pub const qpainterpath = struct {
     /// ` arcLength: f64 `
     ///
     pub fn ArcTo(self: ?*anyopaque, rect: ?*anyopaque, startAngle: f64, arcLength: f64) void {
-        qtc.QPainterPath_ArcTo(@ptrCast(self), @ptrCast(rect), @floatCast(startAngle), @floatCast(arcLength));
+        qtc.QPainterPath_ArcTo(@ptrCast(self), @ptrCast(rect), @bitCast(startAngle), @bitCast(arcLength));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#arcTo)
@@ -219,7 +219,7 @@ pub const qpainterpath = struct {
     /// ` arcLength: f64 `
     ///
     pub fn ArcTo2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, startAngle: f64, arcLength: f64) void {
-        qtc.QPainterPath_ArcTo2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @floatCast(startAngle), @floatCast(arcLength));
+        qtc.QPainterPath_ArcTo2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(startAngle), @bitCast(arcLength));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#cubicTo)
@@ -257,7 +257,7 @@ pub const qpainterpath = struct {
     /// ` endPty: f64 `
     ///
     pub fn CubicTo2(self: ?*anyopaque, ctrlPt1x: f64, ctrlPt1y: f64, ctrlPt2x: f64, ctrlPt2y: f64, endPtx: f64, endPty: f64) void {
-        qtc.QPainterPath_CubicTo2(@ptrCast(self), @floatCast(ctrlPt1x), @floatCast(ctrlPt1y), @floatCast(ctrlPt2x), @floatCast(ctrlPt2y), @floatCast(endPtx), @floatCast(endPty));
+        qtc.QPainterPath_CubicTo2(@ptrCast(self), @bitCast(ctrlPt1x), @bitCast(ctrlPt1y), @bitCast(ctrlPt2x), @bitCast(ctrlPt2y), @bitCast(endPtx), @bitCast(endPty));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#quadTo)
@@ -289,7 +289,7 @@ pub const qpainterpath = struct {
     /// ` endPty: f64 `
     ///
     pub fn QuadTo2(self: ?*anyopaque, ctrlPtx: f64, ctrlPty: f64, endPtx: f64, endPty: f64) void {
-        qtc.QPainterPath_QuadTo2(@ptrCast(self), @floatCast(ctrlPtx), @floatCast(ctrlPty), @floatCast(endPtx), @floatCast(endPty));
+        qtc.QPainterPath_QuadTo2(@ptrCast(self), @bitCast(ctrlPtx), @bitCast(ctrlPty), @bitCast(endPtx), @bitCast(endPty));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#currentPosition)
@@ -329,7 +329,7 @@ pub const qpainterpath = struct {
     /// ` h: f64 `
     ///
     pub fn AddRect2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QPainterPath_AddRect2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QPainterPath_AddRect2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addEllipse)
@@ -359,7 +359,7 @@ pub const qpainterpath = struct {
     /// ` h: f64 `
     ///
     pub fn AddEllipse2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QPainterPath_AddEllipse2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QPainterPath_AddEllipse2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addEllipse)
@@ -375,7 +375,7 @@ pub const qpainterpath = struct {
     /// ` ry: f64 `
     ///
     pub fn AddEllipse3(self: ?*anyopaque, center: ?*anyopaque, rx: f64, ry: f64) void {
-        qtc.QPainterPath_AddEllipse3(@ptrCast(self), @ptrCast(center), @floatCast(rx), @floatCast(ry));
+        qtc.QPainterPath_AddEllipse3(@ptrCast(self), @ptrCast(center), @bitCast(rx), @bitCast(ry));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addText)
@@ -417,7 +417,7 @@ pub const qpainterpath = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QPainterPath_AddText2(@ptrCast(self), @floatCast(x), @floatCast(y), @ptrCast(f), text_str);
+        qtc.QPainterPath_AddText2(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(f), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addPath)
@@ -457,7 +457,7 @@ pub const qpainterpath = struct {
     /// ` yRadius: f64 `
     ///
     pub fn AddRoundedRect(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64) void {
-        qtc.QPainterPath_AddRoundedRect(@ptrCast(self), @ptrCast(rect), @floatCast(xRadius), @floatCast(yRadius));
+        qtc.QPainterPath_AddRoundedRect(@ptrCast(self), @ptrCast(rect), @bitCast(xRadius), @bitCast(yRadius));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addRoundedRect)
@@ -479,7 +479,7 @@ pub const qpainterpath = struct {
     /// ` yRadius: f64 `
     ///
     pub fn AddRoundedRect2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xRadius: f64, yRadius: f64) void {
-        qtc.QPainterPath_AddRoundedRect2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @floatCast(xRadius), @floatCast(yRadius));
+        qtc.QPainterPath_AddRoundedRect2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xRadius), @bitCast(yRadius));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#connectPath)
@@ -541,7 +541,7 @@ pub const qpainterpath = struct {
     /// ` dy: f64 `
     ///
     pub fn Translate(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QPainterPath_Translate(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QPainterPath_Translate(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#translate)
@@ -567,7 +567,7 @@ pub const qpainterpath = struct {
     /// ` dy: f64 `
     ///
     pub fn Translated(self: ?*anyopaque, dx: f64, dy: f64) QtC.QPainterPath {
-        return qtc.QPainterPath_Translated(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        return qtc.QPainterPath_Translated(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#translated)
@@ -625,7 +625,7 @@ pub const qpainterpath = struct {
     /// ` fillRule: qnamespace_enums.FillRule `
     ///
     pub fn SetFillRule(self: ?*anyopaque, fillRule: i32) void {
-        qtc.QPainterPath_SetFillRule(@ptrCast(self), @intCast(fillRule));
+        qtc.QPainterPath_SetFillRule(@ptrCast(self), @bitCast(fillRule));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#isEmpty)
@@ -667,7 +667,7 @@ pub const qpainterpath = struct {
     /// ` i: i32 `
     ///
     pub fn ElementAt(self: ?*anyopaque, i: i32) QtC.QPainterPath__Element {
-        return qtc.QPainterPath_ElementAt(@ptrCast(self), @intCast(i));
+        return qtc.QPainterPath_ElementAt(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#setElementPositionAt)
@@ -683,7 +683,7 @@ pub const qpainterpath = struct {
     /// ` y: f64 `
     ///
     pub fn SetElementPositionAt(self: ?*anyopaque, i: i32, x: f64, y: f64) void {
-        qtc.QPainterPath_SetElementPositionAt(@ptrCast(self), @intCast(i), @floatCast(x), @floatCast(y));
+        qtc.QPainterPath_SetElementPositionAt(@ptrCast(self), @bitCast(i), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#length)
@@ -705,7 +705,7 @@ pub const qpainterpath = struct {
     /// ` t: f64 `
     ///
     pub fn PercentAtLength(self: ?*anyopaque, t: f64) f64 {
-        return qtc.QPainterPath_PercentAtLength(@ptrCast(self), @floatCast(t));
+        return qtc.QPainterPath_PercentAtLength(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#pointAtPercent)
@@ -717,7 +717,7 @@ pub const qpainterpath = struct {
     /// ` t: f64 `
     ///
     pub fn PointAtPercent(self: ?*anyopaque, t: f64) QtC.QPointF {
-        return qtc.QPainterPath_PointAtPercent(@ptrCast(self), @floatCast(t));
+        return qtc.QPainterPath_PointAtPercent(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#angleAtPercent)
@@ -729,7 +729,7 @@ pub const qpainterpath = struct {
     /// ` t: f64 `
     ///
     pub fn AngleAtPercent(self: ?*anyopaque, t: f64) f64 {
-        return qtc.QPainterPath_AngleAtPercent(@ptrCast(self), @floatCast(t));
+        return qtc.QPainterPath_AngleAtPercent(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#slopeAtPercent)
@@ -741,7 +741,7 @@ pub const qpainterpath = struct {
     /// ` t: f64 `
     ///
     pub fn SlopeAtPercent(self: ?*anyopaque, t: f64) f64 {
-        return qtc.QPainterPath_SlopeAtPercent(@ptrCast(self), @floatCast(t));
+        return qtc.QPainterPath_SlopeAtPercent(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#intersects)
@@ -949,7 +949,7 @@ pub const qpainterpath = struct {
     /// ` mode: qnamespace_enums.SizeMode `
     ///
     pub fn AddRoundedRect4(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64, mode: i32) void {
-        qtc.QPainterPath_AddRoundedRect4(@ptrCast(self), @ptrCast(rect), @floatCast(xRadius), @floatCast(yRadius), @intCast(mode));
+        qtc.QPainterPath_AddRoundedRect4(@ptrCast(self), @ptrCast(rect), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addRoundedRect)
@@ -973,7 +973,7 @@ pub const qpainterpath = struct {
     /// ` mode: qnamespace_enums.SizeMode `
     ///
     pub fn AddRoundedRect7(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xRadius: f64, yRadius: f64, mode: i32) void {
-        qtc.QPainterPath_AddRoundedRect7(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @floatCast(xRadius), @floatCast(yRadius), @intCast(mode));
+        qtc.QPainterPath_AddRoundedRect7(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#dtor.QPainterPath)
@@ -1016,7 +1016,7 @@ pub const qpainterpathstroker = struct {
     /// ` width: f64 `
     ///
     pub fn SetWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QPainterPathStroker_SetWidth(@ptrCast(self), @floatCast(width));
+        qtc.QPainterPathStroker_SetWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#width)
@@ -1038,7 +1038,7 @@ pub const qpainterpathstroker = struct {
     /// ` style: qnamespace_enums.PenCapStyle `
     ///
     pub fn SetCapStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QPainterPathStroker_SetCapStyle(@ptrCast(self), @intCast(style));
+        qtc.QPainterPathStroker_SetCapStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#capStyle)
@@ -1064,7 +1064,7 @@ pub const qpainterpathstroker = struct {
     /// ` style: qnamespace_enums.PenJoinStyle `
     ///
     pub fn SetJoinStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QPainterPathStroker_SetJoinStyle(@ptrCast(self), @intCast(style));
+        qtc.QPainterPathStroker_SetJoinStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#joinStyle)
@@ -1090,7 +1090,7 @@ pub const qpainterpathstroker = struct {
     /// ` length: f64 `
     ///
     pub fn SetMiterLimit(self: ?*anyopaque, length: f64) void {
-        qtc.QPainterPathStroker_SetMiterLimit(@ptrCast(self), @floatCast(length));
+        qtc.QPainterPathStroker_SetMiterLimit(@ptrCast(self), @bitCast(length));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#miterLimit)
@@ -1112,7 +1112,7 @@ pub const qpainterpathstroker = struct {
     /// ` threshold: f64 `
     ///
     pub fn SetCurveThreshold(self: ?*anyopaque, threshold: f64) void {
-        qtc.QPainterPathStroker_SetCurveThreshold(@ptrCast(self), @floatCast(threshold));
+        qtc.QPainterPathStroker_SetCurveThreshold(@ptrCast(self), @bitCast(threshold));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#curveThreshold)
@@ -1134,7 +1134,7 @@ pub const qpainterpathstroker = struct {
     /// ` dashPattern: qnamespace_enums.PenStyle `
     ///
     pub fn SetDashPattern(self: ?*anyopaque, dashPattern: i32) void {
-        qtc.QPainterPathStroker_SetDashPattern(@ptrCast(self), @intCast(dashPattern));
+        qtc.QPainterPathStroker_SetDashPattern(@ptrCast(self), @bitCast(dashPattern));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#setDashPattern)
@@ -1179,7 +1179,7 @@ pub const qpainterpathstroker = struct {
     /// ` offset: f64 `
     ///
     pub fn SetDashOffset(self: ?*anyopaque, offset: f64) void {
-        qtc.QPainterPathStroker_SetDashOffset(@ptrCast(self), @floatCast(offset));
+        qtc.QPainterPathStroker_SetDashOffset(@ptrCast(self), @bitCast(offset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#dashOffset)
@@ -1254,7 +1254,7 @@ pub const qpainterpath__element = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QPainterPath__Element_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QPainterPath__Element_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#y-var)
@@ -1276,7 +1276,7 @@ pub const qpainterpath__element = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QPainterPath__Element_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QPainterPath__Element_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#type-var)
@@ -1302,7 +1302,7 @@ pub const qpainterpath__element = struct {
     /// ` type: qpainterpath_enums.ElementType `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QPainterPath__Element_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QPainterPath__Element_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#isMoveTo)

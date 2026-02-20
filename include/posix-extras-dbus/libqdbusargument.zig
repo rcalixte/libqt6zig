@@ -54,7 +54,7 @@ pub const qdbusargument = struct {
     /// ` arg: u8 `
     ///
     pub fn OperatorShiftLeft(self: ?*anyopaque, arg: u8) QtC.QDBusArgument {
-        return qtc.QDBusArgument_OperatorShiftLeft(@ptrCast(self), @intCast(arg));
+        return qtc.QDBusArgument_OperatorShiftLeft(@ptrCast(self), @bitCast(arg));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusargument.html#operator-lt-lt)
@@ -78,7 +78,7 @@ pub const qdbusargument = struct {
     /// ` arg: i16 `
     ///
     pub fn OperatorShiftLeft3(self: ?*anyopaque, arg: i16) QtC.QDBusArgument {
-        return qtc.QDBusArgument_OperatorShiftLeft3(@ptrCast(self), @intCast(arg));
+        return qtc.QDBusArgument_OperatorShiftLeft3(@ptrCast(self), @bitCast(arg));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusargument.html#operator-lt-lt)
@@ -90,7 +90,7 @@ pub const qdbusargument = struct {
     /// ` arg: u16 `
     ///
     pub fn OperatorShiftLeft4(self: ?*anyopaque, arg: u16) QtC.QDBusArgument {
-        return qtc.QDBusArgument_OperatorShiftLeft4(@ptrCast(self), @intCast(arg));
+        return qtc.QDBusArgument_OperatorShiftLeft4(@ptrCast(self), @bitCast(arg));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusargument.html#operator-lt-lt)
@@ -102,7 +102,7 @@ pub const qdbusargument = struct {
     /// ` arg: i32 `
     ///
     pub fn OperatorShiftLeft5(self: ?*anyopaque, arg: i32) QtC.QDBusArgument {
-        return qtc.QDBusArgument_OperatorShiftLeft5(@ptrCast(self), @intCast(arg));
+        return qtc.QDBusArgument_OperatorShiftLeft5(@ptrCast(self), @bitCast(arg));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusargument.html#operator-lt-lt)
@@ -114,7 +114,7 @@ pub const qdbusargument = struct {
     /// ` arg: u32 `
     ///
     pub fn OperatorShiftLeft6(self: ?*anyopaque, arg: u32) QtC.QDBusArgument {
-        return qtc.QDBusArgument_OperatorShiftLeft6(@ptrCast(self), @intCast(arg));
+        return qtc.QDBusArgument_OperatorShiftLeft6(@ptrCast(self), @bitCast(arg));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusargument.html#operator-lt-lt)
@@ -126,7 +126,7 @@ pub const qdbusargument = struct {
     /// ` arg: i64 `
     ///
     pub fn OperatorShiftLeft7(self: ?*anyopaque, arg: i64) QtC.QDBusArgument {
-        return qtc.QDBusArgument_OperatorShiftLeft7(@ptrCast(self), @intCast(arg));
+        return qtc.QDBusArgument_OperatorShiftLeft7(@ptrCast(self), @bitCast(arg));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusargument.html#operator-lt-lt)
@@ -138,7 +138,7 @@ pub const qdbusargument = struct {
     /// ` arg: u64 `
     ///
     pub fn OperatorShiftLeft8(self: ?*anyopaque, arg: u64) QtC.QDBusArgument {
-        return qtc.QDBusArgument_OperatorShiftLeft8(@ptrCast(self), @intCast(arg));
+        return qtc.QDBusArgument_OperatorShiftLeft8(@ptrCast(self), @bitCast(arg));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusargument.html#operator-lt-lt)
@@ -150,7 +150,7 @@ pub const qdbusargument = struct {
     /// ` arg: f64 `
     ///
     pub fn OperatorShiftLeft9(self: ?*anyopaque, arg: f64) QtC.QDBusArgument {
-        return qtc.QDBusArgument_OperatorShiftLeft9(@ptrCast(self), @floatCast(arg));
+        return qtc.QDBusArgument_OperatorShiftLeft9(@ptrCast(self), @bitCast(arg));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusargument.html#operator-lt-lt)
@@ -288,7 +288,7 @@ pub const qdbusargument = struct {
     /// ` elementMetaTypeId: i32 `
     ///
     pub fn BeginArray(self: ?*anyopaque, elementMetaTypeId: i32) void {
-        qtc.QDBusArgument_BeginArray(@ptrCast(self), @intCast(elementMetaTypeId));
+        qtc.QDBusArgument_BeginArray(@ptrCast(self), @bitCast(elementMetaTypeId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusargument.html#beginArray)
@@ -324,7 +324,7 @@ pub const qdbusargument = struct {
     /// ` valueMetaTypeId: i32 `
     ///
     pub fn BeginMap(self: ?*anyopaque, keyMetaTypeId: i32, valueMetaTypeId: i32) void {
-        qtc.QDBusArgument_BeginMap(@ptrCast(self), @intCast(keyMetaTypeId), @intCast(valueMetaTypeId));
+        qtc.QDBusArgument_BeginMap(@ptrCast(self), @bitCast(keyMetaTypeId), @bitCast(valueMetaTypeId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusargument.html#beginMap)

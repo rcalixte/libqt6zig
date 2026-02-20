@@ -32,7 +32,7 @@ pub const ktexteditor__movingrangefeedback = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange) callconv(.c) void `
     ///
     pub fn OnRangeEmpty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__MovingRangeFeedback_OnRangeEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__MovingRangeFeedback_OnRangeEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeEmpty)
@@ -72,7 +72,7 @@ pub const ktexteditor__movingrangefeedback = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange) callconv(.c) void `
     ///
     pub fn OnRangeInvalid(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__MovingRangeFeedback_OnRangeInvalid(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__MovingRangeFeedback_OnRangeInvalid(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeInvalid)
@@ -114,7 +114,7 @@ pub const ktexteditor__movingrangefeedback = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange, view: QtC.KTextEditor__View) callconv(.c) void `
     ///
     pub fn OnMouseEnteredRange(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__MovingRangeFeedback_OnMouseEnteredRange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__MovingRangeFeedback_OnMouseEnteredRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseEnteredRange)
@@ -158,7 +158,7 @@ pub const ktexteditor__movingrangefeedback = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange, view: QtC.KTextEditor__View) callconv(.c) void `
     ///
     pub fn OnMouseExitedRange(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__MovingRangeFeedback_OnMouseExitedRange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__MovingRangeFeedback_OnMouseExitedRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseExitedRange)
@@ -202,7 +202,7 @@ pub const ktexteditor__movingrangefeedback = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange, view: QtC.KTextEditor__View) callconv(.c) void `
     ///
     pub fn OnCaretEnteredRange(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__MovingRangeFeedback_OnCaretEnteredRange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__MovingRangeFeedback_OnCaretEnteredRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretEnteredRange)
@@ -246,7 +246,7 @@ pub const ktexteditor__movingrangefeedback = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange, view: QtC.KTextEditor__View) callconv(.c) void `
     ///
     pub fn OnCaretExitedRange(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__MovingRangeFeedback_OnCaretExitedRange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__MovingRangeFeedback_OnCaretExitedRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretExitedRange)

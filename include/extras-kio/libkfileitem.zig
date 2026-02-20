@@ -42,7 +42,7 @@ pub const kfileitem = struct {
     /// ` mimeTypeDetermination: kfileitem_enums.MimeTypeDetermination `
     ///
     pub fn New4(url: ?*anyopaque, mimeTypeDetermination: i32) QtC.KFileItem {
-        return qtc.KFileItem_new4(@ptrCast(url), @intCast(mimeTypeDetermination));
+        return qtc.KFileItem_new4(@ptrCast(url), @bitCast(mimeTypeDetermination));
     }
 
     /// New5 constructs a new KFileItem object.
@@ -226,7 +226,7 @@ pub const kfileitem = struct {
     /// ` self: QtC.KFileItem `
     ///
     pub fn Permissions(self: ?*anyopaque) u32 {
-        return @intCast(qtc.KFileItem_Permissions(@ptrCast(self)));
+        return @bitCast(qtc.KFileItem_Permissions(@ptrCast(self)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#permissionsString)
@@ -282,7 +282,7 @@ pub const kfileitem = struct {
     /// ` self: QtC.KFileItem `
     ///
     pub fn Mode(self: ?*anyopaque) u32 {
-        return @intCast(qtc.KFileItem_Mode(@ptrCast(self)));
+        return @bitCast(qtc.KFileItem_Mode(@ptrCast(self)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#userId)
@@ -488,7 +488,7 @@ pub const kfileitem = struct {
     /// ` which: kfileitem_enums.FileTimes `
     ///
     pub fn Time(self: ?*anyopaque, which: i32) QtC.QDateTime {
-        return qtc.KFileItem_Time(@ptrCast(self), @intCast(which));
+        return qtc.KFileItem_Time(@ptrCast(self), @bitCast(which));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#timeString)
@@ -863,7 +863,7 @@ pub const kfileitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn TimeString1(self: ?*anyopaque, which: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KFileItem_TimeString1(@ptrCast(self), @intCast(which));
+        var _str = qtc.KFileItem_TimeString1(@ptrCast(self), @bitCast(which));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.TimeString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

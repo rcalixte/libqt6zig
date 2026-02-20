@@ -106,7 +106,7 @@ pub const konsole__keyboardtranslator = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn FindEntry(self: ?*anyopaque, keyCode: i32, modifiers: i32) QtC.Konsole__KeyboardTranslator__Entry {
-        return qtc.Konsole__KeyboardTranslator_FindEntry(@ptrCast(self), @intCast(keyCode), @intCast(modifiers));
+        return qtc.Konsole__KeyboardTranslator_FindEntry(@ptrCast(self), @bitCast(keyCode), @bitCast(modifiers));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -177,7 +177,7 @@ pub const konsole__keyboardtranslator = struct {
     /// ` state: flag of KeyboardTranslator_enums.State `
     ///
     pub fn FindEntry3(self: ?*anyopaque, keyCode: i32, modifiers: i32, state: i32) QtC.Konsole__KeyboardTranslator__Entry {
-        return qtc.Konsole__KeyboardTranslator_FindEntry3(@ptrCast(self), @intCast(keyCode), @intCast(modifiers), @intCast(state));
+        return qtc.Konsole__KeyboardTranslator_FindEntry3(@ptrCast(self), @bitCast(keyCode), @bitCast(modifiers), @bitCast(state));
     }
 
     /// Delete this object from C++ memory.
@@ -446,7 +446,7 @@ pub const konsole = struct {
     /// ` param1: i32 `
     ///
     pub fn OneOrZero(param1: i32) i32 {
-        return qtc.Konsole_OneOrZero(@intCast(param1));
+        return qtc.Konsole_OneOrZero(@bitCast(param1));
     }
 };
 
@@ -501,7 +501,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     /// ` command: KeyboardTranslator_enums.Command `
     ///
     pub fn SetCommand(self: ?*anyopaque, command: i32) void {
-        qtc.Konsole__KeyboardTranslator__Entry_SetCommand(@ptrCast(self), @intCast(command));
+        qtc.Konsole__KeyboardTranslator__Entry_SetCommand(@ptrCast(self), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -571,7 +571,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     /// ` keyCode: i32 `
     ///
     pub fn SetKeyCode(self: ?*anyopaque, keyCode: i32) void {
-        qtc.Konsole__KeyboardTranslator__Entry_SetKeyCode(@ptrCast(self), @intCast(keyCode));
+        qtc.Konsole__KeyboardTranslator__Entry_SetKeyCode(@ptrCast(self), @bitCast(keyCode));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -611,7 +611,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
-        qtc.Konsole__KeyboardTranslator__Entry_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.Konsole__KeyboardTranslator__Entry_SetModifiers(@ptrCast(self), @bitCast(modifiers));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -623,7 +623,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetModifierMask(self: ?*anyopaque, modifiers: i32) void {
-        qtc.Konsole__KeyboardTranslator__Entry_SetModifierMask(@ptrCast(self), @intCast(modifiers));
+        qtc.Konsole__KeyboardTranslator__Entry_SetModifierMask(@ptrCast(self), @bitCast(modifiers));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -663,7 +663,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     /// ` state: flag of KeyboardTranslator_enums.State `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.Konsole__KeyboardTranslator__Entry_SetState(@ptrCast(self), @intCast(state));
+        qtc.Konsole__KeyboardTranslator__Entry_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -675,7 +675,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     /// ` mask: flag of KeyboardTranslator_enums.State `
     ///
     pub fn SetStateMask(self: ?*anyopaque, mask: i32) void {
-        qtc.Konsole__KeyboardTranslator__Entry_SetStateMask(@ptrCast(self), @intCast(mask));
+        qtc.Konsole__KeyboardTranslator__Entry_SetStateMask(@ptrCast(self), @bitCast(mask));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -723,7 +723,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     /// ` flags: flag of KeyboardTranslator_enums.State `
     ///
     pub fn Matches(self: ?*anyopaque, keyCode: i32, modifiers: i32, flags: i32) bool {
-        return qtc.Konsole__KeyboardTranslator__Entry_Matches(@ptrCast(self), @intCast(keyCode), @intCast(modifiers), @intCast(flags));
+        return qtc.Konsole__KeyboardTranslator__Entry_Matches(@ptrCast(self), @bitCast(keyCode), @bitCast(modifiers), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -769,7 +769,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text2(self: ?*anyopaque, expandWildCards: bool, modifiers: i32, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Konsole__KeyboardTranslator__Entry_Text2(@ptrCast(self), expandWildCards, @intCast(modifiers));
+        var _bytearray: qtc.libqt_string = qtc.Konsole__KeyboardTranslator__Entry_Text2(@ptrCast(self), expandWildCards, @bitCast(modifiers));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole__keyboardtranslator__entry.Text2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -807,7 +807,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn EscapedText2(self: ?*anyopaque, expandWildCards: bool, modifiers: i32, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Konsole__KeyboardTranslator__Entry_EscapedText2(@ptrCast(self), expandWildCards, @intCast(modifiers));
+        var _bytearray: qtc.libqt_string = qtc.Konsole__KeyboardTranslator__Entry_EscapedText2(@ptrCast(self), expandWildCards, @bitCast(modifiers));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole__keyboardtranslator__entry.EscapedText2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -845,7 +845,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ResultToString2(self: ?*anyopaque, expandWildCards: bool, modifiers: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Konsole__KeyboardTranslator__Entry_ResultToString2(@ptrCast(self), expandWildCards, @intCast(modifiers));
+        var _str = qtc.Konsole__KeyboardTranslator__Entry_ResultToString2(@ptrCast(self), expandWildCards, @bitCast(modifiers));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__keyboardtranslator__entry.ResultToString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

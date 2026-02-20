@@ -81,7 +81,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KRichTextWidget_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -116,7 +116,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KRichTextWidget_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -143,7 +143,7 @@ pub const krichtextwidget = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KRichTextWidget_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KRichTextWidget_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -155,7 +155,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KRichTextWidget_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -171,7 +171,7 @@ pub const krichtextwidget = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KRichTextWidget_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KRichTextWidget_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -225,7 +225,7 @@ pub const krichtextwidget = struct {
     /// ` C ABI representation of []QtC.QAction `
     ///
     pub fn OnCreateActions(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KRichTextWidget_OnCreateActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnCreateActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krichtextwidget.html#createActions)
@@ -318,7 +318,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, event: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krichtextwidget.html#mouseReleaseEvent)
@@ -370,7 +370,7 @@ pub const krichtextwidget = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -634,7 +634,7 @@ pub const krichtextwidget = struct {
     /// ` _styleIndex: i32 `
     ///
     pub fn SetListStyle(self: ?*anyopaque, _styleIndex: i32) void {
-        qtc.KRichTextEdit_SetListStyle(@ptrCast(self), @intCast(_styleIndex));
+        qtc.KRichTextEdit_SetListStyle(@ptrCast(self), @bitCast(_styleIndex));
     }
 
     /// Inherited from KRichTextEdit
@@ -690,7 +690,7 @@ pub const krichtextwidget = struct {
     /// ` size: i32 `
     ///
     pub fn SetFontSize(self: ?*anyopaque, size: i32) void {
-        qtc.KRichTextEdit_SetFontSize(@ptrCast(self), @intCast(size));
+        qtc.KRichTextEdit_SetFontSize(@ptrCast(self), @bitCast(size));
     }
 
     /// Inherited from KRichTextEdit
@@ -872,7 +872,7 @@ pub const krichtextwidget = struct {
     /// ` level: i32 `
     ///
     pub fn SetHeadingLevel(self: ?*anyopaque, level: i32) void {
-        qtc.KRichTextEdit_SetHeadingLevel(@ptrCast(self), @intCast(level));
+        qtc.KRichTextEdit_SetHeadingLevel(@ptrCast(self), @bitCast(level));
     }
 
     /// Inherited from KRichTextEdit
@@ -898,7 +898,7 @@ pub const krichtextwidget = struct {
     /// ` mode: krichtextedit_enums.Mode `
     ///
     pub fn TextModeChanged(self: ?*anyopaque, mode: i32) void {
-        qtc.KRichTextEdit_TextModeChanged(@ptrCast(self), @intCast(mode));
+        qtc.KRichTextEdit_TextModeChanged(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KRichTextEdit
@@ -912,7 +912,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, mode: krichtextedit_enums.Mode) callconv(.c) void `
     ///
     pub fn OnTextModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KRichTextEdit_Connect_TextModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextEdit_Connect_TextModeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -928,7 +928,7 @@ pub const krichtextwidget = struct {
     /// ` pos: i32 `
     ///
     pub fn HighlightWord(self: ?*anyopaque, length: i32, pos: i32) void {
-        qtc.KTextEdit_HighlightWord(@ptrCast(self), @intCast(length), @intCast(pos));
+        qtc.KTextEdit_HighlightWord(@ptrCast(self), @bitCast(length), @bitCast(pos));
     }
 
     /// Inherited from KTextEdit
@@ -1054,7 +1054,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: bool) callconv(.c) void `
     ///
     pub fn OnCheckSpellingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KTextEdit_Connect_CheckSpellingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEdit_Connect_CheckSpellingChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -1086,7 +1086,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSpellCheckStatus(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KTextEdit_Connect_SpellCheckStatus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEdit_Connect_SpellCheckStatus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -1118,7 +1118,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, language: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLanguageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KTextEdit_Connect_LanguageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEdit_Connect_LanguageChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -1146,7 +1146,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, menu: QtC.QMenu) callconv(.c) void `
     ///
     pub fn OnAboutToShowContextMenu(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEdit_Connect_AboutToShowContextMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEdit_Connect_AboutToShowContextMenu(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -1184,7 +1184,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, currentWord: [*:0]const u8, autoCorrectWord: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSpellCheckerAutoCorrect(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.KTextEdit_Connect_SpellCheckerAutoCorrect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEdit_Connect_SpellCheckerAutoCorrect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -1210,7 +1210,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget) callconv(.c) void `
     ///
     pub fn OnSpellCheckingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEdit_Connect_SpellCheckingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEdit_Connect_SpellCheckingFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -1236,7 +1236,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget) callconv(.c) void `
     ///
     pub fn OnSpellCheckingCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEdit_Connect_SpellCheckingCanceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEdit_Connect_SpellCheckingCanceled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -1448,7 +1448,7 @@ pub const krichtextwidget = struct {
     /// ` flags: flag of qnamespace_enums.TextInteractionFlag `
     ///
     pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QTextEdit_SetTextInteractionFlags(@ptrCast(self), @intCast(flags));
+        qtc.QTextEdit_SetTextInteractionFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QTextEdit
@@ -1652,7 +1652,7 @@ pub const krichtextwidget = struct {
     /// ` features: flag of qtextedit_enums.AutoFormattingFlag `
     ///
     pub fn SetAutoFormatting(self: ?*anyopaque, features: i32) void {
-        qtc.QTextEdit_SetAutoFormatting(@ptrCast(self), @intCast(features));
+        qtc.QTextEdit_SetAutoFormatting(@ptrCast(self), @bitCast(features));
     }
 
     /// Inherited from QTextEdit
@@ -1770,7 +1770,7 @@ pub const krichtextwidget = struct {
     /// ` mode: qtextedit_enums.LineWrapMode `
     ///
     pub fn SetLineWrapMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QTextEdit_SetLineWrapMode(@ptrCast(self), @intCast(mode));
+        qtc.QTextEdit_SetLineWrapMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QTextEdit
@@ -1796,7 +1796,7 @@ pub const krichtextwidget = struct {
     /// ` w: i32 `
     ///
     pub fn SetLineWrapColumnOrWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QTextEdit_SetLineWrapColumnOrWidth(@ptrCast(self), @intCast(w));
+        qtc.QTextEdit_SetLineWrapColumnOrWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// Inherited from QTextEdit
@@ -1826,7 +1826,7 @@ pub const krichtextwidget = struct {
     /// ` policy: qtextoption_enums.WrapMode `
     ///
     pub fn SetWordWrapMode(self: ?*anyopaque, policy: i32) void {
-        qtc.QTextEdit_SetWordWrapMode(@ptrCast(self), @intCast(policy));
+        qtc.QTextEdit_SetWordWrapMode(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QTextEdit
@@ -2062,7 +2062,7 @@ pub const krichtextwidget = struct {
     /// ` distance: f64 `
     ///
     pub fn SetTabStopDistance(self: ?*anyopaque, distance: f64) void {
-        qtc.QTextEdit_SetTabStopDistance(@ptrCast(self), @floatCast(distance));
+        qtc.QTextEdit_SetTabStopDistance(@ptrCast(self), @bitCast(distance));
     }
 
     /// Inherited from QTextEdit
@@ -2088,7 +2088,7 @@ pub const krichtextwidget = struct {
     /// ` width: i32 `
     ///
     pub fn SetCursorWidth(self: ?*anyopaque, width: i32) void {
-        qtc.QTextEdit_SetCursorWidth(@ptrCast(self), @intCast(width));
+        qtc.QTextEdit_SetCursorWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// Inherited from QTextEdit
@@ -2165,7 +2165,7 @@ pub const krichtextwidget = struct {
     /// ` operation: qtextcursor_enums.MoveOperation `
     ///
     pub fn MoveCursor(self: ?*anyopaque, operation: i32) void {
-        qtc.QTextEdit_MoveCursor(@ptrCast(self), @intCast(operation));
+        qtc.QTextEdit_MoveCursor(@ptrCast(self), @bitCast(operation));
     }
 
     /// Inherited from QTextEdit
@@ -2207,7 +2207,7 @@ pub const krichtextwidget = struct {
     /// ` argument: QtC.QVariant `
     ///
     pub fn InputMethodQuery2(self: ?*anyopaque, query: i32, argument: QtC.QVariant) QtC.QVariant {
-        return qtc.QTextEdit_InputMethodQuery2(@ptrCast(self), @intCast(query), @ptrCast(argument));
+        return qtc.QTextEdit_InputMethodQuery2(@ptrCast(self), @bitCast(query), @ptrCast(argument));
     }
 
     /// Inherited from QTextEdit
@@ -2221,7 +2221,7 @@ pub const krichtextwidget = struct {
     /// ` s: f64 `
     ///
     pub fn SetFontPointSize(self: ?*anyopaque, s: f64) void {
-        qtc.QTextEdit_SetFontPointSize(@ptrCast(self), @floatCast(s));
+        qtc.QTextEdit_SetFontPointSize(@ptrCast(self), @bitCast(s));
     }
 
     /// Inherited from QTextEdit
@@ -2235,7 +2235,7 @@ pub const krichtextwidget = struct {
     /// ` w: i32 `
     ///
     pub fn SetFontWeight(self: ?*anyopaque, w: i32) void {
-        qtc.QTextEdit_SetFontWeight(@ptrCast(self), @intCast(w));
+        qtc.QTextEdit_SetFontWeight(@ptrCast(self), @bitCast(w));
     }
 
     /// Inherited from QTextEdit
@@ -2305,7 +2305,7 @@ pub const krichtextwidget = struct {
     /// ` a: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetAlignment(self: ?*anyopaque, a: i32) void {
-        qtc.QTextEdit_SetAlignment(@ptrCast(self), @intCast(a));
+        qtc.QTextEdit_SetAlignment(@ptrCast(self), @bitCast(a));
     }
 
     /// Inherited from QTextEdit
@@ -2583,7 +2583,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget) callconv(.c) void `
     ///
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextEdit_Connect_TextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -2611,7 +2611,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, b: bool) callconv(.c) void `
     ///
     pub fn OnUndoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_UndoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextEdit_Connect_UndoAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -2639,7 +2639,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, b: bool) callconv(.c) void `
     ///
     pub fn OnRedoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_RedoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextEdit_Connect_RedoAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -2667,7 +2667,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, format: QtC.QTextCharFormat) callconv(.c) void `
     ///
     pub fn OnCurrentCharFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_CurrentCharFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextEdit_Connect_CurrentCharFormatChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -2695,7 +2695,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, b: bool) callconv(.c) void `
     ///
     pub fn OnCopyAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_CopyAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextEdit_Connect_CopyAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -2721,7 +2721,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget) callconv(.c) void `
     ///
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_SelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextEdit_Connect_SelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -2747,7 +2747,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget) callconv(.c) void `
     ///
     pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_CursorPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTextEdit_Connect_CursorPositionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -2767,7 +2767,7 @@ pub const krichtextwidget = struct {
             .len = exp.len,
             .data = exp.ptr,
         };
-        return qtc.QTextEdit_Find22(@ptrCast(self), exp_str, @intCast(options));
+        return qtc.QTextEdit_Find22(@ptrCast(self), exp_str, @bitCast(options));
     }
 
     /// Inherited from QTextEdit
@@ -2783,7 +2783,7 @@ pub const krichtextwidget = struct {
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
     pub fn Find23(self: ?*anyopaque, exp: ?*anyopaque, options: i32) bool {
-        return qtc.QTextEdit_Find23(@ptrCast(self), @ptrCast(exp), @intCast(options));
+        return qtc.QTextEdit_Find23(@ptrCast(self), @ptrCast(exp), @bitCast(options));
     }
 
     /// Inherited from QTextEdit
@@ -2799,7 +2799,7 @@ pub const krichtextwidget = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToMarkdown1(self: ?*anyopaque, features: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextEdit_ToMarkdown1(@ptrCast(self), @intCast(features));
+        var _str = qtc.QTextEdit_ToMarkdown1(@ptrCast(self), @bitCast(features));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.ToMarkdown1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2819,7 +2819,7 @@ pub const krichtextwidget = struct {
     /// ` mode: qtextcursor_enums.MoveMode `
     ///
     pub fn MoveCursor2(self: ?*anyopaque, operation: i32, mode: i32) void {
-        qtc.QTextEdit_MoveCursor2(@ptrCast(self), @intCast(operation), @intCast(mode));
+        qtc.QTextEdit_MoveCursor2(@ptrCast(self), @bitCast(operation), @bitCast(mode));
     }
 
     /// Inherited from QTextEdit
@@ -2833,7 +2833,7 @@ pub const krichtextwidget = struct {
     /// ` range: i32 `
     ///
     pub fn ZoomIn1(self: ?*anyopaque, range: i32) void {
-        qtc.QTextEdit_ZoomIn1(@ptrCast(self), @intCast(range));
+        qtc.QTextEdit_ZoomIn1(@ptrCast(self), @bitCast(range));
     }
 
     /// Inherited from QTextEdit
@@ -2847,7 +2847,7 @@ pub const krichtextwidget = struct {
     /// ` range: i32 `
     ///
     pub fn ZoomOut1(self: ?*anyopaque, range: i32) void {
-        qtc.QTextEdit_ZoomOut1(@ptrCast(self), @intCast(range));
+        qtc.QTextEdit_ZoomOut1(@ptrCast(self), @bitCast(range));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2877,7 +2877,7 @@ pub const krichtextwidget = struct {
     /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @intCast(verticalScrollBarPolicy));
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @bitCast(verticalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2933,7 +2933,7 @@ pub const krichtextwidget = struct {
     /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @intCast(horizontalScrollBarPolicy));
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @bitCast(horizontalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -3001,7 +3001,7 @@ pub const krichtextwidget = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
-        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
+        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @bitCast(alignment));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -3017,7 +3017,7 @@ pub const krichtextwidget = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("krichtextwidget.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
@@ -3090,7 +3090,7 @@ pub const krichtextwidget = struct {
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QFrame
@@ -3116,7 +3116,7 @@ pub const krichtextwidget = struct {
     /// ` frameStyle: i32 `
     ///
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self), @intCast(frameStyle));
+        qtc.QFrame_SetFrameStyle(@ptrCast(self), @bitCast(frameStyle));
     }
 
     /// Inherited from QFrame
@@ -3158,7 +3158,7 @@ pub const krichtextwidget = struct {
     /// ` frameShape: qframe_enums.Shape `
     ///
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self), @intCast(frameShape));
+        qtc.QFrame_SetFrameShape(@ptrCast(self), @bitCast(frameShape));
     }
 
     /// Inherited from QFrame
@@ -3188,7 +3188,7 @@ pub const krichtextwidget = struct {
     /// ` frameShadow: qframe_enums.Shadow `
     ///
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self), @intCast(frameShadow));
+        qtc.QFrame_SetFrameShadow(@ptrCast(self), @bitCast(frameShadow));
     }
 
     /// Inherited from QFrame
@@ -3214,7 +3214,7 @@ pub const krichtextwidget = struct {
     /// ` lineWidth: i32 `
     ///
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self), @intCast(lineWidth));
+        qtc.QFrame_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
     }
 
     /// Inherited from QFrame
@@ -3240,7 +3240,7 @@ pub const krichtextwidget = struct {
     /// ` midLineWidth: i32 `
     ///
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @intCast(midLineWidth));
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
     }
 
     /// Inherited from QFrame
@@ -3406,7 +3406,7 @@ pub const krichtextwidget = struct {
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
+        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -3732,7 +3732,7 @@ pub const krichtextwidget = struct {
     /// ` minh: i32 `
     ///
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -3762,7 +3762,7 @@ pub const krichtextwidget = struct {
     /// ` maxh: i32 `
     ///
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -3776,7 +3776,7 @@ pub const krichtextwidget = struct {
     /// ` minw: i32 `
     ///
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -3790,7 +3790,7 @@ pub const krichtextwidget = struct {
     /// ` minh: i32 `
     ///
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -3804,7 +3804,7 @@ pub const krichtextwidget = struct {
     /// ` maxw: i32 `
     ///
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -3818,7 +3818,7 @@ pub const krichtextwidget = struct {
     /// ` maxh: i32 `
     ///
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -3860,7 +3860,7 @@ pub const krichtextwidget = struct {
     /// ` h: i32 `
     ///
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3902,7 +3902,7 @@ pub const krichtextwidget = struct {
     /// ` baseh: i32 `
     ///
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
+        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -3932,7 +3932,7 @@ pub const krichtextwidget = struct {
     /// ` h: i32 `
     ///
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3946,7 +3946,7 @@ pub const krichtextwidget = struct {
     /// ` w: i32 `
     ///
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
+        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -3960,7 +3960,7 @@ pub const krichtextwidget = struct {
     /// ` h: i32 `
     ///
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
+        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4212,7 +4212,7 @@ pub const krichtextwidget = struct {
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -4242,7 +4242,7 @@ pub const krichtextwidget = struct {
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
+        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -4528,7 +4528,7 @@ pub const krichtextwidget = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4542,7 +4542,7 @@ pub const krichtextwidget = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4762,7 +4762,7 @@ pub const krichtextwidget = struct {
     /// ` level: f64 `
     ///
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -4836,7 +4836,7 @@ pub const krichtextwidget = struct {
     /// ` msec: i32 `
     ///
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -5006,7 +5006,7 @@ pub const krichtextwidget = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -5158,7 +5158,7 @@ pub const krichtextwidget = struct {
     /// ` reason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
+        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -5188,7 +5188,7 @@ pub const krichtextwidget = struct {
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -5270,7 +5270,7 @@ pub const krichtextwidget = struct {
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -5360,7 +5360,7 @@ pub const krichtextwidget = struct {
     /// ` id: i32 `
     ///
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -5374,7 +5374,7 @@ pub const krichtextwidget = struct {
     /// ` id: i32 `
     ///
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -5388,7 +5388,7 @@ pub const krichtextwidget = struct {
     /// ` id: i32 `
     ///
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -5486,7 +5486,7 @@ pub const krichtextwidget = struct {
     /// ` h: i32 `
     ///
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5534,7 +5534,7 @@ pub const krichtextwidget = struct {
     /// ` h: i32 `
     ///
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5714,7 +5714,7 @@ pub const krichtextwidget = struct {
     /// ` y: i32 `
     ///
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
+        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -5744,7 +5744,7 @@ pub const krichtextwidget = struct {
     /// ` h: i32 `
     ///
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5778,7 +5778,7 @@ pub const krichtextwidget = struct {
     /// ` h: i32 `
     ///
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5944,7 +5944,7 @@ pub const krichtextwidget = struct {
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -5958,7 +5958,7 @@ pub const krichtextwidget = struct {
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -6000,7 +6000,7 @@ pub const krichtextwidget = struct {
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -6032,7 +6032,7 @@ pub const krichtextwidget = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -6138,7 +6138,7 @@ pub const krichtextwidget = struct {
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
+        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -6154,7 +6154,7 @@ pub const krichtextwidget = struct {
     /// ` dy: i32 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -6172,7 +6172,7 @@ pub const krichtextwidget = struct {
     /// ` param3: QtC.QRect `
     ///
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
+        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
     }
 
     /// Inherited from QWidget
@@ -6441,7 +6441,7 @@ pub const krichtextwidget = struct {
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -6471,7 +6471,7 @@ pub const krichtextwidget = struct {
     /// ` param1: qnamespace_enums.WindowType `
     ///
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6485,7 +6485,7 @@ pub const krichtextwidget = struct {
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -6517,7 +6517,7 @@ pub const krichtextwidget = struct {
     /// ` y: i32 `
     ///
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
+        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -6559,7 +6559,7 @@ pub const krichtextwidget = struct {
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6573,7 +6573,7 @@ pub const krichtextwidget = struct {
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
+        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6719,7 +6719,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6747,7 +6747,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6779,7 +6779,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6807,7 +6807,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6837,7 +6837,7 @@ pub const krichtextwidget = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -6891,7 +6891,7 @@ pub const krichtextwidget = struct {
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -6945,7 +6945,7 @@ pub const krichtextwidget = struct {
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -6975,7 +6975,7 @@ pub const krichtextwidget = struct {
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
+        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -6991,7 +6991,7 @@ pub const krichtextwidget = struct {
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -7007,7 +7007,7 @@ pub const krichtextwidget = struct {
     /// ` enable: bool `
     ///
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -7023,7 +7023,7 @@ pub const krichtextwidget = struct {
     /// ` enable: bool `
     ///
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -7039,7 +7039,7 @@ pub const krichtextwidget = struct {
     /// ` on: bool `
     ///
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -7055,7 +7055,7 @@ pub const krichtextwidget = struct {
     /// ` on: bool `
     ///
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -7085,7 +7085,7 @@ pub const krichtextwidget = struct {
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
+        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
     }
 
     /// Inherited from QObject
@@ -7219,7 +7219,7 @@ pub const krichtextwidget = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -7233,7 +7233,7 @@ pub const krichtextwidget = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -7247,7 +7247,7 @@ pub const krichtextwidget = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -7261,7 +7261,7 @@ pub const krichtextwidget = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -7577,7 +7577,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7632,7 +7632,7 @@ pub const krichtextwidget = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -7648,7 +7648,7 @@ pub const krichtextwidget = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -7670,7 +7670,7 @@ pub const krichtextwidget = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -7690,7 +7690,7 @@ pub const krichtextwidget = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -7712,7 +7712,7 @@ pub const krichtextwidget = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -7809,7 +7809,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -7963,7 +7963,7 @@ pub const krichtextwidget = struct {
     /// ` value: f64 `
     ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
 
     /// Inherited from KRichTextEdit
@@ -8011,7 +8011,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -8059,7 +8059,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, readOnly: bool) callconv(.c) void `
     ///
     pub fn OnSetReadOnly(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSetReadOnly(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSetReadOnly(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -8107,7 +8107,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, check: bool) callconv(.c) void `
     ///
     pub fn OnSetCheckSpellingEnabled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSetCheckSpellingEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSetCheckSpellingEnabled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -8151,7 +8151,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnCheckSpellingEnabled(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnCheckSpellingEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnCheckSpellingEnabled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -8207,7 +8207,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, block: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnShouldBlockBeSpellChecked(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnShouldBlockBeSpellChecked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnShouldBlockBeSpellChecked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -8251,7 +8251,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnCreateHighlighter(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnCreateHighlighter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnCreateHighlighter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -8295,7 +8295,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMenu `
     ///
     pub fn OnMousePopupMenu(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMenu) void {
-        qtc.KRichTextWidget_OnMousePopupMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnMousePopupMenu(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -8343,7 +8343,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -8391,7 +8391,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -8435,7 +8435,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnDeleteWordBack(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnDeleteWordBack(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnDeleteWordBack(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -8479,7 +8479,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnDeleteWordForward(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnDeleteWordForward(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnDeleteWordForward(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -8527,7 +8527,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: QtC.QContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8545,7 +8545,7 @@ pub const krichtextwidget = struct {
     /// ` name: QtC.QUrl `
     ///
     pub fn LoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
-        return qtc.KRichTextWidget_LoadResource(@ptrCast(self), @intCast(typeVal), @ptrCast(name));
+        return qtc.KRichTextWidget_LoadResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name));
     }
 
     /// Inherited from QTextEdit
@@ -8563,7 +8563,7 @@ pub const krichtextwidget = struct {
     /// ` name: QtC.QUrl `
     ///
     pub fn QBaseLoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
-        return qtc.KRichTextWidget_QBaseLoadResource(@ptrCast(self), @intCast(typeVal), @ptrCast(name));
+        return qtc.KRichTextWidget_QBaseLoadResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name));
     }
 
     /// Inherited from QTextEdit
@@ -8579,7 +8579,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, typeVal: i32, name: QtC.QUrl) callconv(.c) QtC.QVariant `
     ///
     pub fn OnLoadResource(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.KRichTextWidget_OnLoadResource(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnLoadResource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8595,7 +8595,7 @@ pub const krichtextwidget = struct {
     /// ` property: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, property: i32) QtC.QVariant {
-        return qtc.KRichTextWidget_InputMethodQuery(@ptrCast(self), @intCast(property));
+        return qtc.KRichTextWidget_InputMethodQuery(@ptrCast(self), @bitCast(property));
     }
 
     /// Inherited from QTextEdit
@@ -8611,7 +8611,7 @@ pub const krichtextwidget = struct {
     /// ` property: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, property: i32) QtC.QVariant {
-        return qtc.KRichTextWidget_QBaseInputMethodQuery(@ptrCast(self), @intCast(property));
+        return qtc.KRichTextWidget_QBaseInputMethodQuery(@ptrCast(self), @bitCast(property));
     }
 
     /// Inherited from QTextEdit
@@ -8627,7 +8627,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, property: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KRichTextWidget_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8675,7 +8675,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, e: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8723,7 +8723,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, e: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8771,7 +8771,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, e: QtC.QResizeEvent) callconv(.c) void `
     ///
     pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8819,7 +8819,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, e: QtC.QPaintEvent) callconv(.c) void `
     ///
     pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8867,7 +8867,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, e: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8915,7 +8915,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, e: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8963,7 +8963,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, e: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9011,7 +9011,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, next: bool) callconv(.c) bool `
     ///
     pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9059,7 +9059,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, e: QtC.QDragEnterEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9107,7 +9107,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, e: QtC.QDragLeaveEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9155,7 +9155,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, e: QtC.QDragMoveEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9203,7 +9203,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, e: QtC.QDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9251,7 +9251,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, e: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9299,7 +9299,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: QtC.QShowEvent) callconv(.c) void `
     ///
     pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9347,7 +9347,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, e: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9395,7 +9395,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, e: QtC.QWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9439,7 +9439,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMimeData `
     ///
     pub fn OnCreateMimeDataFromSelection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMimeData) void {
-        qtc.KRichTextWidget_OnCreateMimeDataFromSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnCreateMimeDataFromSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9487,7 +9487,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, source: QtC.QMimeData) callconv(.c) bool `
     ///
     pub fn OnCanInsertFromMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnCanInsertFromMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnCanInsertFromMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9535,7 +9535,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, source: QtC.QMimeData) callconv(.c) void `
     ///
     pub fn OnInsertFromMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnInsertFromMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnInsertFromMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9583,7 +9583,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9601,7 +9601,7 @@ pub const krichtextwidget = struct {
     /// ` dy: i32 `
     ///
     pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.KRichTextWidget_ScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.KRichTextWidget_ScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QTextEdit
@@ -9619,7 +9619,7 @@ pub const krichtextwidget = struct {
     /// ` dy: i32 `
     ///
     pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.KRichTextWidget_QBaseScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.KRichTextWidget_QBaseScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QTextEdit
@@ -9635,7 +9635,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, dx: i32, dy: i32) callconv(.c) void `
     ///
     pub fn OnScrollContentsBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnScrollContentsBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnScrollContentsBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -9683,7 +9683,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, cursor: QtC.QTextCursor) callconv(.c) void `
     ///
     pub fn OnDoSetTextCursor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnDoSetTextCursor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnDoSetTextCursor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9727,7 +9727,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KRichTextWidget_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9771,7 +9771,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KRichTextWidget_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9819,7 +9819,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, viewport: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnSetupViewport(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSetupViewport(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSetupViewport(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9871,7 +9871,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9919,7 +9919,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnViewportEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnViewportEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnViewportEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9963,7 +9963,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnViewportSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KRichTextWidget_OnViewportSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnViewportSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -10011,7 +10011,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, option: QtC.QStyleOptionFrame) callconv(.c) void `
     ///
     pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10055,7 +10055,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KRichTextWidget_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10103,7 +10103,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, visible: bool) callconv(.c) void `
     ///
     pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10119,7 +10119,7 @@ pub const krichtextwidget = struct {
     /// ` param1: i32 `
     ///
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KRichTextWidget_HeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.KRichTextWidget_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10135,7 +10135,7 @@ pub const krichtextwidget = struct {
     /// ` param1: i32 `
     ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KRichTextWidget_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.KRichTextWidget_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10151,7 +10151,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: i32) callconv(.c) i32 `
     ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KRichTextWidget_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10195,7 +10195,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10239,7 +10239,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
     ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.KRichTextWidget_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10287,7 +10287,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, event: QtC.QEnterEvent) callconv(.c) void `
     ///
     pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10335,7 +10335,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10383,7 +10383,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, event: QtC.QMoveEvent) callconv(.c) void `
     ///
     pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10431,7 +10431,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, event: QtC.QCloseEvent) callconv(.c) void `
     ///
     pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10479,7 +10479,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, event: QtC.QTabletEvent) callconv(.c) void `
     ///
     pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10527,7 +10527,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, event: QtC.QActionEvent) callconv(.c) void `
     ///
     pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10575,7 +10575,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, event: QtC.QHideEvent) callconv(.c) void `
     ///
     pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10639,7 +10639,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10655,7 +10655,7 @@ pub const krichtextwidget = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KRichTextWidget_Metric(@ptrCast(self), @intCast(param1));
+        return qtc.KRichTextWidget_Metric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10671,7 +10671,7 @@ pub const krichtextwidget = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KRichTextWidget_QBaseMetric(@ptrCast(self), @intCast(param1));
+        return qtc.KRichTextWidget_QBaseMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10687,7 +10687,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KRichTextWidget_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10735,7 +10735,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10783,7 +10783,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
     ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.KRichTextWidget_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10827,7 +10827,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainter `
     ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.KRichTextWidget_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10875,7 +10875,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10923,7 +10923,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10971,7 +10971,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11019,7 +11019,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -11063,7 +11063,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSlotDoReplace(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotDoReplace(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSlotDoReplace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -11107,7 +11107,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSlotReplaceNext(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotReplaceNext(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSlotReplaceNext(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -11151,7 +11151,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSlotDoFind(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotDoFind(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSlotDoFind(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -11195,7 +11195,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSlotFind(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotFind(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSlotFind(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -11239,7 +11239,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSlotFindNext(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotFindNext(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSlotFindNext(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -11283,7 +11283,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSlotFindPrevious(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotFindPrevious(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSlotFindPrevious(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -11327,7 +11327,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSlotReplace(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotReplace(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSlotReplace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -11371,7 +11371,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSlotSpeakText(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotSpeakText(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSlotSpeakText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -11387,7 +11387,7 @@ pub const krichtextwidget = struct {
     /// ` range: f32 `
     ///
     pub fn ZoomInF(self: ?*anyopaque, range: f32) void {
-        qtc.KRichTextWidget_ZoomInF(@ptrCast(self), @floatCast(range));
+        qtc.KRichTextWidget_ZoomInF(@ptrCast(self), @bitCast(range));
     }
 
     /// Inherited from QTextEdit
@@ -11403,7 +11403,7 @@ pub const krichtextwidget = struct {
     /// ` range: f32 `
     ///
     pub fn QBaseZoomInF(self: ?*anyopaque, range: f32) void {
-        qtc.KRichTextWidget_QBaseZoomInF(@ptrCast(self), @floatCast(range));
+        qtc.KRichTextWidget_QBaseZoomInF(@ptrCast(self), @bitCast(range));
     }
 
     /// Inherited from QTextEdit
@@ -11419,7 +11419,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, range: f32) callconv(.c) void `
     ///
     pub fn OnZoomInF(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnZoomInF(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnZoomInF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -11441,7 +11441,7 @@ pub const krichtextwidget = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.KRichTextWidget_SetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.KRichTextWidget_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -11463,7 +11463,7 @@ pub const krichtextwidget = struct {
     /// ` bottom: i32 `
     ///
     pub fn QBaseSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.KRichTextWidget_QBaseSetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.KRichTextWidget_QBaseSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -11479,7 +11479,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
     pub fn OnSetViewportMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSetViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSetViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -11523,7 +11523,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMargins `
     ///
     pub fn OnViewportMargins(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMargins) void {
-        qtc.KRichTextWidget_OnViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -11571,7 +11571,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, param1: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnDrawFrame(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnDrawFrame(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11615,7 +11615,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11659,7 +11659,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11703,7 +11703,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11747,7 +11747,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11791,7 +11791,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11835,7 +11835,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KRichTextWidget_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11879,7 +11879,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KRichTextWidget_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11929,7 +11929,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KRichTextWidget_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11977,7 +11977,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -11995,7 +11995,7 @@ pub const krichtextwidget = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KRichTextWidget_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.KRichTextWidget_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -12013,7 +12013,7 @@ pub const krichtextwidget = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KRichTextWidget_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.KRichTextWidget_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -12029,7 +12029,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.KRichTextWidget_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRichTextWidget_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12045,7 +12045,7 @@ pub const krichtextwidget = struct {
     /// ` callback: *const fn (self: QtC.KRichTextWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krichtextwidget.html#dtor.KRichTextWidget)

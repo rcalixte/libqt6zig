@@ -97,7 +97,7 @@ pub const attica__field = struct {
     /// ` fieldsize: i32 `
     ///
     pub fn SetFieldsize(self: ?*anyopaque, fieldsize: i32) void {
-        qtc.Attica__Field_SetFieldsize(@ptrCast(self), @intCast(fieldsize));
+        qtc.Attica__Field_SetFieldsize(@ptrCast(self), @bitCast(fieldsize));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-field.html#required-var)

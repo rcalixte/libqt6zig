@@ -31,7 +31,7 @@ pub const kwordwrap = struct {
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.KWordWrap_FormatText(@ptrCast(fm), @ptrCast(r), @intCast(flags), str_str);
+        return qtc.KWordWrap_FormatText(@ptrCast(fm), @ptrCast(r), @bitCast(flags), str_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#boundingRect)
@@ -89,7 +89,7 @@ pub const kwordwrap = struct {
     /// ` y: i32 `
     ///
     pub fn DrawText(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32) void {
-        qtc.KWordWrap_DrawText(@ptrCast(self), @ptrCast(painter), @intCast(x), @intCast(y));
+        qtc.KWordWrap_DrawText(@ptrCast(self), @ptrCast(painter), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#operator-eq)
@@ -123,7 +123,7 @@ pub const kwordwrap = struct {
             .len = t.len,
             .data = t.ptr,
         };
-        qtc.KWordWrap_DrawFadeoutText(@ptrCast(p), @intCast(x), @intCast(y), @intCast(maxW), t_str);
+        qtc.KWordWrap_DrawFadeoutText(@ptrCast(p), @bitCast(x), @bitCast(y), @bitCast(maxW), t_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#drawTruncateText)
@@ -145,7 +145,7 @@ pub const kwordwrap = struct {
             .len = t.len,
             .data = t.ptr,
         };
-        qtc.KWordWrap_DrawTruncateText(@ptrCast(p), @intCast(x), @intCast(y), @intCast(maxW), t_str);
+        qtc.KWordWrap_DrawTruncateText(@ptrCast(p), @bitCast(x), @bitCast(y), @bitCast(maxW), t_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#formatText)
@@ -167,7 +167,7 @@ pub const kwordwrap = struct {
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.KWordWrap_FormatText5(@ptrCast(fm), @ptrCast(r), @intCast(flags), str_str, @intCast(lenVal));
+        return qtc.KWordWrap_FormatText5(@ptrCast(fm), @ptrCast(r), @bitCast(flags), str_str, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#truncatedString)
@@ -203,7 +203,7 @@ pub const kwordwrap = struct {
     /// ` flags: i32 `
     ///
     pub fn DrawText4(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, flags: i32) void {
-        qtc.KWordWrap_DrawText4(@ptrCast(self), @ptrCast(painter), @intCast(x), @intCast(y), @intCast(flags));
+        qtc.KWordWrap_DrawText4(@ptrCast(self), @ptrCast(painter), @bitCast(x), @bitCast(y), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#dtor.KWordWrap)

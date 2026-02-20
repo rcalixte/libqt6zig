@@ -17,7 +17,7 @@ pub const qfloat16 = struct {
     /// ` param1: qnamespace_enums.Initialization `
     ///
     pub fn New2(param1: i32) QtC.qfloat16 {
-        return qtc.qfloat16_new2(@intCast(param1));
+        return qtc.qfloat16_new2(@bitCast(param1));
     }
 
     /// New3 constructs a new qfloat16 object.
@@ -27,7 +27,7 @@ pub const qfloat16 = struct {
     /// ` f: f32 `
     ///
     pub fn New3(f: f32) QtC.qfloat16 {
-        return qtc.qfloat16_new3(@floatCast(f));
+        return qtc.qfloat16_new3(@bitCast(f));
     }
 
     /// CopyAssign shallow copies `other` into `self`.

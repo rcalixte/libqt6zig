@@ -13,7 +13,7 @@ pub const qevent = struct {
     /// ` typeVal: qcoreevent_enums.Type `
     ///
     pub fn New(typeVal: i32) QtC.QEvent {
-        return qtc.QEvent_new(@intCast(typeVal));
+        return qtc.QEvent_new(@bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#type)
@@ -63,7 +63,7 @@ pub const qevent = struct {
     /// ` callback: *const fn (self: QtC.QEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -167,7 +167,7 @@ pub const qevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
-        qtc.QEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
@@ -189,7 +189,7 @@ pub const qevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#dtor.QEvent)
@@ -214,7 +214,7 @@ pub const qtimerevent = struct {
     /// ` timerId: i32 `
     ///
     pub fn New(timerId: i32) QtC.QTimerEvent {
-        return qtc.QTimerEvent_new(@intCast(timerId));
+        return qtc.QTimerEvent_new(@bitCast(timerId));
     }
 
     /// New2 constructs a new QTimerEvent object.
@@ -224,7 +224,7 @@ pub const qtimerevent = struct {
     /// ` timerId: qnamespace_enums.TimerId `
     ///
     pub fn New2(timerId: i32) QtC.QTimerEvent {
-        return qtc.QTimerEvent_new2(@intCast(timerId));
+        return qtc.QTimerEvent_new2(@bitCast(timerId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimerevent.html#clone)
@@ -248,7 +248,7 @@ pub const qtimerevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QTimerEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTimerEvent) void {
-        qtc.QTimerEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimerEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimerevent.html#clone)
@@ -404,7 +404,7 @@ pub const qtimerevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -452,7 +452,7 @@ pub const qtimerevent = struct {
     /// ` callback: *const fn (self: QtC.QTimerEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTimerEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimerEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimerevent.html#dtor.QTimerEvent)
@@ -479,7 +479,7 @@ pub const qchildevent = struct {
     /// ` child: QtC.QObject `
     ///
     pub fn New(typeVal: i32, child: ?*anyopaque) QtC.QChildEvent {
-        return qtc.QChildEvent_new(@intCast(typeVal), @ptrCast(child));
+        return qtc.QChildEvent_new(@bitCast(typeVal), @ptrCast(child));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildevent.html#clone)
@@ -503,7 +503,7 @@ pub const qchildevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QChildEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QChildEvent) void {
-        qtc.QChildEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QChildEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildevent.html#clone)
@@ -675,7 +675,7 @@ pub const qchildevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -723,7 +723,7 @@ pub const qchildevent = struct {
     /// ` callback: *const fn (self: QtC.QChildEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QChildEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QChildEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildevent.html#dtor.QChildEvent)
@@ -777,7 +777,7 @@ pub const qdynamicpropertychangeevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QDynamicPropertyChangeEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDynamicPropertyChangeEvent) void {
-        qtc.QDynamicPropertyChangeEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDynamicPropertyChangeEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html#clone)
@@ -925,7 +925,7 @@ pub const qdynamicpropertychangeevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -973,7 +973,7 @@ pub const qdynamicpropertychangeevent = struct {
     /// ` callback: *const fn (self: QtC.QDynamicPropertyChangeEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDynamicPropertyChangeEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDynamicPropertyChangeEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html#dtor.QDynamicPropertyChangeEvent)

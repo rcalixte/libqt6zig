@@ -227,7 +227,7 @@ pub const qgraphicsitem = struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
@@ -239,7 +239,7 @@ pub const qgraphicsitem = struct {
     /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#cacheMode)
@@ -265,7 +265,7 @@ pub const qgraphicsitem = struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#panelModality)
@@ -291,7 +291,7 @@ pub const qgraphicsitem = struct {
     /// ` panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @bitCast(panelModality));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
@@ -527,7 +527,7 @@ pub const qgraphicsitem = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#graphicsEffect)
@@ -575,7 +575,7 @@ pub const qgraphicsitem = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @bitCast(buttons));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptHoverEvents)
@@ -829,7 +829,7 @@ pub const qgraphicsitem = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#y)
@@ -851,7 +851,7 @@ pub const qgraphicsitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scenePos)
@@ -887,7 +887,7 @@ pub const qgraphicsitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#moveBy)
@@ -901,7 +901,7 @@ pub const qgraphicsitem = struct {
     /// ` dy: f64 `
     ///
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
@@ -929,7 +929,7 @@ pub const qgraphicsitem = struct {
     /// ` h: f64 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#transform)
@@ -1007,7 +1007,7 @@ pub const qgraphicsitem = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#rotation)
@@ -1029,7 +1029,7 @@ pub const qgraphicsitem = struct {
     /// ` scale: f64 `
     ///
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self), @floatCast(scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scale)
@@ -1108,7 +1108,7 @@ pub const qgraphicsitem = struct {
     /// ` ay: f64 `
     ///
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @floatCast(ax), @floatCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @bitCast(ax), @bitCast(ay));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
@@ -1120,7 +1120,7 @@ pub const qgraphicsitem = struct {
     /// ` phase: i32 `
     ///
     pub fn Advance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsItem_Advance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsItem_Advance(@ptrCast(self), @bitCast(phase));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
@@ -1134,7 +1134,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, phase: i32) callconv(.c) void `
     ///
     pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnAdvance(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
@@ -1148,7 +1148,7 @@ pub const qgraphicsitem = struct {
     /// ` phase: i32 `
     ///
     pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsItem_QBaseAdvance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsItem_QBaseAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#zValue)
@@ -1170,7 +1170,7 @@ pub const qgraphicsitem = struct {
     /// ` z: f64 `
     ///
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @floatCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @bitCast(z));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#stackBefore)
@@ -1206,7 +1206,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRect)
@@ -1262,7 +1262,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnShape(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#shape)
@@ -1320,7 +1320,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, point: QtC.QPointF) callconv(.c) bool `
     ///
     pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnContains(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
@@ -1348,7 +1348,7 @@ pub const qgraphicsitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
@@ -1362,7 +1362,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnCollidesWithItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
@@ -1378,7 +1378,7 @@ pub const qgraphicsitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
@@ -1392,7 +1392,7 @@ pub const qgraphicsitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
@@ -1406,7 +1406,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnCollidesWithPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
@@ -1422,7 +1422,7 @@ pub const qgraphicsitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
@@ -1467,7 +1467,7 @@ pub const qgraphicsitem = struct {
     /// ` h: f64 `
     ///
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
@@ -1493,7 +1493,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, item: QtC.QGraphicsItem) callconv(.c) bool `
     ///
     pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnIsObscuredBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
@@ -1531,7 +1531,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnOpaqueArea(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
@@ -1577,7 +1577,7 @@ pub const qgraphicsitem = struct {
     /// ` granularity: f64 `
     ///
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @floatCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @bitCast(granularity));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#paint)
@@ -1607,7 +1607,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#paint)
@@ -1653,7 +1653,7 @@ pub const qgraphicsitem = struct {
     /// ` height: f64 `
     ///
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(width), @floatCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scroll)
@@ -1667,7 +1667,7 @@ pub const qgraphicsitem = struct {
     /// ` dy: f64 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_Scroll(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
@@ -1911,7 +1911,7 @@ pub const qgraphicsitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
@@ -1925,7 +1925,7 @@ pub const qgraphicsitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
@@ -1939,7 +1939,7 @@ pub const qgraphicsitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem)
@@ -1959,7 +1959,7 @@ pub const qgraphicsitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
@@ -1977,7 +1977,7 @@ pub const qgraphicsitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene)
@@ -1995,7 +1995,7 @@ pub const qgraphicsitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
@@ -2011,7 +2011,7 @@ pub const qgraphicsitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
@@ -2025,7 +2025,7 @@ pub const qgraphicsitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
@@ -2039,7 +2039,7 @@ pub const qgraphicsitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem)
@@ -2059,7 +2059,7 @@ pub const qgraphicsitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent)
@@ -2077,7 +2077,7 @@ pub const qgraphicsitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene)
@@ -2095,7 +2095,7 @@ pub const qgraphicsitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isAncestorOf)
@@ -2141,7 +2141,7 @@ pub const qgraphicsitem = struct {
     /// ` key: i32 `
     ///
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_Data(@ptrCast(self), @intCast(key));
+        return qtc.QGraphicsItem_Data(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setData)
@@ -2155,7 +2155,7 @@ pub const qgraphicsitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetData(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QGraphicsItem_SetData(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodHints)
@@ -2181,7 +2181,7 @@ pub const qgraphicsitem = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#type)
@@ -2205,7 +2205,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#type)
@@ -2265,7 +2265,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#updateMicroFocus)
@@ -2305,7 +2305,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnSceneEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
@@ -2347,7 +2347,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnSceneEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEvent)
@@ -2387,7 +2387,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
@@ -2427,7 +2427,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
@@ -2467,7 +2467,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
@@ -2507,7 +2507,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
@@ -2547,7 +2547,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
@@ -2587,7 +2587,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusInEvent)
@@ -2627,7 +2627,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusOutEvent)
@@ -2667,7 +2667,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnHoverEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
@@ -2707,7 +2707,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnHoverMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverMoveEvent)
@@ -2747,7 +2747,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnHoverLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverLeaveEvent)
@@ -2787,7 +2787,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
@@ -2827,7 +2827,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
@@ -2867,7 +2867,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
@@ -2907,7 +2907,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
@@ -2947,7 +2947,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
@@ -2987,7 +2987,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
@@ -3027,7 +3027,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
@@ -3067,7 +3067,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
@@ -3093,7 +3093,7 @@ pub const qgraphicsitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsItem_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
@@ -3107,7 +3107,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
@@ -3121,7 +3121,7 @@ pub const qgraphicsitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsItem_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#itemChange)
@@ -3135,7 +3135,7 @@ pub const qgraphicsitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsItem_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsItem_ItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#itemChange)
@@ -3149,7 +3149,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#itemChange)
@@ -3165,7 +3165,7 @@ pub const qgraphicsitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsItem_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsItem_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
@@ -3177,7 +3177,7 @@ pub const qgraphicsitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsItem_SupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsItem_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
@@ -3191,7 +3191,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
     pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnSupportsExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
@@ -3205,7 +3205,7 @@ pub const qgraphicsitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsItem_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
@@ -3219,7 +3219,7 @@ pub const qgraphicsitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsItem_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
@@ -3233,7 +3233,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnSetExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
@@ -3249,7 +3249,7 @@ pub const qgraphicsitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsItem_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
@@ -3275,7 +3275,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
@@ -3313,7 +3313,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnAddToIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
@@ -3349,7 +3349,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnRemoveFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
@@ -3385,7 +3385,7 @@ pub const qgraphicsitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItem_OnPrepareGeometryChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
@@ -3411,7 +3411,7 @@ pub const qgraphicsitem = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
@@ -3425,7 +3425,7 @@ pub const qgraphicsitem = struct {
     /// ` cacheSize: QtC.QSize `
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @bitCast(mode), @ptrCast(cacheSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
@@ -3449,7 +3449,7 @@ pub const qgraphicsitem = struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @bitCast(focusReason));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
@@ -3475,7 +3475,7 @@ pub const qgraphicsitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
@@ -3491,7 +3491,7 @@ pub const qgraphicsitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
@@ -3511,7 +3511,7 @@ pub const qgraphicsitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
@@ -3533,7 +3533,7 @@ pub const qgraphicsitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
@@ -3575,7 +3575,7 @@ pub const qgraphicsitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsitem.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -3620,7 +3620,7 @@ pub const qgraphicsitem = struct {
     /// ` rect: QtC.QRectF `
     ///
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @floatCast(dx), @floatCast(dy), @ptrCast(rect));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dtor.QGraphicsItem)
@@ -3675,7 +3675,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGraphicsObject_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -3710,7 +3710,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGraphicsObject_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -3737,7 +3737,7 @@ pub const qgraphicsobject = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsObject_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsObject_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -3749,7 +3749,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsObject_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -3765,7 +3765,7 @@ pub const qgraphicsobject = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsObject_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsObject_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3794,7 +3794,7 @@ pub const qgraphicsobject = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QGraphicsObject_GrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QGraphicsObject_GrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#ungrabGesture)
@@ -3806,7 +3806,7 @@ pub const qgraphicsobject = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QGraphicsObject_UngrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QGraphicsObject_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
@@ -3830,7 +3830,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsObject_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
@@ -3864,7 +3864,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void `
     ///
     pub fn OnParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
@@ -3886,7 +3886,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void `
     ///
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
@@ -3908,7 +3908,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
@@ -3930,7 +3930,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
@@ -3952,7 +3952,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void `
     ///
     pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
@@ -3974,7 +3974,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void `
     ///
     pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
@@ -3996,7 +3996,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void `
     ///
     pub fn OnZChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
@@ -4018,7 +4018,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void `
     ///
     pub fn OnRotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
@@ -4040,7 +4040,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void `
     ///
     pub fn OnScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
@@ -4062,7 +4062,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void `
     ///
     pub fn OnChildrenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
@@ -4084,7 +4084,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void `
     ///
     pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
@@ -4106,7 +4106,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void `
     ///
     pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#event)
@@ -4132,7 +4132,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, ev: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#event)
@@ -4184,7 +4184,7 @@ pub const qgraphicsobject = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsobject.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4202,7 +4202,7 @@ pub const qgraphicsobject = struct {
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
+        qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QObject
@@ -4336,7 +4336,7 @@ pub const qgraphicsobject = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -4350,7 +4350,7 @@ pub const qgraphicsobject = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -4364,7 +4364,7 @@ pub const qgraphicsobject = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4378,7 +4378,7 @@ pub const qgraphicsobject = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4708,7 +4708,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4763,7 +4763,7 @@ pub const qgraphicsobject = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4779,7 +4779,7 @@ pub const qgraphicsobject = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4801,7 +4801,7 @@ pub const qgraphicsobject = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -4821,7 +4821,7 @@ pub const qgraphicsobject = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4843,7 +4843,7 @@ pub const qgraphicsobject = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4940,7 +4940,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5185,7 +5185,7 @@ pub const qgraphicsobject = struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// Inherited from QGraphicsItem
@@ -5199,7 +5199,7 @@ pub const qgraphicsobject = struct {
     /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsItem
@@ -5229,7 +5229,7 @@ pub const qgraphicsobject = struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -5259,7 +5259,7 @@ pub const qgraphicsobject = struct {
     /// ` panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @bitCast(panelModality));
     }
 
     /// Inherited from QGraphicsItem
@@ -5537,7 +5537,7 @@ pub const qgraphicsobject = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QGraphicsItem
@@ -5593,7 +5593,7 @@ pub const qgraphicsobject = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @bitCast(buttons));
     }
 
     /// Inherited from QGraphicsItem
@@ -5895,7 +5895,7 @@ pub const qgraphicsobject = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// Inherited from QGraphicsItem
@@ -5921,7 +5921,7 @@ pub const qgraphicsobject = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -5963,7 +5963,7 @@ pub const qgraphicsobject = struct {
     /// ` y: f64 `
     ///
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -5979,7 +5979,7 @@ pub const qgraphicsobject = struct {
     /// ` dy: f64 `
     ///
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -6011,7 +6011,7 @@ pub const qgraphicsobject = struct {
     /// ` h: f64 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -6103,7 +6103,7 @@ pub const qgraphicsobject = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QGraphicsItem
@@ -6129,7 +6129,7 @@ pub const qgraphicsobject = struct {
     /// ` scale: f64 `
     ///
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self), @floatCast(scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// Inherited from QGraphicsItem
@@ -6220,7 +6220,7 @@ pub const qgraphicsobject = struct {
     /// ` ay: f64 `
     ///
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @floatCast(ax), @floatCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @bitCast(ax), @bitCast(ay));
     }
 
     /// Inherited from QGraphicsItem
@@ -6246,7 +6246,7 @@ pub const qgraphicsobject = struct {
     /// ` z: f64 `
     ///
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @floatCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @bitCast(z));
     }
 
     /// Inherited from QGraphicsItem
@@ -6359,7 +6359,7 @@ pub const qgraphicsobject = struct {
     /// ` h: f64 `
     ///
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -6399,7 +6399,7 @@ pub const qgraphicsobject = struct {
     /// ` granularity: f64 `
     ///
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @floatCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @bitCast(granularity));
     }
 
     /// Inherited from QGraphicsItem
@@ -6431,7 +6431,7 @@ pub const qgraphicsobject = struct {
     /// ` height: f64 `
     ///
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(width), @floatCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QGraphicsItem
@@ -6447,7 +6447,7 @@ pub const qgraphicsobject = struct {
     /// ` dy: f64 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_Scroll(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -6729,7 +6729,7 @@ pub const qgraphicsobject = struct {
     /// ` y: f64 `
     ///
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -6745,7 +6745,7 @@ pub const qgraphicsobject = struct {
     /// ` y: f64 `
     ///
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -6761,7 +6761,7 @@ pub const qgraphicsobject = struct {
     /// ` y: f64 `
     ///
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -6783,7 +6783,7 @@ pub const qgraphicsobject = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -6803,7 +6803,7 @@ pub const qgraphicsobject = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -6823,7 +6823,7 @@ pub const qgraphicsobject = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -6841,7 +6841,7 @@ pub const qgraphicsobject = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -6857,7 +6857,7 @@ pub const qgraphicsobject = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -6873,7 +6873,7 @@ pub const qgraphicsobject = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -6895,7 +6895,7 @@ pub const qgraphicsobject = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -6915,7 +6915,7 @@ pub const qgraphicsobject = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -6935,7 +6935,7 @@ pub const qgraphicsobject = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -6989,7 +6989,7 @@ pub const qgraphicsobject = struct {
     /// ` key: i32 `
     ///
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_Data(@ptrCast(self), @intCast(key));
+        return qtc.QGraphicsItem_Data(@ptrCast(self), @bitCast(key));
     }
 
     /// Inherited from QGraphicsItem
@@ -7005,7 +7005,7 @@ pub const qgraphicsobject = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetData(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QGraphicsItem_SetData(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -7035,7 +7035,7 @@ pub const qgraphicsobject = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QGraphicsItem
@@ -7079,7 +7079,7 @@ pub const qgraphicsobject = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// Inherited from QGraphicsItem
@@ -7095,7 +7095,7 @@ pub const qgraphicsobject = struct {
     /// ` cacheSize: QtC.QSize `
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @bitCast(mode), @ptrCast(cacheSize));
     }
 
     /// Inherited from QGraphicsItem
@@ -7123,7 +7123,7 @@ pub const qgraphicsobject = struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @bitCast(focusReason));
     }
 
     /// Inherited from QGraphicsItem
@@ -7153,7 +7153,7 @@ pub const qgraphicsobject = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -7171,7 +7171,7 @@ pub const qgraphicsobject = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -7193,7 +7193,7 @@ pub const qgraphicsobject = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -7217,7 +7217,7 @@ pub const qgraphicsobject = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -7265,7 +7265,7 @@ pub const qgraphicsobject = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsobject.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -7316,7 +7316,7 @@ pub const qgraphicsobject = struct {
     /// ` rect: QtC.QRectF `
     ///
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @floatCast(dx), @floatCast(dy), @ptrCast(rect));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// Inherited from QObject
@@ -7368,7 +7368,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7416,7 +7416,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7464,7 +7464,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7512,7 +7512,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7560,7 +7560,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7608,7 +7608,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7624,7 +7624,7 @@ pub const qgraphicsobject = struct {
     /// ` phase: i32 `
     ///
     pub fn Advance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsObject_Advance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsObject_Advance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -7640,7 +7640,7 @@ pub const qgraphicsobject = struct {
     /// ` phase: i32 `
     ///
     pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsObject_QBaseAdvance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsObject_QBaseAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -7656,7 +7656,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, phase: i32) callconv(.c) void `
     ///
     pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnAdvance(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7700,7 +7700,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsObject_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7744,7 +7744,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsObject_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnShape(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7792,7 +7792,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, point: QtC.QPointF) callconv(.c) bool `
     ///
     pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnContains(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7810,7 +7810,7 @@ pub const qgraphicsobject = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsObject_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsObject_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -7828,7 +7828,7 @@ pub const qgraphicsobject = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsObject_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsObject_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -7844,7 +7844,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnCollidesWithItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7862,7 +7862,7 @@ pub const qgraphicsobject = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsObject_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsObject_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -7880,7 +7880,7 @@ pub const qgraphicsobject = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsObject_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsObject_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -7896,7 +7896,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnCollidesWithPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7944,7 +7944,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, item: QtC.QGraphicsItem) callconv(.c) bool `
     ///
     pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnIsObscuredBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7988,7 +7988,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsObject_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnOpaqueArea(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8044,7 +8044,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8088,7 +8088,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsObject_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8140,7 +8140,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnSceneEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8188,7 +8188,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnSceneEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8236,7 +8236,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8284,7 +8284,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8332,7 +8332,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8380,7 +8380,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8428,7 +8428,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8476,7 +8476,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8524,7 +8524,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8572,7 +8572,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnHoverEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8620,7 +8620,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnHoverMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8668,7 +8668,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnHoverLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8716,7 +8716,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8764,7 +8764,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8812,7 +8812,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8860,7 +8860,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8908,7 +8908,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8956,7 +8956,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -9004,7 +9004,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -9052,7 +9052,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -9068,7 +9068,7 @@ pub const qgraphicsobject = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsObject_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsObject_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -9084,7 +9084,7 @@ pub const qgraphicsobject = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsObject_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsObject_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -9100,7 +9100,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsObject_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -9118,7 +9118,7 @@ pub const qgraphicsobject = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsObject_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsObject_ItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -9136,7 +9136,7 @@ pub const qgraphicsobject = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsObject_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsObject_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -9152,7 +9152,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsObject_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -9168,7 +9168,7 @@ pub const qgraphicsobject = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsObject_SupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsObject_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// Inherited from QGraphicsItem
@@ -9184,7 +9184,7 @@ pub const qgraphicsobject = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsObject_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsObject_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// Inherited from QGraphicsItem
@@ -9200,7 +9200,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
     pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnSupportsExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -9218,7 +9218,7 @@ pub const qgraphicsobject = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsObject_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsObject_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// Inherited from QGraphicsItem
@@ -9236,7 +9236,7 @@ pub const qgraphicsobject = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsObject_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsObject_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// Inherited from QGraphicsItem
@@ -9252,7 +9252,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnSetExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -9300,7 +9300,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, variant: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsObject_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9344,7 +9344,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsObject_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9388,7 +9388,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsObject_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9438,7 +9438,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsObject_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9486,7 +9486,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -9530,7 +9530,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsObject_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnAddToIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -9574,7 +9574,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsObject_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnRemoveFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -9618,7 +9618,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsObject_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_OnPrepareGeometryChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9634,7 +9634,7 @@ pub const qgraphicsobject = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsObject, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#dtor.QGraphicsObject)
@@ -9735,7 +9735,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, item: QtC.QGraphicsItem) callconv(.c) bool `
     ///
     pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractGraphicsShapeItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnIsObscuredBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractgraphicsshapeitem.html#isObscuredBy)
@@ -9773,7 +9773,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QAbstractGraphicsShapeItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnOpaqueArea(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractgraphicsshapeitem.html#opaqueArea)
@@ -10030,7 +10030,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// Inherited from QGraphicsItem
@@ -10044,7 +10044,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsItem
@@ -10074,7 +10074,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -10104,7 +10104,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @bitCast(panelModality));
     }
 
     /// Inherited from QGraphicsItem
@@ -10382,7 +10382,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QGraphicsItem
@@ -10438,7 +10438,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @bitCast(buttons));
     }
 
     /// Inherited from QGraphicsItem
@@ -10740,7 +10740,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// Inherited from QGraphicsItem
@@ -10766,7 +10766,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -10808,7 +10808,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -10824,7 +10824,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` dy: f64 `
     ///
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -10856,7 +10856,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` h: f64 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -10948,7 +10948,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QGraphicsItem
@@ -10974,7 +10974,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` scale: f64 `
     ///
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self), @floatCast(scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// Inherited from QGraphicsItem
@@ -11065,7 +11065,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` ay: f64 `
     ///
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @floatCast(ax), @floatCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @bitCast(ax), @bitCast(ay));
     }
 
     /// Inherited from QGraphicsItem
@@ -11091,7 +11091,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` z: f64 `
     ///
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @floatCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @bitCast(z));
     }
 
     /// Inherited from QGraphicsItem
@@ -11204,7 +11204,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` h: f64 `
     ///
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -11244,7 +11244,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` granularity: f64 `
     ///
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @floatCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @bitCast(granularity));
     }
 
     /// Inherited from QGraphicsItem
@@ -11276,7 +11276,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` height: f64 `
     ///
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(width), @floatCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QGraphicsItem
@@ -11292,7 +11292,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` dy: f64 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_Scroll(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -11574,7 +11574,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -11590,7 +11590,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -11606,7 +11606,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -11628,7 +11628,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -11648,7 +11648,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -11668,7 +11668,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -11686,7 +11686,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -11702,7 +11702,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -11718,7 +11718,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -11740,7 +11740,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -11760,7 +11760,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -11780,7 +11780,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -11834,7 +11834,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` key: i32 `
     ///
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_Data(@ptrCast(self), @intCast(key));
+        return qtc.QGraphicsItem_Data(@ptrCast(self), @bitCast(key));
     }
 
     /// Inherited from QGraphicsItem
@@ -11850,7 +11850,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetData(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QGraphicsItem_SetData(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -11880,7 +11880,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QGraphicsItem
@@ -11924,7 +11924,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// Inherited from QGraphicsItem
@@ -11940,7 +11940,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` cacheSize: QtC.QSize `
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @bitCast(mode), @ptrCast(cacheSize));
     }
 
     /// Inherited from QGraphicsItem
@@ -11968,7 +11968,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @bitCast(focusReason));
     }
 
     /// Inherited from QGraphicsItem
@@ -11998,7 +11998,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -12016,7 +12016,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -12038,7 +12038,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -12062,7 +12062,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -12110,7 +12110,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qabstractgraphicsshapeitem.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -12161,7 +12161,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` rect: QtC.QRectF `
     ///
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @floatCast(dx), @floatCast(dy), @ptrCast(rect));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// Inherited from QGraphicsItem
@@ -12177,7 +12177,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` phase: i32 `
     ///
     pub fn Advance(self: ?*anyopaque, phase: i32) void {
-        qtc.QAbstractGraphicsShapeItem_Advance(@ptrCast(self), @intCast(phase));
+        qtc.QAbstractGraphicsShapeItem_Advance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -12193,7 +12193,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` phase: i32 `
     ///
     pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QAbstractGraphicsShapeItem_QBaseAdvance(@ptrCast(self), @intCast(phase));
+        qtc.QAbstractGraphicsShapeItem_QBaseAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -12209,7 +12209,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, phase: i32) callconv(.c) void `
     ///
     pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnAdvance(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12253,7 +12253,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QAbstractGraphicsShapeItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12297,7 +12297,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QAbstractGraphicsShapeItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnShape(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12345,7 +12345,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, point: QtC.QPointF) callconv(.c) bool `
     ///
     pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractGraphicsShapeItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnContains(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12363,7 +12363,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QAbstractGraphicsShapeItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QAbstractGraphicsShapeItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -12381,7 +12381,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QAbstractGraphicsShapeItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QAbstractGraphicsShapeItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -12397,7 +12397,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractGraphicsShapeItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnCollidesWithItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12415,7 +12415,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QAbstractGraphicsShapeItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QAbstractGraphicsShapeItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -12433,7 +12433,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QAbstractGraphicsShapeItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QAbstractGraphicsShapeItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -12449,7 +12449,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractGraphicsShapeItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnCollidesWithPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12505,7 +12505,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12549,7 +12549,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractGraphicsShapeItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12601,7 +12601,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractGraphicsShapeItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnSceneEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12649,7 +12649,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractGraphicsShapeItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnSceneEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12697,7 +12697,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12745,7 +12745,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12793,7 +12793,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12841,7 +12841,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12889,7 +12889,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12937,7 +12937,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -12985,7 +12985,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13033,7 +13033,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnHoverEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13081,7 +13081,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnHoverMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13129,7 +13129,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnHoverLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13177,7 +13177,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13225,7 +13225,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13273,7 +13273,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13321,7 +13321,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13369,7 +13369,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13417,7 +13417,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13465,7 +13465,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13513,7 +13513,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13529,7 +13529,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QAbstractGraphicsShapeItem_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QAbstractGraphicsShapeItem_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -13545,7 +13545,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QAbstractGraphicsShapeItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QAbstractGraphicsShapeItem_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -13561,7 +13561,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QAbstractGraphicsShapeItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13579,7 +13579,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QAbstractGraphicsShapeItem_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QAbstractGraphicsShapeItem_ItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -13597,7 +13597,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QAbstractGraphicsShapeItem_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QAbstractGraphicsShapeItem_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -13613,7 +13613,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QAbstractGraphicsShapeItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13629,7 +13629,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QAbstractGraphicsShapeItem_SupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QAbstractGraphicsShapeItem_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// Inherited from QGraphicsItem
@@ -13645,7 +13645,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QAbstractGraphicsShapeItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QAbstractGraphicsShapeItem_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// Inherited from QGraphicsItem
@@ -13661,7 +13661,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
     pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractGraphicsShapeItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnSupportsExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13679,7 +13679,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QAbstractGraphicsShapeItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QAbstractGraphicsShapeItem_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// Inherited from QGraphicsItem
@@ -13697,7 +13697,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QAbstractGraphicsShapeItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QAbstractGraphicsShapeItem_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// Inherited from QGraphicsItem
@@ -13713,7 +13713,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnSetExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13761,7 +13761,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QAbstractGraphicsShapeItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13805,7 +13805,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13849,7 +13849,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnAddToIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13893,7 +13893,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnRemoveFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13937,7 +13937,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractGraphicsShapeItem_OnPrepareGeometryChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractgraphicsshapeitem.html#dtor.QAbstractGraphicsShapeItem)
@@ -14036,7 +14036,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsPathItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#boundingRect)
@@ -14072,7 +14072,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsPathItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnShape(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#shape)
@@ -14110,7 +14110,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, point: QtC.QPointF) callconv(.c) bool `
     ///
     pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPathItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnContains(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#contains)
@@ -14154,7 +14154,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#paint)
@@ -14198,7 +14198,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, item: QtC.QGraphicsItem) callconv(.c) bool `
     ///
     pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPathItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnIsObscuredBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#isObscuredBy)
@@ -14236,7 +14236,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsPathItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnOpaqueArea(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#opaqueArea)
@@ -14272,7 +14272,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsPathItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#type)
@@ -14296,7 +14296,7 @@ pub const qgraphicspathitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsPathItem_SupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsPathItem_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#supportsExtension)
@@ -14310,7 +14310,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
     pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPathItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnSupportsExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#supportsExtension)
@@ -14324,7 +14324,7 @@ pub const qgraphicspathitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsPathItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsPathItem_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#setExtension)
@@ -14338,7 +14338,7 @@ pub const qgraphicspathitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsPathItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsPathItem_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#setExtension)
@@ -14352,7 +14352,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnSetExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#setExtension)
@@ -14368,7 +14368,7 @@ pub const qgraphicspathitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsPathItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsPathItem_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#extension)
@@ -14394,7 +14394,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPathItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#extension)
@@ -14705,7 +14705,7 @@ pub const qgraphicspathitem = struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// Inherited from QGraphicsItem
@@ -14719,7 +14719,7 @@ pub const qgraphicspathitem = struct {
     /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsItem
@@ -14749,7 +14749,7 @@ pub const qgraphicspathitem = struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -14779,7 +14779,7 @@ pub const qgraphicspathitem = struct {
     /// ` panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @bitCast(panelModality));
     }
 
     /// Inherited from QGraphicsItem
@@ -15057,7 +15057,7 @@ pub const qgraphicspathitem = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QGraphicsItem
@@ -15113,7 +15113,7 @@ pub const qgraphicspathitem = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @bitCast(buttons));
     }
 
     /// Inherited from QGraphicsItem
@@ -15415,7 +15415,7 @@ pub const qgraphicspathitem = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// Inherited from QGraphicsItem
@@ -15441,7 +15441,7 @@ pub const qgraphicspathitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -15483,7 +15483,7 @@ pub const qgraphicspathitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -15499,7 +15499,7 @@ pub const qgraphicspathitem = struct {
     /// ` dy: f64 `
     ///
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -15531,7 +15531,7 @@ pub const qgraphicspathitem = struct {
     /// ` h: f64 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -15623,7 +15623,7 @@ pub const qgraphicspathitem = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QGraphicsItem
@@ -15649,7 +15649,7 @@ pub const qgraphicspathitem = struct {
     /// ` scale: f64 `
     ///
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self), @floatCast(scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// Inherited from QGraphicsItem
@@ -15740,7 +15740,7 @@ pub const qgraphicspathitem = struct {
     /// ` ay: f64 `
     ///
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @floatCast(ax), @floatCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @bitCast(ax), @bitCast(ay));
     }
 
     /// Inherited from QGraphicsItem
@@ -15766,7 +15766,7 @@ pub const qgraphicspathitem = struct {
     /// ` z: f64 `
     ///
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @floatCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @bitCast(z));
     }
 
     /// Inherited from QGraphicsItem
@@ -15879,7 +15879,7 @@ pub const qgraphicspathitem = struct {
     /// ` h: f64 `
     ///
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -15919,7 +15919,7 @@ pub const qgraphicspathitem = struct {
     /// ` granularity: f64 `
     ///
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @floatCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @bitCast(granularity));
     }
 
     /// Inherited from QGraphicsItem
@@ -15951,7 +15951,7 @@ pub const qgraphicspathitem = struct {
     /// ` height: f64 `
     ///
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(width), @floatCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QGraphicsItem
@@ -15967,7 +15967,7 @@ pub const qgraphicspathitem = struct {
     /// ` dy: f64 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_Scroll(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -16249,7 +16249,7 @@ pub const qgraphicspathitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -16265,7 +16265,7 @@ pub const qgraphicspathitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -16281,7 +16281,7 @@ pub const qgraphicspathitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -16303,7 +16303,7 @@ pub const qgraphicspathitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -16323,7 +16323,7 @@ pub const qgraphicspathitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -16343,7 +16343,7 @@ pub const qgraphicspathitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -16361,7 +16361,7 @@ pub const qgraphicspathitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -16377,7 +16377,7 @@ pub const qgraphicspathitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -16393,7 +16393,7 @@ pub const qgraphicspathitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -16415,7 +16415,7 @@ pub const qgraphicspathitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -16435,7 +16435,7 @@ pub const qgraphicspathitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -16455,7 +16455,7 @@ pub const qgraphicspathitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -16509,7 +16509,7 @@ pub const qgraphicspathitem = struct {
     /// ` key: i32 `
     ///
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_Data(@ptrCast(self), @intCast(key));
+        return qtc.QGraphicsItem_Data(@ptrCast(self), @bitCast(key));
     }
 
     /// Inherited from QGraphicsItem
@@ -16525,7 +16525,7 @@ pub const qgraphicspathitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetData(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QGraphicsItem_SetData(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -16555,7 +16555,7 @@ pub const qgraphicspathitem = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QGraphicsItem
@@ -16599,7 +16599,7 @@ pub const qgraphicspathitem = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// Inherited from QGraphicsItem
@@ -16615,7 +16615,7 @@ pub const qgraphicspathitem = struct {
     /// ` cacheSize: QtC.QSize `
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @bitCast(mode), @ptrCast(cacheSize));
     }
 
     /// Inherited from QGraphicsItem
@@ -16643,7 +16643,7 @@ pub const qgraphicspathitem = struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @bitCast(focusReason));
     }
 
     /// Inherited from QGraphicsItem
@@ -16673,7 +16673,7 @@ pub const qgraphicspathitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -16691,7 +16691,7 @@ pub const qgraphicspathitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -16713,7 +16713,7 @@ pub const qgraphicspathitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -16737,7 +16737,7 @@ pub const qgraphicspathitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -16785,7 +16785,7 @@ pub const qgraphicspathitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicspathitem.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -16836,7 +16836,7 @@ pub const qgraphicspathitem = struct {
     /// ` rect: QtC.QRectF `
     ///
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @floatCast(dx), @floatCast(dy), @ptrCast(rect));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// Inherited from QGraphicsItem
@@ -16852,7 +16852,7 @@ pub const qgraphicspathitem = struct {
     /// ` phase: i32 `
     ///
     pub fn Advance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsPathItem_Advance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsPathItem_Advance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -16868,7 +16868,7 @@ pub const qgraphicspathitem = struct {
     /// ` phase: i32 `
     ///
     pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsPathItem_QBaseAdvance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsPathItem_QBaseAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -16884,7 +16884,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, phase: i32) callconv(.c) void `
     ///
     pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnAdvance(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16902,7 +16902,7 @@ pub const qgraphicspathitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsPathItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsPathItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -16920,7 +16920,7 @@ pub const qgraphicspathitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsPathItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsPathItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -16936,7 +16936,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPathItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnCollidesWithItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16954,7 +16954,7 @@ pub const qgraphicspathitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsPathItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsPathItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -16972,7 +16972,7 @@ pub const qgraphicspathitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsPathItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsPathItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -16988,7 +16988,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPathItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnCollidesWithPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17040,7 +17040,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPathItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnSceneEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17088,7 +17088,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPathItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnSceneEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17136,7 +17136,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17184,7 +17184,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17232,7 +17232,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17280,7 +17280,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17328,7 +17328,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17376,7 +17376,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17424,7 +17424,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17472,7 +17472,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnHoverEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17520,7 +17520,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnHoverMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17568,7 +17568,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnHoverLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17616,7 +17616,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17664,7 +17664,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17712,7 +17712,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17760,7 +17760,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17808,7 +17808,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17856,7 +17856,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17904,7 +17904,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17952,7 +17952,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17968,7 +17968,7 @@ pub const qgraphicspathitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsPathItem_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsPathItem_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -17984,7 +17984,7 @@ pub const qgraphicspathitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsPathItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsPathItem_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -18000,7 +18000,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPathItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -18018,7 +18018,7 @@ pub const qgraphicspathitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsPathItem_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsPathItem_ItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -18036,7 +18036,7 @@ pub const qgraphicspathitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsPathItem_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsPathItem_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -18052,7 +18052,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPathItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -18096,7 +18096,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -18140,7 +18140,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnAddToIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -18184,7 +18184,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnRemoveFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -18228,7 +18228,7 @@ pub const qgraphicspathitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPathItem_OnPrepareGeometryChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspathitem.html#dtor.QGraphicsPathItem)
@@ -18275,7 +18275,7 @@ pub const qgraphicsrectitem = struct {
     /// ` h: f64 `
     ///
     pub fn New3(x: f64, y: f64, w: f64, h: f64) QtC.QGraphicsRectItem {
-        return qtc.QGraphicsRectItem_new3(@floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsRectItem_new3(@bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// New4 constructs a new QGraphicsRectItem object.
@@ -18315,7 +18315,7 @@ pub const qgraphicsrectitem = struct {
     /// ` parent: QtC.QGraphicsItem `
     ///
     pub fn New6(x: f64, y: f64, w: f64, h: f64, parent: ?*anyopaque) QtC.QGraphicsRectItem {
-        return qtc.QGraphicsRectItem_new6(@floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @ptrCast(parent));
+        return qtc.QGraphicsRectItem_new6(@bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#rect)
@@ -18355,7 +18355,7 @@ pub const qgraphicsrectitem = struct {
     /// ` h: f64 `
     ///
     pub fn SetRect2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsRectItem_SetRect2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsRectItem_SetRect2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#boundingRect)
@@ -18379,7 +18379,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsRectItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#boundingRect)
@@ -18415,7 +18415,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsRectItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnShape(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#shape)
@@ -18453,7 +18453,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, point: QtC.QPointF) callconv(.c) bool `
     ///
     pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsRectItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnContains(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#contains)
@@ -18497,7 +18497,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#paint)
@@ -18541,7 +18541,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, item: QtC.QGraphicsItem) callconv(.c) bool `
     ///
     pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsRectItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnIsObscuredBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#isObscuredBy)
@@ -18579,7 +18579,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsRectItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnOpaqueArea(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#opaqueArea)
@@ -18615,7 +18615,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsRectItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#type)
@@ -18639,7 +18639,7 @@ pub const qgraphicsrectitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsRectItem_SupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsRectItem_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#supportsExtension)
@@ -18653,7 +18653,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
     pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsRectItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnSupportsExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#supportsExtension)
@@ -18667,7 +18667,7 @@ pub const qgraphicsrectitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsRectItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsRectItem_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#setExtension)
@@ -18681,7 +18681,7 @@ pub const qgraphicsrectitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsRectItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsRectItem_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#setExtension)
@@ -18695,7 +18695,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnSetExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#setExtension)
@@ -18711,7 +18711,7 @@ pub const qgraphicsrectitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsRectItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsRectItem_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#extension)
@@ -18737,7 +18737,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsRectItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#extension)
@@ -19048,7 +19048,7 @@ pub const qgraphicsrectitem = struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// Inherited from QGraphicsItem
@@ -19062,7 +19062,7 @@ pub const qgraphicsrectitem = struct {
     /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsItem
@@ -19092,7 +19092,7 @@ pub const qgraphicsrectitem = struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -19122,7 +19122,7 @@ pub const qgraphicsrectitem = struct {
     /// ` panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @bitCast(panelModality));
     }
 
     /// Inherited from QGraphicsItem
@@ -19400,7 +19400,7 @@ pub const qgraphicsrectitem = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QGraphicsItem
@@ -19456,7 +19456,7 @@ pub const qgraphicsrectitem = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @bitCast(buttons));
     }
 
     /// Inherited from QGraphicsItem
@@ -19758,7 +19758,7 @@ pub const qgraphicsrectitem = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// Inherited from QGraphicsItem
@@ -19784,7 +19784,7 @@ pub const qgraphicsrectitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -19826,7 +19826,7 @@ pub const qgraphicsrectitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -19842,7 +19842,7 @@ pub const qgraphicsrectitem = struct {
     /// ` dy: f64 `
     ///
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -19874,7 +19874,7 @@ pub const qgraphicsrectitem = struct {
     /// ` h: f64 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -19966,7 +19966,7 @@ pub const qgraphicsrectitem = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QGraphicsItem
@@ -19992,7 +19992,7 @@ pub const qgraphicsrectitem = struct {
     /// ` scale: f64 `
     ///
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self), @floatCast(scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// Inherited from QGraphicsItem
@@ -20083,7 +20083,7 @@ pub const qgraphicsrectitem = struct {
     /// ` ay: f64 `
     ///
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @floatCast(ax), @floatCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @bitCast(ax), @bitCast(ay));
     }
 
     /// Inherited from QGraphicsItem
@@ -20109,7 +20109,7 @@ pub const qgraphicsrectitem = struct {
     /// ` z: f64 `
     ///
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @floatCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @bitCast(z));
     }
 
     /// Inherited from QGraphicsItem
@@ -20222,7 +20222,7 @@ pub const qgraphicsrectitem = struct {
     /// ` h: f64 `
     ///
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -20262,7 +20262,7 @@ pub const qgraphicsrectitem = struct {
     /// ` granularity: f64 `
     ///
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @floatCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @bitCast(granularity));
     }
 
     /// Inherited from QGraphicsItem
@@ -20294,7 +20294,7 @@ pub const qgraphicsrectitem = struct {
     /// ` height: f64 `
     ///
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(width), @floatCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QGraphicsItem
@@ -20310,7 +20310,7 @@ pub const qgraphicsrectitem = struct {
     /// ` dy: f64 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_Scroll(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -20592,7 +20592,7 @@ pub const qgraphicsrectitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -20608,7 +20608,7 @@ pub const qgraphicsrectitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -20624,7 +20624,7 @@ pub const qgraphicsrectitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -20646,7 +20646,7 @@ pub const qgraphicsrectitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -20666,7 +20666,7 @@ pub const qgraphicsrectitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -20686,7 +20686,7 @@ pub const qgraphicsrectitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -20704,7 +20704,7 @@ pub const qgraphicsrectitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -20720,7 +20720,7 @@ pub const qgraphicsrectitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -20736,7 +20736,7 @@ pub const qgraphicsrectitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -20758,7 +20758,7 @@ pub const qgraphicsrectitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -20778,7 +20778,7 @@ pub const qgraphicsrectitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -20798,7 +20798,7 @@ pub const qgraphicsrectitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -20852,7 +20852,7 @@ pub const qgraphicsrectitem = struct {
     /// ` key: i32 `
     ///
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_Data(@ptrCast(self), @intCast(key));
+        return qtc.QGraphicsItem_Data(@ptrCast(self), @bitCast(key));
     }
 
     /// Inherited from QGraphicsItem
@@ -20868,7 +20868,7 @@ pub const qgraphicsrectitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetData(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QGraphicsItem_SetData(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -20898,7 +20898,7 @@ pub const qgraphicsrectitem = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QGraphicsItem
@@ -20942,7 +20942,7 @@ pub const qgraphicsrectitem = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// Inherited from QGraphicsItem
@@ -20958,7 +20958,7 @@ pub const qgraphicsrectitem = struct {
     /// ` cacheSize: QtC.QSize `
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @bitCast(mode), @ptrCast(cacheSize));
     }
 
     /// Inherited from QGraphicsItem
@@ -20986,7 +20986,7 @@ pub const qgraphicsrectitem = struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @bitCast(focusReason));
     }
 
     /// Inherited from QGraphicsItem
@@ -21016,7 +21016,7 @@ pub const qgraphicsrectitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -21034,7 +21034,7 @@ pub const qgraphicsrectitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -21056,7 +21056,7 @@ pub const qgraphicsrectitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -21080,7 +21080,7 @@ pub const qgraphicsrectitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -21128,7 +21128,7 @@ pub const qgraphicsrectitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsrectitem.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -21179,7 +21179,7 @@ pub const qgraphicsrectitem = struct {
     /// ` rect: QtC.QRectF `
     ///
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @floatCast(dx), @floatCast(dy), @ptrCast(rect));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// Inherited from QGraphicsItem
@@ -21195,7 +21195,7 @@ pub const qgraphicsrectitem = struct {
     /// ` phase: i32 `
     ///
     pub fn Advance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsRectItem_Advance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsRectItem_Advance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -21211,7 +21211,7 @@ pub const qgraphicsrectitem = struct {
     /// ` phase: i32 `
     ///
     pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsRectItem_QBaseAdvance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsRectItem_QBaseAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -21227,7 +21227,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, phase: i32) callconv(.c) void `
     ///
     pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnAdvance(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21245,7 +21245,7 @@ pub const qgraphicsrectitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsRectItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsRectItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -21263,7 +21263,7 @@ pub const qgraphicsrectitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsRectItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsRectItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -21279,7 +21279,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsRectItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnCollidesWithItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21297,7 +21297,7 @@ pub const qgraphicsrectitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsRectItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsRectItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -21315,7 +21315,7 @@ pub const qgraphicsrectitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsRectItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsRectItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -21331,7 +21331,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsRectItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnCollidesWithPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21383,7 +21383,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsRectItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnSceneEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21431,7 +21431,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsRectItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnSceneEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21479,7 +21479,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21527,7 +21527,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21575,7 +21575,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21623,7 +21623,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21671,7 +21671,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21719,7 +21719,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21767,7 +21767,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21815,7 +21815,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnHoverEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21863,7 +21863,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnHoverMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21911,7 +21911,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnHoverLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -21959,7 +21959,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22007,7 +22007,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22055,7 +22055,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22103,7 +22103,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22151,7 +22151,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22199,7 +22199,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22247,7 +22247,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22295,7 +22295,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22311,7 +22311,7 @@ pub const qgraphicsrectitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsRectItem_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsRectItem_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -22327,7 +22327,7 @@ pub const qgraphicsrectitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsRectItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsRectItem_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -22343,7 +22343,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsRectItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22361,7 +22361,7 @@ pub const qgraphicsrectitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsRectItem_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsRectItem_ItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -22379,7 +22379,7 @@ pub const qgraphicsrectitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsRectItem_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsRectItem_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -22395,7 +22395,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsRectItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22439,7 +22439,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22483,7 +22483,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnAddToIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22527,7 +22527,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnRemoveFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22571,7 +22571,7 @@ pub const qgraphicsrectitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRectItem_OnPrepareGeometryChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrectitem.html#dtor.QGraphicsRectItem)
@@ -22618,7 +22618,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` h: f64 `
     ///
     pub fn New3(x: f64, y: f64, w: f64, h: f64) QtC.QGraphicsEllipseItem {
-        return qtc.QGraphicsEllipseItem_new3(@floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsEllipseItem_new3(@bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// New4 constructs a new QGraphicsEllipseItem object.
@@ -22658,7 +22658,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` parent: QtC.QGraphicsItem `
     ///
     pub fn New6(x: f64, y: f64, w: f64, h: f64, parent: ?*anyopaque) QtC.QGraphicsEllipseItem {
-        return qtc.QGraphicsEllipseItem_new6(@floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @ptrCast(parent));
+        return qtc.QGraphicsEllipseItem_new6(@bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#rect)
@@ -22698,7 +22698,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` h: f64 `
     ///
     pub fn SetRect2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsEllipseItem_SetRect2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsEllipseItem_SetRect2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#startAngle)
@@ -22720,7 +22720,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` angle: i32 `
     ///
     pub fn SetStartAngle(self: ?*anyopaque, angle: i32) void {
-        qtc.QGraphicsEllipseItem_SetStartAngle(@ptrCast(self), @intCast(angle));
+        qtc.QGraphicsEllipseItem_SetStartAngle(@ptrCast(self), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#spanAngle)
@@ -22742,7 +22742,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` angle: i32 `
     ///
     pub fn SetSpanAngle(self: ?*anyopaque, angle: i32) void {
-        qtc.QGraphicsEllipseItem_SetSpanAngle(@ptrCast(self), @intCast(angle));
+        qtc.QGraphicsEllipseItem_SetSpanAngle(@ptrCast(self), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#boundingRect)
@@ -22766,7 +22766,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsEllipseItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#boundingRect)
@@ -22802,7 +22802,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsEllipseItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnShape(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#shape)
@@ -22840,7 +22840,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, point: QtC.QPointF) callconv(.c) bool `
     ///
     pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsEllipseItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnContains(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#contains)
@@ -22884,7 +22884,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#paint)
@@ -22928,7 +22928,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, item: QtC.QGraphicsItem) callconv(.c) bool `
     ///
     pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsEllipseItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnIsObscuredBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#isObscuredBy)
@@ -22966,7 +22966,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsEllipseItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnOpaqueArea(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#opaqueArea)
@@ -23002,7 +23002,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsEllipseItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#type)
@@ -23026,7 +23026,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsEllipseItem_SupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsEllipseItem_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#supportsExtension)
@@ -23040,7 +23040,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
     pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsEllipseItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnSupportsExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#supportsExtension)
@@ -23054,7 +23054,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsEllipseItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsEllipseItem_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#setExtension)
@@ -23068,7 +23068,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsEllipseItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsEllipseItem_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#setExtension)
@@ -23082,7 +23082,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnSetExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#setExtension)
@@ -23098,7 +23098,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsEllipseItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsEllipseItem_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#extension)
@@ -23124,7 +23124,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsEllipseItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#extension)
@@ -23435,7 +23435,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// Inherited from QGraphicsItem
@@ -23449,7 +23449,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsItem
@@ -23479,7 +23479,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -23509,7 +23509,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @bitCast(panelModality));
     }
 
     /// Inherited from QGraphicsItem
@@ -23787,7 +23787,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QGraphicsItem
@@ -23843,7 +23843,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @bitCast(buttons));
     }
 
     /// Inherited from QGraphicsItem
@@ -24145,7 +24145,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// Inherited from QGraphicsItem
@@ -24171,7 +24171,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -24213,7 +24213,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -24229,7 +24229,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` dy: f64 `
     ///
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -24261,7 +24261,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` h: f64 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -24353,7 +24353,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QGraphicsItem
@@ -24379,7 +24379,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` scale: f64 `
     ///
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self), @floatCast(scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// Inherited from QGraphicsItem
@@ -24470,7 +24470,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` ay: f64 `
     ///
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @floatCast(ax), @floatCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @bitCast(ax), @bitCast(ay));
     }
 
     /// Inherited from QGraphicsItem
@@ -24496,7 +24496,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` z: f64 `
     ///
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @floatCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @bitCast(z));
     }
 
     /// Inherited from QGraphicsItem
@@ -24609,7 +24609,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` h: f64 `
     ///
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -24649,7 +24649,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` granularity: f64 `
     ///
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @floatCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @bitCast(granularity));
     }
 
     /// Inherited from QGraphicsItem
@@ -24681,7 +24681,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` height: f64 `
     ///
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(width), @floatCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QGraphicsItem
@@ -24697,7 +24697,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` dy: f64 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_Scroll(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -24979,7 +24979,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -24995,7 +24995,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -25011,7 +25011,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -25033,7 +25033,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -25053,7 +25053,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -25073,7 +25073,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -25091,7 +25091,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -25107,7 +25107,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -25123,7 +25123,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -25145,7 +25145,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -25165,7 +25165,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -25185,7 +25185,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -25239,7 +25239,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` key: i32 `
     ///
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_Data(@ptrCast(self), @intCast(key));
+        return qtc.QGraphicsItem_Data(@ptrCast(self), @bitCast(key));
     }
 
     /// Inherited from QGraphicsItem
@@ -25255,7 +25255,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetData(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QGraphicsItem_SetData(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -25285,7 +25285,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QGraphicsItem
@@ -25329,7 +25329,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// Inherited from QGraphicsItem
@@ -25345,7 +25345,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` cacheSize: QtC.QSize `
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @bitCast(mode), @ptrCast(cacheSize));
     }
 
     /// Inherited from QGraphicsItem
@@ -25373,7 +25373,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @bitCast(focusReason));
     }
 
     /// Inherited from QGraphicsItem
@@ -25403,7 +25403,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -25421,7 +25421,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -25443,7 +25443,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -25467,7 +25467,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -25515,7 +25515,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsellipseitem.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -25566,7 +25566,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` rect: QtC.QRectF `
     ///
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @floatCast(dx), @floatCast(dy), @ptrCast(rect));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// Inherited from QGraphicsItem
@@ -25582,7 +25582,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` phase: i32 `
     ///
     pub fn Advance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsEllipseItem_Advance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsEllipseItem_Advance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -25598,7 +25598,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` phase: i32 `
     ///
     pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsEllipseItem_QBaseAdvance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsEllipseItem_QBaseAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -25614,7 +25614,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, phase: i32) callconv(.c) void `
     ///
     pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnAdvance(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25632,7 +25632,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsEllipseItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsEllipseItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -25650,7 +25650,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsEllipseItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsEllipseItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -25666,7 +25666,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsEllipseItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnCollidesWithItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25684,7 +25684,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsEllipseItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsEllipseItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -25702,7 +25702,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsEllipseItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsEllipseItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -25718,7 +25718,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsEllipseItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnCollidesWithPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25770,7 +25770,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsEllipseItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnSceneEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25818,7 +25818,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsEllipseItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnSceneEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25866,7 +25866,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25914,7 +25914,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25962,7 +25962,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26010,7 +26010,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26058,7 +26058,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26106,7 +26106,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26154,7 +26154,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26202,7 +26202,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnHoverEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26250,7 +26250,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnHoverMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26298,7 +26298,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnHoverLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26346,7 +26346,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26394,7 +26394,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26442,7 +26442,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26490,7 +26490,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26538,7 +26538,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26586,7 +26586,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26634,7 +26634,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26682,7 +26682,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26698,7 +26698,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsEllipseItem_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsEllipseItem_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -26714,7 +26714,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsEllipseItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsEllipseItem_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -26730,7 +26730,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsEllipseItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26748,7 +26748,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsEllipseItem_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsEllipseItem_ItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -26766,7 +26766,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsEllipseItem_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsEllipseItem_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -26782,7 +26782,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsEllipseItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26826,7 +26826,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26870,7 +26870,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnAddToIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26914,7 +26914,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnRemoveFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -26958,7 +26958,7 @@ pub const qgraphicsellipseitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEllipseItem_OnPrepareGeometryChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#dtor.QGraphicsEllipseItem)
@@ -27015,7 +27015,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` rule: qnamespace_enums.FillRule `
     ///
     pub fn SetFillRule(self: ?*anyopaque, rule: i32) void {
-        qtc.QGraphicsPolygonItem_SetFillRule(@ptrCast(self), @intCast(rule));
+        qtc.QGraphicsPolygonItem_SetFillRule(@ptrCast(self), @bitCast(rule));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#boundingRect)
@@ -27039,7 +27039,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsPolygonItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#boundingRect)
@@ -27075,7 +27075,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsPolygonItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnShape(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#shape)
@@ -27113,7 +27113,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, point: QtC.QPointF) callconv(.c) bool `
     ///
     pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPolygonItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnContains(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#contains)
@@ -27157,7 +27157,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#paint)
@@ -27201,7 +27201,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, item: QtC.QGraphicsItem) callconv(.c) bool `
     ///
     pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPolygonItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnIsObscuredBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#isObscuredBy)
@@ -27239,7 +27239,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsPolygonItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnOpaqueArea(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#opaqueArea)
@@ -27275,7 +27275,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsPolygonItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#type)
@@ -27299,7 +27299,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsPolygonItem_SupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsPolygonItem_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#supportsExtension)
@@ -27313,7 +27313,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
     pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPolygonItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnSupportsExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#supportsExtension)
@@ -27327,7 +27327,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsPolygonItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsPolygonItem_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#setExtension)
@@ -27341,7 +27341,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsPolygonItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsPolygonItem_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#setExtension)
@@ -27355,7 +27355,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnSetExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#setExtension)
@@ -27371,7 +27371,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsPolygonItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsPolygonItem_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#extension)
@@ -27397,7 +27397,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPolygonItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#extension)
@@ -27708,7 +27708,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// Inherited from QGraphicsItem
@@ -27722,7 +27722,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsItem
@@ -27752,7 +27752,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -27782,7 +27782,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @bitCast(panelModality));
     }
 
     /// Inherited from QGraphicsItem
@@ -28060,7 +28060,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QGraphicsItem
@@ -28116,7 +28116,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @bitCast(buttons));
     }
 
     /// Inherited from QGraphicsItem
@@ -28418,7 +28418,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// Inherited from QGraphicsItem
@@ -28444,7 +28444,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -28486,7 +28486,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -28502,7 +28502,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` dy: f64 `
     ///
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -28534,7 +28534,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` h: f64 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -28626,7 +28626,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QGraphicsItem
@@ -28652,7 +28652,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` scale: f64 `
     ///
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self), @floatCast(scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// Inherited from QGraphicsItem
@@ -28743,7 +28743,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` ay: f64 `
     ///
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @floatCast(ax), @floatCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @bitCast(ax), @bitCast(ay));
     }
 
     /// Inherited from QGraphicsItem
@@ -28769,7 +28769,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` z: f64 `
     ///
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @floatCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @bitCast(z));
     }
 
     /// Inherited from QGraphicsItem
@@ -28882,7 +28882,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` h: f64 `
     ///
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -28922,7 +28922,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` granularity: f64 `
     ///
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @floatCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @bitCast(granularity));
     }
 
     /// Inherited from QGraphicsItem
@@ -28954,7 +28954,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` height: f64 `
     ///
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(width), @floatCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QGraphicsItem
@@ -28970,7 +28970,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` dy: f64 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_Scroll(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -29252,7 +29252,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -29268,7 +29268,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -29284,7 +29284,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -29306,7 +29306,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -29326,7 +29326,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -29346,7 +29346,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -29364,7 +29364,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -29380,7 +29380,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -29396,7 +29396,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -29418,7 +29418,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -29438,7 +29438,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -29458,7 +29458,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -29512,7 +29512,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` key: i32 `
     ///
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_Data(@ptrCast(self), @intCast(key));
+        return qtc.QGraphicsItem_Data(@ptrCast(self), @bitCast(key));
     }
 
     /// Inherited from QGraphicsItem
@@ -29528,7 +29528,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetData(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QGraphicsItem_SetData(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -29558,7 +29558,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QGraphicsItem
@@ -29602,7 +29602,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// Inherited from QGraphicsItem
@@ -29618,7 +29618,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` cacheSize: QtC.QSize `
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @bitCast(mode), @ptrCast(cacheSize));
     }
 
     /// Inherited from QGraphicsItem
@@ -29646,7 +29646,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @bitCast(focusReason));
     }
 
     /// Inherited from QGraphicsItem
@@ -29676,7 +29676,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -29694,7 +29694,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -29716,7 +29716,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -29740,7 +29740,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -29788,7 +29788,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicspolygonitem.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -29839,7 +29839,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` rect: QtC.QRectF `
     ///
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @floatCast(dx), @floatCast(dy), @ptrCast(rect));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// Inherited from QGraphicsItem
@@ -29855,7 +29855,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` phase: i32 `
     ///
     pub fn Advance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsPolygonItem_Advance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsPolygonItem_Advance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -29871,7 +29871,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` phase: i32 `
     ///
     pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsPolygonItem_QBaseAdvance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsPolygonItem_QBaseAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -29887,7 +29887,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, phase: i32) callconv(.c) void `
     ///
     pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnAdvance(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -29905,7 +29905,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsPolygonItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsPolygonItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -29923,7 +29923,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsPolygonItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsPolygonItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -29939,7 +29939,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPolygonItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnCollidesWithItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -29957,7 +29957,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsPolygonItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsPolygonItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -29975,7 +29975,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsPolygonItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsPolygonItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -29991,7 +29991,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPolygonItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnCollidesWithPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30043,7 +30043,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPolygonItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnSceneEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30091,7 +30091,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPolygonItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnSceneEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30139,7 +30139,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30187,7 +30187,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30235,7 +30235,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30283,7 +30283,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30331,7 +30331,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30379,7 +30379,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30427,7 +30427,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30475,7 +30475,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnHoverEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30523,7 +30523,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnHoverMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30571,7 +30571,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnHoverLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30619,7 +30619,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30667,7 +30667,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30715,7 +30715,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30763,7 +30763,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30811,7 +30811,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30859,7 +30859,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30907,7 +30907,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30955,7 +30955,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -30971,7 +30971,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsPolygonItem_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsPolygonItem_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -30987,7 +30987,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsPolygonItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsPolygonItem_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -31003,7 +31003,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPolygonItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -31021,7 +31021,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsPolygonItem_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsPolygonItem_ItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -31039,7 +31039,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsPolygonItem_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsPolygonItem_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -31055,7 +31055,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPolygonItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -31099,7 +31099,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -31143,7 +31143,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnAddToIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -31187,7 +31187,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnRemoveFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -31231,7 +31231,7 @@ pub const qgraphicspolygonitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPolygonItem_OnPrepareGeometryChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#dtor.QGraphicsPolygonItem)
@@ -31278,7 +31278,7 @@ pub const qgraphicslineitem = struct {
     /// ` y2: f64 `
     ///
     pub fn New3(x1: f64, y1: f64, x2: f64, y2: f64) QtC.QGraphicsLineItem {
-        return qtc.QGraphicsLineItem_new3(@floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
+        return qtc.QGraphicsLineItem_new3(@bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
     }
 
     /// New4 constructs a new QGraphicsLineItem object.
@@ -31318,7 +31318,7 @@ pub const qgraphicslineitem = struct {
     /// ` parent: QtC.QGraphicsItem `
     ///
     pub fn New6(x1: f64, y1: f64, x2: f64, y2: f64, parent: ?*anyopaque) QtC.QGraphicsLineItem {
-        return qtc.QGraphicsLineItem_new6(@floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2), @ptrCast(parent));
+        return qtc.QGraphicsLineItem_new6(@bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#pen)
@@ -31380,7 +31380,7 @@ pub const qgraphicslineitem = struct {
     /// ` y2: f64 `
     ///
     pub fn SetLine2(self: ?*anyopaque, x1: f64, y1: f64, x2: f64, y2: f64) void {
-        qtc.QGraphicsLineItem_SetLine2(@ptrCast(self), @floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
+        qtc.QGraphicsLineItem_SetLine2(@ptrCast(self), @bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#boundingRect)
@@ -31404,7 +31404,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsLineItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#boundingRect)
@@ -31440,7 +31440,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsLineItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnShape(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#shape)
@@ -31478,7 +31478,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, point: QtC.QPointF) callconv(.c) bool `
     ///
     pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsLineItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnContains(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#contains)
@@ -31522,7 +31522,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#paint)
@@ -31566,7 +31566,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, item: QtC.QGraphicsItem) callconv(.c) bool `
     ///
     pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsLineItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnIsObscuredBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#isObscuredBy)
@@ -31604,7 +31604,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsLineItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnOpaqueArea(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#opaqueArea)
@@ -31640,7 +31640,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsLineItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#type)
@@ -31664,7 +31664,7 @@ pub const qgraphicslineitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsLineItem_SupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsLineItem_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#supportsExtension)
@@ -31678,7 +31678,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
     pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsLineItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnSupportsExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#supportsExtension)
@@ -31692,7 +31692,7 @@ pub const qgraphicslineitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsLineItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsLineItem_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#setExtension)
@@ -31706,7 +31706,7 @@ pub const qgraphicslineitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsLineItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsLineItem_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#setExtension)
@@ -31720,7 +31720,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnSetExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#setExtension)
@@ -31736,7 +31736,7 @@ pub const qgraphicslineitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsLineItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsLineItem_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#extension)
@@ -31762,7 +31762,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsLineItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#extension)
@@ -32021,7 +32021,7 @@ pub const qgraphicslineitem = struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// Inherited from QGraphicsItem
@@ -32035,7 +32035,7 @@ pub const qgraphicslineitem = struct {
     /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsItem
@@ -32065,7 +32065,7 @@ pub const qgraphicslineitem = struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -32095,7 +32095,7 @@ pub const qgraphicslineitem = struct {
     /// ` panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @bitCast(panelModality));
     }
 
     /// Inherited from QGraphicsItem
@@ -32373,7 +32373,7 @@ pub const qgraphicslineitem = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QGraphicsItem
@@ -32429,7 +32429,7 @@ pub const qgraphicslineitem = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @bitCast(buttons));
     }
 
     /// Inherited from QGraphicsItem
@@ -32731,7 +32731,7 @@ pub const qgraphicslineitem = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// Inherited from QGraphicsItem
@@ -32757,7 +32757,7 @@ pub const qgraphicslineitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -32799,7 +32799,7 @@ pub const qgraphicslineitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -32815,7 +32815,7 @@ pub const qgraphicslineitem = struct {
     /// ` dy: f64 `
     ///
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -32847,7 +32847,7 @@ pub const qgraphicslineitem = struct {
     /// ` h: f64 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -32939,7 +32939,7 @@ pub const qgraphicslineitem = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QGraphicsItem
@@ -32965,7 +32965,7 @@ pub const qgraphicslineitem = struct {
     /// ` scale: f64 `
     ///
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self), @floatCast(scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// Inherited from QGraphicsItem
@@ -33056,7 +33056,7 @@ pub const qgraphicslineitem = struct {
     /// ` ay: f64 `
     ///
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @floatCast(ax), @floatCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @bitCast(ax), @bitCast(ay));
     }
 
     /// Inherited from QGraphicsItem
@@ -33082,7 +33082,7 @@ pub const qgraphicslineitem = struct {
     /// ` z: f64 `
     ///
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @floatCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @bitCast(z));
     }
 
     /// Inherited from QGraphicsItem
@@ -33195,7 +33195,7 @@ pub const qgraphicslineitem = struct {
     /// ` h: f64 `
     ///
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -33235,7 +33235,7 @@ pub const qgraphicslineitem = struct {
     /// ` granularity: f64 `
     ///
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @floatCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @bitCast(granularity));
     }
 
     /// Inherited from QGraphicsItem
@@ -33267,7 +33267,7 @@ pub const qgraphicslineitem = struct {
     /// ` height: f64 `
     ///
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(width), @floatCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QGraphicsItem
@@ -33283,7 +33283,7 @@ pub const qgraphicslineitem = struct {
     /// ` dy: f64 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_Scroll(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -33565,7 +33565,7 @@ pub const qgraphicslineitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -33581,7 +33581,7 @@ pub const qgraphicslineitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -33597,7 +33597,7 @@ pub const qgraphicslineitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -33619,7 +33619,7 @@ pub const qgraphicslineitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -33639,7 +33639,7 @@ pub const qgraphicslineitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -33659,7 +33659,7 @@ pub const qgraphicslineitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -33677,7 +33677,7 @@ pub const qgraphicslineitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -33693,7 +33693,7 @@ pub const qgraphicslineitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -33709,7 +33709,7 @@ pub const qgraphicslineitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -33731,7 +33731,7 @@ pub const qgraphicslineitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -33751,7 +33751,7 @@ pub const qgraphicslineitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -33771,7 +33771,7 @@ pub const qgraphicslineitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -33825,7 +33825,7 @@ pub const qgraphicslineitem = struct {
     /// ` key: i32 `
     ///
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_Data(@ptrCast(self), @intCast(key));
+        return qtc.QGraphicsItem_Data(@ptrCast(self), @bitCast(key));
     }
 
     /// Inherited from QGraphicsItem
@@ -33841,7 +33841,7 @@ pub const qgraphicslineitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetData(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QGraphicsItem_SetData(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -33871,7 +33871,7 @@ pub const qgraphicslineitem = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QGraphicsItem
@@ -33915,7 +33915,7 @@ pub const qgraphicslineitem = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// Inherited from QGraphicsItem
@@ -33931,7 +33931,7 @@ pub const qgraphicslineitem = struct {
     /// ` cacheSize: QtC.QSize `
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @bitCast(mode), @ptrCast(cacheSize));
     }
 
     /// Inherited from QGraphicsItem
@@ -33959,7 +33959,7 @@ pub const qgraphicslineitem = struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @bitCast(focusReason));
     }
 
     /// Inherited from QGraphicsItem
@@ -33989,7 +33989,7 @@ pub const qgraphicslineitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -34007,7 +34007,7 @@ pub const qgraphicslineitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -34029,7 +34029,7 @@ pub const qgraphicslineitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -34053,7 +34053,7 @@ pub const qgraphicslineitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -34101,7 +34101,7 @@ pub const qgraphicslineitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicslineitem.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -34152,7 +34152,7 @@ pub const qgraphicslineitem = struct {
     /// ` rect: QtC.QRectF `
     ///
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @floatCast(dx), @floatCast(dy), @ptrCast(rect));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// Inherited from QGraphicsItem
@@ -34168,7 +34168,7 @@ pub const qgraphicslineitem = struct {
     /// ` phase: i32 `
     ///
     pub fn Advance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsLineItem_Advance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsLineItem_Advance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -34184,7 +34184,7 @@ pub const qgraphicslineitem = struct {
     /// ` phase: i32 `
     ///
     pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsLineItem_QBaseAdvance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsLineItem_QBaseAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -34200,7 +34200,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, phase: i32) callconv(.c) void `
     ///
     pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnAdvance(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34218,7 +34218,7 @@ pub const qgraphicslineitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsLineItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsLineItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -34236,7 +34236,7 @@ pub const qgraphicslineitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsLineItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsLineItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -34252,7 +34252,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsLineItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnCollidesWithItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34270,7 +34270,7 @@ pub const qgraphicslineitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsLineItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsLineItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -34288,7 +34288,7 @@ pub const qgraphicslineitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsLineItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsLineItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -34304,7 +34304,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsLineItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnCollidesWithPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34356,7 +34356,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsLineItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnSceneEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34404,7 +34404,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsLineItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnSceneEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34452,7 +34452,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34500,7 +34500,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34548,7 +34548,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34596,7 +34596,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34644,7 +34644,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34692,7 +34692,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34740,7 +34740,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34788,7 +34788,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnHoverEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34836,7 +34836,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnHoverMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34884,7 +34884,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnHoverLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34932,7 +34932,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34980,7 +34980,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35028,7 +35028,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35076,7 +35076,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35124,7 +35124,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35172,7 +35172,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35220,7 +35220,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35268,7 +35268,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35284,7 +35284,7 @@ pub const qgraphicslineitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsLineItem_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsLineItem_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -35300,7 +35300,7 @@ pub const qgraphicslineitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsLineItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsLineItem_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -35316,7 +35316,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsLineItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35334,7 +35334,7 @@ pub const qgraphicslineitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsLineItem_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsLineItem_ItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -35352,7 +35352,7 @@ pub const qgraphicslineitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsLineItem_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsLineItem_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -35368,7 +35368,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsLineItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35412,7 +35412,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35456,7 +35456,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnAddToIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35500,7 +35500,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnRemoveFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35544,7 +35544,7 @@ pub const qgraphicslineitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLineItem_OnPrepareGeometryChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslineitem.html#dtor.QGraphicsLineItem)
@@ -35645,7 +35645,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` mode: qnamespace_enums.TransformationMode `
     ///
     pub fn SetTransformationMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsPixmapItem_SetTransformationMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsPixmapItem_SetTransformationMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#offset)
@@ -35681,7 +35681,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetOffset2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsPixmapItem_SetOffset2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsPixmapItem_SetOffset2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#boundingRect)
@@ -35705,7 +35705,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsPixmapItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#boundingRect)
@@ -35741,7 +35741,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsPixmapItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnShape(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#shape)
@@ -35779,7 +35779,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, point: QtC.QPointF) callconv(.c) bool `
     ///
     pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPixmapItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnContains(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#contains)
@@ -35823,7 +35823,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#paint)
@@ -35867,7 +35867,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, item: QtC.QGraphicsItem) callconv(.c) bool `
     ///
     pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPixmapItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnIsObscuredBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#isObscuredBy)
@@ -35905,7 +35905,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsPixmapItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnOpaqueArea(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#opaqueArea)
@@ -35941,7 +35941,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsPixmapItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#type)
@@ -35979,7 +35979,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` mode: qgraphicsitem_enums.ShapeMode `
     ///
     pub fn SetShapeMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsPixmapItem_SetShapeMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsPixmapItem_SetShapeMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#supportsExtension)
@@ -35991,7 +35991,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsPixmapItem_SupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsPixmapItem_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#supportsExtension)
@@ -36005,7 +36005,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
     pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPixmapItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnSupportsExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#supportsExtension)
@@ -36019,7 +36019,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsPixmapItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsPixmapItem_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#setExtension)
@@ -36033,7 +36033,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsPixmapItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsPixmapItem_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#setExtension)
@@ -36047,7 +36047,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnSetExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#setExtension)
@@ -36063,7 +36063,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsPixmapItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsPixmapItem_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#extension)
@@ -36089,7 +36089,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPixmapItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#extension)
@@ -36348,7 +36348,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// Inherited from QGraphicsItem
@@ -36362,7 +36362,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsItem
@@ -36392,7 +36392,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -36422,7 +36422,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @bitCast(panelModality));
     }
 
     /// Inherited from QGraphicsItem
@@ -36700,7 +36700,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QGraphicsItem
@@ -36756,7 +36756,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @bitCast(buttons));
     }
 
     /// Inherited from QGraphicsItem
@@ -37058,7 +37058,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// Inherited from QGraphicsItem
@@ -37084,7 +37084,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -37126,7 +37126,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -37142,7 +37142,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` dy: f64 `
     ///
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -37174,7 +37174,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` h: f64 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -37266,7 +37266,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QGraphicsItem
@@ -37292,7 +37292,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` scale: f64 `
     ///
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self), @floatCast(scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// Inherited from QGraphicsItem
@@ -37383,7 +37383,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` ay: f64 `
     ///
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @floatCast(ax), @floatCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @bitCast(ax), @bitCast(ay));
     }
 
     /// Inherited from QGraphicsItem
@@ -37409,7 +37409,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` z: f64 `
     ///
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @floatCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @bitCast(z));
     }
 
     /// Inherited from QGraphicsItem
@@ -37522,7 +37522,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` h: f64 `
     ///
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -37562,7 +37562,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` granularity: f64 `
     ///
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @floatCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @bitCast(granularity));
     }
 
     /// Inherited from QGraphicsItem
@@ -37594,7 +37594,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` height: f64 `
     ///
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(width), @floatCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QGraphicsItem
@@ -37610,7 +37610,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` dy: f64 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_Scroll(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -37892,7 +37892,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -37908,7 +37908,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -37924,7 +37924,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -37946,7 +37946,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -37966,7 +37966,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -37986,7 +37986,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -38004,7 +38004,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -38020,7 +38020,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -38036,7 +38036,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -38058,7 +38058,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -38078,7 +38078,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -38098,7 +38098,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -38152,7 +38152,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` key: i32 `
     ///
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_Data(@ptrCast(self), @intCast(key));
+        return qtc.QGraphicsItem_Data(@ptrCast(self), @bitCast(key));
     }
 
     /// Inherited from QGraphicsItem
@@ -38168,7 +38168,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetData(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QGraphicsItem_SetData(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -38198,7 +38198,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QGraphicsItem
@@ -38242,7 +38242,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// Inherited from QGraphicsItem
@@ -38258,7 +38258,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` cacheSize: QtC.QSize `
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @bitCast(mode), @ptrCast(cacheSize));
     }
 
     /// Inherited from QGraphicsItem
@@ -38286,7 +38286,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @bitCast(focusReason));
     }
 
     /// Inherited from QGraphicsItem
@@ -38316,7 +38316,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -38334,7 +38334,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -38356,7 +38356,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -38380,7 +38380,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -38428,7 +38428,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicspixmapitem.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -38479,7 +38479,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` rect: QtC.QRectF `
     ///
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @floatCast(dx), @floatCast(dy), @ptrCast(rect));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// Inherited from QGraphicsItem
@@ -38495,7 +38495,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` phase: i32 `
     ///
     pub fn Advance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsPixmapItem_Advance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsPixmapItem_Advance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -38511,7 +38511,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` phase: i32 `
     ///
     pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsPixmapItem_QBaseAdvance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsPixmapItem_QBaseAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -38527,7 +38527,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, phase: i32) callconv(.c) void `
     ///
     pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnAdvance(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -38545,7 +38545,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsPixmapItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsPixmapItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -38563,7 +38563,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsPixmapItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsPixmapItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -38579,7 +38579,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPixmapItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnCollidesWithItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -38597,7 +38597,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsPixmapItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsPixmapItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -38615,7 +38615,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsPixmapItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsPixmapItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -38631,7 +38631,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPixmapItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnCollidesWithPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -38683,7 +38683,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPixmapItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnSceneEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -38731,7 +38731,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPixmapItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnSceneEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -38779,7 +38779,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -38827,7 +38827,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -38875,7 +38875,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -38923,7 +38923,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -38971,7 +38971,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39019,7 +39019,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39067,7 +39067,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39115,7 +39115,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnHoverEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39163,7 +39163,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnHoverMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39211,7 +39211,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnHoverLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39259,7 +39259,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39307,7 +39307,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39355,7 +39355,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39403,7 +39403,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39451,7 +39451,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39499,7 +39499,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39547,7 +39547,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39595,7 +39595,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39611,7 +39611,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsPixmapItem_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsPixmapItem_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -39627,7 +39627,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsPixmapItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsPixmapItem_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -39643,7 +39643,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPixmapItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39661,7 +39661,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsPixmapItem_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsPixmapItem_ItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -39679,7 +39679,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsPixmapItem_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsPixmapItem_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -39695,7 +39695,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPixmapItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39739,7 +39739,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39783,7 +39783,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnAddToIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39827,7 +39827,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnRemoveFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -39871,7 +39871,7 @@ pub const qgraphicspixmapitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsPixmapItem_OnPrepareGeometryChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#dtor.QGraphicsPixmapItem)
@@ -39958,7 +39958,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGraphicsTextItem_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -39993,7 +39993,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGraphicsTextItem_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -40020,7 +40020,7 @@ pub const qgraphicstextitem = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsTextItem_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsTextItem_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -40032,7 +40032,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsTextItem_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -40048,7 +40048,7 @@ pub const qgraphicstextitem = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsTextItem_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsTextItem_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -40197,7 +40197,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsTextItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#boundingRect)
@@ -40233,7 +40233,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsTextItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnShape(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#shape)
@@ -40271,7 +40271,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, point: QtC.QPointF) callconv(.c) bool `
     ///
     pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnContains(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#contains)
@@ -40315,7 +40315,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#paint)
@@ -40359,7 +40359,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, item: QtC.QGraphicsItem) callconv(.c) bool `
     ///
     pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnIsObscuredBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#isObscuredBy)
@@ -40397,7 +40397,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsTextItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnOpaqueArea(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#opaqueArea)
@@ -40433,7 +40433,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsTextItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#type)
@@ -40457,7 +40457,7 @@ pub const qgraphicstextitem = struct {
     /// ` width: f64 `
     ///
     pub fn SetTextWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsTextItem_SetTextWidth(@ptrCast(self), @floatCast(width));
+        qtc.QGraphicsTextItem_SetTextWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#textWidth)
@@ -40511,7 +40511,7 @@ pub const qgraphicstextitem = struct {
     /// ` flags: flag of qnamespace_enums.TextInteractionFlag `
     ///
     pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsTextItem_SetTextInteractionFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsTextItem_SetTextInteractionFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#textInteractionFlags)
@@ -40619,7 +40619,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLinkActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_Connect_LinkActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_Connect_LinkActivated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#linkHovered)
@@ -40647,7 +40647,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnLinkHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_Connect_LinkHovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_Connect_LinkHovered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#sceneEvent)
@@ -40673,7 +40673,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnSceneEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#sceneEvent)
@@ -40713,7 +40713,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#mousePressEvent)
@@ -40753,7 +40753,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#mouseMoveEvent)
@@ -40793,7 +40793,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#mouseReleaseEvent)
@@ -40833,7 +40833,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#mouseDoubleClickEvent)
@@ -40873,7 +40873,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#contextMenuEvent)
@@ -40913,7 +40913,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#keyPressEvent)
@@ -40953,7 +40953,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#keyReleaseEvent)
@@ -40993,7 +40993,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#focusInEvent)
@@ -41033,7 +41033,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#focusOutEvent)
@@ -41073,7 +41073,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#dragEnterEvent)
@@ -41113,7 +41113,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#dragLeaveEvent)
@@ -41153,7 +41153,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#dragMoveEvent)
@@ -41193,7 +41193,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#dropEvent)
@@ -41233,7 +41233,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#inputMethodEvent)
@@ -41273,7 +41273,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnHoverEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#hoverEnterEvent)
@@ -41313,7 +41313,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnHoverMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#hoverMoveEvent)
@@ -41353,7 +41353,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnHoverLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#hoverLeaveEvent)
@@ -41379,7 +41379,7 @@ pub const qgraphicstextitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsTextItem_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsTextItem_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#inputMethodQuery)
@@ -41393,7 +41393,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsTextItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#inputMethodQuery)
@@ -41407,7 +41407,7 @@ pub const qgraphicstextitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsTextItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsTextItem_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#supportsExtension)
@@ -41419,7 +41419,7 @@ pub const qgraphicstextitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsTextItem_SupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsTextItem_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#supportsExtension)
@@ -41433,7 +41433,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
     pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnSupportsExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#supportsExtension)
@@ -41447,7 +41447,7 @@ pub const qgraphicstextitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsTextItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsTextItem_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#setExtension)
@@ -41461,7 +41461,7 @@ pub const qgraphicstextitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsTextItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsTextItem_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#setExtension)
@@ -41475,7 +41475,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnSetExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#setExtension)
@@ -41491,7 +41491,7 @@ pub const qgraphicstextitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsTextItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsTextItem_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#extension)
@@ -41517,7 +41517,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsTextItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#extension)
@@ -41569,7 +41569,7 @@ pub const qgraphicstextitem = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicstextitem.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -41587,7 +41587,7 @@ pub const qgraphicstextitem = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QGraphicsObject_GrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QGraphicsObject_GrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QGraphicsObject
@@ -41601,7 +41601,7 @@ pub const qgraphicstextitem = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QGraphicsObject_UngrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QGraphicsObject_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QGraphicsObject
@@ -41627,7 +41627,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void `
     ///
     pub fn OnParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -41653,7 +41653,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void `
     ///
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -41679,7 +41679,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -41705,7 +41705,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -41731,7 +41731,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void `
     ///
     pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -41757,7 +41757,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void `
     ///
     pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -41783,7 +41783,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void `
     ///
     pub fn OnZChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -41809,7 +41809,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void `
     ///
     pub fn OnRotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -41835,7 +41835,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void `
     ///
     pub fn OnScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -41861,7 +41861,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void `
     ///
     pub fn OnChildrenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -41887,7 +41887,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void `
     ///
     pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -41913,7 +41913,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void `
     ///
     pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -41929,7 +41929,7 @@ pub const qgraphicstextitem = struct {
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
+        qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QObject
@@ -42063,7 +42063,7 @@ pub const qgraphicstextitem = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -42077,7 +42077,7 @@ pub const qgraphicstextitem = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -42091,7 +42091,7 @@ pub const qgraphicstextitem = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -42105,7 +42105,7 @@ pub const qgraphicstextitem = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -42435,7 +42435,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -42490,7 +42490,7 @@ pub const qgraphicstextitem = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -42506,7 +42506,7 @@ pub const qgraphicstextitem = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -42528,7 +42528,7 @@ pub const qgraphicstextitem = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -42548,7 +42548,7 @@ pub const qgraphicstextitem = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -42570,7 +42570,7 @@ pub const qgraphicstextitem = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -42667,7 +42667,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -42912,7 +42912,7 @@ pub const qgraphicstextitem = struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// Inherited from QGraphicsItem
@@ -42926,7 +42926,7 @@ pub const qgraphicstextitem = struct {
     /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsItem
@@ -42956,7 +42956,7 @@ pub const qgraphicstextitem = struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -42986,7 +42986,7 @@ pub const qgraphicstextitem = struct {
     /// ` panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @bitCast(panelModality));
     }
 
     /// Inherited from QGraphicsItem
@@ -43264,7 +43264,7 @@ pub const qgraphicstextitem = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QGraphicsItem
@@ -43320,7 +43320,7 @@ pub const qgraphicstextitem = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @bitCast(buttons));
     }
 
     /// Inherited from QGraphicsItem
@@ -43622,7 +43622,7 @@ pub const qgraphicstextitem = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// Inherited from QGraphicsItem
@@ -43648,7 +43648,7 @@ pub const qgraphicstextitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -43690,7 +43690,7 @@ pub const qgraphicstextitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -43706,7 +43706,7 @@ pub const qgraphicstextitem = struct {
     /// ` dy: f64 `
     ///
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -43738,7 +43738,7 @@ pub const qgraphicstextitem = struct {
     /// ` h: f64 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -43830,7 +43830,7 @@ pub const qgraphicstextitem = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QGraphicsItem
@@ -43856,7 +43856,7 @@ pub const qgraphicstextitem = struct {
     /// ` scale: f64 `
     ///
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self), @floatCast(scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// Inherited from QGraphicsItem
@@ -43947,7 +43947,7 @@ pub const qgraphicstextitem = struct {
     /// ` ay: f64 `
     ///
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @floatCast(ax), @floatCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @bitCast(ax), @bitCast(ay));
     }
 
     /// Inherited from QGraphicsItem
@@ -43973,7 +43973,7 @@ pub const qgraphicstextitem = struct {
     /// ` z: f64 `
     ///
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @floatCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @bitCast(z));
     }
 
     /// Inherited from QGraphicsItem
@@ -44086,7 +44086,7 @@ pub const qgraphicstextitem = struct {
     /// ` h: f64 `
     ///
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -44126,7 +44126,7 @@ pub const qgraphicstextitem = struct {
     /// ` granularity: f64 `
     ///
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @floatCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @bitCast(granularity));
     }
 
     /// Inherited from QGraphicsItem
@@ -44158,7 +44158,7 @@ pub const qgraphicstextitem = struct {
     /// ` height: f64 `
     ///
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(width), @floatCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QGraphicsItem
@@ -44174,7 +44174,7 @@ pub const qgraphicstextitem = struct {
     /// ` dy: f64 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_Scroll(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -44456,7 +44456,7 @@ pub const qgraphicstextitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -44472,7 +44472,7 @@ pub const qgraphicstextitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -44488,7 +44488,7 @@ pub const qgraphicstextitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -44510,7 +44510,7 @@ pub const qgraphicstextitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -44530,7 +44530,7 @@ pub const qgraphicstextitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -44550,7 +44550,7 @@ pub const qgraphicstextitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -44568,7 +44568,7 @@ pub const qgraphicstextitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -44584,7 +44584,7 @@ pub const qgraphicstextitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -44600,7 +44600,7 @@ pub const qgraphicstextitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -44622,7 +44622,7 @@ pub const qgraphicstextitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -44642,7 +44642,7 @@ pub const qgraphicstextitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -44662,7 +44662,7 @@ pub const qgraphicstextitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -44716,7 +44716,7 @@ pub const qgraphicstextitem = struct {
     /// ` key: i32 `
     ///
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_Data(@ptrCast(self), @intCast(key));
+        return qtc.QGraphicsItem_Data(@ptrCast(self), @bitCast(key));
     }
 
     /// Inherited from QGraphicsItem
@@ -44732,7 +44732,7 @@ pub const qgraphicstextitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetData(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QGraphicsItem_SetData(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -44762,7 +44762,7 @@ pub const qgraphicstextitem = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QGraphicsItem
@@ -44806,7 +44806,7 @@ pub const qgraphicstextitem = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// Inherited from QGraphicsItem
@@ -44822,7 +44822,7 @@ pub const qgraphicstextitem = struct {
     /// ` cacheSize: QtC.QSize `
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @bitCast(mode), @ptrCast(cacheSize));
     }
 
     /// Inherited from QGraphicsItem
@@ -44850,7 +44850,7 @@ pub const qgraphicstextitem = struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @bitCast(focusReason));
     }
 
     /// Inherited from QGraphicsItem
@@ -44880,7 +44880,7 @@ pub const qgraphicstextitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -44898,7 +44898,7 @@ pub const qgraphicstextitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -44920,7 +44920,7 @@ pub const qgraphicstextitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -44944,7 +44944,7 @@ pub const qgraphicstextitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -44992,7 +44992,7 @@ pub const qgraphicstextitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicstextitem.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -45043,7 +45043,7 @@ pub const qgraphicstextitem = struct {
     /// ` rect: QtC.QRectF `
     ///
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @floatCast(dx), @floatCast(dy), @ptrCast(rect));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// Inherited from QGraphicsObject
@@ -45091,7 +45091,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, ev: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -45143,7 +45143,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -45191,7 +45191,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -45239,7 +45239,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -45287,7 +45287,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -45335,7 +45335,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -45383,7 +45383,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -45399,7 +45399,7 @@ pub const qgraphicstextitem = struct {
     /// ` phase: i32 `
     ///
     pub fn Advance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsTextItem_Advance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsTextItem_Advance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -45415,7 +45415,7 @@ pub const qgraphicstextitem = struct {
     /// ` phase: i32 `
     ///
     pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsTextItem_QBaseAdvance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsTextItem_QBaseAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -45431,7 +45431,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, phase: i32) callconv(.c) void `
     ///
     pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnAdvance(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -45449,7 +45449,7 @@ pub const qgraphicstextitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsTextItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsTextItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -45467,7 +45467,7 @@ pub const qgraphicstextitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsTextItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsTextItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -45483,7 +45483,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnCollidesWithItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -45501,7 +45501,7 @@ pub const qgraphicstextitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsTextItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsTextItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -45519,7 +45519,7 @@ pub const qgraphicstextitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsTextItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsTextItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -45535,7 +45535,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnCollidesWithPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -45587,7 +45587,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnSceneEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -45635,7 +45635,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -45653,7 +45653,7 @@ pub const qgraphicstextitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsTextItem_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsTextItem_ItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -45671,7 +45671,7 @@ pub const qgraphicstextitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsTextItem_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsTextItem_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -45687,7 +45687,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsTextItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -45731,7 +45731,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -45775,7 +45775,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsTextItem_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -45819,7 +45819,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsTextItem_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -45869,7 +45869,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsTextItem_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -45917,7 +45917,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -45961,7 +45961,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnAddToIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -46005,7 +46005,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnRemoveFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -46049,7 +46049,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTextItem_OnPrepareGeometryChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -46065,7 +46065,7 @@ pub const qgraphicstextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstextitem.html#dtor.QGraphicsTextItem)
@@ -46206,7 +46206,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsSimpleTextItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#boundingRect)
@@ -46242,7 +46242,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsSimpleTextItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnShape(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#shape)
@@ -46280,7 +46280,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, point: QtC.QPointF) callconv(.c) bool `
     ///
     pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsSimpleTextItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnContains(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#contains)
@@ -46324,7 +46324,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#paint)
@@ -46368,7 +46368,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, item: QtC.QGraphicsItem) callconv(.c) bool `
     ///
     pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsSimpleTextItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnIsObscuredBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#isObscuredBy)
@@ -46406,7 +46406,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsSimpleTextItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnOpaqueArea(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#opaqueArea)
@@ -46442,7 +46442,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsSimpleTextItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#type)
@@ -46466,7 +46466,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsSimpleTextItem_SupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsSimpleTextItem_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#supportsExtension)
@@ -46480,7 +46480,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
     pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsSimpleTextItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnSupportsExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#supportsExtension)
@@ -46494,7 +46494,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsSimpleTextItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsSimpleTextItem_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#setExtension)
@@ -46508,7 +46508,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsSimpleTextItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsSimpleTextItem_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#setExtension)
@@ -46522,7 +46522,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnSetExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#setExtension)
@@ -46538,7 +46538,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsSimpleTextItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsSimpleTextItem_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#extension)
@@ -46564,7 +46564,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsSimpleTextItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#extension)
@@ -46875,7 +46875,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// Inherited from QGraphicsItem
@@ -46889,7 +46889,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsItem
@@ -46919,7 +46919,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -46949,7 +46949,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @bitCast(panelModality));
     }
 
     /// Inherited from QGraphicsItem
@@ -47227,7 +47227,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QGraphicsItem
@@ -47283,7 +47283,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @bitCast(buttons));
     }
 
     /// Inherited from QGraphicsItem
@@ -47585,7 +47585,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// Inherited from QGraphicsItem
@@ -47611,7 +47611,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -47653,7 +47653,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` y: f64 `
     ///
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -47669,7 +47669,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` dy: f64 `
     ///
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -47701,7 +47701,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` h: f64 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -47793,7 +47793,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QGraphicsItem
@@ -47819,7 +47819,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` scale: f64 `
     ///
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self), @floatCast(scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// Inherited from QGraphicsItem
@@ -47910,7 +47910,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` ay: f64 `
     ///
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @floatCast(ax), @floatCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @bitCast(ax), @bitCast(ay));
     }
 
     /// Inherited from QGraphicsItem
@@ -47936,7 +47936,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` z: f64 `
     ///
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @floatCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @bitCast(z));
     }
 
     /// Inherited from QGraphicsItem
@@ -48049,7 +48049,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` h: f64 `
     ///
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -48089,7 +48089,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` granularity: f64 `
     ///
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @floatCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @bitCast(granularity));
     }
 
     /// Inherited from QGraphicsItem
@@ -48121,7 +48121,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` height: f64 `
     ///
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(width), @floatCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QGraphicsItem
@@ -48137,7 +48137,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` dy: f64 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_Scroll(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -48419,7 +48419,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -48435,7 +48435,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -48451,7 +48451,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -48473,7 +48473,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -48493,7 +48493,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -48513,7 +48513,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -48531,7 +48531,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -48547,7 +48547,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -48563,7 +48563,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -48585,7 +48585,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -48605,7 +48605,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -48625,7 +48625,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -48679,7 +48679,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` key: i32 `
     ///
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_Data(@ptrCast(self), @intCast(key));
+        return qtc.QGraphicsItem_Data(@ptrCast(self), @bitCast(key));
     }
 
     /// Inherited from QGraphicsItem
@@ -48695,7 +48695,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetData(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QGraphicsItem_SetData(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -48725,7 +48725,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QGraphicsItem
@@ -48769,7 +48769,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// Inherited from QGraphicsItem
@@ -48785,7 +48785,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` cacheSize: QtC.QSize `
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @bitCast(mode), @ptrCast(cacheSize));
     }
 
     /// Inherited from QGraphicsItem
@@ -48813,7 +48813,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @bitCast(focusReason));
     }
 
     /// Inherited from QGraphicsItem
@@ -48843,7 +48843,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -48861,7 +48861,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -48883,7 +48883,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -48907,7 +48907,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -48955,7 +48955,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicssimpletextitem.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -49006,7 +49006,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` rect: QtC.QRectF `
     ///
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @floatCast(dx), @floatCast(dy), @ptrCast(rect));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// Inherited from QGraphicsItem
@@ -49022,7 +49022,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` phase: i32 `
     ///
     pub fn Advance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsSimpleTextItem_Advance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsSimpleTextItem_Advance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -49038,7 +49038,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` phase: i32 `
     ///
     pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsSimpleTextItem_QBaseAdvance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsSimpleTextItem_QBaseAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -49054,7 +49054,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, phase: i32) callconv(.c) void `
     ///
     pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnAdvance(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49072,7 +49072,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsSimpleTextItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsSimpleTextItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -49090,7 +49090,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsSimpleTextItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsSimpleTextItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -49106,7 +49106,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsSimpleTextItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnCollidesWithItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49124,7 +49124,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsSimpleTextItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsSimpleTextItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -49142,7 +49142,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsSimpleTextItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsSimpleTextItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -49158,7 +49158,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsSimpleTextItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnCollidesWithPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49210,7 +49210,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsSimpleTextItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnSceneEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49258,7 +49258,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsSimpleTextItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnSceneEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49306,7 +49306,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49354,7 +49354,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49402,7 +49402,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49450,7 +49450,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49498,7 +49498,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49546,7 +49546,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49594,7 +49594,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49642,7 +49642,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnHoverEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49690,7 +49690,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnHoverMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49738,7 +49738,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnHoverLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49786,7 +49786,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49834,7 +49834,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49882,7 +49882,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49930,7 +49930,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -49978,7 +49978,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -50026,7 +50026,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -50074,7 +50074,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -50122,7 +50122,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -50138,7 +50138,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsSimpleTextItem_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsSimpleTextItem_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -50154,7 +50154,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsSimpleTextItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsSimpleTextItem_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -50170,7 +50170,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsSimpleTextItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -50188,7 +50188,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsSimpleTextItem_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsSimpleTextItem_ItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -50206,7 +50206,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsSimpleTextItem_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsSimpleTextItem_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -50222,7 +50222,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsSimpleTextItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -50266,7 +50266,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -50310,7 +50310,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnAddToIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -50354,7 +50354,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnRemoveFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -50398,7 +50398,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsSimpleTextItem_OnPrepareGeometryChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#dtor.QGraphicsSimpleTextItem)
@@ -50477,7 +50477,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsItemGroup_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemgroup.html#boundingRect)
@@ -50519,7 +50519,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemgroup.html#paint)
@@ -50563,7 +50563,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, item: QtC.QGraphicsItem) callconv(.c) bool `
     ///
     pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItemGroup_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnIsObscuredBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemgroup.html#isObscuredBy)
@@ -50601,7 +50601,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsItemGroup_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnOpaqueArea(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemgroup.html#opaqueArea)
@@ -50637,7 +50637,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsItemGroup_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemgroup.html#type)
@@ -50894,7 +50894,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// Inherited from QGraphicsItem
@@ -50908,7 +50908,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsItem
@@ -50938,7 +50938,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -50968,7 +50968,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @bitCast(panelModality));
     }
 
     /// Inherited from QGraphicsItem
@@ -51246,7 +51246,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QGraphicsItem
@@ -51302,7 +51302,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @bitCast(buttons));
     }
 
     /// Inherited from QGraphicsItem
@@ -51604,7 +51604,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// Inherited from QGraphicsItem
@@ -51630,7 +51630,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -51672,7 +51672,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` y: f64 `
     ///
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -51688,7 +51688,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` dy: f64 `
     ///
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -51720,7 +51720,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` h: f64 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -51812,7 +51812,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QGraphicsItem
@@ -51838,7 +51838,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` scale: f64 `
     ///
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self), @floatCast(scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// Inherited from QGraphicsItem
@@ -51929,7 +51929,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` ay: f64 `
     ///
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @floatCast(ax), @floatCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @bitCast(ax), @bitCast(ay));
     }
 
     /// Inherited from QGraphicsItem
@@ -51955,7 +51955,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` z: f64 `
     ///
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @floatCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @bitCast(z));
     }
 
     /// Inherited from QGraphicsItem
@@ -52068,7 +52068,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` h: f64 `
     ///
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -52108,7 +52108,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` granularity: f64 `
     ///
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @floatCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @bitCast(granularity));
     }
 
     /// Inherited from QGraphicsItem
@@ -52140,7 +52140,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` height: f64 `
     ///
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(width), @floatCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QGraphicsItem
@@ -52156,7 +52156,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` dy: f64 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_Scroll(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -52438,7 +52438,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` y: f64 `
     ///
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -52454,7 +52454,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` y: f64 `
     ///
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -52470,7 +52470,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` y: f64 `
     ///
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -52492,7 +52492,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -52512,7 +52512,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -52532,7 +52532,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -52550,7 +52550,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -52566,7 +52566,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -52582,7 +52582,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -52604,7 +52604,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -52624,7 +52624,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -52644,7 +52644,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -52698,7 +52698,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` key: i32 `
     ///
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_Data(@ptrCast(self), @intCast(key));
+        return qtc.QGraphicsItem_Data(@ptrCast(self), @bitCast(key));
     }
 
     /// Inherited from QGraphicsItem
@@ -52714,7 +52714,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetData(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QGraphicsItem_SetData(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -52744,7 +52744,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QGraphicsItem
@@ -52788,7 +52788,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// Inherited from QGraphicsItem
@@ -52804,7 +52804,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` cacheSize: QtC.QSize `
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @bitCast(mode), @ptrCast(cacheSize));
     }
 
     /// Inherited from QGraphicsItem
@@ -52832,7 +52832,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @bitCast(focusReason));
     }
 
     /// Inherited from QGraphicsItem
@@ -52862,7 +52862,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -52880,7 +52880,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -52902,7 +52902,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -52926,7 +52926,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -52974,7 +52974,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsitemgroup.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -53025,7 +53025,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` rect: QtC.QRectF `
     ///
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @floatCast(dx), @floatCast(dy), @ptrCast(rect));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// Inherited from QGraphicsItem
@@ -53041,7 +53041,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` phase: i32 `
     ///
     pub fn Advance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsItemGroup_Advance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsItemGroup_Advance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -53057,7 +53057,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` phase: i32 `
     ///
     pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsItemGroup_QBaseAdvance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsItemGroup_QBaseAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -53073,7 +53073,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, phase: i32) callconv(.c) void `
     ///
     pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnAdvance(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53117,7 +53117,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainterPath `
     ///
     pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsItemGroup_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnShape(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53165,7 +53165,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, point: QtC.QPointF) callconv(.c) bool `
     ///
     pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItemGroup_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnContains(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53183,7 +53183,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsItemGroup_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsItemGroup_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -53201,7 +53201,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsItemGroup_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsItemGroup_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -53217,7 +53217,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsItemGroup_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnCollidesWithItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53235,7 +53235,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsItemGroup_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsItemGroup_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -53253,7 +53253,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsItemGroup_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsItemGroup_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -53269,7 +53269,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
     pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsItemGroup_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnCollidesWithPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53321,7 +53321,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItemGroup_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnSceneEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53369,7 +53369,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItemGroup_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnSceneEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53417,7 +53417,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53465,7 +53465,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53513,7 +53513,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53561,7 +53561,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53609,7 +53609,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53657,7 +53657,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53705,7 +53705,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53753,7 +53753,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnHoverEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53801,7 +53801,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnHoverMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53849,7 +53849,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
     pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnHoverLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53897,7 +53897,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53945,7 +53945,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -53993,7 +53993,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -54041,7 +54041,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -54089,7 +54089,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -54137,7 +54137,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -54185,7 +54185,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -54233,7 +54233,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -54249,7 +54249,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsItemGroup_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsItemGroup_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -54265,7 +54265,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsItemGroup_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QGraphicsItemGroup_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -54281,7 +54281,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsItemGroup_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -54299,7 +54299,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsItemGroup_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsItemGroup_ItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -54317,7 +54317,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsItemGroup_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
+        return qtc.QGraphicsItemGroup_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -54333,7 +54333,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsItemGroup_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -54349,7 +54349,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsItemGroup_SupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsItemGroup_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// Inherited from QGraphicsItem
@@ -54365,7 +54365,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
     pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsItemGroup_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
+        return qtc.QGraphicsItemGroup_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// Inherited from QGraphicsItem
@@ -54381,7 +54381,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
     pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsItemGroup_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnSupportsExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -54399,7 +54399,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsItemGroup_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsItemGroup_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// Inherited from QGraphicsItem
@@ -54417,7 +54417,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` variant: QtC.QVariant `
     ///
     pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsItemGroup_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
+        qtc.QGraphicsItemGroup_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// Inherited from QGraphicsItem
@@ -54433,7 +54433,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnSetExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -54481,7 +54481,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, variant: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsItemGroup_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -54525,7 +54525,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -54569,7 +54569,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnAddToIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -54613,7 +54613,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnRemoveFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -54657,7 +54657,7 @@ pub const qgraphicsitemgroup = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemGroup_OnPrepareGeometryChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemgroup.html#dtor.QGraphicsItemGroup)

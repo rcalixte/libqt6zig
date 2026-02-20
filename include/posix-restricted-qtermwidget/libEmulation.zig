@@ -35,7 +35,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.Konsole__Emulation_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -70,7 +70,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.Konsole__Emulation_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -97,7 +97,7 @@ pub const konsole__emulation = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__Emulation_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.Konsole__Emulation_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -109,7 +109,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.Konsole__Emulation_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -125,7 +125,7 @@ pub const konsole__emulation = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__Emulation_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.Konsole__Emulation_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -196,7 +196,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn () callconv(.c) u8 `
     ///
     pub fn OnEraseChar(self: ?*anyopaque, callback: *const fn () callconv(.c) u8) void {
-        qtc.Konsole__Emulation_OnEraseChar(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnEraseChar(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -264,7 +264,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnClearEntireScreen(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnClearEntireScreen(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnClearEntireScreen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -300,7 +300,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -346,7 +346,7 @@ pub const konsole__emulation = struct {
     /// ` columns: i32 `
     ///
     pub fn SetImageSize(self: ?*anyopaque, lines: i32, columns: i32) void {
-        qtc.Konsole__Emulation_SetImageSize(@ptrCast(self), @intCast(lines), @intCast(columns));
+        qtc.Konsole__Emulation_SetImageSize(@ptrCast(self), @bitCast(lines), @bitCast(columns));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -360,7 +360,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, lines: i32, columns: i32) callconv(.c) void `
     ///
     pub fn OnSetImageSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnSetImageSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnSetImageSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -376,7 +376,7 @@ pub const konsole__emulation = struct {
     /// ` columns: i32 `
     ///
     pub fn QBaseSetImageSize(self: ?*anyopaque, lines: i32, columns: i32) void {
-        qtc.Konsole__Emulation_QBaseSetImageSize(@ptrCast(self), @intCast(lines), @intCast(columns));
+        qtc.Konsole__Emulation_QBaseSetImageSize(@ptrCast(self), @bitCast(lines), @bitCast(columns));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -406,7 +406,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSendText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnSendText(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnSendText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -452,7 +452,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, param1: QtC.QKeyEvent, fromPaste: bool) callconv(.c) void `
     ///
     pub fn OnSendKeyEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnSendKeyEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnSendKeyEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -486,7 +486,7 @@ pub const konsole__emulation = struct {
     /// ` eventType: i32 `
     ///
     pub fn SendMouseEvent(self: ?*anyopaque, buttons: i32, column: i32, line: i32, eventType: i32) void {
-        qtc.Konsole__Emulation_SendMouseEvent(@ptrCast(self), @intCast(buttons), @intCast(column), @intCast(line), @intCast(eventType));
+        qtc.Konsole__Emulation_SendMouseEvent(@ptrCast(self), @bitCast(buttons), @bitCast(column), @bitCast(line), @bitCast(eventType));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -500,7 +500,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, buttons: i32, column: i32, line: i32, eventType: i32) callconv(.c) void `
     ///
     pub fn OnSendMouseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnSendMouseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnSendMouseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -520,7 +520,7 @@ pub const konsole__emulation = struct {
     /// ` eventType: i32 `
     ///
     pub fn QBaseSendMouseEvent(self: ?*anyopaque, buttons: i32, column: i32, line: i32, eventType: i32) void {
-        qtc.Konsole__Emulation_QBaseSendMouseEvent(@ptrCast(self), @intCast(buttons), @intCast(column), @intCast(line), @intCast(eventType));
+        qtc.Konsole__Emulation_QBaseSendMouseEvent(@ptrCast(self), @bitCast(buttons), @bitCast(column), @bitCast(line), @bitCast(eventType));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -535,7 +535,7 @@ pub const konsole__emulation = struct {
     ///
     pub fn SendString(self: ?*anyopaque, stringVal: [:0]const u8, length: i32) void {
         const stringVal_Cstring = stringVal.ptr;
-        qtc.Konsole__Emulation_SendString(@ptrCast(self), stringVal_Cstring, @intCast(length));
+        qtc.Konsole__Emulation_SendString(@ptrCast(self), stringVal_Cstring, @bitCast(length));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -549,7 +549,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, stringVal: [*:0]const u8, length: i32) callconv(.c) void `
     ///
     pub fn OnSendString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnSendString(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnSendString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -566,7 +566,7 @@ pub const konsole__emulation = struct {
     ///
     pub fn QBaseSendString(self: ?*anyopaque, stringVal: [:0]const u8, length: i32) void {
         const stringVal_Cstring = stringVal.ptr;
-        qtc.Konsole__Emulation_QBaseSendString(@ptrCast(self), stringVal_Cstring, @intCast(length));
+        qtc.Konsole__Emulation_QBaseSendString(@ptrCast(self), stringVal_Cstring, @bitCast(length));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -581,7 +581,7 @@ pub const konsole__emulation = struct {
     ///
     pub fn ReceiveData(self: ?*anyopaque, buffer: [:0]const u8, lenVal: i32) void {
         const buffer_Cstring = buffer.ptr;
-        qtc.Konsole__Emulation_ReceiveData(@ptrCast(self), buffer_Cstring, @intCast(lenVal));
+        qtc.Konsole__Emulation_ReceiveData(@ptrCast(self), buffer_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -596,7 +596,7 @@ pub const konsole__emulation = struct {
     ///
     pub fn SendData(self: ?*anyopaque, data: [:0]const u8, lenVal: i32) void {
         const data_Cstring = data.ptr;
-        qtc.Konsole__Emulation_SendData(@ptrCast(self), data_Cstring, @intCast(lenVal));
+        qtc.Konsole__Emulation_SendData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -608,7 +608,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, data: [*:0]const u8, lenVal: i32) callconv(.c) void `
     ///
     pub fn OnSendData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_SendData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_SendData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -632,7 +632,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, suspendVal: bool) callconv(.c) void `
     ///
     pub fn OnLockPtyRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_LockPtyRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_LockPtyRequest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -656,7 +656,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, param1: bool) callconv(.c) void `
     ///
     pub fn OnUseUtf8Request(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_UseUtf8Request(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_UseUtf8Request(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -668,7 +668,7 @@ pub const konsole__emulation = struct {
     /// ` state: i32 `
     ///
     pub fn StateSet(self: ?*anyopaque, state: i32) void {
-        qtc.Konsole__Emulation_StateSet(@ptrCast(self), @intCast(state));
+        qtc.Konsole__Emulation_StateSet(@ptrCast(self), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -680,7 +680,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, state: i32) callconv(.c) void `
     ///
     pub fn OnStateSet(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_StateSet(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_StateSet(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -702,7 +702,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation) callconv(.c) void `
     ///
     pub fn OnZmodemDetected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_ZmodemDetected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_ZmodemDetected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -714,7 +714,7 @@ pub const konsole__emulation = struct {
     /// ` color: i32 `
     ///
     pub fn ChangeTabTextColorRequest(self: ?*anyopaque, color: i32) void {
-        qtc.Konsole__Emulation_ChangeTabTextColorRequest(@ptrCast(self), @intCast(color));
+        qtc.Konsole__Emulation_ChangeTabTextColorRequest(@ptrCast(self), @bitCast(color));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -726,7 +726,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, color: i32) callconv(.c) void `
     ///
     pub fn OnChangeTabTextColorRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_ChangeTabTextColorRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_ChangeTabTextColorRequest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -750,7 +750,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, usesMouse: bool) callconv(.c) void `
     ///
     pub fn OnProgramUsesMouseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_ProgramUsesMouseChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_ProgramUsesMouseChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -774,7 +774,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, bracketedPasteMode: bool) callconv(.c) void `
     ///
     pub fn OnProgramBracketedPasteModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_ProgramBracketedPasteModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_ProgramBracketedPasteModeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -796,7 +796,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation) callconv(.c) void `
     ///
     pub fn OnOutputChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_OutputChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_OutputChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -814,7 +814,7 @@ pub const konsole__emulation = struct {
             .len = newTitle.len,
             .data = newTitle.ptr,
         };
-        qtc.Konsole__Emulation_TitleChanged(@ptrCast(self), @intCast(title), newTitle_str);
+        qtc.Konsole__Emulation_TitleChanged(@ptrCast(self), @bitCast(title), newTitle_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -826,7 +826,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, title: i32, newTitle: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_TitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_TitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -840,7 +840,7 @@ pub const konsole__emulation = struct {
     /// ` columnCount: i32 `
     ///
     pub fn ImageSizeChanged(self: ?*anyopaque, lineCount: i32, columnCount: i32) void {
-        qtc.Konsole__Emulation_ImageSizeChanged(@ptrCast(self), @intCast(lineCount), @intCast(columnCount));
+        qtc.Konsole__Emulation_ImageSizeChanged(@ptrCast(self), @bitCast(lineCount), @bitCast(columnCount));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -852,7 +852,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, lineCount: i32, columnCount: i32) callconv(.c) void `
     ///
     pub fn OnImageSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_ImageSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_ImageSizeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -874,7 +874,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation) callconv(.c) void `
     ///
     pub fn OnImageSizeInitialized(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_ImageSizeInitialized(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_ImageSizeInitialized(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -898,7 +898,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, sizz: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnImageResizeRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_ImageResizeRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_ImageResizeRequest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -926,7 +926,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnProfileChangeCommandReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_ProfileChangeCommandReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_ProfileChangeCommandReceived(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -950,7 +950,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, suspendKeyPressed: bool) callconv(.c) void `
     ///
     pub fn OnFlowControlKeyPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_FlowControlKeyPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_FlowControlKeyPressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -964,7 +964,7 @@ pub const konsole__emulation = struct {
     /// ` blinkingCursorEnabled: bool `
     ///
     pub fn CursorChanged(self: ?*anyopaque, cursorShape: i32, blinkingCursorEnabled: bool) void {
-        qtc.Konsole__Emulation_CursorChanged(@ptrCast(self), @intCast(cursorShape), blinkingCursorEnabled);
+        qtc.Konsole__Emulation_CursorChanged(@ptrCast(self), @bitCast(cursorShape), blinkingCursorEnabled);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -976,7 +976,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, cursorShape: Emulation_enums.KeyboardCursorShape, blinkingCursorEnabled: bool) callconv(.c) void `
     ///
     pub fn OnCursorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_CursorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_CursorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -988,7 +988,7 @@ pub const konsole__emulation = struct {
     /// ` command: KeyboardTranslator_enums.Command `
     ///
     pub fn HandleCommandFromKeyboard(self: ?*anyopaque, command: i32) void {
-        qtc.Konsole__Emulation_HandleCommandFromKeyboard(@ptrCast(self), @intCast(command));
+        qtc.Konsole__Emulation_HandleCommandFromKeyboard(@ptrCast(self), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1000,7 +1000,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, command: KeyboardTranslator_enums.Command) callconv(.c) void `
     ///
     pub fn OnHandleCommandFromKeyboard(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_HandleCommandFromKeyboard(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_HandleCommandFromKeyboard(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1022,7 +1022,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation) callconv(.c) void `
     ///
     pub fn OnOutputFromKeypressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Emulation_Connect_OutputFromKeypressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_Connect_OutputFromKeypressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1034,7 +1034,7 @@ pub const konsole__emulation = struct {
     /// ` mode: i32 `
     ///
     pub fn SetMode(self: ?*anyopaque, mode: i32) void {
-        qtc.Konsole__Emulation_SetMode(@ptrCast(self), @intCast(mode));
+        qtc.Konsole__Emulation_SetMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1048,7 +1048,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, mode: i32) callconv(.c) void `
     ///
     pub fn OnSetMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnSetMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnSetMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1062,7 +1062,7 @@ pub const konsole__emulation = struct {
     /// ` mode: i32 `
     ///
     pub fn QBaseSetMode(self: ?*anyopaque, mode: i32) void {
-        qtc.Konsole__Emulation_QBaseSetMode(@ptrCast(self), @intCast(mode));
+        qtc.Konsole__Emulation_QBaseSetMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1074,7 +1074,7 @@ pub const konsole__emulation = struct {
     /// ` mode: i32 `
     ///
     pub fn ResetMode(self: ?*anyopaque, mode: i32) void {
-        qtc.Konsole__Emulation_ResetMode(@ptrCast(self), @intCast(mode));
+        qtc.Konsole__Emulation_ResetMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1088,7 +1088,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, mode: i32) callconv(.c) void `
     ///
     pub fn OnResetMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnResetMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnResetMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1102,7 +1102,7 @@ pub const konsole__emulation = struct {
     /// ` mode: i32 `
     ///
     pub fn QBaseResetMode(self: ?*anyopaque, mode: i32) void {
-        qtc.Konsole__Emulation_QBaseResetMode(@ptrCast(self), @intCast(mode));
+        qtc.Konsole__Emulation_QBaseResetMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1114,7 +1114,7 @@ pub const konsole__emulation = struct {
     /// ` index: i32 `
     ///
     pub fn SetScreen(self: ?*anyopaque, index: i32) void {
-        qtc.Konsole__Emulation_SetScreen(@ptrCast(self), @intCast(index));
+        qtc.Konsole__Emulation_SetScreen(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1128,7 +1128,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, index: i32) callconv(.c) void `
     ///
     pub fn OnSetScreen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnSetScreen(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnSetScreen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1142,7 +1142,7 @@ pub const konsole__emulation = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseSetScreen(self: ?*anyopaque, index: i32) void {
-        qtc.Konsole__Emulation_QBaseSetScreen(@ptrCast(self), @intCast(index));
+        qtc.Konsole__Emulation_QBaseSetScreen(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1154,7 +1154,7 @@ pub const konsole__emulation = struct {
     /// ` codec: Emulation_enums.EmulationCodec `
     ///
     pub fn SetCodec(self: ?*anyopaque, codec: i32) void {
-        qtc.Konsole__Emulation_SetCodec(@ptrCast(self), @intCast(codec));
+        qtc.Konsole__Emulation_SetCodec(@ptrCast(self), @bitCast(codec));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1168,7 +1168,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, codec: Emulation_enums.EmulationCodec) callconv(.c) void `
     ///
     pub fn OnSetCodec(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnSetCodec(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnSetCodec(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1182,7 +1182,7 @@ pub const konsole__emulation = struct {
     /// ` codec: Emulation_enums.EmulationCodec `
     ///
     pub fn QBaseSetCodec(self: ?*anyopaque, codec: i32) void {
-        qtc.Konsole__Emulation_QBaseSetCodec(@ptrCast(self), @intCast(codec));
+        qtc.Konsole__Emulation_QBaseSetCodec(@ptrCast(self), @bitCast(codec));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1206,7 +1206,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnBufferedUpdate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnBufferedUpdate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnBufferedUpdate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1256,7 +1256,7 @@ pub const konsole__emulation = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__emulation.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1394,7 +1394,7 @@ pub const konsole__emulation = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1408,7 +1408,7 @@ pub const konsole__emulation = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1422,7 +1422,7 @@ pub const konsole__emulation = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1436,7 +1436,7 @@ pub const konsole__emulation = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1766,7 +1766,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1821,7 +1821,7 @@ pub const konsole__emulation = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1837,7 +1837,7 @@ pub const konsole__emulation = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1859,7 +1859,7 @@ pub const konsole__emulation = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1879,7 +1879,7 @@ pub const konsole__emulation = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1901,7 +1901,7 @@ pub const konsole__emulation = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1998,7 +1998,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2046,7 +2046,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__Emulation_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2098,7 +2098,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__Emulation_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2146,7 +2146,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2194,7 +2194,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2242,7 +2242,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2290,7 +2290,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2338,7 +2338,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2382,7 +2382,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.Konsole__Emulation_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2426,7 +2426,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.Konsole__Emulation_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2476,7 +2476,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Konsole__Emulation_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2524,7 +2524,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__Emulation_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Konsole__Emulation_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2540,7 +2540,7 @@ pub const konsole__emulation = struct {
     /// ` callback: *const fn (self: QtC.Konsole__Emulation, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

@@ -62,7 +62,7 @@ pub const qcolortransform = struct {
     /// ` argb: u32 `
     ///
     pub fn Map(self: ?*anyopaque, argb: u32) u32 {
-        return qtc.QColorTransform_Map(@ptrCast(self), @intCast(argb));
+        return qtc.QColorTransform_Map(@ptrCast(self), @bitCast(argb));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolortransform.html#map)

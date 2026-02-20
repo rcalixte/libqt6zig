@@ -28,7 +28,7 @@ pub const qpicture = struct {
     /// ` formatVersion: i32 `
     ///
     pub fn New3(formatVersion: i32) QtC.QPicture {
-        return qtc.QPicture_new3(@intCast(formatVersion));
+        return qtc.QPicture_new3(@bitCast(formatVersion));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#isNull)
@@ -62,7 +62,7 @@ pub const qpicture = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPicture_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPicture_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#devType)
@@ -110,7 +110,7 @@ pub const qpicture = struct {
     ///
     pub fn SetData(self: ?*anyopaque, data: [:0]const u8, size: u32) void {
         const data_Cstring = data.ptr;
-        qtc.QPicture_SetData(@ptrCast(self), data_Cstring, @intCast(size));
+        qtc.QPicture_SetData(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#setData)
@@ -124,7 +124,7 @@ pub const qpicture = struct {
     /// ` callback: *const fn (self: QtC.QPicture, data: [*:0]const u8, size: u32) callconv(.c) void `
     ///
     pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, u32) callconv(.c) void) void {
-        qtc.QPicture_OnSetData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPicture_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#setData)
@@ -141,7 +141,7 @@ pub const qpicture = struct {
     ///
     pub fn QBaseSetData(self: ?*anyopaque, data: [:0]const u8, size: u32) void {
         const data_Cstring = data.ptr;
-        qtc.QPicture_QBaseSetData(@ptrCast(self), data_Cstring, @intCast(size));
+        qtc.QPicture_QBaseSetData(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#play)
@@ -299,7 +299,7 @@ pub const qpicture = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
     ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QPicture_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPicture_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#paintEngine)
@@ -323,7 +323,7 @@ pub const qpicture = struct {
     /// ` m: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn Metric(self: ?*anyopaque, m: i32) i32 {
-        return qtc.QPicture_Metric(@ptrCast(self), @intCast(m));
+        return qtc.QPicture_Metric(@ptrCast(self), @bitCast(m));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#metric)
@@ -337,7 +337,7 @@ pub const qpicture = struct {
     /// ` callback: *const fn (self: QtC.QPicture, m: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QPicture_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPicture_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#metric)
@@ -351,7 +351,7 @@ pub const qpicture = struct {
     /// ` m: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseMetric(self: ?*anyopaque, m: i32) i32 {
-        return qtc.QPicture_QBaseMetric(@ptrCast(self), @intCast(m));
+        return qtc.QPicture_QBaseMetric(@ptrCast(self), @bitCast(m));
     }
 
     /// Inherited from QPaintDevice
@@ -529,7 +529,7 @@ pub const qpicture = struct {
     /// ` value: f64 `
     ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
 
     /// Inherited from QPaintDevice
@@ -577,7 +577,7 @@ pub const qpicture = struct {
     /// ` callback: *const fn (self: QtC.QPicture, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPicture_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPicture_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -625,7 +625,7 @@ pub const qpicture = struct {
     /// ` callback: *const fn (self: QtC.QPicture, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
     ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QPicture_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPicture_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -669,7 +669,7 @@ pub const qpicture = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainter `
     ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QPicture_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPicture_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -687,7 +687,7 @@ pub const qpicture = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QPicture_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QPicture_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -705,7 +705,7 @@ pub const qpicture = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QPicture_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QPicture_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -721,7 +721,7 @@ pub const qpicture = struct {
     /// ` callback: *const fn (self: QtC.QPicture, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QPicture_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPicture_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#dtor.QPicture)

@@ -44,7 +44,7 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModelControllerInterface, view: QtC.KTextEditor__View, insertedText: [*:0]const u8, userInsertion: bool, position: QtC.KTextEditor__Cursor) callconv(.c) bool `
     ///
     pub fn OnShouldStartCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, bool, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnShouldStartCompletion(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnShouldStartCompletion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#shouldStartCompletion)
@@ -96,7 +96,7 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModelControllerInterface, view: QtC.KTextEditor__View, position: QtC.KTextEditor__Cursor) callconv(.c) QtC.KTextEditor__Range `
     ///
     pub fn OnCompletionRange(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.KTextEditor__Range) void {
-        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnCompletionRange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnCompletionRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#completionRange)
@@ -140,7 +140,7 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModelControllerInterface, view: QtC.KTextEditor__View, range: QtC.KTextEditor__Range) callconv(.c) QtC.KTextEditor__Range `
     ///
     pub fn OnUpdateCompletionRange(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.KTextEditor__Range) void {
-        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnUpdateCompletionRange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnUpdateCompletionRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#updateCompletionRange)
@@ -194,7 +194,7 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModelControllerInterface, view: QtC.KTextEditor__View, range: QtC.KTextEditor__Range, position: QtC.KTextEditor__Cursor) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnFilterString(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
-        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnFilterString(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnFilterString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#filterString)
@@ -252,7 +252,7 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModelControllerInterface, view: QtC.KTextEditor__View, range: QtC.KTextEditor__Range, currentCompletion: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnShouldAbortCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnShouldAbortCompletion(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnShouldAbortCompletion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#shouldAbortCompletion)
@@ -302,7 +302,7 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModelControllerInterface, selected: QtC.QModelIndex, inserted: QtC.QChar) callconv(.c) bool `
     ///
     pub fn OnShouldExecute(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.QChar) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnShouldExecute(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnShouldExecute(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#shouldExecute)
@@ -344,7 +344,7 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModelControllerInterface, view: QtC.KTextEditor__View) callconv(.c) void `
     ///
     pub fn OnAborted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnAborted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnAborted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#aborted)
@@ -388,7 +388,7 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModelControllerInterface, matched: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnMatchingItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnMatchingItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnMatchingItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#matchingItem)
@@ -430,7 +430,7 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnShouldHideItemsWithEqualNames(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnShouldHideItemsWithEqualNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__CodeCompletionModelControllerInterface_OnShouldHideItemsWithEqualNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#shouldHideItemsWithEqualNames)

@@ -547,6 +547,9 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 
 		return preamble, p.ParameterName + "_set"
 
+	} else if p.UniquePtr {
+		return preamble, "std::unique_ptr<" + p.ParameterType + ">(" + p.ParameterName + ")"
+
 	} else if p.ByRef {
 		if p.Pointer {
 			// By ref and by pointer
@@ -601,7 +604,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 
 		if isSignal {
 			shouldReturn = maybeConst + "QString " + namePrefix + "_ret = "
-			afterCall = indent + "// Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory\n"
+			afterCall += indent + "// Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory\n"
 			afterCall += indent + "QByteArray " + namePrefix + "_b = " + namePrefix + "_ret.toUtf8();\n"
 
 			afterCall += indent + "const char* " + namePrefix + "_str = static_cast<const char*>(malloc(" + namePrefix + "_b.length() + 1));\n"
@@ -618,12 +621,12 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 				// But, a copy is the best we can project it as
 				// Un-pointer-ify
 				shouldReturn = maybeConst + "QString* " + namePrefix + "_ret = "
-				afterCall = indent + "// Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory\n"
+				afterCall += indent + "// Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory\n"
 				afterCall += indent + "QByteArray " + namePrefix + "_b = " + namePrefix + "_ret->toUtf8();\n"
 
 			} else {
 				shouldReturn = maybeConst + "QString " + namePrefix + "_ret = "
-				afterCall = indent + "// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory\n"
+				afterCall += indent + "// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory\n"
 				afterCall += indent + "QByteArray " + namePrefix + "_b = " + namePrefix + "_ret.toUtf8();\n"
 			}
 
@@ -641,7 +644,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 
 		if !p.Pointer {
 			shouldReturn = maybeConst + "QAnyStringView " + namePrefix + "_ret = "
-			afterCall = indent + "QString " + namePrefix + "_qstr = " + namePrefix + "_ret.toString();\n"
+			afterCall += indent + "QString " + namePrefix + "_qstr = " + namePrefix + "_ret.toString();\n"
 			afterCall += indent + "// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory\n"
 			afterCall += indent + "QByteArray " + namePrefix + "_b = " + namePrefix + "_qstr.toUtf8();\n"
 		}
@@ -694,11 +697,13 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 			maybeConst = "const "
 			maybeRef = "& "
 		}
+
 		shouldReturn = maybeConst + p.RenderTypeQtCpp() + maybeRef + namePrefix + "_ret = "
+
 		if isSignal && cType == "libqt_string" {
 			maybeMethod := ifv(strings.HasPrefix(t.ParameterType, "QByteArray"), "", ".toUtf8()")
 
-			afterCall = indent + "// Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory\n"
+			afterCall += indent + "// Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory\n"
 			afterCall += indent + "const char** " + namePrefix + "_arr = static_cast<const char**>(malloc(sizeof(const char*) * (" + namePrefix + "_ret" + memberRef + "size() + 1)));\n"
 			afterCall += indent + "for (qsizetype i = 0; i < " + namePrefix + "_ret" + memberRef + "size(); ++i) {\n"
 			afterCall += indent + "QByteArray " + namePrefix + "_b = " + namePrefix + "_ret[i]" + maybeMethod + ";\n"
@@ -716,9 +721,16 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 			return indent + shouldReturn + rvalue + ";\n" + afterCall, cleanupType
 
 		} else {
+			var iterCast, iterClose string
+			if p.UniquePtr {
+				iterCast = "static_cast<qsizetype>("
+				iterClose = ")"
+				t.UniquePtr = true
+			}
+
 			afterCall += indent + "// Convert " + containerType + "<> from C++ memory to manually-managed C memory\n"
 			afterCall += indent + cType + "* " + namePrefix + "_arr = static_cast<" + cType + "*>(malloc(sizeof(" + cType + ") * (" + namePrefix + "_ret" + memberRef + "size())));\n"
-			afterCall += indent + "for (qsizetype " + iterator + " = 0; " + iterator + " < " + namePrefix + "_ret" + memberRef + "size(); ++" + iterator + ") {\n"
+			afterCall += indent + "for (qsizetype " + iterator + " = 0; " + iterator + " < " + iterCast + namePrefix + "_ret" + memberRef + "size()" + iterClose + "; ++" + iterator + ") {\n"
 
 			retExpr, cleanupType = emitAssignCppToCabi(indent+"\t"+namePrefix+"_arr["+iterator+"] = ", t, maybeDerefOpen+namePrefix+"_ret"+maybeDerefClose+"["+iterator+"]")
 			afterCall += retExpr
@@ -914,6 +926,10 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 
 		// return type by reference
 		return indent + shouldReturn + "&(" + rvalue + ");\n" + afterCall, cleanupType
+
+	} else if p.UniquePtr {
+		shouldReturn += rvalue + ".release();\n"
+		return indent + shouldReturn, cleanupType
 
 	} else if p.QtClassType() && p.ByRef {
 

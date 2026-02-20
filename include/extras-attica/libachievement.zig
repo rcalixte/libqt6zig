@@ -48,7 +48,7 @@ pub const attica__achievement = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AchievementTypeToString(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Attica__Achievement_AchievementTypeToString(@intCast(typeVal));
+        var _str = qtc.Attica__Achievement_AchievementTypeToString(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__achievement.AchievementTypeToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -82,7 +82,7 @@ pub const attica__achievement = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AchievementVisibilityToString(visibility: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Attica__Achievement_AchievementVisibilityToString(@intCast(visibility));
+        var _str = qtc.Attica__Achievement_AchievementVisibilityToString(@bitCast(visibility));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__achievement.AchievementVisibilityToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -270,7 +270,7 @@ pub const attica__achievement = struct {
     /// ` points: i32 `
     ///
     pub fn SetPoints(self: ?*anyopaque, points: i32) void {
-        qtc.Attica__Achievement_SetPoints(@ptrCast(self), @intCast(points));
+        qtc.Attica__Achievement_SetPoints(@ptrCast(self), @bitCast(points));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#points)
@@ -399,7 +399,7 @@ pub const attica__achievement = struct {
     /// ` visibility: achievement_enums.Visibility `
     ///
     pub fn SetVisibility(self: ?*anyopaque, visibility: i32) void {
-        qtc.Attica__Achievement_SetVisibility(@ptrCast(self), @intCast(visibility));
+        qtc.Attica__Achievement_SetVisibility(@ptrCast(self), @bitCast(visibility));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#visibility)
@@ -425,7 +425,7 @@ pub const attica__achievement = struct {
     /// ` typeVal: achievement_enums.Type `
     ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.Attica__Achievement_SetType(@ptrCast(self), @intCast(typeVal));
+        qtc.Attica__Achievement_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#type)
@@ -536,7 +536,7 @@ pub const attica__achievement = struct {
     /// ` steps: i32 `
     ///
     pub fn SetSteps(self: ?*anyopaque, steps: i32) void {
-        qtc.Attica__Achievement_SetSteps(@ptrCast(self), @intCast(steps));
+        qtc.Attica__Achievement_SetSteps(@ptrCast(self), @bitCast(steps));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#steps)

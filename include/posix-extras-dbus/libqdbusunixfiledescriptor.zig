@@ -16,7 +16,7 @@ pub const qdbusunixfiledescriptor = struct {
     /// ` fileDescriptor: i32 `
     ///
     pub fn New2(fileDescriptor: i32) QtC.QDBusUnixFileDescriptor {
-        return qtc.QDBusUnixFileDescriptor_new2(@intCast(fileDescriptor));
+        return qtc.QDBusUnixFileDescriptor_new2(@bitCast(fileDescriptor));
     }
 
     /// New3 constructs a new QDBusUnixFileDescriptor object.
@@ -82,7 +82,7 @@ pub const qdbusunixfiledescriptor = struct {
     /// ` fileDescriptor: i32 `
     ///
     pub fn SetFileDescriptor(self: ?*anyopaque, fileDescriptor: i32) void {
-        qtc.QDBusUnixFileDescriptor_SetFileDescriptor(@ptrCast(self), @intCast(fileDescriptor));
+        qtc.QDBusUnixFileDescriptor_SetFileDescriptor(@ptrCast(self), @bitCast(fileDescriptor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#giveFileDescriptor)
@@ -94,7 +94,7 @@ pub const qdbusunixfiledescriptor = struct {
     /// ` fileDescriptor: i32 `
     ///
     pub fn GiveFileDescriptor(self: ?*anyopaque, fileDescriptor: i32) void {
-        qtc.QDBusUnixFileDescriptor_GiveFileDescriptor(@ptrCast(self), @intCast(fileDescriptor));
+        qtc.QDBusUnixFileDescriptor_GiveFileDescriptor(@ptrCast(self), @bitCast(fileDescriptor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#takeFileDescriptor)

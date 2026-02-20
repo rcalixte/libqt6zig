@@ -28,7 +28,7 @@ pub const qeasingcurve = struct {
     /// ` typeVal: qeasingcurve_enums.Type `
     ///
     pub fn New3(typeVal: i32) QtC.QEasingCurve {
-        return qtc.QEasingCurve_new3(@intCast(typeVal));
+        return qtc.QEasingCurve_new3(@bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#operator-eq)
@@ -74,7 +74,7 @@ pub const qeasingcurve = struct {
     /// ` amplitude: f64 `
     ///
     pub fn SetAmplitude(self: ?*anyopaque, amplitude: f64) void {
-        qtc.QEasingCurve_SetAmplitude(@ptrCast(self), @floatCast(amplitude));
+        qtc.QEasingCurve_SetAmplitude(@ptrCast(self), @bitCast(amplitude));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#period)
@@ -96,7 +96,7 @@ pub const qeasingcurve = struct {
     /// ` period: f64 `
     ///
     pub fn SetPeriod(self: ?*anyopaque, period: f64) void {
-        qtc.QEasingCurve_SetPeriod(@ptrCast(self), @floatCast(period));
+        qtc.QEasingCurve_SetPeriod(@ptrCast(self), @bitCast(period));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#overshoot)
@@ -118,7 +118,7 @@ pub const qeasingcurve = struct {
     /// ` overshoot: f64 `
     ///
     pub fn SetOvershoot(self: ?*anyopaque, overshoot: f64) void {
-        qtc.QEasingCurve_SetOvershoot(@ptrCast(self), @floatCast(overshoot));
+        qtc.QEasingCurve_SetOvershoot(@ptrCast(self), @bitCast(overshoot));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#addCubicBezierSegment)
@@ -152,7 +152,7 @@ pub const qeasingcurve = struct {
     /// ` b: f64 `
     ///
     pub fn AddTCBSegment(self: ?*anyopaque, nextPoint: ?*anyopaque, t: f64, c: f64, b: f64) void {
-        qtc.QEasingCurve_AddTCBSegment(@ptrCast(self), @ptrCast(nextPoint), @floatCast(t), @floatCast(c), @floatCast(b));
+        qtc.QEasingCurve_AddTCBSegment(@ptrCast(self), @ptrCast(nextPoint), @bitCast(t), @bitCast(c), @bitCast(b));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#toCubicSpline)
@@ -195,7 +195,7 @@ pub const qeasingcurve = struct {
     /// ` typeVal: qeasingcurve_enums.Type `
     ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QEasingCurve_SetType(@ptrCast(self), @intCast(typeVal));
+        qtc.QEasingCurve_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#valueForProgress)
@@ -207,7 +207,7 @@ pub const qeasingcurve = struct {
     /// ` progress: f64 `
     ///
     pub fn ValueForProgress(self: ?*anyopaque, progress: f64) f64 {
-        return qtc.QEasingCurve_ValueForProgress(@ptrCast(self), @floatCast(progress));
+        return qtc.QEasingCurve_ValueForProgress(@ptrCast(self), @bitCast(progress));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#dtor.QEasingCurve)

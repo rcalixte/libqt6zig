@@ -20,7 +20,7 @@ pub const qgeocoordinate = struct {
     /// ` longitude: f64 `
     ///
     pub fn New2(latitude: f64, longitude: f64) QtC.QGeoCoordinate {
-        return qtc.QGeoCoordinate_new2(@floatCast(latitude), @floatCast(longitude));
+        return qtc.QGeoCoordinate_new2(@bitCast(latitude), @bitCast(longitude));
     }
 
     /// New3 constructs a new QGeoCoordinate object.
@@ -34,7 +34,7 @@ pub const qgeocoordinate = struct {
     /// ` altitude: f64 `
     ///
     pub fn New3(latitude: f64, longitude: f64, altitude: f64) QtC.QGeoCoordinate {
-        return qtc.QGeoCoordinate_new3(@floatCast(latitude), @floatCast(longitude), @floatCast(altitude));
+        return qtc.QGeoCoordinate_new3(@bitCast(latitude), @bitCast(longitude), @bitCast(altitude));
     }
 
     /// New4 constructs a new QGeoCoordinate object.
@@ -104,7 +104,7 @@ pub const qgeocoordinate = struct {
     /// ` latitude: f64 `
     ///
     pub fn SetLatitude(self: ?*anyopaque, latitude: f64) void {
-        qtc.QGeoCoordinate_SetLatitude(@ptrCast(self), @floatCast(latitude));
+        qtc.QGeoCoordinate_SetLatitude(@ptrCast(self), @bitCast(latitude));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#latitude)
@@ -126,7 +126,7 @@ pub const qgeocoordinate = struct {
     /// ` longitude: f64 `
     ///
     pub fn SetLongitude(self: ?*anyopaque, longitude: f64) void {
-        qtc.QGeoCoordinate_SetLongitude(@ptrCast(self), @floatCast(longitude));
+        qtc.QGeoCoordinate_SetLongitude(@ptrCast(self), @bitCast(longitude));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#longitude)
@@ -148,7 +148,7 @@ pub const qgeocoordinate = struct {
     /// ` altitude: f64 `
     ///
     pub fn SetAltitude(self: ?*anyopaque, altitude: f64) void {
-        qtc.QGeoCoordinate_SetAltitude(@ptrCast(self), @floatCast(altitude));
+        qtc.QGeoCoordinate_SetAltitude(@ptrCast(self), @bitCast(altitude));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#altitude)
@@ -196,7 +196,7 @@ pub const qgeocoordinate = struct {
     /// ` azimuth: f64 `
     ///
     pub fn AtDistanceAndAzimuth(self: ?*anyopaque, distance: f64, azimuth: f64) QtC.QGeoCoordinate {
-        return qtc.QGeoCoordinate_AtDistanceAndAzimuth(@ptrCast(self), @floatCast(distance), @floatCast(azimuth));
+        return qtc.QGeoCoordinate_AtDistanceAndAzimuth(@ptrCast(self), @bitCast(distance), @bitCast(azimuth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#toString)
@@ -228,7 +228,7 @@ pub const qgeocoordinate = struct {
     /// ` distanceUp: f64 `
     ///
     pub fn AtDistanceAndAzimuth3(self: ?*anyopaque, distance: f64, azimuth: f64, distanceUp: f64) QtC.QGeoCoordinate {
-        return qtc.QGeoCoordinate_AtDistanceAndAzimuth3(@ptrCast(self), @floatCast(distance), @floatCast(azimuth), @floatCast(distanceUp));
+        return qtc.QGeoCoordinate_AtDistanceAndAzimuth3(@ptrCast(self), @bitCast(distance), @bitCast(azimuth), @bitCast(distanceUp));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#toString)
@@ -242,7 +242,7 @@ pub const qgeocoordinate = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString1(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QGeoCoordinate_ToString1(@ptrCast(self), @intCast(format));
+        var _str = qtc.QGeoCoordinate_ToString1(@ptrCast(self), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeocoordinate.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

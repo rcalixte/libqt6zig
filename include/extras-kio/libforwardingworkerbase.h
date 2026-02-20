@@ -18,9 +18,7 @@ extern "C" {
 typedef KIO::ForwardingWorkerBase KIO__ForwardingWorkerBase;
 #endif
 typedef KIO::UDSEntry KIO__UDSEntry;
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__WorkerBase)
 typedef KIO::WorkerBase KIO__WorkerBase;
-#endif
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__WorkerResult)
 typedef KIO::WorkerResult KIO__WorkerResult;
 #endif

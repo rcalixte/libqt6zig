@@ -106,7 +106,7 @@ pub const kfilemetadata__writedata = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn Add(self: ?*anyopaque, property: i32, value: ?*anyopaque) void {
-        qtc.KFileMetaData__WriteData_Add(@ptrCast(self), @intCast(property), @ptrCast(value));
+        qtc.KFileMetaData__WriteData_Add(@ptrCast(self), @bitCast(property), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writedata.html#addImageData)
@@ -129,7 +129,7 @@ pub const kfilemetadata__writedata = struct {
         var images_it = images.iterator();
         while (images_it.next()) |it_entry| : (i += 1) {
             const images_key = it_entry.key_ptr.*;
-            images_keys[i] = @intCast(images_key);
+            images_keys[i] = @bitCast(images_key);
             const value = it_entry.value_ptr.*;
             images_values[i] = qtc.libqt_string{
                 .len = value.len,

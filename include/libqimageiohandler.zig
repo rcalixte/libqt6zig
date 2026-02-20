@@ -105,7 +105,7 @@ pub const qimageiohandler = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnCanRead(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QImageIOHandler_OnCanRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOHandler_OnCanRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#canRead)
@@ -143,7 +143,7 @@ pub const qimageiohandler = struct {
     /// ` callback: *const fn (self: QtC.QImageIOHandler, image: QtC.QImage) callconv(.c) bool `
     ///
     pub fn OnRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QImageIOHandler_OnRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOHandler_OnRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#read)
@@ -183,7 +183,7 @@ pub const qimageiohandler = struct {
     /// ` callback: *const fn (self: QtC.QImageIOHandler, image: QtC.QImage) callconv(.c) bool `
     ///
     pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QImageIOHandler_OnWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOHandler_OnWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#write)
@@ -209,7 +209,7 @@ pub const qimageiohandler = struct {
     /// ` option: qimageiohandler_enums.ImageOption `
     ///
     pub fn Option(self: ?*anyopaque, option: i32) QtC.QVariant {
-        return qtc.QImageIOHandler_Option(@ptrCast(self), @intCast(option));
+        return qtc.QImageIOHandler_Option(@ptrCast(self), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#option)
@@ -223,7 +223,7 @@ pub const qimageiohandler = struct {
     /// ` callback: *const fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption) callconv(.c) QtC.QVariant `
     ///
     pub fn OnOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QImageIOHandler_OnOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOHandler_OnOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#option)
@@ -237,7 +237,7 @@ pub const qimageiohandler = struct {
     /// ` option: qimageiohandler_enums.ImageOption `
     ///
     pub fn QBaseOption(self: ?*anyopaque, option: i32) QtC.QVariant {
-        return qtc.QImageIOHandler_QBaseOption(@ptrCast(self), @intCast(option));
+        return qtc.QImageIOHandler_QBaseOption(@ptrCast(self), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setOption)
@@ -251,7 +251,7 @@ pub const qimageiohandler = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
-        qtc.QImageIOHandler_SetOption(@ptrCast(self), @intCast(option), @ptrCast(value));
+        qtc.QImageIOHandler_SetOption(@ptrCast(self), @bitCast(option), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setOption)
@@ -265,7 +265,7 @@ pub const qimageiohandler = struct {
     /// ` callback: *const fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption, value: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QImageIOHandler_OnSetOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOHandler_OnSetOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#setOption)
@@ -281,7 +281,7 @@ pub const qimageiohandler = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseSetOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
-        qtc.QImageIOHandler_QBaseSetOption(@ptrCast(self), @intCast(option), @ptrCast(value));
+        qtc.QImageIOHandler_QBaseSetOption(@ptrCast(self), @bitCast(option), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#supportsOption)
@@ -293,7 +293,7 @@ pub const qimageiohandler = struct {
     /// ` option: qimageiohandler_enums.ImageOption `
     ///
     pub fn SupportsOption(self: ?*anyopaque, option: i32) bool {
-        return qtc.QImageIOHandler_SupportsOption(@ptrCast(self), @intCast(option));
+        return qtc.QImageIOHandler_SupportsOption(@ptrCast(self), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#supportsOption)
@@ -307,7 +307,7 @@ pub const qimageiohandler = struct {
     /// ` callback: *const fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption) callconv(.c) bool `
     ///
     pub fn OnSupportsOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QImageIOHandler_OnSupportsOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOHandler_OnSupportsOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#supportsOption)
@@ -321,7 +321,7 @@ pub const qimageiohandler = struct {
     /// ` option: qimageiohandler_enums.ImageOption `
     ///
     pub fn QBaseSupportsOption(self: ?*anyopaque, option: i32) bool {
-        return qtc.QImageIOHandler_QBaseSupportsOption(@ptrCast(self), @intCast(option));
+        return qtc.QImageIOHandler_QBaseSupportsOption(@ptrCast(self), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToNextImage)
@@ -345,7 +345,7 @@ pub const qimageiohandler = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnJumpToNextImage(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QImageIOHandler_OnJumpToNextImage(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOHandler_OnJumpToNextImage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToNextImage)
@@ -369,7 +369,7 @@ pub const qimageiohandler = struct {
     /// ` imageNumber: i32 `
     ///
     pub fn JumpToImage(self: ?*anyopaque, imageNumber: i32) bool {
-        return qtc.QImageIOHandler_JumpToImage(@ptrCast(self), @intCast(imageNumber));
+        return qtc.QImageIOHandler_JumpToImage(@ptrCast(self), @bitCast(imageNumber));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToImage)
@@ -383,7 +383,7 @@ pub const qimageiohandler = struct {
     /// ` callback: *const fn (self: QtC.QImageIOHandler, imageNumber: i32) callconv(.c) bool `
     ///
     pub fn OnJumpToImage(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QImageIOHandler_OnJumpToImage(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOHandler_OnJumpToImage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToImage)
@@ -397,7 +397,7 @@ pub const qimageiohandler = struct {
     /// ` imageNumber: i32 `
     ///
     pub fn QBaseJumpToImage(self: ?*anyopaque, imageNumber: i32) bool {
-        return qtc.QImageIOHandler_QBaseJumpToImage(@ptrCast(self), @intCast(imageNumber));
+        return qtc.QImageIOHandler_QBaseJumpToImage(@ptrCast(self), @bitCast(imageNumber));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#loopCount)
@@ -421,7 +421,7 @@ pub const qimageiohandler = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnLoopCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QImageIOHandler_OnLoopCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOHandler_OnLoopCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#loopCount)
@@ -457,7 +457,7 @@ pub const qimageiohandler = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnImageCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QImageIOHandler_OnImageCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOHandler_OnImageCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#imageCount)
@@ -493,7 +493,7 @@ pub const qimageiohandler = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnNextImageDelay(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QImageIOHandler_OnNextImageDelay(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOHandler_OnNextImageDelay(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#nextImageDelay)
@@ -529,7 +529,7 @@ pub const qimageiohandler = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCurrentImageNumber(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QImageIOHandler_OnCurrentImageNumber(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOHandler_OnCurrentImageNumber(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageNumber)
@@ -565,7 +565,7 @@ pub const qimageiohandler = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRect `
     ///
     pub fn OnCurrentImageRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
-        qtc.QImageIOHandler_OnCurrentImageRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOHandler_OnCurrentImageRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageRect)
@@ -591,7 +591,7 @@ pub const qimageiohandler = struct {
     /// ` image: QtC.QImage `
     ///
     pub fn AllocateImage(size: QtC.QSize, format: i32, image: ?*anyopaque) bool {
-        return qtc.QImageIOHandler_AllocateImage(@ptrCast(size), @intCast(format), @ptrCast(image));
+        return qtc.QImageIOHandler_AllocateImage(@ptrCast(size), @bitCast(format), @ptrCast(image));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#dtor.QImageIOHandler)
@@ -646,7 +646,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QImageIOPlugin_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -681,7 +681,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QImageIOPlugin_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -708,7 +708,7 @@ pub const qimageioplugin = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QImageIOPlugin_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QImageIOPlugin_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -720,7 +720,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QImageIOPlugin_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -736,7 +736,7 @@ pub const qimageioplugin = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QImageIOPlugin_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QImageIOPlugin_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -789,7 +789,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: qtc.libqt_string) callconv(.c) i32 `
     ///
     pub fn OnCapabilities(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_string) callconv(.c) i32) void {
-        qtc.QImageIOPlugin_OnCapabilities(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnCapabilities(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#capabilities)
@@ -845,7 +845,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: qtc.libqt_string) callconv(.c) QtC.QImageIOHandler `
     ///
     pub fn OnCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_string) callconv(.c) QtC.QImageIOHandler) void {
-        qtc.QImageIOPlugin_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#create)
@@ -903,7 +903,7 @@ pub const qimageioplugin = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qimageioplugin.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1041,7 +1041,7 @@ pub const qimageioplugin = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1055,7 +1055,7 @@ pub const qimageioplugin = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1069,7 +1069,7 @@ pub const qimageioplugin = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1083,7 +1083,7 @@ pub const qimageioplugin = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1413,7 +1413,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1468,7 +1468,7 @@ pub const qimageioplugin = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1484,7 +1484,7 @@ pub const qimageioplugin = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1506,7 +1506,7 @@ pub const qimageioplugin = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1526,7 +1526,7 @@ pub const qimageioplugin = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1548,7 +1548,7 @@ pub const qimageioplugin = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1645,7 +1645,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1693,7 +1693,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QImageIOPlugin_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1745,7 +1745,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QImageIOPlugin_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1793,7 +1793,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QImageIOPlugin_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1841,7 +1841,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QImageIOPlugin_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1889,7 +1889,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QImageIOPlugin_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1937,7 +1937,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QImageIOPlugin_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1985,7 +1985,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QImageIOPlugin_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2029,7 +2029,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QImageIOPlugin_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2073,7 +2073,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QImageIOPlugin_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2123,7 +2123,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QImageIOPlugin_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2171,7 +2171,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QImageIOPlugin_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QImageIOPlugin_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2187,7 +2187,7 @@ pub const qimageioplugin = struct {
     /// ` callback: *const fn (self: QtC.QImageIOPlugin, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#dtor.QImageIOPlugin)

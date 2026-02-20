@@ -22,7 +22,7 @@ pub const qgeorectangle = struct {
     /// ` degreesHeight: f64 `
     ///
     pub fn New2(center: ?*anyopaque, degreesWidth: f64, degreesHeight: f64) QtC.QGeoRectangle {
-        return qtc.QGeoRectangle_new2(@ptrCast(center), @floatCast(degreesWidth), @floatCast(degreesHeight));
+        return qtc.QGeoRectangle_new2(@ptrCast(center), @bitCast(degreesWidth), @bitCast(degreesHeight));
     }
 
     /// New3 constructs a new QGeoRectangle object.
@@ -203,7 +203,7 @@ pub const qgeorectangle = struct {
     /// ` degreesWidth: f64 `
     ///
     pub fn SetWidth(self: ?*anyopaque, degreesWidth: f64) void {
-        qtc.QGeoRectangle_SetWidth(@ptrCast(self), @floatCast(degreesWidth));
+        qtc.QGeoRectangle_SetWidth(@ptrCast(self), @bitCast(degreesWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#width)
@@ -225,7 +225,7 @@ pub const qgeorectangle = struct {
     /// ` degreesHeight: f64 `
     ///
     pub fn SetHeight(self: ?*anyopaque, degreesHeight: f64) void {
-        qtc.QGeoRectangle_SetHeight(@ptrCast(self), @floatCast(degreesHeight));
+        qtc.QGeoRectangle_SetHeight(@ptrCast(self), @bitCast(degreesHeight));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#height)
@@ -273,7 +273,7 @@ pub const qgeorectangle = struct {
     /// ` degreesLongitude: f64 `
     ///
     pub fn Translate(self: ?*anyopaque, degreesLatitude: f64, degreesLongitude: f64) void {
-        qtc.QGeoRectangle_Translate(@ptrCast(self), @floatCast(degreesLatitude), @floatCast(degreesLongitude));
+        qtc.QGeoRectangle_Translate(@ptrCast(self), @bitCast(degreesLatitude), @bitCast(degreesLongitude));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#translated)
@@ -287,7 +287,7 @@ pub const qgeorectangle = struct {
     /// ` degreesLongitude: f64 `
     ///
     pub fn Translated(self: ?*anyopaque, degreesLatitude: f64, degreesLongitude: f64) QtC.QGeoRectangle {
-        return qtc.QGeoRectangle_Translated(@ptrCast(self), @floatCast(degreesLatitude), @floatCast(degreesLongitude));
+        return qtc.QGeoRectangle_Translated(@ptrCast(self), @bitCast(degreesLatitude), @bitCast(degreesLongitude));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#extendRectangle)

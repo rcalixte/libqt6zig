@@ -37,7 +37,7 @@ pub const qvector2d = struct {
     /// ` param1: qnamespace_enums.Initialization `
     ///
     pub fn New4(param1: i32) QtC.QVector2D {
-        return qtc.QVector2D_new4(@intCast(param1));
+        return qtc.QVector2D_new4(@bitCast(param1));
     }
 
     /// New5 constructs a new QVector2D object.
@@ -49,7 +49,7 @@ pub const qvector2d = struct {
     /// ` ypos: f32 `
     ///
     pub fn New5(xpos: f32, ypos: f32) QtC.QVector2D {
-        return qtc.QVector2D_new5(@floatCast(xpos), @floatCast(ypos));
+        return qtc.QVector2D_new5(@bitCast(xpos), @bitCast(ypos));
     }
 
     /// New6 constructs a new QVector2D object.
@@ -165,7 +165,7 @@ pub const qvector2d = struct {
     /// ` x: f32 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f32) void {
-        qtc.QVector2D_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QVector2D_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#setY)
@@ -177,7 +177,7 @@ pub const qvector2d = struct {
     /// ` y: f32 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f32) void {
-        qtc.QVector2D_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QVector2D_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator-5b-5d)
@@ -189,7 +189,7 @@ pub const qvector2d = struct {
     /// ` i: i32 `
     ///
     pub fn OperatorSubscript(self: ?*anyopaque, i: i32) ?*f32 {
-        return @ptrCast(qtc.QVector2D_OperatorSubscript(@ptrCast(self), @intCast(i)));
+        return @ptrCast(qtc.QVector2D_OperatorSubscript(@ptrCast(self), @bitCast(i)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator-5b-5d)
@@ -201,7 +201,7 @@ pub const qvector2d = struct {
     /// ` i: i32 `
     ///
     pub fn OperatorSubscript2(self: ?*anyopaque, i: i32) f32 {
-        return qtc.QVector2D_OperatorSubscript2(@ptrCast(self), @intCast(i));
+        return qtc.QVector2D_OperatorSubscript2(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#length)
@@ -303,7 +303,7 @@ pub const qvector2d = struct {
     /// ` factor: f32 `
     ///
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, factor: f32) QtC.QVector2D {
-        return qtc.QVector2D_OperatorMultiplyAssign(@ptrCast(self), @floatCast(factor));
+        return qtc.QVector2D_OperatorMultiplyAssign(@ptrCast(self), @bitCast(factor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator-2a-eq)
@@ -327,7 +327,7 @@ pub const qvector2d = struct {
     /// ` divisor: f32 `
     ///
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f32) QtC.QVector2D {
-        return qtc.QVector2D_OperatorDivideAssign(@ptrCast(self), @floatCast(divisor));
+        return qtc.QVector2D_OperatorDivideAssign(@ptrCast(self), @bitCast(divisor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator-2f-eq)
@@ -452,7 +452,7 @@ pub const qvector3d = struct {
     /// ` param1: qnamespace_enums.Initialization `
     ///
     pub fn New4(param1: i32) QtC.QVector3D {
-        return qtc.QVector3D_new4(@intCast(param1));
+        return qtc.QVector3D_new4(@bitCast(param1));
     }
 
     /// New5 constructs a new QVector3D object.
@@ -466,7 +466,7 @@ pub const qvector3d = struct {
     /// ` zpos: f32 `
     ///
     pub fn New5(xpos: f32, ypos: f32, zpos: f32) QtC.QVector3D {
-        return qtc.QVector3D_new5(@floatCast(xpos), @floatCast(ypos), @floatCast(zpos));
+        return qtc.QVector3D_new5(@bitCast(xpos), @bitCast(ypos), @bitCast(zpos));
     }
 
     /// New6 constructs a new QVector3D object.
@@ -508,7 +508,7 @@ pub const qvector3d = struct {
     /// ` zpos: f32 `
     ///
     pub fn New9(vector: QtC.QVector2D, zpos: f32) QtC.QVector3D {
-        return qtc.QVector3D_new9(@ptrCast(vector), @floatCast(zpos));
+        return qtc.QVector3D_new9(@ptrCast(vector), @bitCast(zpos));
     }
 
     /// New10 constructs a new QVector3D object.
@@ -604,7 +604,7 @@ pub const qvector3d = struct {
     /// ` x: f32 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f32) void {
-        qtc.QVector3D_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QVector3D_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#setY)
@@ -616,7 +616,7 @@ pub const qvector3d = struct {
     /// ` y: f32 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f32) void {
-        qtc.QVector3D_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QVector3D_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#setZ)
@@ -628,7 +628,7 @@ pub const qvector3d = struct {
     /// ` z: f32 `
     ///
     pub fn SetZ(self: ?*anyopaque, z: f32) void {
-        qtc.QVector3D_SetZ(@ptrCast(self), @floatCast(z));
+        qtc.QVector3D_SetZ(@ptrCast(self), @bitCast(z));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator-5b-5d)
@@ -640,7 +640,7 @@ pub const qvector3d = struct {
     /// ` i: i32 `
     ///
     pub fn OperatorSubscript(self: ?*anyopaque, i: i32) ?*f32 {
-        return @ptrCast(qtc.QVector3D_OperatorSubscript(@ptrCast(self), @intCast(i)));
+        return @ptrCast(qtc.QVector3D_OperatorSubscript(@ptrCast(self), @bitCast(i)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator-5b-5d)
@@ -652,7 +652,7 @@ pub const qvector3d = struct {
     /// ` i: i32 `
     ///
     pub fn OperatorSubscript2(self: ?*anyopaque, i: i32) f32 {
-        return qtc.QVector3D_OperatorSubscript2(@ptrCast(self), @intCast(i));
+        return qtc.QVector3D_OperatorSubscript2(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#length)
@@ -728,7 +728,7 @@ pub const qvector3d = struct {
     /// ` factor: f32 `
     ///
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, factor: f32) QtC.QVector3D {
-        return qtc.QVector3D_OperatorMultiplyAssign(@ptrCast(self), @floatCast(factor));
+        return qtc.QVector3D_OperatorMultiplyAssign(@ptrCast(self), @bitCast(factor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator-2a-eq)
@@ -752,7 +752,7 @@ pub const qvector3d = struct {
     /// ` divisor: f32 `
     ///
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f32) QtC.QVector3D {
-        return qtc.QVector3D_OperatorDivideAssign(@ptrCast(self), @floatCast(divisor));
+        return qtc.QVector3D_OperatorDivideAssign(@ptrCast(self), @bitCast(divisor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator-2f-eq)
@@ -1003,7 +1003,7 @@ pub const qvector4d = struct {
     /// ` param1: qnamespace_enums.Initialization `
     ///
     pub fn New4(param1: i32) QtC.QVector4D {
-        return qtc.QVector4D_new4(@intCast(param1));
+        return qtc.QVector4D_new4(@bitCast(param1));
     }
 
     /// New5 constructs a new QVector4D object.
@@ -1019,7 +1019,7 @@ pub const qvector4d = struct {
     /// ` wpos: f32 `
     ///
     pub fn New5(xpos: f32, ypos: f32, zpos: f32, wpos: f32) QtC.QVector4D {
-        return qtc.QVector4D_new5(@floatCast(xpos), @floatCast(ypos), @floatCast(zpos), @floatCast(wpos));
+        return qtc.QVector4D_new5(@bitCast(xpos), @bitCast(ypos), @bitCast(zpos), @bitCast(wpos));
     }
 
     /// New6 constructs a new QVector4D object.
@@ -1063,7 +1063,7 @@ pub const qvector4d = struct {
     /// ` wpos: f32 `
     ///
     pub fn New9(vector: QtC.QVector2D, zpos: f32, wpos: f32) QtC.QVector4D {
-        return qtc.QVector4D_new9(@ptrCast(vector), @floatCast(zpos), @floatCast(wpos));
+        return qtc.QVector4D_new9(@ptrCast(vector), @bitCast(zpos), @bitCast(wpos));
     }
 
     /// New10 constructs a new QVector4D object.
@@ -1085,7 +1085,7 @@ pub const qvector4d = struct {
     /// ` wpos: f32 `
     ///
     pub fn New11(vector: QtC.QVector3D, wpos: f32) QtC.QVector4D {
-        return qtc.QVector4D_new11(@ptrCast(vector), @floatCast(wpos));
+        return qtc.QVector4D_new11(@ptrCast(vector), @bitCast(wpos));
     }
 
     /// New12 constructs a new QVector4D object.
@@ -1181,7 +1181,7 @@ pub const qvector4d = struct {
     /// ` x: f32 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f32) void {
-        qtc.QVector4D_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QVector4D_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#setY)
@@ -1193,7 +1193,7 @@ pub const qvector4d = struct {
     /// ` y: f32 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f32) void {
-        qtc.QVector4D_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QVector4D_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#setZ)
@@ -1205,7 +1205,7 @@ pub const qvector4d = struct {
     /// ` z: f32 `
     ///
     pub fn SetZ(self: ?*anyopaque, z: f32) void {
-        qtc.QVector4D_SetZ(@ptrCast(self), @floatCast(z));
+        qtc.QVector4D_SetZ(@ptrCast(self), @bitCast(z));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#setW)
@@ -1217,7 +1217,7 @@ pub const qvector4d = struct {
     /// ` w: f32 `
     ///
     pub fn SetW(self: ?*anyopaque, w: f32) void {
-        qtc.QVector4D_SetW(@ptrCast(self), @floatCast(w));
+        qtc.QVector4D_SetW(@ptrCast(self), @bitCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator-5b-5d)
@@ -1229,7 +1229,7 @@ pub const qvector4d = struct {
     /// ` i: i32 `
     ///
     pub fn OperatorSubscript(self: ?*anyopaque, i: i32) ?*f32 {
-        return @ptrCast(qtc.QVector4D_OperatorSubscript(@ptrCast(self), @intCast(i)));
+        return @ptrCast(qtc.QVector4D_OperatorSubscript(@ptrCast(self), @bitCast(i)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator-5b-5d)
@@ -1241,7 +1241,7 @@ pub const qvector4d = struct {
     /// ` i: i32 `
     ///
     pub fn OperatorSubscript2(self: ?*anyopaque, i: i32) f32 {
-        return qtc.QVector4D_OperatorSubscript2(@ptrCast(self), @intCast(i));
+        return qtc.QVector4D_OperatorSubscript2(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#length)
@@ -1317,7 +1317,7 @@ pub const qvector4d = struct {
     /// ` factor: f32 `
     ///
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, factor: f32) QtC.QVector4D {
-        return qtc.QVector4D_OperatorMultiplyAssign(@ptrCast(self), @floatCast(factor));
+        return qtc.QVector4D_OperatorMultiplyAssign(@ptrCast(self), @bitCast(factor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator-2a-eq)
@@ -1341,7 +1341,7 @@ pub const qvector4d = struct {
     /// ` divisor: f32 `
     ///
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f32) QtC.QVector4D {
-        return qtc.QVector4D_OperatorDivideAssign(@ptrCast(self), @floatCast(divisor));
+        return qtc.QVector4D_OperatorDivideAssign(@ptrCast(self), @bitCast(divisor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator-2f-eq)

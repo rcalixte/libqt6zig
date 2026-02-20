@@ -87,7 +87,7 @@ pub const qdbuscontext = struct {
     /// ` typeVal: qdbuserror_enums.ErrorType `
     ///
     pub fn SendErrorReply2(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QDBusContext_SendErrorReply2(@ptrCast(self), @intCast(typeVal));
+        qtc.QDBusContext_SendErrorReply2(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#sendErrorReply)
@@ -127,7 +127,7 @@ pub const qdbuscontext = struct {
             .len = msg.len,
             .data = msg.ptr,
         };
-        qtc.QDBusContext_SendErrorReply23(@ptrCast(self), @intCast(typeVal), msg_str);
+        qtc.QDBusContext_SendErrorReply23(@ptrCast(self), @bitCast(typeVal), msg_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#dtor.QDBusContext)

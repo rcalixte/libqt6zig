@@ -65,7 +65,7 @@ pub const kcolorutils = struct {
     /// ` param4: f64 `
     ///
     pub fn HcyColor(param1: f64, param2: f64, param3: f64, param4: f64) QtC.QColor {
-        return qtc.KColorUtils_HcyColor(@floatCast(param1), @floatCast(param2), @floatCast(param3), @floatCast(param4));
+        return qtc.KColorUtils_HcyColor(@bitCast(param1), @bitCast(param2), @bitCast(param3), @bitCast(param4));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#contrastRatio)
@@ -91,7 +91,7 @@ pub const kcolorutils = struct {
     /// ` param3: f64 `
     ///
     pub fn Lighten(param1: ?*anyopaque, param2: f64, param3: f64) QtC.QColor {
-        return qtc.KColorUtils_Lighten(@ptrCast(param1), @floatCast(param2), @floatCast(param3));
+        return qtc.KColorUtils_Lighten(@ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#darken)
@@ -105,7 +105,7 @@ pub const kcolorutils = struct {
     /// ` param3: f64 `
     ///
     pub fn Darken(param1: ?*anyopaque, param2: f64, param3: f64) QtC.QColor {
-        return qtc.KColorUtils_Darken(@ptrCast(param1), @floatCast(param2), @floatCast(param3));
+        return qtc.KColorUtils_Darken(@ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#shade)
@@ -119,7 +119,7 @@ pub const kcolorutils = struct {
     /// ` param3: f64 `
     ///
     pub fn Shade(param1: ?*anyopaque, param2: f64, param3: f64) QtC.QColor {
-        return qtc.KColorUtils_Shade(@ptrCast(param1), @floatCast(param2), @floatCast(param3));
+        return qtc.KColorUtils_Shade(@ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#tint)
@@ -133,7 +133,7 @@ pub const kcolorutils = struct {
     /// ` param3: f64 `
     ///
     pub fn Tint(param1: ?*anyopaque, param2: ?*anyopaque, param3: f64) QtC.QColor {
-        return qtc.KColorUtils_Tint(@ptrCast(param1), @ptrCast(param2), @floatCast(param3));
+        return qtc.KColorUtils_Tint(@ptrCast(param1), @ptrCast(param2), @bitCast(param3));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#mix)
@@ -147,7 +147,7 @@ pub const kcolorutils = struct {
     /// ` param3: f64 `
     ///
     pub fn Mix(param1: ?*anyopaque, param2: ?*anyopaque, param3: f64) QtC.QColor {
-        return qtc.KColorUtils_Mix(@ptrCast(param1), @ptrCast(param2), @floatCast(param3));
+        return qtc.KColorUtils_Mix(@ptrCast(param1), @ptrCast(param2), @bitCast(param3));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#overlayColors)
@@ -161,6 +161,6 @@ pub const kcolorutils = struct {
     /// ` param3: qpainter_enums.CompositionMode `
     ///
     pub fn OverlayColors(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.QColor {
-        return qtc.KColorUtils_OverlayColors(@ptrCast(param1), @ptrCast(param2), @intCast(param3));
+        return qtc.KColorUtils_OverlayColors(@ptrCast(param1), @ptrCast(param2), @bitCast(param3));
     }
 };

@@ -27,7 +27,7 @@ pub const qmessagelogcontext = struct {
         const functionName_Cstring = functionName.ptr;
         const categoryName_Cstring = categoryName.ptr;
 
-        return qtc.QMessageLogContext_new2(fileName_Cstring, @intCast(lineNumber), functionName_Cstring, categoryName_Cstring);
+        return qtc.QMessageLogContext_new2(fileName_Cstring, @bitCast(lineNumber), functionName_Cstring, categoryName_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#version-var)
@@ -49,7 +49,7 @@ pub const qmessagelogcontext = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QMessageLogContext_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QMessageLogContext_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#line-var)
@@ -71,7 +71,7 @@ pub const qmessagelogcontext = struct {
     /// ` line: i32 `
     ///
     pub fn SetLine(self: ?*anyopaque, line: i32) void {
-        qtc.QMessageLogContext_SetLine(@ptrCast(self), @intCast(line));
+        qtc.QMessageLogContext_SetLine(@ptrCast(self), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#file-var)
@@ -181,7 +181,7 @@ pub const qmessagelogger = struct {
         const file_Cstring = file.ptr;
         const function_Cstring = function.ptr;
 
-        return qtc.QMessageLogger_new2(file_Cstring, @intCast(line), function_Cstring);
+        return qtc.QMessageLogger_new2(file_Cstring, @bitCast(line), function_Cstring);
     }
 
     /// New3 constructs a new QMessageLogger object.
@@ -201,7 +201,7 @@ pub const qmessagelogger = struct {
         const function_Cstring = function.ptr;
         const category_Cstring = category.ptr;
 
-        return qtc.QMessageLogger_new3(file_Cstring, @intCast(line), function_Cstring, category_Cstring);
+        return qtc.QMessageLogger_new3(file_Cstring, @bitCast(line), function_Cstring, category_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#debug)

@@ -159,7 +159,7 @@ pub const kemailaddress = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn EmailParseResultToString(param1: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KEmailAddress_EmailParseResultToString(@intCast(param1));
+        var _str = qtc.KEmailAddress_EmailParseResultToString(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.EmailParseResultToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

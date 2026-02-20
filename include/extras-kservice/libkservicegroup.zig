@@ -232,7 +232,7 @@ pub const kservicegroup = struct {
     /// ` _val: i32 `
     ///
     pub fn SetInlineValue(self: ?*anyopaque, _val: i32) void {
-        qtc.KServiceGroup_SetInlineValue(@ptrCast(self), @intCast(_val));
+        qtc.KServiceGroup_SetInlineValue(@ptrCast(self), @bitCast(_val));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#suppressGenericNames)
@@ -358,7 +358,7 @@ pub const kservicegroup = struct {
     /// ` t: ksycocatype_enums.KSycocaType `
     ///
     pub fn IsType(self: ?*anyopaque, t: i32) bool {
-        return qtc.KSycocaEntry_IsType(@ptrCast(self), @intCast(t));
+        return qtc.KSycocaEntry_IsType(@ptrCast(self), @bitCast(t));
     }
 
     /// Inherited from KSycocaEntry

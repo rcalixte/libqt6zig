@@ -28,7 +28,7 @@ pub const qwebengineglobalsettings__dnsmode = struct {
     /// ` secureMode: qwebengineglobalsettings_enums.SecureDnsMode `
     ///
     pub fn SetSecureMode(self: ?*anyopaque, secureMode: u8) void {
-        qtc.QWebEngineGlobalSettings__DnsMode_SetSecureMode(@ptrCast(self), @intCast(secureMode));
+        qtc.QWebEngineGlobalSettings__DnsMode_SetSecureMode(@ptrCast(self), @bitCast(secureMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#serverTemplates-var)

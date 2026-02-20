@@ -18,7 +18,7 @@ pub const qbitarray = struct {
     /// ` size: i64 `
     ///
     pub fn New2(size: i64) QtC.QBitArray {
-        return qtc.QBitArray_new2(@intCast(size));
+        return qtc.QBitArray_new2(@bitCast(size));
     }
 
     /// New3 constructs a new QBitArray object.
@@ -40,7 +40,7 @@ pub const qbitarray = struct {
     /// ` val: bool `
     ///
     pub fn New4(size: i64, val: bool) QtC.QBitArray {
-        return qtc.QBitArray_new4(@intCast(size), val);
+        return qtc.QBitArray_new4(@bitCast(size), val);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#operator-eq)
@@ -128,7 +128,7 @@ pub const qbitarray = struct {
     /// ` size: i64 `
     ///
     pub fn Resize(self: ?*anyopaque, size: i64) void {
-        qtc.QBitArray_Resize(@ptrCast(self), @intCast(size));
+        qtc.QBitArray_Resize(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#detach)
@@ -170,7 +170,7 @@ pub const qbitarray = struct {
     /// ` i: i64 `
     ///
     pub fn TestBit(self: ?*anyopaque, i: i64) bool {
-        return qtc.QBitArray_TestBit(@ptrCast(self), @intCast(i));
+        return qtc.QBitArray_TestBit(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#setBit)
@@ -182,7 +182,7 @@ pub const qbitarray = struct {
     /// ` i: i64 `
     ///
     pub fn SetBit(self: ?*anyopaque, i: i64) void {
-        qtc.QBitArray_SetBit(@ptrCast(self), @intCast(i));
+        qtc.QBitArray_SetBit(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#setBit)
@@ -196,7 +196,7 @@ pub const qbitarray = struct {
     /// ` val: bool `
     ///
     pub fn SetBit2(self: ?*anyopaque, i: i64, val: bool) void {
-        qtc.QBitArray_SetBit2(@ptrCast(self), @intCast(i), val);
+        qtc.QBitArray_SetBit2(@ptrCast(self), @bitCast(i), val);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#clearBit)
@@ -208,7 +208,7 @@ pub const qbitarray = struct {
     /// ` i: i64 `
     ///
     pub fn ClearBit(self: ?*anyopaque, i: i64) void {
-        qtc.QBitArray_ClearBit(@ptrCast(self), @intCast(i));
+        qtc.QBitArray_ClearBit(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#toggleBit)
@@ -220,7 +220,7 @@ pub const qbitarray = struct {
     /// ` i: i64 `
     ///
     pub fn ToggleBit(self: ?*anyopaque, i: i64) bool {
-        return qtc.QBitArray_ToggleBit(@ptrCast(self), @intCast(i));
+        return qtc.QBitArray_ToggleBit(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#at)
@@ -232,7 +232,7 @@ pub const qbitarray = struct {
     /// ` i: i64 `
     ///
     pub fn At(self: ?*anyopaque, i: i64) bool {
-        return qtc.QBitArray_At(@ptrCast(self), @intCast(i));
+        return qtc.QBitArray_At(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#operator-5b-5d)
@@ -244,7 +244,7 @@ pub const qbitarray = struct {
     /// ` i: i64 `
     ///
     pub fn OperatorSubscript(self: ?*anyopaque, i: i64) QtC.QBitRef {
-        return qtc.QBitArray_OperatorSubscript(@ptrCast(self), @intCast(i));
+        return qtc.QBitArray_OperatorSubscript(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#operator-5b-5d)
@@ -256,7 +256,7 @@ pub const qbitarray = struct {
     /// ` i: i64 `
     ///
     pub fn OperatorSubscript2(self: ?*anyopaque, i: i64) bool {
-        return qtc.QBitArray_OperatorSubscript2(@ptrCast(self), @intCast(i));
+        return qtc.QBitArray_OperatorSubscript2(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#operator-and-eq)
@@ -320,7 +320,7 @@ pub const qbitarray = struct {
     /// ` last: i64 `
     ///
     pub fn Fill2(self: ?*anyopaque, val: bool, first: i64, last: i64) void {
-        qtc.QBitArray_Fill2(@ptrCast(self), val, @intCast(first), @intCast(last));
+        qtc.QBitArray_Fill2(@ptrCast(self), val, @bitCast(first), @bitCast(last));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#truncate)
@@ -332,7 +332,7 @@ pub const qbitarray = struct {
     /// ` pos: i64 `
     ///
     pub fn Truncate(self: ?*anyopaque, pos: i64) void {
-        qtc.QBitArray_Truncate(@ptrCast(self), @intCast(pos));
+        qtc.QBitArray_Truncate(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#bits)
@@ -356,7 +356,7 @@ pub const qbitarray = struct {
     ///
     pub fn FromBits(data: [:0]const u8, lenVal: i64) QtC.QBitArray {
         const data_Cstring = data.ptr;
-        return qtc.QBitArray_FromBits(data_Cstring, @intCast(lenVal));
+        return qtc.QBitArray_FromBits(data_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#toUInt32)
@@ -368,7 +368,7 @@ pub const qbitarray = struct {
     /// ` endianness: qsysinfo_enums.Endian `
     ///
     pub fn ToUInt32(self: ?*anyopaque, endianness: i32) u32 {
-        return qtc.QBitArray_ToUInt32(@ptrCast(self), @intCast(endianness));
+        return qtc.QBitArray_ToUInt32(@ptrCast(self), @bitCast(endianness));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#fill)
@@ -382,7 +382,7 @@ pub const qbitarray = struct {
     /// ` asize: i64 `
     ///
     pub fn Fill22(self: ?*anyopaque, aval: bool, asize: i64) bool {
-        return qtc.QBitArray_Fill22(@ptrCast(self), aval, @intCast(asize));
+        return qtc.QBitArray_Fill22(@ptrCast(self), aval, @bitCast(asize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#toUInt32)
@@ -396,7 +396,7 @@ pub const qbitarray = struct {
     /// ` ok: *bool `
     ///
     pub fn ToUInt322(self: ?*anyopaque, endianness: i32, ok: *bool) u32 {
-        return qtc.QBitArray_ToUInt322(@ptrCast(self), @intCast(endianness), @ptrCast(ok));
+        return qtc.QBitArray_ToUInt322(@ptrCast(self), @bitCast(endianness), @ptrCast(ok));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#dtor.QBitArray)

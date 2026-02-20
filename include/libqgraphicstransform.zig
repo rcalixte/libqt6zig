@@ -43,7 +43,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGraphicsTransform_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -78,7 +78,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGraphicsTransform_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -105,7 +105,7 @@ pub const qgraphicstransform = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsTransform_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsTransform_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -117,7 +117,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsTransform_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -133,7 +133,7 @@ pub const qgraphicstransform = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsTransform_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsTransform_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -176,7 +176,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform, matrix: QtC.QMatrix4x4) callconv(.c) void `
     ///
     pub fn OnApplyTo(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTransform_OnApplyTo(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnApplyTo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#applyTo)
@@ -214,7 +214,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsTransform_OnUpdate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnUpdate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#update)
@@ -264,7 +264,7 @@ pub const qgraphicstransform = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicstransform.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -402,7 +402,7 @@ pub const qgraphicstransform = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -416,7 +416,7 @@ pub const qgraphicstransform = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -430,7 +430,7 @@ pub const qgraphicstransform = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -444,7 +444,7 @@ pub const qgraphicstransform = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -774,7 +774,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -829,7 +829,7 @@ pub const qgraphicstransform = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -845,7 +845,7 @@ pub const qgraphicstransform = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -867,7 +867,7 @@ pub const qgraphicstransform = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -887,7 +887,7 @@ pub const qgraphicstransform = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -909,7 +909,7 @@ pub const qgraphicstransform = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1006,7 +1006,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1054,7 +1054,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTransform_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1106,7 +1106,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTransform_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1154,7 +1154,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTransform_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1202,7 +1202,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTransform_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1250,7 +1250,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTransform_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1298,7 +1298,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTransform_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1346,7 +1346,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTransform_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1390,7 +1390,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsTransform_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1434,7 +1434,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsTransform_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1484,7 +1484,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsTransform_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1532,7 +1532,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTransform_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsTransform_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1548,7 +1548,7 @@ pub const qgraphicstransform = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsTransform, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#dtor.QGraphicsTransform)
@@ -1603,7 +1603,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGraphicsScale_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -1638,7 +1638,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGraphicsScale_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -1665,7 +1665,7 @@ pub const qgraphicsscale = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsScale_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsScale_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -1677,7 +1677,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsScale_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -1693,7 +1693,7 @@ pub const qgraphicsscale = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsScale_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsScale_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1754,7 +1754,7 @@ pub const qgraphicsscale = struct {
     /// ` xScale: f64 `
     ///
     pub fn SetXScale(self: ?*anyopaque, xScale: f64) void {
-        qtc.QGraphicsScale_SetXScale(@ptrCast(self), @floatCast(xScale));
+        qtc.QGraphicsScale_SetXScale(@ptrCast(self), @bitCast(xScale));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#yScale)
@@ -1776,7 +1776,7 @@ pub const qgraphicsscale = struct {
     /// ` yScale: f64 `
     ///
     pub fn SetYScale(self: ?*anyopaque, yScale: f64) void {
-        qtc.QGraphicsScale_SetYScale(@ptrCast(self), @floatCast(yScale));
+        qtc.QGraphicsScale_SetYScale(@ptrCast(self), @bitCast(yScale));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#zScale)
@@ -1798,7 +1798,7 @@ pub const qgraphicsscale = struct {
     /// ` zScale: f64 `
     ///
     pub fn SetZScale(self: ?*anyopaque, zScale: f64) void {
-        qtc.QGraphicsScale_SetZScale(@ptrCast(self), @floatCast(zScale));
+        qtc.QGraphicsScale_SetZScale(@ptrCast(self), @bitCast(zScale));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#applyTo)
@@ -1824,7 +1824,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale, matrix: QtC.QMatrix4x4) callconv(.c) void `
     ///
     pub fn OnApplyTo(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsScale_OnApplyTo(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnApplyTo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#applyTo)
@@ -1860,7 +1860,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale) callconv(.c) void `
     ///
     pub fn OnOriginChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsScale_Connect_OriginChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_Connect_OriginChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#xScaleChanged)
@@ -1882,7 +1882,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale) callconv(.c) void `
     ///
     pub fn OnXScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsScale_Connect_XScaleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_Connect_XScaleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#yScaleChanged)
@@ -1904,7 +1904,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale) callconv(.c) void `
     ///
     pub fn OnYScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsScale_Connect_YScaleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_Connect_YScaleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#zScaleChanged)
@@ -1926,7 +1926,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale) callconv(.c) void `
     ///
     pub fn OnZScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsScale_Connect_ZScaleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_Connect_ZScaleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#scaleChanged)
@@ -1948,7 +1948,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale) callconv(.c) void `
     ///
     pub fn OnScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsScale_Connect_ScaleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_Connect_ScaleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1986,7 +1986,7 @@ pub const qgraphicsscale = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsscale.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2124,7 +2124,7 @@ pub const qgraphicsscale = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2138,7 +2138,7 @@ pub const qgraphicsscale = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2152,7 +2152,7 @@ pub const qgraphicsscale = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2166,7 +2166,7 @@ pub const qgraphicsscale = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2496,7 +2496,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2551,7 +2551,7 @@ pub const qgraphicsscale = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2567,7 +2567,7 @@ pub const qgraphicsscale = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2589,7 +2589,7 @@ pub const qgraphicsscale = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2609,7 +2609,7 @@ pub const qgraphicsscale = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2631,7 +2631,7 @@ pub const qgraphicsscale = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2728,7 +2728,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2776,7 +2776,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsScale_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2828,7 +2828,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsScale_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2876,7 +2876,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsScale_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2924,7 +2924,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsScale_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2972,7 +2972,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsScale_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3020,7 +3020,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsScale_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3068,7 +3068,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsScale_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsTransform
@@ -3112,7 +3112,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsScale_OnUpdate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnUpdate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3156,7 +3156,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsScale_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3200,7 +3200,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsScale_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3250,7 +3250,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsScale_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3298,7 +3298,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsScale_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsScale_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3314,7 +3314,7 @@ pub const qgraphicsscale = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsScale, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#dtor.QGraphicsScale)
@@ -3369,7 +3369,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGraphicsRotation_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -3404,7 +3404,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGraphicsRotation_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -3431,7 +3431,7 @@ pub const qgraphicsrotation = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsRotation_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsRotation_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -3443,7 +3443,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsRotation_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -3459,7 +3459,7 @@ pub const qgraphicsrotation = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsRotation_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsRotation_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3520,7 +3520,7 @@ pub const qgraphicsrotation = struct {
     /// ` angle: f64 `
     ///
     pub fn SetAngle(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsRotation_SetAngle(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsRotation_SetAngle(@ptrCast(self), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#axis)
@@ -3554,7 +3554,7 @@ pub const qgraphicsrotation = struct {
     /// ` axis: qnamespace_enums.Axis `
     ///
     pub fn SetAxis2(self: ?*anyopaque, axis: i32) void {
-        qtc.QGraphicsRotation_SetAxis2(@ptrCast(self), @intCast(axis));
+        qtc.QGraphicsRotation_SetAxis2(@ptrCast(self), @bitCast(axis));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#applyTo)
@@ -3580,7 +3580,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation, matrix: QtC.QMatrix4x4) callconv(.c) void `
     ///
     pub fn OnApplyTo(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRotation_OnApplyTo(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnApplyTo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#applyTo)
@@ -3616,7 +3616,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation) callconv(.c) void `
     ///
     pub fn OnOriginChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRotation_Connect_OriginChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_Connect_OriginChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#angleChanged)
@@ -3638,7 +3638,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation) callconv(.c) void `
     ///
     pub fn OnAngleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRotation_Connect_AngleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_Connect_AngleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#axisChanged)
@@ -3660,7 +3660,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation) callconv(.c) void `
     ///
     pub fn OnAxisChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRotation_Connect_AxisChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_Connect_AxisChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3698,7 +3698,7 @@ pub const qgraphicsrotation = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsrotation.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3836,7 +3836,7 @@ pub const qgraphicsrotation = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -3850,7 +3850,7 @@ pub const qgraphicsrotation = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -3864,7 +3864,7 @@ pub const qgraphicsrotation = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -3878,7 +3878,7 @@ pub const qgraphicsrotation = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4208,7 +4208,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4263,7 +4263,7 @@ pub const qgraphicsrotation = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4279,7 +4279,7 @@ pub const qgraphicsrotation = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4301,7 +4301,7 @@ pub const qgraphicsrotation = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -4321,7 +4321,7 @@ pub const qgraphicsrotation = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4343,7 +4343,7 @@ pub const qgraphicsrotation = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4440,7 +4440,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4488,7 +4488,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsRotation_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4540,7 +4540,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsRotation_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4588,7 +4588,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRotation_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4636,7 +4636,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRotation_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4684,7 +4684,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRotation_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4732,7 +4732,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRotation_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4780,7 +4780,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRotation_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsTransform
@@ -4824,7 +4824,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsRotation_OnUpdate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnUpdate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4868,7 +4868,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsRotation_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4912,7 +4912,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsRotation_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4962,7 +4962,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsRotation_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5010,7 +5010,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsRotation_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsRotation_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5026,7 +5026,7 @@ pub const qgraphicsrotation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsRotation, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#dtor.QGraphicsRotation)

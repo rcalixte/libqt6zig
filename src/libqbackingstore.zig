@@ -80,7 +80,7 @@ pub const qbackingstore = struct {
     /// ` dy: i32 `
     ///
     pub fn Scroll(self: ?*anyopaque, area: ?*anyopaque, dx: i32, dy: i32) bool {
-        return qtc.QBackingStore_Scroll(@ptrCast(self), @ptrCast(area), @intCast(dx), @intCast(dy));
+        return qtc.QBackingStore_Scroll(@ptrCast(self), @ptrCast(area), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#beginPaint)

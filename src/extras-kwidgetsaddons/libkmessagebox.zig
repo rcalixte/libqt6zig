@@ -42,7 +42,7 @@ pub const kmessagebox = struct {
             .len = param6.len,
             .data = param6.ptr,
         };
-        return qtc.KMessageBox_QuestionTwoActions(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @intCast(param7));
+        return qtc.KMessageBox_QuestionTwoActions(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @bitCast(param7));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#questionTwoActionsCancel)
@@ -82,7 +82,7 @@ pub const kmessagebox = struct {
             .len = param7.len,
             .data = param7.ptr,
         };
-        return qtc.KMessageBox_QuestionTwoActionsCancel(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
+        return qtc.KMessageBox_QuestionTwoActionsCancel(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), param7_str, @bitCast(param8));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#questionTwoActionsList)
@@ -136,7 +136,7 @@ pub const kmessagebox = struct {
             .len = param7.len,
             .data = param7.ptr,
         };
-        return qtc.KMessageBox_QuestionTwoActionsList(@ptrCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
+        return qtc.KMessageBox_QuestionTwoActionsList(@ptrCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @bitCast(param8));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActions)
@@ -174,7 +174,7 @@ pub const kmessagebox = struct {
             .len = param6.len,
             .data = param6.ptr,
         };
-        return qtc.KMessageBox_WarningTwoActions(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @intCast(param7));
+        return qtc.KMessageBox_WarningTwoActions(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @bitCast(param7));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActionsList)
@@ -228,7 +228,7 @@ pub const kmessagebox = struct {
             .len = param7.len,
             .data = param7.ptr,
         };
-        return qtc.KMessageBox_WarningTwoActionsList(@ptrCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
+        return qtc.KMessageBox_WarningTwoActionsList(@ptrCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @bitCast(param8));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningContinueCancel)
@@ -266,7 +266,7 @@ pub const kmessagebox = struct {
             .len = param6.len,
             .data = param6.ptr,
         };
-        return qtc.KMessageBox_WarningContinueCancel(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @intCast(param7));
+        return qtc.KMessageBox_WarningContinueCancel(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @bitCast(param7));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningContinueCancelDetailed)
@@ -310,7 +310,7 @@ pub const kmessagebox = struct {
             .len = param8.len,
             .data = param8.ptr,
         };
-        return qtc.KMessageBox_WarningContinueCancelDetailed(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @intCast(param7), param8_str);
+        return qtc.KMessageBox_WarningContinueCancelDetailed(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @bitCast(param7), param8_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningContinueCancelList)
@@ -364,7 +364,7 @@ pub const kmessagebox = struct {
             .len = param7.len,
             .data = param7.ptr,
         };
-        return qtc.KMessageBox_WarningContinueCancelList(@ptrCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
+        return qtc.KMessageBox_WarningContinueCancelList(@ptrCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @bitCast(param8));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActionsCancel)
@@ -404,7 +404,7 @@ pub const kmessagebox = struct {
             .len = param7.len,
             .data = param7.ptr,
         };
-        return qtc.KMessageBox_WarningTwoActionsCancel(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
+        return qtc.KMessageBox_WarningTwoActionsCancel(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), param7_str, @bitCast(param8));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActionsCancelList)
@@ -460,7 +460,7 @@ pub const kmessagebox = struct {
             .len = param8.len,
             .data = param8.ptr,
         };
-        return qtc.KMessageBox_WarningTwoActionsCancelList(@ptrCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), param8_str, @intCast(param9));
+        return qtc.KMessageBox_WarningTwoActionsCancelList(@ptrCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), param8_str, @bitCast(param9));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#error)
@@ -484,7 +484,7 @@ pub const kmessagebox = struct {
             .len = param3.len,
             .data = param3.ptr,
         };
-        qtc.KMessageBox_Error(@ptrCast(param1), param2_str, param3_str, @intCast(param4));
+        qtc.KMessageBox_Error(@ptrCast(param1), param2_str, param3_str, @bitCast(param4));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#error)
@@ -510,7 +510,7 @@ pub const kmessagebox = struct {
             .len = param3.len,
             .data = param3.ptr,
         };
-        qtc.KMessageBox_Error2(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @intCast(param5));
+        qtc.KMessageBox_Error2(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @bitCast(param5));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#errorList)
@@ -550,7 +550,7 @@ pub const kmessagebox = struct {
             .len = param4.len,
             .data = param4.ptr,
         };
-        qtc.KMessageBox_ErrorList(@ptrCast(param1), param2_str, param3_list, param4_str, @intCast(param5));
+        qtc.KMessageBox_ErrorList(@ptrCast(param1), param2_str, param3_list, param4_str, @bitCast(param5));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#detailedError)
@@ -580,7 +580,7 @@ pub const kmessagebox = struct {
             .len = param4.len,
             .data = param4.ptr,
         };
-        qtc.KMessageBox_DetailedError(@ptrCast(param1), param2_str, param3_str, param4_str, @intCast(param5));
+        qtc.KMessageBox_DetailedError(@ptrCast(param1), param2_str, param3_str, param4_str, @bitCast(param5));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#detailedError)
@@ -612,7 +612,7 @@ pub const kmessagebox = struct {
             .len = param4.len,
             .data = param4.ptr,
         };
-        qtc.KMessageBox_DetailedError2(@ptrCast(param1), param2_str, param3_str, param4_str, @ptrCast(param5), @intCast(param6));
+        qtc.KMessageBox_DetailedError2(@ptrCast(param1), param2_str, param3_str, param4_str, @ptrCast(param5), @bitCast(param6));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#information)
@@ -642,7 +642,7 @@ pub const kmessagebox = struct {
             .len = param4.len,
             .data = param4.ptr,
         };
-        qtc.KMessageBox_Information(@ptrCast(param1), param2_str, param3_str, param4_str, @intCast(param5));
+        qtc.KMessageBox_Information(@ptrCast(param1), param2_str, param3_str, param4_str, @bitCast(param5));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#informationList)
@@ -688,7 +688,7 @@ pub const kmessagebox = struct {
             .len = param5.len,
             .data = param5.ptr,
         };
-        qtc.KMessageBox_InformationList(@ptrCast(param1), param2_str, param3_list, param4_str, param5_str, @intCast(param6));
+        qtc.KMessageBox_InformationList(@ptrCast(param1), param2_str, param3_list, param4_str, param5_str, @bitCast(param6));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#enableAllMessages)
@@ -750,7 +750,7 @@ pub const kmessagebox = struct {
             .len = param8.len,
             .data = param8.ptr,
         };
-        return qtc.KMessageBox_MessageBox(@ptrCast(param1), @intCast(param2), param3_str, param4_str, @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), param8_str, @intCast(param9));
+        return qtc.KMessageBox_MessageBox(@ptrCast(param1), @bitCast(param2), param3_str, param4_str, @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), param8_str, @bitCast(param9));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#shouldBeShownTwoActions)
@@ -796,7 +796,7 @@ pub const kmessagebox = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.KMessageBox_SaveDontShowAgainTwoActions(param1_str, @intCast(param2));
+        qtc.KMessageBox_SaveDontShowAgainTwoActions(param1_str, @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#saveDontShowAgainContinue)
@@ -896,7 +896,7 @@ pub const kmessagebox = struct {
             .len = param9.len,
             .data = param9.ptr,
         };
-        return qtc.KMessageBox_CreateKMessageBox(@ptrCast(param1), @ptrCast(param2), @intCast(param3), param4_str, param5_list, param6_str, @ptrCast(param7), @intCast(param8), param9_str);
+        return qtc.KMessageBox_CreateKMessageBox(@ptrCast(param1), @ptrCast(param2), @bitCast(param3), param4_str, param5_list, param6_str, @ptrCast(param7), @bitCast(param8), param9_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#createKMessageBox)
@@ -954,7 +954,7 @@ pub const kmessagebox = struct {
             .len = param9.len,
             .data = param9.ptr,
         };
-        return qtc.KMessageBox_CreateKMessageBox2(@ptrCast(param1), @ptrCast(param2), @ptrCast(param3), param4_str, param5_list, param6_str, @ptrCast(param7), @intCast(param8), param9_str, @intCast(param10));
+        return qtc.KMessageBox_CreateKMessageBox2(@ptrCast(param1), @ptrCast(param2), @ptrCast(param3), param4_str, param5_list, param6_str, @ptrCast(param7), @bitCast(param8), param9_str, @bitCast(param10));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#questionTwoActionsWId)
@@ -992,7 +992,7 @@ pub const kmessagebox = struct {
             .len = param6.len,
             .data = param6.ptr,
         };
-        return qtc.KMessageBox_QuestionTwoActionsWId(@intCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @intCast(param7));
+        return qtc.KMessageBox_QuestionTwoActionsWId(@bitCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @bitCast(param7));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#questionTwoActionsCancelWId)
@@ -1032,7 +1032,7 @@ pub const kmessagebox = struct {
             .len = param7.len,
             .data = param7.ptr,
         };
-        return qtc.KMessageBox_QuestionTwoActionsCancelWId(@intCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
+        return qtc.KMessageBox_QuestionTwoActionsCancelWId(@bitCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), param7_str, @bitCast(param8));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#questionTwoActionsListWId)
@@ -1086,7 +1086,7 @@ pub const kmessagebox = struct {
             .len = param7.len,
             .data = param7.ptr,
         };
-        return qtc.KMessageBox_QuestionTwoActionsListWId(@intCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
+        return qtc.KMessageBox_QuestionTwoActionsListWId(@bitCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @bitCast(param8));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActionsWId)
@@ -1124,7 +1124,7 @@ pub const kmessagebox = struct {
             .len = param6.len,
             .data = param6.ptr,
         };
-        return qtc.KMessageBox_WarningTwoActionsWId(@intCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @intCast(param7));
+        return qtc.KMessageBox_WarningTwoActionsWId(@bitCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @bitCast(param7));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActionsListWId)
@@ -1178,7 +1178,7 @@ pub const kmessagebox = struct {
             .len = param7.len,
             .data = param7.ptr,
         };
-        return qtc.KMessageBox_WarningTwoActionsListWId(@intCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
+        return qtc.KMessageBox_WarningTwoActionsListWId(@bitCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @bitCast(param8));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningContinueCancelWId)
@@ -1216,7 +1216,7 @@ pub const kmessagebox = struct {
             .len = param6.len,
             .data = param6.ptr,
         };
-        return qtc.KMessageBox_WarningContinueCancelWId(@intCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @intCast(param7));
+        return qtc.KMessageBox_WarningContinueCancelWId(@bitCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @bitCast(param7));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningContinueCancelListWId)
@@ -1270,7 +1270,7 @@ pub const kmessagebox = struct {
             .len = param7.len,
             .data = param7.ptr,
         };
-        return qtc.KMessageBox_WarningContinueCancelListWId(@intCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
+        return qtc.KMessageBox_WarningContinueCancelListWId(@bitCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @bitCast(param8));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActionsCancelWId)
@@ -1310,7 +1310,7 @@ pub const kmessagebox = struct {
             .len = param7.len,
             .data = param7.ptr,
         };
-        return qtc.KMessageBox_WarningTwoActionsCancelWId(@intCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
+        return qtc.KMessageBox_WarningTwoActionsCancelWId(@bitCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), param7_str, @bitCast(param8));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActionsCancelListWId)
@@ -1366,7 +1366,7 @@ pub const kmessagebox = struct {
             .len = param8.len,
             .data = param8.ptr,
         };
-        return qtc.KMessageBox_WarningTwoActionsCancelListWId(@intCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), param8_str, @intCast(param9));
+        return qtc.KMessageBox_WarningTwoActionsCancelListWId(@bitCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), param8_str, @bitCast(param9));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#errorWId)
@@ -1390,7 +1390,7 @@ pub const kmessagebox = struct {
             .len = param3.len,
             .data = param3.ptr,
         };
-        qtc.KMessageBox_ErrorWId(@intCast(param1), param2_str, param3_str, @intCast(param4));
+        qtc.KMessageBox_ErrorWId(@bitCast(param1), param2_str, param3_str, @bitCast(param4));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#errorListWId)
@@ -1430,7 +1430,7 @@ pub const kmessagebox = struct {
             .len = param4.len,
             .data = param4.ptr,
         };
-        qtc.KMessageBox_ErrorListWId(@intCast(param1), param2_str, param3_list, param4_str, @intCast(param5));
+        qtc.KMessageBox_ErrorListWId(@bitCast(param1), param2_str, param3_list, param4_str, @bitCast(param5));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#detailedErrorWId)
@@ -1460,7 +1460,7 @@ pub const kmessagebox = struct {
             .len = param4.len,
             .data = param4.ptr,
         };
-        qtc.KMessageBox_DetailedErrorWId(@intCast(param1), param2_str, param3_str, param4_str, @intCast(param5));
+        qtc.KMessageBox_DetailedErrorWId(@bitCast(param1), param2_str, param3_str, param4_str, @bitCast(param5));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#detailedErrorWId)
@@ -1492,7 +1492,7 @@ pub const kmessagebox = struct {
             .len = param4.len,
             .data = param4.ptr,
         };
-        qtc.KMessageBox_DetailedErrorWId2(@intCast(param1), param2_str, param3_str, param4_str, @ptrCast(param5), @intCast(param6));
+        qtc.KMessageBox_DetailedErrorWId2(@bitCast(param1), param2_str, param3_str, param4_str, @ptrCast(param5), @bitCast(param6));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#informationWId)
@@ -1522,7 +1522,7 @@ pub const kmessagebox = struct {
             .len = param4.len,
             .data = param4.ptr,
         };
-        qtc.KMessageBox_InformationWId(@intCast(param1), param2_str, param3_str, param4_str, @intCast(param5));
+        qtc.KMessageBox_InformationWId(@bitCast(param1), param2_str, param3_str, param4_str, @bitCast(param5));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#informationListWId)
@@ -1568,7 +1568,7 @@ pub const kmessagebox = struct {
             .len = param5.len,
             .data = param5.ptr,
         };
-        qtc.KMessageBox_InformationListWId(@intCast(param1), param2_str, param3_list, param4_str, param5_str, @intCast(param6));
+        qtc.KMessageBox_InformationListWId(@bitCast(param1), param2_str, param3_list, param4_str, param5_str, @bitCast(param6));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#messageBoxWId)
@@ -1610,7 +1610,7 @@ pub const kmessagebox = struct {
             .len = param8.len,
             .data = param8.ptr,
         };
-        return qtc.KMessageBox_MessageBoxWId(@intCast(param1), @intCast(param2), param3_str, param4_str, @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), param8_str, @intCast(param9));
+        return qtc.KMessageBox_MessageBoxWId(@bitCast(param1), @bitCast(param2), param3_str, param4_str, @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), param8_str, @bitCast(param9));
     }
 };
 

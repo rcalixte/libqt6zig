@@ -44,7 +44,7 @@ pub const karchivefile = struct {
             .data = symlink.ptr,
         };
 
-        return qtc.KArchiveFile_new(@ptrCast(archive), name_str, @intCast(access), @ptrCast(date), user_str, group_str, symlink_str, @intCast(pos), @intCast(size));
+        return qtc.KArchiveFile_new(@ptrCast(archive), name_str, @bitCast(access), @ptrCast(date), user_str, group_str, symlink_str, @bitCast(pos), @bitCast(size));
     }
 
     /// New2 constructs a new KArchiveFile object.
@@ -86,7 +86,7 @@ pub const karchivefile = struct {
     /// ` s: i64 `
     ///
     pub fn SetSize(self: ?*anyopaque, s: i64) void {
-        qtc.KArchiveFile_SetSize(@ptrCast(self), @intCast(s));
+        qtc.KArchiveFile_SetSize(@ptrCast(self), @bitCast(s));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#data)
@@ -118,7 +118,7 @@ pub const karchivefile = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]u8 `
     ///
     pub fn OnData(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]u8) void {
-        qtc.KArchiveFile_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KArchiveFile_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#data)
@@ -160,7 +160,7 @@ pub const karchivefile = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QIODevice `
     ///
     pub fn OnCreateDevice(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QIODevice) void {
-        qtc.KArchiveFile_OnCreateDevice(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KArchiveFile_OnCreateDevice(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#createDevice)
@@ -196,7 +196,7 @@ pub const karchivefile = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsFile(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KArchiveFile_OnIsFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KArchiveFile_OnIsFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#isFile)
@@ -238,7 +238,7 @@ pub const karchivefile = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KArchiveFile_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KArchiveFile_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#virtual_hook)
@@ -252,7 +252,7 @@ pub const karchivefile = struct {
     /// ` callback: *const fn (self: QtC.KArchiveFile, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KArchiveFile_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KArchiveFile_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#virtual_hook)
@@ -268,7 +268,7 @@ pub const karchivefile = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KArchiveFile_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KArchiveFile_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from KArchiveEntry
@@ -310,7 +310,7 @@ pub const karchivefile = struct {
     /// ` self: QtC.KArchiveFile `
     ///
     pub fn Permissions(self: ?*anyopaque) u32 {
-        return @intCast(qtc.KArchiveEntry_Permissions(@ptrCast(self)));
+        return @bitCast(qtc.KArchiveEntry_Permissions(@ptrCast(self)));
     }
 
     /// Inherited from KArchiveEntry
@@ -408,7 +408,7 @@ pub const karchivefile = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsDirectory(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KArchiveFile_OnIsDirectory(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KArchiveFile_OnIsDirectory(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchiveEntry
@@ -452,7 +452,7 @@ pub const karchivefile = struct {
     /// ` callback: *const fn () callconv(.c) QtC.KArchive `
     ///
     pub fn OnArchive(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KArchive) void {
-        qtc.KArchiveFile_OnArchive(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KArchiveFile_OnArchive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#dtor.KArchiveFile)

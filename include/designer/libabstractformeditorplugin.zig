@@ -30,7 +30,7 @@ pub const qdesignerformeditorplugininterface = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsInitialized(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerFormEditorPluginInterface_OnIsInitialized(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormEditorPluginInterface_OnIsInitialized(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#isInitialized)
@@ -68,7 +68,7 @@ pub const qdesignerformeditorplugininterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormEditorPluginInterface, core: QtC.QDesignerFormEditorInterface) callconv(.c) void `
     ///
     pub fn OnInitialize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormEditorPluginInterface_OnInitialize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormEditorPluginInterface_OnInitialize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#initialize)
@@ -106,7 +106,7 @@ pub const qdesignerformeditorplugininterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QAction `
     ///
     pub fn OnAction(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAction) void {
-        qtc.QDesignerFormEditorPluginInterface_OnAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormEditorPluginInterface_OnAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#action)
@@ -142,7 +142,7 @@ pub const qdesignerformeditorplugininterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QDesignerFormEditorInterface `
     ///
     pub fn OnCore(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDesignerFormEditorInterface) void {
-        qtc.QDesignerFormEditorPluginInterface_OnCore(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormEditorPluginInterface_OnCore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#core)

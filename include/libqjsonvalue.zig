@@ -28,7 +28,7 @@ pub const qjsonvalue = struct {
     /// ` n: f64 `
     ///
     pub fn New3(n: f64) QtC.QJsonValue {
-        return qtc.QJsonValue_new3(@floatCast(n));
+        return qtc.QJsonValue_new3(@bitCast(n));
     }
 
     /// New4 constructs a new QJsonValue object.
@@ -38,7 +38,7 @@ pub const qjsonvalue = struct {
     /// ` n: i32 `
     ///
     pub fn New4(n: i32) QtC.QJsonValue {
-        return qtc.QJsonValue_new4(@intCast(n));
+        return qtc.QJsonValue_new4(@bitCast(n));
     }
 
     /// New5 constructs a new QJsonValue object.
@@ -48,7 +48,7 @@ pub const qjsonvalue = struct {
     /// ` v: i64 `
     ///
     pub fn New5(v: i64) QtC.QJsonValue {
-        return qtc.QJsonValue_new5(@intCast(v));
+        return qtc.QJsonValue_new5(@bitCast(v));
     }
 
     /// New6 constructs a new QJsonValue object.
@@ -115,7 +115,7 @@ pub const qjsonvalue = struct {
     /// ` param1: qjsonvalue_enums.Type `
     ///
     pub fn New11(param1: i32) QtC.QJsonValue {
-        return qtc.QJsonValue_new11(@intCast(param1));
+        return qtc.QJsonValue_new11(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#operator-eq)
@@ -393,7 +393,7 @@ pub const qjsonvalue = struct {
     /// ` i: i64 `
     ///
     pub fn OperatorSubscript4(self: ?*anyopaque, i: i64) QtC.QJsonValue {
-        return qtc.QJsonValue_OperatorSubscript4(@ptrCast(self), @intCast(i));
+        return qtc.QJsonValue_OperatorSubscript4(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toBool)
@@ -417,7 +417,7 @@ pub const qjsonvalue = struct {
     /// ` defaultValue: i32 `
     ///
     pub fn ToInt1(self: ?*anyopaque, defaultValue: i32) i32 {
-        return qtc.QJsonValue_ToInt1(@ptrCast(self), @intCast(defaultValue));
+        return qtc.QJsonValue_ToInt1(@ptrCast(self), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toInteger)
@@ -429,7 +429,7 @@ pub const qjsonvalue = struct {
     /// ` defaultValue: i64 `
     ///
     pub fn ToInteger1(self: ?*anyopaque, defaultValue: i64) i64 {
-        return qtc.QJsonValue_ToInteger1(@ptrCast(self), @intCast(defaultValue));
+        return qtc.QJsonValue_ToInteger1(@ptrCast(self), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toDouble)
@@ -441,7 +441,7 @@ pub const qjsonvalue = struct {
     /// ` defaultValue: f64 `
     ///
     pub fn ToDouble1(self: ?*anyopaque, defaultValue: f64) f64 {
-        return qtc.QJsonValue_ToDouble1(@ptrCast(self), @floatCast(defaultValue));
+        return qtc.QJsonValue_ToDouble1(@ptrCast(self), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#dtor.QJsonValue)
@@ -668,7 +668,7 @@ pub const qjsonvalueconstref = struct {
     /// ` i: i64 `
     ///
     pub fn OperatorSubscript3(self: ?*anyopaque, i: i64) QtC.QJsonValue {
-        return qtc.QJsonValueConstRef_OperatorSubscript3(@ptrCast(self), @intCast(i));
+        return qtc.QJsonValueConstRef_OperatorSubscript3(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toBool)
@@ -692,7 +692,7 @@ pub const qjsonvalueconstref = struct {
     /// ` defaultValue: i32 `
     ///
     pub fn ToInt1(self: ?*anyopaque, defaultValue: i32) i32 {
-        return qtc.QJsonValueConstRef_ToInt1(@ptrCast(self), @intCast(defaultValue));
+        return qtc.QJsonValueConstRef_ToInt1(@ptrCast(self), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toInteger)
@@ -704,7 +704,7 @@ pub const qjsonvalueconstref = struct {
     /// ` defaultValue: i64 `
     ///
     pub fn ToInteger1(self: ?*anyopaque, defaultValue: i64) i64 {
-        return qtc.QJsonValueConstRef_ToInteger1(@ptrCast(self), @intCast(defaultValue));
+        return qtc.QJsonValueConstRef_ToInteger1(@ptrCast(self), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toDouble)
@@ -716,7 +716,7 @@ pub const qjsonvalueconstref = struct {
     /// ` defaultValue: f64 `
     ///
     pub fn ToDouble1(self: ?*anyopaque, defaultValue: f64) f64 {
-        return qtc.QJsonValueConstRef_ToDouble1(@ptrCast(self), @floatCast(defaultValue));
+        return qtc.QJsonValueConstRef_ToDouble1(@ptrCast(self), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toString)
@@ -785,7 +785,7 @@ pub const qjsonvalueref = struct {
     /// ` idx: i64 `
     ///
     pub fn New3(array: ?*anyopaque, idx: i64) QtC.QJsonValueRef {
-        return qtc.QJsonValueRef_new3(@ptrCast(array), @intCast(idx));
+        return qtc.QJsonValueRef_new3(@ptrCast(array), @bitCast(idx));
     }
 
     /// New4 constructs a new QJsonValueRef object.
@@ -797,7 +797,7 @@ pub const qjsonvalueref = struct {
     /// ` idx: i64 `
     ///
     pub fn New4(object: ?*anyopaque, idx: i64) QtC.QJsonValueRef {
-        return qtc.QJsonValueRef_new4(@ptrCast(object), @intCast(idx));
+        return qtc.QJsonValueRef_new4(@ptrCast(object), @bitCast(idx));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-eq)
@@ -1013,7 +1013,7 @@ pub const qjsonvalueref = struct {
     /// ` i: i64 `
     ///
     pub fn OperatorSubscript3(self: ?*anyopaque, i: i64) QtC.QJsonValue {
-        return qtc.QJsonValueRef_OperatorSubscript3(@ptrCast(self), @intCast(i));
+        return qtc.QJsonValueRef_OperatorSubscript3(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toBool)
@@ -1037,7 +1037,7 @@ pub const qjsonvalueref = struct {
     /// ` defaultValue: i32 `
     ///
     pub fn ToInt1(self: ?*anyopaque, defaultValue: i32) i32 {
-        return qtc.QJsonValueRef_ToInt1(@ptrCast(self), @intCast(defaultValue));
+        return qtc.QJsonValueRef_ToInt1(@ptrCast(self), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toInteger)
@@ -1049,7 +1049,7 @@ pub const qjsonvalueref = struct {
     /// ` defaultValue: i64 `
     ///
     pub fn ToInteger1(self: ?*anyopaque, defaultValue: i64) i64 {
-        return qtc.QJsonValueRef_ToInteger1(@ptrCast(self), @intCast(defaultValue));
+        return qtc.QJsonValueRef_ToInteger1(@ptrCast(self), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toDouble)
@@ -1061,7 +1061,7 @@ pub const qjsonvalueref = struct {
     /// ` defaultValue: f64 `
     ///
     pub fn ToDouble1(self: ?*anyopaque, defaultValue: f64) f64 {
-        return qtc.QJsonValueRef_ToDouble1(@ptrCast(self), @floatCast(defaultValue));
+        return qtc.QJsonValueRef_ToDouble1(@ptrCast(self), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toString)

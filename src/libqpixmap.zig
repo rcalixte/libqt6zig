@@ -21,7 +21,7 @@ pub const qpixmap = struct {
     /// ` h: i32 `
     ///
     pub fn New2(w: i32, h: i32) QtC.QPixmap {
-        return qtc.QPixmap_new2(@intCast(w), @intCast(h));
+        return qtc.QPixmap_new2(@bitCast(w), @bitCast(h));
     }
 
     /// New3 constructs a new QPixmap object.
@@ -112,7 +112,7 @@ pub const qpixmap = struct {
         };
         const format_Cstring = format.ptr;
 
-        return qtc.QPixmap_new8(fileName_str, format_Cstring, @intCast(flags));
+        return qtc.QPixmap_new8(fileName_str, format_Cstring, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#operator-eq)
@@ -180,7 +180,7 @@ pub const qpixmap = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPixmap_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPixmap_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#devType)
@@ -302,7 +302,7 @@ pub const qpixmap = struct {
     /// ` scaleFactor: f64 `
     ///
     pub fn SetDevicePixelRatio(self: ?*anyopaque, scaleFactor: f64) void {
-        qtc.QPixmap_SetDevicePixelRatio(@ptrCast(self), @floatCast(scaleFactor));
+        qtc.QPixmap_SetDevicePixelRatio(@ptrCast(self), @bitCast(scaleFactor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#deviceIndependentSize)
@@ -368,7 +368,7 @@ pub const qpixmap = struct {
     /// ` h: i32 `
     ///
     pub fn Scaled(self: ?*anyopaque, w: i32, h: i32) QtC.QPixmap {
-        return qtc.QPixmap_Scaled(@ptrCast(self), @intCast(w), @intCast(h));
+        return qtc.QPixmap_Scaled(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaled)
@@ -392,7 +392,7 @@ pub const qpixmap = struct {
     /// ` w: i32 `
     ///
     pub fn ScaledToWidth(self: ?*anyopaque, w: i32) QtC.QPixmap {
-        return qtc.QPixmap_ScaledToWidth(@ptrCast(self), @intCast(w));
+        return qtc.QPixmap_ScaledToWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaledToHeight)
@@ -404,7 +404,7 @@ pub const qpixmap = struct {
     /// ` h: i32 `
     ///
     pub fn ScaledToHeight(self: ?*anyopaque, h: i32) QtC.QPixmap {
-        return qtc.QPixmap_ScaledToHeight(@ptrCast(self), @intCast(h));
+        return qtc.QPixmap_ScaledToHeight(@ptrCast(self), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#transformed)
@@ -430,7 +430,7 @@ pub const qpixmap = struct {
     /// ` h: i32 `
     ///
     pub fn TrueMatrix(m: ?*anyopaque, w: i32, h: i32) QtC.QTransform {
-        return qtc.QPixmap_TrueMatrix(@ptrCast(m), @intCast(w), @intCast(h));
+        return qtc.QPixmap_TrueMatrix(@ptrCast(m), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#toImage)
@@ -490,7 +490,7 @@ pub const qpixmap = struct {
     /// ` lenVal: u32 `
     ///
     pub fn LoadFromData(self: ?*anyopaque, buf: *const u8, lenVal: u32) bool {
-        return qtc.QPixmap_LoadFromData(@ptrCast(self), @ptrCast(buf), @intCast(lenVal));
+        return qtc.QPixmap_LoadFromData(@ptrCast(self), @ptrCast(buf), @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
@@ -564,7 +564,7 @@ pub const qpixmap = struct {
     /// ` height: i32 `
     ///
     pub fn Copy(self: ?*anyopaque, x: i32, y: i32, width: i32, height: i32) QtC.QPixmap {
-        return qtc.QPixmap_Copy(@ptrCast(self), @intCast(x), @intCast(y), @intCast(width), @intCast(height));
+        return qtc.QPixmap_Copy(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#copy)
@@ -596,7 +596,7 @@ pub const qpixmap = struct {
     /// ` height: i32 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32, x: i32, y: i32, width: i32, height: i32) void {
-        qtc.QPixmap_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy), @intCast(x), @intCast(y), @intCast(width), @intCast(height));
+        qtc.QPixmap_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scroll)
@@ -612,7 +612,7 @@ pub const qpixmap = struct {
     /// ` rect: QtC.QRect `
     ///
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, rect: ?*anyopaque) void {
-        qtc.QPixmap_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(rect));
+        qtc.QPixmap_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#cacheKey)
@@ -676,7 +676,7 @@ pub const qpixmap = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
     ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QPixmap_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPixmap_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#paintEngine)
@@ -710,7 +710,7 @@ pub const qpixmap = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QPixmap_Metric(@ptrCast(self), @intCast(param1));
+        return qtc.QPixmap_Metric(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#metric)
@@ -724,7 +724,7 @@ pub const qpixmap = struct {
     /// ` callback: *const fn (self: QtC.QPixmap, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QPixmap_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPixmap_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#metric)
@@ -738,7 +738,7 @@ pub const qpixmap = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QPixmap_QBaseMetric(@ptrCast(self), @intCast(param1));
+        return qtc.QPixmap_QBaseMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fill)
@@ -776,7 +776,7 @@ pub const qpixmap = struct {
     /// ` mode: qnamespace_enums.MaskMode `
     ///
     pub fn CreateMaskFromColor2(self: ?*anyopaque, maskColor: ?*anyopaque, mode: i32) QtC.QBitmap {
-        return qtc.QPixmap_CreateMaskFromColor2(@ptrCast(self), @ptrCast(maskColor), @intCast(mode));
+        return qtc.QPixmap_CreateMaskFromColor2(@ptrCast(self), @ptrCast(maskColor), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaled)
@@ -792,7 +792,7 @@ pub const qpixmap = struct {
     /// ` aspectMode: qnamespace_enums.AspectRatioMode `
     ///
     pub fn Scaled3(self: ?*anyopaque, w: i32, h: i32, aspectMode: i32) QtC.QPixmap {
-        return qtc.QPixmap_Scaled3(@ptrCast(self), @intCast(w), @intCast(h), @intCast(aspectMode));
+        return qtc.QPixmap_Scaled3(@ptrCast(self), @bitCast(w), @bitCast(h), @bitCast(aspectMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaled)
@@ -810,7 +810,7 @@ pub const qpixmap = struct {
     /// ` mode: qnamespace_enums.TransformationMode `
     ///
     pub fn Scaled4(self: ?*anyopaque, w: i32, h: i32, aspectMode: i32, mode: i32) QtC.QPixmap {
-        return qtc.QPixmap_Scaled4(@ptrCast(self), @intCast(w), @intCast(h), @intCast(aspectMode), @intCast(mode));
+        return qtc.QPixmap_Scaled4(@ptrCast(self), @bitCast(w), @bitCast(h), @bitCast(aspectMode), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaled)
@@ -824,7 +824,7 @@ pub const qpixmap = struct {
     /// ` aspectMode: qnamespace_enums.AspectRatioMode `
     ///
     pub fn Scaled22(self: ?*anyopaque, s: ?*anyopaque, aspectMode: i32) QtC.QPixmap {
-        return qtc.QPixmap_Scaled22(@ptrCast(self), @ptrCast(s), @intCast(aspectMode));
+        return qtc.QPixmap_Scaled22(@ptrCast(self), @ptrCast(s), @bitCast(aspectMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaled)
@@ -840,7 +840,7 @@ pub const qpixmap = struct {
     /// ` mode: qnamespace_enums.TransformationMode `
     ///
     pub fn Scaled32(self: ?*anyopaque, s: ?*anyopaque, aspectMode: i32, mode: i32) QtC.QPixmap {
-        return qtc.QPixmap_Scaled32(@ptrCast(self), @ptrCast(s), @intCast(aspectMode), @intCast(mode));
+        return qtc.QPixmap_Scaled32(@ptrCast(self), @ptrCast(s), @bitCast(aspectMode), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaledToWidth)
@@ -854,7 +854,7 @@ pub const qpixmap = struct {
     /// ` mode: qnamespace_enums.TransformationMode `
     ///
     pub fn ScaledToWidth2(self: ?*anyopaque, w: i32, mode: i32) QtC.QPixmap {
-        return qtc.QPixmap_ScaledToWidth2(@ptrCast(self), @intCast(w), @intCast(mode));
+        return qtc.QPixmap_ScaledToWidth2(@ptrCast(self), @bitCast(w), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaledToHeight)
@@ -868,7 +868,7 @@ pub const qpixmap = struct {
     /// ` mode: qnamespace_enums.TransformationMode `
     ///
     pub fn ScaledToHeight2(self: ?*anyopaque, h: i32, mode: i32) QtC.QPixmap {
-        return qtc.QPixmap_ScaledToHeight2(@ptrCast(self), @intCast(h), @intCast(mode));
+        return qtc.QPixmap_ScaledToHeight2(@ptrCast(self), @bitCast(h), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#transformed)
@@ -882,7 +882,7 @@ pub const qpixmap = struct {
     /// ` mode: qnamespace_enums.TransformationMode `
     ///
     pub fn Transformed2(self: ?*anyopaque, param1: ?*anyopaque, mode: i32) QtC.QPixmap {
-        return qtc.QPixmap_Transformed2(@ptrCast(self), @ptrCast(param1), @intCast(mode));
+        return qtc.QPixmap_Transformed2(@ptrCast(self), @ptrCast(param1), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImage)
@@ -894,7 +894,7 @@ pub const qpixmap = struct {
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
     pub fn FromImage2(image: ?*anyopaque, flags: i32) QtC.QPixmap {
-        return qtc.QPixmap_FromImage2(@ptrCast(image), @intCast(flags));
+        return qtc.QPixmap_FromImage2(@ptrCast(image), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageReader)
@@ -906,7 +906,7 @@ pub const qpixmap = struct {
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
     pub fn FromImageReader2(imageReader: ?*anyopaque, flags: i32) QtC.QPixmap {
-        return qtc.QPixmap_FromImageReader2(@ptrCast(imageReader), @intCast(flags));
+        return qtc.QPixmap_FromImageReader2(@ptrCast(imageReader), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#load)
@@ -946,7 +946,7 @@ pub const qpixmap = struct {
             .data = fileName.ptr,
         };
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_Load3(@ptrCast(self), fileName_str, format_Cstring, @intCast(flags));
+        return qtc.QPixmap_Load3(@ptrCast(self), fileName_str, format_Cstring, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
@@ -963,7 +963,7 @@ pub const qpixmap = struct {
     ///
     pub fn LoadFromData3(self: ?*anyopaque, buf: *const u8, lenVal: u32, format: [:0]const u8) bool {
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_LoadFromData3(@ptrCast(self), @ptrCast(buf), @intCast(lenVal), format_Cstring);
+        return qtc.QPixmap_LoadFromData3(@ptrCast(self), @ptrCast(buf), @bitCast(lenVal), format_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
@@ -982,7 +982,7 @@ pub const qpixmap = struct {
     ///
     pub fn LoadFromData4(self: ?*anyopaque, buf: *const u8, lenVal: u32, format: [:0]const u8, flags: i32) bool {
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_LoadFromData4(@ptrCast(self), @ptrCast(buf), @intCast(lenVal), format_Cstring, @intCast(flags));
+        return qtc.QPixmap_LoadFromData4(@ptrCast(self), @ptrCast(buf), @bitCast(lenVal), format_Cstring, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
@@ -1022,7 +1022,7 @@ pub const qpixmap = struct {
             .data = data.ptr,
         };
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_LoadFromData32(@ptrCast(self), data_str, format_Cstring, @intCast(flags));
+        return qtc.QPixmap_LoadFromData32(@ptrCast(self), data_str, format_Cstring, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#save)
@@ -1062,7 +1062,7 @@ pub const qpixmap = struct {
             .data = fileName.ptr,
         };
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_Save3(@ptrCast(self), fileName_str, format_Cstring, @intCast(quality));
+        return qtc.QPixmap_Save3(@ptrCast(self), fileName_str, format_Cstring, @bitCast(quality));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#save)
@@ -1094,7 +1094,7 @@ pub const qpixmap = struct {
     ///
     pub fn Save32(self: ?*anyopaque, device: ?*anyopaque, format: [:0]const u8, quality: i32) bool {
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_Save32(@ptrCast(self), @ptrCast(device), format_Cstring, @intCast(quality));
+        return qtc.QPixmap_Save32(@ptrCast(self), @ptrCast(device), format_Cstring, @bitCast(quality));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#convertFromImage)
@@ -1108,7 +1108,7 @@ pub const qpixmap = struct {
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
     pub fn ConvertFromImage2(self: ?*anyopaque, img: ?*anyopaque, flags: i32) bool {
-        return qtc.QPixmap_ConvertFromImage2(@ptrCast(self), @ptrCast(img), @intCast(flags));
+        return qtc.QPixmap_ConvertFromImage2(@ptrCast(self), @ptrCast(img), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#copy)
@@ -1144,7 +1144,7 @@ pub const qpixmap = struct {
     /// ` exposed: QtC.QRegion `
     ///
     pub fn Scroll7(self: ?*anyopaque, dx: i32, dy: i32, x: i32, y: i32, width: i32, height: i32, exposed: ?*anyopaque) void {
-        qtc.QPixmap_Scroll7(@ptrCast(self), @intCast(dx), @intCast(dy), @intCast(x), @intCast(y), @intCast(width), @intCast(height), @ptrCast(exposed));
+        qtc.QPixmap_Scroll7(@ptrCast(self), @bitCast(dx), @bitCast(dy), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height), @ptrCast(exposed));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scroll)
@@ -1162,7 +1162,7 @@ pub const qpixmap = struct {
     /// ` exposed: QtC.QRegion `
     ///
     pub fn Scroll4(self: ?*anyopaque, dx: i32, dy: i32, rect: ?*anyopaque, exposed: ?*anyopaque) void {
-        qtc.QPixmap_Scroll4(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(rect), @ptrCast(exposed));
+        qtc.QPixmap_Scroll4(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect), @ptrCast(exposed));
     }
 
     /// Inherited from QPaintDevice
@@ -1292,7 +1292,7 @@ pub const qpixmap = struct {
     /// ` value: f64 `
     ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
 
     /// Inherited from QPaintDevice
@@ -1340,7 +1340,7 @@ pub const qpixmap = struct {
     /// ` callback: *const fn (self: QtC.QPixmap, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPixmap_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPixmap_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1388,7 +1388,7 @@ pub const qpixmap = struct {
     /// ` callback: *const fn (self: QtC.QPixmap, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
     ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QPixmap_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPixmap_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1432,7 +1432,7 @@ pub const qpixmap = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainter `
     ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QPixmap_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPixmap_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1450,7 +1450,7 @@ pub const qpixmap = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QPixmap_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QPixmap_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -1468,7 +1468,7 @@ pub const qpixmap = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QPixmap_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QPixmap_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -1484,7 +1484,7 @@ pub const qpixmap = struct {
     /// ` callback: *const fn (self: QtC.QPixmap, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QPixmap_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPixmap_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#dtor.QPixmap)

@@ -77,7 +77,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QWebEngineProfile_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -112,7 +112,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QWebEngineProfile_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -139,7 +139,7 @@ pub const qwebengineprofile = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWebEngineProfile_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QWebEngineProfile_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -151,7 +151,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QWebEngineProfile_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -167,7 +167,7 @@ pub const qwebengineprofile = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWebEngineProfile_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QWebEngineProfile_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -332,7 +332,7 @@ pub const qwebengineprofile = struct {
     /// ` httpCacheType: qwebengineprofile_enums.HttpCacheType `
     ///
     pub fn SetHttpCacheType(self: ?*anyopaque, httpCacheType: i32) void {
-        qtc.QWebEngineProfile_SetHttpCacheType(@ptrCast(self), @intCast(httpCacheType));
+        qtc.QWebEngineProfile_SetHttpCacheType(@ptrCast(self), @bitCast(httpCacheType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setHttpAcceptLanguage)
@@ -390,7 +390,7 @@ pub const qwebengineprofile = struct {
     /// ` persistentCookiesPolicy: qwebengineprofile_enums.PersistentCookiesPolicy `
     ///
     pub fn SetPersistentCookiesPolicy(self: ?*anyopaque, persistentCookiesPolicy: i32) void {
-        qtc.QWebEngineProfile_SetPersistentCookiesPolicy(@ptrCast(self), @intCast(persistentCookiesPolicy));
+        qtc.QWebEngineProfile_SetPersistentCookiesPolicy(@ptrCast(self), @bitCast(persistentCookiesPolicy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#persistentPermissionsPolicy)
@@ -416,7 +416,7 @@ pub const qwebengineprofile = struct {
     /// ` persistentPermissionsPolicy: qwebengineprofile_enums.PersistentPermissionsPolicy `
     ///
     pub fn SetPersistentPermissionsPolicy(self: ?*anyopaque, persistentPermissionsPolicy: u8) void {
-        qtc.QWebEngineProfile_SetPersistentPermissionsPolicy(@ptrCast(self), @intCast(persistentPermissionsPolicy));
+        qtc.QWebEngineProfile_SetPersistentPermissionsPolicy(@ptrCast(self), @bitCast(persistentPermissionsPolicy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#httpCacheMaximumSize)
@@ -438,7 +438,7 @@ pub const qwebengineprofile = struct {
     /// ` maxSize: i32 `
     ///
     pub fn SetHttpCacheMaximumSize(self: ?*anyopaque, maxSize: i32) void {
-        qtc.QWebEngineProfile_SetHttpCacheMaximumSize(@ptrCast(self), @intCast(maxSize));
+        qtc.QWebEngineProfile_SetHttpCacheMaximumSize(@ptrCast(self), @bitCast(maxSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#cookieStore)
@@ -763,7 +763,7 @@ pub const qwebengineprofile = struct {
     /// ` permissionType: qwebenginepermission_enums.PermissionType `
     ///
     pub fn QueryPermission(self: ?*anyopaque, securityOrigin: ?*anyopaque, permissionType: u8) QtC.QWebEnginePermission {
-        return qtc.QWebEngineProfile_QueryPermission(@ptrCast(self), @ptrCast(securityOrigin), @intCast(permissionType));
+        return qtc.QWebEngineProfile_QueryPermission(@ptrCast(self), @ptrCast(securityOrigin), @bitCast(permissionType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#listAllPermissions)
@@ -813,7 +813,7 @@ pub const qwebengineprofile = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ListPermissionsForPermissionType(self: ?*anyopaque, permissionType: u8, allocator: std.mem.Allocator) []QtC.QWebEnginePermission {
-        const _arr: qtc.libqt_list = qtc.QWebEngineProfile_ListPermissionsForPermissionType(@ptrCast(self), @intCast(permissionType));
+        const _arr: qtc.libqt_list = qtc.QWebEngineProfile_ListPermissionsForPermissionType(@ptrCast(self), @bitCast(permissionType));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWebEnginePermission, _arr.len) catch @panic("qwebengineprofile.ListPermissionsForPermissionType: Memory allocation failed");
         const _data: [*]QtC.QWebEnginePermission = @ptrCast(@alignCast(_arr.data));
@@ -848,7 +848,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile, download: QtC.QWebEngineDownloadRequest) callconv(.c) void `
     ///
     pub fn OnDownloadRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineProfile_Connect_DownloadRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_Connect_DownloadRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#clearHttpCacheCompleted)
@@ -870,7 +870,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile) callconv(.c) void `
     ///
     pub fn OnClearHttpCacheCompleted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineProfile_Connect_ClearHttpCacheCompleted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_Connect_ClearHttpCacheCompleted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -908,7 +908,7 @@ pub const qwebengineprofile = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1046,7 +1046,7 @@ pub const qwebengineprofile = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1060,7 +1060,7 @@ pub const qwebengineprofile = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1074,7 +1074,7 @@ pub const qwebengineprofile = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1088,7 +1088,7 @@ pub const qwebengineprofile = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1418,7 +1418,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1473,7 +1473,7 @@ pub const qwebengineprofile = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1489,7 +1489,7 @@ pub const qwebengineprofile = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1511,7 +1511,7 @@ pub const qwebengineprofile = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1531,7 +1531,7 @@ pub const qwebengineprofile = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1553,7 +1553,7 @@ pub const qwebengineprofile = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1650,7 +1650,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1698,7 +1698,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWebEngineProfile_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1750,7 +1750,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWebEngineProfile_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1798,7 +1798,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineProfile_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1846,7 +1846,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineProfile_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1894,7 +1894,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineProfile_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1942,7 +1942,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineProfile_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1990,7 +1990,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineProfile_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2034,7 +2034,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QWebEngineProfile_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2078,7 +2078,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWebEngineProfile_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2128,7 +2128,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QWebEngineProfile_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2176,7 +2176,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWebEngineProfile_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebEngineProfile_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2192,7 +2192,7 @@ pub const qwebengineprofile = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineProfile, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#dtor.QWebEngineProfile)

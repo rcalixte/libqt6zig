@@ -48,7 +48,7 @@ pub const kcompletionbase = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBase, completionObject: QtC.KCompletion, handleSignals: bool) callconv(.c) void `
     ///
     pub fn OnSetCompletionObject(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KCompletionBase_OnSetCompletionObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBase_OnSetCompletionObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletionObject)
@@ -90,7 +90,7 @@ pub const kcompletionbase = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBase, handle: bool) callconv(.c) void `
     ///
     pub fn OnSetHandleSignals(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KCompletionBase_OnSetHandleSignals(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBase_OnSetHandleSignals(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setHandleSignals)
@@ -182,7 +182,7 @@ pub const kcompletionbase = struct {
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
     pub fn SetCompletionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KCompletionBase_SetCompletionMode(@ptrCast(self), @intCast(mode));
+        qtc.KCompletionBase_SetCompletionMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletionMode)
@@ -196,7 +196,7 @@ pub const kcompletionbase = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBase, mode: kcompletion_enums.CompletionMode) callconv(.c) void `
     ///
     pub fn OnSetCompletionMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCompletionBase_OnSetCompletionMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBase_OnSetCompletionMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletionMode)
@@ -210,7 +210,7 @@ pub const kcompletionbase = struct {
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
     pub fn QBaseSetCompletionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KCompletionBase_QBaseSetCompletionMode(@ptrCast(self), @intCast(mode));
+        qtc.KCompletionBase_QBaseSetCompletionMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#completionMode)
@@ -242,7 +242,7 @@ pub const kcompletionbase = struct {
             .len = key.len,
             .data = @ptrCast(key.ptr),
         };
-        return qtc.KCompletionBase_SetKeyBinding(@ptrCast(self), @intCast(item), key_list);
+        return qtc.KCompletionBase_SetKeyBinding(@ptrCast(self), @bitCast(item), key_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBinding)
@@ -256,7 +256,7 @@ pub const kcompletionbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn KeyBinding(self: ?*anyopaque, item: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
-        const _arr: qtc.libqt_list = qtc.KCompletionBase_KeyBinding(@ptrCast(self), @intCast(item));
+        const _arr: qtc.libqt_list = qtc.KCompletionBase_KeyBinding(@ptrCast(self), @bitCast(item));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("kcompletionbase.KeyBinding: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -301,7 +301,7 @@ pub const kcompletionbase = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBase, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetCompletedText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KCompletionBase_OnSetCompletedText(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBase_OnSetCompletedText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedText)
@@ -361,7 +361,7 @@ pub const kcompletionbase = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBase, items: ?[*:null]?[*:0]const u8, autoSuggest: bool) callconv(.c) void `
     ///
     pub fn OnSetCompletedItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8, bool) callconv(.c) void) void {
-        qtc.KCompletionBase_OnSetCompletedItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBase_OnSetCompletedItems(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedItems)
@@ -456,7 +456,7 @@ pub const kcompletionbase = struct {
     /// ` C ABI representation of map_i32_sliceqtcqkeysequence `
     ///
     pub fn OnKeyBindingMap(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.KCompletionBase_OnKeyBindingMap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBase_OnKeyBindingMap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
@@ -518,7 +518,7 @@ pub const kcompletionbase = struct {
         var keyBindingMap_it = keyBindingMap.iterator();
         while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
             const keyBindingMap_key = it_entry.key_ptr.*;
-            keyBindingMap_keys[i] = @intCast(keyBindingMap_key);
+            keyBindingMap_keys[i] = @bitCast(keyBindingMap_key);
             const value = it_entry.value_ptr.*;
             keyBindingMap_values[i] = qtc.libqt_list{
                 .len = value.len,
@@ -544,7 +544,7 @@ pub const kcompletionbase = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBase, keyBindingMap: qtc.libqt_map (map_i32_sliceqtcqkeysequence)) callconv(.c) void `
     ///
     pub fn OnSetKeyBindingMap(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_map) callconv(.c) void) void {
-        qtc.KCompletionBase_OnSetKeyBindingMap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBase_OnSetKeyBindingMap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
@@ -569,7 +569,7 @@ pub const kcompletionbase = struct {
         var keyBindingMap_it = keyBindingMap.iterator();
         while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
             const keyBindingMap_key = it_entry.key_ptr.*;
-            keyBindingMap_keys[i] = @intCast(keyBindingMap_key);
+            keyBindingMap_keys[i] = @bitCast(keyBindingMap_key);
             const value = it_entry.value_ptr.*;
             keyBindingMap_values[i] = qtc.libqt_list{
                 .len = value.len,
@@ -607,7 +607,7 @@ pub const kcompletionbase = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBase, delegate: QtC.KCompletionBase) callconv(.c) void `
     ///
     pub fn OnSetDelegate(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBase_OnSetDelegate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBase_OnSetDelegate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
@@ -645,7 +645,7 @@ pub const kcompletionbase = struct {
     /// ` callback: *const fn () callconv(.c) QtC.KCompletionBase `
     ///
     pub fn OnDelegate(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KCompletionBase) void {
-        qtc.KCompletionBase_OnDelegate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBase_OnDelegate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
@@ -671,7 +671,7 @@ pub const kcompletionbase = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KCompletionBase_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KCompletionBase_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#virtual_hook)
@@ -685,7 +685,7 @@ pub const kcompletionbase = struct {
     /// ` callback: *const fn (self: QtC.KCompletionBase, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletionBase_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletionBase_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#virtual_hook)
@@ -701,7 +701,7 @@ pub const kcompletionbase = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KCompletionBase_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KCompletionBase_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#completionObject)

@@ -28,7 +28,7 @@ pub const qpalette = struct {
     /// ` button: qnamespace_enums.GlobalColor `
     ///
     pub fn New3(button: i32) QtC.QPalette {
-        return qtc.QPalette_new3(@intCast(button));
+        return qtc.QPalette_new3(@bitCast(button));
     }
 
     /// New4 constructs a new QPalette object.
@@ -158,7 +158,7 @@ pub const qpalette = struct {
     /// ` cg: qpalette_enums.ColorGroup `
     ///
     pub fn SetCurrentColorGroup(self: ?*anyopaque, cg: i32) void {
-        qtc.QPalette_SetCurrentColorGroup(@ptrCast(self), @intCast(cg));
+        qtc.QPalette_SetCurrentColorGroup(@ptrCast(self), @bitCast(cg));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#color)
@@ -172,7 +172,7 @@ pub const qpalette = struct {
     /// ` cr: qpalette_enums.ColorRole `
     ///
     pub fn Color(self: ?*anyopaque, cg: i32, cr: i32) QtC.QColor {
-        return qtc.QPalette_Color(@ptrCast(self), @intCast(cg), @intCast(cr));
+        return qtc.QPalette_Color(@ptrCast(self), @bitCast(cg), @bitCast(cr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#brush)
@@ -186,7 +186,7 @@ pub const qpalette = struct {
     /// ` cr: qpalette_enums.ColorRole `
     ///
     pub fn Brush(self: ?*anyopaque, cg: i32, cr: i32) QtC.QBrush {
-        return qtc.QPalette_Brush(@ptrCast(self), @intCast(cg), @intCast(cr));
+        return qtc.QPalette_Brush(@ptrCast(self), @bitCast(cg), @bitCast(cr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setColor)
@@ -202,7 +202,7 @@ pub const qpalette = struct {
     /// ` color: QtC.QColor `
     ///
     pub fn SetColor(self: ?*anyopaque, cg: i32, cr: i32, color: ?*anyopaque) void {
-        qtc.QPalette_SetColor(@ptrCast(self), @intCast(cg), @intCast(cr), @ptrCast(color));
+        qtc.QPalette_SetColor(@ptrCast(self), @bitCast(cg), @bitCast(cr), @ptrCast(color));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setColor)
@@ -216,7 +216,7 @@ pub const qpalette = struct {
     /// ` color: QtC.QColor `
     ///
     pub fn SetColor2(self: ?*anyopaque, cr: i32, color: ?*anyopaque) void {
-        qtc.QPalette_SetColor2(@ptrCast(self), @intCast(cr), @ptrCast(color));
+        qtc.QPalette_SetColor2(@ptrCast(self), @bitCast(cr), @ptrCast(color));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setBrush)
@@ -230,7 +230,7 @@ pub const qpalette = struct {
     /// ` brush: QtC.QBrush `
     ///
     pub fn SetBrush(self: ?*anyopaque, cr: i32, brush: ?*anyopaque) void {
-        qtc.QPalette_SetBrush(@ptrCast(self), @intCast(cr), @ptrCast(brush));
+        qtc.QPalette_SetBrush(@ptrCast(self), @bitCast(cr), @ptrCast(brush));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#isBrushSet)
@@ -244,7 +244,7 @@ pub const qpalette = struct {
     /// ` cr: qpalette_enums.ColorRole `
     ///
     pub fn IsBrushSet(self: ?*anyopaque, cg: i32, cr: i32) bool {
-        return qtc.QPalette_IsBrushSet(@ptrCast(self), @intCast(cg), @intCast(cr));
+        return qtc.QPalette_IsBrushSet(@ptrCast(self), @bitCast(cg), @bitCast(cr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setBrush)
@@ -260,7 +260,7 @@ pub const qpalette = struct {
     /// ` brush: QtC.QBrush `
     ///
     pub fn SetBrush2(self: ?*anyopaque, cg: i32, cr: i32, brush: ?*anyopaque) void {
-        qtc.QPalette_SetBrush2(@ptrCast(self), @intCast(cg), @intCast(cr), @ptrCast(brush));
+        qtc.QPalette_SetBrush2(@ptrCast(self), @bitCast(cg), @bitCast(cr), @ptrCast(brush));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setColorGroup)
@@ -290,7 +290,7 @@ pub const qpalette = struct {
     /// ` window: QtC.QBrush `
     ///
     pub fn SetColorGroup(self: ?*anyopaque, cr: i32, windowText: ?*anyopaque, button: ?*anyopaque, light: ?*anyopaque, dark: ?*anyopaque, mid: ?*anyopaque, text: ?*anyopaque, bright_text: ?*anyopaque, base: ?*anyopaque, window: ?*anyopaque) void {
-        qtc.QPalette_SetColorGroup(@ptrCast(self), @intCast(cr), @ptrCast(windowText), @ptrCast(button), @ptrCast(light), @ptrCast(dark), @ptrCast(mid), @ptrCast(text), @ptrCast(bright_text), @ptrCast(base), @ptrCast(window));
+        qtc.QPalette_SetColorGroup(@ptrCast(self), @bitCast(cr), @ptrCast(windowText), @ptrCast(button), @ptrCast(light), @ptrCast(dark), @ptrCast(mid), @ptrCast(text), @ptrCast(bright_text), @ptrCast(base), @ptrCast(window));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#isEqual)
@@ -304,7 +304,7 @@ pub const qpalette = struct {
     /// ` cr2: qpalette_enums.ColorGroup `
     ///
     pub fn IsEqual(self: ?*anyopaque, cr1: i32, cr2: i32) bool {
-        return qtc.QPalette_IsEqual(@ptrCast(self), @intCast(cr1), @intCast(cr2));
+        return qtc.QPalette_IsEqual(@ptrCast(self), @bitCast(cr1), @bitCast(cr2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#color)
@@ -316,7 +316,7 @@ pub const qpalette = struct {
     /// ` cr: qpalette_enums.ColorRole `
     ///
     pub fn Color2(self: ?*anyopaque, cr: i32) QtC.QColor {
-        return qtc.QPalette_Color2(@ptrCast(self), @intCast(cr));
+        return qtc.QPalette_Color2(@ptrCast(self), @bitCast(cr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#brush)
@@ -328,7 +328,7 @@ pub const qpalette = struct {
     /// ` cr: qpalette_enums.ColorRole `
     ///
     pub fn Brush2(self: ?*anyopaque, cr: i32) QtC.QBrush {
-        return qtc.QPalette_Brush2(@ptrCast(self), @intCast(cr));
+        return qtc.QPalette_Brush2(@ptrCast(self), @bitCast(cr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#windowText)
@@ -618,7 +618,7 @@ pub const qpalette = struct {
     /// ` mask: u64 `
     ///
     pub fn SetResolveMask(self: ?*anyopaque, mask: u64) void {
-        qtc.QPalette_SetResolveMask(@ptrCast(self), @intCast(mask));
+        qtc.QPalette_SetResolveMask(@ptrCast(self), @bitCast(mask));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#dtor.QPalette)

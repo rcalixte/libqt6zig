@@ -56,7 +56,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KIO__SpecialJob_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -91,7 +91,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KIO__SpecialJob_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -118,7 +118,7 @@ pub const kio__specialjob = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KIO__SpecialJob_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KIO__SpecialJob_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -130,7 +130,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KIO__SpecialJob_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -146,7 +146,7 @@ pub const kio__specialjob = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KIO__SpecialJob_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KIO__SpecialJob_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -233,7 +233,7 @@ pub const kio__specialjob = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__specialjob.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -339,7 +339,7 @@ pub const kio__specialjob = struct {
     /// ` bytes: u64 `
     ///
     pub fn SetTotalSize(self: ?*anyopaque, bytes: u64) void {
-        qtc.KIO__TransferJob_SetTotalSize(@ptrCast(self), @intCast(bytes));
+        qtc.KIO__TransferJob_SetTotalSize(@ptrCast(self), @bitCast(bytes));
     }
 
     /// Inherited from KIO::TransferJob
@@ -373,7 +373,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KIO__Job, data: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_string) callconv(.c) void) void {
-        qtc.KIO__TransferJob_Connect_Data(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__TransferJob_Connect_Data(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::TransferJob
@@ -407,7 +407,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KIO__Job, data: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn OnDataReq(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_string) callconv(.c) void) void {
-        qtc.KIO__TransferJob_Connect_DataReq(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__TransferJob_Connect_DataReq(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::TransferJob
@@ -437,7 +437,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KIO__Job, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnRedirection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__TransferJob_Connect_Redirection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__TransferJob_Connect_Redirection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::TransferJob
@@ -469,7 +469,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KIO__Job, fromUrl: QtC.QUrl, toUrl: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnPermanentRedirection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__TransferJob_Connect_PermanentRedirection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__TransferJob_Connect_PermanentRedirection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::TransferJob
@@ -503,7 +503,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KIO__Job, mimeType: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnMimeTypeFound(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__TransferJob_Connect_MimeTypeFound(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__TransferJob_Connect_MimeTypeFound(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::TransferJob
@@ -519,7 +519,7 @@ pub const kio__specialjob = struct {
     /// ` offset: u64 `
     ///
     pub fn CanResume(self: ?*anyopaque, job: ?*anyopaque, offset: u64) void {
-        qtc.KIO__TransferJob_CanResume(@ptrCast(self), @ptrCast(job), @intCast(offset));
+        qtc.KIO__TransferJob_CanResume(@ptrCast(self), @ptrCast(job), @bitCast(offset));
     }
 
     /// Inherited from KIO::TransferJob
@@ -533,7 +533,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KIO__Job, offset: u64) callconv(.c) void `
     ///
     pub fn OnCanResume(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KIO__TransferJob_Connect_CanResume(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__TransferJob_Connect_CanResume(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::SimpleJob
@@ -599,7 +599,7 @@ pub const kio__specialjob = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        qtc.KIO__SimpleJob_SlotError(@ptrCast(self), @intCast(param1), param2_str);
+        qtc.KIO__SimpleJob_SlotError(@ptrCast(self), @bitCast(param1), param2_str);
     }
 
     /// Inherited from KIO::Job
@@ -874,7 +874,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KIO__Job) callconv(.c) void `
     ///
     pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__Job_Connect_Connected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__Job_Connect_Connected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::Job
@@ -923,7 +923,7 @@ pub const kio__specialjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DetailedErrorStrings2(self: ?*anyopaque, reqUrl: ?*anyopaque, method: i32, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings2(@ptrCast(self), @ptrCast(reqUrl), @intCast(method));
+        const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings2(@ptrCast(self), @ptrCast(reqUrl), @bitCast(method));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -1084,7 +1084,7 @@ pub const kio__specialjob = struct {
     /// ` unit: kjob_enums.Unit `
     ///
     pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) u64 {
-        return qtc.KJob_ProcessedAmount(@ptrCast(self), @intCast(unit));
+        return qtc.KJob_ProcessedAmount(@ptrCast(self), @bitCast(unit));
     }
 
     /// Inherited from KJob
@@ -1098,7 +1098,7 @@ pub const kio__specialjob = struct {
     /// ` unit: kjob_enums.Unit `
     ///
     pub fn TotalAmount(self: ?*anyopaque, unit: i32) u64 {
-        return qtc.KJob_TotalAmount(@ptrCast(self), @intCast(unit));
+        return qtc.KJob_TotalAmount(@ptrCast(self), @bitCast(unit));
     }
 
     /// Inherited from KJob
@@ -1218,7 +1218,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_InfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_InfoMessage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1252,7 +1252,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_Warning(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_Warning(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1268,7 +1268,7 @@ pub const kio__specialjob = struct {
     /// ` size: u64 `
     ///
     pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
-        qtc.KJob_TotalSize(@ptrCast(self), @ptrCast(job), @intCast(size));
+        qtc.KJob_TotalSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
     }
 
     /// Inherited from KJob
@@ -1282,7 +1282,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob, size: u64) callconv(.c) void `
     ///
     pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_TotalSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1298,7 +1298,7 @@ pub const kio__specialjob = struct {
     /// ` size: u64 `
     ///
     pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
-        qtc.KJob_ProcessedSize(@ptrCast(self), @ptrCast(job), @intCast(size));
+        qtc.KJob_ProcessedSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
     }
 
     /// Inherited from KJob
@@ -1312,7 +1312,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob, size: u64) callconv(.c) void `
     ///
     pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1328,7 +1328,7 @@ pub const kio__specialjob = struct {
     /// ` speed: u64 `
     ///
     pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: u64) void {
-        qtc.KJob_Speed(@ptrCast(self), @ptrCast(job), @intCast(speed));
+        qtc.KJob_Speed(@ptrCast(self), @ptrCast(job), @bitCast(speed));
     }
 
     /// Inherited from KJob
@@ -1342,7 +1342,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob, speed: u64) callconv(.c) void `
     ///
     pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_Speed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_Speed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1356,7 +1356,7 @@ pub const kio__specialjob = struct {
     /// ` verbosity: kjob_enums.KillVerbosity `
     ///
     pub fn Kill1(self: ?*anyopaque, verbosity: i32) bool {
-        return qtc.KJob_Kill1(@ptrCast(self), @intCast(verbosity));
+        return qtc.KJob_Kill1(@ptrCast(self), @bitCast(verbosity));
     }
 
     /// Inherited from KJob
@@ -1504,7 +1504,7 @@ pub const kio__specialjob = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1518,7 +1518,7 @@ pub const kio__specialjob = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1532,7 +1532,7 @@ pub const kio__specialjob = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1546,7 +1546,7 @@ pub const kio__specialjob = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1876,7 +1876,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1931,7 +1931,7 @@ pub const kio__specialjob = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1947,7 +1947,7 @@ pub const kio__specialjob = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1969,7 +1969,7 @@ pub const kio__specialjob = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1989,7 +1989,7 @@ pub const kio__specialjob = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2011,7 +2011,7 @@ pub const kio__specialjob = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2108,7 +2108,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::TransferJob
@@ -2152,7 +2152,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnDoResume(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIO__SpecialJob_OnDoResume(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnDoResume(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::TransferJob
@@ -2200,7 +2200,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, url: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnSlotRedirection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSlotRedirection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSlotRedirection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::TransferJob
@@ -2244,7 +2244,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSlotFinished(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSlotFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSlotFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::TransferJob
@@ -2300,7 +2300,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, data: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn OnSlotData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSlotData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSlotData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::TransferJob
@@ -2344,7 +2344,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSlotDataReq(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSlotDataReq(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSlotDataReq(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::TransferJob
@@ -2400,7 +2400,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, mimetype: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSlotMimetype(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSlotMimetype(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSlotMimetype(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::SimpleJob
@@ -2444,7 +2444,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnDoSuspend(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIO__SpecialJob_OnDoSuspend(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnDoSuspend(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::SimpleJob
@@ -2488,7 +2488,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnDoKill(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIO__SpecialJob_OnDoKill(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnDoKill(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::SimpleJob
@@ -2532,7 +2532,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnPutOnHold(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnPutOnHold(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnPutOnHold(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::SimpleJob
@@ -2588,7 +2588,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSlotWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSlotWarning(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSlotWarning(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::SimpleJob
@@ -2636,7 +2636,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, _metaData: QtC.KIO__MetaData) callconv(.c) void `
     ///
     pub fn OnSlotMetaData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSlotMetaData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSlotMetaData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::Job
@@ -2680,7 +2680,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnStart(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnStart(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnStart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::Job
@@ -2738,7 +2738,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnErrorString(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KIO__SpecialJob_OnErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnErrorString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::Job
@@ -2786,7 +2786,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob) callconv(.c) bool `
     ///
     pub fn OnAddSubjob(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__SpecialJob_OnAddSubjob(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnAddSubjob(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::Job
@@ -2834,7 +2834,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob) callconv(.c) bool `
     ///
     pub fn OnRemoveSubjob(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__SpecialJob_OnRemoveSubjob(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnRemoveSubjob(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -2882,7 +2882,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnSlotResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSlotResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSlotResult(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -2942,7 +2942,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSlotInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSlotInfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSlotInfoMessage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2990,7 +2990,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__SpecialJob_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3042,7 +3042,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__SpecialJob_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3090,7 +3090,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3138,7 +3138,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3186,7 +3186,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3234,7 +3234,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3282,7 +3282,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -3326,7 +3326,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnHasSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIO__SpecialJob_OnHasSubjobs(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnHasSubjobs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -3390,7 +3390,7 @@ pub const kio__specialjob = struct {
     /// ` C ABI representation of []QtC.KJob `
     ///
     pub fn OnSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KIO__SpecialJob_OnSubjobs(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSubjobs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -3434,7 +3434,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnClearSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnClearSubjobs(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnClearSubjobs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3450,7 +3450,7 @@ pub const kio__specialjob = struct {
     /// ` capabilities: flag of kjob_enums.Capability `
     ///
     pub fn SetCapabilities(self: ?*anyopaque, capabilities: i32) void {
-        qtc.KIO__SpecialJob_SetCapabilities(@ptrCast(self), @intCast(capabilities));
+        qtc.KIO__SpecialJob_SetCapabilities(@ptrCast(self), @bitCast(capabilities));
     }
 
     /// Inherited from KJob
@@ -3466,7 +3466,7 @@ pub const kio__specialjob = struct {
     /// ` capabilities: flag of kjob_enums.Capability `
     ///
     pub fn QBaseSetCapabilities(self: ?*anyopaque, capabilities: i32) void {
-        qtc.KIO__SpecialJob_QBaseSetCapabilities(@ptrCast(self), @intCast(capabilities));
+        qtc.KIO__SpecialJob_QBaseSetCapabilities(@ptrCast(self), @bitCast(capabilities));
     }
 
     /// Inherited from KJob
@@ -3482,7 +3482,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void `
     ///
     pub fn OnSetCapabilities(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSetCapabilities(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSetCapabilities(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3526,7 +3526,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsFinished(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIO__SpecialJob_OnIsFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnIsFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3542,7 +3542,7 @@ pub const kio__specialjob = struct {
     /// ` errorCode: i32 `
     ///
     pub fn SetError(self: ?*anyopaque, errorCode: i32) void {
-        qtc.KIO__SpecialJob_SetError(@ptrCast(self), @intCast(errorCode));
+        qtc.KIO__SpecialJob_SetError(@ptrCast(self), @bitCast(errorCode));
     }
 
     /// Inherited from KJob
@@ -3558,7 +3558,7 @@ pub const kio__specialjob = struct {
     /// ` errorCode: i32 `
     ///
     pub fn QBaseSetError(self: ?*anyopaque, errorCode: i32) void {
-        qtc.KIO__SpecialJob_QBaseSetError(@ptrCast(self), @intCast(errorCode));
+        qtc.KIO__SpecialJob_QBaseSetError(@ptrCast(self), @bitCast(errorCode));
     }
 
     /// Inherited from KJob
@@ -3574,7 +3574,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, errorCode: i32) callconv(.c) void `
     ///
     pub fn OnSetError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSetError(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSetError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3630,7 +3630,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, errorText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetErrorText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSetErrorText(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSetErrorText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3648,7 +3648,7 @@ pub const kio__specialjob = struct {
     /// ` amount: u64 `
     ///
     pub fn SetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
-        qtc.KIO__SpecialJob_SetProcessedAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
+        qtc.KIO__SpecialJob_SetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
     /// Inherited from KJob
@@ -3666,7 +3666,7 @@ pub const kio__specialjob = struct {
     /// ` amount: u64 `
     ///
     pub fn QBaseSetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
-        qtc.KIO__SpecialJob_QBaseSetProcessedAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
+        qtc.KIO__SpecialJob_QBaseSetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
     /// Inherited from KJob
@@ -3682,7 +3682,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
     ///
     pub fn OnSetProcessedAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSetProcessedAmount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSetProcessedAmount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3700,7 +3700,7 @@ pub const kio__specialjob = struct {
     /// ` amount: u64 `
     ///
     pub fn SetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
-        qtc.KIO__SpecialJob_SetTotalAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
+        qtc.KIO__SpecialJob_SetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
     /// Inherited from KJob
@@ -3718,7 +3718,7 @@ pub const kio__specialjob = struct {
     /// ` amount: u64 `
     ///
     pub fn QBaseSetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
-        qtc.KIO__SpecialJob_QBaseSetTotalAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
+        qtc.KIO__SpecialJob_QBaseSetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
     /// Inherited from KJob
@@ -3734,7 +3734,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
     ///
     pub fn OnSetTotalAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSetTotalAmount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSetTotalAmount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3750,7 +3750,7 @@ pub const kio__specialjob = struct {
     /// ` unit: kjob_enums.Unit `
     ///
     pub fn SetProgressUnit(self: ?*anyopaque, unit: i32) void {
-        qtc.KIO__SpecialJob_SetProgressUnit(@ptrCast(self), @intCast(unit));
+        qtc.KIO__SpecialJob_SetProgressUnit(@ptrCast(self), @bitCast(unit));
     }
 
     /// Inherited from KJob
@@ -3766,7 +3766,7 @@ pub const kio__specialjob = struct {
     /// ` unit: kjob_enums.Unit `
     ///
     pub fn QBaseSetProgressUnit(self: ?*anyopaque, unit: i32) void {
-        qtc.KIO__SpecialJob_QBaseSetProgressUnit(@ptrCast(self), @intCast(unit));
+        qtc.KIO__SpecialJob_QBaseSetProgressUnit(@ptrCast(self), @bitCast(unit));
     }
 
     /// Inherited from KJob
@@ -3782,7 +3782,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, unit: kjob_enums.Unit) callconv(.c) void `
     ///
     pub fn OnSetProgressUnit(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSetProgressUnit(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSetProgressUnit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3798,7 +3798,7 @@ pub const kio__specialjob = struct {
     /// ` percentage: u64 `
     ///
     pub fn SetPercent(self: ?*anyopaque, percentage: u64) void {
-        qtc.KIO__SpecialJob_SetPercent(@ptrCast(self), @intCast(percentage));
+        qtc.KIO__SpecialJob_SetPercent(@ptrCast(self), @bitCast(percentage));
     }
 
     /// Inherited from KJob
@@ -3814,7 +3814,7 @@ pub const kio__specialjob = struct {
     /// ` percentage: u64 `
     ///
     pub fn QBaseSetPercent(self: ?*anyopaque, percentage: u64) void {
-        qtc.KIO__SpecialJob_QBaseSetPercent(@ptrCast(self), @intCast(percentage));
+        qtc.KIO__SpecialJob_QBaseSetPercent(@ptrCast(self), @bitCast(percentage));
     }
 
     /// Inherited from KJob
@@ -3830,7 +3830,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, percentage: u64) callconv(.c) void `
     ///
     pub fn OnSetPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnSetPercent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSetPercent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3874,7 +3874,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEmitResult(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnEmitResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnEmitResult(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3892,7 +3892,7 @@ pub const kio__specialjob = struct {
     /// ` totalAmount: u64 `
     ///
     pub fn EmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
-        qtc.KIO__SpecialJob_EmitPercent(@ptrCast(self), @intCast(processedAmount), @intCast(totalAmount));
+        qtc.KIO__SpecialJob_EmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
     /// Inherited from KJob
@@ -3910,7 +3910,7 @@ pub const kio__specialjob = struct {
     /// ` totalAmount: u64 `
     ///
     pub fn QBaseEmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
-        qtc.KIO__SpecialJob_QBaseEmitPercent(@ptrCast(self), @intCast(processedAmount), @intCast(totalAmount));
+        qtc.KIO__SpecialJob_QBaseEmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
     /// Inherited from KJob
@@ -3926,7 +3926,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, processedAmount: u64, totalAmount: u64) callconv(.c) void `
     ///
     pub fn OnEmitPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64, u64) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnEmitPercent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnEmitPercent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3942,7 +3942,7 @@ pub const kio__specialjob = struct {
     /// ` speed: u64 `
     ///
     pub fn EmitSpeed(self: ?*anyopaque, speed: u64) void {
-        qtc.KIO__SpecialJob_EmitSpeed(@ptrCast(self), @intCast(speed));
+        qtc.KIO__SpecialJob_EmitSpeed(@ptrCast(self), @bitCast(speed));
     }
 
     /// Inherited from KJob
@@ -3958,7 +3958,7 @@ pub const kio__specialjob = struct {
     /// ` speed: u64 `
     ///
     pub fn QBaseEmitSpeed(self: ?*anyopaque, speed: u64) void {
-        qtc.KIO__SpecialJob_QBaseEmitSpeed(@ptrCast(self), @intCast(speed));
+        qtc.KIO__SpecialJob_QBaseEmitSpeed(@ptrCast(self), @bitCast(speed));
     }
 
     /// Inherited from KJob
@@ -3974,7 +3974,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, speed: u64) callconv(.c) void `
     ///
     pub fn OnEmitSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnEmitSpeed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnEmitSpeed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -4018,7 +4018,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnStartElapsedTimer(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__SpecialJob_OnStartElapsedTimer(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnStartElapsedTimer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4062,7 +4062,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KIO__SpecialJob_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4106,7 +4106,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KIO__SpecialJob_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4156,7 +4156,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KIO__SpecialJob_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4204,7 +4204,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__SpecialJob_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__SpecialJob_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -4220,7 +4220,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -4236,7 +4236,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Suspended(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_Suspended(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -4252,7 +4252,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Resumed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_Resumed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -4268,7 +4268,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Result(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_Result(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -4284,7 +4284,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
     ///
     pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -4300,7 +4300,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
     ///
     pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -4316,7 +4316,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KJob, percent: u64) callconv(.c) void `
     ///
     pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_PercentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_PercentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4332,7 +4332,7 @@ pub const kio__specialjob = struct {
     /// ` callback: *const fn (self: QtC.KIO__SpecialJob, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

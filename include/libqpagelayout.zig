@@ -21,7 +21,7 @@ pub const qpagelayout = struct {
     /// ` margins: QtC.QMarginsF `
     ///
     pub fn New2(pageSize: ?*anyopaque, orientation: i32, margins: ?*anyopaque) QtC.QPageLayout {
-        return qtc.QPageLayout_new2(@ptrCast(pageSize), @intCast(orientation), @ptrCast(margins));
+        return qtc.QPageLayout_new2(@ptrCast(pageSize), @bitCast(orientation), @ptrCast(margins));
     }
 
     /// New3 constructs a new QPageLayout object.
@@ -47,7 +47,7 @@ pub const qpagelayout = struct {
     /// ` units: qpagelayout_enums.Unit `
     ///
     pub fn New4(pageSize: ?*anyopaque, orientation: i32, margins: ?*anyopaque, units: i32) QtC.QPageLayout {
-        return qtc.QPageLayout_new4(@ptrCast(pageSize), @intCast(orientation), @ptrCast(margins), @intCast(units));
+        return qtc.QPageLayout_new4(@ptrCast(pageSize), @bitCast(orientation), @ptrCast(margins), @bitCast(units));
     }
 
     /// New5 constructs a new QPageLayout object.
@@ -65,7 +65,7 @@ pub const qpagelayout = struct {
     /// ` minMargins: QtC.QMarginsF `
     ///
     pub fn New5(pageSize: ?*anyopaque, orientation: i32, margins: ?*anyopaque, units: i32, minMargins: ?*anyopaque) QtC.QPageLayout {
-        return qtc.QPageLayout_new5(@ptrCast(pageSize), @intCast(orientation), @ptrCast(margins), @intCast(units), @ptrCast(minMargins));
+        return qtc.QPageLayout_new5(@ptrCast(pageSize), @bitCast(orientation), @ptrCast(margins), @bitCast(units), @ptrCast(minMargins));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#operator-eq)
@@ -123,7 +123,7 @@ pub const qpagelayout = struct {
     /// ` mode: qpagelayout_enums.Mode `
     ///
     pub fn SetMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QPageLayout_SetMode(@ptrCast(self), @intCast(mode));
+        qtc.QPageLayout_SetMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#mode)
@@ -171,7 +171,7 @@ pub const qpagelayout = struct {
     /// ` orientation: qpagelayout_enums.Orientation `
     ///
     pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QPageLayout_SetOrientation(@ptrCast(self), @intCast(orientation));
+        qtc.QPageLayout_SetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#orientation)
@@ -197,7 +197,7 @@ pub const qpagelayout = struct {
     /// ` units: qpagelayout_enums.Unit `
     ///
     pub fn SetUnits(self: ?*anyopaque, units: i32) void {
-        qtc.QPageLayout_SetUnits(@ptrCast(self), @intCast(units));
+        qtc.QPageLayout_SetUnits(@ptrCast(self), @bitCast(units));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#units)
@@ -235,7 +235,7 @@ pub const qpagelayout = struct {
     /// ` leftMargin: f64 `
     ///
     pub fn SetLeftMargin(self: ?*anyopaque, leftMargin: f64) bool {
-        return qtc.QPageLayout_SetLeftMargin(@ptrCast(self), @floatCast(leftMargin));
+        return qtc.QPageLayout_SetLeftMargin(@ptrCast(self), @bitCast(leftMargin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setRightMargin)
@@ -247,7 +247,7 @@ pub const qpagelayout = struct {
     /// ` rightMargin: f64 `
     ///
     pub fn SetRightMargin(self: ?*anyopaque, rightMargin: f64) bool {
-        return qtc.QPageLayout_SetRightMargin(@ptrCast(self), @floatCast(rightMargin));
+        return qtc.QPageLayout_SetRightMargin(@ptrCast(self), @bitCast(rightMargin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setTopMargin)
@@ -259,7 +259,7 @@ pub const qpagelayout = struct {
     /// ` topMargin: f64 `
     ///
     pub fn SetTopMargin(self: ?*anyopaque, topMargin: f64) bool {
-        return qtc.QPageLayout_SetTopMargin(@ptrCast(self), @floatCast(topMargin));
+        return qtc.QPageLayout_SetTopMargin(@ptrCast(self), @bitCast(topMargin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setBottomMargin)
@@ -271,7 +271,7 @@ pub const qpagelayout = struct {
     /// ` bottomMargin: f64 `
     ///
     pub fn SetBottomMargin(self: ?*anyopaque, bottomMargin: f64) bool {
-        return qtc.QPageLayout_SetBottomMargin(@ptrCast(self), @floatCast(bottomMargin));
+        return qtc.QPageLayout_SetBottomMargin(@ptrCast(self), @bitCast(bottomMargin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#margins)
@@ -293,7 +293,7 @@ pub const qpagelayout = struct {
     /// ` units: qpagelayout_enums.Unit `
     ///
     pub fn Margins2(self: ?*anyopaque, units: i32) QtC.QMarginsF {
-        return qtc.QPageLayout_Margins2(@ptrCast(self), @intCast(units));
+        return qtc.QPageLayout_Margins2(@ptrCast(self), @bitCast(units));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#marginsPoints)
@@ -315,7 +315,7 @@ pub const qpagelayout = struct {
     /// ` resolution: i32 `
     ///
     pub fn MarginsPixels(self: ?*anyopaque, resolution: i32) QtC.QMargins {
-        return qtc.QPageLayout_MarginsPixels(@ptrCast(self), @intCast(resolution));
+        return qtc.QPageLayout_MarginsPixels(@ptrCast(self), @bitCast(resolution));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setMinimumMargins)
@@ -369,7 +369,7 @@ pub const qpagelayout = struct {
     /// ` units: qpagelayout_enums.Unit `
     ///
     pub fn FullRect2(self: ?*anyopaque, units: i32) QtC.QRectF {
-        return qtc.QPageLayout_FullRect2(@ptrCast(self), @intCast(units));
+        return qtc.QPageLayout_FullRect2(@ptrCast(self), @bitCast(units));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#fullRectPoints)
@@ -391,7 +391,7 @@ pub const qpagelayout = struct {
     /// ` resolution: i32 `
     ///
     pub fn FullRectPixels(self: ?*anyopaque, resolution: i32) QtC.QRect {
-        return qtc.QPageLayout_FullRectPixels(@ptrCast(self), @intCast(resolution));
+        return qtc.QPageLayout_FullRectPixels(@ptrCast(self), @bitCast(resolution));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#paintRect)
@@ -413,7 +413,7 @@ pub const qpagelayout = struct {
     /// ` units: qpagelayout_enums.Unit `
     ///
     pub fn PaintRect2(self: ?*anyopaque, units: i32) QtC.QRectF {
-        return qtc.QPageLayout_PaintRect2(@ptrCast(self), @intCast(units));
+        return qtc.QPageLayout_PaintRect2(@ptrCast(self), @bitCast(units));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#paintRectPoints)
@@ -435,7 +435,7 @@ pub const qpagelayout = struct {
     /// ` resolution: i32 `
     ///
     pub fn PaintRectPixels(self: ?*anyopaque, resolution: i32) QtC.QRect {
-        return qtc.QPageLayout_PaintRectPixels(@ptrCast(self), @intCast(resolution));
+        return qtc.QPageLayout_PaintRectPixels(@ptrCast(self), @bitCast(resolution));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setPageSize)
@@ -463,7 +463,7 @@ pub const qpagelayout = struct {
     /// ` outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy `
     ///
     pub fn SetMargins2(self: ?*anyopaque, margins: ?*anyopaque, outOfBoundsPolicy: i32) bool {
-        return qtc.QPageLayout_SetMargins2(@ptrCast(self), @ptrCast(margins), @intCast(outOfBoundsPolicy));
+        return qtc.QPageLayout_SetMargins2(@ptrCast(self), @ptrCast(margins), @bitCast(outOfBoundsPolicy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setLeftMargin)
@@ -477,7 +477,7 @@ pub const qpagelayout = struct {
     /// ` outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy `
     ///
     pub fn SetLeftMargin2(self: ?*anyopaque, leftMargin: f64, outOfBoundsPolicy: i32) bool {
-        return qtc.QPageLayout_SetLeftMargin2(@ptrCast(self), @floatCast(leftMargin), @intCast(outOfBoundsPolicy));
+        return qtc.QPageLayout_SetLeftMargin2(@ptrCast(self), @bitCast(leftMargin), @bitCast(outOfBoundsPolicy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setRightMargin)
@@ -491,7 +491,7 @@ pub const qpagelayout = struct {
     /// ` outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy `
     ///
     pub fn SetRightMargin2(self: ?*anyopaque, rightMargin: f64, outOfBoundsPolicy: i32) bool {
-        return qtc.QPageLayout_SetRightMargin2(@ptrCast(self), @floatCast(rightMargin), @intCast(outOfBoundsPolicy));
+        return qtc.QPageLayout_SetRightMargin2(@ptrCast(self), @bitCast(rightMargin), @bitCast(outOfBoundsPolicy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setTopMargin)
@@ -505,7 +505,7 @@ pub const qpagelayout = struct {
     /// ` outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy `
     ///
     pub fn SetTopMargin2(self: ?*anyopaque, topMargin: f64, outOfBoundsPolicy: i32) bool {
-        return qtc.QPageLayout_SetTopMargin2(@ptrCast(self), @floatCast(topMargin), @intCast(outOfBoundsPolicy));
+        return qtc.QPageLayout_SetTopMargin2(@ptrCast(self), @bitCast(topMargin), @bitCast(outOfBoundsPolicy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#setBottomMargin)
@@ -519,7 +519,7 @@ pub const qpagelayout = struct {
     /// ` outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy `
     ///
     pub fn SetBottomMargin2(self: ?*anyopaque, bottomMargin: f64, outOfBoundsPolicy: i32) bool {
-        return qtc.QPageLayout_SetBottomMargin2(@ptrCast(self), @floatCast(bottomMargin), @intCast(outOfBoundsPolicy));
+        return qtc.QPageLayout_SetBottomMargin2(@ptrCast(self), @bitCast(bottomMargin), @bitCast(outOfBoundsPolicy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#dtor.QPageLayout)

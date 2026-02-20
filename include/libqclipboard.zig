@@ -39,7 +39,7 @@ pub const qclipboard = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QClipboard_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QClipboard_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -248,7 +248,7 @@ pub const qclipboard = struct {
     /// ` mode: qclipboard_enums.Mode `
     ///
     pub fn Changed(self: ?*anyopaque, mode: i32) void {
-        qtc.QClipboard_Changed(@ptrCast(self), @intCast(mode));
+        qtc.QClipboard_Changed(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#changed)
@@ -260,7 +260,7 @@ pub const qclipboard = struct {
     /// ` callback: *const fn (self: QtC.QClipboard, mode: qclipboard_enums.Mode) callconv(.c) void `
     ///
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QClipboard_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QClipboard_Connect_Changed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#selectionChanged)
@@ -282,7 +282,7 @@ pub const qclipboard = struct {
     /// ` callback: *const fn (self: QtC.QClipboard) callconv(.c) void `
     ///
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QClipboard_Connect_SelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QClipboard_Connect_SelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#findBufferChanged)
@@ -304,7 +304,7 @@ pub const qclipboard = struct {
     /// ` callback: *const fn (self: QtC.QClipboard) callconv(.c) void `
     ///
     pub fn OnFindBufferChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QClipboard_Connect_FindBufferChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QClipboard_Connect_FindBufferChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#dataChanged)
@@ -326,7 +326,7 @@ pub const qclipboard = struct {
     /// ` callback: *const fn (self: QtC.QClipboard) callconv(.c) void `
     ///
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QClipboard_Connect_DataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QClipboard_Connect_DataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -364,7 +364,7 @@ pub const qclipboard = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qclipboard.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -380,7 +380,7 @@ pub const qclipboard = struct {
     /// ` mode: qclipboard_enums.Mode `
     ///
     pub fn Clear1(self: ?*anyopaque, mode: i32) void {
-        qtc.QClipboard_Clear1(@ptrCast(self), @intCast(mode));
+        qtc.QClipboard_Clear1(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#text)
@@ -394,7 +394,7 @@ pub const qclipboard = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QClipboard_Text1(@ptrCast(self), @intCast(mode));
+        var _str = qtc.QClipboard_Text1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qclipboard.Text1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -418,7 +418,7 @@ pub const qclipboard = struct {
             .len = subtype.len,
             .data = subtype.ptr,
         };
-        var _str = qtc.QClipboard_Text22(@ptrCast(self), subtype_str, @intCast(mode));
+        var _str = qtc.QClipboard_Text22(@ptrCast(self), subtype_str, @bitCast(mode));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qclipboard.Text22: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -440,7 +440,7 @@ pub const qclipboard = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.QClipboard_SetText2(@ptrCast(self), param1_str, @intCast(mode));
+        qtc.QClipboard_SetText2(@ptrCast(self), param1_str, @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#mimeData)
@@ -452,7 +452,7 @@ pub const qclipboard = struct {
     /// ` mode: qclipboard_enums.Mode `
     ///
     pub fn MimeData1(self: ?*anyopaque, mode: i32) QtC.QMimeData {
-        return qtc.QClipboard_MimeData1(@ptrCast(self), @intCast(mode));
+        return qtc.QClipboard_MimeData1(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#setMimeData)
@@ -466,7 +466,7 @@ pub const qclipboard = struct {
     /// ` mode: qclipboard_enums.Mode `
     ///
     pub fn SetMimeData2(self: ?*anyopaque, data: ?*anyopaque, mode: i32) void {
-        qtc.QClipboard_SetMimeData2(@ptrCast(self), @ptrCast(data), @intCast(mode));
+        qtc.QClipboard_SetMimeData2(@ptrCast(self), @ptrCast(data), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#image)
@@ -478,7 +478,7 @@ pub const qclipboard = struct {
     /// ` mode: qclipboard_enums.Mode `
     ///
     pub fn Image1(self: ?*anyopaque, mode: i32) QtC.QImage {
-        return qtc.QClipboard_Image1(@ptrCast(self), @intCast(mode));
+        return qtc.QClipboard_Image1(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#pixmap)
@@ -490,7 +490,7 @@ pub const qclipboard = struct {
     /// ` mode: qclipboard_enums.Mode `
     ///
     pub fn Pixmap1(self: ?*anyopaque, mode: i32) QtC.QPixmap {
-        return qtc.QClipboard_Pixmap1(@ptrCast(self), @intCast(mode));
+        return qtc.QClipboard_Pixmap1(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#setImage)
@@ -504,7 +504,7 @@ pub const qclipboard = struct {
     /// ` mode: qclipboard_enums.Mode `
     ///
     pub fn SetImage2(self: ?*anyopaque, param1: ?*anyopaque, mode: i32) void {
-        qtc.QClipboard_SetImage2(@ptrCast(self), @ptrCast(param1), @intCast(mode));
+        qtc.QClipboard_SetImage2(@ptrCast(self), @ptrCast(param1), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#setPixmap)
@@ -518,7 +518,7 @@ pub const qclipboard = struct {
     /// ` mode: qclipboard_enums.Mode `
     ///
     pub fn SetPixmap2(self: ?*anyopaque, param1: ?*anyopaque, mode: i32) void {
-        qtc.QClipboard_SetPixmap2(@ptrCast(self), @ptrCast(param1), @intCast(mode));
+        qtc.QClipboard_SetPixmap2(@ptrCast(self), @ptrCast(param1), @bitCast(mode));
     }
 
     /// Inherited from QObject
@@ -682,7 +682,7 @@ pub const qclipboard = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -696,7 +696,7 @@ pub const qclipboard = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -710,7 +710,7 @@ pub const qclipboard = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -724,7 +724,7 @@ pub const qclipboard = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1054,7 +1054,7 @@ pub const qclipboard = struct {
     /// ` callback: *const fn (self: QtC.QClipboard) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1109,7 +1109,7 @@ pub const qclipboard = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1125,7 +1125,7 @@ pub const qclipboard = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1147,7 +1147,7 @@ pub const qclipboard = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1167,7 +1167,7 @@ pub const qclipboard = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1189,7 +1189,7 @@ pub const qclipboard = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1286,7 +1286,7 @@ pub const qclipboard = struct {
     /// ` callback: *const fn (self: QtC.QClipboard, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1302,7 +1302,7 @@ pub const qclipboard = struct {
     /// ` callback: *const fn (self: QtC.QClipboard, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 };
 

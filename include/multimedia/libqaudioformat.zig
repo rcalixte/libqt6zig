@@ -83,7 +83,7 @@ pub const qaudioformat = struct {
     /// ` sampleRate: i32 `
     ///
     pub fn SetSampleRate(self: ?*anyopaque, sampleRate: i32) void {
-        qtc.QAudioFormat_SetSampleRate(@ptrCast(self), @intCast(sampleRate));
+        qtc.QAudioFormat_SetSampleRate(@ptrCast(self), @bitCast(sampleRate));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioformat.html#sampleRate)
@@ -105,7 +105,7 @@ pub const qaudioformat = struct {
     /// ` config: qaudioformat_enums.ChannelConfig `
     ///
     pub fn SetChannelConfig(self: ?*anyopaque, config: u32) void {
-        qtc.QAudioFormat_SetChannelConfig(@ptrCast(self), @intCast(config));
+        qtc.QAudioFormat_SetChannelConfig(@ptrCast(self), @bitCast(config));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioformat.html#channelConfig)
@@ -131,7 +131,7 @@ pub const qaudioformat = struct {
     /// ` channelCount: i32 `
     ///
     pub fn SetChannelCount(self: ?*anyopaque, channelCount: i32) void {
-        qtc.QAudioFormat_SetChannelCount(@ptrCast(self), @intCast(channelCount));
+        qtc.QAudioFormat_SetChannelCount(@ptrCast(self), @bitCast(channelCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioformat.html#channelCount)
@@ -153,7 +153,7 @@ pub const qaudioformat = struct {
     /// ` channel: qaudioformat_enums.AudioChannelPosition `
     ///
     pub fn ChannelOffset(self: ?*anyopaque, channel: i32) i32 {
-        return qtc.QAudioFormat_ChannelOffset(@ptrCast(self), @intCast(channel));
+        return qtc.QAudioFormat_ChannelOffset(@ptrCast(self), @bitCast(channel));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioformat.html#setSampleFormat)
@@ -165,7 +165,7 @@ pub const qaudioformat = struct {
     /// ` f: qaudioformat_enums.SampleFormat `
     ///
     pub fn SetSampleFormat(self: ?*anyopaque, f: u16) void {
-        qtc.QAudioFormat_SetSampleFormat(@ptrCast(self), @intCast(f));
+        qtc.QAudioFormat_SetSampleFormat(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioformat.html#sampleFormat)
@@ -191,7 +191,7 @@ pub const qaudioformat = struct {
     /// ` microseconds: i64 `
     ///
     pub fn BytesForDuration(self: ?*anyopaque, microseconds: i64) i32 {
-        return qtc.QAudioFormat_BytesForDuration(@ptrCast(self), @intCast(microseconds));
+        return qtc.QAudioFormat_BytesForDuration(@ptrCast(self), @bitCast(microseconds));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioformat.html#durationForBytes)
@@ -203,7 +203,7 @@ pub const qaudioformat = struct {
     /// ` byteCount: i32 `
     ///
     pub fn DurationForBytes(self: ?*anyopaque, byteCount: i32) i64 {
-        return qtc.QAudioFormat_DurationForBytes(@ptrCast(self), @intCast(byteCount));
+        return qtc.QAudioFormat_DurationForBytes(@ptrCast(self), @bitCast(byteCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioformat.html#bytesForFrames)
@@ -215,7 +215,7 @@ pub const qaudioformat = struct {
     /// ` frameCount: i32 `
     ///
     pub fn BytesForFrames(self: ?*anyopaque, frameCount: i32) i32 {
-        return qtc.QAudioFormat_BytesForFrames(@ptrCast(self), @intCast(frameCount));
+        return qtc.QAudioFormat_BytesForFrames(@ptrCast(self), @bitCast(frameCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioformat.html#framesForBytes)
@@ -227,7 +227,7 @@ pub const qaudioformat = struct {
     /// ` byteCount: i32 `
     ///
     pub fn FramesForBytes(self: ?*anyopaque, byteCount: i32) i32 {
-        return qtc.QAudioFormat_FramesForBytes(@ptrCast(self), @intCast(byteCount));
+        return qtc.QAudioFormat_FramesForBytes(@ptrCast(self), @bitCast(byteCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioformat.html#framesForDuration)
@@ -239,7 +239,7 @@ pub const qaudioformat = struct {
     /// ` microseconds: i64 `
     ///
     pub fn FramesForDuration(self: ?*anyopaque, microseconds: i64) i32 {
-        return qtc.QAudioFormat_FramesForDuration(@ptrCast(self), @intCast(microseconds));
+        return qtc.QAudioFormat_FramesForDuration(@ptrCast(self), @bitCast(microseconds));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioformat.html#durationForFrames)
@@ -251,7 +251,7 @@ pub const qaudioformat = struct {
     /// ` frameCount: i32 `
     ///
     pub fn DurationForFrames(self: ?*anyopaque, frameCount: i32) i64 {
-        return qtc.QAudioFormat_DurationForFrames(@ptrCast(self), @intCast(frameCount));
+        return qtc.QAudioFormat_DurationForFrames(@ptrCast(self), @bitCast(frameCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioformat.html#bytesPerFrame)
@@ -297,7 +297,7 @@ pub const qaudioformat = struct {
     /// ` qaudioformat_enums.ChannelConfig `
     ///
     pub fn DefaultChannelConfigForChannelCount(channelCount: i32) u32 {
-        return qtc.QAudioFormat_DefaultChannelConfigForChannelCount(@intCast(channelCount));
+        return qtc.QAudioFormat_DefaultChannelConfigForChannelCount(@bitCast(channelCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioformat.html#dtor.QAudioFormat)

@@ -53,7 +53,7 @@ pub const qstringconverter = struct {
     /// ` e: qstringconverter_base_enums.Encoding `
     ///
     pub fn NameForEncoding(e: i32) [:0]const u8 {
-        const _ret = qtc.QStringConverter_NameForEncoding(@intCast(e));
+        const _ret = qtc.QStringConverter_NameForEncoding(@bitCast(e));
         return std.mem.span(_ret);
     }
 
@@ -98,7 +98,7 @@ pub const qstringconverterbase__state = struct {
     /// ` f: flag of qstringconverter_base_enums.Flag `
     ///
     pub fn New2(f: i32) QtC.QStringConverterBase__State {
-        return qtc.QStringConverterBase__State_new2(@intCast(f));
+        return qtc.QStringConverterBase__State_new2(@bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverterbase-state.html#clear)
@@ -144,7 +144,7 @@ pub const qstringconverterbase__state = struct {
     /// ` flags: flag of qstringconverter_base_enums.Flag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QStringConverterBase__State_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QStringConverterBase__State_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverterbase-state.html#internalState-var)
@@ -166,7 +166,7 @@ pub const qstringconverterbase__state = struct {
     /// ` internalState: i32 `
     ///
     pub fn SetInternalState(self: ?*anyopaque, internalState: i32) void {
-        qtc.QStringConverterBase__State_SetInternalState(@ptrCast(self), @intCast(internalState));
+        qtc.QStringConverterBase__State_SetInternalState(@ptrCast(self), @bitCast(internalState));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverterbase-state.html#remainingChars-var)
@@ -188,7 +188,7 @@ pub const qstringconverterbase__state = struct {
     /// ` remainingChars: i64 `
     ///
     pub fn SetRemainingChars(self: ?*anyopaque, remainingChars: i64) void {
-        qtc.QStringConverterBase__State_SetRemainingChars(@ptrCast(self), @intCast(remainingChars));
+        qtc.QStringConverterBase__State_SetRemainingChars(@ptrCast(self), @bitCast(remainingChars));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverterbase-state.html#invalidChars-var)
@@ -210,7 +210,7 @@ pub const qstringconverterbase__state = struct {
     /// ` invalidChars: i64 `
     ///
     pub fn SetInvalidChars(self: ?*anyopaque, invalidChars: i64) void {
-        qtc.QStringConverterBase__State_SetInvalidChars(@ptrCast(self), @intCast(invalidChars));
+        qtc.QStringConverterBase__State_SetInvalidChars(@ptrCast(self), @bitCast(invalidChars));
     }
 
     /// Delete this object from C++ memory.

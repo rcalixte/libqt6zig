@@ -28,7 +28,7 @@ pub const accounts__error = struct {
     /// ` typeVal: error_enums.ErrorType `
     ///
     pub fn New3(typeVal: i32) QtC.Accounts__Error {
-        return qtc.Accounts__Error_new3(@intCast(typeVal));
+        return qtc.Accounts__Error_new3(@bitCast(typeVal));
     }
 
     /// New4 constructs a new Accounts::Error object.
@@ -45,7 +45,7 @@ pub const accounts__error = struct {
             .data = message.ptr,
         };
 
-        return qtc.Accounts__Error_new4(@intCast(typeVal), message_str);
+        return qtc.Accounts__Error_new4(@bitCast(typeVal), message_str);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)

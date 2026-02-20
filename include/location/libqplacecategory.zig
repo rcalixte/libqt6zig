@@ -132,7 +132,7 @@ pub const qplacecategory = struct {
     /// ` visibility: qlocation_enums.Visibility `
     ///
     pub fn SetVisibility(self: ?*anyopaque, visibility: i32) void {
-        qtc.QPlaceCategory_SetVisibility(@ptrCast(self), @intCast(visibility));
+        qtc.QPlaceCategory_SetVisibility(@ptrCast(self), @bitCast(visibility));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecategory.html#icon)

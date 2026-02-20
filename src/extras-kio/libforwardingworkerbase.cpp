@@ -1,6 +1,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__ForwardingWorkerBase
 #include <KIO/UDSEntry>
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__WorkerBase
+#include <KIO/WorkerBase>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__WorkerResult
 #include <QByteArray>
 #include <QChildEvent>

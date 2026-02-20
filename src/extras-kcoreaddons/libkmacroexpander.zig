@@ -127,7 +127,7 @@ pub const kmacroexpanderbase = struct {
             .len = retVal.len,
             .data = retVal_arr.ptr,
         };
-        return qtc.KMacroExpanderBase_ExpandPlainMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
+        return qtc.KMacroExpanderBase_ExpandPlainMacro(@ptrCast(self), str_str, @bitCast(pos), retVal_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandPlainMacro)
@@ -141,7 +141,7 @@ pub const kmacroexpanderbase = struct {
     /// ` callback: *const fn (self: QtC.KMacroExpanderBase, str: [*:0]const u8, pos: i32, retVal: ?[*:null]?[*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?[*:null]?[*:0]const u8) callconv(.c) i32) void {
-        qtc.KMacroExpanderBase_OnExpandPlainMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KMacroExpanderBase_OnExpandPlainMacro(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandPlainMacro)
@@ -177,7 +177,7 @@ pub const kmacroexpanderbase = struct {
             .len = retVal.len,
             .data = retVal_arr.ptr,
         };
-        return qtc.KMacroExpanderBase_QBaseExpandPlainMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
+        return qtc.KMacroExpanderBase_QBaseExpandPlainMacro(@ptrCast(self), str_str, @bitCast(pos), retVal_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandEscapedMacro)
@@ -211,7 +211,7 @@ pub const kmacroexpanderbase = struct {
             .len = retVal.len,
             .data = retVal_arr.ptr,
         };
-        return qtc.KMacroExpanderBase_ExpandEscapedMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
+        return qtc.KMacroExpanderBase_ExpandEscapedMacro(@ptrCast(self), str_str, @bitCast(pos), retVal_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandEscapedMacro)
@@ -225,7 +225,7 @@ pub const kmacroexpanderbase = struct {
     /// ` callback: *const fn (self: QtC.KMacroExpanderBase, str: [*:0]const u8, pos: i32, retVal: ?[*:null]?[*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?[*:null]?[*:0]const u8) callconv(.c) i32) void {
-        qtc.KMacroExpanderBase_OnExpandEscapedMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KMacroExpanderBase_OnExpandEscapedMacro(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#expandEscapedMacro)
@@ -261,7 +261,7 @@ pub const kmacroexpanderbase = struct {
             .len = retVal.len,
             .data = retVal_arr.ptr,
         };
-        return qtc.KMacroExpanderBase_QBaseExpandEscapedMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
+        return qtc.KMacroExpanderBase_QBaseExpandEscapedMacro(@ptrCast(self), str_str, @bitCast(pos), retVal_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html#dtor.KMacroExpanderBase)
@@ -326,7 +326,7 @@ pub const kwordmacroexpander = struct {
             .len = retVal.len,
             .data = retVal_arr.ptr,
         };
-        return qtc.KWordMacroExpander_ExpandPlainMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
+        return qtc.KWordMacroExpander_ExpandPlainMacro(@ptrCast(self), str_str, @bitCast(pos), retVal_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandPlainMacro)
@@ -340,7 +340,7 @@ pub const kwordmacroexpander = struct {
     /// ` callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, pos: i32, retVal: ?[*:null]?[*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?[*:null]?[*:0]const u8) callconv(.c) i32) void {
-        qtc.KWordMacroExpander_OnExpandPlainMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KWordMacroExpander_OnExpandPlainMacro(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandPlainMacro)
@@ -376,7 +376,7 @@ pub const kwordmacroexpander = struct {
             .len = retVal.len,
             .data = retVal_arr.ptr,
         };
-        return qtc.KWordMacroExpander_QBaseExpandPlainMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
+        return qtc.KWordMacroExpander_QBaseExpandPlainMacro(@ptrCast(self), str_str, @bitCast(pos), retVal_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandEscapedMacro)
@@ -410,7 +410,7 @@ pub const kwordmacroexpander = struct {
             .len = retVal.len,
             .data = retVal_arr.ptr,
         };
-        return qtc.KWordMacroExpander_ExpandEscapedMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
+        return qtc.KWordMacroExpander_ExpandEscapedMacro(@ptrCast(self), str_str, @bitCast(pos), retVal_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandEscapedMacro)
@@ -424,7 +424,7 @@ pub const kwordmacroexpander = struct {
     /// ` callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, pos: i32, retVal: ?[*:null]?[*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?[*:null]?[*:0]const u8) callconv(.c) i32) void {
-        qtc.KWordMacroExpander_OnExpandEscapedMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KWordMacroExpander_OnExpandEscapedMacro(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandEscapedMacro)
@@ -460,7 +460,7 @@ pub const kwordmacroexpander = struct {
             .len = retVal.len,
             .data = retVal_arr.ptr,
         };
-        return qtc.KWordMacroExpander_QBaseExpandEscapedMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
+        return qtc.KWordMacroExpander_QBaseExpandEscapedMacro(@ptrCast(self), str_str, @bitCast(pos), retVal_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandMacro)
@@ -506,7 +506,7 @@ pub const kwordmacroexpander = struct {
     /// ` callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, retVal: ?[*:null]?[*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnExpandMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?[*:null]?[*:0]const u8) callconv(.c) bool) void {
-        qtc.KWordMacroExpander_OnExpandMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KWordMacroExpander_OnExpandMacro(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandMacro)
@@ -687,7 +687,7 @@ pub const kcharmacroexpander = struct {
             .len = retVal.len,
             .data = retVal_arr.ptr,
         };
-        return qtc.KCharMacroExpander_ExpandPlainMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
+        return qtc.KCharMacroExpander_ExpandPlainMacro(@ptrCast(self), str_str, @bitCast(pos), retVal_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandPlainMacro)
@@ -701,7 +701,7 @@ pub const kcharmacroexpander = struct {
     /// ` callback: *const fn (self: QtC.KCharMacroExpander, str: [*:0]const u8, pos: i32, retVal: ?[*:null]?[*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?[*:null]?[*:0]const u8) callconv(.c) i32) void {
-        qtc.KCharMacroExpander_OnExpandPlainMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCharMacroExpander_OnExpandPlainMacro(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandPlainMacro)
@@ -737,7 +737,7 @@ pub const kcharmacroexpander = struct {
             .len = retVal.len,
             .data = retVal_arr.ptr,
         };
-        return qtc.KCharMacroExpander_QBaseExpandPlainMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
+        return qtc.KCharMacroExpander_QBaseExpandPlainMacro(@ptrCast(self), str_str, @bitCast(pos), retVal_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandEscapedMacro)
@@ -771,7 +771,7 @@ pub const kcharmacroexpander = struct {
             .len = retVal.len,
             .data = retVal_arr.ptr,
         };
-        return qtc.KCharMacroExpander_ExpandEscapedMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
+        return qtc.KCharMacroExpander_ExpandEscapedMacro(@ptrCast(self), str_str, @bitCast(pos), retVal_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandEscapedMacro)
@@ -785,7 +785,7 @@ pub const kcharmacroexpander = struct {
     /// ` callback: *const fn (self: QtC.KCharMacroExpander, str: [*:0]const u8, pos: i32, retVal: ?[*:null]?[*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?[*:null]?[*:0]const u8) callconv(.c) i32) void {
-        qtc.KCharMacroExpander_OnExpandEscapedMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCharMacroExpander_OnExpandEscapedMacro(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandEscapedMacro)
@@ -821,7 +821,7 @@ pub const kcharmacroexpander = struct {
             .len = retVal.len,
             .data = retVal_arr.ptr,
         };
-        return qtc.KCharMacroExpander_QBaseExpandEscapedMacro(@ptrCast(self), str_str, @intCast(pos), retVal_list);
+        return qtc.KCharMacroExpander_QBaseExpandEscapedMacro(@ptrCast(self), str_str, @bitCast(pos), retVal_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandMacro)
@@ -863,7 +863,7 @@ pub const kcharmacroexpander = struct {
     /// ` callback: *const fn (self: QtC.KCharMacroExpander, chr: QtC.QChar, retVal: ?[*:null]?[*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnExpandMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QChar, ?[*:null]?[*:0]const u8) callconv(.c) bool) void {
-        qtc.KCharMacroExpander_OnExpandMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCharMacroExpander_OnExpandMacro(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandMacro)

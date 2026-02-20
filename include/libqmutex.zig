@@ -89,7 +89,7 @@ pub const qmutex = struct {
     /// ` timeout: i32 `
     ///
     pub fn TryLock2(self: ?*anyopaque, timeout: i32) bool {
-        return qtc.QMutex_TryLock2(@ptrCast(self), @intCast(timeout));
+        return qtc.QMutex_TryLock2(@ptrCast(self), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmutex.html#tryLock)
@@ -168,7 +168,7 @@ pub const qrecursivemutex = struct {
     /// ` timeout: i32 `
     ///
     pub fn TryLock(self: ?*anyopaque, timeout: i32) bool {
-        return qtc.QRecursiveMutex_TryLock(@ptrCast(self), @intCast(timeout));
+        return qtc.QRecursiveMutex_TryLock(@ptrCast(self), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrecursivemutex.html#tryLock)

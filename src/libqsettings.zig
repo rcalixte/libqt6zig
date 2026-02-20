@@ -36,7 +36,7 @@ pub const qsettings = struct {
             .data = organization.ptr,
         };
 
-        return qtc.QSettings_new2(@intCast(scope), organization_str);
+        return qtc.QSettings_new2(@bitCast(scope), organization_str);
     }
 
     /// New3 constructs a new QSettings object.
@@ -55,7 +55,7 @@ pub const qsettings = struct {
             .data = organization.ptr,
         };
 
-        return qtc.QSettings_new3(@intCast(format), @intCast(scope), organization_str);
+        return qtc.QSettings_new3(@bitCast(format), @bitCast(scope), organization_str);
     }
 
     /// New4 constructs a new QSettings object.
@@ -72,7 +72,7 @@ pub const qsettings = struct {
             .data = fileName.ptr,
         };
 
-        return qtc.QSettings_new4(fileName_str, @intCast(format));
+        return qtc.QSettings_new4(fileName_str, @bitCast(format));
     }
 
     /// New5 constructs a new QSettings object.
@@ -88,7 +88,7 @@ pub const qsettings = struct {
     /// ` scope: qsettings_enums.Scope `
     ///
     pub fn New6(scope: i32) QtC.QSettings {
-        return qtc.QSettings_new6(@intCast(scope));
+        return qtc.QSettings_new6(@bitCast(scope));
     }
 
     /// New7 constructs a new QSettings object.
@@ -155,7 +155,7 @@ pub const qsettings = struct {
             .data = application.ptr,
         };
 
-        return qtc.QSettings_new9(@intCast(scope), organization_str, application_str);
+        return qtc.QSettings_new9(@bitCast(scope), organization_str, application_str);
     }
 
     /// New10 constructs a new QSettings object.
@@ -180,7 +180,7 @@ pub const qsettings = struct {
             .data = application.ptr,
         };
 
-        return qtc.QSettings_new10(@intCast(scope), organization_str, application_str, @ptrCast(parent));
+        return qtc.QSettings_new10(@bitCast(scope), organization_str, application_str, @ptrCast(parent));
     }
 
     /// New11 constructs a new QSettings object.
@@ -205,7 +205,7 @@ pub const qsettings = struct {
             .data = application.ptr,
         };
 
-        return qtc.QSettings_new11(@intCast(format), @intCast(scope), organization_str, application_str);
+        return qtc.QSettings_new11(@bitCast(format), @bitCast(scope), organization_str, application_str);
     }
 
     /// New12 constructs a new QSettings object.
@@ -232,7 +232,7 @@ pub const qsettings = struct {
             .data = application.ptr,
         };
 
-        return qtc.QSettings_new12(@intCast(format), @intCast(scope), organization_str, application_str, @ptrCast(parent));
+        return qtc.QSettings_new12(@bitCast(format), @bitCast(scope), organization_str, application_str, @ptrCast(parent));
     }
 
     /// New13 constructs a new QSettings object.
@@ -251,7 +251,7 @@ pub const qsettings = struct {
             .data = fileName.ptr,
         };
 
-        return qtc.QSettings_new13(fileName_str, @intCast(format), @ptrCast(parent));
+        return qtc.QSettings_new13(fileName_str, @bitCast(format), @ptrCast(parent));
     }
 
     /// New14 constructs a new QSettings object.
@@ -273,7 +273,7 @@ pub const qsettings = struct {
     /// ` parent: QtC.QObject `
     ///
     pub fn New15(scope: i32, parent: ?*anyopaque) QtC.QSettings {
-        return qtc.QSettings_new15(@intCast(scope), @ptrCast(parent));
+        return qtc.QSettings_new15(@bitCast(scope), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -297,7 +297,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QSettings_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSettings_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -332,7 +332,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn (self: QtC.QSettings, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QSettings_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSettings_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -359,7 +359,7 @@ pub const qsettings = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSettings_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QSettings_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -371,7 +371,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn (self: QtC.QSettings, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QSettings_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSettings_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -387,7 +387,7 @@ pub const qsettings = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSettings_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QSettings_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -544,7 +544,7 @@ pub const qsettings = struct {
     /// ` i: i32 `
     ///
     pub fn SetArrayIndex(self: ?*anyopaque, i: i32) void {
-        qtc.QSettings_SetArrayIndex(@ptrCast(self), @intCast(i));
+        qtc.QSettings_SetArrayIndex(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsettings.html#allKeys)
@@ -807,7 +807,7 @@ pub const qsettings = struct {
     /// ` format: qsettings_enums.Format `
     ///
     pub fn SetDefaultFormat(format: i32) void {
-        qtc.QSettings_SetDefaultFormat(@intCast(format));
+        qtc.QSettings_SetDefaultFormat(@bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsettings.html#defaultFormat)
@@ -835,7 +835,7 @@ pub const qsettings = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        qtc.QSettings_SetPath(@intCast(format), @intCast(scope), path_str);
+        qtc.QSettings_SetPath(@bitCast(format), @bitCast(scope), path_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsettings.html#event)
@@ -861,7 +861,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn (self: QtC.QSettings, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSettings_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSettings_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsettings.html#event)
@@ -913,7 +913,7 @@ pub const qsettings = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsettings.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -931,7 +931,7 @@ pub const qsettings = struct {
     /// ` size: i32 `
     ///
     pub fn BeginWriteArray2(self: ?*anyopaque, prefix: []const u8, size: i32) void {
-        qtc.QSettings_BeginWriteArray2(@ptrCast(self), prefix.ptr, @intCast(size));
+        qtc.QSettings_BeginWriteArray2(@ptrCast(self), prefix.ptr, @bitCast(size));
     }
 
     /// Inherited from QObject
@@ -1065,7 +1065,7 @@ pub const qsettings = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1079,7 +1079,7 @@ pub const qsettings = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1093,7 +1093,7 @@ pub const qsettings = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1107,7 +1107,7 @@ pub const qsettings = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1437,7 +1437,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn (self: QtC.QSettings) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1492,7 +1492,7 @@ pub const qsettings = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1508,7 +1508,7 @@ pub const qsettings = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1530,7 +1530,7 @@ pub const qsettings = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1550,7 +1550,7 @@ pub const qsettings = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1572,7 +1572,7 @@ pub const qsettings = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1669,7 +1669,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn (self: QtC.QSettings, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1721,7 +1721,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn (self: QtC.QSettings, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSettings_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSettings_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1769,7 +1769,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn (self: QtC.QSettings, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSettings_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSettings_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1817,7 +1817,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn (self: QtC.QSettings, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSettings_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSettings_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1865,7 +1865,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn (self: QtC.QSettings, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSettings_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSettings_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1913,7 +1913,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn (self: QtC.QSettings, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSettings_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSettings_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1961,7 +1961,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn (self: QtC.QSettings, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSettings_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSettings_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2005,7 +2005,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QSettings_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSettings_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2049,7 +2049,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSettings_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSettings_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2099,7 +2099,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn (self: QtC.QSettings, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSettings_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSettings_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2147,7 +2147,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn (self: QtC.QSettings, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSettings_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSettings_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2163,7 +2163,7 @@ pub const qsettings = struct {
     /// ` callback: *const fn (self: QtC.QSettings, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsettings.html#dtor.QSettings)

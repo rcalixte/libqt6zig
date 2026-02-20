@@ -640,7 +640,7 @@ pub const qdbusconnection = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QDBusConnection_ConnectToBus(@intCast(typeVal), name_str);
+        return qtc.QDBusConnection_ConnectToBus(@bitCast(typeVal), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#connectToBus)
@@ -756,7 +756,7 @@ pub const qdbusconnection = struct {
     pub fn CallWithCallback5(self: ?*anyopaque, message: ?*anyopaque, receiver: ?*anyopaque, returnMethod: [:0]const u8, errorMethod: [:0]const u8, timeout: i32) bool {
         const returnMethod_Cstring = returnMethod.ptr;
         const errorMethod_Cstring = errorMethod.ptr;
-        return qtc.QDBusConnection_CallWithCallback5(@ptrCast(self), @ptrCast(message), @ptrCast(receiver), returnMethod_Cstring, errorMethod_Cstring, @intCast(timeout));
+        return qtc.QDBusConnection_CallWithCallback5(@ptrCast(self), @ptrCast(message), @ptrCast(receiver), returnMethod_Cstring, errorMethod_Cstring, @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#callWithCallback)
@@ -775,7 +775,7 @@ pub const qdbusconnection = struct {
     ///
     pub fn CallWithCallback4(self: ?*anyopaque, message: ?*anyopaque, receiver: ?*anyopaque, slot: [:0]const u8, timeout: i32) bool {
         const slot_Cstring = slot.ptr;
-        return qtc.QDBusConnection_CallWithCallback4(@ptrCast(self), @ptrCast(message), @ptrCast(receiver), slot_Cstring, @intCast(timeout));
+        return qtc.QDBusConnection_CallWithCallback4(@ptrCast(self), @ptrCast(message), @ptrCast(receiver), slot_Cstring, @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#call)
@@ -789,7 +789,7 @@ pub const qdbusconnection = struct {
     /// ` mode: qdbusconnection_enums.CallMode `
     ///
     pub fn Call2(self: ?*anyopaque, message: ?*anyopaque, mode: i32) QtC.QDBusMessage {
-        return qtc.QDBusConnection_Call2(@ptrCast(self), @ptrCast(message), @intCast(mode));
+        return qtc.QDBusConnection_Call2(@ptrCast(self), @ptrCast(message), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#call)
@@ -805,7 +805,7 @@ pub const qdbusconnection = struct {
     /// ` timeout: i32 `
     ///
     pub fn Call3(self: ?*anyopaque, message: ?*anyopaque, mode: i32, timeout: i32) QtC.QDBusMessage {
-        return qtc.QDBusConnection_Call3(@ptrCast(self), @ptrCast(message), @intCast(mode), @intCast(timeout));
+        return qtc.QDBusConnection_Call3(@ptrCast(self), @ptrCast(message), @bitCast(mode), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#asyncCall)
@@ -819,7 +819,7 @@ pub const qdbusconnection = struct {
     /// ` timeout: i32 `
     ///
     pub fn AsyncCall2(self: ?*anyopaque, message: ?*anyopaque, timeout: i32) QtC.QDBusPendingCall {
-        return qtc.QDBusConnection_AsyncCall2(@ptrCast(self), @ptrCast(message), @intCast(timeout));
+        return qtc.QDBusConnection_AsyncCall2(@ptrCast(self), @ptrCast(message), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#registerObject)
@@ -839,7 +839,7 @@ pub const qdbusconnection = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QDBusConnection_RegisterObject3(@ptrCast(self), path_str, @ptrCast(object), @intCast(options));
+        return qtc.QDBusConnection_RegisterObject3(@ptrCast(self), path_str, @ptrCast(object), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#registerObject)
@@ -865,7 +865,7 @@ pub const qdbusconnection = struct {
             .len = interface.len,
             .data = interface.ptr,
         };
-        return qtc.QDBusConnection_RegisterObject4(@ptrCast(self), path_str, interface_str, @ptrCast(object), @intCast(options));
+        return qtc.QDBusConnection_RegisterObject4(@ptrCast(self), path_str, interface_str, @ptrCast(object), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#unregisterObject)
@@ -883,7 +883,7 @@ pub const qdbusconnection = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        qtc.QDBusConnection_UnregisterObject2(@ptrCast(self), path_str, @intCast(mode));
+        qtc.QDBusConnection_UnregisterObject2(@ptrCast(self), path_str, @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#registerVirtualObject)
@@ -903,7 +903,7 @@ pub const qdbusconnection = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QDBusConnection_RegisterVirtualObject3(@ptrCast(self), path_str, @ptrCast(object), @intCast(options));
+        return qtc.QDBusConnection_RegisterVirtualObject3(@ptrCast(self), path_str, @ptrCast(object), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#dtor.QDBusConnection)

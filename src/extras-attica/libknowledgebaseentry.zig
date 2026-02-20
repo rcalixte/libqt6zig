@@ -74,7 +74,7 @@ pub const attica__knowledgebaseentry = struct {
     /// ` id: i32 `
     ///
     pub fn SetContentId(self: ?*anyopaque, id: i32) void {
-        qtc.Attica__KnowledgeBaseEntry_SetContentId(@ptrCast(self), @intCast(id));
+        qtc.Attica__KnowledgeBaseEntry_SetContentId(@ptrCast(self), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#contentId)
@@ -278,7 +278,7 @@ pub const attica__knowledgebaseentry = struct {
     /// ` comments: i32 `
     ///
     pub fn SetComments(self: ?*anyopaque, comments: i32) void {
-        qtc.Attica__KnowledgeBaseEntry_SetComments(@ptrCast(self), @intCast(comments));
+        qtc.Attica__KnowledgeBaseEntry_SetComments(@ptrCast(self), @bitCast(comments));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#comments)

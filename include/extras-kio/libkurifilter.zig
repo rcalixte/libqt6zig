@@ -82,7 +82,7 @@ pub const kurifiltersearchprovider = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnIconName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KUriFilterSearchProvider_OnIconName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KUriFilterSearchProvider_OnIconName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#iconName)
@@ -185,7 +185,7 @@ pub const kurifiltersearchprovider = struct {
     /// ` callback: *const fn (self: QtC.KUriFilterSearchProvider, desktopEntryName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetDesktopEntryName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KUriFilterSearchProvider_OnSetDesktopEntryName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KUriFilterSearchProvider_OnSetDesktopEntryName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setDesktopEntryName)
@@ -233,7 +233,7 @@ pub const kurifiltersearchprovider = struct {
     /// ` callback: *const fn (self: QtC.KUriFilterSearchProvider, iconName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetIconName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KUriFilterSearchProvider_OnSetIconName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KUriFilterSearchProvider_OnSetIconName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
@@ -291,7 +291,7 @@ pub const kurifiltersearchprovider = struct {
     /// ` callback: *const fn (self: QtC.KUriFilterSearchProvider, keys: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetKeys(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.KUriFilterSearchProvider_OnSetKeys(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KUriFilterSearchProvider_OnSetKeys(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
@@ -349,7 +349,7 @@ pub const kurifiltersearchprovider = struct {
     /// ` callback: *const fn (self: QtC.KUriFilterSearchProvider, name: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KUriFilterSearchProvider_OnSetName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KUriFilterSearchProvider_OnSetName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setName)
@@ -918,7 +918,7 @@ pub const kurifilterdata = struct {
     /// ` options: flag of kurifilter_enums.SearchFilterOption `
     ///
     pub fn SetSearchFilteringOptions(self: ?*anyopaque, options: i32) void {
-        qtc.KUriFilterData_SetSearchFilteringOptions(@ptrCast(self), @intCast(options));
+        qtc.KUriFilterData_SetSearchFilteringOptions(@ptrCast(self), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#operator-eq)
@@ -1055,7 +1055,7 @@ pub const kurifilter = struct {
     /// ` types: flag of kurifilter_enums.SearchFilterType `
     ///
     pub fn FilterSearchUri(self: ?*anyopaque, data: ?*anyopaque, types: i32) bool {
-        return qtc.KUriFilter_FilterSearchUri(@ptrCast(self), @ptrCast(data), @intCast(types));
+        return qtc.KUriFilter_FilterSearchUri(@ptrCast(self), @ptrCast(data), @bitCast(types));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurifilter.html#pluginNames)

@@ -696,7 +696,7 @@ pub const qdnslookup = struct {
             .data = name.ptr,
         };
 
-        return qtc.QDnsLookup_new2(@intCast(typeVal), name_str);
+        return qtc.QDnsLookup_new2(@bitCast(typeVal), name_str);
     }
 
     /// New3 constructs a new QDnsLookup object.
@@ -715,7 +715,7 @@ pub const qdnslookup = struct {
             .data = name.ptr,
         };
 
-        return qtc.QDnsLookup_new3(@intCast(typeVal), name_str, @ptrCast(nameserver));
+        return qtc.QDnsLookup_new3(@bitCast(typeVal), name_str, @ptrCast(nameserver));
     }
 
     /// New4 constructs a new QDnsLookup object.
@@ -736,7 +736,7 @@ pub const qdnslookup = struct {
             .data = name.ptr,
         };
 
-        return qtc.QDnsLookup_new4(@intCast(typeVal), name_str, @ptrCast(nameserver), @intCast(port));
+        return qtc.QDnsLookup_new4(@bitCast(typeVal), name_str, @ptrCast(nameserver), @bitCast(port));
     }
 
     /// New5 constructs a new QDnsLookup object.
@@ -757,7 +757,7 @@ pub const qdnslookup = struct {
             .data = name.ptr,
         };
 
-        return qtc.QDnsLookup_new5(@intCast(typeVal), name_str, @intCast(protocol), @ptrCast(nameserver));
+        return qtc.QDnsLookup_new5(@bitCast(typeVal), name_str, @bitCast(protocol), @ptrCast(nameserver));
     }
 
     /// New6 constructs a new QDnsLookup object.
@@ -786,7 +786,7 @@ pub const qdnslookup = struct {
             .data = name.ptr,
         };
 
-        return qtc.QDnsLookup_new7(@intCast(typeVal), name_str, @ptrCast(parent));
+        return qtc.QDnsLookup_new7(@bitCast(typeVal), name_str, @ptrCast(parent));
     }
 
     /// New8 constructs a new QDnsLookup object.
@@ -807,7 +807,7 @@ pub const qdnslookup = struct {
             .data = name.ptr,
         };
 
-        return qtc.QDnsLookup_new8(@intCast(typeVal), name_str, @ptrCast(nameserver), @ptrCast(parent));
+        return qtc.QDnsLookup_new8(@bitCast(typeVal), name_str, @ptrCast(nameserver), @ptrCast(parent));
     }
 
     /// New9 constructs a new QDnsLookup object.
@@ -830,7 +830,7 @@ pub const qdnslookup = struct {
             .data = name.ptr,
         };
 
-        return qtc.QDnsLookup_new9(@intCast(typeVal), name_str, @ptrCast(nameserver), @intCast(port), @ptrCast(parent));
+        return qtc.QDnsLookup_new9(@bitCast(typeVal), name_str, @ptrCast(nameserver), @bitCast(port), @ptrCast(parent));
     }
 
     /// New10 constructs a new QDnsLookup object.
@@ -853,7 +853,7 @@ pub const qdnslookup = struct {
             .data = name.ptr,
         };
 
-        return qtc.QDnsLookup_new10(@intCast(typeVal), name_str, @intCast(protocol), @ptrCast(nameserver), @intCast(port));
+        return qtc.QDnsLookup_new10(@bitCast(typeVal), name_str, @bitCast(protocol), @ptrCast(nameserver), @bitCast(port));
     }
 
     /// New11 constructs a new QDnsLookup object.
@@ -878,7 +878,7 @@ pub const qdnslookup = struct {
             .data = name.ptr,
         };
 
-        return qtc.QDnsLookup_new11(@intCast(typeVal), name_str, @intCast(protocol), @ptrCast(nameserver), @intCast(port), @ptrCast(parent));
+        return qtc.QDnsLookup_new11(@bitCast(typeVal), name_str, @bitCast(protocol), @ptrCast(nameserver), @bitCast(port), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -902,7 +902,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QDnsLookup_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -937,7 +937,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QDnsLookup_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -964,7 +964,7 @@ pub const qdnslookup = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDnsLookup_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDnsLookup_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -976,7 +976,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QDnsLookup_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -992,7 +992,7 @@ pub const qdnslookup = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDnsLookup_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDnsLookup_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1117,7 +1117,7 @@ pub const qdnslookup = struct {
     /// ` typeVal: qdnslookup_enums.Type `
     ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QDnsLookup_SetType(@ptrCast(self), @intCast(typeVal));
+        qtc.QDnsLookup_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserver)
@@ -1161,7 +1161,7 @@ pub const qdnslookup = struct {
     /// ` port: u16 `
     ///
     pub fn SetNameserverPort(self: ?*anyopaque, port: u16) void {
-        qtc.QDnsLookup_SetNameserverPort(@ptrCast(self), @intCast(port));
+        qtc.QDnsLookup_SetNameserverPort(@ptrCast(self), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocol)
@@ -1187,7 +1187,7 @@ pub const qdnslookup = struct {
     /// ` protocol: qdnslookup_enums.Protocol `
     ///
     pub fn SetNameserverProtocol(self: ?*anyopaque, protocol: u8) void {
-        qtc.QDnsLookup_SetNameserverProtocol(@ptrCast(self), @intCast(protocol));
+        qtc.QDnsLookup_SetNameserverProtocol(@ptrCast(self), @bitCast(protocol));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
@@ -1201,7 +1201,7 @@ pub const qdnslookup = struct {
     /// ` nameserver: QtC.QHostAddress `
     ///
     pub fn SetNameserver2(self: ?*anyopaque, protocol: u8, nameserver: ?*anyopaque) void {
-        qtc.QDnsLookup_SetNameserver2(@ptrCast(self), @intCast(protocol), @ptrCast(nameserver));
+        qtc.QDnsLookup_SetNameserver2(@ptrCast(self), @bitCast(protocol), @ptrCast(nameserver));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
@@ -1215,7 +1215,7 @@ pub const qdnslookup = struct {
     /// ` port: u16 `
     ///
     pub fn SetNameserver3(self: ?*anyopaque, nameserver: ?*anyopaque, port: u16) void {
-        qtc.QDnsLookup_SetNameserver3(@ptrCast(self), @ptrCast(nameserver), @intCast(port));
+        qtc.QDnsLookup_SetNameserver3(@ptrCast(self), @ptrCast(nameserver), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#canonicalNameRecords)
@@ -1383,7 +1383,7 @@ pub const qdnslookup = struct {
     /// ` protocol: qdnslookup_enums.Protocol `
     ///
     pub fn IsProtocolSupported(protocol: u8) bool {
-        return qtc.QDnsLookup_IsProtocolSupported(@intCast(protocol));
+        return qtc.QDnsLookup_IsProtocolSupported(@bitCast(protocol));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#defaultPortForProtocol)
@@ -1393,7 +1393,7 @@ pub const qdnslookup = struct {
     /// ` protocol: qdnslookup_enums.Protocol `
     ///
     pub fn DefaultPortForProtocol(protocol: u8) u16 {
-        return qtc.QDnsLookup_DefaultPortForProtocol(@intCast(protocol));
+        return qtc.QDnsLookup_DefaultPortForProtocol(@bitCast(protocol));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#abort)
@@ -1435,7 +1435,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDnsLookup_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameChanged)
@@ -1463,7 +1463,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, name: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDnsLookup_Connect_NameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_Connect_NameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#typeChanged)
@@ -1475,7 +1475,7 @@ pub const qdnslookup = struct {
     /// ` typeVal: qdnslookup_enums.Type `
     ///
     pub fn TypeChanged(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QDnsLookup_TypeChanged(@ptrCast(self), @intCast(typeVal));
+        qtc.QDnsLookup_TypeChanged(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#typeChanged)
@@ -1487,7 +1487,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, typeVal: qdnslookup_enums.Type) callconv(.c) void `
     ///
     pub fn OnTypeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDnsLookup_Connect_TypeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_Connect_TypeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverChanged)
@@ -1511,7 +1511,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, nameserver: QtC.QHostAddress) callconv(.c) void `
     ///
     pub fn OnNameserverChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDnsLookup_Connect_NameserverChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_Connect_NameserverChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverPortChanged)
@@ -1523,7 +1523,7 @@ pub const qdnslookup = struct {
     /// ` port: u16 `
     ///
     pub fn NameserverPortChanged(self: ?*anyopaque, port: u16) void {
-        qtc.QDnsLookup_NameserverPortChanged(@ptrCast(self), @intCast(port));
+        qtc.QDnsLookup_NameserverPortChanged(@ptrCast(self), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverPortChanged)
@@ -1535,7 +1535,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, port: u16) callconv(.c) void `
     ///
     pub fn OnNameserverPortChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, u16) callconv(.c) void) void {
-        qtc.QDnsLookup_Connect_NameserverPortChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_Connect_NameserverPortChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocolChanged)
@@ -1547,7 +1547,7 @@ pub const qdnslookup = struct {
     /// ` protocol: qdnslookup_enums.Protocol `
     ///
     pub fn NameserverProtocolChanged(self: ?*anyopaque, protocol: u8) void {
-        qtc.QDnsLookup_NameserverProtocolChanged(@ptrCast(self), @intCast(protocol));
+        qtc.QDnsLookup_NameserverProtocolChanged(@ptrCast(self), @bitCast(protocol));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocolChanged)
@@ -1559,7 +1559,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, protocol: qdnslookup_enums.Protocol) callconv(.c) void `
     ///
     pub fn OnNameserverProtocolChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, u8) callconv(.c) void) void {
-        qtc.QDnsLookup_Connect_NameserverProtocolChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_Connect_NameserverProtocolChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1597,7 +1597,7 @@ pub const qdnslookup = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnslookup.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1617,7 +1617,7 @@ pub const qdnslookup = struct {
     /// ` port: u16 `
     ///
     pub fn SetNameserver32(self: ?*anyopaque, protocol: u8, nameserver: ?*anyopaque, port: u16) void {
-        qtc.QDnsLookup_SetNameserver32(@ptrCast(self), @intCast(protocol), @ptrCast(nameserver), @intCast(port));
+        qtc.QDnsLookup_SetNameserver32(@ptrCast(self), @bitCast(protocol), @ptrCast(nameserver), @bitCast(port));
     }
 
     /// Inherited from QObject
@@ -1751,7 +1751,7 @@ pub const qdnslookup = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1765,7 +1765,7 @@ pub const qdnslookup = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1779,7 +1779,7 @@ pub const qdnslookup = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1793,7 +1793,7 @@ pub const qdnslookup = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2123,7 +2123,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2178,7 +2178,7 @@ pub const qdnslookup = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2194,7 +2194,7 @@ pub const qdnslookup = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2216,7 +2216,7 @@ pub const qdnslookup = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2236,7 +2236,7 @@ pub const qdnslookup = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2258,7 +2258,7 @@ pub const qdnslookup = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2355,7 +2355,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2403,7 +2403,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDnsLookup_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2455,7 +2455,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDnsLookup_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2503,7 +2503,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDnsLookup_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2551,7 +2551,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDnsLookup_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2599,7 +2599,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDnsLookup_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2647,7 +2647,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDnsLookup_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2695,7 +2695,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDnsLookup_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2739,7 +2739,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QDnsLookup_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2783,7 +2783,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDnsLookup_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2833,7 +2833,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDnsLookup_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2881,7 +2881,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDnsLookup_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDnsLookup_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2897,7 +2897,7 @@ pub const qdnslookup = struct {
     /// ` callback: *const fn (self: QtC.QDnsLookup, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#dtor.QDnsLookup)

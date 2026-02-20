@@ -273,7 +273,7 @@ pub const attica__downloaddescription = struct {
     /// ` id: i32 `
     ///
     pub fn SetId(self: ?*anyopaque, id: i32) void {
-        qtc.Attica__DownloadDescription_SetId(@ptrCast(self), @intCast(id));
+        qtc.Attica__DownloadDescription_SetId(@ptrCast(self), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setType)
@@ -285,7 +285,7 @@ pub const attica__downloaddescription = struct {
     /// ` typeVal: downloaddescription_enums.Type `
     ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.Attica__DownloadDescription_SetType(@ptrCast(self), @intCast(typeVal));
+        qtc.Attica__DownloadDescription_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setHasPrice)
@@ -405,7 +405,7 @@ pub const attica__downloaddescription = struct {
     /// ` size: u32 `
     ///
     pub fn SetSize(self: ?*anyopaque, size: u32) void {
-        qtc.Attica__DownloadDescription_SetSize(@ptrCast(self), @intCast(size));
+        qtc.Attica__DownloadDescription_SetSize(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaddescription.html#setGpgFingerprint)

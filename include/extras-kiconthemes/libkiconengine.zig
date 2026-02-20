@@ -132,7 +132,7 @@ pub const kiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn ActualSize(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QSize {
-        return qtc.KIconEngine_ActualSize(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
+        return qtc.KIconEngine_ActualSize(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#actualSize)
@@ -146,7 +146,7 @@ pub const kiconengine = struct {
     /// ` callback: *const fn (self: QtC.KIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QtC.QSize `
     ///
     pub fn OnActualSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.QSize) void {
-        qtc.KIconEngine_OnActualSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIconEngine_OnActualSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#actualSize)
@@ -164,7 +164,7 @@ pub const kiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn QBaseActualSize(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QSize {
-        return qtc.KIconEngine_QBaseActualSize(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
+        return qtc.KIconEngine_QBaseActualSize(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#paint)
@@ -182,7 +182,7 @@ pub const kiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i32, state: i32) void {
-        qtc.KIconEngine_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(mode), @intCast(state));
+        qtc.KIconEngine_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(mode), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#paint)
@@ -196,7 +196,7 @@ pub const kiconengine = struct {
     /// ` callback: *const fn (self: QtC.KIconEngine, painter: QtC.QPainter, rect: QtC.QRect, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KIconEngine_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIconEngine_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#paint)
@@ -216,7 +216,7 @@ pub const kiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn QBasePaint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i32, state: i32) void {
-        qtc.KIconEngine_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(mode), @intCast(state));
+        qtc.KIconEngine_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(mode), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#pixmap)
@@ -232,7 +232,7 @@ pub const kiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn Pixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QPixmap {
-        return qtc.KIconEngine_Pixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
+        return qtc.KIconEngine_Pixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#pixmap)
@@ -246,7 +246,7 @@ pub const kiconengine = struct {
     /// ` callback: *const fn (self: QtC.KIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QtC.QPixmap `
     ///
     pub fn OnPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.QPixmap) void {
-        qtc.KIconEngine_OnPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIconEngine_OnPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#pixmap)
@@ -264,7 +264,7 @@ pub const kiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn QBasePixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QPixmap {
-        return qtc.KIconEngine_QBasePixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
+        return qtc.KIconEngine_QBasePixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#scaledPixmap)
@@ -282,7 +282,7 @@ pub const kiconengine = struct {
     /// ` scale: f64 `
     ///
     pub fn ScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32, scale: f64) QtC.QPixmap {
-        return qtc.KIconEngine_ScaledPixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state), @floatCast(scale));
+        return qtc.KIconEngine_ScaledPixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state), @bitCast(scale));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#scaledPixmap)
@@ -296,7 +296,7 @@ pub const kiconengine = struct {
     /// ` callback: *const fn (self: QtC.KIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State, scale: f64) callconv(.c) QtC.QPixmap `
     ///
     pub fn OnScaledPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, f64) callconv(.c) QtC.QPixmap) void {
-        qtc.KIconEngine_OnScaledPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIconEngine_OnScaledPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#scaledPixmap)
@@ -316,7 +316,7 @@ pub const kiconengine = struct {
     /// ` scale: f64 `
     ///
     pub fn QBaseScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32, scale: f64) QtC.QPixmap {
-        return qtc.KIconEngine_QBaseScaledPixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state), @floatCast(scale));
+        return qtc.KIconEngine_QBaseScaledPixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state), @bitCast(scale));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#iconName)
@@ -348,7 +348,7 @@ pub const kiconengine = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnIconName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KIconEngine_OnIconName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIconEngine_OnIconName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#iconName)
@@ -382,7 +382,7 @@ pub const kiconengine = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AvailableSizes(self: ?*anyopaque, mode: i32, state: i32, allocator: std.mem.Allocator) []QtC.QSize {
-        const _arr: qtc.libqt_list = qtc.KIconEngine_AvailableSizes(@ptrCast(self), @intCast(mode), @intCast(state));
+        const _arr: qtc.libqt_list = qtc.KIconEngine_AvailableSizes(@ptrCast(self), @bitCast(mode), @bitCast(state));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("kiconengine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
@@ -407,7 +407,7 @@ pub const kiconengine = struct {
     /// ` C ABI representation of []QtC.QSize `
     ///
     pub fn OnAvailableSizes(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.KIconEngine_OnAvailableSizes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIconEngine_OnAvailableSizes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#availableSizes)
@@ -425,7 +425,7 @@ pub const kiconengine = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseAvailableSizes(self: ?*anyopaque, mode: i32, state: i32, allocator: std.mem.Allocator) []QtC.QSize {
-        const _arr: qtc.libqt_list = qtc.KIconEngine_QBaseAvailableSizes(@ptrCast(self), @intCast(mode), @intCast(state));
+        const _arr: qtc.libqt_list = qtc.KIconEngine_QBaseAvailableSizes(@ptrCast(self), @bitCast(mode), @bitCast(state));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("kiconengine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
@@ -454,7 +454,7 @@ pub const kiconengine = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsNull(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIconEngine_OnIsNull(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIconEngine_OnIsNull(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#isNull)
@@ -498,7 +498,7 @@ pub const kiconengine = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnKey(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KIconEngine_OnKey(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIconEngine_OnKey(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#key)
@@ -540,7 +540,7 @@ pub const kiconengine = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QIconEngine `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QIconEngine) void {
-        qtc.KIconEngine_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIconEngine_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#clone)
@@ -578,7 +578,7 @@ pub const kiconengine = struct {
     /// ` callback: *const fn (self: QtC.KIconEngine, in: QtC.QDataStream) callconv(.c) bool `
     ///
     pub fn OnRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIconEngine_OnRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIconEngine_OnRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#read)
@@ -618,7 +618,7 @@ pub const kiconengine = struct {
     /// ` callback: *const fn (self: QtC.KIconEngine, out: QtC.QDataStream) callconv(.c) bool `
     ///
     pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIconEngine_OnWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIconEngine_OnWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#write)
@@ -652,7 +652,7 @@ pub const kiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn AddPixmap(self: ?*anyopaque, pixmap: ?*anyopaque, mode: i32, state: i32) void {
-        qtc.KIconEngine_AddPixmap(@ptrCast(self), @ptrCast(pixmap), @intCast(mode), @intCast(state));
+        qtc.KIconEngine_AddPixmap(@ptrCast(self), @ptrCast(pixmap), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -672,7 +672,7 @@ pub const kiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn QBaseAddPixmap(self: ?*anyopaque, pixmap: ?*anyopaque, mode: i32, state: i32) void {
-        qtc.KIconEngine_QBaseAddPixmap(@ptrCast(self), @ptrCast(pixmap), @intCast(mode), @intCast(state));
+        qtc.KIconEngine_QBaseAddPixmap(@ptrCast(self), @ptrCast(pixmap), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -688,7 +688,7 @@ pub const kiconengine = struct {
     /// ` callback: *const fn (self: QtC.KIconEngine, pixmap: QtC.QPixmap, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
     ///
     pub fn OnAddPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KIconEngine_OnAddPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIconEngine_OnAddPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -714,7 +714,7 @@ pub const kiconengine = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.KIconEngine_AddFile(@ptrCast(self), fileName_str, @ptrCast(size), @intCast(mode), @intCast(state));
+        qtc.KIconEngine_AddFile(@ptrCast(self), fileName_str, @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -740,7 +740,7 @@ pub const kiconengine = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.KIconEngine_QBaseAddFile(@ptrCast(self), fileName_str, @ptrCast(size), @intCast(mode), @intCast(state));
+        qtc.KIconEngine_QBaseAddFile(@ptrCast(self), fileName_str, @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -756,7 +756,7 @@ pub const kiconengine = struct {
     /// ` callback: *const fn (self: QtC.KIconEngine, fileName: [*:0]const u8, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
     ///
     pub fn OnAddFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KIconEngine_OnAddFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIconEngine_OnAddFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -774,7 +774,7 @@ pub const kiconengine = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KIconEngine_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KIconEngine_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from QIconEngine
@@ -792,7 +792,7 @@ pub const kiconengine = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KIconEngine_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KIconEngine_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from QIconEngine
@@ -808,7 +808,7 @@ pub const kiconengine = struct {
     /// ` callback: *const fn (self: QtC.KIconEngine, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconEngine_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIconEngine_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#dtor.KIconEngine)

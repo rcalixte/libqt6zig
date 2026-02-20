@@ -40,7 +40,7 @@ pub const qabstractnativeeventfilter = struct {
     /// ` callback: *const fn (self: QtC.QAbstractNativeEventFilter, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn OnNativeEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QAbstractNativeEventFilter_OnNativeEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractNativeEventFilter_OnNativeEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)

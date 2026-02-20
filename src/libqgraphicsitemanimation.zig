@@ -45,7 +45,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGraphicsItemAnimation_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -80,7 +80,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -107,7 +107,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsItemAnimation_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsItemAnimation_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -119,7 +119,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsItemAnimation_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -135,7 +135,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsItemAnimation_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsItemAnimation_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -208,7 +208,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` step: f64 `
     ///
     pub fn PosAt(self: ?*anyopaque, step: f64) QtC.QPointF {
-        return qtc.QGraphicsItemAnimation_PosAt(@ptrCast(self), @floatCast(step));
+        return qtc.QGraphicsItemAnimation_PosAt(@ptrCast(self), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#posList)
@@ -239,7 +239,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` pos: QtC.QPointF `
     ///
     pub fn SetPosAt(self: ?*anyopaque, step: f64, pos: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_SetPosAt(@ptrCast(self), @floatCast(step), @ptrCast(pos));
+        qtc.QGraphicsItemAnimation_SetPosAt(@ptrCast(self), @bitCast(step), @ptrCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#transformAt)
@@ -251,7 +251,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` step: f64 `
     ///
     pub fn TransformAt(self: ?*anyopaque, step: f64) QtC.QTransform {
-        return qtc.QGraphicsItemAnimation_TransformAt(@ptrCast(self), @floatCast(step));
+        return qtc.QGraphicsItemAnimation_TransformAt(@ptrCast(self), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#rotationAt)
@@ -263,7 +263,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` step: f64 `
     ///
     pub fn RotationAt(self: ?*anyopaque, step: f64) f64 {
-        return qtc.QGraphicsItemAnimation_RotationAt(@ptrCast(self), @floatCast(step));
+        return qtc.QGraphicsItemAnimation_RotationAt(@ptrCast(self), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#rotationList)
@@ -294,7 +294,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotationAt(self: ?*anyopaque, step: f64, angle: f64) void {
-        qtc.QGraphicsItemAnimation_SetRotationAt(@ptrCast(self), @floatCast(step), @floatCast(angle));
+        qtc.QGraphicsItemAnimation_SetRotationAt(@ptrCast(self), @bitCast(step), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#xTranslationAt)
@@ -306,7 +306,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` step: f64 `
     ///
     pub fn XTranslationAt(self: ?*anyopaque, step: f64) f64 {
-        return qtc.QGraphicsItemAnimation_XTranslationAt(@ptrCast(self), @floatCast(step));
+        return qtc.QGraphicsItemAnimation_XTranslationAt(@ptrCast(self), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#yTranslationAt)
@@ -318,7 +318,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` step: f64 `
     ///
     pub fn YTranslationAt(self: ?*anyopaque, step: f64) f64 {
-        return qtc.QGraphicsItemAnimation_YTranslationAt(@ptrCast(self), @floatCast(step));
+        return qtc.QGraphicsItemAnimation_YTranslationAt(@ptrCast(self), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#translationList)
@@ -351,7 +351,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` dy: f64 `
     ///
     pub fn SetTranslationAt(self: ?*anyopaque, step: f64, dx: f64, dy: f64) void {
-        qtc.QGraphicsItemAnimation_SetTranslationAt(@ptrCast(self), @floatCast(step), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItemAnimation_SetTranslationAt(@ptrCast(self), @bitCast(step), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#verticalScaleAt)
@@ -363,7 +363,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` step: f64 `
     ///
     pub fn VerticalScaleAt(self: ?*anyopaque, step: f64) f64 {
-        return qtc.QGraphicsItemAnimation_VerticalScaleAt(@ptrCast(self), @floatCast(step));
+        return qtc.QGraphicsItemAnimation_VerticalScaleAt(@ptrCast(self), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#horizontalScaleAt)
@@ -375,7 +375,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` step: f64 `
     ///
     pub fn HorizontalScaleAt(self: ?*anyopaque, step: f64) f64 {
-        return qtc.QGraphicsItemAnimation_HorizontalScaleAt(@ptrCast(self), @floatCast(step));
+        return qtc.QGraphicsItemAnimation_HorizontalScaleAt(@ptrCast(self), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#scaleList)
@@ -408,7 +408,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` sy: f64 `
     ///
     pub fn SetScaleAt(self: ?*anyopaque, step: f64, sx: f64, sy: f64) void {
-        qtc.QGraphicsItemAnimation_SetScaleAt(@ptrCast(self), @floatCast(step), @floatCast(sx), @floatCast(sy));
+        qtc.QGraphicsItemAnimation_SetScaleAt(@ptrCast(self), @bitCast(step), @bitCast(sx), @bitCast(sy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#verticalShearAt)
@@ -420,7 +420,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` step: f64 `
     ///
     pub fn VerticalShearAt(self: ?*anyopaque, step: f64) f64 {
-        return qtc.QGraphicsItemAnimation_VerticalShearAt(@ptrCast(self), @floatCast(step));
+        return qtc.QGraphicsItemAnimation_VerticalShearAt(@ptrCast(self), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#horizontalShearAt)
@@ -432,7 +432,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` step: f64 `
     ///
     pub fn HorizontalShearAt(self: ?*anyopaque, step: f64) f64 {
-        return qtc.QGraphicsItemAnimation_HorizontalShearAt(@ptrCast(self), @floatCast(step));
+        return qtc.QGraphicsItemAnimation_HorizontalShearAt(@ptrCast(self), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#shearList)
@@ -465,7 +465,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` sv: f64 `
     ///
     pub fn SetShearAt(self: ?*anyopaque, step: f64, sh: f64, sv: f64) void {
-        qtc.QGraphicsItemAnimation_SetShearAt(@ptrCast(self), @floatCast(step), @floatCast(sh), @floatCast(sv));
+        qtc.QGraphicsItemAnimation_SetShearAt(@ptrCast(self), @bitCast(step), @bitCast(sh), @bitCast(sv));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#clear)
@@ -487,7 +487,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` x: f64 `
     ///
     pub fn SetStep(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItemAnimation_SetStep(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItemAnimation_SetStep(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#beforeAnimationStep)
@@ -499,7 +499,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` step: f64 `
     ///
     pub fn BeforeAnimationStep(self: ?*anyopaque, step: f64) void {
-        qtc.QGraphicsItemAnimation_BeforeAnimationStep(@ptrCast(self), @floatCast(step));
+        qtc.QGraphicsItemAnimation_BeforeAnimationStep(@ptrCast(self), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#beforeAnimationStep)
@@ -513,7 +513,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, step: f64) callconv(.c) void `
     ///
     pub fn OnBeforeAnimationStep(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QGraphicsItemAnimation_OnBeforeAnimationStep(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnBeforeAnimationStep(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#beforeAnimationStep)
@@ -527,7 +527,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` step: f64 `
     ///
     pub fn QBaseBeforeAnimationStep(self: ?*anyopaque, step: f64) void {
-        qtc.QGraphicsItemAnimation_QBaseBeforeAnimationStep(@ptrCast(self), @floatCast(step));
+        qtc.QGraphicsItemAnimation_QBaseBeforeAnimationStep(@ptrCast(self), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#afterAnimationStep)
@@ -539,7 +539,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` step: f64 `
     ///
     pub fn AfterAnimationStep(self: ?*anyopaque, step: f64) void {
-        qtc.QGraphicsItemAnimation_AfterAnimationStep(@ptrCast(self), @floatCast(step));
+        qtc.QGraphicsItemAnimation_AfterAnimationStep(@ptrCast(self), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#afterAnimationStep)
@@ -553,7 +553,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, step: f64) callconv(.c) void `
     ///
     pub fn OnAfterAnimationStep(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QGraphicsItemAnimation_OnAfterAnimationStep(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnAfterAnimationStep(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#afterAnimationStep)
@@ -567,7 +567,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` step: f64 `
     ///
     pub fn QBaseAfterAnimationStep(self: ?*anyopaque, step: f64) void {
-        qtc.QGraphicsItemAnimation_QBaseAfterAnimationStep(@ptrCast(self), @floatCast(step));
+        qtc.QGraphicsItemAnimation_QBaseAfterAnimationStep(@ptrCast(self), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -605,7 +605,7 @@ pub const qgraphicsitemanimation = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsitemanimation.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -743,7 +743,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -757,7 +757,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -771,7 +771,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -785,7 +785,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1115,7 +1115,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1170,7 +1170,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1186,7 +1186,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1208,7 +1208,7 @@ pub const qgraphicsitemanimation = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1228,7 +1228,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1250,7 +1250,7 @@ pub const qgraphicsitemanimation = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1347,7 +1347,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1395,7 +1395,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItemAnimation_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1447,7 +1447,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItemAnimation_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1495,7 +1495,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemAnimation_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1543,7 +1543,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemAnimation_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1591,7 +1591,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemAnimation_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1639,7 +1639,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemAnimation_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1687,7 +1687,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemAnimation_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1731,7 +1731,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsItemAnimation_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1775,7 +1775,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsItemAnimation_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1825,7 +1825,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsItemAnimation_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1873,7 +1873,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItemAnimation_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsItemAnimation_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1889,7 +1889,7 @@ pub const qgraphicsitemanimation = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#dtor.QGraphicsItemAnimation)

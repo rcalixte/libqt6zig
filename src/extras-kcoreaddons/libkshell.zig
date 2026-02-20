@@ -22,7 +22,7 @@ pub const kshell = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KShell_SplitArgs(param1_str, @intCast(param2), @ptrCast(param3));
+        const _arr: qtc.libqt_list = qtc.KShell_SplitArgs(param1_str, @bitCast(param2), @ptrCast(param3));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {

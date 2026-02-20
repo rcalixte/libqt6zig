@@ -223,7 +223,7 @@ pub const attica__topic = struct {
     /// ` comments: i32 `
     ///
     pub fn SetComments(self: ?*anyopaque, comments: i32) void {
-        qtc.Attica__Topic_SetComments(@ptrCast(self), @intCast(comments));
+        qtc.Attica__Topic_SetComments(@ptrCast(self), @bitCast(comments));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-topic.html#comments)

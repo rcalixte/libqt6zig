@@ -85,7 +85,7 @@ pub const qlocationpermission = struct {
     /// ` accuracy: qpermissions_enums.Accuracy `
     ///
     pub fn SetAccuracy(self: ?*anyopaque, accuracy: u8) void {
-        qtc.QLocationPermission_SetAccuracy(@ptrCast(self), @intCast(accuracy));
+        qtc.QLocationPermission_SetAccuracy(@ptrCast(self), @bitCast(accuracy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#accuracy)
@@ -111,7 +111,7 @@ pub const qlocationpermission = struct {
     /// ` availability: qpermissions_enums.Availability `
     ///
     pub fn SetAvailability(self: ?*anyopaque, availability: u8) void {
-        qtc.QLocationPermission_SetAvailability(@ptrCast(self), @intCast(availability));
+        qtc.QLocationPermission_SetAvailability(@ptrCast(self), @bitCast(availability));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#availability)
@@ -192,7 +192,7 @@ pub const qcalendarpermission = struct {
     /// ` mode: qpermissions_enums.AccessMode `
     ///
     pub fn SetAccessMode(self: ?*anyopaque, mode: u8) void {
-        qtc.QCalendarPermission_SetAccessMode(@ptrCast(self), @intCast(mode));
+        qtc.QCalendarPermission_SetAccessMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#accessMode)
@@ -273,7 +273,7 @@ pub const qcontactspermission = struct {
     /// ` mode: qpermissions_enums.AccessMode `
     ///
     pub fn SetAccessMode(self: ?*anyopaque, mode: u8) void {
-        qtc.QContactsPermission_SetAccessMode(@ptrCast(self), @intCast(mode));
+        qtc.QContactsPermission_SetAccessMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#accessMode)
@@ -354,7 +354,7 @@ pub const qbluetoothpermission = struct {
     /// ` modes: flag of qpermissions_enums.CommunicationMode `
     ///
     pub fn SetCommunicationModes(self: ?*anyopaque, modes: u8) void {
-        qtc.QBluetoothPermission_SetCommunicationModes(@ptrCast(self), @intCast(modes));
+        qtc.QBluetoothPermission_SetCommunicationModes(@ptrCast(self), @bitCast(modes));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#communicationModes)

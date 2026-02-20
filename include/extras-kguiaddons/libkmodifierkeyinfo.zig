@@ -43,7 +43,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KModifierKeyInfo_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -78,7 +78,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KModifierKeyInfo_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -105,7 +105,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KModifierKeyInfo_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KModifierKeyInfo_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -117,7 +117,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KModifierKeyInfo_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -133,7 +133,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KModifierKeyInfo_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KModifierKeyInfo_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -162,7 +162,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` key: qnamespace_enums.Key `
     ///
     pub fn KnowsKey(self: ?*anyopaque, key: i32) bool {
-        return qtc.KModifierKeyInfo_KnowsKey(@ptrCast(self), @intCast(key));
+        return qtc.KModifierKeyInfo_KnowsKey(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#knownKeys)
@@ -195,7 +195,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` key: qnamespace_enums.Key `
     ///
     pub fn IsKeyPressed(self: ?*anyopaque, key: i32) bool {
-        return qtc.KModifierKeyInfo_IsKeyPressed(@ptrCast(self), @intCast(key));
+        return qtc.KModifierKeyInfo_IsKeyPressed(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#isKeyLatched)
@@ -207,7 +207,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` key: qnamespace_enums.Key `
     ///
     pub fn IsKeyLatched(self: ?*anyopaque, key: i32) bool {
-        return qtc.KModifierKeyInfo_IsKeyLatched(@ptrCast(self), @intCast(key));
+        return qtc.KModifierKeyInfo_IsKeyLatched(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#setKeyLatched)
@@ -221,7 +221,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` latched: bool `
     ///
     pub fn SetKeyLatched(self: ?*anyopaque, key: i32, latched: bool) bool {
-        return qtc.KModifierKeyInfo_SetKeyLatched(@ptrCast(self), @intCast(key), latched);
+        return qtc.KModifierKeyInfo_SetKeyLatched(@ptrCast(self), @bitCast(key), latched);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#isKeyLocked)
@@ -233,7 +233,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` key: qnamespace_enums.Key `
     ///
     pub fn IsKeyLocked(self: ?*anyopaque, key: i32) bool {
-        return qtc.KModifierKeyInfo_IsKeyLocked(@ptrCast(self), @intCast(key));
+        return qtc.KModifierKeyInfo_IsKeyLocked(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#setKeyLocked)
@@ -247,7 +247,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` locked: bool `
     ///
     pub fn SetKeyLocked(self: ?*anyopaque, key: i32, locked: bool) bool {
-        return qtc.KModifierKeyInfo_SetKeyLocked(@ptrCast(self), @intCast(key), locked);
+        return qtc.KModifierKeyInfo_SetKeyLocked(@ptrCast(self), @bitCast(key), locked);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#isButtonPressed)
@@ -259,7 +259,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` button: qnamespace_enums.MouseButton `
     ///
     pub fn IsButtonPressed(self: ?*anyopaque, button: i32) bool {
-        return qtc.KModifierKeyInfo_IsButtonPressed(@ptrCast(self), @intCast(button));
+        return qtc.KModifierKeyInfo_IsButtonPressed(@ptrCast(self), @bitCast(button));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#keyPressed)
@@ -273,7 +273,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` pressed: bool `
     ///
     pub fn KeyPressed(self: ?*anyopaque, key: i32, pressed: bool) void {
-        qtc.KModifierKeyInfo_KeyPressed(@ptrCast(self), @intCast(key), pressed);
+        qtc.KModifierKeyInfo_KeyPressed(@ptrCast(self), @bitCast(key), pressed);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#keyPressed)
@@ -285,7 +285,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, key: qnamespace_enums.Key, pressed: bool) callconv(.c) void `
     ///
     pub fn OnKeyPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.KModifierKeyInfo_Connect_KeyPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_Connect_KeyPressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#keyLatched)
@@ -299,7 +299,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` latched: bool `
     ///
     pub fn KeyLatched(self: ?*anyopaque, key: i32, latched: bool) void {
-        qtc.KModifierKeyInfo_KeyLatched(@ptrCast(self), @intCast(key), latched);
+        qtc.KModifierKeyInfo_KeyLatched(@ptrCast(self), @bitCast(key), latched);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#keyLatched)
@@ -311,7 +311,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, key: qnamespace_enums.Key, latched: bool) callconv(.c) void `
     ///
     pub fn OnKeyLatched(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.KModifierKeyInfo_Connect_KeyLatched(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_Connect_KeyLatched(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#keyLocked)
@@ -325,7 +325,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` locked: bool `
     ///
     pub fn KeyLocked(self: ?*anyopaque, key: i32, locked: bool) void {
-        qtc.KModifierKeyInfo_KeyLocked(@ptrCast(self), @intCast(key), locked);
+        qtc.KModifierKeyInfo_KeyLocked(@ptrCast(self), @bitCast(key), locked);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#keyLocked)
@@ -337,7 +337,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, key: qnamespace_enums.Key, locked: bool) callconv(.c) void `
     ///
     pub fn OnKeyLocked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.KModifierKeyInfo_Connect_KeyLocked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_Connect_KeyLocked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#buttonPressed)
@@ -351,7 +351,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` pressed: bool `
     ///
     pub fn ButtonPressed(self: ?*anyopaque, button: i32, pressed: bool) void {
-        qtc.KModifierKeyInfo_ButtonPressed(@ptrCast(self), @intCast(button), pressed);
+        qtc.KModifierKeyInfo_ButtonPressed(@ptrCast(self), @bitCast(button), pressed);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#buttonPressed)
@@ -363,7 +363,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, button: qnamespace_enums.MouseButton, pressed: bool) callconv(.c) void `
     ///
     pub fn OnButtonPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.KModifierKeyInfo_Connect_ButtonPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_Connect_ButtonPressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#keyAdded)
@@ -375,7 +375,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` key: qnamespace_enums.Key `
     ///
     pub fn KeyAdded(self: ?*anyopaque, key: i32) void {
-        qtc.KModifierKeyInfo_KeyAdded(@ptrCast(self), @intCast(key));
+        qtc.KModifierKeyInfo_KeyAdded(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#keyAdded)
@@ -387,7 +387,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, key: qnamespace_enums.Key) callconv(.c) void `
     ///
     pub fn OnKeyAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KModifierKeyInfo_Connect_KeyAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_Connect_KeyAdded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#keyRemoved)
@@ -399,7 +399,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` key: qnamespace_enums.Key `
     ///
     pub fn KeyRemoved(self: ?*anyopaque, key: i32) void {
-        qtc.KModifierKeyInfo_KeyRemoved(@ptrCast(self), @intCast(key));
+        qtc.KModifierKeyInfo_KeyRemoved(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#keyRemoved)
@@ -411,7 +411,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, key: qnamespace_enums.Key) callconv(.c) void `
     ///
     pub fn OnKeyRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KModifierKeyInfo_Connect_KeyRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_Connect_KeyRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -449,7 +449,7 @@ pub const kmodifierkeyinfo = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kmodifierkeyinfo.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -587,7 +587,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -601,7 +601,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -615,7 +615,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -629,7 +629,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -959,7 +959,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1014,7 +1014,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1030,7 +1030,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1052,7 +1052,7 @@ pub const kmodifierkeyinfo = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1072,7 +1072,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1094,7 +1094,7 @@ pub const kmodifierkeyinfo = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1191,7 +1191,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1239,7 +1239,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KModifierKeyInfo_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1291,7 +1291,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KModifierKeyInfo_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1339,7 +1339,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfo_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1387,7 +1387,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfo_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1435,7 +1435,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfo_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1483,7 +1483,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfo_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1531,7 +1531,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfo_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1575,7 +1575,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KModifierKeyInfo_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1619,7 +1619,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KModifierKeyInfo_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1669,7 +1669,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KModifierKeyInfo_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1717,7 +1717,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KModifierKeyInfo_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KModifierKeyInfo_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1733,7 +1733,7 @@ pub const kmodifierkeyinfo = struct {
     /// ` callback: *const fn (self: QtC.KModifierKeyInfo, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfo.html#dtor.KModifierKeyInfo)

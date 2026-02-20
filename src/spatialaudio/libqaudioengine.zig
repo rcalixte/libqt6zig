@@ -30,7 +30,7 @@ pub const qaudioengine = struct {
     /// ` sampleRate: i32 `
     ///
     pub fn New3(sampleRate: i32) QtC.QAudioEngine {
-        return qtc.QAudioEngine_new3(@intCast(sampleRate));
+        return qtc.QAudioEngine_new3(@bitCast(sampleRate));
     }
 
     /// New4 constructs a new QAudioEngine object.
@@ -42,7 +42,7 @@ pub const qaudioengine = struct {
     /// ` parent: QtC.QObject `
     ///
     pub fn New4(sampleRate: i32, parent: ?*anyopaque) QtC.QAudioEngine {
-        return qtc.QAudioEngine_new4(@intCast(sampleRate), @ptrCast(parent));
+        return qtc.QAudioEngine_new4(@bitCast(sampleRate), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -66,7 +66,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QAudioEngine_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -101,7 +101,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QAudioEngine_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -128,7 +128,7 @@ pub const qaudioengine = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAudioEngine_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAudioEngine_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -140,7 +140,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QAudioEngine_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -156,7 +156,7 @@ pub const qaudioengine = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAudioEngine_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAudioEngine_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -185,7 +185,7 @@ pub const qaudioengine = struct {
     /// ` mode: qaudioengine_enums.OutputMode `
     ///
     pub fn SetOutputMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAudioEngine_SetOutputMode(@ptrCast(self), @intCast(mode));
+        qtc.QAudioEngine_SetOutputMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioengine.html#outputMode)
@@ -243,7 +243,7 @@ pub const qaudioengine = struct {
     /// ` volume: f32 `
     ///
     pub fn SetMasterVolume(self: ?*anyopaque, volume: f32) void {
-        qtc.QAudioEngine_SetMasterVolume(@ptrCast(self), @floatCast(volume));
+        qtc.QAudioEngine_SetMasterVolume(@ptrCast(self), @bitCast(volume));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioengine.html#masterVolume)
@@ -309,7 +309,7 @@ pub const qaudioengine = struct {
     /// ` scale: f32 `
     ///
     pub fn SetDistanceScale(self: ?*anyopaque, scale: f32) void {
-        qtc.QAudioEngine_SetDistanceScale(@ptrCast(self), @floatCast(scale));
+        qtc.QAudioEngine_SetDistanceScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioengine.html#distanceScale)
@@ -341,7 +341,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine) callconv(.c) void `
     ///
     pub fn OnOutputModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAudioEngine_Connect_OutputModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_Connect_OutputModeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioengine.html#outputDeviceChanged)
@@ -363,7 +363,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine) callconv(.c) void `
     ///
     pub fn OnOutputDeviceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAudioEngine_Connect_OutputDeviceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_Connect_OutputDeviceChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioengine.html#masterVolumeChanged)
@@ -385,7 +385,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine) callconv(.c) void `
     ///
     pub fn OnMasterVolumeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAudioEngine_Connect_MasterVolumeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_Connect_MasterVolumeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioengine.html#pausedChanged)
@@ -407,7 +407,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine) callconv(.c) void `
     ///
     pub fn OnPausedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAudioEngine_Connect_PausedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_Connect_PausedChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioengine.html#distanceScaleChanged)
@@ -429,7 +429,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine) callconv(.c) void `
     ///
     pub fn OnDistanceScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAudioEngine_Connect_DistanceScaleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_Connect_DistanceScaleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioengine.html#start)
@@ -507,7 +507,7 @@ pub const qaudioengine = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaudioengine.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -645,7 +645,7 @@ pub const qaudioengine = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -659,7 +659,7 @@ pub const qaudioengine = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -673,7 +673,7 @@ pub const qaudioengine = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -687,7 +687,7 @@ pub const qaudioengine = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1017,7 +1017,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1072,7 +1072,7 @@ pub const qaudioengine = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1088,7 +1088,7 @@ pub const qaudioengine = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1110,7 +1110,7 @@ pub const qaudioengine = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1130,7 +1130,7 @@ pub const qaudioengine = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1152,7 +1152,7 @@ pub const qaudioengine = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1249,7 +1249,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1297,7 +1297,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAudioEngine_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1349,7 +1349,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAudioEngine_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1397,7 +1397,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAudioEngine_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1445,7 +1445,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAudioEngine_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1493,7 +1493,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAudioEngine_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1541,7 +1541,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAudioEngine_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1589,7 +1589,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAudioEngine_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1633,7 +1633,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QAudioEngine_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1677,7 +1677,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAudioEngine_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1727,7 +1727,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAudioEngine_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1775,7 +1775,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAudioEngine_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAudioEngine_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1791,7 +1791,7 @@ pub const qaudioengine = struct {
     /// ` callback: *const fn (self: QtC.QAudioEngine, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioengine.html#dtor.QAudioEngine)

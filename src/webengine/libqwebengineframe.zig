@@ -150,7 +150,7 @@ pub const qwebengineframe = struct {
             .len = script.len,
             .data = script.ptr,
         };
-        qtc.QWebEngineFrame_RunJavaScript22(@ptrCast(self), script_str, @intCast(worldId));
+        qtc.QWebEngineFrame_RunJavaScript22(@ptrCast(self), script_str, @bitCast(worldId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#dtor.QWebEngineFrame)

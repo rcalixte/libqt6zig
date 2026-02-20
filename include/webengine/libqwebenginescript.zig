@@ -142,7 +142,7 @@ pub const qwebenginescript = struct {
     /// ` injectionPoint: qwebenginescript_enums.InjectionPoint `
     ///
     pub fn SetInjectionPoint(self: ?*anyopaque, injectionPoint: i32) void {
-        qtc.QWebEngineScript_SetInjectionPoint(@ptrCast(self), @intCast(injectionPoint));
+        qtc.QWebEngineScript_SetInjectionPoint(@ptrCast(self), @bitCast(injectionPoint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#worldId)
@@ -164,7 +164,7 @@ pub const qwebenginescript = struct {
     /// ` worldId: u32 `
     ///
     pub fn SetWorldId(self: ?*anyopaque, worldId: u32) void {
-        qtc.QWebEngineScript_SetWorldId(@ptrCast(self), @intCast(worldId));
+        qtc.QWebEngineScript_SetWorldId(@ptrCast(self), @bitCast(worldId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#runsOnSubFrames)

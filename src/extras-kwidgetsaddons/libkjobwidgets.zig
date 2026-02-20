@@ -56,7 +56,7 @@ pub const kjobwidgets = struct {
     /// ` param2: u64 `
     ///
     pub fn UpdateUserTimestamp(param1: ?*anyopaque, param2: u64) void {
-        qtc.KJobWidgets_UpdateUserTimestamp(@ptrCast(param1), @intCast(param2));
+        qtc.KJobWidgets_UpdateUserTimestamp(@ptrCast(param1), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjobwidgets.html#userTimestamp)

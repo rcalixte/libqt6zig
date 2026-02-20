@@ -14,7 +14,7 @@ pub const kstartupinfo = struct {
     /// ` flags: i32 `
     ///
     pub fn New(flags: i32) QtC.KStartupInfo {
-        return qtc.KStartupInfo_new(@intCast(flags));
+        return qtc.KStartupInfo_new(@bitCast(flags));
     }
 
     /// New2 constructs a new KStartupInfo object.
@@ -26,7 +26,7 @@ pub const kstartupinfo = struct {
     /// ` parent: QtC.QObject `
     ///
     pub fn New2(flags: i32, parent: ?*anyopaque) QtC.KStartupInfo {
-        return qtc.KStartupInfo_new2(@intCast(flags), @ptrCast(parent));
+        return qtc.KStartupInfo_new2(@bitCast(flags), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -50,7 +50,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KStartupInfo_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -85,7 +85,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KStartupInfo_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -112,7 +112,7 @@ pub const kstartupinfo = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KStartupInfo_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KStartupInfo_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -124,7 +124,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KStartupInfo_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -140,7 +140,7 @@ pub const kstartupinfo = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KStartupInfo_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KStartupInfo_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -233,7 +233,7 @@ pub const kstartupinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CreateNewStartupIdForTimestamp(timestamp: u32, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.KStartupInfo_CreateNewStartupIdForTimestamp(@intCast(timestamp));
+        var _bytearray: qtc.libqt_string = qtc.KStartupInfo_CreateNewStartupIdForTimestamp(@bitCast(timestamp));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kstartupinfo.CreateNewStartupIdForTimestamp: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -305,7 +305,7 @@ pub const kstartupinfo = struct {
     /// ` kstartupinfo_enums.startup_t `
     ///
     pub fn CheckStartup(self: ?*anyopaque, w: usize) i32 {
-        return qtc.KStartupInfo_CheckStartup(@ptrCast(self), @intCast(w));
+        return qtc.KStartupInfo_CheckStartup(@ptrCast(self), @bitCast(w));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#checkStartup)
@@ -323,7 +323,7 @@ pub const kstartupinfo = struct {
     /// ` kstartupinfo_enums.startup_t `
     ///
     pub fn CheckStartup2(self: ?*anyopaque, w: usize, id: ?*anyopaque) i32 {
-        return qtc.KStartupInfo_CheckStartup2(@ptrCast(self), @intCast(w), @ptrCast(id));
+        return qtc.KStartupInfo_CheckStartup2(@ptrCast(self), @bitCast(w), @ptrCast(id));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#checkStartup)
@@ -341,7 +341,7 @@ pub const kstartupinfo = struct {
     /// ` kstartupinfo_enums.startup_t `
     ///
     pub fn CheckStartup3(self: ?*anyopaque, w: usize, data: ?*anyopaque) i32 {
-        return qtc.KStartupInfo_CheckStartup3(@ptrCast(self), @intCast(w), @ptrCast(data));
+        return qtc.KStartupInfo_CheckStartup3(@ptrCast(self), @bitCast(w), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#checkStartup)
@@ -361,7 +361,7 @@ pub const kstartupinfo = struct {
     /// ` kstartupinfo_enums.startup_t `
     ///
     pub fn CheckStartup4(self: ?*anyopaque, w: usize, id: ?*anyopaque, data: ?*anyopaque) i32 {
-        return qtc.KStartupInfo_CheckStartup4(@ptrCast(self), @intCast(w), @ptrCast(id), @ptrCast(data));
+        return qtc.KStartupInfo_CheckStartup4(@ptrCast(self), @bitCast(w), @ptrCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#setTimeout)
@@ -373,7 +373,7 @@ pub const kstartupinfo = struct {
     /// ` secs: u32 `
     ///
     pub fn SetTimeout(self: ?*anyopaque, secs: u32) void {
-        qtc.KStartupInfo_SetTimeout(@ptrCast(self), @intCast(secs));
+        qtc.KStartupInfo_SetTimeout(@ptrCast(self), @bitCast(secs));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#windowStartupId)
@@ -385,7 +385,7 @@ pub const kstartupinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WindowStartupId(w: usize, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.KStartupInfo_WindowStartupId(@intCast(w));
+        var _bytearray: qtc.libqt_string = qtc.KStartupInfo_WindowStartupId(@bitCast(w));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kstartupinfo.WindowStartupId: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -415,7 +415,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, id: QtC.KStartupInfoId, data: QtC.KStartupInfoData) callconv(.c) void `
     ///
     pub fn OnGotNewStartup(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KStartupInfo_Connect_GotNewStartup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_Connect_GotNewStartup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#gotStartupChange)
@@ -441,7 +441,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, id: QtC.KStartupInfoId, data: QtC.KStartupInfoData) callconv(.c) void `
     ///
     pub fn OnGotStartupChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KStartupInfo_Connect_GotStartupChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_Connect_GotStartupChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#gotRemoveStartup)
@@ -467,7 +467,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, id: QtC.KStartupInfoId, data: QtC.KStartupInfoData) callconv(.c) void `
     ///
     pub fn OnGotRemoveStartup(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KStartupInfo_Connect_GotRemoveStartup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_Connect_GotRemoveStartup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#customEvent)
@@ -493,7 +493,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, e_P: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KStartupInfo_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#customEvent)
@@ -545,7 +545,7 @@ pub const kstartupinfo = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstartupinfo.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -683,7 +683,7 @@ pub const kstartupinfo = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -697,7 +697,7 @@ pub const kstartupinfo = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -711,7 +711,7 @@ pub const kstartupinfo = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -725,7 +725,7 @@ pub const kstartupinfo = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1055,7 +1055,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1110,7 +1110,7 @@ pub const kstartupinfo = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1126,7 +1126,7 @@ pub const kstartupinfo = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1148,7 +1148,7 @@ pub const kstartupinfo = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1168,7 +1168,7 @@ pub const kstartupinfo = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1190,7 +1190,7 @@ pub const kstartupinfo = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1287,7 +1287,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1335,7 +1335,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KStartupInfo_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1387,7 +1387,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KStartupInfo_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1435,7 +1435,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KStartupInfo_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1483,7 +1483,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KStartupInfo_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1531,7 +1531,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KStartupInfo_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1579,7 +1579,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KStartupInfo_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1623,7 +1623,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KStartupInfo_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1667,7 +1667,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KStartupInfo_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1717,7 +1717,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KStartupInfo_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1765,7 +1765,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KStartupInfo_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KStartupInfo_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1781,7 +1781,7 @@ pub const kstartupinfo = struct {
     /// ` callback: *const fn (self: QtC.KStartupInfo, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#dtor.KStartupInfo)
@@ -2151,7 +2151,7 @@ pub const kstartupinfodata = struct {
     /// ` desktop: i32 `
     ///
     pub fn SetDesktop(self: ?*anyopaque, desktop: i32) void {
-        qtc.KStartupInfoData_SetDesktop(@ptrCast(self), @intCast(desktop));
+        qtc.KStartupInfoData_SetDesktop(@ptrCast(self), @bitCast(desktop));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstartupinfodata.html#desktop)
@@ -2288,7 +2288,7 @@ pub const kstartupinfodata = struct {
     /// ` state: kstartupinfo_enums.TriState `
     ///
     pub fn SetSilent(self: ?*anyopaque, state: i32) void {
-        qtc.KStartupInfoData_SetSilent(@ptrCast(self), @intCast(state));
+        qtc.KStartupInfoData_SetSilent(@ptrCast(self), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstartupinfodata.html#silent)
@@ -2324,7 +2324,7 @@ pub const kstartupinfodata = struct {
     /// ` screen: i32 `
     ///
     pub fn SetScreen(self: ?*anyopaque, screen: i32) void {
-        qtc.KStartupInfoData_SetScreen(@ptrCast(self), @intCast(screen));
+        qtc.KStartupInfoData_SetScreen(@ptrCast(self), @bitCast(screen));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstartupinfodata.html#xinerama)
@@ -2346,7 +2346,7 @@ pub const kstartupinfodata = struct {
     /// ` xinerama: i32 `
     ///
     pub fn SetXinerama(self: ?*anyopaque, xinerama: i32) void {
-        qtc.KStartupInfoData_SetXinerama(@ptrCast(self), @intCast(xinerama));
+        qtc.KStartupInfoData_SetXinerama(@ptrCast(self), @bitCast(xinerama));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstartupinfodata.html#applicationId)

@@ -13,7 +13,7 @@ pub const ktexteditor__movingcursor = struct {
     /// ` insertBehavior: movingcursor_enums.InsertBehavior `
     ///
     pub fn SetInsertBehavior(self: ?*anyopaque, insertBehavior: i32) void {
-        qtc.KTextEditor__MovingCursor_SetInsertBehavior(@ptrCast(self), @intCast(insertBehavior));
+        qtc.KTextEditor__MovingCursor_SetInsertBehavior(@ptrCast(self), @bitCast(insertBehavior));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingcursor.html#insertBehavior)
@@ -113,7 +113,7 @@ pub const ktexteditor__movingcursor = struct {
     /// ` column: i32 `
     ///
     pub fn SetPosition2(self: ?*anyopaque, line: i32, column: i32) void {
-        qtc.KTextEditor__MovingCursor_SetPosition2(@ptrCast(self), @intCast(line), @intCast(column));
+        qtc.KTextEditor__MovingCursor_SetPosition2(@ptrCast(self), @bitCast(line), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingcursor.html#setLine)
@@ -125,7 +125,7 @@ pub const ktexteditor__movingcursor = struct {
     /// ` line: i32 `
     ///
     pub fn SetLine(self: ?*anyopaque, line: i32) void {
-        qtc.KTextEditor__MovingCursor_SetLine(@ptrCast(self), @intCast(line));
+        qtc.KTextEditor__MovingCursor_SetLine(@ptrCast(self), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingcursor.html#setColumn)
@@ -137,7 +137,7 @@ pub const ktexteditor__movingcursor = struct {
     /// ` column: i32 `
     ///
     pub fn SetColumn(self: ?*anyopaque, column: i32) void {
-        qtc.KTextEditor__MovingCursor_SetColumn(@ptrCast(self), @intCast(column));
+        qtc.KTextEditor__MovingCursor_SetColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingcursor.html#atStartOfLine)
@@ -209,7 +209,7 @@ pub const ktexteditor__movingcursor = struct {
     /// ` chars: i32 `
     ///
     pub fn Move(self: ?*anyopaque, chars: i32) bool {
-        return qtc.KTextEditor__MovingCursor_Move(@ptrCast(self), @intCast(chars));
+        return qtc.KTextEditor__MovingCursor_Move(@ptrCast(self), @bitCast(chars));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingcursor.html#toCursor)
@@ -233,7 +233,7 @@ pub const ktexteditor__movingcursor = struct {
     /// ` wrapBehavior: movingcursor_enums.WrapBehavior `
     ///
     pub fn Move2(self: ?*anyopaque, chars: i32, wrapBehavior: i32) bool {
-        return qtc.KTextEditor__MovingCursor_Move2(@ptrCast(self), @intCast(chars), @intCast(wrapBehavior));
+        return qtc.KTextEditor__MovingCursor_Move2(@ptrCast(self), @bitCast(chars), @bitCast(wrapBehavior));
     }
 
     /// Delete this object from C++ memory.

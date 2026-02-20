@@ -32,7 +32,7 @@ pub const qlatin1char = struct {
     /// ` c: u8 `
     ///
     pub fn New3(c: u8) QtC.QLatin1Char {
-        return qtc.QLatin1Char_new3(@intCast(c));
+        return qtc.QLatin1Char_new3(@bitCast(c));
     }
 
     /// New4 constructs a new QLatin1Char object.
@@ -127,7 +127,7 @@ pub const qchar = struct {
     /// ` rc: u16 `
     ///
     pub fn New4(rc: u16) QtC.QChar {
-        return qtc.QChar_new4(@intCast(rc));
+        return qtc.QChar_new4(@bitCast(rc));
     }
 
     /// New5 constructs a new QChar object.
@@ -139,7 +139,7 @@ pub const qchar = struct {
     /// ` r: u8 `
     ///
     pub fn New5(c: u8, r: u8) QtC.QChar {
-        return qtc.QChar_new5(@intCast(c), @intCast(r));
+        return qtc.QChar_new5(@bitCast(c), @bitCast(r));
     }
 
     /// New6 constructs a new QChar object.
@@ -149,7 +149,7 @@ pub const qchar = struct {
     /// ` rc: i16 `
     ///
     pub fn New6(rc: i16) QtC.QChar {
-        return qtc.QChar_new6(@intCast(rc));
+        return qtc.QChar_new6(@bitCast(rc));
     }
 
     /// New7 constructs a new QChar object.
@@ -159,7 +159,7 @@ pub const qchar = struct {
     /// ` rc: u32 `
     ///
     pub fn New7(rc: u32) QtC.QChar {
-        return qtc.QChar_new7(@intCast(rc));
+        return qtc.QChar_new7(@bitCast(rc));
     }
 
     /// New8 constructs a new QChar object.
@@ -169,7 +169,7 @@ pub const qchar = struct {
     /// ` rc: i32 `
     ///
     pub fn New8(rc: i32) QtC.QChar {
-        return qtc.QChar_new8(@intCast(rc));
+        return qtc.QChar_new8(@bitCast(rc));
     }
 
     /// New9 constructs a new QChar object.
@@ -179,7 +179,7 @@ pub const qchar = struct {
     /// ` s: qchar_enums.SpecialCharacter `
     ///
     pub fn New9(s: i32) QtC.QChar {
-        return qtc.QChar_new9(@intCast(s));
+        return qtc.QChar_new9(@bitCast(s));
     }
 
     /// New10 constructs a new QChar object.
@@ -199,7 +199,7 @@ pub const qchar = struct {
     /// ` c: u8 `
     ///
     pub fn New11(c: u8) QtC.QChar {
-        return qtc.QChar_new11(@intCast(c));
+        return qtc.QChar_new11(@bitCast(c));
     }
 
     /// New12 constructs a new QChar object.
@@ -209,7 +209,7 @@ pub const qchar = struct {
     /// ` c: u8 `
     ///
     pub fn New12(c: u8) QtC.QChar {
-        return qtc.QChar_new12(@intCast(c));
+        return qtc.QChar_new12(@bitCast(c));
     }
 
     /// New13 constructs a new QChar object.
@@ -443,7 +443,7 @@ pub const qchar = struct {
     /// ` c: u8 `
     ///
     pub fn FromLatin1(c: u8) QtC.QChar {
-        return qtc.QChar_FromLatin1(@intCast(c));
+        return qtc.QChar_FromLatin1(@bitCast(c));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchar.html#isNull)
@@ -645,7 +645,7 @@ pub const qchar = struct {
     /// ` acell: u8 `
     ///
     pub fn SetCell(self: ?*anyopaque, acell: u8) void {
-        qtc.QChar_SetCell(@ptrCast(self), @intCast(acell));
+        qtc.QChar_SetCell(@ptrCast(self), @bitCast(acell));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchar.html#setRow)
@@ -657,7 +657,7 @@ pub const qchar = struct {
     /// ` arow: u8 `
     ///
     pub fn SetRow(self: ?*anyopaque, arow: u8) void {
-        qtc.QChar_SetRow(@ptrCast(self), @intCast(arow));
+        qtc.QChar_SetRow(@ptrCast(self), @bitCast(arow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchar.html#currentUnicodeVersion)

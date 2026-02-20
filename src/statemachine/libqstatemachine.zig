@@ -23,7 +23,7 @@ pub const qstatemachine = struct {
     /// ` childMode: qstate_enums.ChildMode `
     ///
     pub fn New2(childMode: i32) QtC.QStateMachine {
-        return qtc.QStateMachine_new2(@intCast(childMode));
+        return qtc.QStateMachine_new2(@bitCast(childMode));
     }
 
     /// New3 constructs a new QStateMachine object.
@@ -45,7 +45,7 @@ pub const qstatemachine = struct {
     /// ` parent: QtC.QObject `
     ///
     pub fn New4(childMode: i32, parent: ?*anyopaque) QtC.QStateMachine {
-        return qtc.QStateMachine_new4(@intCast(childMode), @ptrCast(parent));
+        return qtc.QStateMachine_new4(@bitCast(childMode), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -69,7 +69,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QStateMachine_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -104,7 +104,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QStateMachine_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -131,7 +131,7 @@ pub const qstatemachine = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QStateMachine_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QStateMachine_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -143,7 +143,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QStateMachine_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -159,7 +159,7 @@ pub const qstatemachine = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QStateMachine_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QStateMachine_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -339,7 +339,7 @@ pub const qstatemachine = struct {
     /// ` restorePolicy: qstate_enums.RestorePolicy `
     ///
     pub fn SetGlobalRestorePolicy(self: ?*anyopaque, restorePolicy: i32) void {
-        qtc.QStateMachine_SetGlobalRestorePolicy(@ptrCast(self), @intCast(restorePolicy));
+        qtc.QStateMachine_SetGlobalRestorePolicy(@ptrCast(self), @bitCast(restorePolicy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#postEvent)
@@ -365,7 +365,7 @@ pub const qstatemachine = struct {
     /// ` delay: i32 `
     ///
     pub fn PostDelayedEvent(self: ?*anyopaque, event: ?*anyopaque, delay: i32) i32 {
-        return qtc.QStateMachine_PostDelayedEvent(@ptrCast(self), @ptrCast(event), @intCast(delay));
+        return qtc.QStateMachine_PostDelayedEvent(@ptrCast(self), @ptrCast(event), @bitCast(delay));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#cancelDelayedEvent)
@@ -377,7 +377,7 @@ pub const qstatemachine = struct {
     /// ` id: i32 `
     ///
     pub fn CancelDelayedEvent(self: ?*anyopaque, id: i32) bool {
-        return qtc.QStateMachine_CancelDelayedEvent(@ptrCast(self), @intCast(id));
+        return qtc.QStateMachine_CancelDelayedEvent(@ptrCast(self), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#configuration)
@@ -423,7 +423,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QStateMachine_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#eventFilter)
@@ -453,7 +453,7 @@ pub const qstatemachine = struct {
     /// ` delay: i64 of milliseconds `
     ///
     pub fn PostDelayedEvent2(self: ?*anyopaque, event: ?*anyopaque, delay: i64) i32 {
-        return qtc.QStateMachine_PostDelayedEvent2(@ptrCast(self), @ptrCast(event), @intCast(delay));
+        return qtc.QStateMachine_PostDelayedEvent2(@ptrCast(self), @ptrCast(event), @bitCast(delay));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#start)
@@ -509,7 +509,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, running: bool) callconv(.c) void `
     ///
     pub fn OnRunningChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QStateMachine_Connect_RunningChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_Connect_RunningChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#onEntry)
@@ -535,7 +535,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnOnEntry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStateMachine_OnOnEntry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnOnEntry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#onEntry)
@@ -575,7 +575,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnOnExit(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStateMachine_OnOnExit(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnOnExit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#onExit)
@@ -615,7 +615,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnBeginSelectTransitions(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStateMachine_OnBeginSelectTransitions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnBeginSelectTransitions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#beginSelectTransitions)
@@ -655,7 +655,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnEndSelectTransitions(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStateMachine_OnEndSelectTransitions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnEndSelectTransitions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#endSelectTransitions)
@@ -695,7 +695,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnBeginMicrostep(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStateMachine_OnBeginMicrostep(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnBeginMicrostep(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#beginMicrostep)
@@ -735,7 +735,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnEndMicrostep(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStateMachine_OnEndMicrostep(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnEndMicrostep(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#endMicrostep)
@@ -775,7 +775,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, e: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QStateMachine_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#event)
@@ -827,7 +827,7 @@ pub const qstatemachine = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstatemachine.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -845,7 +845,7 @@ pub const qstatemachine = struct {
     /// ` priority: qstatemachine_enums.EventPriority `
     ///
     pub fn PostEvent2(self: ?*anyopaque, event: ?*anyopaque, priority: i32) void {
-        qtc.QStateMachine_PostEvent2(@ptrCast(self), @ptrCast(event), @intCast(priority));
+        qtc.QStateMachine_PostEvent2(@ptrCast(self), @ptrCast(event), @bitCast(priority));
     }
 
     /// Inherited from QState
@@ -1007,7 +1007,7 @@ pub const qstatemachine = struct {
     /// ` mode: qstate_enums.ChildMode `
     ///
     pub fn SetChildMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QState_SetChildMode(@ptrCast(self), @intCast(mode));
+        qtc.QState_SetChildMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QState
@@ -1090,7 +1090,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, active: bool) callconv(.c) void `
     ///
     pub fn OnActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractState_Connect_ActiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractState_Connect_ActiveChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1224,7 +1224,7 @@ pub const qstatemachine = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1238,7 +1238,7 @@ pub const qstatemachine = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1252,7 +1252,7 @@ pub const qstatemachine = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1266,7 +1266,7 @@ pub const qstatemachine = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1596,7 +1596,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1651,7 +1651,7 @@ pub const qstatemachine = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1667,7 +1667,7 @@ pub const qstatemachine = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1689,7 +1689,7 @@ pub const qstatemachine = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1709,7 +1709,7 @@ pub const qstatemachine = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1731,7 +1731,7 @@ pub const qstatemachine = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1828,7 +1828,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1876,7 +1876,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStateMachine_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1924,7 +1924,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStateMachine_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1972,7 +1972,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStateMachine_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2020,7 +2020,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStateMachine_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2068,7 +2068,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStateMachine_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2112,7 +2112,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QStateMachine_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2156,7 +2156,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QStateMachine_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2206,7 +2206,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QStateMachine_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2254,7 +2254,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QStateMachine_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#started)
@@ -2268,7 +2268,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine) callconv(.c) void `
     ///
     pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QStateMachine_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_Connect_Started(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#stopped)
@@ -2282,7 +2282,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine) callconv(.c) void `
     ///
     pub fn OnStopped(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QStateMachine_Connect_Stopped(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine_Connect_Stopped(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QState
@@ -2298,7 +2298,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QState_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QState_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QState
@@ -2314,7 +2314,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine) callconv(.c) void `
     ///
     pub fn OnPropertiesAssigned(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QState_Connect_PropertiesAssigned(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QState_Connect_PropertiesAssigned(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QState
@@ -2330,7 +2330,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine) callconv(.c) void `
     ///
     pub fn OnChildModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QState_Connect_ChildModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QState_Connect_ChildModeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QState
@@ -2346,7 +2346,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine) callconv(.c) void `
     ///
     pub fn OnInitialStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QState_Connect_InitialStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QState_Connect_InitialStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QState
@@ -2362,7 +2362,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine) callconv(.c) void `
     ///
     pub fn OnErrorStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QState_Connect_ErrorStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QState_Connect_ErrorStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractState
@@ -2378,7 +2378,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine) callconv(.c) void `
     ///
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractState_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractState_Connect_Entered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractState
@@ -2394,7 +2394,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine) callconv(.c) void `
     ///
     pub fn OnExited(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractState_Connect_Exited(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractState_Connect_Exited(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2410,7 +2410,7 @@ pub const qstatemachine = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#dtor.QStateMachine)
@@ -2444,7 +2444,7 @@ pub const qstatemachine__signalevent = struct {
             .data = @ptrCast(arguments.ptr),
         };
 
-        return qtc.QStateMachine__SignalEvent_new(@ptrCast(sender), @intCast(signalIndex), arguments_list);
+        return qtc.QStateMachine__SignalEvent_new(@ptrCast(sender), @bitCast(signalIndex), arguments_list);
     }
 
     /// New2 constructs a new QStateMachine::SignalEvent object.
@@ -2611,7 +2611,7 @@ pub const qstatemachine__signalevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -2659,7 +2659,7 @@ pub const qstatemachine__signalevent = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine__SignalEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QStateMachine__SignalEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine__SignalEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -2703,7 +2703,7 @@ pub const qstatemachine__signalevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
-        qtc.QStateMachine__SignalEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine__SignalEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -2878,7 +2878,7 @@ pub const qstatemachine__wrappedevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -2926,7 +2926,7 @@ pub const qstatemachine__wrappedevent = struct {
     /// ` callback: *const fn (self: QtC.QStateMachine__WrappedEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QStateMachine__WrappedEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine__WrappedEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -2970,7 +2970,7 @@ pub const qstatemachine__wrappedevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
-        qtc.QStateMachine__WrappedEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStateMachine__WrappedEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

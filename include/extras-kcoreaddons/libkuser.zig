@@ -65,7 +65,7 @@ pub const kuser = struct {
     /// ` mode: kuser_enums.UIDMode `
     ///
     pub fn New6(mode: i32) QtC.KUser {
-        return qtc.KUser_new6(@intCast(mode));
+        return qtc.KUser_new6(@bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#operator-eq)
@@ -241,7 +241,7 @@ pub const kuser = struct {
     /// ` which: kuser_enums.UserProperty `
     ///
     pub fn Property(self: ?*anyopaque, which: i32) QtC.QVariant {
-        return qtc.KUser_Property(@ptrCast(self), @intCast(which));
+        return qtc.KUser_Property(@ptrCast(self), @bitCast(which));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#allUsers)
@@ -295,7 +295,7 @@ pub const kuser = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Groups1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) []QtC.KUserGroup {
-        const _arr: qtc.libqt_list = qtc.KUser_Groups1(@ptrCast(self), @intCast(maxCount));
+        const _arr: qtc.libqt_list = qtc.KUser_Groups1(@ptrCast(self), @bitCast(maxCount));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.KUserGroup, _arr.len) catch @panic("kuser.Groups1: Memory allocation failed");
         const _data: [*]QtC.KUserGroup = @ptrCast(@alignCast(_arr.data));
@@ -314,7 +314,7 @@ pub const kuser = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GroupNames1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KUser_GroupNames1(@ptrCast(self), @intCast(maxCount));
+        const _arr: qtc.libqt_list = qtc.KUser_GroupNames1(@ptrCast(self), @bitCast(maxCount));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -341,7 +341,7 @@ pub const kuser = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AllUsers1(maxCount: u32, allocator: std.mem.Allocator) []QtC.KUser {
-        const _arr: qtc.libqt_list = qtc.KUser_AllUsers1(@intCast(maxCount));
+        const _arr: qtc.libqt_list = qtc.KUser_AllUsers1(@bitCast(maxCount));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.KUser, _arr.len) catch @panic("kuser.AllUsers1: Memory allocation failed");
         const _data: [*]QtC.KUser = @ptrCast(@alignCast(_arr.data));
@@ -358,7 +358,7 @@ pub const kuser = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AllUserNames1(maxCount: u32, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KUser_AllUserNames1(@intCast(maxCount));
+        const _arr: qtc.libqt_list = qtc.KUser_AllUserNames1(@bitCast(maxCount));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -451,7 +451,7 @@ pub const kusergroup = struct {
     /// ` mode: kuser_enums.UIDMode `
     ///
     pub fn New6(mode: i32) QtC.KUserGroup {
-        return qtc.KUserGroup_new6(@intCast(mode));
+        return qtc.KUserGroup_new6(@bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#operator-eq)
@@ -611,7 +611,7 @@ pub const kusergroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Users1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) []QtC.KUser {
-        const _arr: qtc.libqt_list = qtc.KUserGroup_Users1(@ptrCast(self), @intCast(maxCount));
+        const _arr: qtc.libqt_list = qtc.KUserGroup_Users1(@ptrCast(self), @bitCast(maxCount));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.KUser, _arr.len) catch @panic("kusergroup.Users1: Memory allocation failed");
         const _data: [*]QtC.KUser = @ptrCast(@alignCast(_arr.data));
@@ -630,7 +630,7 @@ pub const kusergroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn UserNames1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KUserGroup_UserNames1(@ptrCast(self), @intCast(maxCount));
+        const _arr: qtc.libqt_list = qtc.KUserGroup_UserNames1(@ptrCast(self), @bitCast(maxCount));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -657,7 +657,7 @@ pub const kusergroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AllGroups1(maxCount: u32, allocator: std.mem.Allocator) []QtC.KUserGroup {
-        const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroups1(@intCast(maxCount));
+        const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroups1(@bitCast(maxCount));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.KUserGroup, _arr.len) catch @panic("kusergroup.AllGroups1: Memory allocation failed");
         const _data: [*]QtC.KUserGroup = @ptrCast(@alignCast(_arr.data));
@@ -674,7 +674,7 @@ pub const kusergroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AllGroupNames1(maxCount: u32, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroupNames1(@intCast(maxCount));
+        const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroupNames1(@bitCast(maxCount));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {

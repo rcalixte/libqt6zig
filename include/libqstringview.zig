@@ -90,7 +90,7 @@ pub const qstringview = struct {
     /// ` n: i64 `
     ///
     pub fn OperatorSubscript(self: ?*anyopaque, n: i64) QtC.QChar {
-        return qtc.QStringView_OperatorSubscript(@ptrCast(self), @intCast(n));
+        return qtc.QStringView_OperatorSubscript(@ptrCast(self), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#toLatin1)
@@ -167,7 +167,7 @@ pub const qstringview = struct {
     /// ` n: i64 `
     ///
     pub fn At(self: ?*anyopaque, n: i64) QtC.QChar {
-        return qtc.QStringView_At(@ptrCast(self), @intCast(n));
+        return qtc.QStringView_At(@ptrCast(self), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#truncate)
@@ -179,7 +179,7 @@ pub const qstringview = struct {
     /// ` n: i64 `
     ///
     pub fn Truncate(self: ?*anyopaque, n: i64) void {
-        qtc.QStringView_Truncate(@ptrCast(self), @intCast(n));
+        qtc.QStringView_Truncate(@ptrCast(self), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#chop)
@@ -191,7 +191,7 @@ pub const qstringview = struct {
     /// ` n: i64 `
     ///
     pub fn Chop(self: ?*anyopaque, n: i64) void {
-        qtc.QStringView_Chop(@ptrCast(self), @intCast(n));
+        qtc.QStringView_Chop(@ptrCast(self), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#compare)
@@ -217,7 +217,7 @@ pub const qstringview = struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn Compare5(self: ?*anyopaque, c: QtC.QChar, cs: i32) i32 {
-        return qtc.QStringView_Compare5(@ptrCast(self), @ptrCast(c), @intCast(cs));
+        return qtc.QStringView_Compare5(@ptrCast(self), @ptrCast(c), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#startsWith)
@@ -243,7 +243,7 @@ pub const qstringview = struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn StartsWith4(self: ?*anyopaque, c: QtC.QChar, cs: i32) bool {
-        return qtc.QStringView_StartsWith4(@ptrCast(self), @ptrCast(c), @intCast(cs));
+        return qtc.QStringView_StartsWith4(@ptrCast(self), @ptrCast(c), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#endsWith)
@@ -269,7 +269,7 @@ pub const qstringview = struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn EndsWith4(self: ?*anyopaque, c: QtC.QChar, cs: i32) bool {
-        return qtc.QStringView_EndsWith4(@ptrCast(self), @ptrCast(c), @intCast(cs));
+        return qtc.QStringView_EndsWith4(@ptrCast(self), @ptrCast(c), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#indexOf)
@@ -331,7 +331,7 @@ pub const qstringview = struct {
     /// ` from: i64 `
     ///
     pub fn LastIndexOf2(self: ?*anyopaque, c: QtC.QChar, from: i64) i64 {
-        return qtc.QStringView_LastIndexOf2(@ptrCast(self), @ptrCast(c), @intCast(from));
+        return qtc.QStringView_LastIndexOf2(@ptrCast(self), @ptrCast(c), @bitCast(from));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#indexOf)
@@ -357,7 +357,7 @@ pub const qstringview = struct {
     /// ` from: i64 `
     ///
     pub fn LastIndexOf7(self: ?*anyopaque, re: ?*anyopaque, from: i64) i64 {
-        return qtc.QStringView_LastIndexOf7(@ptrCast(self), @ptrCast(re), @intCast(from));
+        return qtc.QStringView_LastIndexOf7(@ptrCast(self), @ptrCast(re), @bitCast(from));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#contains)
@@ -691,7 +691,7 @@ pub const qstringview = struct {
     /// ` from: i64 `
     ///
     pub fn IndexOf22(self: ?*anyopaque, c: QtC.QChar, from: i64) i64 {
-        return qtc.QStringView_IndexOf22(@ptrCast(self), @ptrCast(c), @intCast(from));
+        return qtc.QStringView_IndexOf22(@ptrCast(self), @ptrCast(c), @bitCast(from));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#indexOf)
@@ -707,7 +707,7 @@ pub const qstringview = struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn IndexOf32(self: ?*anyopaque, c: QtC.QChar, from: i64, cs: i32) i64 {
-        return qtc.QStringView_IndexOf32(@ptrCast(self), @ptrCast(c), @intCast(from), @intCast(cs));
+        return qtc.QStringView_IndexOf32(@ptrCast(self), @ptrCast(c), @bitCast(from), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#contains)
@@ -721,7 +721,7 @@ pub const qstringview = struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn Contains22(self: ?*anyopaque, c: QtC.QChar, cs: i32) bool {
-        return qtc.QStringView_Contains22(@ptrCast(self), @ptrCast(c), @intCast(cs));
+        return qtc.QStringView_Contains22(@ptrCast(self), @ptrCast(c), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#count)
@@ -735,7 +735,7 @@ pub const qstringview = struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn Count22(self: ?*anyopaque, c: QtC.QChar, cs: i32) i64 {
-        return qtc.QStringView_Count22(@ptrCast(self), @ptrCast(c), @intCast(cs));
+        return qtc.QStringView_Count22(@ptrCast(self), @ptrCast(c), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#lastIndexOf)
@@ -749,7 +749,7 @@ pub const qstringview = struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn LastIndexOf22(self: ?*anyopaque, c: QtC.QChar, cs: i32) i64 {
-        return qtc.QStringView_LastIndexOf22(@ptrCast(self), @ptrCast(c), @intCast(cs));
+        return qtc.QStringView_LastIndexOf22(@ptrCast(self), @ptrCast(c), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#lastIndexOf)
@@ -765,7 +765,7 @@ pub const qstringview = struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn LastIndexOf32(self: ?*anyopaque, c: QtC.QChar, from: i64, cs: i32) i64 {
-        return qtc.QStringView_LastIndexOf32(@ptrCast(self), @ptrCast(c), @intCast(from), @intCast(cs));
+        return qtc.QStringView_LastIndexOf32(@ptrCast(self), @ptrCast(c), @bitCast(from), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#indexOf)
@@ -779,7 +779,7 @@ pub const qstringview = struct {
     /// ` from: i64 `
     ///
     pub fn IndexOf25(self: ?*anyopaque, re: ?*anyopaque, from: i64) i64 {
-        return qtc.QStringView_IndexOf25(@ptrCast(self), @ptrCast(re), @intCast(from));
+        return qtc.QStringView_IndexOf25(@ptrCast(self), @ptrCast(re), @bitCast(from));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#indexOf)
@@ -795,7 +795,7 @@ pub const qstringview = struct {
     /// ` rmatch: QtC.QRegularExpressionMatch `
     ///
     pub fn IndexOf35(self: ?*anyopaque, re: ?*anyopaque, from: i64, rmatch: ?*anyopaque) i64 {
-        return qtc.QStringView_IndexOf35(@ptrCast(self), @ptrCast(re), @intCast(from), @ptrCast(rmatch));
+        return qtc.QStringView_IndexOf35(@ptrCast(self), @ptrCast(re), @bitCast(from), @ptrCast(rmatch));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#lastIndexOf)
@@ -811,7 +811,7 @@ pub const qstringview = struct {
     /// ` rmatch: QtC.QRegularExpressionMatch `
     ///
     pub fn LastIndexOf35(self: ?*anyopaque, re: ?*anyopaque, from: i64, rmatch: ?*anyopaque) i64 {
-        return qtc.QStringView_LastIndexOf35(@ptrCast(self), @ptrCast(re), @intCast(from), @ptrCast(rmatch));
+        return qtc.QStringView_LastIndexOf35(@ptrCast(self), @ptrCast(re), @bitCast(from), @ptrCast(rmatch));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#contains)
@@ -851,7 +851,7 @@ pub const qstringview = struct {
     /// ` base: i32 `
     ///
     pub fn ToShort2(self: ?*anyopaque, ok: *bool, base: i32) i16 {
-        return qtc.QStringView_ToShort2(@ptrCast(self), @ptrCast(ok), @intCast(base));
+        return qtc.QStringView_ToShort2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#toUShort)
@@ -877,7 +877,7 @@ pub const qstringview = struct {
     /// ` base: i32 `
     ///
     pub fn ToUShort2(self: ?*anyopaque, ok: *bool, base: i32) u16 {
-        return qtc.QStringView_ToUShort2(@ptrCast(self), @ptrCast(ok), @intCast(base));
+        return qtc.QStringView_ToUShort2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#toInt)
@@ -903,7 +903,7 @@ pub const qstringview = struct {
     /// ` base: i32 `
     ///
     pub fn ToInt2(self: ?*anyopaque, ok: *bool, base: i32) i32 {
-        return qtc.QStringView_ToInt2(@ptrCast(self), @ptrCast(ok), @intCast(base));
+        return qtc.QStringView_ToInt2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#toUInt)
@@ -929,7 +929,7 @@ pub const qstringview = struct {
     /// ` base: i32 `
     ///
     pub fn ToUInt2(self: ?*anyopaque, ok: *bool, base: i32) u32 {
-        return qtc.QStringView_ToUInt2(@ptrCast(self), @ptrCast(ok), @intCast(base));
+        return qtc.QStringView_ToUInt2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#toLong)
@@ -955,7 +955,7 @@ pub const qstringview = struct {
     /// ` base: i32 `
     ///
     pub fn ToLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
-        return qtc.QStringView_ToLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
+        return qtc.QStringView_ToLong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#toULong)
@@ -981,7 +981,7 @@ pub const qstringview = struct {
     /// ` base: i32 `
     ///
     pub fn ToULong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
-        return qtc.QStringView_ToULong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
+        return qtc.QStringView_ToULong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#toLongLong)
@@ -1007,7 +1007,7 @@ pub const qstringview = struct {
     /// ` base: i32 `
     ///
     pub fn ToLongLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
-        return qtc.QStringView_ToLongLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
+        return qtc.QStringView_ToLongLong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#toULongLong)
@@ -1033,7 +1033,7 @@ pub const qstringview = struct {
     /// ` base: i32 `
     ///
     pub fn ToULongLong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
-        return qtc.QStringView_ToULongLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
+        return qtc.QStringView_ToULongLong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#toFloat)

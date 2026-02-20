@@ -13,7 +13,7 @@ pub const kio__sslui = struct {
     /// ` param2: sslui_enums.RulesStorage `
     ///
     pub fn AskIgnoreSslErrors(param1: ?*anyopaque, param2: i32) bool {
-        return qtc.KIO__SslUi_AskIgnoreSslErrors(@ptrCast(param1), @intCast(param2));
+        return qtc.KIO__SslUi_AskIgnoreSslErrors(@ptrCast(param1), @bitCast(param2));
     }
 };
 

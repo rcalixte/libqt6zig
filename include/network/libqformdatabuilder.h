@@ -20,6 +20,7 @@ typedef struct QByteArrayView QByteArrayView;
 typedef struct QFormDataBuilder QFormDataBuilder;
 typedef struct QFormDataPartBuilder QFormDataPartBuilder;
 typedef struct QHttpHeaders QHttpHeaders;
+typedef struct QHttpMultiPart QHttpMultiPart;
 typedef struct QIODevice QIODevice;
 #endif
 
@@ -38,6 +39,8 @@ void QFormDataPartBuilder_Delete(QFormDataPartBuilder* self);
 QFormDataBuilder* QFormDataBuilder_new();
 void QFormDataBuilder_Swap(QFormDataBuilder* self, QFormDataBuilder* other);
 QFormDataPartBuilder* QFormDataBuilder_Part(QFormDataBuilder* self, const char* name);
+QHttpMultiPart* QFormDataBuilder_BuildMultiPart(QFormDataBuilder* self);
+QHttpMultiPart* QFormDataBuilder_BuildMultiPart1(QFormDataBuilder* self, int options);
 void QFormDataBuilder_Delete(QFormDataBuilder* self);
 
 #ifdef __cplusplus

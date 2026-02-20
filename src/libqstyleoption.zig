@@ -35,7 +35,7 @@ pub const qstyleoption = struct {
     /// ` version: i32 `
     ///
     pub fn New3(version: i32) QtC.QStyleOption {
-        return qtc.QStyleOption_new3(@intCast(version));
+        return qtc.QStyleOption_new3(@bitCast(version));
     }
 
     /// New4 constructs a new QStyleOption object.
@@ -47,7 +47,7 @@ pub const qstyleoption = struct {
     /// ` typeVal: i32 `
     ///
     pub fn New4(version: i32, typeVal: i32) QtC.QStyleOption {
-        return qtc.QStyleOption_new4(@intCast(version), @intCast(typeVal));
+        return qtc.QStyleOption_new4(@bitCast(version), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -69,7 +69,7 @@ pub const qstyleoption = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -91,7 +91,7 @@ pub const qstyleoption = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
@@ -117,7 +117,7 @@ pub const qstyleoption = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#direction-var)
@@ -143,7 +143,7 @@ pub const qstyleoption = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -346,7 +346,7 @@ pub const qstyleoptionfocusrect = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -372,7 +372,7 @@ pub const qstyleoptionfocusrect = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -402,7 +402,7 @@ pub const qstyleoptionfocusrect = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -432,7 +432,7 @@ pub const qstyleoptionfocusrect = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -603,7 +603,7 @@ pub const qstyleoptionframe = struct {
     /// ` lineWidth: i32 `
     ///
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QStyleOptionFrame_SetLineWidth(@ptrCast(self), @intCast(lineWidth));
+        qtc.QStyleOptionFrame_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#midLineWidth-var)
@@ -625,7 +625,7 @@ pub const qstyleoptionframe = struct {
     /// ` midLineWidth: i32 `
     ///
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QStyleOptionFrame_SetMidLineWidth(@ptrCast(self), @intCast(midLineWidth));
+        qtc.QStyleOptionFrame_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#features-var)
@@ -651,7 +651,7 @@ pub const qstyleoptionframe = struct {
     /// ` features: flag of qstyleoption_enums.FrameFeature `
     ///
     pub fn SetFeatures(self: ?*anyopaque, features: i32) void {
-        qtc.QStyleOptionFrame_SetFeatures(@ptrCast(self), @intCast(features));
+        qtc.QStyleOptionFrame_SetFeatures(@ptrCast(self), @bitCast(features));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#frameShape-var)
@@ -677,7 +677,7 @@ pub const qstyleoptionframe = struct {
     /// ` frameShape: qframe_enums.Shape `
     ///
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
-        qtc.QStyleOptionFrame_SetFrameShape(@ptrCast(self), @intCast(frameShape));
+        qtc.QStyleOptionFrame_SetFrameShape(@ptrCast(self), @bitCast(frameShape));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#operator-eq)
@@ -715,7 +715,7 @@ pub const qstyleoptionframe = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -741,7 +741,7 @@ pub const qstyleoptionframe = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -771,7 +771,7 @@ pub const qstyleoptionframe = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -801,7 +801,7 @@ pub const qstyleoptionframe = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -972,7 +972,7 @@ pub const qstyleoptiontabwidgetframe = struct {
     /// ` lineWidth: i32 `
     ///
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QStyleOptionTabWidgetFrame_SetLineWidth(@ptrCast(self), @intCast(lineWidth));
+        qtc.QStyleOptionTabWidgetFrame_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#midLineWidth-var)
@@ -994,7 +994,7 @@ pub const qstyleoptiontabwidgetframe = struct {
     /// ` midLineWidth: i32 `
     ///
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QStyleOptionTabWidgetFrame_SetMidLineWidth(@ptrCast(self), @intCast(midLineWidth));
+        qtc.QStyleOptionTabWidgetFrame_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#shape-var)
@@ -1020,7 +1020,7 @@ pub const qstyleoptiontabwidgetframe = struct {
     /// ` shape: qtabbar_enums.Shape `
     ///
     pub fn SetShape(self: ?*anyopaque, shape: i32) void {
-        qtc.QStyleOptionTabWidgetFrame_SetShape(@ptrCast(self), @intCast(shape));
+        qtc.QStyleOptionTabWidgetFrame_SetShape(@ptrCast(self), @bitCast(shape));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#tabBarSize-var)
@@ -1168,7 +1168,7 @@ pub const qstyleoptiontabwidgetframe = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -1194,7 +1194,7 @@ pub const qstyleoptiontabwidgetframe = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -1224,7 +1224,7 @@ pub const qstyleoptiontabwidgetframe = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -1254,7 +1254,7 @@ pub const qstyleoptiontabwidgetframe = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -1429,7 +1429,7 @@ pub const qstyleoptiontabbarbase = struct {
     /// ` shape: qtabbar_enums.Shape `
     ///
     pub fn SetShape(self: ?*anyopaque, shape: i32) void {
-        qtc.QStyleOptionTabBarBase_SetShape(@ptrCast(self), @intCast(shape));
+        qtc.QStyleOptionTabBarBase_SetShape(@ptrCast(self), @bitCast(shape));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#tabBarRect-var)
@@ -1533,7 +1533,7 @@ pub const qstyleoptiontabbarbase = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -1559,7 +1559,7 @@ pub const qstyleoptiontabbarbase = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -1589,7 +1589,7 @@ pub const qstyleoptiontabbarbase = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -1619,7 +1619,7 @@ pub const qstyleoptiontabbarbase = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -1790,7 +1790,7 @@ pub const qstyleoptionheader = struct {
     /// ` section: i32 `
     ///
     pub fn SetSection(self: ?*anyopaque, section: i32) void {
-        qtc.QStyleOptionHeader_SetSection(@ptrCast(self), @intCast(section));
+        qtc.QStyleOptionHeader_SetSection(@ptrCast(self), @bitCast(section));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#text-var)
@@ -1848,7 +1848,7 @@ pub const qstyleoptionheader = struct {
     /// ` textAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i32) void {
-        qtc.QStyleOptionHeader_SetTextAlignment(@ptrCast(self), @intCast(textAlignment));
+        qtc.QStyleOptionHeader_SetTextAlignment(@ptrCast(self), @bitCast(textAlignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#icon-var)
@@ -1896,7 +1896,7 @@ pub const qstyleoptionheader = struct {
     /// ` iconAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetIconAlignment(self: ?*anyopaque, iconAlignment: i32) void {
-        qtc.QStyleOptionHeader_SetIconAlignment(@ptrCast(self), @intCast(iconAlignment));
+        qtc.QStyleOptionHeader_SetIconAlignment(@ptrCast(self), @bitCast(iconAlignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#position-var)
@@ -1922,7 +1922,7 @@ pub const qstyleoptionheader = struct {
     /// ` position: qstyleoption_enums.SectionPosition `
     ///
     pub fn SetPosition(self: ?*anyopaque, position: i32) void {
-        qtc.QStyleOptionHeader_SetPosition(@ptrCast(self), @intCast(position));
+        qtc.QStyleOptionHeader_SetPosition(@ptrCast(self), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#selectedPosition-var)
@@ -1948,7 +1948,7 @@ pub const qstyleoptionheader = struct {
     /// ` selectedPosition: qstyleoption_enums.SelectedPosition `
     ///
     pub fn SetSelectedPosition(self: ?*anyopaque, selectedPosition: i32) void {
-        qtc.QStyleOptionHeader_SetSelectedPosition(@ptrCast(self), @intCast(selectedPosition));
+        qtc.QStyleOptionHeader_SetSelectedPosition(@ptrCast(self), @bitCast(selectedPosition));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#sortIndicator-var)
@@ -1974,7 +1974,7 @@ pub const qstyleoptionheader = struct {
     /// ` sortIndicator: qstyleoption_enums.SortIndicator `
     ///
     pub fn SetSortIndicator(self: ?*anyopaque, sortIndicator: i32) void {
-        qtc.QStyleOptionHeader_SetSortIndicator(@ptrCast(self), @intCast(sortIndicator));
+        qtc.QStyleOptionHeader_SetSortIndicator(@ptrCast(self), @bitCast(sortIndicator));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#orientation-var)
@@ -2000,7 +2000,7 @@ pub const qstyleoptionheader = struct {
     /// ` orientation: qnamespace_enums.Orientation `
     ///
     pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QStyleOptionHeader_SetOrientation(@ptrCast(self), @intCast(orientation));
+        qtc.QStyleOptionHeader_SetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#operator-eq)
@@ -2038,7 +2038,7 @@ pub const qstyleoptionheader = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -2064,7 +2064,7 @@ pub const qstyleoptionheader = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -2094,7 +2094,7 @@ pub const qstyleoptionheader = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -2124,7 +2124,7 @@ pub const qstyleoptionheader = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -2311,7 +2311,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ` textElideMode: qnamespace_enums.TextElideMode `
     ///
     pub fn SetTextElideMode(self: ?*anyopaque, textElideMode: i32) void {
-        qtc.QStyleOptionHeaderV2_SetTextElideMode(@ptrCast(self), @intCast(textElideMode));
+        qtc.QStyleOptionHeaderV2_SetTextElideMode(@ptrCast(self), @bitCast(textElideMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheaderv2.html#isSectionDragTarget-var)
@@ -2355,7 +2355,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ` unused: i32 `
     ///
     pub fn SetUnused(self: ?*anyopaque, unused: i32) void {
-        qtc.QStyleOptionHeaderV2_SetUnused(@ptrCast(self), @intCast(unused));
+        qtc.QStyleOptionHeaderV2_SetUnused(@ptrCast(self), @bitCast(unused));
     }
 
     /// Inherited from QStyleOptionHeader
@@ -2381,7 +2381,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ` section: i32 `
     ///
     pub fn SetSection(self: ?*anyopaque, section: i32) void {
-        qtc.QStyleOptionHeader_SetSection(@ptrCast(self), @intCast(section));
+        qtc.QStyleOptionHeader_SetSection(@ptrCast(self), @bitCast(section));
     }
 
     /// Inherited from QStyleOptionHeader
@@ -2447,7 +2447,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ` textAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i32) void {
-        qtc.QStyleOptionHeader_SetTextAlignment(@ptrCast(self), @intCast(textAlignment));
+        qtc.QStyleOptionHeader_SetTextAlignment(@ptrCast(self), @bitCast(textAlignment));
     }
 
     /// Inherited from QStyleOptionHeader
@@ -2503,7 +2503,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ` iconAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetIconAlignment(self: ?*anyopaque, iconAlignment: i32) void {
-        qtc.QStyleOptionHeader_SetIconAlignment(@ptrCast(self), @intCast(iconAlignment));
+        qtc.QStyleOptionHeader_SetIconAlignment(@ptrCast(self), @bitCast(iconAlignment));
     }
 
     /// Inherited from QStyleOptionHeader
@@ -2533,7 +2533,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ` position: qstyleoption_enums.SectionPosition `
     ///
     pub fn SetPosition(self: ?*anyopaque, position: i32) void {
-        qtc.QStyleOptionHeader_SetPosition(@ptrCast(self), @intCast(position));
+        qtc.QStyleOptionHeader_SetPosition(@ptrCast(self), @bitCast(position));
     }
 
     /// Inherited from QStyleOptionHeader
@@ -2563,7 +2563,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ` selectedPosition: qstyleoption_enums.SelectedPosition `
     ///
     pub fn SetSelectedPosition(self: ?*anyopaque, selectedPosition: i32) void {
-        qtc.QStyleOptionHeader_SetSelectedPosition(@ptrCast(self), @intCast(selectedPosition));
+        qtc.QStyleOptionHeader_SetSelectedPosition(@ptrCast(self), @bitCast(selectedPosition));
     }
 
     /// Inherited from QStyleOptionHeader
@@ -2593,7 +2593,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ` sortIndicator: qstyleoption_enums.SortIndicator `
     ///
     pub fn SetSortIndicator(self: ?*anyopaque, sortIndicator: i32) void {
-        qtc.QStyleOptionHeader_SetSortIndicator(@ptrCast(self), @intCast(sortIndicator));
+        qtc.QStyleOptionHeader_SetSortIndicator(@ptrCast(self), @bitCast(sortIndicator));
     }
 
     /// Inherited from QStyleOptionHeader
@@ -2623,7 +2623,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ` orientation: qnamespace_enums.Orientation `
     ///
     pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QStyleOptionHeader_SetOrientation(@ptrCast(self), @intCast(orientation));
+        qtc.QStyleOptionHeader_SetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QStyleOption
@@ -2649,7 +2649,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -2675,7 +2675,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -2705,7 +2705,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -2735,7 +2735,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -2910,7 +2910,7 @@ pub const qstyleoptionbutton = struct {
     /// ` features: flag of qstyleoption_enums.ButtonFeature `
     ///
     pub fn SetFeatures(self: ?*anyopaque, features: i32) void {
-        qtc.QStyleOptionButton_SetFeatures(@ptrCast(self), @intCast(features));
+        qtc.QStyleOptionButton_SetFeatures(@ptrCast(self), @bitCast(features));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionbutton.html#text-var)
@@ -3024,7 +3024,7 @@ pub const qstyleoptionbutton = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -3050,7 +3050,7 @@ pub const qstyleoptionbutton = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -3080,7 +3080,7 @@ pub const qstyleoptionbutton = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -3110,7 +3110,7 @@ pub const qstyleoptionbutton = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -3285,7 +3285,7 @@ pub const qstyleoptiontab = struct {
     /// ` shape: qtabbar_enums.Shape `
     ///
     pub fn SetShape(self: ?*anyopaque, shape: i32) void {
-        qtc.QStyleOptionTab_SetShape(@ptrCast(self), @intCast(shape));
+        qtc.QStyleOptionTab_SetShape(@ptrCast(self), @bitCast(shape));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#text-var)
@@ -3361,7 +3361,7 @@ pub const qstyleoptiontab = struct {
     /// ` row: i32 `
     ///
     pub fn SetRow(self: ?*anyopaque, row: i32) void {
-        qtc.QStyleOptionTab_SetRow(@ptrCast(self), @intCast(row));
+        qtc.QStyleOptionTab_SetRow(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#position-var)
@@ -3387,7 +3387,7 @@ pub const qstyleoptiontab = struct {
     /// ` position: qstyleoption_enums.TabPosition `
     ///
     pub fn SetPosition(self: ?*anyopaque, position: i32) void {
-        qtc.QStyleOptionTab_SetPosition(@ptrCast(self), @intCast(position));
+        qtc.QStyleOptionTab_SetPosition(@ptrCast(self), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#selectedPosition-var)
@@ -3413,7 +3413,7 @@ pub const qstyleoptiontab = struct {
     /// ` selectedPosition: qstyleoption_enums.SelectedPosition `
     ///
     pub fn SetSelectedPosition(self: ?*anyopaque, selectedPosition: i32) void {
-        qtc.QStyleOptionTab_SetSelectedPosition(@ptrCast(self), @intCast(selectedPosition));
+        qtc.QStyleOptionTab_SetSelectedPosition(@ptrCast(self), @bitCast(selectedPosition));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#cornerWidgets-var)
@@ -3439,7 +3439,7 @@ pub const qstyleoptiontab = struct {
     /// ` cornerWidgets: flag of qstyleoption_enums.CornerWidget `
     ///
     pub fn SetCornerWidgets(self: ?*anyopaque, cornerWidgets: i32) void {
-        qtc.QStyleOptionTab_SetCornerWidgets(@ptrCast(self), @intCast(cornerWidgets));
+        qtc.QStyleOptionTab_SetCornerWidgets(@ptrCast(self), @bitCast(cornerWidgets));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#iconSize-var)
@@ -3553,7 +3553,7 @@ pub const qstyleoptiontab = struct {
     /// ` features: flag of qstyleoption_enums.TabFeature `
     ///
     pub fn SetFeatures(self: ?*anyopaque, features: i32) void {
-        qtc.QStyleOptionTab_SetFeatures(@ptrCast(self), @intCast(features));
+        qtc.QStyleOptionTab_SetFeatures(@ptrCast(self), @bitCast(features));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#tabIndex-var)
@@ -3575,7 +3575,7 @@ pub const qstyleoptiontab = struct {
     /// ` tabIndex: i32 `
     ///
     pub fn SetTabIndex(self: ?*anyopaque, tabIndex: i32) void {
-        qtc.QStyleOptionTab_SetTabIndex(@ptrCast(self), @intCast(tabIndex));
+        qtc.QStyleOptionTab_SetTabIndex(@ptrCast(self), @bitCast(tabIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#operator-eq)
@@ -3613,7 +3613,7 @@ pub const qstyleoptiontab = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -3639,7 +3639,7 @@ pub const qstyleoptiontab = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -3669,7 +3669,7 @@ pub const qstyleoptiontab = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -3699,7 +3699,7 @@ pub const qstyleoptiontab = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -3874,7 +3874,7 @@ pub const qstyleoptiontoolbar = struct {
     /// ` positionOfLine: qstyleoption_enums.ToolBarPosition `
     ///
     pub fn SetPositionOfLine(self: ?*anyopaque, positionOfLine: i32) void {
-        qtc.QStyleOptionToolBar_SetPositionOfLine(@ptrCast(self), @intCast(positionOfLine));
+        qtc.QStyleOptionToolBar_SetPositionOfLine(@ptrCast(self), @bitCast(positionOfLine));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#positionWithinLine-var)
@@ -3900,7 +3900,7 @@ pub const qstyleoptiontoolbar = struct {
     /// ` positionWithinLine: qstyleoption_enums.ToolBarPosition `
     ///
     pub fn SetPositionWithinLine(self: ?*anyopaque, positionWithinLine: i32) void {
-        qtc.QStyleOptionToolBar_SetPositionWithinLine(@ptrCast(self), @intCast(positionWithinLine));
+        qtc.QStyleOptionToolBar_SetPositionWithinLine(@ptrCast(self), @bitCast(positionWithinLine));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#toolBarArea-var)
@@ -3926,7 +3926,7 @@ pub const qstyleoptiontoolbar = struct {
     /// ` toolBarArea: qnamespace_enums.ToolBarArea `
     ///
     pub fn SetToolBarArea(self: ?*anyopaque, toolBarArea: i32) void {
-        qtc.QStyleOptionToolBar_SetToolBarArea(@ptrCast(self), @intCast(toolBarArea));
+        qtc.QStyleOptionToolBar_SetToolBarArea(@ptrCast(self), @bitCast(toolBarArea));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#features-var)
@@ -3952,7 +3952,7 @@ pub const qstyleoptiontoolbar = struct {
     /// ` features: flag of qstyleoption_enums.ToolBarFeature `
     ///
     pub fn SetFeatures(self: ?*anyopaque, features: i32) void {
-        qtc.QStyleOptionToolBar_SetFeatures(@ptrCast(self), @intCast(features));
+        qtc.QStyleOptionToolBar_SetFeatures(@ptrCast(self), @bitCast(features));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#lineWidth-var)
@@ -3974,7 +3974,7 @@ pub const qstyleoptiontoolbar = struct {
     /// ` lineWidth: i32 `
     ///
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QStyleOptionToolBar_SetLineWidth(@ptrCast(self), @intCast(lineWidth));
+        qtc.QStyleOptionToolBar_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#midLineWidth-var)
@@ -3996,7 +3996,7 @@ pub const qstyleoptiontoolbar = struct {
     /// ` midLineWidth: i32 `
     ///
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QStyleOptionToolBar_SetMidLineWidth(@ptrCast(self), @intCast(midLineWidth));
+        qtc.QStyleOptionToolBar_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#operator-eq)
@@ -4034,7 +4034,7 @@ pub const qstyleoptiontoolbar = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -4060,7 +4060,7 @@ pub const qstyleoptiontoolbar = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -4090,7 +4090,7 @@ pub const qstyleoptiontoolbar = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -4120,7 +4120,7 @@ pub const qstyleoptiontoolbar = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -4291,7 +4291,7 @@ pub const qstyleoptionprogressbar = struct {
     /// ` minimum: i32 `
     ///
     pub fn SetMinimum(self: ?*anyopaque, minimum: i32) void {
-        qtc.QStyleOptionProgressBar_SetMinimum(@ptrCast(self), @intCast(minimum));
+        qtc.QStyleOptionProgressBar_SetMinimum(@ptrCast(self), @bitCast(minimum));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#maximum-var)
@@ -4313,7 +4313,7 @@ pub const qstyleoptionprogressbar = struct {
     /// ` maximum: i32 `
     ///
     pub fn SetMaximum(self: ?*anyopaque, maximum: i32) void {
-        qtc.QStyleOptionProgressBar_SetMaximum(@ptrCast(self), @intCast(maximum));
+        qtc.QStyleOptionProgressBar_SetMaximum(@ptrCast(self), @bitCast(maximum));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#progress-var)
@@ -4335,7 +4335,7 @@ pub const qstyleoptionprogressbar = struct {
     /// ` progress: i32 `
     ///
     pub fn SetProgress(self: ?*anyopaque, progress: i32) void {
-        qtc.QStyleOptionProgressBar_SetProgress(@ptrCast(self), @intCast(progress));
+        qtc.QStyleOptionProgressBar_SetProgress(@ptrCast(self), @bitCast(progress));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#text-var)
@@ -4393,7 +4393,7 @@ pub const qstyleoptionprogressbar = struct {
     /// ` textAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i32) void {
-        qtc.QStyleOptionProgressBar_SetTextAlignment(@ptrCast(self), @intCast(textAlignment));
+        qtc.QStyleOptionProgressBar_SetTextAlignment(@ptrCast(self), @bitCast(textAlignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#textVisible-var)
@@ -4497,7 +4497,7 @@ pub const qstyleoptionprogressbar = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -4523,7 +4523,7 @@ pub const qstyleoptionprogressbar = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -4553,7 +4553,7 @@ pub const qstyleoptionprogressbar = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -4583,7 +4583,7 @@ pub const qstyleoptionprogressbar = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -4758,7 +4758,7 @@ pub const qstyleoptionmenuitem = struct {
     /// ` menuItemType: qstyleoption_enums.MenuItemType `
     ///
     pub fn SetMenuItemType(self: ?*anyopaque, menuItemType: i32) void {
-        qtc.QStyleOptionMenuItem_SetMenuItemType(@ptrCast(self), @intCast(menuItemType));
+        qtc.QStyleOptionMenuItem_SetMenuItemType(@ptrCast(self), @bitCast(menuItemType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#checkType-var)
@@ -4784,7 +4784,7 @@ pub const qstyleoptionmenuitem = struct {
     /// ` checkType: qstyleoption_enums.CheckType `
     ///
     pub fn SetCheckType(self: ?*anyopaque, checkType: i32) void {
-        qtc.QStyleOptionMenuItem_SetCheckType(@ptrCast(self), @intCast(checkType));
+        qtc.QStyleOptionMenuItem_SetCheckType(@ptrCast(self), @bitCast(checkType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#checked-var)
@@ -4926,7 +4926,7 @@ pub const qstyleoptionmenuitem = struct {
     /// ` maxIconWidth: i32 `
     ///
     pub fn SetMaxIconWidth(self: ?*anyopaque, maxIconWidth: i32) void {
-        qtc.QStyleOptionMenuItem_SetMaxIconWidth(@ptrCast(self), @intCast(maxIconWidth));
+        qtc.QStyleOptionMenuItem_SetMaxIconWidth(@ptrCast(self), @bitCast(maxIconWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#reservedShortcutWidth-var)
@@ -4948,7 +4948,7 @@ pub const qstyleoptionmenuitem = struct {
     /// ` reservedShortcutWidth: i32 `
     ///
     pub fn SetReservedShortcutWidth(self: ?*anyopaque, reservedShortcutWidth: i32) void {
-        qtc.QStyleOptionMenuItem_SetReservedShortcutWidth(@ptrCast(self), @intCast(reservedShortcutWidth));
+        qtc.QStyleOptionMenuItem_SetReservedShortcutWidth(@ptrCast(self), @bitCast(reservedShortcutWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#font-var)
@@ -5008,7 +5008,7 @@ pub const qstyleoptionmenuitem = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -5034,7 +5034,7 @@ pub const qstyleoptionmenuitem = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -5064,7 +5064,7 @@ pub const qstyleoptionmenuitem = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -5094,7 +5094,7 @@ pub const qstyleoptionmenuitem = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -5401,7 +5401,7 @@ pub const qstyleoptiondockwidget = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -5427,7 +5427,7 @@ pub const qstyleoptiondockwidget = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -5457,7 +5457,7 @@ pub const qstyleoptiondockwidget = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -5487,7 +5487,7 @@ pub const qstyleoptiondockwidget = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -5662,7 +5662,7 @@ pub const qstyleoptionviewitem = struct {
     /// ` displayAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetDisplayAlignment(self: ?*anyopaque, displayAlignment: i32) void {
-        qtc.QStyleOptionViewItem_SetDisplayAlignment(@ptrCast(self), @intCast(displayAlignment));
+        qtc.QStyleOptionViewItem_SetDisplayAlignment(@ptrCast(self), @bitCast(displayAlignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#decorationAlignment-var)
@@ -5688,7 +5688,7 @@ pub const qstyleoptionviewitem = struct {
     /// ` decorationAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetDecorationAlignment(self: ?*anyopaque, decorationAlignment: i32) void {
-        qtc.QStyleOptionViewItem_SetDecorationAlignment(@ptrCast(self), @intCast(decorationAlignment));
+        qtc.QStyleOptionViewItem_SetDecorationAlignment(@ptrCast(self), @bitCast(decorationAlignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#textElideMode-var)
@@ -5714,7 +5714,7 @@ pub const qstyleoptionviewitem = struct {
     /// ` textElideMode: qnamespace_enums.TextElideMode `
     ///
     pub fn SetTextElideMode(self: ?*anyopaque, textElideMode: i32) void {
-        qtc.QStyleOptionViewItem_SetTextElideMode(@ptrCast(self), @intCast(textElideMode));
+        qtc.QStyleOptionViewItem_SetTextElideMode(@ptrCast(self), @bitCast(textElideMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#decorationPosition-var)
@@ -5740,7 +5740,7 @@ pub const qstyleoptionviewitem = struct {
     /// ` decorationPosition: qstyleoption_enums.Position `
     ///
     pub fn SetDecorationPosition(self: ?*anyopaque, decorationPosition: i32) void {
-        qtc.QStyleOptionViewItem_SetDecorationPosition(@ptrCast(self), @intCast(decorationPosition));
+        qtc.QStyleOptionViewItem_SetDecorationPosition(@ptrCast(self), @bitCast(decorationPosition));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#decorationSize-var)
@@ -5832,7 +5832,7 @@ pub const qstyleoptionviewitem = struct {
     /// ` features: flag of qstyleoption_enums.ViewItemFeature `
     ///
     pub fn SetFeatures(self: ?*anyopaque, features: i32) void {
-        qtc.QStyleOptionViewItem_SetFeatures(@ptrCast(self), @intCast(features));
+        qtc.QStyleOptionViewItem_SetFeatures(@ptrCast(self), @bitCast(features));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#locale-var)
@@ -5924,7 +5924,7 @@ pub const qstyleoptionviewitem = struct {
     /// ` checkState: qnamespace_enums.CheckState `
     ///
     pub fn SetCheckState(self: ?*anyopaque, checkState: i32) void {
-        qtc.QStyleOptionViewItem_SetCheckState(@ptrCast(self), @intCast(checkState));
+        qtc.QStyleOptionViewItem_SetCheckState(@ptrCast(self), @bitCast(checkState));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#icon-var)
@@ -6004,7 +6004,7 @@ pub const qstyleoptionviewitem = struct {
     /// ` viewItemPosition: qstyleoption_enums.ViewItemPosition `
     ///
     pub fn SetViewItemPosition(self: ?*anyopaque, viewItemPosition: i32) void {
-        qtc.QStyleOptionViewItem_SetViewItemPosition(@ptrCast(self), @intCast(viewItemPosition));
+        qtc.QStyleOptionViewItem_SetViewItemPosition(@ptrCast(self), @bitCast(viewItemPosition));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#backgroundBrush-var)
@@ -6064,7 +6064,7 @@ pub const qstyleoptionviewitem = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -6090,7 +6090,7 @@ pub const qstyleoptionviewitem = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -6120,7 +6120,7 @@ pub const qstyleoptionviewitem = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -6150,7 +6150,7 @@ pub const qstyleoptionviewitem = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -6379,7 +6379,7 @@ pub const qstyleoptiontoolbox = struct {
     /// ` position: qstyleoption_enums.TabPosition `
     ///
     pub fn SetPosition(self: ?*anyopaque, position: i32) void {
-        qtc.QStyleOptionToolBox_SetPosition(@ptrCast(self), @intCast(position));
+        qtc.QStyleOptionToolBox_SetPosition(@ptrCast(self), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#selectedPosition-var)
@@ -6405,7 +6405,7 @@ pub const qstyleoptiontoolbox = struct {
     /// ` selectedPosition: qstyleoption_enums.SelectedPosition `
     ///
     pub fn SetSelectedPosition(self: ?*anyopaque, selectedPosition: i32) void {
-        qtc.QStyleOptionToolBox_SetSelectedPosition(@ptrCast(self), @intCast(selectedPosition));
+        qtc.QStyleOptionToolBox_SetSelectedPosition(@ptrCast(self), @bitCast(selectedPosition));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#operator-eq)
@@ -6443,7 +6443,7 @@ pub const qstyleoptiontoolbox = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -6469,7 +6469,7 @@ pub const qstyleoptiontoolbox = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -6499,7 +6499,7 @@ pub const qstyleoptiontoolbox = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -6529,7 +6529,7 @@ pub const qstyleoptiontoolbox = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -6704,7 +6704,7 @@ pub const qstyleoptionrubberband = struct {
     /// ` shape: qrubberband_enums.Shape `
     ///
     pub fn SetShape(self: ?*anyopaque, shape: i32) void {
-        qtc.QStyleOptionRubberBand_SetShape(@ptrCast(self), @intCast(shape));
+        qtc.QStyleOptionRubberBand_SetShape(@ptrCast(self), @bitCast(shape));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionrubberband.html#opaque-var)
@@ -6764,7 +6764,7 @@ pub const qstyleoptionrubberband = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -6790,7 +6790,7 @@ pub const qstyleoptionrubberband = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -6820,7 +6820,7 @@ pub const qstyleoptionrubberband = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -6850,7 +6850,7 @@ pub const qstyleoptionrubberband = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -7009,7 +7009,7 @@ pub const qstyleoptioncomplex = struct {
     /// ` version: i32 `
     ///
     pub fn New3(version: i32) QtC.QStyleOptionComplex {
-        return qtc.QStyleOptionComplex_new3(@intCast(version));
+        return qtc.QStyleOptionComplex_new3(@bitCast(version));
     }
 
     /// New4 constructs a new QStyleOptionComplex object.
@@ -7021,7 +7021,7 @@ pub const qstyleoptioncomplex = struct {
     /// ` typeVal: i32 `
     ///
     pub fn New4(version: i32, typeVal: i32) QtC.QStyleOptionComplex {
-        return qtc.QStyleOptionComplex_new4(@intCast(version), @intCast(typeVal));
+        return qtc.QStyleOptionComplex_new4(@bitCast(version), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -7047,7 +7047,7 @@ pub const qstyleoptioncomplex = struct {
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @bitCast(subControls));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#activeSubControls-var)
@@ -7073,7 +7073,7 @@ pub const qstyleoptioncomplex = struct {
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @bitCast(activeSubControls));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#operator-eq)
@@ -7111,7 +7111,7 @@ pub const qstyleoptioncomplex = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -7137,7 +7137,7 @@ pub const qstyleoptioncomplex = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -7167,7 +7167,7 @@ pub const qstyleoptioncomplex = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -7197,7 +7197,7 @@ pub const qstyleoptioncomplex = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -7372,7 +7372,7 @@ pub const qstyleoptionslider = struct {
     /// ` orientation: qnamespace_enums.Orientation `
     ///
     pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QStyleOptionSlider_SetOrientation(@ptrCast(self), @intCast(orientation));
+        qtc.QStyleOptionSlider_SetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#minimum-var)
@@ -7394,7 +7394,7 @@ pub const qstyleoptionslider = struct {
     /// ` minimum: i32 `
     ///
     pub fn SetMinimum(self: ?*anyopaque, minimum: i32) void {
-        qtc.QStyleOptionSlider_SetMinimum(@ptrCast(self), @intCast(minimum));
+        qtc.QStyleOptionSlider_SetMinimum(@ptrCast(self), @bitCast(minimum));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#maximum-var)
@@ -7416,7 +7416,7 @@ pub const qstyleoptionslider = struct {
     /// ` maximum: i32 `
     ///
     pub fn SetMaximum(self: ?*anyopaque, maximum: i32) void {
-        qtc.QStyleOptionSlider_SetMaximum(@ptrCast(self), @intCast(maximum));
+        qtc.QStyleOptionSlider_SetMaximum(@ptrCast(self), @bitCast(maximum));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#tickPosition-var)
@@ -7442,7 +7442,7 @@ pub const qstyleoptionslider = struct {
     /// ` tickPosition: qslider_enums.TickPosition `
     ///
     pub fn SetTickPosition(self: ?*anyopaque, tickPosition: i32) void {
-        qtc.QStyleOptionSlider_SetTickPosition(@ptrCast(self), @intCast(tickPosition));
+        qtc.QStyleOptionSlider_SetTickPosition(@ptrCast(self), @bitCast(tickPosition));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#tickInterval-var)
@@ -7464,7 +7464,7 @@ pub const qstyleoptionslider = struct {
     /// ` tickInterval: i32 `
     ///
     pub fn SetTickInterval(self: ?*anyopaque, tickInterval: i32) void {
-        qtc.QStyleOptionSlider_SetTickInterval(@ptrCast(self), @intCast(tickInterval));
+        qtc.QStyleOptionSlider_SetTickInterval(@ptrCast(self), @bitCast(tickInterval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#upsideDown-var)
@@ -7508,7 +7508,7 @@ pub const qstyleoptionslider = struct {
     /// ` sliderPosition: i32 `
     ///
     pub fn SetSliderPosition(self: ?*anyopaque, sliderPosition: i32) void {
-        qtc.QStyleOptionSlider_SetSliderPosition(@ptrCast(self), @intCast(sliderPosition));
+        qtc.QStyleOptionSlider_SetSliderPosition(@ptrCast(self), @bitCast(sliderPosition));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#sliderValue-var)
@@ -7530,7 +7530,7 @@ pub const qstyleoptionslider = struct {
     /// ` sliderValue: i32 `
     ///
     pub fn SetSliderValue(self: ?*anyopaque, sliderValue: i32) void {
-        qtc.QStyleOptionSlider_SetSliderValue(@ptrCast(self), @intCast(sliderValue));
+        qtc.QStyleOptionSlider_SetSliderValue(@ptrCast(self), @bitCast(sliderValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#singleStep-var)
@@ -7552,7 +7552,7 @@ pub const qstyleoptionslider = struct {
     /// ` singleStep: i32 `
     ///
     pub fn SetSingleStep(self: ?*anyopaque, singleStep: i32) void {
-        qtc.QStyleOptionSlider_SetSingleStep(@ptrCast(self), @intCast(singleStep));
+        qtc.QStyleOptionSlider_SetSingleStep(@ptrCast(self), @bitCast(singleStep));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#pageStep-var)
@@ -7574,7 +7574,7 @@ pub const qstyleoptionslider = struct {
     /// ` pageStep: i32 `
     ///
     pub fn SetPageStep(self: ?*anyopaque, pageStep: i32) void {
-        qtc.QStyleOptionSlider_SetPageStep(@ptrCast(self), @intCast(pageStep));
+        qtc.QStyleOptionSlider_SetPageStep(@ptrCast(self), @bitCast(pageStep));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#notchTarget-var)
@@ -7596,7 +7596,7 @@ pub const qstyleoptionslider = struct {
     /// ` notchTarget: f64 `
     ///
     pub fn SetNotchTarget(self: ?*anyopaque, notchTarget: f64) void {
-        qtc.QStyleOptionSlider_SetNotchTarget(@ptrCast(self), @floatCast(notchTarget));
+        qtc.QStyleOptionSlider_SetNotchTarget(@ptrCast(self), @bitCast(notchTarget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#dialWrapping-var)
@@ -7644,7 +7644,7 @@ pub const qstyleoptionslider = struct {
     /// ` keyboardModifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetKeyboardModifiers(self: ?*anyopaque, keyboardModifiers: i32) void {
-        qtc.QStyleOptionSlider_SetKeyboardModifiers(@ptrCast(self), @intCast(keyboardModifiers));
+        qtc.QStyleOptionSlider_SetKeyboardModifiers(@ptrCast(self), @bitCast(keyboardModifiers));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#operator-eq)
@@ -7686,7 +7686,7 @@ pub const qstyleoptionslider = struct {
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @bitCast(subControls));
     }
 
     /// Inherited from QStyleOptionComplex
@@ -7716,7 +7716,7 @@ pub const qstyleoptionslider = struct {
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @bitCast(activeSubControls));
     }
 
     /// Inherited from QStyleOption
@@ -7742,7 +7742,7 @@ pub const qstyleoptionslider = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -7768,7 +7768,7 @@ pub const qstyleoptionslider = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -7798,7 +7798,7 @@ pub const qstyleoptionslider = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -7828,7 +7828,7 @@ pub const qstyleoptionslider = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -8003,7 +8003,7 @@ pub const qstyleoptionspinbox = struct {
     /// ` buttonSymbols: qabstractspinbox_enums.ButtonSymbols `
     ///
     pub fn SetButtonSymbols(self: ?*anyopaque, buttonSymbols: i32) void {
-        qtc.QStyleOptionSpinBox_SetButtonSymbols(@ptrCast(self), @intCast(buttonSymbols));
+        qtc.QStyleOptionSpinBox_SetButtonSymbols(@ptrCast(self), @bitCast(buttonSymbols));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#stepEnabled-var)
@@ -8029,7 +8029,7 @@ pub const qstyleoptionspinbox = struct {
     /// ` stepEnabled: flag of qabstractspinbox_enums.StepEnabledFlag `
     ///
     pub fn SetStepEnabled(self: ?*anyopaque, stepEnabled: i32) void {
-        qtc.QStyleOptionSpinBox_SetStepEnabled(@ptrCast(self), @intCast(stepEnabled));
+        qtc.QStyleOptionSpinBox_SetStepEnabled(@ptrCast(self), @bitCast(stepEnabled));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#frame-var)
@@ -8093,7 +8093,7 @@ pub const qstyleoptionspinbox = struct {
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @bitCast(subControls));
     }
 
     /// Inherited from QStyleOptionComplex
@@ -8123,7 +8123,7 @@ pub const qstyleoptionspinbox = struct {
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @bitCast(activeSubControls));
     }
 
     /// Inherited from QStyleOption
@@ -8149,7 +8149,7 @@ pub const qstyleoptionspinbox = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -8175,7 +8175,7 @@ pub const qstyleoptionspinbox = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -8205,7 +8205,7 @@ pub const qstyleoptionspinbox = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -8235,7 +8235,7 @@ pub const qstyleoptionspinbox = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -8410,7 +8410,7 @@ pub const qstyleoptiontoolbutton = struct {
     /// ` features: flag of qstyleoption_enums.ToolButtonFeature `
     ///
     pub fn SetFeatures(self: ?*anyopaque, features: i32) void {
-        qtc.QStyleOptionToolButton_SetFeatures(@ptrCast(self), @intCast(features));
+        qtc.QStyleOptionToolButton_SetFeatures(@ptrCast(self), @bitCast(features));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#icon-var)
@@ -8512,7 +8512,7 @@ pub const qstyleoptiontoolbutton = struct {
     /// ` arrowType: qnamespace_enums.ArrowType `
     ///
     pub fn SetArrowType(self: ?*anyopaque, arrowType: i32) void {
-        qtc.QStyleOptionToolButton_SetArrowType(@ptrCast(self), @intCast(arrowType));
+        qtc.QStyleOptionToolButton_SetArrowType(@ptrCast(self), @bitCast(arrowType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#toolButtonStyle-var)
@@ -8538,7 +8538,7 @@ pub const qstyleoptiontoolbutton = struct {
     /// ` toolButtonStyle: qnamespace_enums.ToolButtonStyle `
     ///
     pub fn SetToolButtonStyle(self: ?*anyopaque, toolButtonStyle: i32) void {
-        qtc.QStyleOptionToolButton_SetToolButtonStyle(@ptrCast(self), @intCast(toolButtonStyle));
+        qtc.QStyleOptionToolButton_SetToolButtonStyle(@ptrCast(self), @bitCast(toolButtonStyle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#pos-var)
@@ -8624,7 +8624,7 @@ pub const qstyleoptiontoolbutton = struct {
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @bitCast(subControls));
     }
 
     /// Inherited from QStyleOptionComplex
@@ -8654,7 +8654,7 @@ pub const qstyleoptiontoolbutton = struct {
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @bitCast(activeSubControls));
     }
 
     /// Inherited from QStyleOption
@@ -8680,7 +8680,7 @@ pub const qstyleoptiontoolbutton = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -8706,7 +8706,7 @@ pub const qstyleoptiontoolbutton = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -8736,7 +8736,7 @@ pub const qstyleoptiontoolbutton = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -8766,7 +8766,7 @@ pub const qstyleoptiontoolbutton = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -9083,7 +9083,7 @@ pub const qstyleoptioncombobox = struct {
     /// ` textAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i32) void {
-        qtc.QStyleOptionComboBox_SetTextAlignment(@ptrCast(self), @intCast(textAlignment));
+        qtc.QStyleOptionComboBox_SetTextAlignment(@ptrCast(self), @bitCast(textAlignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#operator-eq)
@@ -9125,7 +9125,7 @@ pub const qstyleoptioncombobox = struct {
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @bitCast(subControls));
     }
 
     /// Inherited from QStyleOptionComplex
@@ -9155,7 +9155,7 @@ pub const qstyleoptioncombobox = struct {
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @bitCast(activeSubControls));
     }
 
     /// Inherited from QStyleOption
@@ -9181,7 +9181,7 @@ pub const qstyleoptioncombobox = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -9207,7 +9207,7 @@ pub const qstyleoptioncombobox = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -9237,7 +9237,7 @@ pub const qstyleoptioncombobox = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -9267,7 +9267,7 @@ pub const qstyleoptioncombobox = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -9492,7 +9492,7 @@ pub const qstyleoptiontitlebar = struct {
     /// ` titleBarState: i32 `
     ///
     pub fn SetTitleBarState(self: ?*anyopaque, titleBarState: i32) void {
-        qtc.QStyleOptionTitleBar_SetTitleBarState(@ptrCast(self), @intCast(titleBarState));
+        qtc.QStyleOptionTitleBar_SetTitleBarState(@ptrCast(self), @bitCast(titleBarState));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#titleBarFlags-var)
@@ -9518,7 +9518,7 @@ pub const qstyleoptiontitlebar = struct {
     /// ` titleBarFlags: flag of qnamespace_enums.WindowType `
     ///
     pub fn SetTitleBarFlags(self: ?*anyopaque, titleBarFlags: i32) void {
-        qtc.QStyleOptionTitleBar_SetTitleBarFlags(@ptrCast(self), @intCast(titleBarFlags));
+        qtc.QStyleOptionTitleBar_SetTitleBarFlags(@ptrCast(self), @bitCast(titleBarFlags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#operator-eq)
@@ -9560,7 +9560,7 @@ pub const qstyleoptiontitlebar = struct {
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @bitCast(subControls));
     }
 
     /// Inherited from QStyleOptionComplex
@@ -9590,7 +9590,7 @@ pub const qstyleoptiontitlebar = struct {
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @bitCast(activeSubControls));
     }
 
     /// Inherited from QStyleOption
@@ -9616,7 +9616,7 @@ pub const qstyleoptiontitlebar = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -9642,7 +9642,7 @@ pub const qstyleoptiontitlebar = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -9672,7 +9672,7 @@ pub const qstyleoptiontitlebar = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -9702,7 +9702,7 @@ pub const qstyleoptiontitlebar = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -9877,7 +9877,7 @@ pub const qstyleoptiongroupbox = struct {
     /// ` features: flag of qstyleoption_enums.FrameFeature `
     ///
     pub fn SetFeatures(self: ?*anyopaque, features: i32) void {
-        qtc.QStyleOptionGroupBox_SetFeatures(@ptrCast(self), @intCast(features));
+        qtc.QStyleOptionGroupBox_SetFeatures(@ptrCast(self), @bitCast(features));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#text-var)
@@ -9935,7 +9935,7 @@ pub const qstyleoptiongroupbox = struct {
     /// ` textAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i32) void {
-        qtc.QStyleOptionGroupBox_SetTextAlignment(@ptrCast(self), @intCast(textAlignment));
+        qtc.QStyleOptionGroupBox_SetTextAlignment(@ptrCast(self), @bitCast(textAlignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#textColor-var)
@@ -9979,7 +9979,7 @@ pub const qstyleoptiongroupbox = struct {
     /// ` lineWidth: i32 `
     ///
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QStyleOptionGroupBox_SetLineWidth(@ptrCast(self), @intCast(lineWidth));
+        qtc.QStyleOptionGroupBox_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#midLineWidth-var)
@@ -10001,7 +10001,7 @@ pub const qstyleoptiongroupbox = struct {
     /// ` midLineWidth: i32 `
     ///
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QStyleOptionGroupBox_SetMidLineWidth(@ptrCast(self), @intCast(midLineWidth));
+        qtc.QStyleOptionGroupBox_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#operator-eq)
@@ -10043,7 +10043,7 @@ pub const qstyleoptiongroupbox = struct {
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @bitCast(subControls));
     }
 
     /// Inherited from QStyleOptionComplex
@@ -10073,7 +10073,7 @@ pub const qstyleoptiongroupbox = struct {
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @bitCast(activeSubControls));
     }
 
     /// Inherited from QStyleOption
@@ -10099,7 +10099,7 @@ pub const qstyleoptiongroupbox = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -10125,7 +10125,7 @@ pub const qstyleoptiongroupbox = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -10155,7 +10155,7 @@ pub const qstyleoptiongroupbox = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -10185,7 +10185,7 @@ pub const qstyleoptiongroupbox = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -10360,7 +10360,7 @@ pub const qstyleoptionsizegrip = struct {
     /// ` corner: qnamespace_enums.Corner `
     ///
     pub fn SetCorner(self: ?*anyopaque, corner: i32) void {
-        qtc.QStyleOptionSizeGrip_SetCorner(@ptrCast(self), @intCast(corner));
+        qtc.QStyleOptionSizeGrip_SetCorner(@ptrCast(self), @bitCast(corner));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionsizegrip.html#operator-eq)
@@ -10402,7 +10402,7 @@ pub const qstyleoptionsizegrip = struct {
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @bitCast(subControls));
     }
 
     /// Inherited from QStyleOptionComplex
@@ -10432,7 +10432,7 @@ pub const qstyleoptionsizegrip = struct {
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
     pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @bitCast(activeSubControls));
     }
 
     /// Inherited from QStyleOption
@@ -10458,7 +10458,7 @@ pub const qstyleoptionsizegrip = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -10484,7 +10484,7 @@ pub const qstyleoptionsizegrip = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -10514,7 +10514,7 @@ pub const qstyleoptionsizegrip = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -10544,7 +10544,7 @@ pub const qstyleoptionsizegrip = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -10763,7 +10763,7 @@ pub const qstyleoptiongraphicsitem = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleOption_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleOption
@@ -10789,7 +10789,7 @@ pub const qstyleoptiongraphicsitem = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleOption_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleOption_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// Inherited from QStyleOption
@@ -10819,7 +10819,7 @@ pub const qstyleoptiongraphicsitem = struct {
     /// ` state: flag of qstyle_enums.StateFlag `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
+        qtc.QStyleOption_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QStyleOption
@@ -10849,7 +10849,7 @@ pub const qstyleoptiongraphicsitem = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QStyleOption_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QStyleOption
@@ -11008,7 +11008,7 @@ pub const qstylehintreturn = struct {
     /// ` version: i32 `
     ///
     pub fn New3(version: i32) QtC.QStyleHintReturn {
-        return qtc.QStyleHintReturn_new3(@intCast(version));
+        return qtc.QStyleHintReturn_new3(@bitCast(version));
     }
 
     /// New4 constructs a new QStyleHintReturn object.
@@ -11020,7 +11020,7 @@ pub const qstylehintreturn = struct {
     /// ` typeVal: i32 `
     ///
     pub fn New4(version: i32, typeVal: i32) QtC.QStyleHintReturn {
-        return qtc.QStyleHintReturn_new4(@intCast(version), @intCast(typeVal));
+        return qtc.QStyleHintReturn_new4(@bitCast(version), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#version-var)
@@ -11042,7 +11042,7 @@ pub const qstylehintreturn = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleHintReturn_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleHintReturn_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#type-var)
@@ -11064,7 +11064,7 @@ pub const qstylehintreturn = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleHintReturn_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleHintReturn_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#operator-eq)
@@ -11167,7 +11167,7 @@ pub const qstylehintreturnmask = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleHintReturn_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleHintReturn_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleHintReturn
@@ -11193,7 +11193,7 @@ pub const qstylehintreturnmask = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleHintReturn_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleHintReturn_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturnmask.html#dtor.QStyleHintReturnMask)
@@ -11284,7 +11284,7 @@ pub const qstylehintreturnvariant = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QStyleHintReturn_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QStyleHintReturn_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// Inherited from QStyleHintReturn
@@ -11310,7 +11310,7 @@ pub const qstylehintreturnvariant = struct {
     /// ` type: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QStyleHintReturn_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QStyleHintReturn_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturnvariant.html#dtor.QStyleHintReturnVariant)

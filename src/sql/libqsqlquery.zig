@@ -127,7 +127,7 @@ pub const qsqlquery = struct {
     /// ` field: i32 `
     ///
     pub fn IsNull(self: ?*anyopaque, field: i32) bool {
-        return qtc.QSqlQuery_IsNull(@ptrCast(self), @intCast(field));
+        return qtc.QSqlQuery_IsNull(@ptrCast(self), @bitCast(field));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#isNull)
@@ -285,7 +285,7 @@ pub const qsqlquery = struct {
     /// ` i: i32 `
     ///
     pub fn Value(self: ?*anyopaque, i: i32) QtC.QVariant {
-        return qtc.QSqlQuery_Value(@ptrCast(self), @intCast(i));
+        return qtc.QSqlQuery_Value(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#value)
@@ -309,7 +309,7 @@ pub const qsqlquery = struct {
     /// ` precisionPolicy: qtsqlglobal_enums.NumericalPrecisionPolicy `
     ///
     pub fn SetNumericalPrecisionPolicy(self: ?*anyopaque, precisionPolicy: i32) void {
-        qtc.QSqlQuery_SetNumericalPrecisionPolicy(@ptrCast(self), @intCast(precisionPolicy));
+        qtc.QSqlQuery_SetNumericalPrecisionPolicy(@ptrCast(self), @bitCast(precisionPolicy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#numericalPrecisionPolicy)
@@ -357,7 +357,7 @@ pub const qsqlquery = struct {
     /// ` i: i32 `
     ///
     pub fn Seek(self: ?*anyopaque, i: i32) bool {
-        return qtc.QSqlQuery_Seek(@ptrCast(self), @intCast(i));
+        return qtc.QSqlQuery_Seek(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#next)
@@ -475,7 +475,7 @@ pub const qsqlquery = struct {
     /// ` val: QtC.QVariant `
     ///
     pub fn BindValue2(self: ?*anyopaque, pos: i32, val: ?*anyopaque) void {
-        qtc.QSqlQuery_BindValue2(@ptrCast(self), @intCast(pos), @ptrCast(val));
+        qtc.QSqlQuery_BindValue2(@ptrCast(self), @bitCast(pos), @ptrCast(val));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#addBindValue)
@@ -515,7 +515,7 @@ pub const qsqlquery = struct {
     /// ` pos: i32 `
     ///
     pub fn BoundValue2(self: ?*anyopaque, pos: i32) QtC.QVariant {
-        return qtc.QSqlQuery_BoundValue2(@ptrCast(self), @intCast(pos));
+        return qtc.QSqlQuery_BoundValue2(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#boundValues)
@@ -573,7 +573,7 @@ pub const qsqlquery = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn BoundValueName(self: ?*anyopaque, pos: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QSqlQuery_BoundValueName(@ptrCast(self), @intCast(pos));
+        var _str = qtc.QSqlQuery_BoundValueName(@ptrCast(self), @bitCast(pos));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlquery.BoundValueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -637,7 +637,7 @@ pub const qsqlquery = struct {
     /// ` relative: bool `
     ///
     pub fn Seek2(self: ?*anyopaque, i: i32, relative: bool) bool {
-        return qtc.QSqlQuery_Seek2(@ptrCast(self), @intCast(i), relative);
+        return qtc.QSqlQuery_Seek2(@ptrCast(self), @bitCast(i), relative);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#execBatch)
@@ -649,7 +649,7 @@ pub const qsqlquery = struct {
     /// ` mode: qsqlquery_enums.BatchExecutionMode `
     ///
     pub fn ExecBatch1(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QSqlQuery_ExecBatch1(@ptrCast(self), @intCast(mode));
+        return qtc.QSqlQuery_ExecBatch1(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#bindValue)
@@ -669,7 +669,7 @@ pub const qsqlquery = struct {
             .len = placeholder.len,
             .data = placeholder.ptr,
         };
-        qtc.QSqlQuery_BindValue3(@ptrCast(self), placeholder_str, @ptrCast(val), @intCast(typeVal));
+        qtc.QSqlQuery_BindValue3(@ptrCast(self), placeholder_str, @ptrCast(val), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#bindValue)
@@ -685,7 +685,7 @@ pub const qsqlquery = struct {
     /// ` typeVal: flag of qtsqlglobal_enums.ParamTypeFlag `
     ///
     pub fn BindValue32(self: ?*anyopaque, pos: i32, val: ?*anyopaque, typeVal: i32) void {
-        qtc.QSqlQuery_BindValue32(@ptrCast(self), @intCast(pos), @ptrCast(val), @intCast(typeVal));
+        qtc.QSqlQuery_BindValue32(@ptrCast(self), @bitCast(pos), @ptrCast(val), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#addBindValue)
@@ -699,7 +699,7 @@ pub const qsqlquery = struct {
     /// ` typeVal: flag of qtsqlglobal_enums.ParamTypeFlag `
     ///
     pub fn AddBindValue2(self: ?*anyopaque, val: ?*anyopaque, typeVal: i32) void {
-        qtc.QSqlQuery_AddBindValue2(@ptrCast(self), @ptrCast(val), @intCast(typeVal));
+        qtc.QSqlQuery_AddBindValue2(@ptrCast(self), @ptrCast(val), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#dtor.QSqlQuery)

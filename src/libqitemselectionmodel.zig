@@ -182,7 +182,7 @@ pub const qitemselectionrange = struct {
     /// ` parentIndex: QtC.QModelIndex `
     ///
     pub fn Contains2(self: ?*anyopaque, row: i32, column: i32, parentIndex: ?*anyopaque) bool {
-        return qtc.QItemSelectionRange_Contains2(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parentIndex));
+        return qtc.QItemSelectionRange_Contains2(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parentIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionrange.html#intersects)
@@ -310,7 +310,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QItemSelectionModel_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -345,7 +345,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QItemSelectionModel_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -372,7 +372,7 @@ pub const qitemselectionmodel = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QItemSelectionModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QItemSelectionModel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -384,7 +384,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QItemSelectionModel_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -400,7 +400,7 @@ pub const qitemselectionmodel = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QItemSelectionModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QItemSelectionModel_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -451,7 +451,7 @@ pub const qitemselectionmodel = struct {
     /// ` row: i32 `
     ///
     pub fn IsRowSelected(self: ?*anyopaque, row: i32) bool {
-        return qtc.QItemSelectionModel_IsRowSelected(@ptrCast(self), @intCast(row));
+        return qtc.QItemSelectionModel_IsRowSelected(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isColumnSelected)
@@ -463,7 +463,7 @@ pub const qitemselectionmodel = struct {
     /// ` column: i32 `
     ///
     pub fn IsColumnSelected(self: ?*anyopaque, column: i32) bool {
-        return qtc.QItemSelectionModel_IsColumnSelected(@ptrCast(self), @intCast(column));
+        return qtc.QItemSelectionModel_IsColumnSelected(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#rowIntersectsSelection)
@@ -475,7 +475,7 @@ pub const qitemselectionmodel = struct {
     /// ` row: i32 `
     ///
     pub fn RowIntersectsSelection(self: ?*anyopaque, row: i32) bool {
-        return qtc.QItemSelectionModel_RowIntersectsSelection(@ptrCast(self), @intCast(row));
+        return qtc.QItemSelectionModel_RowIntersectsSelection(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#columnIntersectsSelection)
@@ -487,7 +487,7 @@ pub const qitemselectionmodel = struct {
     /// ` column: i32 `
     ///
     pub fn ColumnIntersectsSelection(self: ?*anyopaque, column: i32) bool {
-        return qtc.QItemSelectionModel_ColumnIntersectsSelection(@ptrCast(self), @intCast(column));
+        return qtc.QItemSelectionModel_ColumnIntersectsSelection(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#hasSelection)
@@ -604,7 +604,7 @@ pub const qitemselectionmodel = struct {
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn SetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
-        qtc.QItemSelectionModel_SetCurrentIndex(@ptrCast(self), @ptrCast(index), @intCast(command));
+        qtc.QItemSelectionModel_SetCurrentIndex(@ptrCast(self), @ptrCast(index), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
@@ -618,7 +618,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
     pub fn OnSetCurrentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QItemSelectionModel_OnSetCurrentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnSetCurrentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
@@ -634,7 +634,7 @@ pub const qitemselectionmodel = struct {
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn QBaseSetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
-        qtc.QItemSelectionModel_QBaseSetCurrentIndex(@ptrCast(self), @ptrCast(index), @intCast(command));
+        qtc.QItemSelectionModel_QBaseSetCurrentIndex(@ptrCast(self), @ptrCast(index), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#select)
@@ -648,7 +648,7 @@ pub const qitemselectionmodel = struct {
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn Select(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
-        qtc.QItemSelectionModel_Select(@ptrCast(self), @ptrCast(index), @intCast(command));
+        qtc.QItemSelectionModel_Select(@ptrCast(self), @ptrCast(index), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#select)
@@ -662,7 +662,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
     pub fn OnSelect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QItemSelectionModel_OnSelect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnSelect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#select)
@@ -678,7 +678,7 @@ pub const qitemselectionmodel = struct {
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn QBaseSelect(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
-        qtc.QItemSelectionModel_QBaseSelect(@ptrCast(self), @ptrCast(index), @intCast(command));
+        qtc.QItemSelectionModel_QBaseSelect(@ptrCast(self), @ptrCast(index), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#select)
@@ -692,7 +692,7 @@ pub const qitemselectionmodel = struct {
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn Select2(self: ?*anyopaque, selection: ?*anyopaque, command: i32) void {
-        qtc.QItemSelectionModel_Select2(@ptrCast(self), @ptrCast(selection), @intCast(command));
+        qtc.QItemSelectionModel_Select2(@ptrCast(self), @ptrCast(selection), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#select)
@@ -706,7 +706,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, selection: QtC.QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
     pub fn OnSelect2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QItemSelectionModel_OnSelect2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnSelect2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#select)
@@ -722,7 +722,7 @@ pub const qitemselectionmodel = struct {
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn QBaseSelect2(self: ?*anyopaque, selection: ?*anyopaque, command: i32) void {
-        qtc.QItemSelectionModel_QBaseSelect2(@ptrCast(self), @ptrCast(selection), @intCast(command));
+        qtc.QItemSelectionModel_QBaseSelect2(@ptrCast(self), @ptrCast(selection), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
@@ -746,7 +746,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QItemSelectionModel_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnClear(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
@@ -782,7 +782,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QItemSelectionModel_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
@@ -828,7 +828,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnClearCurrentIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QItemSelectionModel_OnClearCurrentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnClearCurrentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex)
@@ -866,7 +866,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, selected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void `
     ///
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemSelectionModel_Connect_SelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_Connect_SelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentChanged)
@@ -892,7 +892,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemSelectionModel_Connect_CurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_Connect_CurrentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentRowChanged)
@@ -918,7 +918,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnCurrentRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemSelectionModel_Connect_CurrentRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_Connect_CurrentRowChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentColumnChanged)
@@ -944,7 +944,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnCurrentColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemSelectionModel_Connect_CurrentColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_Connect_CurrentColumnChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#modelChanged)
@@ -968,7 +968,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, model: QtC.QAbstractItemModel) callconv(.c) void `
     ///
     pub fn OnModelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemSelectionModel_Connect_ModelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_Connect_ModelChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
@@ -996,7 +996,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, newSelection: QtC.QItemSelection, oldSelection: QtC.QItemSelection) callconv(.c) void `
     ///
     pub fn OnEmitSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemSelectionModel_OnEmitSelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnEmitSelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
@@ -1050,7 +1050,7 @@ pub const qitemselectionmodel = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qitemselectionmodel.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1068,7 +1068,7 @@ pub const qitemselectionmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn IsRowSelected2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QItemSelectionModel_IsRowSelected2(@ptrCast(self), @intCast(row), @ptrCast(parent));
+        return qtc.QItemSelectionModel_IsRowSelected2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isColumnSelected)
@@ -1082,7 +1082,7 @@ pub const qitemselectionmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn IsColumnSelected2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QItemSelectionModel_IsColumnSelected2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+        return qtc.QItemSelectionModel_IsColumnSelected2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#rowIntersectsSelection)
@@ -1096,7 +1096,7 @@ pub const qitemselectionmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RowIntersectsSelection2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QItemSelectionModel_RowIntersectsSelection2(@ptrCast(self), @intCast(row), @ptrCast(parent));
+        return qtc.QItemSelectionModel_RowIntersectsSelection2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#columnIntersectsSelection)
@@ -1110,7 +1110,7 @@ pub const qitemselectionmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn ColumnIntersectsSelection2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QItemSelectionModel_ColumnIntersectsSelection2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+        return qtc.QItemSelectionModel_ColumnIntersectsSelection2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedRows)
@@ -1124,7 +1124,7 @@ pub const qitemselectionmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SelectedRows1(self: ?*anyopaque, column: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedRows1(@ptrCast(self), @intCast(column));
+        const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedRows1(@ptrCast(self), @bitCast(column));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qitemselectionmodel.SelectedRows1: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -1143,7 +1143,7 @@ pub const qitemselectionmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SelectedColumns1(self: ?*anyopaque, row: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedColumns1(@ptrCast(self), @intCast(row));
+        const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedColumns1(@ptrCast(self), @bitCast(row));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qitemselectionmodel.SelectedColumns1: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -1282,7 +1282,7 @@ pub const qitemselectionmodel = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1296,7 +1296,7 @@ pub const qitemselectionmodel = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1310,7 +1310,7 @@ pub const qitemselectionmodel = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1324,7 +1324,7 @@ pub const qitemselectionmodel = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1654,7 +1654,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1709,7 +1709,7 @@ pub const qitemselectionmodel = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1725,7 +1725,7 @@ pub const qitemselectionmodel = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1747,7 +1747,7 @@ pub const qitemselectionmodel = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1767,7 +1767,7 @@ pub const qitemselectionmodel = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1789,7 +1789,7 @@ pub const qitemselectionmodel = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1886,7 +1886,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1934,7 +1934,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QItemSelectionModel_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1986,7 +1986,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QItemSelectionModel_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2034,7 +2034,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemSelectionModel_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2082,7 +2082,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemSelectionModel_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2130,7 +2130,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemSelectionModel_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2178,7 +2178,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemSelectionModel_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2226,7 +2226,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemSelectionModel_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2270,7 +2270,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QItemSelectionModel_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2314,7 +2314,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QItemSelectionModel_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2364,7 +2364,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QItemSelectionModel_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2412,7 +2412,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QItemSelectionModel_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QItemSelectionModel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2428,7 +2428,7 @@ pub const qitemselectionmodel = struct {
     /// ` callback: *const fn (self: QtC.QItemSelectionModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#dtor.QItemSelectionModel)
@@ -2530,7 +2530,7 @@ pub const qitemselection = struct {
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn Merge(self: ?*anyopaque, other: ?*anyopaque, command: i32) void {
-        qtc.QItemSelection_Merge(@ptrCast(self), @ptrCast(other), @intCast(command));
+        qtc.QItemSelection_Merge(@ptrCast(self), @ptrCast(other), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselection.html#split)

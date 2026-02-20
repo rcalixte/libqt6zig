@@ -232,7 +232,7 @@ pub const qmetacontainer = struct {
     /// ` step: i64 `
     ///
     pub fn AdvanceIterator(self: ?*anyopaque, iterator: ?*anyopaque, step: i64) void {
-        qtc.QMetaContainer_AdvanceIterator(@ptrCast(self), @ptrCast(iterator), @intCast(step));
+        qtc.QMetaContainer_AdvanceIterator(@ptrCast(self), @ptrCast(iterator), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#diffIterator)
@@ -334,7 +334,7 @@ pub const qmetacontainer = struct {
     /// ` step: i64 `
     ///
     pub fn AdvanceConstIterator(self: ?*anyopaque, iterator: ?*anyopaque, step: i64) void {
-        qtc.QMetaContainer_AdvanceConstIterator(@ptrCast(self), @ptrCast(iterator), @intCast(step));
+        qtc.QMetaContainer_AdvanceConstIterator(@ptrCast(self), @ptrCast(iterator), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#diffConstIterator)
@@ -551,7 +551,7 @@ pub const qmetasequence = struct {
     /// ` result: ?*anyopaque `
     ///
     pub fn ValueAtIndex(self: ?*anyopaque, container: ?*const anyopaque, index: i64, result: ?*anyopaque) void {
-        qtc.QMetaSequence_ValueAtIndex(@ptrCast(self), @ptrCast(container), @intCast(index), @ptrCast(result));
+        qtc.QMetaSequence_ValueAtIndex(@ptrCast(self), @ptrCast(container), @bitCast(index), @ptrCast(result));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canSetValueAtIndex)
@@ -577,7 +577,7 @@ pub const qmetasequence = struct {
     /// ` value: ?*const anyopaque `
     ///
     pub fn SetValueAtIndex(self: ?*anyopaque, container: ?*anyopaque, index: i64, value: ?*const anyopaque) void {
-        qtc.QMetaSequence_SetValueAtIndex(@ptrCast(self), @ptrCast(container), @intCast(index), @ptrCast(value));
+        qtc.QMetaSequence_SetValueAtIndex(@ptrCast(self), @ptrCast(container), @bitCast(index), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canAddValue)
@@ -973,7 +973,7 @@ pub const qmetasequence = struct {
     /// ` step: i64 `
     ///
     pub fn AdvanceIterator(self: ?*anyopaque, iterator: ?*anyopaque, step: i64) void {
-        qtc.QMetaContainer_AdvanceIterator(@ptrCast(self), @ptrCast(iterator), @intCast(step));
+        qtc.QMetaContainer_AdvanceIterator(@ptrCast(self), @ptrCast(iterator), @bitCast(step));
     }
 
     /// Inherited from QMetaContainer
@@ -1091,7 +1091,7 @@ pub const qmetasequence = struct {
     /// ` step: i64 `
     ///
     pub fn AdvanceConstIterator(self: ?*anyopaque, iterator: ?*anyopaque, step: i64) void {
-        qtc.QMetaContainer_AdvanceConstIterator(@ptrCast(self), @ptrCast(iterator), @intCast(step));
+        qtc.QMetaContainer_AdvanceConstIterator(@ptrCast(self), @ptrCast(iterator), @bitCast(step));
     }
 
     /// Inherited from QMetaContainer
@@ -1686,7 +1686,7 @@ pub const qmetaassociation = struct {
     /// ` step: i64 `
     ///
     pub fn AdvanceIterator(self: ?*anyopaque, iterator: ?*anyopaque, step: i64) void {
-        qtc.QMetaContainer_AdvanceIterator(@ptrCast(self), @ptrCast(iterator), @intCast(step));
+        qtc.QMetaContainer_AdvanceIterator(@ptrCast(self), @ptrCast(iterator), @bitCast(step));
     }
 
     /// Inherited from QMetaContainer
@@ -1804,7 +1804,7 @@ pub const qmetaassociation = struct {
     /// ` step: i64 `
     ///
     pub fn AdvanceConstIterator(self: ?*anyopaque, iterator: ?*anyopaque, step: i64) void {
-        qtc.QMetaContainer_AdvanceConstIterator(@ptrCast(self), @ptrCast(iterator), @intCast(step));
+        qtc.QMetaContainer_AdvanceConstIterator(@ptrCast(self), @ptrCast(iterator), @bitCast(step));
     }
 
     /// Inherited from QMetaContainer

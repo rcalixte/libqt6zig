@@ -19,7 +19,7 @@ pub const qlatin1stringmatcher = struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn SetCaseSensitivity(self: ?*anyopaque, cs: i32) void {
-        qtc.QLatin1StringMatcher_SetCaseSensitivity(@ptrCast(self), @intCast(cs));
+        qtc.QLatin1StringMatcher_SetCaseSensitivity(@ptrCast(self), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1stringmatcher.html#caseSensitivity)

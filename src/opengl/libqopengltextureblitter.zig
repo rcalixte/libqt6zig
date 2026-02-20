@@ -101,7 +101,7 @@ pub const qopengltextureblitter = struct {
     /// ` opacity: f32 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f32) void {
-        qtc.QOpenGLTextureBlitter_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QOpenGLTextureBlitter_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#blit)
@@ -117,7 +117,7 @@ pub const qopengltextureblitter = struct {
     /// ` sourceOrigin: qopengltextureblitter_enums.Origin `
     ///
     pub fn Blit(self: ?*anyopaque, texture: u32, targetTransform: ?*anyopaque, sourceOrigin: i32) void {
-        qtc.QOpenGLTextureBlitter_Blit(@ptrCast(self), @intCast(texture), @ptrCast(targetTransform), @intCast(sourceOrigin));
+        qtc.QOpenGLTextureBlitter_Blit(@ptrCast(self), @bitCast(texture), @ptrCast(targetTransform), @bitCast(sourceOrigin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#targetTransform)
@@ -141,7 +141,7 @@ pub const qopengltextureblitter = struct {
     /// ` target: u32 `
     ///
     pub fn Bind1(self: ?*anyopaque, target: u32) void {
-        qtc.QOpenGLTextureBlitter_Bind1(@ptrCast(self), @intCast(target));
+        qtc.QOpenGLTextureBlitter_Bind1(@ptrCast(self), @bitCast(target));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#dtor.QOpenGLTextureBlitter)

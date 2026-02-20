@@ -45,7 +45,7 @@ pub const qaudiobuffer = struct {
     /// ` format: QtC.QAudioFormat `
     ///
     pub fn New4(numFrames: i32, format: ?*anyopaque) QtC.QAudioBuffer {
-        return qtc.QAudioBuffer_new4(@intCast(numFrames), @ptrCast(format));
+        return qtc.QAudioBuffer_new4(@bitCast(numFrames), @ptrCast(format));
     }
 
     /// New5 constructs a new QAudioBuffer object.
@@ -64,7 +64,7 @@ pub const qaudiobuffer = struct {
             .data = data.ptr,
         };
 
-        return qtc.QAudioBuffer_new5(data_str, @ptrCast(format), @intCast(startTime));
+        return qtc.QAudioBuffer_new5(data_str, @ptrCast(format), @bitCast(startTime));
     }
 
     /// New6 constructs a new QAudioBuffer object.
@@ -78,7 +78,7 @@ pub const qaudiobuffer = struct {
     /// ` startTime: i64 `
     ///
     pub fn New6(numFrames: i32, format: ?*anyopaque, startTime: i64) QtC.QAudioBuffer {
-        return qtc.QAudioBuffer_new6(@intCast(numFrames), @ptrCast(format), @intCast(startTime));
+        return qtc.QAudioBuffer_new6(@bitCast(numFrames), @ptrCast(format), @bitCast(startTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiobuffer.html#operator-eq)

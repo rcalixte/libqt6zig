@@ -179,7 +179,7 @@ pub const qpdflink = struct {
     /// ` mode: qclipboard_enums.Mode `
     ///
     pub fn CopyToClipboard1(self: ?*anyopaque, mode: i32) void {
-        qtc.QPdfLink_CopyToClipboard1(@ptrCast(self), @intCast(mode));
+        qtc.QPdfLink_CopyToClipboard1(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdflink.html#dtor.QPdfLink)

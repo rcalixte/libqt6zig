@@ -180,7 +180,7 @@ pub const qopengldebugmessage = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QOpenGLDebugMessage_CreateApplicationMessage2(text_str, @intCast(id));
+        return qtc.QOpenGLDebugMessage_CreateApplicationMessage2(text_str, @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#createApplicationMessage)
@@ -198,7 +198,7 @@ pub const qopengldebugmessage = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QOpenGLDebugMessage_CreateApplicationMessage3(text_str, @intCast(id), @intCast(severity));
+        return qtc.QOpenGLDebugMessage_CreateApplicationMessage3(text_str, @bitCast(id), @bitCast(severity));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#createApplicationMessage)
@@ -218,7 +218,7 @@ pub const qopengldebugmessage = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QOpenGLDebugMessage_CreateApplicationMessage4(text_str, @intCast(id), @intCast(severity), @intCast(typeVal));
+        return qtc.QOpenGLDebugMessage_CreateApplicationMessage4(text_str, @bitCast(id), @bitCast(severity), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#createThirdPartyMessage)
@@ -234,7 +234,7 @@ pub const qopengldebugmessage = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QOpenGLDebugMessage_CreateThirdPartyMessage2(text_str, @intCast(id));
+        return qtc.QOpenGLDebugMessage_CreateThirdPartyMessage2(text_str, @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#createThirdPartyMessage)
@@ -252,7 +252,7 @@ pub const qopengldebugmessage = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QOpenGLDebugMessage_CreateThirdPartyMessage3(text_str, @intCast(id), @intCast(severity));
+        return qtc.QOpenGLDebugMessage_CreateThirdPartyMessage3(text_str, @bitCast(id), @bitCast(severity));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#createThirdPartyMessage)
@@ -272,7 +272,7 @@ pub const qopengldebugmessage = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QOpenGLDebugMessage_CreateThirdPartyMessage4(text_str, @intCast(id), @intCast(severity), @intCast(typeVal));
+        return qtc.QOpenGLDebugMessage_CreateThirdPartyMessage4(text_str, @bitCast(id), @bitCast(severity), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#dtor.QOpenGLDebugMessage)
@@ -327,7 +327,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QOpenGLDebugLogger_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -362,7 +362,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -389,7 +389,7 @@ pub const qopengldebuglogger = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QOpenGLDebugLogger_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QOpenGLDebugLogger_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -401,7 +401,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QOpenGLDebugLogger_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -417,7 +417,7 @@ pub const qopengldebuglogger = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QOpenGLDebugLogger_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QOpenGLDebugLogger_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -629,7 +629,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, debugMessage: QtC.QOpenGLDebugMessage) callconv(.c) void `
     ///
     pub fn OnMessageLogged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QOpenGLDebugLogger_Connect_MessageLogged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_Connect_MessageLogged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -667,7 +667,7 @@ pub const qopengldebuglogger = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengldebuglogger.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -689,7 +689,7 @@ pub const qopengldebuglogger = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QOpenGLDebugLogger_PushGroup2(@ptrCast(self), name_str, @intCast(id));
+        qtc.QOpenGLDebugLogger_PushGroup2(@ptrCast(self), name_str, @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#pushGroup)
@@ -709,7 +709,7 @@ pub const qopengldebuglogger = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QOpenGLDebugLogger_PushGroup3(@ptrCast(self), name_str, @intCast(id), @intCast(source));
+        qtc.QOpenGLDebugLogger_PushGroup3(@ptrCast(self), name_str, @bitCast(id), @bitCast(source));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#enableMessages)
@@ -721,7 +721,7 @@ pub const qopengldebuglogger = struct {
     /// ` sources: flag of qopengldebug_enums.Source `
     ///
     pub fn EnableMessages1(self: ?*anyopaque, sources: i32) void {
-        qtc.QOpenGLDebugLogger_EnableMessages1(@ptrCast(self), @intCast(sources));
+        qtc.QOpenGLDebugLogger_EnableMessages1(@ptrCast(self), @bitCast(sources));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#enableMessages)
@@ -735,7 +735,7 @@ pub const qopengldebuglogger = struct {
     /// ` types: flag of qopengldebug_enums.Type `
     ///
     pub fn EnableMessages22(self: ?*anyopaque, sources: i32, types: i32) void {
-        qtc.QOpenGLDebugLogger_EnableMessages22(@ptrCast(self), @intCast(sources), @intCast(types));
+        qtc.QOpenGLDebugLogger_EnableMessages22(@ptrCast(self), @bitCast(sources), @bitCast(types));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#enableMessages)
@@ -751,7 +751,7 @@ pub const qopengldebuglogger = struct {
     /// ` severities: flag of qopengldebug_enums.Severity `
     ///
     pub fn EnableMessages3(self: ?*anyopaque, sources: i32, types: i32, severities: i32) void {
-        qtc.QOpenGLDebugLogger_EnableMessages3(@ptrCast(self), @intCast(sources), @intCast(types), @intCast(severities));
+        qtc.QOpenGLDebugLogger_EnableMessages3(@ptrCast(self), @bitCast(sources), @bitCast(types), @bitCast(severities));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#enableMessages)
@@ -769,7 +769,7 @@ pub const qopengldebuglogger = struct {
             .len = ids.len,
             .data = ids.ptr,
         };
-        qtc.QOpenGLDebugLogger_EnableMessages23(@ptrCast(self), ids_list, @intCast(sources));
+        qtc.QOpenGLDebugLogger_EnableMessages23(@ptrCast(self), ids_list, @bitCast(sources));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#enableMessages)
@@ -789,7 +789,7 @@ pub const qopengldebuglogger = struct {
             .len = ids.len,
             .data = ids.ptr,
         };
-        qtc.QOpenGLDebugLogger_EnableMessages32(@ptrCast(self), ids_list, @intCast(sources), @intCast(types));
+        qtc.QOpenGLDebugLogger_EnableMessages32(@ptrCast(self), ids_list, @bitCast(sources), @bitCast(types));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#disableMessages)
@@ -801,7 +801,7 @@ pub const qopengldebuglogger = struct {
     /// ` sources: flag of qopengldebug_enums.Source `
     ///
     pub fn DisableMessages1(self: ?*anyopaque, sources: i32) void {
-        qtc.QOpenGLDebugLogger_DisableMessages1(@ptrCast(self), @intCast(sources));
+        qtc.QOpenGLDebugLogger_DisableMessages1(@ptrCast(self), @bitCast(sources));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#disableMessages)
@@ -815,7 +815,7 @@ pub const qopengldebuglogger = struct {
     /// ` types: flag of qopengldebug_enums.Type `
     ///
     pub fn DisableMessages22(self: ?*anyopaque, sources: i32, types: i32) void {
-        qtc.QOpenGLDebugLogger_DisableMessages22(@ptrCast(self), @intCast(sources), @intCast(types));
+        qtc.QOpenGLDebugLogger_DisableMessages22(@ptrCast(self), @bitCast(sources), @bitCast(types));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#disableMessages)
@@ -831,7 +831,7 @@ pub const qopengldebuglogger = struct {
     /// ` severities: flag of qopengldebug_enums.Severity `
     ///
     pub fn DisableMessages3(self: ?*anyopaque, sources: i32, types: i32, severities: i32) void {
-        qtc.QOpenGLDebugLogger_DisableMessages3(@ptrCast(self), @intCast(sources), @intCast(types), @intCast(severities));
+        qtc.QOpenGLDebugLogger_DisableMessages3(@ptrCast(self), @bitCast(sources), @bitCast(types), @bitCast(severities));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#disableMessages)
@@ -849,7 +849,7 @@ pub const qopengldebuglogger = struct {
             .len = ids.len,
             .data = ids.ptr,
         };
-        qtc.QOpenGLDebugLogger_DisableMessages23(@ptrCast(self), ids_list, @intCast(sources));
+        qtc.QOpenGLDebugLogger_DisableMessages23(@ptrCast(self), ids_list, @bitCast(sources));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#disableMessages)
@@ -869,7 +869,7 @@ pub const qopengldebuglogger = struct {
             .len = ids.len,
             .data = ids.ptr,
         };
-        qtc.QOpenGLDebugLogger_DisableMessages32(@ptrCast(self), ids_list, @intCast(sources), @intCast(types));
+        qtc.QOpenGLDebugLogger_DisableMessages32(@ptrCast(self), ids_list, @bitCast(sources), @bitCast(types));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#startLogging)
@@ -881,7 +881,7 @@ pub const qopengldebuglogger = struct {
     /// ` loggingMode: qopengldebug_enums.LoggingMode `
     ///
     pub fn StartLogging1(self: ?*anyopaque, loggingMode: i32) void {
-        qtc.QOpenGLDebugLogger_StartLogging1(@ptrCast(self), @intCast(loggingMode));
+        qtc.QOpenGLDebugLogger_StartLogging1(@ptrCast(self), @bitCast(loggingMode));
     }
 
     /// Inherited from QObject
@@ -1015,7 +1015,7 @@ pub const qopengldebuglogger = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1029,7 +1029,7 @@ pub const qopengldebuglogger = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1043,7 +1043,7 @@ pub const qopengldebuglogger = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1057,7 +1057,7 @@ pub const qopengldebuglogger = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1387,7 +1387,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1442,7 +1442,7 @@ pub const qopengldebuglogger = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1458,7 +1458,7 @@ pub const qopengldebuglogger = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1480,7 +1480,7 @@ pub const qopengldebuglogger = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1500,7 +1500,7 @@ pub const qopengldebuglogger = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1522,7 +1522,7 @@ pub const qopengldebuglogger = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1619,7 +1619,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1667,7 +1667,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QOpenGLDebugLogger_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1719,7 +1719,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QOpenGLDebugLogger_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1767,7 +1767,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QOpenGLDebugLogger_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1815,7 +1815,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QOpenGLDebugLogger_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1863,7 +1863,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QOpenGLDebugLogger_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1911,7 +1911,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QOpenGLDebugLogger_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1959,7 +1959,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QOpenGLDebugLogger_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2003,7 +2003,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QOpenGLDebugLogger_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2047,7 +2047,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QOpenGLDebugLogger_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2097,7 +2097,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QOpenGLDebugLogger_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2145,7 +2145,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QOpenGLDebugLogger_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLDebugLogger_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2161,7 +2161,7 @@ pub const qopengldebuglogger = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#dtor.QOpenGLDebugLogger)

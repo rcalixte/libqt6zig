@@ -31,7 +31,7 @@ pub const karchive = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn Open(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KArchive_Open(@ptrCast(self), @intCast(mode));
+        return qtc.KArchive_Open(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchive.html#close)
@@ -251,7 +251,7 @@ pub const karchive = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting(@ptrCast(self), name_str, user_str, group_str, @intCast(size));
+        return qtc.KArchive_PrepareWriting(@ptrCast(self), name_str, user_str, group_str, @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchive.html#writeData)
@@ -266,7 +266,7 @@ pub const karchive = struct {
     ///
     pub fn WriteData(self: ?*anyopaque, data: [:0]const u8, size: i64) bool {
         const data_Cstring = data.ptr;
-        return qtc.KArchive_WriteData(@ptrCast(self), data_Cstring, @intCast(size));
+        return qtc.KArchive_WriteData(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchive.html#writeData)
@@ -294,7 +294,7 @@ pub const karchive = struct {
     /// ` size: i64 `
     ///
     pub fn FinishWriting(self: ?*anyopaque, size: i64) bool {
-        return qtc.KArchive_FinishWriting(@ptrCast(self), @intCast(size));
+        return qtc.KArchive_FinishWriting(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -332,7 +332,7 @@ pub const karchive = struct {
     pub fn Tr3(sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
-        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("karchive.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -978,7 +978,7 @@ pub const karchive = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting5(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm);
+        return qtc.KArchive_PrepareWriting5(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm);
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchive.html#prepareWriting)
@@ -1012,7 +1012,7 @@ pub const karchive = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting6(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm, @ptrCast(atime));
+        return qtc.KArchive_PrepareWriting6(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchive.html#prepareWriting)
@@ -1048,7 +1048,7 @@ pub const karchive = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting7(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm, @ptrCast(atime), @ptrCast(mtime));
+        return qtc.KArchive_PrepareWriting7(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchive.html#prepareWriting)
@@ -1086,7 +1086,7 @@ pub const karchive = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting8(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
+        return qtc.KArchive_PrepareWriting8(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchive.html#dtor.KArchive)

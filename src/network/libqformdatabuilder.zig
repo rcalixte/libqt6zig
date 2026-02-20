@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qformdatabuilder_enums = enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html)
 pub const qformdatapartbuilder = struct {
@@ -182,6 +183,28 @@ pub const qformdatabuilder = struct {
     ///
     pub fn Part(self: ?*anyopaque, name: []const u8) QtC.QFormDataPartBuilder {
         return qtc.QFormDataBuilder_Part(@ptrCast(self), name.ptr);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#buildMultiPart)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormDataBuilder `
+    ///
+    pub fn BuildMultiPart(self: ?*anyopaque) QtC.QHttpMultiPart {
+        return qtc.QFormDataBuilder_BuildMultiPart(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#buildMultiPart)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormDataBuilder `
+    ///
+    /// ` options: flag of qformdatabuilder_enums.Option `
+    ///
+    pub fn BuildMultiPart1(self: ?*anyopaque, options: i32) QtC.QHttpMultiPart {
+        return qtc.QFormDataBuilder_BuildMultiPart1(@ptrCast(self), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#dtor.QFormDataBuilder)
