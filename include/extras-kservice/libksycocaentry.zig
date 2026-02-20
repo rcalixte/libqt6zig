@@ -20,7 +20,7 @@ pub const ksycocaentry = struct {
     /// ` t: ksycocatype_enums.KSycocaType `
     ///
     pub fn IsType(self: ?*anyopaque, t: i32) bool {
-        return qtc.KSycocaEntry_IsType(@ptrCast(self), @intCast(t));
+        return qtc.KSycocaEntry_IsType(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#sycocaType)

@@ -38,13 +38,23 @@ pub const qvideoframe = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QVideoFrame `
+    /// ` videoBuffer: QtC.QAbstractVideoBuffer (WARNING: The library takes ownership of this parameter's memory and attempting to access it will lead to a crash.) `
     ///
-    pub fn New4(other: ?*anyopaque) QtC.QVideoFrame {
-        return qtc.QVideoFrame_new4(@ptrCast(other));
+    pub fn New4(videoBuffer: QtC.QAbstractVideoBuffer) QtC.QVideoFrame {
+        return qtc.QVideoFrame_new4(@ptrCast(videoBuffer));
     }
 
     /// New5 constructs a new QVideoFrame object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` other: QtC.QVideoFrame `
+    ///
+    pub fn New5(other: ?*anyopaque) QtC.QVideoFrame {
+        return qtc.QVideoFrame_new5(@ptrCast(other));
+    }
+
+    /// New6 constructs a new QVideoFrame object.
     ///
     /// ## Parameter(s):
     ///
@@ -52,8 +62,8 @@ pub const qvideoframe = struct {
     ///
     /// ` format: QtC.QVideoFrameFormat `
     ///
-    pub fn New5(buffer: ?*anyopaque, format: ?*anyopaque) QtC.QVideoFrame {
-        return qtc.QVideoFrame_new5(@ptrCast(buffer), @ptrCast(format));
+    pub fn New6(buffer: ?*anyopaque, format: ?*anyopaque) QtC.QVideoFrame {
+        return qtc.QVideoFrame_new6(@ptrCast(buffer), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframe.html#swap)
@@ -235,7 +245,7 @@ pub const qvideoframe = struct {
     /// ` mode: qvideoframe_enums.MapMode `
     ///
     pub fn Map(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QVideoFrame_Map(@ptrCast(self), @intCast(mode));
+        return qtc.QVideoFrame_Map(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframe.html#unmap)
@@ -257,7 +267,7 @@ pub const qvideoframe = struct {
     /// ` plane: i32 `
     ///
     pub fn BytesPerLine(self: ?*anyopaque, plane: i32) i32 {
-        return qtc.QVideoFrame_BytesPerLine(@ptrCast(self), @intCast(plane));
+        return qtc.QVideoFrame_BytesPerLine(@ptrCast(self), @bitCast(plane));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframe.html#bits)
@@ -269,7 +279,7 @@ pub const qvideoframe = struct {
     /// ` plane: i32 `
     ///
     pub fn Bits(self: ?*anyopaque, plane: i32) ?*u8 {
-        return @ptrCast(qtc.QVideoFrame_Bits(@ptrCast(self), @intCast(plane)));
+        return @ptrCast(qtc.QVideoFrame_Bits(@ptrCast(self), @bitCast(plane)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframe.html#bits)
@@ -281,7 +291,7 @@ pub const qvideoframe = struct {
     /// ` plane: i32 `
     ///
     pub fn Bits2(self: ?*anyopaque, plane: i32) ?*const u8 {
-        return @ptrCast(qtc.QVideoFrame_Bits2(@ptrCast(self), @intCast(plane)));
+        return @ptrCast(qtc.QVideoFrame_Bits2(@ptrCast(self), @bitCast(plane)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframe.html#mappedBytes)
@@ -293,7 +303,7 @@ pub const qvideoframe = struct {
     /// ` plane: i32 `
     ///
     pub fn MappedBytes(self: ?*anyopaque, plane: i32) i32 {
-        return qtc.QVideoFrame_MappedBytes(@ptrCast(self), @intCast(plane));
+        return qtc.QVideoFrame_MappedBytes(@ptrCast(self), @bitCast(plane));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframe.html#planeCount)
@@ -325,7 +335,7 @@ pub const qvideoframe = struct {
     /// ` time: i64 `
     ///
     pub fn SetStartTime(self: ?*anyopaque, time: i64) void {
-        qtc.QVideoFrame_SetStartTime(@ptrCast(self), @intCast(time));
+        qtc.QVideoFrame_SetStartTime(@ptrCast(self), @bitCast(time));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframe.html#endTime)
@@ -347,7 +357,7 @@ pub const qvideoframe = struct {
     /// ` time: i64 `
     ///
     pub fn SetEndTime(self: ?*anyopaque, time: i64) void {
-        qtc.QVideoFrame_SetEndTime(@ptrCast(self), @intCast(time));
+        qtc.QVideoFrame_SetEndTime(@ptrCast(self), @bitCast(time));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframe.html#setRotationAngle)
@@ -359,7 +369,7 @@ pub const qvideoframe = struct {
     /// ` angle: qvideoframe_enums.RotationAngle `
     ///
     pub fn SetRotationAngle(self: ?*anyopaque, angle: i32) void {
-        qtc.QVideoFrame_SetRotationAngle(@ptrCast(self), @intCast(angle));
+        qtc.QVideoFrame_SetRotationAngle(@ptrCast(self), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframe.html#rotationAngle)
@@ -385,7 +395,7 @@ pub const qvideoframe = struct {
     /// ` angle: qtvideo_enums.Rotation `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: i32) void {
-        qtc.QVideoFrame_SetRotation(@ptrCast(self), @intCast(angle));
+        qtc.QVideoFrame_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframe.html#rotation)
@@ -433,7 +443,7 @@ pub const qvideoframe = struct {
     /// ` rate: f64 `
     ///
     pub fn SetStreamFrameRate(self: ?*anyopaque, rate: f64) void {
-        qtc.QVideoFrame_SetStreamFrameRate(@ptrCast(self), @floatCast(rate));
+        qtc.QVideoFrame_SetStreamFrameRate(@ptrCast(self), @bitCast(rate));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframe.html#streamFrameRate)
@@ -618,7 +628,7 @@ pub const qvideoframe__paintoptions = struct {
     /// ` aspectRatioMode: qnamespace_enums.AspectRatioMode `
     ///
     pub fn SetAspectRatioMode(self: ?*anyopaque, aspectRatioMode: i32) void {
-        qtc.QVideoFrame__PaintOptions_SetAspectRatioMode(@ptrCast(self), @intCast(aspectRatioMode));
+        qtc.QVideoFrame__PaintOptions_SetAspectRatioMode(@ptrCast(self), @bitCast(aspectRatioMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframe-paintoptions.html#paintFlags-var)
@@ -644,7 +654,7 @@ pub const qvideoframe__paintoptions = struct {
     /// ` paintFlags: flag of qvideoframe_enums.PaintFlag `
     ///
     pub fn SetPaintFlags(self: ?*anyopaque, paintFlags: i32) void {
-        qtc.QVideoFrame__PaintOptions_SetPaintFlags(@ptrCast(self), @intCast(paintFlags));
+        qtc.QVideoFrame__PaintOptions_SetPaintFlags(@ptrCast(self), @bitCast(paintFlags));
     }
 
     /// Delete this object from C++ memory.

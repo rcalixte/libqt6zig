@@ -156,7 +156,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWebEngineHistoryModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QWebEngineHistoryModel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -199,7 +199,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` role: i32 `
     ///
     pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QWebEngineHistoryModel_Data(@ptrCast(self), @ptrCast(index), @intCast(role));
+        return qtc.QWebEngineHistoryModel_Data(@ptrCast(self), @ptrCast(index), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistorymodel.html#roleNames)
@@ -279,7 +279,7 @@ pub const qwebenginehistorymodel = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginehistorymodel.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -301,7 +301,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractListModel_Index(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractListModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractListModel
@@ -319,7 +319,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` idx: QtC.QModelIndex `
     ///
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractListModel_Sibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
+        return qtc.QAbstractListModel_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// Inherited from QAbstractListModel
@@ -341,7 +341,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_DropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractListModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractListModel
@@ -375,7 +375,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` column: i32 `
     ///
     pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
-        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -435,7 +435,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` role: i32 `
     ///
     pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.QAbstractItemModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
+        return qtc.QAbstractItemModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -453,7 +453,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` role: i32 `
     ///
     pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.QAbstractItemModel_HeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
+        return qtc.QAbstractItemModel_HeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -473,7 +473,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` role: i32 `
     ///
     pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.QAbstractItemModel_SetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
+        return qtc.QAbstractItemModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -530,7 +530,7 @@ pub const qwebenginehistorymodel = struct {
         var roles_it = roles.iterator();
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
-            roles_keys[i] = @intCast(roles_key);
+            roles_keys[i] = @bitCast(roles_key);
             roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
@@ -621,7 +621,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -671,7 +671,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -689,7 +689,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -707,7 +707,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -725,7 +725,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -747,7 +747,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -769,7 +769,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -783,7 +783,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` row: i32 `
     ///
     pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -797,7 +797,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` column: i32 `
     ///
     pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -811,7 +811,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` row: i32 `
     ///
     pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -825,7 +825,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` column: i32 `
     ///
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -845,7 +845,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -865,7 +865,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -909,7 +909,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` order: qnamespace_enums.SortOrder `
     ///
     pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QAbstractItemModel_Sort(@ptrCast(self), @intCast(column), @intCast(order));
+        qtc.QAbstractItemModel_Sort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// Inherited from QAbstractItemModel
@@ -947,7 +947,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_Match(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qwebenginehistorymodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -1026,7 +1026,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1044,7 +1044,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` last: i32 `
     ///
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @intCast(orientation), @intCast(first), @intCast(last));
+        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1058,7 +1058,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1084,7 +1084,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel) callconv(.c) void `
     ///
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1110,7 +1110,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1152,7 +1152,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1168,7 +1168,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @intCast(row), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1184,7 +1184,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1200,7 +1200,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @intCast(row), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1216,7 +1216,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1232,7 +1232,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @bitCast(options));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1268,7 +1268,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1300,7 +1300,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1320,7 +1320,7 @@ pub const qwebenginehistorymodel = struct {
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @intCast(hint));
+        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1334,7 +1334,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1366,7 +1366,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1386,7 +1386,7 @@ pub const qwebenginehistorymodel = struct {
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @intCast(hint));
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1400,7 +1400,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1564,7 +1564,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1578,7 +1578,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1592,7 +1592,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1606,7 +1606,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1936,7 +1936,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1979,7 +1979,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1995,7 +1995,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2017,7 +2017,7 @@ pub const qwebenginehistorymodel = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2037,7 +2037,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2059,7 +2059,7 @@ pub const qwebenginehistorymodel = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2156,7 +2156,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2172,7 +2172,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2188,7 +2188,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2204,7 +2204,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2220,7 +2220,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2236,7 +2236,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2252,7 +2252,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2268,7 +2268,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2284,7 +2284,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2300,7 +2300,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel) callconv(.c) void `
     ///
     pub fn OnModelAboutToBeReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2316,7 +2316,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel) callconv(.c) void `
     ///
     pub fn OnModelReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2332,7 +2332,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2348,7 +2348,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
     pub fn OnRowsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2364,7 +2364,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2380,7 +2380,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
     pub fn OnColumnsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2396,7 +2396,7 @@ pub const qwebenginehistorymodel = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 };
 
@@ -2434,7 +2434,7 @@ pub const qwebenginehistory = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWebEngineHistory_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QWebEngineHistory_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2492,7 +2492,7 @@ pub const qwebenginehistory = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn BackItems(self: ?*anyopaque, maxItems: i32, allocator: std.mem.Allocator) []QtC.QWebEngineHistoryItem {
-        const _arr: qtc.libqt_list = qtc.QWebEngineHistory_BackItems(@ptrCast(self), @intCast(maxItems));
+        const _arr: qtc.libqt_list = qtc.QWebEngineHistory_BackItems(@ptrCast(self), @bitCast(maxItems));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWebEngineHistoryItem, _arr.len) catch @panic("qwebenginehistory.BackItems: Memory allocation failed");
         const _data: [*]QtC.QWebEngineHistoryItem = @ptrCast(@alignCast(_arr.data));
@@ -2511,7 +2511,7 @@ pub const qwebenginehistory = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ForwardItems(self: ?*anyopaque, maxItems: i32, allocator: std.mem.Allocator) []QtC.QWebEngineHistoryItem {
-        const _arr: qtc.libqt_list = qtc.QWebEngineHistory_ForwardItems(@ptrCast(self), @intCast(maxItems));
+        const _arr: qtc.libqt_list = qtc.QWebEngineHistory_ForwardItems(@ptrCast(self), @bitCast(maxItems));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWebEngineHistoryItem, _arr.len) catch @panic("qwebenginehistory.ForwardItems: Memory allocation failed");
         const _data: [*]QtC.QWebEngineHistoryItem = @ptrCast(@alignCast(_arr.data));
@@ -2610,7 +2610,7 @@ pub const qwebenginehistory = struct {
     /// ` i: i32 `
     ///
     pub fn ItemAt(self: ?*anyopaque, i: i32) QtC.QWebEngineHistoryItem {
-        return qtc.QWebEngineHistory_ItemAt(@ptrCast(self), @intCast(i));
+        return qtc.QWebEngineHistory_ItemAt(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#currentItemIndex)
@@ -2698,7 +2698,7 @@ pub const qwebenginehistory = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginehistory.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2866,7 +2866,7 @@ pub const qwebenginehistory = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2880,7 +2880,7 @@ pub const qwebenginehistory = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2894,7 +2894,7 @@ pub const qwebenginehistory = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2908,7 +2908,7 @@ pub const qwebenginehistory = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -3238,7 +3238,7 @@ pub const qwebenginehistory = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistory) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3293,7 +3293,7 @@ pub const qwebenginehistory = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3309,7 +3309,7 @@ pub const qwebenginehistory = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3331,7 +3331,7 @@ pub const qwebenginehistory = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -3351,7 +3351,7 @@ pub const qwebenginehistory = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -3373,7 +3373,7 @@ pub const qwebenginehistory = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -3470,7 +3470,7 @@ pub const qwebenginehistory = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistory, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3486,7 +3486,7 @@ pub const qwebenginehistory = struct {
     /// ` callback: *const fn (self: QtC.QWebEngineHistory, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 };
 

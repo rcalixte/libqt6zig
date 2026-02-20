@@ -354,7 +354,7 @@ pub const qxmlstreamentityresolver = struct {
     /// ` callback: *const fn (self: QtC.QXmlStreamEntityResolver, publicId: [*:0]const u8, systemId: [*:0]const u8) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnResolveEntity(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) [*:0]const u8) void {
-        qtc.QXmlStreamEntityResolver_OnResolveEntity(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXmlStreamEntityResolver_OnResolveEntity(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveEntity)
@@ -422,7 +422,7 @@ pub const qxmlstreamentityresolver = struct {
     /// ` callback: *const fn (self: QtC.QXmlStreamEntityResolver, name: [*:0]const u8) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnResolveUndeclaredEntity(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
-        qtc.QXmlStreamEntityResolver_OnResolveUndeclaredEntity(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QXmlStreamEntityResolver_OnResolveUndeclaredEntity(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveUndeclaredEntity)
@@ -914,7 +914,7 @@ pub const qxmlstreamreader = struct {
     /// ` limit: i32 `
     ///
     pub fn SetEntityExpansionLimit(self: ?*anyopaque, limit: i32) void {
-        qtc.QXmlStreamReader_SetEntityExpansionLimit(@ptrCast(self), @intCast(limit));
+        qtc.QXmlStreamReader_SetEntityExpansionLimit(@ptrCast(self), @bitCast(limit));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#raiseError)
@@ -1000,7 +1000,7 @@ pub const qxmlstreamreader = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadElementText1(self: ?*anyopaque, behaviour: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QXmlStreamReader_ReadElementText1(@ptrCast(self), @intCast(behaviour));
+        var _str = qtc.QXmlStreamReader_ReadElementText1(@ptrCast(self), @bitCast(behaviour));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.ReadElementText1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1107,7 +1107,7 @@ pub const qxmlstreamwriter = struct {
     /// ` spacesOrTabs: i32 `
     ///
     pub fn SetAutoFormattingIndent(self: ?*anyopaque, spacesOrTabs: i32) void {
-        qtc.QXmlStreamWriter_SetAutoFormattingIndent(@ptrCast(self), @intCast(spacesOrTabs));
+        qtc.QXmlStreamWriter_SetAutoFormattingIndent(@ptrCast(self), @bitCast(spacesOrTabs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#autoFormattingIndent)

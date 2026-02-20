@@ -175,7 +175,7 @@ pub const kparts__partactivateevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -223,7 +223,7 @@ pub const kparts__partactivateevent = struct {
     /// ` callback: *const fn (self: QtC.KParts__PartActivateEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KParts__PartActivateEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KParts__PartActivateEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -267,7 +267,7 @@ pub const kparts__partactivateevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
-        qtc.KParts__PartActivateEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KParts__PartActivateEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

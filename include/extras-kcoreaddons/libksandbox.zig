@@ -41,7 +41,7 @@ pub const ksandbox = struct {
     /// ` param2: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn StartHostProcess(param1: ?*anyopaque, param2: i32) void {
-        qtc.KSandbox_StartHostProcess(@ptrCast(param1), @intCast(param2));
+        qtc.KSandbox_StartHostProcess(@ptrCast(param1), @bitCast(param2));
     }
 };
 

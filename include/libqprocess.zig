@@ -21,7 +21,7 @@ pub const qprocessenvironment = struct {
     /// ` param1: qprocess_enums.Initialization `
     ///
     pub fn New2(param1: i32) QtC.QProcessEnvironment {
-        return qtc.QProcessEnvironment_new2(@intCast(param1));
+        return qtc.QProcessEnvironment_new2(@bitCast(param1));
     }
 
     /// New3 constructs a new QProcessEnvironment object.
@@ -316,7 +316,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QProcess_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -351,7 +351,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QProcess_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -378,7 +378,7 @@ pub const qprocess = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QProcess_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QProcess_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -390,7 +390,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QProcess_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -406,7 +406,7 @@ pub const qprocess = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QProcess_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QProcess_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -487,7 +487,7 @@ pub const qprocess = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn Open(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QProcess_Open(@ptrCast(self), @intCast(mode));
+        return qtc.QProcess_Open(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#open)
@@ -501,7 +501,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
     pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QProcess_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#open)
@@ -515,7 +515,7 @@ pub const qprocess = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn QBaseOpen(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QProcess_QBaseOpen(@ptrCast(self), @intCast(mode));
+        return qtc.QProcess_QBaseOpen(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#program)
@@ -626,7 +626,7 @@ pub const qprocess = struct {
     /// ` mode: qprocess_enums.ProcessChannelMode `
     ///
     pub fn SetProcessChannelMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QProcess_SetProcessChannelMode(@ptrCast(self), @intCast(mode));
+        qtc.QProcess_SetProcessChannelMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#inputChannelMode)
@@ -652,7 +652,7 @@ pub const qprocess = struct {
     /// ` mode: qprocess_enums.InputChannelMode `
     ///
     pub fn SetInputChannelMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QProcess_SetInputChannelMode(@ptrCast(self), @intCast(mode));
+        qtc.QProcess_SetInputChannelMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readChannel)
@@ -678,7 +678,7 @@ pub const qprocess = struct {
     /// ` channel: qprocess_enums.ProcessChannel `
     ///
     pub fn SetReadChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QProcess_SetReadChannel(@ptrCast(self), @intCast(channel));
+        qtc.QProcess_SetReadChannel(@ptrCast(self), @bitCast(channel));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#closeReadChannel)
@@ -690,7 +690,7 @@ pub const qprocess = struct {
     /// ` channel: qprocess_enums.ProcessChannel `
     ///
     pub fn CloseReadChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QProcess_CloseReadChannel(@ptrCast(self), @intCast(channel));
+        qtc.QProcess_CloseReadChannel(@ptrCast(self), @bitCast(channel));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#closeWriteChannel)
@@ -807,7 +807,7 @@ pub const qprocess = struct {
     /// ` flagsOnly: flag of qprocess_enums.UnixProcessFlag `
     ///
     pub fn SetUnixProcessParameters2(self: ?*anyopaque, flagsOnly: u32) void {
-        qtc.QProcess_SetUnixProcessParameters2(@ptrCast(self), @intCast(flagsOnly));
+        qtc.QProcess_SetUnixProcessParameters2(@ptrCast(self), @bitCast(flagsOnly));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#workingDirectory)
@@ -974,7 +974,7 @@ pub const qprocess = struct {
     /// ` msecs: i32 `
     ///
     pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QProcess_WaitForReadyRead(@ptrCast(self), @intCast(msecs));
+        return qtc.QProcess_WaitForReadyRead(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForReadyRead)
@@ -988,7 +988,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, msecs: i32) callconv(.c) bool `
     ///
     pub fn OnWaitForReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QProcess_OnWaitForReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnWaitForReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForReadyRead)
@@ -1002,7 +1002,7 @@ pub const qprocess = struct {
     /// ` msecs: i32 `
     ///
     pub fn QBaseWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QProcess_QBaseWaitForReadyRead(@ptrCast(self), @intCast(msecs));
+        return qtc.QProcess_QBaseWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForBytesWritten)
@@ -1014,7 +1014,7 @@ pub const qprocess = struct {
     /// ` msecs: i32 `
     ///
     pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QProcess_WaitForBytesWritten(@ptrCast(self), @intCast(msecs));
+        return qtc.QProcess_WaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForBytesWritten)
@@ -1028,7 +1028,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, msecs: i32) callconv(.c) bool `
     ///
     pub fn OnWaitForBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QProcess_OnWaitForBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnWaitForBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForBytesWritten)
@@ -1042,7 +1042,7 @@ pub const qprocess = struct {
     /// ` msecs: i32 `
     ///
     pub fn QBaseWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QProcess_QBaseWaitForBytesWritten(@ptrCast(self), @intCast(msecs));
+        return qtc.QProcess_QBaseWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForFinished)
@@ -1132,7 +1132,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
     pub fn OnBytesToWrite(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QProcess_OnBytesToWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnBytesToWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#bytesToWrite)
@@ -1168,7 +1168,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsSequential(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QProcess_OnIsSequential(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnIsSequential(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#isSequential)
@@ -1204,7 +1204,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QProcess_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#close)
@@ -1315,7 +1315,7 @@ pub const qprocess = struct {
     /// ` exitCode: i32 `
     ///
     pub fn Finished(self: ?*anyopaque, exitCode: i32) void {
-        qtc.QProcess_Finished(@ptrCast(self), @intCast(exitCode));
+        qtc.QProcess_Finished(@ptrCast(self), @bitCast(exitCode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#finished)
@@ -1327,7 +1327,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, exitCode: i32) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QProcess_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#errorOccurred)
@@ -1339,7 +1339,7 @@ pub const qprocess = struct {
     /// ` errorVal: qprocess_enums.ProcessError `
     ///
     pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i32) void {
-        qtc.QProcess_ErrorOccurred(@ptrCast(self), @intCast(errorVal));
+        qtc.QProcess_ErrorOccurred(@ptrCast(self), @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#errorOccurred)
@@ -1351,7 +1351,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, errorVal: qprocess_enums.ProcessError) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QProcess_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setProcessState)
@@ -1363,7 +1363,7 @@ pub const qprocess = struct {
     /// ` state: qprocess_enums.ProcessState `
     ///
     pub fn SetProcessState(self: ?*anyopaque, state: i32) void {
-        qtc.QProcess_SetProcessState(@ptrCast(self), @intCast(state));
+        qtc.QProcess_SetProcessState(@ptrCast(self), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setProcessState)
@@ -1377,7 +1377,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, state: qprocess_enums.ProcessState) callconv(.c) void `
     ///
     pub fn OnSetProcessState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QProcess_OnSetProcessState(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnSetProcessState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setProcessState)
@@ -1391,7 +1391,7 @@ pub const qprocess = struct {
     /// ` state: qprocess_enums.ProcessState `
     ///
     pub fn QBaseSetProcessState(self: ?*anyopaque, state: i32) void {
-        qtc.QProcess_QBaseSetProcessState(@ptrCast(self), @intCast(state));
+        qtc.QProcess_QBaseSetProcessState(@ptrCast(self), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readData)
@@ -1406,7 +1406,7 @@ pub const qprocess = struct {
     ///
     pub fn ReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QProcess_ReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
+        return qtc.QProcess_ReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readData)
@@ -1420,7 +1420,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
     pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
-        qtc.QProcess_OnReadData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnReadData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readData)
@@ -1437,7 +1437,7 @@ pub const qprocess = struct {
     ///
     pub fn QBaseReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QProcess_QBaseReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
+        return qtc.QProcess_QBaseReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#writeData)
@@ -1452,7 +1452,7 @@ pub const qprocess = struct {
     ///
     pub fn WriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QProcess_WriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
+        return qtc.QProcess_WriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#writeData)
@@ -1466,7 +1466,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 `
     ///
     pub fn OnWriteData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.QProcess_OnWriteData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnWriteData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#writeData)
@@ -1483,7 +1483,7 @@ pub const qprocess = struct {
     ///
     pub fn QBaseWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QProcess_QBaseWriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
+        return qtc.QProcess_QBaseWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1521,7 +1521,7 @@ pub const qprocess = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprocess.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1591,7 +1591,7 @@ pub const qprocess = struct {
             .len = arguments.len,
             .data = arguments_arr.ptr,
         };
-        qtc.QProcess_Start3(@ptrCast(self), program_str, arguments_list, @intCast(mode));
+        qtc.QProcess_Start3(@ptrCast(self), program_str, arguments_list, @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#start)
@@ -1603,7 +1603,7 @@ pub const qprocess = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn Start1(self: ?*anyopaque, mode: i32) void {
-        qtc.QProcess_Start1(@ptrCast(self), @intCast(mode));
+        qtc.QProcess_Start1(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#startCommand)
@@ -1621,7 +1621,7 @@ pub const qprocess = struct {
             .len = command.len,
             .data = command.ptr,
         };
-        qtc.QProcess_StartCommand2(@ptrCast(self), command_str, @intCast(mode));
+        qtc.QProcess_StartCommand2(@ptrCast(self), command_str, @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#startDetached)
@@ -1651,7 +1651,7 @@ pub const qprocess = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.QProcess_SetStandardOutputFile2(@ptrCast(self), fileName_str, @intCast(mode));
+        qtc.QProcess_SetStandardOutputFile2(@ptrCast(self), fileName_str, @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setStandardErrorFile)
@@ -1669,7 +1669,7 @@ pub const qprocess = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.QProcess_SetStandardErrorFile2(@ptrCast(self), fileName_str, @intCast(mode));
+        qtc.QProcess_SetStandardErrorFile2(@ptrCast(self), fileName_str, @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#failChildProcessModifier)
@@ -1684,7 +1684,7 @@ pub const qprocess = struct {
     ///
     pub fn FailChildProcessModifier2(self: ?*anyopaque, description: [:0]const u8, errorVal: i32) void {
         const description_Cstring = description.ptr;
-        qtc.QProcess_FailChildProcessModifier2(@ptrCast(self), description_Cstring, @intCast(errorVal));
+        qtc.QProcess_FailChildProcessModifier2(@ptrCast(self), description_Cstring, @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForStarted)
@@ -1696,7 +1696,7 @@ pub const qprocess = struct {
     /// ` msecs: i32 `
     ///
     pub fn WaitForStarted1(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QProcess_WaitForStarted1(@ptrCast(self), @intCast(msecs));
+        return qtc.QProcess_WaitForStarted1(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForFinished)
@@ -1708,7 +1708,7 @@ pub const qprocess = struct {
     /// ` msecs: i32 `
     ///
     pub fn WaitForFinished1(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QProcess_WaitForFinished1(@ptrCast(self), @intCast(msecs));
+        return qtc.QProcess_WaitForFinished1(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#execute)
@@ -1856,7 +1856,7 @@ pub const qprocess = struct {
     /// ` exitStatus: qprocess_enums.ExitStatus `
     ///
     pub fn Finished2(self: ?*anyopaque, exitCode: i32, exitStatus: i32) void {
-        qtc.QProcess_Finished2(@ptrCast(self), @intCast(exitCode), @intCast(exitStatus));
+        qtc.QProcess_Finished2(@ptrCast(self), @bitCast(exitCode), @bitCast(exitStatus));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#finished)
@@ -1868,7 +1868,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, exitCode: i32, exitStatus: qprocess_enums.ExitStatus) callconv(.c) void `
     ///
     pub fn OnFinished2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QProcess_Connect_Finished2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_Connect_Finished2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1996,7 +1996,7 @@ pub const qprocess = struct {
     /// ` channel: i32 `
     ///
     pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self), @intCast(channel));
+        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -2022,7 +2022,7 @@ pub const qprocess = struct {
     /// ` channel: i32 `
     ///
     pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self), @intCast(channel));
+        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -2039,7 +2039,7 @@ pub const qprocess = struct {
     ///
     pub fn Read(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @intCast(maxlen));
+        return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -2055,7 +2055,7 @@ pub const qprocess = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprocess.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2094,7 +2094,7 @@ pub const qprocess = struct {
     ///
     pub fn ReadLine(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @intCast(maxlen));
+        return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -2177,7 +2177,7 @@ pub const qprocess = struct {
     ///
     pub fn Write(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write(@ptrCast(self), data_Cstring, @intCast(lenVal));
+        return qtc.QIODevice_Write(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
     /// Inherited from QIODevice
@@ -2227,7 +2227,7 @@ pub const qprocess = struct {
     ///
     pub fn Peek(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @intCast(maxlen));
+        return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -2243,7 +2243,7 @@ pub const qprocess = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprocess.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2261,7 +2261,7 @@ pub const qprocess = struct {
     /// ` maxSize: i64 `
     ///
     pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QIODevice_Skip(@ptrCast(self), @intCast(maxSize));
+        return qtc.QIODevice_Skip(@ptrCast(self), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -2275,7 +2275,7 @@ pub const qprocess = struct {
     /// ` c: u8 `
     ///
     pub fn UngetChar(self: ?*anyopaque, c: u8) void {
-        qtc.QIODevice_UngetChar(@ptrCast(self), @intCast(c));
+        qtc.QIODevice_UngetChar(@ptrCast(self), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -2289,7 +2289,7 @@ pub const qprocess = struct {
     /// ` c: u8 `
     ///
     pub fn PutChar(self: ?*anyopaque, c: u8) bool {
-        return qtc.QIODevice_PutChar(@ptrCast(self), @intCast(c));
+        return qtc.QIODevice_PutChar(@ptrCast(self), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -2348,7 +2348,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess) callconv(.c) void `
     ///
     pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2362,7 +2362,7 @@ pub const qprocess = struct {
     /// ` channel: i32 `
     ///
     pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_ChannelReadyRead(@ptrCast(self), @intCast(channel));
+        qtc.QIODevice_ChannelReadyRead(@ptrCast(self), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -2376,7 +2376,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, channel: i32) callconv(.c) void `
     ///
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2390,7 +2390,7 @@ pub const qprocess = struct {
     /// ` bytes: i64 `
     ///
     pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
-        qtc.QIODevice_BytesWritten(@ptrCast(self), @intCast(bytes));
+        qtc.QIODevice_BytesWritten(@ptrCast(self), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -2404,7 +2404,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, bytes: i64) callconv(.c) void `
     ///
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2420,7 +2420,7 @@ pub const qprocess = struct {
     /// ` bytes: i64 `
     ///
     pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
-        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self), @intCast(channel), @intCast(bytes));
+        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self), @bitCast(channel), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -2434,7 +2434,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, channel: i32, bytes: i64) callconv(.c) void `
     ///
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2460,7 +2460,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess) callconv(.c) void `
     ///
     pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2486,7 +2486,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess) callconv(.c) void `
     ///
     pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2502,7 +2502,7 @@ pub const qprocess = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprocess.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2640,7 +2640,7 @@ pub const qprocess = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2654,7 +2654,7 @@ pub const qprocess = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2668,7 +2668,7 @@ pub const qprocess = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2682,7 +2682,7 @@ pub const qprocess = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -3012,7 +3012,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3067,7 +3067,7 @@ pub const qprocess = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3083,7 +3083,7 @@ pub const qprocess = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3105,7 +3105,7 @@ pub const qprocess = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -3125,7 +3125,7 @@ pub const qprocess = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -3147,7 +3147,7 @@ pub const qprocess = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -3244,7 +3244,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3288,7 +3288,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
     pub fn OnPos(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QProcess_OnPos(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnPos(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3332,7 +3332,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
     pub fn OnSize(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QProcess_OnSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3348,7 +3348,7 @@ pub const qprocess = struct {
     /// ` pos: i64 `
     ///
     pub fn Seek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QProcess_Seek(@ptrCast(self), @intCast(pos));
+        return qtc.QProcess_Seek(@ptrCast(self), @bitCast(pos));
     }
 
     /// Inherited from QIODevice
@@ -3364,7 +3364,7 @@ pub const qprocess = struct {
     /// ` pos: i64 `
     ///
     pub fn QBaseSeek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QProcess_QBaseSeek(@ptrCast(self), @intCast(pos));
+        return qtc.QProcess_QBaseSeek(@ptrCast(self), @bitCast(pos));
     }
 
     /// Inherited from QIODevice
@@ -3380,7 +3380,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, pos: i64) callconv(.c) bool `
     ///
     pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QProcess_OnSeek(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnSeek(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3424,7 +3424,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnAtEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QProcess_OnAtEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnAtEnd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3468,7 +3468,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QProcess_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3512,7 +3512,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
     pub fn OnBytesAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QProcess_OnBytesAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnBytesAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3556,7 +3556,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnCanReadLine(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QProcess_OnCanReadLine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnCanReadLine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3575,7 +3575,7 @@ pub const qprocess = struct {
     ///
     pub fn ReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QProcess_ReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
+        return qtc.QProcess_ReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -3594,7 +3594,7 @@ pub const qprocess = struct {
     ///
     pub fn QBaseReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QProcess_QBaseReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
+        return qtc.QProcess_QBaseReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -3610,7 +3610,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
     pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
-        qtc.QProcess_OnReadLineData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnReadLineData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3626,7 +3626,7 @@ pub const qprocess = struct {
     /// ` maxSize: i64 `
     ///
     pub fn SkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QProcess_SkipData(@ptrCast(self), @intCast(maxSize));
+        return qtc.QProcess_SkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -3642,7 +3642,7 @@ pub const qprocess = struct {
     /// ` maxSize: i64 `
     ///
     pub fn QBaseSkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QProcess_QBaseSkipData(@ptrCast(self), @intCast(maxSize));
+        return qtc.QProcess_QBaseSkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -3658,7 +3658,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, maxSize: i64) callconv(.c) i64 `
     ///
     pub fn OnSkipData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) i64) void {
-        qtc.QProcess_OnSkipData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnSkipData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3706,7 +3706,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QProcess_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3758,7 +3758,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QProcess_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3806,7 +3806,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProcess_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3854,7 +3854,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProcess_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3902,7 +3902,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProcess_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3950,7 +3950,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProcess_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3998,7 +3998,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProcess_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -4014,7 +4014,7 @@ pub const qprocess = struct {
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QProcess_SetOpenMode(@ptrCast(self), @intCast(openMode));
+        qtc.QProcess_SetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -4030,7 +4030,7 @@ pub const qprocess = struct {
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QProcess_QBaseSetOpenMode(@ptrCast(self), @intCast(openMode));
+        qtc.QProcess_QBaseSetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -4046,7 +4046,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
     ///
     pub fn OnSetOpenMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QProcess_OnSetOpenMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnSetOpenMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -4102,7 +4102,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, errorString: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QProcess_OnSetErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnSetErrorString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4146,7 +4146,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QProcess_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4190,7 +4190,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QProcess_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4240,7 +4240,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QProcess_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4288,7 +4288,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QProcess_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#started)
@@ -4302,7 +4302,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess) callconv(.c) void `
     ///
     pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QProcess_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_Connect_Started(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#stateChanged)
@@ -4316,7 +4316,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, state: qprocess_enums.ProcessState) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QProcess_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_Connect_StateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readyReadStandardOutput)
@@ -4330,7 +4330,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess) callconv(.c) void `
     ///
     pub fn OnReadyReadStandardOutput(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QProcess_Connect_ReadyReadStandardOutput(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_Connect_ReadyReadStandardOutput(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readyReadStandardError)
@@ -4344,7 +4344,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess) callconv(.c) void `
     ///
     pub fn OnReadyReadStandardError(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QProcess_Connect_ReadyReadStandardError(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QProcess_Connect_ReadyReadStandardError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4360,7 +4360,7 @@ pub const qprocess = struct {
     /// ` callback: *const fn (self: QtC.QProcess, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#dtor.QProcess)
@@ -4445,7 +4445,7 @@ pub const qprocess__unixprocessparameters = struct {
     /// ` flags: flag of qprocess_enums.UnixProcessFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: u32) void {
-        qtc.QProcess__UnixProcessParameters_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QProcess__UnixProcessParameters_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html#lowestFileDescriptorToClose-var)
@@ -4467,7 +4467,7 @@ pub const qprocess__unixprocessparameters = struct {
     /// ` lowestFileDescriptorToClose: i32 `
     ///
     pub fn SetLowestFileDescriptorToClose(self: ?*anyopaque, lowestFileDescriptorToClose: i32) void {
-        qtc.QProcess__UnixProcessParameters_SetLowestFileDescriptorToClose(@ptrCast(self), @intCast(lowestFileDescriptorToClose));
+        qtc.QProcess__UnixProcessParameters_SetLowestFileDescriptorToClose(@ptrCast(self), @bitCast(lowestFileDescriptorToClose));
     }
 
     /// Delete this object from C++ memory.

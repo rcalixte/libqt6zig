@@ -44,7 +44,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QDataWidgetMapper_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -79,7 +79,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QDataWidgetMapper_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -106,7 +106,7 @@ pub const qdatawidgetmapper = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDataWidgetMapper_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDataWidgetMapper_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -118,7 +118,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QDataWidgetMapper_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -134,7 +134,7 @@ pub const qdatawidgetmapper = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDataWidgetMapper_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDataWidgetMapper_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -229,7 +229,7 @@ pub const qdatawidgetmapper = struct {
     /// ` aOrientation: qnamespace_enums.Orientation `
     ///
     pub fn SetOrientation(self: ?*anyopaque, aOrientation: i32) void {
-        qtc.QDataWidgetMapper_SetOrientation(@ptrCast(self), @intCast(aOrientation));
+        qtc.QDataWidgetMapper_SetOrientation(@ptrCast(self), @bitCast(aOrientation));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#orientation)
@@ -255,7 +255,7 @@ pub const qdatawidgetmapper = struct {
     /// ` policy: qdatawidgetmapper_enums.SubmitPolicy `
     ///
     pub fn SetSubmitPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QDataWidgetMapper_SetSubmitPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QDataWidgetMapper_SetSubmitPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#submitPolicy)
@@ -283,7 +283,7 @@ pub const qdatawidgetmapper = struct {
     /// ` section: i32 `
     ///
     pub fn AddMapping(self: ?*anyopaque, widget: ?*anyopaque, section: i32) void {
-        qtc.QDataWidgetMapper_AddMapping(@ptrCast(self), @ptrCast(widget), @intCast(section));
+        qtc.QDataWidgetMapper_AddMapping(@ptrCast(self), @ptrCast(widget), @bitCast(section));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#addMapping)
@@ -303,7 +303,7 @@ pub const qdatawidgetmapper = struct {
             .len = propertyName.len,
             .data = propertyName.ptr,
         };
-        qtc.QDataWidgetMapper_AddMapping2(@ptrCast(self), @ptrCast(widget), @intCast(section), propertyName_str);
+        qtc.QDataWidgetMapper_AddMapping2(@ptrCast(self), @ptrCast(widget), @bitCast(section), propertyName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#removeMapping)
@@ -357,7 +357,7 @@ pub const qdatawidgetmapper = struct {
     /// ` section: i32 `
     ///
     pub fn MappedWidgetAt(self: ?*anyopaque, section: i32) QtC.QWidget {
-        return qtc.QDataWidgetMapper_MappedWidgetAt(@ptrCast(self), @intCast(section));
+        return qtc.QDataWidgetMapper_MappedWidgetAt(@ptrCast(self), @bitCast(section));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#clearMapping)
@@ -449,7 +449,7 @@ pub const qdatawidgetmapper = struct {
     /// ` index: i32 `
     ///
     pub fn SetCurrentIndex(self: ?*anyopaque, index: i32) void {
-        qtc.QDataWidgetMapper_SetCurrentIndex(@ptrCast(self), @intCast(index));
+        qtc.QDataWidgetMapper_SetCurrentIndex(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
@@ -463,7 +463,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, index: i32) callconv(.c) void `
     ///
     pub fn OnSetCurrentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDataWidgetMapper_OnSetCurrentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnSetCurrentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
@@ -477,7 +477,7 @@ pub const qdatawidgetmapper = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseSetCurrentIndex(self: ?*anyopaque, index: i32) void {
-        qtc.QDataWidgetMapper_QBaseSetCurrentIndex(@ptrCast(self), @intCast(index));
+        qtc.QDataWidgetMapper_QBaseSetCurrentIndex(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentModelIndex)
@@ -501,7 +501,7 @@ pub const qdatawidgetmapper = struct {
     /// ` index: i32 `
     ///
     pub fn CurrentIndexChanged(self: ?*anyopaque, index: i32) void {
-        qtc.QDataWidgetMapper_CurrentIndexChanged(@ptrCast(self), @intCast(index));
+        qtc.QDataWidgetMapper_CurrentIndexChanged(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndexChanged)
@@ -513,7 +513,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, index: i32) callconv(.c) void `
     ///
     pub fn OnCurrentIndexChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDataWidgetMapper_Connect_CurrentIndexChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_Connect_CurrentIndexChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -551,7 +551,7 @@ pub const qdatawidgetmapper = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatawidgetmapper.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -689,7 +689,7 @@ pub const qdatawidgetmapper = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -703,7 +703,7 @@ pub const qdatawidgetmapper = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -717,7 +717,7 @@ pub const qdatawidgetmapper = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -731,7 +731,7 @@ pub const qdatawidgetmapper = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1061,7 +1061,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1116,7 +1116,7 @@ pub const qdatawidgetmapper = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1132,7 +1132,7 @@ pub const qdatawidgetmapper = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1154,7 +1154,7 @@ pub const qdatawidgetmapper = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1174,7 +1174,7 @@ pub const qdatawidgetmapper = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1196,7 +1196,7 @@ pub const qdatawidgetmapper = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1293,7 +1293,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1341,7 +1341,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDataWidgetMapper_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1393,7 +1393,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDataWidgetMapper_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1441,7 +1441,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDataWidgetMapper_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1489,7 +1489,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDataWidgetMapper_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1537,7 +1537,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDataWidgetMapper_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1585,7 +1585,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDataWidgetMapper_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1633,7 +1633,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDataWidgetMapper_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1677,7 +1677,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QDataWidgetMapper_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1721,7 +1721,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDataWidgetMapper_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1771,7 +1771,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDataWidgetMapper_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1819,7 +1819,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDataWidgetMapper_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDataWidgetMapper_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1835,7 +1835,7 @@ pub const qdatawidgetmapper = struct {
     /// ` callback: *const fn (self: QtC.QDataWidgetMapper, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#dtor.QDataWidgetMapper)

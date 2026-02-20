@@ -66,7 +66,7 @@ pub const kfuzzymatcher__result = struct {
     /// ` score: i32 `
     ///
     pub fn SetScore(self: ?*anyopaque, score: i32) void {
-        qtc.KFuzzyMatcher__Result_SetScore(@ptrCast(self), @intCast(score));
+        qtc.KFuzzyMatcher__Result_SetScore(@ptrCast(self), @bitCast(score));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfuzzymatcher-result.html#matched-var)
@@ -139,7 +139,7 @@ pub const kfuzzymatcher__range = struct {
     /// ` start: i32 `
     ///
     pub fn SetStart(self: ?*anyopaque, start: i32) void {
-        qtc.KFuzzyMatcher__Range_SetStart(@ptrCast(self), @intCast(start));
+        qtc.KFuzzyMatcher__Range_SetStart(@ptrCast(self), @bitCast(start));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfuzzymatcher-range.html#length-var)
@@ -161,7 +161,7 @@ pub const kfuzzymatcher__range = struct {
     /// ` length: i32 `
     ///
     pub fn SetLength(self: ?*anyopaque, length: i32) void {
-        qtc.KFuzzyMatcher__Range_SetLength(@ptrCast(self), @intCast(length));
+        qtc.KFuzzyMatcher__Range_SetLength(@ptrCast(self), @bitCast(length));
     }
 
     /// Delete this object from C++ memory.

@@ -24,7 +24,7 @@ pub const qopenglframebufferobject = struct {
     /// ` height: i32 `
     ///
     pub fn New2(width: i32, height: i32) QtC.QOpenGLFramebufferObject {
-        return qtc.QOpenGLFramebufferObject_new2(@intCast(width), @intCast(height));
+        return qtc.QOpenGLFramebufferObject_new2(@bitCast(width), @bitCast(height));
     }
 
     /// New3 constructs a new QOpenGLFramebufferObject object.
@@ -36,7 +36,7 @@ pub const qopenglframebufferobject = struct {
     /// ` attachment: qopenglframebufferobject_enums.Attachment `
     ///
     pub fn New3(size: ?*anyopaque, attachment: i32) QtC.QOpenGLFramebufferObject {
-        return qtc.QOpenGLFramebufferObject_new3(@ptrCast(size), @intCast(attachment));
+        return qtc.QOpenGLFramebufferObject_new3(@ptrCast(size), @bitCast(attachment));
     }
 
     /// New4 constructs a new QOpenGLFramebufferObject object.
@@ -50,7 +50,7 @@ pub const qopenglframebufferobject = struct {
     /// ` attachment: qopenglframebufferobject_enums.Attachment `
     ///
     pub fn New4(width: i32, height: i32, attachment: i32) QtC.QOpenGLFramebufferObject {
-        return qtc.QOpenGLFramebufferObject_new4(@intCast(width), @intCast(height), @intCast(attachment));
+        return qtc.QOpenGLFramebufferObject_new4(@bitCast(width), @bitCast(height), @bitCast(attachment));
     }
 
     /// New5 constructs a new QOpenGLFramebufferObject object.
@@ -76,7 +76,7 @@ pub const qopenglframebufferobject = struct {
     /// ` format: QtC.QOpenGLFramebufferObjectFormat `
     ///
     pub fn New6(width: i32, height: i32, format: ?*anyopaque) QtC.QOpenGLFramebufferObject {
-        return qtc.QOpenGLFramebufferObject_new6(@intCast(width), @intCast(height), @ptrCast(format));
+        return qtc.QOpenGLFramebufferObject_new6(@bitCast(width), @bitCast(height), @ptrCast(format));
     }
 
     /// New7 constructs a new QOpenGLFramebufferObject object.
@@ -88,7 +88,7 @@ pub const qopenglframebufferobject = struct {
     /// ` target: u32 `
     ///
     pub fn New7(size: ?*anyopaque, target: u32) QtC.QOpenGLFramebufferObject {
-        return qtc.QOpenGLFramebufferObject_new7(@ptrCast(size), @intCast(target));
+        return qtc.QOpenGLFramebufferObject_new7(@ptrCast(size), @bitCast(target));
     }
 
     /// New8 constructs a new QOpenGLFramebufferObject object.
@@ -102,7 +102,7 @@ pub const qopenglframebufferobject = struct {
     /// ` target: u32 `
     ///
     pub fn New8(width: i32, height: i32, target: u32) QtC.QOpenGLFramebufferObject {
-        return qtc.QOpenGLFramebufferObject_new8(@intCast(width), @intCast(height), @intCast(target));
+        return qtc.QOpenGLFramebufferObject_new8(@bitCast(width), @bitCast(height), @bitCast(target));
     }
 
     /// New9 constructs a new QOpenGLFramebufferObject object.
@@ -116,7 +116,7 @@ pub const qopenglframebufferobject = struct {
     /// ` target: u32 `
     ///
     pub fn New9(size: ?*anyopaque, attachment: i32, target: u32) QtC.QOpenGLFramebufferObject {
-        return qtc.QOpenGLFramebufferObject_new9(@ptrCast(size), @intCast(attachment), @intCast(target));
+        return qtc.QOpenGLFramebufferObject_new9(@ptrCast(size), @bitCast(attachment), @bitCast(target));
     }
 
     /// New10 constructs a new QOpenGLFramebufferObject object.
@@ -132,7 +132,7 @@ pub const qopenglframebufferobject = struct {
     /// ` internalFormat: u32 `
     ///
     pub fn New10(size: ?*anyopaque, attachment: i32, target: u32, internalFormat: u32) QtC.QOpenGLFramebufferObject {
-        return qtc.QOpenGLFramebufferObject_new10(@ptrCast(size), @intCast(attachment), @intCast(target), @intCast(internalFormat));
+        return qtc.QOpenGLFramebufferObject_new10(@ptrCast(size), @bitCast(attachment), @bitCast(target), @bitCast(internalFormat));
     }
 
     /// New11 constructs a new QOpenGLFramebufferObject object.
@@ -148,7 +148,7 @@ pub const qopenglframebufferobject = struct {
     /// ` target: u32 `
     ///
     pub fn New11(width: i32, height: i32, attachment: i32, target: u32) QtC.QOpenGLFramebufferObject {
-        return qtc.QOpenGLFramebufferObject_new11(@intCast(width), @intCast(height), @intCast(attachment), @intCast(target));
+        return qtc.QOpenGLFramebufferObject_new11(@bitCast(width), @bitCast(height), @bitCast(attachment), @bitCast(target));
     }
 
     /// New12 constructs a new QOpenGLFramebufferObject object.
@@ -166,7 +166,7 @@ pub const qopenglframebufferobject = struct {
     /// ` internalFormat: u32 `
     ///
     pub fn New12(width: i32, height: i32, attachment: i32, target: u32, internalFormat: u32) QtC.QOpenGLFramebufferObject {
-        return qtc.QOpenGLFramebufferObject_new12(@intCast(width), @intCast(height), @intCast(attachment), @intCast(target), @intCast(internalFormat));
+        return qtc.QOpenGLFramebufferObject_new12(@bitCast(width), @bitCast(height), @bitCast(attachment), @bitCast(target), @bitCast(internalFormat));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#addColorAttachment)
@@ -192,7 +192,7 @@ pub const qopenglframebufferobject = struct {
     /// ` height: i32 `
     ///
     pub fn AddColorAttachment2(self: ?*anyopaque, width: i32, height: i32) void {
-        qtc.QOpenGLFramebufferObject_AddColorAttachment2(@ptrCast(self), @intCast(width), @intCast(height));
+        qtc.QOpenGLFramebufferObject_AddColorAttachment2(@ptrCast(self), @bitCast(width), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#format)
@@ -311,7 +311,7 @@ pub const qopenglframebufferobject = struct {
     /// ` colorAttachmentIndex: i32 `
     ///
     pub fn TakeTexture2(self: ?*anyopaque, colorAttachmentIndex: i32) u32 {
-        return qtc.QOpenGLFramebufferObject_TakeTexture2(@ptrCast(self), @intCast(colorAttachmentIndex));
+        return qtc.QOpenGLFramebufferObject_TakeTexture2(@ptrCast(self), @bitCast(colorAttachmentIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#size)
@@ -362,7 +362,7 @@ pub const qopenglframebufferobject = struct {
     /// ` colorAttachmentIndex: i32 `
     ///
     pub fn ToImage2(self: ?*anyopaque, flipped: bool, colorAttachmentIndex: i32) QtC.QImage {
-        return qtc.QOpenGLFramebufferObject_ToImage2(@ptrCast(self), flipped, @intCast(colorAttachmentIndex));
+        return qtc.QOpenGLFramebufferObject_ToImage2(@ptrCast(self), flipped, @bitCast(colorAttachmentIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#attachment)
@@ -388,7 +388,7 @@ pub const qopenglframebufferobject = struct {
     /// ` attachment: qopenglframebufferobject_enums.Attachment `
     ///
     pub fn SetAttachment(self: ?*anyopaque, attachment: i32) void {
-        qtc.QOpenGLFramebufferObject_SetAttachment(@ptrCast(self), @intCast(attachment));
+        qtc.QOpenGLFramebufferObject_SetAttachment(@ptrCast(self), @bitCast(attachment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#handle)
@@ -442,7 +442,7 @@ pub const qopenglframebufferobject = struct {
     /// ` restorePolicy: qopenglframebufferobject_enums.FramebufferRestorePolicy `
     ///
     pub fn BlitFramebuffer(target: ?*anyopaque, targetRect: ?*anyopaque, source: ?*anyopaque, sourceRect: ?*anyopaque, buffers: u32, filter: u32, readColorAttachmentIndex: i32, drawColorAttachmentIndex: i32, restorePolicy: i32) void {
-        qtc.QOpenGLFramebufferObject_BlitFramebuffer(@ptrCast(target), @ptrCast(targetRect), @ptrCast(source), @ptrCast(sourceRect), @intCast(buffers), @intCast(filter), @intCast(readColorAttachmentIndex), @intCast(drawColorAttachmentIndex), @intCast(restorePolicy));
+        qtc.QOpenGLFramebufferObject_BlitFramebuffer(@ptrCast(target), @ptrCast(targetRect), @ptrCast(source), @ptrCast(sourceRect), @bitCast(buffers), @bitCast(filter), @bitCast(readColorAttachmentIndex), @bitCast(drawColorAttachmentIndex), @bitCast(restorePolicy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#blitFramebuffer)
@@ -466,7 +466,7 @@ pub const qopenglframebufferobject = struct {
     /// ` drawColorAttachmentIndex: i32 `
     ///
     pub fn BlitFramebuffer2(target: ?*anyopaque, targetRect: ?*anyopaque, source: ?*anyopaque, sourceRect: ?*anyopaque, buffers: u32, filter: u32, readColorAttachmentIndex: i32, drawColorAttachmentIndex: i32) void {
-        qtc.QOpenGLFramebufferObject_BlitFramebuffer2(@ptrCast(target), @ptrCast(targetRect), @ptrCast(source), @ptrCast(sourceRect), @intCast(buffers), @intCast(filter), @intCast(readColorAttachmentIndex), @intCast(drawColorAttachmentIndex));
+        qtc.QOpenGLFramebufferObject_BlitFramebuffer2(@ptrCast(target), @ptrCast(targetRect), @ptrCast(source), @ptrCast(sourceRect), @bitCast(buffers), @bitCast(filter), @bitCast(readColorAttachmentIndex), @bitCast(drawColorAttachmentIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#blitFramebuffer)
@@ -508,7 +508,7 @@ pub const qopenglframebufferobject = struct {
     /// ` internalFormat: u32 `
     ///
     pub fn AddColorAttachment22(self: ?*anyopaque, size: ?*anyopaque, internalFormat: u32) void {
-        qtc.QOpenGLFramebufferObject_AddColorAttachment22(@ptrCast(self), @ptrCast(size), @intCast(internalFormat));
+        qtc.QOpenGLFramebufferObject_AddColorAttachment22(@ptrCast(self), @ptrCast(size), @bitCast(internalFormat));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#addColorAttachment)
@@ -524,7 +524,7 @@ pub const qopenglframebufferobject = struct {
     /// ` internalFormat: u32 `
     ///
     pub fn AddColorAttachment3(self: ?*anyopaque, width: i32, height: i32, internalFormat: u32) void {
-        qtc.QOpenGLFramebufferObject_AddColorAttachment3(@ptrCast(self), @intCast(width), @intCast(height), @intCast(internalFormat));
+        qtc.QOpenGLFramebufferObject_AddColorAttachment3(@ptrCast(self), @bitCast(width), @bitCast(height), @bitCast(internalFormat));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#toImage)
@@ -554,7 +554,7 @@ pub const qopenglframebufferobject = struct {
     /// ` buffers: u32 `
     ///
     pub fn BlitFramebuffer5(target: ?*anyopaque, targetRect: ?*anyopaque, source: ?*anyopaque, sourceRect: ?*anyopaque, buffers: u32) void {
-        qtc.QOpenGLFramebufferObject_BlitFramebuffer5(@ptrCast(target), @ptrCast(targetRect), @ptrCast(source), @ptrCast(sourceRect), @intCast(buffers));
+        qtc.QOpenGLFramebufferObject_BlitFramebuffer5(@ptrCast(target), @ptrCast(targetRect), @ptrCast(source), @ptrCast(sourceRect), @bitCast(buffers));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#blitFramebuffer)
@@ -574,7 +574,7 @@ pub const qopenglframebufferobject = struct {
     /// ` filter: u32 `
     ///
     pub fn BlitFramebuffer6(target: ?*anyopaque, targetRect: ?*anyopaque, source: ?*anyopaque, sourceRect: ?*anyopaque, buffers: u32, filter: u32) void {
-        qtc.QOpenGLFramebufferObject_BlitFramebuffer6(@ptrCast(target), @ptrCast(targetRect), @ptrCast(source), @ptrCast(sourceRect), @intCast(buffers), @intCast(filter));
+        qtc.QOpenGLFramebufferObject_BlitFramebuffer6(@ptrCast(target), @ptrCast(targetRect), @ptrCast(source), @ptrCast(sourceRect), @bitCast(buffers), @bitCast(filter));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#blitFramebuffer)
@@ -588,7 +588,7 @@ pub const qopenglframebufferobject = struct {
     /// ` buffers: u32 `
     ///
     pub fn BlitFramebuffer32(target: ?*anyopaque, source: ?*anyopaque, buffers: u32) void {
-        qtc.QOpenGLFramebufferObject_BlitFramebuffer32(@ptrCast(target), @ptrCast(source), @intCast(buffers));
+        qtc.QOpenGLFramebufferObject_BlitFramebuffer32(@ptrCast(target), @ptrCast(source), @bitCast(buffers));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#blitFramebuffer)
@@ -604,7 +604,7 @@ pub const qopenglframebufferobject = struct {
     /// ` filter: u32 `
     ///
     pub fn BlitFramebuffer42(target: ?*anyopaque, source: ?*anyopaque, buffers: u32, filter: u32) void {
-        qtc.QOpenGLFramebufferObject_BlitFramebuffer42(@ptrCast(target), @ptrCast(source), @intCast(buffers), @intCast(filter));
+        qtc.QOpenGLFramebufferObject_BlitFramebuffer42(@ptrCast(target), @ptrCast(source), @bitCast(buffers), @bitCast(filter));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#dtor.QOpenGLFramebufferObject)
@@ -659,7 +659,7 @@ pub const qopenglframebufferobjectformat = struct {
     /// ` samples: i32 `
     ///
     pub fn SetSamples(self: ?*anyopaque, samples: i32) void {
-        qtc.QOpenGLFramebufferObjectFormat_SetSamples(@ptrCast(self), @intCast(samples));
+        qtc.QOpenGLFramebufferObjectFormat_SetSamples(@ptrCast(self), @bitCast(samples));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobjectformat.html#samples)
@@ -703,7 +703,7 @@ pub const qopenglframebufferobjectformat = struct {
     /// ` attachment: qopenglframebufferobject_enums.Attachment `
     ///
     pub fn SetAttachment(self: ?*anyopaque, attachment: i32) void {
-        qtc.QOpenGLFramebufferObjectFormat_SetAttachment(@ptrCast(self), @intCast(attachment));
+        qtc.QOpenGLFramebufferObjectFormat_SetAttachment(@ptrCast(self), @bitCast(attachment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobjectformat.html#attachment)
@@ -729,7 +729,7 @@ pub const qopenglframebufferobjectformat = struct {
     /// ` target: u32 `
     ///
     pub fn SetTextureTarget(self: ?*anyopaque, target: u32) void {
-        qtc.QOpenGLFramebufferObjectFormat_SetTextureTarget(@ptrCast(self), @intCast(target));
+        qtc.QOpenGLFramebufferObjectFormat_SetTextureTarget(@ptrCast(self), @bitCast(target));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobjectformat.html#setInternalTextureFormat)
@@ -741,7 +741,7 @@ pub const qopenglframebufferobjectformat = struct {
     /// ` internalTextureFormat: u32 `
     ///
     pub fn SetInternalTextureFormat(self: ?*anyopaque, internalTextureFormat: u32) void {
-        qtc.QOpenGLFramebufferObjectFormat_SetInternalTextureFormat(@ptrCast(self), @intCast(internalTextureFormat));
+        qtc.QOpenGLFramebufferObjectFormat_SetInternalTextureFormat(@ptrCast(self), @bitCast(internalTextureFormat));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobjectformat.html#operator-eq-eq)

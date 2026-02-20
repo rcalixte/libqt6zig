@@ -264,7 +264,7 @@ pub const kconfigskeletonitem = struct {
     /// ` flags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     pub fn SetWriteFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.KConfigSkeletonItem_SetWriteFlags(@ptrCast(self), @intCast(flags));
+        qtc.KConfigSkeletonItem_SetWriteFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#writeFlags)
@@ -304,7 +304,7 @@ pub const kconfigskeletonitem = struct {
     /// ` callback: *const fn (self: QtC.KConfigSkeletonItem, param1: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigSkeletonItem_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#readConfig)
@@ -344,7 +344,7 @@ pub const kconfigskeletonitem = struct {
     /// ` callback: *const fn (self: QtC.KConfigSkeletonItem, param1: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigSkeletonItem_OnWriteConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#writeConfig)
@@ -384,7 +384,7 @@ pub const kconfigskeletonitem = struct {
     /// ` callback: *const fn (self: QtC.KConfigSkeletonItem, param1: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadDefault(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnReadDefault(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigSkeletonItem_OnReadDefault(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#readDefault)
@@ -424,7 +424,7 @@ pub const kconfigskeletonitem = struct {
     /// ` callback: *const fn (self: QtC.KConfigSkeletonItem, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigSkeletonItem_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#setProperty)
@@ -464,7 +464,7 @@ pub const kconfigskeletonitem = struct {
     /// ` callback: *const fn (self: QtC.KConfigSkeletonItem, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KConfigSkeletonItem_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigSkeletonItem_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#isEqual)
@@ -502,7 +502,7 @@ pub const kconfigskeletonitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KConfigSkeletonItem_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigSkeletonItem_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#property)
@@ -538,7 +538,7 @@ pub const kconfigskeletonitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KConfigSkeletonItem_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigSkeletonItem_OnMinValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#minValue)
@@ -574,7 +574,7 @@ pub const kconfigskeletonitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KConfigSkeletonItem_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigSkeletonItem_OnMaxValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#maxValue)
@@ -610,7 +610,7 @@ pub const kconfigskeletonitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSetDefault(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnSetDefault(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigSkeletonItem_OnSetDefault(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#setDefault)
@@ -646,7 +646,7 @@ pub const kconfigskeletonitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSwapDefault(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnSwapDefault(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigSkeletonItem_OnSwapDefault(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#swapDefault)
@@ -724,7 +724,7 @@ pub const kconfigskeletonitem = struct {
     /// ` callback: *const fn (self: QtC.KConfigSkeletonItem, group: QtC.KConfigGroup) callconv(.c) void `
     ///
     pub fn OnReadImmutability(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnReadImmutability(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KConfigSkeletonItem_OnReadImmutability(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#readImmutability)
@@ -806,7 +806,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KPropertySkeletonItem_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KPropertySkeletonItem_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpropertyskeletonitem.html#property)
@@ -844,7 +844,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` callback: *const fn (self: QtC.KPropertySkeletonItem, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KPropertySkeletonItem_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpropertyskeletonitem.html#setProperty)
@@ -884,7 +884,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` callback: *const fn (self: QtC.KPropertySkeletonItem, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPropertySkeletonItem_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KPropertySkeletonItem_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpropertyskeletonitem.html#isEqual)
@@ -924,7 +924,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` callback: *const fn (self: QtC.KPropertySkeletonItem, param1: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KPropertySkeletonItem_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpropertyskeletonitem.html#readConfig)
@@ -964,7 +964,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` callback: *const fn (self: QtC.KPropertySkeletonItem, param1: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KPropertySkeletonItem_OnWriteConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpropertyskeletonitem.html#writeConfig)
@@ -1004,7 +1004,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` callback: *const fn (self: QtC.KPropertySkeletonItem, param1: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadDefault(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnReadDefault(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KPropertySkeletonItem_OnReadDefault(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpropertyskeletonitem.html#readDefault)
@@ -1042,7 +1042,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSetDefault(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnSetDefault(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KPropertySkeletonItem_OnSetDefault(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpropertyskeletonitem.html#setDefault)
@@ -1078,7 +1078,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSwapDefault(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnSwapDefault(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KPropertySkeletonItem_OnSwapDefault(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpropertyskeletonitem.html#swapDefault)
@@ -1348,7 +1348,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` flags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     pub fn SetWriteFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.KConfigSkeletonItem_SetWriteFlags(@ptrCast(self), @intCast(flags));
+        qtc.KConfigSkeletonItem_SetWriteFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from KConfigSkeletonItem
@@ -1456,7 +1456,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KPropertySkeletonItem_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KPropertySkeletonItem_OnMinValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KConfigSkeletonItem
@@ -1500,7 +1500,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KPropertySkeletonItem_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KPropertySkeletonItem_OnMaxValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KConfigSkeletonItem
@@ -1548,7 +1548,7 @@ pub const kpropertyskeletonitem = struct {
     /// ` callback: *const fn (self: QtC.KPropertySkeletonItem, group: QtC.KConfigGroup) callconv(.c) void `
     ///
     pub fn OnReadImmutability(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnReadImmutability(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KPropertySkeletonItem_OnReadImmutability(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpropertyskeletonitem.html#dtor.KPropertySkeletonItem)
@@ -1685,7 +1685,7 @@ pub const kconfigcompilersignallingitem = struct {
     /// ` flags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     pub fn SetWriteFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.KConfigCompilerSignallingItem_SetWriteFlags(@ptrCast(self), @intCast(flags));
+        qtc.KConfigCompilerSignallingItem_SetWriteFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigcompilersignallingitem.html#writeFlags)
@@ -2060,7 +2060,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KCoreConfigSkeleton_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -2095,7 +2095,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KCoreConfigSkeleton_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -2122,7 +2122,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KCoreConfigSkeleton_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KCoreConfigSkeleton_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -2134,7 +2134,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KCoreConfigSkeleton_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -2150,7 +2150,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KCoreConfigSkeleton_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KCoreConfigSkeleton_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2191,7 +2191,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSetDefaults(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnSetDefaults(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnSetDefaults(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
@@ -2780,7 +2780,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, b: bool) callconv(.c) bool `
     ///
     pub fn OnUseDefaults(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton_OnUseDefaults(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnUseDefaults(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
@@ -2826,7 +2826,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton) callconv(.c) void `
     ///
     pub fn OnConfigChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_Connect_ConfigChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_Connect_ConfigChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
@@ -2852,7 +2852,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, b: bool) callconv(.c) bool `
     ///
     pub fn OnUsrUseDefaults(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton_OnUsrUseDefaults(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnUsrUseDefaults(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
@@ -2890,7 +2890,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUsrSetDefaults(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnUsrSetDefaults(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnUsrSetDefaults(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
@@ -2926,7 +2926,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUsrRead(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnUsrRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnUsrRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrRead)
@@ -2962,7 +2962,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnUsrSave(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton_OnUsrSave(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnUsrSave(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSave)
@@ -3012,7 +3012,7 @@ pub const kcoreconfigskeleton = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcoreconfigskeleton.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3332,7 +3332,7 @@ pub const kcoreconfigskeleton = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KCoreConfigSkeleton_AddItemInt3(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue));
+        return qtc.KCoreConfigSkeleton_AddItemInt3(@ptrCast(self), name_str, @ptrCast(reference), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemInt)
@@ -3358,7 +3358,7 @@ pub const kcoreconfigskeleton = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.KCoreConfigSkeleton_AddItemInt4(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue), key_str);
+        return qtc.KCoreConfigSkeleton_AddItemInt4(@ptrCast(self), name_str, @ptrCast(reference), @bitCast(defaultValue), key_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
@@ -3378,7 +3378,7 @@ pub const kcoreconfigskeleton = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KCoreConfigSkeleton_AddItemUInt3(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue));
+        return qtc.KCoreConfigSkeleton_AddItemUInt3(@ptrCast(self), name_str, @ptrCast(reference), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
@@ -3404,7 +3404,7 @@ pub const kcoreconfigskeleton = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.KCoreConfigSkeleton_AddItemUInt4(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue), key_str);
+        return qtc.KCoreConfigSkeleton_AddItemUInt4(@ptrCast(self), name_str, @ptrCast(reference), @bitCast(defaultValue), key_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
@@ -3424,7 +3424,7 @@ pub const kcoreconfigskeleton = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KCoreConfigSkeleton_AddItemLongLong3(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue));
+        return qtc.KCoreConfigSkeleton_AddItemLongLong3(@ptrCast(self), name_str, @ptrCast(reference), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
@@ -3450,7 +3450,7 @@ pub const kcoreconfigskeleton = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.KCoreConfigSkeleton_AddItemLongLong4(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue), key_str);
+        return qtc.KCoreConfigSkeleton_AddItemLongLong4(@ptrCast(self), name_str, @ptrCast(reference), @bitCast(defaultValue), key_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
@@ -3470,7 +3470,7 @@ pub const kcoreconfigskeleton = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KCoreConfigSkeleton_AddItemULongLong3(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue));
+        return qtc.KCoreConfigSkeleton_AddItemULongLong3(@ptrCast(self), name_str, @ptrCast(reference), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
@@ -3496,7 +3496,7 @@ pub const kcoreconfigskeleton = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.KCoreConfigSkeleton_AddItemULongLong4(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue), key_str);
+        return qtc.KCoreConfigSkeleton_AddItemULongLong4(@ptrCast(self), name_str, @ptrCast(reference), @bitCast(defaultValue), key_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
@@ -3516,7 +3516,7 @@ pub const kcoreconfigskeleton = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KCoreConfigSkeleton_AddItemDouble3(@ptrCast(self), name_str, @ptrCast(reference), @floatCast(defaultValue));
+        return qtc.KCoreConfigSkeleton_AddItemDouble3(@ptrCast(self), name_str, @ptrCast(reference), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
@@ -3542,7 +3542,7 @@ pub const kcoreconfigskeleton = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.KCoreConfigSkeleton_AddItemDouble4(@ptrCast(self), name_str, @ptrCast(reference), @floatCast(defaultValue), key_str);
+        return qtc.KCoreConfigSkeleton_AddItemDouble4(@ptrCast(self), name_str, @ptrCast(reference), @bitCast(defaultValue), key_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRect)
@@ -4158,7 +4158,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -4172,7 +4172,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -4186,7 +4186,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4200,7 +4200,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4530,7 +4530,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4585,7 +4585,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4601,7 +4601,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4623,7 +4623,7 @@ pub const kcoreconfigskeleton = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -4643,7 +4643,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4665,7 +4665,7 @@ pub const kcoreconfigskeleton = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4762,7 +4762,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4810,7 +4810,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4862,7 +4862,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4910,7 +4910,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4958,7 +4958,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5006,7 +5006,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5054,7 +5054,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5102,7 +5102,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5146,7 +5146,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KCoreConfigSkeleton_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5190,7 +5190,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCoreConfigSkeleton_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5240,7 +5240,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KCoreConfigSkeleton_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5288,7 +5288,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5304,7 +5304,7 @@ pub const kcoreconfigskeleton = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#dtor.KCoreConfigSkeleton)
@@ -5414,7 +5414,7 @@ pub const kcoreconfigskeleton__itemstring = struct {
             .data = defaultValue.ptr,
         };
 
-        return qtc.KCoreConfigSkeleton__ItemString_new3(_group_str, _key_str, reference_str, defaultValue_str, @intCast(typeVal));
+        return qtc.KCoreConfigSkeleton__ItemString_new3(_group_str, _key_str, reference_str, defaultValue_str, @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemstring.html#writeConfig)
@@ -5440,7 +5440,7 @@ pub const kcoreconfigskeleton__itemstring = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemString, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemString_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemString_OnWriteConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemstring.html#writeConfig)
@@ -5480,7 +5480,7 @@ pub const kcoreconfigskeleton__itemstring = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemString, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemString_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemString_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemstring.html#readConfig)
@@ -5520,7 +5520,7 @@ pub const kcoreconfigskeleton__itemstring = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemString, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemString_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemString_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemstring.html#setProperty)
@@ -5560,7 +5560,7 @@ pub const kcoreconfigskeleton__itemstring = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemString, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemString_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemString_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemstring.html#isEqual)
@@ -5598,7 +5598,7 @@ pub const kcoreconfigskeleton__itemstring = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemString_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemString_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemstring.html#property)
@@ -5731,7 +5731,7 @@ pub const kcoreconfigskeleton__itempassword = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPassword, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPassword_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPassword_OnWriteConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -5779,7 +5779,7 @@ pub const kcoreconfigskeleton__itempassword = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPassword, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPassword_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPassword_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -5827,7 +5827,7 @@ pub const kcoreconfigskeleton__itempassword = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPassword, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPassword_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPassword_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -5875,7 +5875,7 @@ pub const kcoreconfigskeleton__itempassword = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPassword, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemPassword_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPassword_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -5919,7 +5919,7 @@ pub const kcoreconfigskeleton__itempassword = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemPassword_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPassword_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -6040,7 +6040,7 @@ pub const kcoreconfigskeleton__itempath = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPath, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPath_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPath_OnWriteConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -6088,7 +6088,7 @@ pub const kcoreconfigskeleton__itempath = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPath, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPath_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPath_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -6136,7 +6136,7 @@ pub const kcoreconfigskeleton__itempath = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPath, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPath_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPath_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -6184,7 +6184,7 @@ pub const kcoreconfigskeleton__itempath = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPath, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemPath_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPath_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -6228,7 +6228,7 @@ pub const kcoreconfigskeleton__itempath = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemPath_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPath_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -6315,7 +6315,7 @@ pub const kcoreconfigskeleton__itemurl = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrl, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemUrl_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUrl_OnWriteConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemurl.html#writeConfig)
@@ -6355,7 +6355,7 @@ pub const kcoreconfigskeleton__itemurl = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrl, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemUrl_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUrl_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemurl.html#readConfig)
@@ -6395,7 +6395,7 @@ pub const kcoreconfigskeleton__itemurl = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrl, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemUrl_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUrl_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemurl.html#setProperty)
@@ -6435,7 +6435,7 @@ pub const kcoreconfigskeleton__itemurl = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrl, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemUrl_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUrl_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemurl.html#isEqual)
@@ -6473,7 +6473,7 @@ pub const kcoreconfigskeleton__itemurl = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemUrl_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUrl_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemurl.html#property)
@@ -6572,7 +6572,7 @@ pub const kcoreconfigskeleton__itemproperty = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemProperty, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemProperty_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemProperty_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#readConfig)
@@ -6612,7 +6612,7 @@ pub const kcoreconfigskeleton__itemproperty = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemProperty, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemProperty_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemProperty_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#setProperty)
@@ -6652,7 +6652,7 @@ pub const kcoreconfigskeleton__itemproperty = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemProperty, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemProperty_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemProperty_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#isEqual)
@@ -6690,7 +6690,7 @@ pub const kcoreconfigskeleton__itemproperty = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemProperty_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemProperty_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#property)
@@ -6789,7 +6789,7 @@ pub const kcoreconfigskeleton__itembool = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemBool, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemBool_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemBool_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itembool.html#readConfig)
@@ -6829,7 +6829,7 @@ pub const kcoreconfigskeleton__itembool = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemBool, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemBool_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemBool_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itembool.html#setProperty)
@@ -6869,7 +6869,7 @@ pub const kcoreconfigskeleton__itembool = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemBool, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemBool_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemBool_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itembool.html#isEqual)
@@ -6907,7 +6907,7 @@ pub const kcoreconfigskeleton__itembool = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemBool_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemBool_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itembool.html#property)
@@ -6980,7 +6980,7 @@ pub const kcoreconfigskeleton__itemint = struct {
             .data = _key.ptr,
         };
 
-        return qtc.KCoreConfigSkeleton__ItemInt_new2(_group_str, _key_str, @ptrCast(reference), @intCast(defaultValue));
+        return qtc.KCoreConfigSkeleton__ItemInt_new2(_group_str, _key_str, @ptrCast(reference), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemint.html#readConfig)
@@ -7006,7 +7006,7 @@ pub const kcoreconfigskeleton__itemint = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemInt, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemInt_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemInt_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemint.html#readConfig)
@@ -7046,7 +7046,7 @@ pub const kcoreconfigskeleton__itemint = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemInt, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemInt_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemInt_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemint.html#setProperty)
@@ -7086,7 +7086,7 @@ pub const kcoreconfigskeleton__itemint = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemInt, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemInt_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemInt_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemint.html#isEqual)
@@ -7124,7 +7124,7 @@ pub const kcoreconfigskeleton__itemint = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemInt_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemInt_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemint.html#property)
@@ -7160,7 +7160,7 @@ pub const kcoreconfigskeleton__itemint = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemInt_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemInt_OnMinValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemint.html#minValue)
@@ -7196,7 +7196,7 @@ pub const kcoreconfigskeleton__itemint = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemInt_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemInt_OnMaxValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemint.html#maxValue)
@@ -7269,7 +7269,7 @@ pub const kcoreconfigskeleton__itemlonglong = struct {
             .data = _key.ptr,
         };
 
-        return qtc.KCoreConfigSkeleton__ItemLongLong_new2(_group_str, _key_str, @ptrCast(reference), @intCast(defaultValue));
+        return qtc.KCoreConfigSkeleton__ItemLongLong_new2(_group_str, _key_str, @ptrCast(reference), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#readConfig)
@@ -7295,7 +7295,7 @@ pub const kcoreconfigskeleton__itemlonglong = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemLongLong, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemLongLong_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemLongLong_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#readConfig)
@@ -7335,7 +7335,7 @@ pub const kcoreconfigskeleton__itemlonglong = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemLongLong, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemLongLong_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemLongLong_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#setProperty)
@@ -7375,7 +7375,7 @@ pub const kcoreconfigskeleton__itemlonglong = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemLongLong, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemLongLong_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemLongLong_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#isEqual)
@@ -7413,7 +7413,7 @@ pub const kcoreconfigskeleton__itemlonglong = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemLongLong_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemLongLong_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#property)
@@ -7449,7 +7449,7 @@ pub const kcoreconfigskeleton__itemlonglong = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemLongLong_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemLongLong_OnMinValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#minValue)
@@ -7485,7 +7485,7 @@ pub const kcoreconfigskeleton__itemlonglong = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemLongLong_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemLongLong_OnMaxValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#maxValue)
@@ -7509,7 +7509,7 @@ pub const kcoreconfigskeleton__itemlonglong = struct {
     /// ` minValue: i64 `
     ///
     pub fn SetMinValue(self: ?*anyopaque, minValue: i64) void {
-        qtc.KCoreConfigSkeleton__ItemLongLong_SetMinValue(@ptrCast(self), @intCast(minValue));
+        qtc.KCoreConfigSkeleton__ItemLongLong_SetMinValue(@ptrCast(self), @bitCast(minValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#setMaxValue)
@@ -7521,7 +7521,7 @@ pub const kcoreconfigskeleton__itemlonglong = struct {
     /// ` maxValue: i64 `
     ///
     pub fn SetMaxValue(self: ?*anyopaque, maxValue: i64) void {
-        qtc.KCoreConfigSkeleton__ItemLongLong_SetMaxValue(@ptrCast(self), @intCast(maxValue));
+        qtc.KCoreConfigSkeleton__ItemLongLong_SetMaxValue(@ptrCast(self), @bitCast(maxValue));
     }
 
     /// Delete this object from C++ memory.
@@ -7795,7 +7795,7 @@ pub const kcoreconfigskeleton__itemenum = struct {
             .data = @ptrCast(choices.ptr),
         };
 
-        return qtc.KCoreConfigSkeleton__ItemEnum_new2(_group_str, _key_str, @ptrCast(reference), choices_list, @intCast(defaultValue));
+        return qtc.KCoreConfigSkeleton__ItemEnum_new2(_group_str, _key_str, @ptrCast(reference), choices_list, @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemenum.html#choices)
@@ -7838,7 +7838,7 @@ pub const kcoreconfigskeleton__itemenum = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemEnum, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemEnum_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemEnum_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemenum.html#readConfig)
@@ -7878,7 +7878,7 @@ pub const kcoreconfigskeleton__itemenum = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemEnum, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemEnum_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemEnum_OnWriteConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemenum.html#writeConfig)
@@ -7984,7 +7984,7 @@ pub const kcoreconfigskeleton__itemenum = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemEnum, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemEnum_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemEnum_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemInt
@@ -8032,7 +8032,7 @@ pub const kcoreconfigskeleton__itemenum = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemEnum, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemEnum_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemEnum_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemInt
@@ -8076,7 +8076,7 @@ pub const kcoreconfigskeleton__itemenum = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemEnum_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemEnum_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemInt
@@ -8120,7 +8120,7 @@ pub const kcoreconfigskeleton__itemenum = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemEnum_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemEnum_OnMinValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemInt
@@ -8164,7 +8164,7 @@ pub const kcoreconfigskeleton__itemenum = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemEnum_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemEnum_OnMaxValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -8225,7 +8225,7 @@ pub const kcoreconfigskeleton__itemuint = struct {
             .data = _key.ptr,
         };
 
-        return qtc.KCoreConfigSkeleton__ItemUInt_new2(_group_str, _key_str, @ptrCast(reference), @intCast(defaultValue));
+        return qtc.KCoreConfigSkeleton__ItemUInt_new2(_group_str, _key_str, @ptrCast(reference), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemuint.html#readConfig)
@@ -8251,7 +8251,7 @@ pub const kcoreconfigskeleton__itemuint = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUInt, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemUInt_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUInt_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemuint.html#readConfig)
@@ -8291,7 +8291,7 @@ pub const kcoreconfigskeleton__itemuint = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUInt, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemUInt_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUInt_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemuint.html#setProperty)
@@ -8331,7 +8331,7 @@ pub const kcoreconfigskeleton__itemuint = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUInt, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemUInt_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUInt_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemuint.html#isEqual)
@@ -8369,7 +8369,7 @@ pub const kcoreconfigskeleton__itemuint = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemUInt_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUInt_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemuint.html#property)
@@ -8405,7 +8405,7 @@ pub const kcoreconfigskeleton__itemuint = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemUInt_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUInt_OnMinValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemuint.html#minValue)
@@ -8441,7 +8441,7 @@ pub const kcoreconfigskeleton__itemuint = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemUInt_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUInt_OnMaxValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemuint.html#maxValue)
@@ -8465,7 +8465,7 @@ pub const kcoreconfigskeleton__itemuint = struct {
     /// ` minValue: u32 `
     ///
     pub fn SetMinValue(self: ?*anyopaque, minValue: u32) void {
-        qtc.KCoreConfigSkeleton__ItemUInt_SetMinValue(@ptrCast(self), @intCast(minValue));
+        qtc.KCoreConfigSkeleton__ItemUInt_SetMinValue(@ptrCast(self), @bitCast(minValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemuint.html#setMaxValue)
@@ -8477,7 +8477,7 @@ pub const kcoreconfigskeleton__itemuint = struct {
     /// ` maxValue: u32 `
     ///
     pub fn SetMaxValue(self: ?*anyopaque, maxValue: u32) void {
-        qtc.KCoreConfigSkeleton__ItemUInt_SetMaxValue(@ptrCast(self), @intCast(maxValue));
+        qtc.KCoreConfigSkeleton__ItemUInt_SetMaxValue(@ptrCast(self), @bitCast(maxValue));
     }
 
     /// Delete this object from C++ memory.
@@ -8538,7 +8538,7 @@ pub const kcoreconfigskeleton__itemulonglong = struct {
             .data = _key.ptr,
         };
 
-        return qtc.KCoreConfigSkeleton__ItemULongLong_new2(_group_str, _key_str, @ptrCast(reference), @intCast(defaultValue));
+        return qtc.KCoreConfigSkeleton__ItemULongLong_new2(_group_str, _key_str, @ptrCast(reference), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#readConfig)
@@ -8564,7 +8564,7 @@ pub const kcoreconfigskeleton__itemulonglong = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemULongLong, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemULongLong_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemULongLong_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#readConfig)
@@ -8604,7 +8604,7 @@ pub const kcoreconfigskeleton__itemulonglong = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemULongLong, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemULongLong_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemULongLong_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#setProperty)
@@ -8644,7 +8644,7 @@ pub const kcoreconfigskeleton__itemulonglong = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemULongLong, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemULongLong_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemULongLong_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#isEqual)
@@ -8682,7 +8682,7 @@ pub const kcoreconfigskeleton__itemulonglong = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemULongLong_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemULongLong_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#property)
@@ -8718,7 +8718,7 @@ pub const kcoreconfigskeleton__itemulonglong = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemULongLong_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemULongLong_OnMinValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#minValue)
@@ -8754,7 +8754,7 @@ pub const kcoreconfigskeleton__itemulonglong = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemULongLong_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemULongLong_OnMaxValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#maxValue)
@@ -8778,7 +8778,7 @@ pub const kcoreconfigskeleton__itemulonglong = struct {
     /// ` minValue: u64 `
     ///
     pub fn SetMinValue(self: ?*anyopaque, minValue: u64) void {
-        qtc.KCoreConfigSkeleton__ItemULongLong_SetMinValue(@ptrCast(self), @intCast(minValue));
+        qtc.KCoreConfigSkeleton__ItemULongLong_SetMinValue(@ptrCast(self), @bitCast(minValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#setMaxValue)
@@ -8790,7 +8790,7 @@ pub const kcoreconfigskeleton__itemulonglong = struct {
     /// ` maxValue: u64 `
     ///
     pub fn SetMaxValue(self: ?*anyopaque, maxValue: u64) void {
-        qtc.KCoreConfigSkeleton__ItemULongLong_SetMaxValue(@ptrCast(self), @intCast(maxValue));
+        qtc.KCoreConfigSkeleton__ItemULongLong_SetMaxValue(@ptrCast(self), @bitCast(maxValue));
     }
 
     /// Delete this object from C++ memory.
@@ -8851,7 +8851,7 @@ pub const kcoreconfigskeleton__itemdouble = struct {
             .data = _key.ptr,
         };
 
-        return qtc.KCoreConfigSkeleton__ItemDouble_new2(_group_str, _key_str, @ptrCast(reference), @floatCast(defaultValue));
+        return qtc.KCoreConfigSkeleton__ItemDouble_new2(_group_str, _key_str, @ptrCast(reference), @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#readConfig)
@@ -8877,7 +8877,7 @@ pub const kcoreconfigskeleton__itemdouble = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemDouble, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemDouble_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemDouble_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#readConfig)
@@ -8917,7 +8917,7 @@ pub const kcoreconfigskeleton__itemdouble = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemDouble, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemDouble_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemDouble_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#setProperty)
@@ -8957,7 +8957,7 @@ pub const kcoreconfigskeleton__itemdouble = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemDouble, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemDouble_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemDouble_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#isEqual)
@@ -8995,7 +8995,7 @@ pub const kcoreconfigskeleton__itemdouble = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemDouble_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemDouble_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#property)
@@ -9031,7 +9031,7 @@ pub const kcoreconfigskeleton__itemdouble = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemDouble_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemDouble_OnMinValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#minValue)
@@ -9067,7 +9067,7 @@ pub const kcoreconfigskeleton__itemdouble = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemDouble_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemDouble_OnMaxValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#maxValue)
@@ -9091,7 +9091,7 @@ pub const kcoreconfigskeleton__itemdouble = struct {
     /// ` minValue: f64 `
     ///
     pub fn SetMinValue(self: ?*anyopaque, minValue: f64) void {
-        qtc.KCoreConfigSkeleton__ItemDouble_SetMinValue(@ptrCast(self), @floatCast(minValue));
+        qtc.KCoreConfigSkeleton__ItemDouble_SetMinValue(@ptrCast(self), @bitCast(minValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#setMaxValue)
@@ -9103,7 +9103,7 @@ pub const kcoreconfigskeleton__itemdouble = struct {
     /// ` maxValue: f64 `
     ///
     pub fn SetMaxValue(self: ?*anyopaque, maxValue: f64) void {
-        qtc.KCoreConfigSkeleton__ItemDouble_SetMaxValue(@ptrCast(self), @floatCast(maxValue));
+        qtc.KCoreConfigSkeleton__ItemDouble_SetMaxValue(@ptrCast(self), @bitCast(maxValue));
     }
 
     /// Delete this object from C++ memory.
@@ -9190,7 +9190,7 @@ pub const kcoreconfigskeleton__itemrect = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemRect, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemRect_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemRect_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemrect.html#readConfig)
@@ -9230,7 +9230,7 @@ pub const kcoreconfigskeleton__itemrect = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemRect, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemRect_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemRect_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemrect.html#setProperty)
@@ -9270,7 +9270,7 @@ pub const kcoreconfigskeleton__itemrect = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemRect, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemRect_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemRect_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemrect.html#isEqual)
@@ -9308,7 +9308,7 @@ pub const kcoreconfigskeleton__itemrect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemRect_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemRect_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemrect.html#property)
@@ -9407,7 +9407,7 @@ pub const kcoreconfigskeleton__itemrectf = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemRectF, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemRectF_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemRectF_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#readConfig)
@@ -9447,7 +9447,7 @@ pub const kcoreconfigskeleton__itemrectf = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemRectF, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemRectF_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemRectF_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#setProperty)
@@ -9487,7 +9487,7 @@ pub const kcoreconfigskeleton__itemrectf = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemRectF, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemRectF_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemRectF_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#isEqual)
@@ -9525,7 +9525,7 @@ pub const kcoreconfigskeleton__itemrectf = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemRectF_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemRectF_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#property)
@@ -9624,7 +9624,7 @@ pub const kcoreconfigskeleton__itempoint = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPoint, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPoint_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPoint_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itempoint.html#readConfig)
@@ -9664,7 +9664,7 @@ pub const kcoreconfigskeleton__itempoint = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPoint, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPoint_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPoint_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itempoint.html#setProperty)
@@ -9704,7 +9704,7 @@ pub const kcoreconfigskeleton__itempoint = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPoint, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemPoint_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPoint_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itempoint.html#isEqual)
@@ -9742,7 +9742,7 @@ pub const kcoreconfigskeleton__itempoint = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemPoint_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPoint_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itempoint.html#property)
@@ -9841,7 +9841,7 @@ pub const kcoreconfigskeleton__itempointf = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPointF, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPointF_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPointF_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itempointf.html#readConfig)
@@ -9881,7 +9881,7 @@ pub const kcoreconfigskeleton__itempointf = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPointF, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPointF_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPointF_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itempointf.html#setProperty)
@@ -9921,7 +9921,7 @@ pub const kcoreconfigskeleton__itempointf = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPointF, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemPointF_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPointF_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itempointf.html#isEqual)
@@ -9959,7 +9959,7 @@ pub const kcoreconfigskeleton__itempointf = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemPointF_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPointF_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itempointf.html#property)
@@ -10058,7 +10058,7 @@ pub const kcoreconfigskeleton__itemsize = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemSize, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemSize_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemSize_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemsize.html#readConfig)
@@ -10098,7 +10098,7 @@ pub const kcoreconfigskeleton__itemsize = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemSize, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemSize_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemSize_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemsize.html#setProperty)
@@ -10138,7 +10138,7 @@ pub const kcoreconfigskeleton__itemsize = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemSize, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemSize_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemSize_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemsize.html#isEqual)
@@ -10176,7 +10176,7 @@ pub const kcoreconfigskeleton__itemsize = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemSize_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemSize_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemsize.html#property)
@@ -10275,7 +10275,7 @@ pub const kcoreconfigskeleton__itemsizef = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemSizeF, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemSizeF_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemSizeF_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#readConfig)
@@ -10315,7 +10315,7 @@ pub const kcoreconfigskeleton__itemsizef = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemSizeF, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemSizeF_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemSizeF_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#setProperty)
@@ -10355,7 +10355,7 @@ pub const kcoreconfigskeleton__itemsizef = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemSizeF, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemSizeF_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemSizeF_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#isEqual)
@@ -10393,7 +10393,7 @@ pub const kcoreconfigskeleton__itemsizef = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemSizeF_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemSizeF_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#property)
@@ -10492,7 +10492,7 @@ pub const kcoreconfigskeleton__itemdatetime = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemDateTime, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemDateTime_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemDateTime_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#readConfig)
@@ -10532,7 +10532,7 @@ pub const kcoreconfigskeleton__itemdatetime = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemDateTime, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemDateTime_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemDateTime_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#setProperty)
@@ -10572,7 +10572,7 @@ pub const kcoreconfigskeleton__itemdatetime = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemDateTime, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemDateTime_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemDateTime_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#isEqual)
@@ -10610,7 +10610,7 @@ pub const kcoreconfigskeleton__itemdatetime = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemDateTime_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemDateTime_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#property)
@@ -10749,7 +10749,7 @@ pub const kcoreconfigskeleton__itemstringlist = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemStringList, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemStringList_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemStringList_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#readConfig)
@@ -10789,7 +10789,7 @@ pub const kcoreconfigskeleton__itemstringlist = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemStringList, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemStringList_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemStringList_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#setProperty)
@@ -10829,7 +10829,7 @@ pub const kcoreconfigskeleton__itemstringlist = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemStringList, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemStringList_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemStringList_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#isEqual)
@@ -10867,7 +10867,7 @@ pub const kcoreconfigskeleton__itemstringlist = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemStringList_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemStringList_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#property)
@@ -11006,7 +11006,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPathList, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPathList_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPathList_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itempathlist.html#readConfig)
@@ -11046,7 +11046,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPathList, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPathList_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPathList_OnWriteConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itempathlist.html#writeConfig)
@@ -11108,7 +11108,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPathList, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPathList_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPathList_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemStringList
@@ -11156,7 +11156,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPathList, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemPathList_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPathList_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemStringList
@@ -11200,7 +11200,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemPathList_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemPathList_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -11299,7 +11299,7 @@ pub const kcoreconfigskeleton__itemurllist = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrlList, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemUrlList_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUrlList_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#readConfig)
@@ -11339,7 +11339,7 @@ pub const kcoreconfigskeleton__itemurllist = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrlList, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemUrlList_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUrlList_OnWriteConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#writeConfig)
@@ -11379,7 +11379,7 @@ pub const kcoreconfigskeleton__itemurllist = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrlList, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemUrlList_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUrlList_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#setProperty)
@@ -11419,7 +11419,7 @@ pub const kcoreconfigskeleton__itemurllist = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrlList, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemUrlList_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUrlList_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#isEqual)
@@ -11457,7 +11457,7 @@ pub const kcoreconfigskeleton__itemurllist = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemUrlList_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemUrlList_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#property)
@@ -11568,7 +11568,7 @@ pub const kcoreconfigskeleton__itemintlist = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemIntList, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemIntList_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemIntList_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#readConfig)
@@ -11608,7 +11608,7 @@ pub const kcoreconfigskeleton__itemintlist = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemIntList, p: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemIntList_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemIntList_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#setProperty)
@@ -11648,7 +11648,7 @@ pub const kcoreconfigskeleton__itemintlist = struct {
     /// ` callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemIntList, p: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemIntList_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemIntList_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#isEqual)
@@ -11686,7 +11686,7 @@ pub const kcoreconfigskeleton__itemintlist = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemIntList_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCoreConfigSkeleton__ItemIntList_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#property)

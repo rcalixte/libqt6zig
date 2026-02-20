@@ -62,7 +62,7 @@ pub const qplaceratings = struct {
     /// ` average: f64 `
     ///
     pub fn SetAverage(self: ?*anyopaque, average: f64) void {
-        qtc.QPlaceRatings_SetAverage(@ptrCast(self), @floatCast(average));
+        qtc.QPlaceRatings_SetAverage(@ptrCast(self), @bitCast(average));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceratings.html#count)
@@ -84,7 +84,7 @@ pub const qplaceratings = struct {
     /// ` count: i32 `
     ///
     pub fn SetCount(self: ?*anyopaque, count: i32) void {
-        qtc.QPlaceRatings_SetCount(@ptrCast(self), @intCast(count));
+        qtc.QPlaceRatings_SetCount(@ptrCast(self), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceratings.html#maximum)
@@ -106,7 +106,7 @@ pub const qplaceratings = struct {
     /// ` max: f64 `
     ///
     pub fn SetMaximum(self: ?*anyopaque, max: f64) void {
-        qtc.QPlaceRatings_SetMaximum(@ptrCast(self), @floatCast(max));
+        qtc.QPlaceRatings_SetMaximum(@ptrCast(self), @bitCast(max));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceratings.html#isEmpty)

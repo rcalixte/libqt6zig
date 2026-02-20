@@ -87,7 +87,7 @@ pub const qfont = struct {
             .data = family.ptr,
         };
 
-        return qtc.QFont_new6(family_str, @intCast(pointSize));
+        return qtc.QFont_new6(family_str, @bitCast(pointSize));
     }
 
     /// New7 constructs a new QFont object.
@@ -106,7 +106,7 @@ pub const qfont = struct {
             .data = family.ptr,
         };
 
-        return qtc.QFont_new7(family_str, @intCast(pointSize), @intCast(weight));
+        return qtc.QFont_new7(family_str, @bitCast(pointSize), @bitCast(weight));
     }
 
     /// New8 constructs a new QFont object.
@@ -127,7 +127,7 @@ pub const qfont = struct {
             .data = family.ptr,
         };
 
-        return qtc.QFont_new8(family_str, @intCast(pointSize), @intCast(weight), italic);
+        return qtc.QFont_new8(family_str, @bitCast(pointSize), @bitCast(weight), italic);
     }
 
     /// New9 constructs a new QFont object.
@@ -154,7 +154,7 @@ pub const qfont = struct {
             .data = families_arr.ptr,
         };
 
-        return qtc.QFont_new9(families_list, @intCast(pointSize));
+        return qtc.QFont_new9(families_list, @bitCast(pointSize));
     }
 
     /// New10 constructs a new QFont object.
@@ -183,7 +183,7 @@ pub const qfont = struct {
             .data = families_arr.ptr,
         };
 
-        return qtc.QFont_new10(families_list, @intCast(pointSize), @intCast(weight));
+        return qtc.QFont_new10(families_list, @bitCast(pointSize), @bitCast(weight));
     }
 
     /// New11 constructs a new QFont object.
@@ -214,7 +214,7 @@ pub const qfont = struct {
             .data = families_arr.ptr,
         };
 
-        return qtc.QFont_new11(families_list, @intCast(pointSize), @intCast(weight), italic);
+        return qtc.QFont_new11(families_list, @bitCast(pointSize), @bitCast(weight), italic);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#swap)
@@ -365,7 +365,7 @@ pub const qfont = struct {
     /// ` pointSize: i32 `
     ///
     pub fn SetPointSize(self: ?*anyopaque, pointSize: i32) void {
-        qtc.QFont_SetPointSize(@ptrCast(self), @intCast(pointSize));
+        qtc.QFont_SetPointSize(@ptrCast(self), @bitCast(pointSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#pointSizeF)
@@ -387,7 +387,7 @@ pub const qfont = struct {
     /// ` pointSizeF: f64 `
     ///
     pub fn SetPointSizeF(self: ?*anyopaque, pointSizeF: f64) void {
-        qtc.QFont_SetPointSizeF(@ptrCast(self), @floatCast(pointSizeF));
+        qtc.QFont_SetPointSizeF(@ptrCast(self), @bitCast(pointSizeF));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#pixelSize)
@@ -409,7 +409,7 @@ pub const qfont = struct {
     /// ` pixelSize: i32 `
     ///
     pub fn SetPixelSize(self: ?*anyopaque, pixelSize: i32) void {
-        qtc.QFont_SetPixelSize(@ptrCast(self), @intCast(pixelSize));
+        qtc.QFont_SetPixelSize(@ptrCast(self), @bitCast(pixelSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#weight)
@@ -435,7 +435,7 @@ pub const qfont = struct {
     /// ` weight: qfont_enums.Weight `
     ///
     pub fn SetWeight(self: ?*anyopaque, weight: i32) void {
-        qtc.QFont_SetWeight(@ptrCast(self), @intCast(weight));
+        qtc.QFont_SetWeight(@ptrCast(self), @bitCast(weight));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#bold)
@@ -469,7 +469,7 @@ pub const qfont = struct {
     /// ` style: qfont_enums.Style `
     ///
     pub fn SetStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QFont_SetStyle(@ptrCast(self), @intCast(style));
+        qtc.QFont_SetStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#style)
@@ -655,7 +655,7 @@ pub const qfont = struct {
     /// ` param1: qfont_enums.StyleHint `
     ///
     pub fn SetStyleHint(self: ?*anyopaque, param1: i32) void {
-        qtc.QFont_SetStyleHint(@ptrCast(self), @intCast(param1));
+        qtc.QFont_SetStyleHint(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setStyleStrategy)
@@ -667,7 +667,7 @@ pub const qfont = struct {
     /// ` s: qfont_enums.StyleStrategy `
     ///
     pub fn SetStyleStrategy(self: ?*anyopaque, s: i32) void {
-        qtc.QFont_SetStyleStrategy(@ptrCast(self), @intCast(s));
+        qtc.QFont_SetStyleStrategy(@ptrCast(self), @bitCast(s));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#stretch)
@@ -689,7 +689,7 @@ pub const qfont = struct {
     /// ` stretch: i32 `
     ///
     pub fn SetStretch(self: ?*anyopaque, stretch: i32) void {
-        qtc.QFont_SetStretch(@ptrCast(self), @intCast(stretch));
+        qtc.QFont_SetStretch(@ptrCast(self), @bitCast(stretch));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#letterSpacing)
@@ -727,7 +727,7 @@ pub const qfont = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetLetterSpacing(self: ?*anyopaque, typeVal: i32, spacing: f64) void {
-        qtc.QFont_SetLetterSpacing(@ptrCast(self), @intCast(typeVal), @floatCast(spacing));
+        qtc.QFont_SetLetterSpacing(@ptrCast(self), @bitCast(typeVal), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#wordSpacing)
@@ -749,7 +749,7 @@ pub const qfont = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetWordSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QFont_SetWordSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QFont_SetWordSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setCapitalization)
@@ -761,7 +761,7 @@ pub const qfont = struct {
     /// ` capitalization: qfont_enums.Capitalization `
     ///
     pub fn SetCapitalization(self: ?*anyopaque, capitalization: i32) void {
-        qtc.QFont_SetCapitalization(@ptrCast(self), @intCast(capitalization));
+        qtc.QFont_SetCapitalization(@ptrCast(self), @bitCast(capitalization));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#capitalization)
@@ -787,7 +787,7 @@ pub const qfont = struct {
     /// ` hintingPreference: qfont_enums.HintingPreference `
     ///
     pub fn SetHintingPreference(self: ?*anyopaque, hintingPreference: i32) void {
-        qtc.QFont_SetHintingPreference(@ptrCast(self), @intCast(hintingPreference));
+        qtc.QFont_SetHintingPreference(@ptrCast(self), @bitCast(hintingPreference));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#hintingPreference)
@@ -815,7 +815,7 @@ pub const qfont = struct {
     /// ` value: u32 `
     ///
     pub fn SetFeature(self: ?*anyopaque, tag: QtC.QFont__Tag, value: u32) void {
-        qtc.QFont_SetFeature(@ptrCast(self), @ptrCast(tag), @intCast(value));
+        qtc.QFont_SetFeature(@ptrCast(self), @ptrCast(tag), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#unsetFeature)
@@ -892,7 +892,7 @@ pub const qfont = struct {
     /// ` value: f32 `
     ///
     pub fn SetVariableAxis(self: ?*anyopaque, tag: QtC.QFont__Tag, value: f32) void {
-        qtc.QFont_SetVariableAxis(@ptrCast(self), @ptrCast(tag), @floatCast(value));
+        qtc.QFont_SetVariableAxis(@ptrCast(self), @ptrCast(tag), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#unsetVariableAxis)
@@ -1291,7 +1291,7 @@ pub const qfont = struct {
     /// ` mask: u32 `
     ///
     pub fn SetResolveMask(self: ?*anyopaque, mask: u32) void {
-        qtc.QFont_SetResolveMask(@ptrCast(self), @intCast(mask));
+        qtc.QFont_SetResolveMask(@ptrCast(self), @bitCast(mask));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setLegacyWeight)
@@ -1303,7 +1303,7 @@ pub const qfont = struct {
     /// ` legacyWeight: i32 `
     ///
     pub fn SetLegacyWeight(self: ?*anyopaque, legacyWeight: i32) void {
-        qtc.QFont_SetLegacyWeight(@ptrCast(self), @intCast(legacyWeight));
+        qtc.QFont_SetLegacyWeight(@ptrCast(self), @bitCast(legacyWeight));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#legacyWeight)
@@ -1327,7 +1327,7 @@ pub const qfont = struct {
     /// ` param2: qfont_enums.StyleStrategy `
     ///
     pub fn SetStyleHint2(self: ?*anyopaque, param1: i32, param2: i32) void {
-        qtc.QFont_SetStyleHint2(@ptrCast(self), @intCast(param1), @intCast(param2));
+        qtc.QFont_SetStyleHint2(@ptrCast(self), @bitCast(param1), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#dtor.QFont)

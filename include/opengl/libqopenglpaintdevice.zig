@@ -29,7 +29,7 @@ pub const qopenglpaintdevice = struct {
     /// ` height: i32 `
     ///
     pub fn New3(width: i32, height: i32) QtC.QOpenGLPaintDevice {
-        return qtc.QOpenGLPaintDevice_new3(@intCast(width), @intCast(height));
+        return qtc.QOpenGLPaintDevice_new3(@bitCast(width), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#devType)
@@ -53,7 +53,7 @@ pub const qopenglpaintdevice = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QOpenGLPaintDevice_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLPaintDevice_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#devType)
@@ -89,7 +89,7 @@ pub const qopenglpaintdevice = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
     ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QOpenGLPaintDevice_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLPaintDevice_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#paintEngine)
@@ -145,7 +145,7 @@ pub const qopenglpaintdevice = struct {
     /// ` devicePixelRatio: f64 `
     ///
     pub fn SetDevicePixelRatio(self: ?*anyopaque, devicePixelRatio: f64) void {
-        qtc.QOpenGLPaintDevice_SetDevicePixelRatio(@ptrCast(self), @floatCast(devicePixelRatio));
+        qtc.QOpenGLPaintDevice_SetDevicePixelRatio(@ptrCast(self), @bitCast(devicePixelRatio));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#dotsPerMeterX)
@@ -177,7 +177,7 @@ pub const qopenglpaintdevice = struct {
     /// ` dotsPerMeterX: f64 `
     ///
     pub fn SetDotsPerMeterX(self: ?*anyopaque, dotsPerMeterX: f64) void {
-        qtc.QOpenGLPaintDevice_SetDotsPerMeterX(@ptrCast(self), @floatCast(dotsPerMeterX));
+        qtc.QOpenGLPaintDevice_SetDotsPerMeterX(@ptrCast(self), @bitCast(dotsPerMeterX));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setDotsPerMeterY)
@@ -189,7 +189,7 @@ pub const qopenglpaintdevice = struct {
     /// ` dotsPerMeterY: f64 `
     ///
     pub fn SetDotsPerMeterY(self: ?*anyopaque, dotsPerMeterY: f64) void {
-        qtc.QOpenGLPaintDevice_SetDotsPerMeterY(@ptrCast(self), @floatCast(dotsPerMeterY));
+        qtc.QOpenGLPaintDevice_SetDotsPerMeterY(@ptrCast(self), @bitCast(dotsPerMeterY));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setPaintFlipped)
@@ -235,7 +235,7 @@ pub const qopenglpaintdevice = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEnsureActiveTarget(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QOpenGLPaintDevice_OnEnsureActiveTarget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLPaintDevice_OnEnsureActiveTarget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#ensureActiveTarget)
@@ -259,7 +259,7 @@ pub const qopenglpaintdevice = struct {
     /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn Metric(self: ?*anyopaque, metric: i32) i32 {
-        return qtc.QOpenGLPaintDevice_Metric(@ptrCast(self), @intCast(metric));
+        return qtc.QOpenGLPaintDevice_Metric(@ptrCast(self), @bitCast(metric));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#metric)
@@ -273,7 +273,7 @@ pub const qopenglpaintdevice = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLPaintDevice, metric: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QOpenGLPaintDevice_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLPaintDevice_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#metric)
@@ -287,7 +287,7 @@ pub const qopenglpaintdevice = struct {
     /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseMetric(self: ?*anyopaque, metric: i32) i32 {
-        return qtc.QOpenGLPaintDevice_QBaseMetric(@ptrCast(self), @intCast(metric));
+        return qtc.QOpenGLPaintDevice_QBaseMetric(@ptrCast(self), @bitCast(metric));
     }
 
     /// Inherited from QPaintDevice
@@ -465,7 +465,7 @@ pub const qopenglpaintdevice = struct {
     /// ` value: f64 `
     ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
 
     /// Inherited from QPaintDevice
@@ -513,7 +513,7 @@ pub const qopenglpaintdevice = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLPaintDevice, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QOpenGLPaintDevice_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLPaintDevice_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -561,7 +561,7 @@ pub const qopenglpaintdevice = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLPaintDevice, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
     ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QOpenGLPaintDevice_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLPaintDevice_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -605,7 +605,7 @@ pub const qopenglpaintdevice = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainter `
     ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QOpenGLPaintDevice_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLPaintDevice_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -623,7 +623,7 @@ pub const qopenglpaintdevice = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QOpenGLPaintDevice_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QOpenGLPaintDevice_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -641,7 +641,7 @@ pub const qopenglpaintdevice = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QOpenGLPaintDevice_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QOpenGLPaintDevice_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -657,7 +657,7 @@ pub const qopenglpaintdevice = struct {
     /// ` callback: *const fn (self: QtC.QOpenGLPaintDevice, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QOpenGLPaintDevice_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QOpenGLPaintDevice_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#dtor.QOpenGLPaintDevice)

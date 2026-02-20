@@ -43,7 +43,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QsciLexerPOV_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -78,7 +78,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QsciLexerPOV_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -105,7 +105,7 @@ pub const qscilexerpov = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QsciLexerPOV_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QsciLexerPOV_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -117,7 +117,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QsciLexerPOV_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -133,7 +133,7 @@ pub const qscilexerpov = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QsciLexerPOV_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QsciLexerPOV_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -205,7 +205,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn DefaultColor(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerPOV_DefaultColor(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_DefaultColor(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
@@ -217,7 +217,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn DefaultEolFill(self: ?*anyopaque, style: i32) bool {
-        return qtc.QsciLexerPOV_DefaultEolFill(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_DefaultEolFill(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
@@ -229,7 +229,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn DefaultFont(self: ?*anyopaque, style: i32) QtC.QFont {
-        return qtc.QsciLexerPOV_DefaultFont(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_DefaultFont(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
@@ -241,7 +241,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn DefaultPaper(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerPOV_DefaultPaper(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_DefaultPaper(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
@@ -253,7 +253,7 @@ pub const qscilexerpov = struct {
     /// ` set: i32 `
     ///
     pub fn Keywords(self: ?*anyopaque, set: i32) [:0]const u8 {
-        const _ret = qtc.QsciLexerPOV_Keywords(@ptrCast(self), @intCast(set));
+        const _ret = qtc.QsciLexerPOV_Keywords(@ptrCast(self), @bitCast(set));
         return std.mem.span(_ret);
     }
 
@@ -268,7 +268,7 @@ pub const qscilexerpov = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Description(self: ?*anyopaque, style: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QsciLexerPOV_Description(@ptrCast(self), @intCast(style));
+        var _str = qtc.QsciLexerPOV_Description(@ptrCast(self), @bitCast(style));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexerpov.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -338,7 +338,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, fold: bool) callconv(.c) void `
     ///
     pub fn OnSetFoldComments(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciLexerPOV_OnSetFoldComments(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnSetFoldComments(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
@@ -378,7 +378,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, fold: bool) callconv(.c) void `
     ///
     pub fn OnSetFoldCompact(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciLexerPOV_OnSetFoldCompact(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnSetFoldCompact(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
@@ -418,7 +418,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, fold: bool) callconv(.c) void `
     ///
     pub fn OnSetFoldDirectives(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciLexerPOV_OnSetFoldDirectives(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnSetFoldDirectives(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
@@ -464,7 +464,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, qs: QtC.QSettings, prefix: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnReadProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QsciLexerPOV_OnReadProperties(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnReadProperties(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
@@ -516,7 +516,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, qs: QtC.QSettings, prefix: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnWriteProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QsciLexerPOV_OnWriteProperties(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnWriteProperties(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
@@ -574,7 +574,7 @@ pub const qscilexerpov = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexerpov.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -714,7 +714,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn ColorChanged(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        qtc.QsciLexer_ColorChanged(@ptrCast(self), @ptrCast(c), @intCast(style));
+        qtc.QsciLexer_ColorChanged(@ptrCast(self), @ptrCast(c), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -728,7 +728,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, c: QtC.QColor, style: i32) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexer_Connect_ColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -744,7 +744,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn EolFillChanged(self: ?*anyopaque, eolfilled: bool, style: i32) void {
-        qtc.QsciLexer_EolFillChanged(@ptrCast(self), eolfilled, @intCast(style));
+        qtc.QsciLexer_EolFillChanged(@ptrCast(self), eolfilled, @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -758,7 +758,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, eolfilled: bool, style: i32) callconv(.c) void `
     ///
     pub fn OnEolFillChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_EolFillChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexer_Connect_EolFillChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -774,7 +774,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn FontChanged(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
-        qtc.QsciLexer_FontChanged(@ptrCast(self), @ptrCast(f), @intCast(style));
+        qtc.QsciLexer_FontChanged(@ptrCast(self), @ptrCast(f), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -788,7 +788,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, f: QtC.QFont, style: i32) callconv(.c) void `
     ///
     pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_FontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexer_Connect_FontChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -804,7 +804,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn PaperChanged(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        qtc.QsciLexer_PaperChanged(@ptrCast(self), @ptrCast(c), @intCast(style));
+        qtc.QsciLexer_PaperChanged(@ptrCast(self), @ptrCast(c), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -818,7 +818,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, c: QtC.QColor, style: i32) callconv(.c) void `
     ///
     pub fn OnPaperChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_PaperChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexer_Connect_PaperChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -850,7 +850,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, prop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPropertyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_PropertyChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexer_Connect_PropertyChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1018,7 +1018,7 @@ pub const qscilexerpov = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1032,7 +1032,7 @@ pub const qscilexerpov = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1046,7 +1046,7 @@ pub const qscilexerpov = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1060,7 +1060,7 @@ pub const qscilexerpov = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1390,7 +1390,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1445,7 +1445,7 @@ pub const qscilexerpov = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1461,7 +1461,7 @@ pub const qscilexerpov = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1483,7 +1483,7 @@ pub const qscilexerpov = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1503,7 +1503,7 @@ pub const qscilexerpov = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1525,7 +1525,7 @@ pub const qscilexerpov = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1622,7 +1622,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1666,7 +1666,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnLexerId(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerPOV_OnLexerId(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnLexerId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1714,7 +1714,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnAutoCompletionFillups(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerPOV_OnAutoCompletionFillups(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnAutoCompletionFillups(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1794,7 +1794,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
     pub fn OnAutoCompletionWordSeparators(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QsciLexerPOV_OnAutoCompletionWordSeparators(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnAutoCompletionWordSeparators(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1846,7 +1846,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, style: *i32) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnBlockEnd(self: ?*anyopaque, callback: *const fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerPOV_OnBlockEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnBlockEnd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1890,7 +1890,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnBlockLookback(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerPOV_OnBlockLookback(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnBlockLookback(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1942,7 +1942,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, style: *i32) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnBlockStart(self: ?*anyopaque, callback: *const fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerPOV_OnBlockStart(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnBlockStart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1994,7 +1994,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, style: *i32) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnBlockStartKeyword(self: ?*anyopaque, callback: *const fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerPOV_OnBlockStartKeyword(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnBlockStartKeyword(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2038,7 +2038,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnCaseSensitive(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QsciLexerPOV_OnCaseSensitive(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnCaseSensitive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2054,7 +2054,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn Color(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerPOV_Color(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_Color(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2070,7 +2070,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn QBaseColor(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerPOV_QBaseColor(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_QBaseColor(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2086,7 +2086,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, style: i32) callconv(.c) QtC.QColor `
     ///
     pub fn OnColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
-        qtc.QsciLexerPOV_OnColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2102,7 +2102,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn EolFill(self: ?*anyopaque, style: i32) bool {
-        return qtc.QsciLexerPOV_EolFill(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_EolFill(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2118,7 +2118,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn QBaseEolFill(self: ?*anyopaque, style: i32) bool {
-        return qtc.QsciLexerPOV_QBaseEolFill(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_QBaseEolFill(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2134,7 +2134,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, style: i32) callconv(.c) bool `
     ///
     pub fn OnEolFill(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QsciLexerPOV_OnEolFill(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnEolFill(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2150,7 +2150,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn Font(self: ?*anyopaque, style: i32) QtC.QFont {
-        return qtc.QsciLexerPOV_Font(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_Font(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2166,7 +2166,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn QBaseFont(self: ?*anyopaque, style: i32) QtC.QFont {
-        return qtc.QsciLexerPOV_QBaseFont(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_QBaseFont(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2182,7 +2182,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, style: i32) callconv(.c) QtC.QFont `
     ///
     pub fn OnFont(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QFont) void {
-        qtc.QsciLexerPOV_OnFont(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnFont(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2226,7 +2226,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnIndentationGuideView(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerPOV_OnIndentationGuideView(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnIndentationGuideView(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2270,7 +2270,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDefaultStyle(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerPOV_OnDefaultStyle(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnDefaultStyle(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2286,7 +2286,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn Paper(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerPOV_Paper(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_Paper(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2302,7 +2302,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn QBasePaper(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerPOV_QBasePaper(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_QBasePaper(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2318,7 +2318,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, style: i32) callconv(.c) QtC.QColor `
     ///
     pub fn OnPaper(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
-        qtc.QsciLexerPOV_OnPaper(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnPaper(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2334,7 +2334,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn DefaultColor2(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerPOV_DefaultColor2(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_DefaultColor2(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2350,7 +2350,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn QBaseDefaultColor2(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerPOV_QBaseDefaultColor2(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_QBaseDefaultColor2(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2366,7 +2366,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, style: i32) callconv(.c) QtC.QColor `
     ///
     pub fn OnDefaultColor2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
-        qtc.QsciLexerPOV_OnDefaultColor2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnDefaultColor2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2382,7 +2382,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn DefaultFont2(self: ?*anyopaque, style: i32) QtC.QFont {
-        return qtc.QsciLexerPOV_DefaultFont2(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_DefaultFont2(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2398,7 +2398,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn QBaseDefaultFont2(self: ?*anyopaque, style: i32) QtC.QFont {
-        return qtc.QsciLexerPOV_QBaseDefaultFont2(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_QBaseDefaultFont2(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2414,7 +2414,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, style: i32) callconv(.c) QtC.QFont `
     ///
     pub fn OnDefaultFont2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QFont) void {
-        qtc.QsciLexerPOV_OnDefaultFont2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnDefaultFont2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2430,7 +2430,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn DefaultPaper2(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerPOV_DefaultPaper2(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_DefaultPaper2(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2446,7 +2446,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn QBaseDefaultPaper2(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerPOV_QBaseDefaultPaper2(@ptrCast(self), @intCast(style));
+        return qtc.QsciLexerPOV_QBaseDefaultPaper2(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2462,7 +2462,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, style: i32) callconv(.c) QtC.QColor `
     ///
     pub fn OnDefaultPaper2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
-        qtc.QsciLexerPOV_OnDefaultPaper2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnDefaultPaper2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2510,7 +2510,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, editor: QtC.QsciScintilla) callconv(.c) void `
     ///
     pub fn OnSetEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerPOV_OnSetEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnSetEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2554,7 +2554,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnStyleBitsNeeded(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerPOV_OnStyleBitsNeeded(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnStyleBitsNeeded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2570,7 +2570,7 @@ pub const qscilexerpov = struct {
     /// ` autoindentstyle: i32 `
     ///
     pub fn SetAutoIndentStyle(self: ?*anyopaque, autoindentstyle: i32) void {
-        qtc.QsciLexerPOV_SetAutoIndentStyle(@ptrCast(self), @intCast(autoindentstyle));
+        qtc.QsciLexerPOV_SetAutoIndentStyle(@ptrCast(self), @bitCast(autoindentstyle));
     }
 
     /// Inherited from QsciLexer
@@ -2586,7 +2586,7 @@ pub const qscilexerpov = struct {
     /// ` autoindentstyle: i32 `
     ///
     pub fn QBaseSetAutoIndentStyle(self: ?*anyopaque, autoindentstyle: i32) void {
-        qtc.QsciLexerPOV_QBaseSetAutoIndentStyle(@ptrCast(self), @intCast(autoindentstyle));
+        qtc.QsciLexerPOV_QBaseSetAutoIndentStyle(@ptrCast(self), @bitCast(autoindentstyle));
     }
 
     /// Inherited from QsciLexer
@@ -2602,7 +2602,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, autoindentstyle: i32) callconv(.c) void `
     ///
     pub fn OnSetAutoIndentStyle(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexerPOV_OnSetAutoIndentStyle(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnSetAutoIndentStyle(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2620,7 +2620,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn SetColor(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerPOV_SetColor(@ptrCast(self), @ptrCast(c), @intCast(style));
+        qtc.QsciLexerPOV_SetColor(@ptrCast(self), @ptrCast(c), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2638,7 +2638,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn QBaseSetColor(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerPOV_QBaseSetColor(@ptrCast(self), @ptrCast(c), @intCast(style));
+        qtc.QsciLexerPOV_QBaseSetColor(@ptrCast(self), @ptrCast(c), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2654,7 +2654,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, c: QtC.QColor, style: i32) callconv(.c) void `
     ///
     pub fn OnSetColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexerPOV_OnSetColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnSetColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2672,7 +2672,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn SetEolFill(self: ?*anyopaque, eoffill: bool, style: i32) void {
-        qtc.QsciLexerPOV_SetEolFill(@ptrCast(self), eoffill, @intCast(style));
+        qtc.QsciLexerPOV_SetEolFill(@ptrCast(self), eoffill, @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2690,7 +2690,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn QBaseSetEolFill(self: ?*anyopaque, eoffill: bool, style: i32) void {
-        qtc.QsciLexerPOV_QBaseSetEolFill(@ptrCast(self), eoffill, @intCast(style));
+        qtc.QsciLexerPOV_QBaseSetEolFill(@ptrCast(self), eoffill, @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2706,7 +2706,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, eoffill: bool, style: i32) callconv(.c) void `
     ///
     pub fn OnSetEolFill(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32) callconv(.c) void) void {
-        qtc.QsciLexerPOV_OnSetEolFill(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnSetEolFill(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2724,7 +2724,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn SetFont(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerPOV_SetFont(@ptrCast(self), @ptrCast(f), @intCast(style));
+        qtc.QsciLexerPOV_SetFont(@ptrCast(self), @ptrCast(f), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2742,7 +2742,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn QBaseSetFont(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerPOV_QBaseSetFont(@ptrCast(self), @ptrCast(f), @intCast(style));
+        qtc.QsciLexerPOV_QBaseSetFont(@ptrCast(self), @ptrCast(f), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2758,7 +2758,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, f: QtC.QFont, style: i32) callconv(.c) void `
     ///
     pub fn OnSetFont(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexerPOV_OnSetFont(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnSetFont(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2776,7 +2776,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn SetPaper(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerPOV_SetPaper(@ptrCast(self), @ptrCast(c), @intCast(style));
+        qtc.QsciLexerPOV_SetPaper(@ptrCast(self), @ptrCast(c), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2794,7 +2794,7 @@ pub const qscilexerpov = struct {
     /// ` style: i32 `
     ///
     pub fn QBaseSetPaper(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerPOV_QBaseSetPaper(@ptrCast(self), @ptrCast(c), @intCast(style));
+        qtc.QsciLexerPOV_QBaseSetPaper(@ptrCast(self), @ptrCast(c), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2810,7 +2810,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, c: QtC.QColor, style: i32) callconv(.c) void `
     ///
     pub fn OnSetPaper(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexerPOV_OnSetPaper(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnSetPaper(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2858,7 +2858,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciLexerPOV_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2910,7 +2910,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciLexerPOV_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2958,7 +2958,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerPOV_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3006,7 +3006,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerPOV_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3054,7 +3054,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerPOV_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3102,7 +3102,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerPOV_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3150,7 +3150,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerPOV_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -3220,7 +3220,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, text: [*:0]const u8) callconv(.c) [*:0]u8 `
     ///
     pub fn OnTextAsBytes(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]u8) void {
-        qtc.QsciLexerPOV_OnTextAsBytes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnTextAsBytes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -3241,7 +3241,7 @@ pub const qscilexerpov = struct {
     ///
     pub fn BytesAsText(self: ?*anyopaque, bytes: [:0]const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
         const bytes_Cstring = bytes.ptr;
-        var _str = qtc.QsciLexerPOV_BytesAsText(@ptrCast(self), bytes_Cstring, @intCast(size));
+        var _str = qtc.QsciLexerPOV_BytesAsText(@ptrCast(self), bytes_Cstring, @bitCast(size));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexerpov.BytesAsText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3266,7 +3266,7 @@ pub const qscilexerpov = struct {
     ///
     pub fn QBaseBytesAsText(self: ?*anyopaque, bytes: [:0]const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
         const bytes_Cstring = bytes.ptr;
-        var _str = qtc.QsciLexerPOV_QBaseBytesAsText(@ptrCast(self), bytes_Cstring, @intCast(size));
+        var _str = qtc.QsciLexerPOV_QBaseBytesAsText(@ptrCast(self), bytes_Cstring, @bitCast(size));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexerpov.BytesAsText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3288,7 +3288,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnBytesAsText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerPOV_OnBytesAsText(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnBytesAsText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3332,7 +3332,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QsciLexerPOV_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3376,7 +3376,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerPOV_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3426,7 +3426,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QsciLexerPOV_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3474,7 +3474,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciLexerPOV_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QsciLexerPOV_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3490,7 +3490,7 @@ pub const qscilexerpov = struct {
     /// ` callback: *const fn (self: QtC.QsciLexerPOV, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)

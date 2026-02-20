@@ -90,7 +90,7 @@ pub const qdatastream = struct {
     /// ` status: qdatastream_enums.Status `
     ///
     pub fn SetStatus(self: ?*anyopaque, status: i32) void {
-        qtc.QDataStream_SetStatus(@ptrCast(self), @intCast(status));
+        qtc.QDataStream_SetStatus(@ptrCast(self), @bitCast(status));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#resetStatus)
@@ -126,7 +126,7 @@ pub const qdatastream = struct {
     /// ` precision: qdatastream_enums.FloatingPointPrecision `
     ///
     pub fn SetFloatingPointPrecision(self: ?*anyopaque, precision: i32) void {
-        qtc.QDataStream_SetFloatingPointPrecision(@ptrCast(self), @intCast(precision));
+        qtc.QDataStream_SetFloatingPointPrecision(@ptrCast(self), @bitCast(precision));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#byteOrder)
@@ -152,7 +152,7 @@ pub const qdatastream = struct {
     /// ` byteOrder: qdatastream_enums.ByteOrder `
     ///
     pub fn SetByteOrder(self: ?*anyopaque, byteOrder: i32) void {
-        qtc.QDataStream_SetByteOrder(@ptrCast(self), @intCast(byteOrder));
+        qtc.QDataStream_SetByteOrder(@ptrCast(self), @bitCast(byteOrder));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#version)
@@ -174,7 +174,7 @@ pub const qdatastream = struct {
     /// ` version: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QDataStream_SetVersion(@ptrCast(self), @intCast(version));
+        qtc.QDataStream_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
@@ -343,7 +343,7 @@ pub const qdatastream = struct {
     /// ` i: u8 `
     ///
     pub fn OperatorShiftLeft(self: ?*anyopaque, i: u8) void {
-        qtc.QDataStream_OperatorShiftLeft(@ptrCast(self), @intCast(i));
+        qtc.QDataStream_OperatorShiftLeft(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
@@ -355,7 +355,7 @@ pub const qdatastream = struct {
     /// ` i: i8 `
     ///
     pub fn OperatorShiftLeft2(self: ?*anyopaque, i: i8) void {
-        qtc.QDataStream_OperatorShiftLeft2(@ptrCast(self), @intCast(i));
+        qtc.QDataStream_OperatorShiftLeft2(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
@@ -367,7 +367,7 @@ pub const qdatastream = struct {
     /// ` i: u8 `
     ///
     pub fn OperatorShiftLeft3(self: ?*anyopaque, i: u8) void {
-        qtc.QDataStream_OperatorShiftLeft3(@ptrCast(self), @intCast(i));
+        qtc.QDataStream_OperatorShiftLeft3(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
@@ -379,7 +379,7 @@ pub const qdatastream = struct {
     /// ` i: i16 `
     ///
     pub fn OperatorShiftLeft4(self: ?*anyopaque, i: i16) void {
-        qtc.QDataStream_OperatorShiftLeft4(@ptrCast(self), @intCast(i));
+        qtc.QDataStream_OperatorShiftLeft4(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
@@ -391,7 +391,7 @@ pub const qdatastream = struct {
     /// ` i: u16 `
     ///
     pub fn OperatorShiftLeft5(self: ?*anyopaque, i: u16) void {
-        qtc.QDataStream_OperatorShiftLeft5(@ptrCast(self), @intCast(i));
+        qtc.QDataStream_OperatorShiftLeft5(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
@@ -403,7 +403,7 @@ pub const qdatastream = struct {
     /// ` i: i32 `
     ///
     pub fn OperatorShiftLeft6(self: ?*anyopaque, i: i32) void {
-        qtc.QDataStream_OperatorShiftLeft6(@ptrCast(self), @intCast(i));
+        qtc.QDataStream_OperatorShiftLeft6(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
@@ -415,7 +415,7 @@ pub const qdatastream = struct {
     /// ` i: u32 `
     ///
     pub fn OperatorShiftLeft7(self: ?*anyopaque, i: u32) void {
-        qtc.QDataStream_OperatorShiftLeft7(@ptrCast(self), @intCast(i));
+        qtc.QDataStream_OperatorShiftLeft7(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
@@ -427,7 +427,7 @@ pub const qdatastream = struct {
     /// ` i: i64 `
     ///
     pub fn OperatorShiftLeft8(self: ?*anyopaque, i: i64) void {
-        qtc.QDataStream_OperatorShiftLeft8(@ptrCast(self), @intCast(i));
+        qtc.QDataStream_OperatorShiftLeft8(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
@@ -439,7 +439,7 @@ pub const qdatastream = struct {
     /// ` i: u64 `
     ///
     pub fn OperatorShiftLeft9(self: ?*anyopaque, i: u64) void {
-        qtc.QDataStream_OperatorShiftLeft9(@ptrCast(self), @intCast(i));
+        qtc.QDataStream_OperatorShiftLeft9(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
@@ -451,7 +451,7 @@ pub const qdatastream = struct {
     /// ` f: f32 `
     ///
     pub fn OperatorShiftLeft11(self: ?*anyopaque, f: f32) void {
-        qtc.QDataStream_OperatorShiftLeft11(@ptrCast(self), @floatCast(f));
+        qtc.QDataStream_OperatorShiftLeft11(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
@@ -463,7 +463,7 @@ pub const qdatastream = struct {
     /// ` f: f64 `
     ///
     pub fn OperatorShiftLeft12(self: ?*anyopaque, f: f64) void {
-        qtc.QDataStream_OperatorShiftLeft12(@ptrCast(self), @floatCast(f));
+        qtc.QDataStream_OperatorShiftLeft12(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
@@ -521,7 +521,7 @@ pub const qdatastream = struct {
     ///
     pub fn ReadRawData(self: ?*anyopaque, param1: [:0]u8, lenVal: i64) i64 {
         const param1_Cstring = param1.ptr;
-        return qtc.QDataStream_ReadRawData(@ptrCast(self), param1_Cstring, @intCast(lenVal));
+        return qtc.QDataStream_ReadRawData(@ptrCast(self), param1_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#writeBytes)
@@ -536,7 +536,7 @@ pub const qdatastream = struct {
     ///
     pub fn WriteBytes(self: ?*anyopaque, param1: [:0]const u8, lenVal: i64) void {
         const param1_Cstring = param1.ptr;
-        qtc.QDataStream_WriteBytes(@ptrCast(self), param1_Cstring, @intCast(lenVal));
+        qtc.QDataStream_WriteBytes(@ptrCast(self), param1_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#writeRawData)
@@ -551,7 +551,7 @@ pub const qdatastream = struct {
     ///
     pub fn WriteRawData(self: ?*anyopaque, param1: [:0]const u8, lenVal: i64) i64 {
         const param1_Cstring = param1.ptr;
-        return qtc.QDataStream_WriteRawData(@ptrCast(self), param1_Cstring, @intCast(lenVal));
+        return qtc.QDataStream_WriteRawData(@ptrCast(self), param1_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#skipRawData)
@@ -563,7 +563,7 @@ pub const qdatastream = struct {
     /// ` lenVal: i64 `
     ///
     pub fn SkipRawData(self: ?*anyopaque, lenVal: i64) i64 {
-        return qtc.QDataStream_SkipRawData(@ptrCast(self), @intCast(lenVal));
+        return qtc.QDataStream_SkipRawData(@ptrCast(self), @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#startTransaction)

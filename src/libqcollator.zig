@@ -160,7 +160,7 @@ pub const qcollator = struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn SetCaseSensitivity(self: ?*anyopaque, cs: i32) void {
-        qtc.QCollator_SetCaseSensitivity(@ptrCast(self), @intCast(cs));
+        qtc.QCollator_SetCaseSensitivity(@ptrCast(self), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#setNumericMode)
@@ -244,7 +244,7 @@ pub const qcollator = struct {
     /// ` len2: i64 `
     ///
     pub fn Compare2(self: ?*anyopaque, s1: ?*anyopaque, len1: i64, s2: ?*anyopaque, len2: i64) i32 {
-        return qtc.QCollator_Compare2(@ptrCast(self), @ptrCast(s1), @intCast(len1), @ptrCast(s2), @intCast(len2));
+        return qtc.QCollator_Compare2(@ptrCast(self), @ptrCast(s1), @bitCast(len1), @ptrCast(s2), @bitCast(len2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#operator-28-29)

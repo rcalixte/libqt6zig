@@ -40,7 +40,7 @@ pub const qsizepolicy = struct {
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
     pub fn New4(horizontal: i32, vertical: i32) QtC.QSizePolicy {
-        return qtc.QSizePolicy_new4(@intCast(horizontal), @intCast(vertical));
+        return qtc.QSizePolicy_new4(@bitCast(horizontal), @bitCast(vertical));
     }
 
     /// New5 constructs a new QSizePolicy object.
@@ -64,7 +64,7 @@ pub const qsizepolicy = struct {
     /// ` typeVal: qsizepolicy_enums.ControlType `
     ///
     pub fn New6(horizontal: i32, vertical: i32, typeVal: i32) QtC.QSizePolicy {
-        return qtc.QSizePolicy_new6(@intCast(horizontal), @intCast(vertical), @intCast(typeVal));
+        return qtc.QSizePolicy_new6(@bitCast(horizontal), @bitCast(vertical), @bitCast(typeVal));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -142,7 +142,7 @@ pub const qsizepolicy = struct {
     /// ` d: qsizepolicy_enums.Policy `
     ///
     pub fn SetHorizontalPolicy(self: ?*anyopaque, d: i32) void {
-        qtc.QSizePolicy_SetHorizontalPolicy(@ptrCast(self), @intCast(d));
+        qtc.QSizePolicy_SetHorizontalPolicy(@ptrCast(self), @bitCast(d));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#setVerticalPolicy)
@@ -154,7 +154,7 @@ pub const qsizepolicy = struct {
     /// ` d: qsizepolicy_enums.Policy `
     ///
     pub fn SetVerticalPolicy(self: ?*anyopaque, d: i32) void {
-        qtc.QSizePolicy_SetVerticalPolicy(@ptrCast(self), @intCast(d));
+        qtc.QSizePolicy_SetVerticalPolicy(@ptrCast(self), @bitCast(d));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#setControlType)
@@ -166,7 +166,7 @@ pub const qsizepolicy = struct {
     /// ` typeVal: qsizepolicy_enums.ControlType `
     ///
     pub fn SetControlType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QSizePolicy_SetControlType(@ptrCast(self), @intCast(typeVal));
+        qtc.QSizePolicy_SetControlType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#expandingDirections)
@@ -290,7 +290,7 @@ pub const qsizepolicy = struct {
     /// ` stretchFactor: i32 `
     ///
     pub fn SetHorizontalStretch(self: ?*anyopaque, stretchFactor: i32) void {
-        qtc.QSizePolicy_SetHorizontalStretch(@ptrCast(self), @intCast(stretchFactor));
+        qtc.QSizePolicy_SetHorizontalStretch(@ptrCast(self), @bitCast(stretchFactor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#setVerticalStretch)
@@ -302,7 +302,7 @@ pub const qsizepolicy = struct {
     /// ` stretchFactor: i32 `
     ///
     pub fn SetVerticalStretch(self: ?*anyopaque, stretchFactor: i32) void {
-        qtc.QSizePolicy_SetVerticalStretch(@ptrCast(self), @intCast(stretchFactor));
+        qtc.QSizePolicy_SetVerticalStretch(@ptrCast(self), @bitCast(stretchFactor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#retainSizeWhenHidden)

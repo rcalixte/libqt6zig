@@ -36,7 +36,7 @@ pub const qsqlfield = struct {
             .data = fieldName.ptr,
         };
 
-        return qtc.QSqlField_new3(fieldName_str, @intCast(typeVal));
+        return qtc.QSqlField_new3(fieldName_str, @bitCast(typeVal));
     }
 
     /// New4 constructs a new QSqlField object.
@@ -114,7 +114,7 @@ pub const qsqlfield = struct {
             .data = tableName.ptr,
         };
 
-        return qtc.QSqlField_new7(fieldName_str, @intCast(typeVal), tableName_str);
+        return qtc.QSqlField_new7(fieldName_str, @bitCast(typeVal), tableName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#operator-eq)
@@ -348,7 +348,7 @@ pub const qsqlfield = struct {
     /// ` typeVal: qvariant_enums.Type `
     ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QSqlField_SetType(@ptrCast(self), @intCast(typeVal));
+        qtc.QSqlField_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setRequiredStatus)
@@ -360,7 +360,7 @@ pub const qsqlfield = struct {
     /// ` status: qsqlfield_enums.RequiredStatus `
     ///
     pub fn SetRequiredStatus(self: ?*anyopaque, status: i32) void {
-        qtc.QSqlField_SetRequiredStatus(@ptrCast(self), @intCast(status));
+        qtc.QSqlField_SetRequiredStatus(@ptrCast(self), @bitCast(status));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setRequired)
@@ -384,7 +384,7 @@ pub const qsqlfield = struct {
     /// ` fieldLength: i32 `
     ///
     pub fn SetLength(self: ?*anyopaque, fieldLength: i32) void {
-        qtc.QSqlField_SetLength(@ptrCast(self), @intCast(fieldLength));
+        qtc.QSqlField_SetLength(@ptrCast(self), @bitCast(fieldLength));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setPrecision)
@@ -396,7 +396,7 @@ pub const qsqlfield = struct {
     /// ` precision: i32 `
     ///
     pub fn SetPrecision(self: ?*anyopaque, precision: i32) void {
-        qtc.QSqlField_SetPrecision(@ptrCast(self), @intCast(precision));
+        qtc.QSqlField_SetPrecision(@ptrCast(self), @bitCast(precision));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setDefaultValue)
@@ -420,7 +420,7 @@ pub const qsqlfield = struct {
     /// ` typeVal: i32 `
     ///
     pub fn SetSqlType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QSqlField_SetSqlType(@ptrCast(self), @intCast(typeVal));
+        qtc.QSqlField_SetSqlType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setGenerated)

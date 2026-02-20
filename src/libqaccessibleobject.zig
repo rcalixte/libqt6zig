@@ -37,7 +37,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsValid(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAccessibleObject_OnIsValid(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnIsValid(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#isValid)
@@ -73,7 +73,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QAccessibleObject_OnObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
@@ -109,7 +109,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRect `
     ///
     pub fn OnRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
-        qtc.QAccessibleObject_OnRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#rect)
@@ -139,7 +139,7 @@ pub const qaccessibleobject = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QAccessibleObject_SetText(@ptrCast(self), @intCast(t), text_str);
+        qtc.QAccessibleObject_SetText(@ptrCast(self), @bitCast(t), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
@@ -153,7 +153,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn (self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetText(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAccessibleObject_OnSetText(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnSetText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
@@ -173,7 +173,7 @@ pub const qaccessibleobject = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QAccessibleObject_QBaseSetText(@ptrCast(self), @intCast(t), text_str);
+        qtc.QAccessibleObject_QBaseSetText(@ptrCast(self), @bitCast(t), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
@@ -187,7 +187,7 @@ pub const qaccessibleobject = struct {
     /// ` y: i32 `
     ///
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QAccessibleInterface {
-        return qtc.QAccessibleObject_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
+        return qtc.QAccessibleObject_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
@@ -201,7 +201,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn (self: QtC.QAccessibleObject, x: i32, y: i32) callconv(.c) QtC.QAccessibleInterface `
     ///
     pub fn OnChildAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleObject_OnChildAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnChildAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
@@ -217,7 +217,7 @@ pub const qaccessibleobject = struct {
     /// ` y: i32 `
     ///
     pub fn QBaseChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QAccessibleInterface {
-        return qtc.QAccessibleObject_QBaseChildAt(@ptrCast(self), @intCast(x), @intCast(y));
+        return qtc.QAccessibleObject_QBaseChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QAccessibleInterface
@@ -381,7 +381,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QWindow `
     ///
     pub fn OnWindow(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWindow) void {
-        qtc.QAccessibleObject_OnWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -399,7 +399,7 @@ pub const qaccessibleobject = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Relations(self: ?*anyopaque, match: i32, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i32 {
-        const _arr: qtc.libqt_list = qtc.QAccessibleObject_Relations(@ptrCast(self), @intCast(match));
+        const _arr: qtc.libqt_list = qtc.QAccessibleObject_Relations(@ptrCast(self), @bitCast(match));
         const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleobject.Relations: Memory allocation failed");
@@ -422,7 +422,7 @@ pub const qaccessibleobject = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseRelations(self: ?*anyopaque, match: i32, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i32 {
-        const _arr: qtc.libqt_list = qtc.QAccessibleObject_QBaseRelations(@ptrCast(self), @intCast(match));
+        const _arr: qtc.libqt_list = qtc.QAccessibleObject_QBaseRelations(@ptrCast(self), @bitCast(match));
         const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleobject.Relations: Memory allocation failed");
@@ -449,7 +449,7 @@ pub const qaccessibleobject = struct {
     /// ` C ABI representation of []struct_qtcqaccessibleinterface_i32 `
     ///
     pub fn OnRelations(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.QAccessibleObject_OnRelations(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnRelations(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -493,7 +493,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QAccessibleInterface `
     ///
     pub fn OnFocusChild(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleObject_OnFocusChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnFocusChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -537,7 +537,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QAccessibleInterface `
     ///
     pub fn OnParent(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleObject_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -553,7 +553,7 @@ pub const qaccessibleobject = struct {
     /// ` index: i32 `
     ///
     pub fn Child(self: ?*anyopaque, index: i32) QtC.QAccessibleInterface {
-        return qtc.QAccessibleObject_Child(@ptrCast(self), @intCast(index));
+        return qtc.QAccessibleObject_Child(@ptrCast(self), @bitCast(index));
     }
 
     /// Inherited from QAccessibleInterface
@@ -569,7 +569,7 @@ pub const qaccessibleobject = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseChild(self: ?*anyopaque, index: i32) QtC.QAccessibleInterface {
-        return qtc.QAccessibleObject_QBaseChild(@ptrCast(self), @intCast(index));
+        return qtc.QAccessibleObject_QBaseChild(@ptrCast(self), @bitCast(index));
     }
 
     /// Inherited from QAccessibleInterface
@@ -585,7 +585,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn (self: QtC.QAccessibleObject, index: i32) callconv(.c) QtC.QAccessibleInterface `
     ///
     pub fn OnChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleObject_OnChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -629,7 +629,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnChildCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAccessibleObject_OnChildCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnChildCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -677,7 +677,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn (self: QtC.QAccessibleObject, param1: QtC.QAccessibleInterface) callconv(.c) i32 `
     ///
     pub fn OnIndexOfChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAccessibleObject_OnIndexOfChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnIndexOfChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -695,7 +695,7 @@ pub const qaccessibleobject = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAccessibleObject_Text(@ptrCast(self), @intCast(t));
+        var _str = qtc.QAccessibleObject_Text(@ptrCast(self), @bitCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleobject.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -717,7 +717,7 @@ pub const qaccessibleobject = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseText(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAccessibleObject_QBaseText(@ptrCast(self), @intCast(t));
+        var _str = qtc.QAccessibleObject_QBaseText(@ptrCast(self), @bitCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleobject.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -739,7 +739,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn (self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnText(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QAccessibleObject_OnText(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -791,7 +791,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnRole(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAccessibleObject_OnRole(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnRole(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -835,7 +835,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QAccessible__State `
     ///
     pub fn OnState(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessible__State) void {
-        qtc.QAccessibleObject_OnState(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -879,7 +879,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QColor `
     ///
     pub fn OnForegroundColor(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QColor) void {
-        qtc.QAccessibleObject_OnForegroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnForegroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -923,7 +923,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QColor `
     ///
     pub fn OnBackgroundColor(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QColor) void {
-        qtc.QAccessibleObject_OnBackgroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnBackgroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -941,7 +941,7 @@ pub const qaccessibleobject = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QAccessibleObject_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.QAccessibleObject_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface
@@ -959,7 +959,7 @@ pub const qaccessibleobject = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QAccessibleObject_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.QAccessibleObject_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface
@@ -975,7 +975,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn (self: QtC.QAccessibleObject, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAccessibleObject_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -991,7 +991,7 @@ pub const qaccessibleobject = struct {
     /// ` param1: qaccessible_base_enums.InterfaceType `
     ///
     pub fn InterfaceCast(self: ?*anyopaque, param1: i32) ?*anyopaque {
-        return qtc.QAccessibleObject_InterfaceCast(@ptrCast(self), @intCast(param1));
+        return qtc.QAccessibleObject_InterfaceCast(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1007,7 +1007,7 @@ pub const qaccessibleobject = struct {
     /// ` param1: qaccessible_base_enums.InterfaceType `
     ///
     pub fn QBaseInterfaceCast(self: ?*anyopaque, param1: i32) ?*anyopaque {
-        return qtc.QAccessibleObject_QBaseInterfaceCast(@ptrCast(self), @intCast(param1));
+        return qtc.QAccessibleObject_QBaseInterfaceCast(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1023,7 +1023,7 @@ pub const qaccessibleobject = struct {
     /// ` callback: *const fn (self: QtC.QAccessibleObject, param1: qaccessible_base_enums.InterfaceType) callconv(.c) ?*anyopaque `
     ///
     pub fn OnInterfaceCast(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) ?*anyopaque) void {
-        qtc.QAccessibleObject_OnInterfaceCast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleObject_OnInterfaceCast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 };
 
@@ -1056,7 +1056,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QWindow `
     ///
     pub fn OnWindow(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWindow) void {
-        qtc.QAccessibleApplication_OnWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#window)
@@ -1092,7 +1092,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnChildCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAccessibleApplication_OnChildCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnChildCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#childCount)
@@ -1130,7 +1130,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn (self: QtC.QAccessibleApplication, param1: QtC.QAccessibleInterface) callconv(.c) i32 `
     ///
     pub fn OnIndexOfChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAccessibleApplication_OnIndexOfChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnIndexOfChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#indexOfChild)
@@ -1168,7 +1168,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QAccessibleInterface `
     ///
     pub fn OnFocusChild(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleApplication_OnFocusChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnFocusChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#focusChild)
@@ -1204,7 +1204,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QAccessibleInterface `
     ///
     pub fn OnParent(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleApplication_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#parent)
@@ -1228,7 +1228,7 @@ pub const qaccessibleapplication = struct {
     /// ` index: i32 `
     ///
     pub fn Child(self: ?*anyopaque, index: i32) QtC.QAccessibleInterface {
-        return qtc.QAccessibleApplication_Child(@ptrCast(self), @intCast(index));
+        return qtc.QAccessibleApplication_Child(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#child)
@@ -1242,7 +1242,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn (self: QtC.QAccessibleApplication, index: i32) callconv(.c) QtC.QAccessibleInterface `
     ///
     pub fn OnChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleApplication_OnChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#child)
@@ -1256,7 +1256,7 @@ pub const qaccessibleapplication = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseChild(self: ?*anyopaque, index: i32) QtC.QAccessibleInterface {
-        return qtc.QAccessibleApplication_QBaseChild(@ptrCast(self), @intCast(index));
+        return qtc.QAccessibleApplication_QBaseChild(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#text)
@@ -1270,7 +1270,7 @@ pub const qaccessibleapplication = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Text(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAccessibleApplication_Text(@ptrCast(self), @intCast(t));
+        var _str = qtc.QAccessibleApplication_Text(@ptrCast(self), @bitCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleapplication.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1290,7 +1290,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn (self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnText(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QAccessibleApplication_OnText(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#text)
@@ -1306,7 +1306,7 @@ pub const qaccessibleapplication = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseText(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAccessibleApplication_QBaseText(@ptrCast(self), @intCast(t));
+        var _str = qtc.QAccessibleApplication_QBaseText(@ptrCast(self), @bitCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleapplication.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1338,7 +1338,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnRole(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAccessibleApplication_OnRole(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnRole(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#role)
@@ -1378,7 +1378,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QAccessible__State `
     ///
     pub fn OnState(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessible__State) void {
-        qtc.QAccessibleApplication_OnState(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#state)
@@ -1554,7 +1554,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsValid(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAccessibleApplication_OnIsValid(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnIsValid(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleObject
@@ -1598,7 +1598,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QAccessibleApplication_OnObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleObject
@@ -1642,7 +1642,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRect `
     ///
     pub fn OnRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
-        qtc.QAccessibleApplication_OnRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleObject
@@ -1664,7 +1664,7 @@ pub const qaccessibleapplication = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QAccessibleApplication_SetText(@ptrCast(self), @intCast(t), text_str);
+        qtc.QAccessibleApplication_SetText(@ptrCast(self), @bitCast(t), text_str);
     }
 
     /// Inherited from QAccessibleObject
@@ -1686,7 +1686,7 @@ pub const qaccessibleapplication = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QAccessibleApplication_QBaseSetText(@ptrCast(self), @intCast(t), text_str);
+        qtc.QAccessibleApplication_QBaseSetText(@ptrCast(self), @bitCast(t), text_str);
     }
 
     /// Inherited from QAccessibleObject
@@ -1702,7 +1702,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn (self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetText(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAccessibleApplication_OnSetText(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnSetText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleObject
@@ -1720,7 +1720,7 @@ pub const qaccessibleapplication = struct {
     /// ` y: i32 `
     ///
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QAccessibleInterface {
-        return qtc.QAccessibleApplication_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
+        return qtc.QAccessibleApplication_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QAccessibleObject
@@ -1738,7 +1738,7 @@ pub const qaccessibleapplication = struct {
     /// ` y: i32 `
     ///
     pub fn QBaseChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QAccessibleInterface {
-        return qtc.QAccessibleApplication_QBaseChildAt(@ptrCast(self), @intCast(x), @intCast(y));
+        return qtc.QAccessibleApplication_QBaseChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QAccessibleObject
@@ -1754,7 +1754,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn (self: QtC.QAccessibleApplication, x: i32, y: i32) callconv(.c) QtC.QAccessibleInterface `
     ///
     pub fn OnChildAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleApplication_OnChildAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnChildAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1772,7 +1772,7 @@ pub const qaccessibleapplication = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Relations(self: ?*anyopaque, match: i32, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i32 {
-        const _arr: qtc.libqt_list = qtc.QAccessibleApplication_Relations(@ptrCast(self), @intCast(match));
+        const _arr: qtc.libqt_list = qtc.QAccessibleApplication_Relations(@ptrCast(self), @bitCast(match));
         const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleapplication.Relations: Memory allocation failed");
@@ -1795,7 +1795,7 @@ pub const qaccessibleapplication = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseRelations(self: ?*anyopaque, match: i32, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i32 {
-        const _arr: qtc.libqt_list = qtc.QAccessibleApplication_QBaseRelations(@ptrCast(self), @intCast(match));
+        const _arr: qtc.libqt_list = qtc.QAccessibleApplication_QBaseRelations(@ptrCast(self), @bitCast(match));
         const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleapplication.Relations: Memory allocation failed");
@@ -1822,7 +1822,7 @@ pub const qaccessibleapplication = struct {
     /// ` C ABI representation of []struct_qtcqaccessibleinterface_i32 `
     ///
     pub fn OnRelations(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.QAccessibleApplication_OnRelations(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnRelations(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1866,7 +1866,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QColor `
     ///
     pub fn OnForegroundColor(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QColor) void {
-        qtc.QAccessibleApplication_OnForegroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnForegroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1910,7 +1910,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QColor `
     ///
     pub fn OnBackgroundColor(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QColor) void {
-        qtc.QAccessibleApplication_OnBackgroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnBackgroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1928,7 +1928,7 @@ pub const qaccessibleapplication = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QAccessibleApplication_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.QAccessibleApplication_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1946,7 +1946,7 @@ pub const qaccessibleapplication = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QAccessibleApplication_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.QAccessibleApplication_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1962,7 +1962,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn (self: QtC.QAccessibleApplication, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAccessibleApplication_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1978,7 +1978,7 @@ pub const qaccessibleapplication = struct {
     /// ` param1: qaccessible_base_enums.InterfaceType `
     ///
     pub fn InterfaceCast(self: ?*anyopaque, param1: i32) ?*anyopaque {
-        return qtc.QAccessibleApplication_InterfaceCast(@ptrCast(self), @intCast(param1));
+        return qtc.QAccessibleApplication_InterfaceCast(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1994,7 +1994,7 @@ pub const qaccessibleapplication = struct {
     /// ` param1: qaccessible_base_enums.InterfaceType `
     ///
     pub fn QBaseInterfaceCast(self: ?*anyopaque, param1: i32) ?*anyopaque {
-        return qtc.QAccessibleApplication_QBaseInterfaceCast(@ptrCast(self), @intCast(param1));
+        return qtc.QAccessibleApplication_QBaseInterfaceCast(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QAccessibleInterface
@@ -2010,7 +2010,7 @@ pub const qaccessibleapplication = struct {
     /// ` callback: *const fn (self: QtC.QAccessibleApplication, param1: qaccessible_base_enums.InterfaceType) callconv(.c) ?*anyopaque `
     ///
     pub fn OnInterfaceCast(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) ?*anyopaque) void {
-        qtc.QAccessibleApplication_OnInterfaceCast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAccessibleApplication_OnInterfaceCast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleapplication.html#dtor.QAccessibleApplication)

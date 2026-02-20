@@ -155,7 +155,7 @@ pub const kremoteencoding = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KRemoteEncoding_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KRemoteEncoding_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kremoteencoding.html#virtual_hook)
@@ -169,7 +169,7 @@ pub const kremoteencoding = struct {
     /// ` callback: *const fn (self: QtC.KRemoteEncoding, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRemoteEncoding_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KRemoteEncoding_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kremoteencoding.html#virtual_hook)
@@ -185,7 +185,7 @@ pub const kremoteencoding = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KRemoteEncoding_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KRemoteEncoding_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kremoteencoding.html#directory)

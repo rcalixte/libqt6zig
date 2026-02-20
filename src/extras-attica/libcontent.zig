@@ -106,7 +106,7 @@ pub const attica__content = struct {
     /// ` rating: i32 `
     ///
     pub fn SetRating(self: ?*anyopaque, rating: i32) void {
-        qtc.Attica__Content_SetRating(@ptrCast(self), @intCast(rating));
+        qtc.Attica__Content_SetRating(@ptrCast(self), @bitCast(rating));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-content.html#rating)
@@ -128,7 +128,7 @@ pub const attica__content = struct {
     /// ` downloads: i32 `
     ///
     pub fn SetDownloads(self: ?*anyopaque, downloads: i32) void {
-        qtc.Attica__Content_SetDownloads(@ptrCast(self), @intCast(downloads));
+        qtc.Attica__Content_SetDownloads(@ptrCast(self), @bitCast(downloads));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-content.html#downloads)
@@ -150,7 +150,7 @@ pub const attica__content = struct {
     /// ` numComments: i32 `
     ///
     pub fn SetNumberOfComments(self: ?*anyopaque, numComments: i32) void {
-        qtc.Attica__Content_SetNumberOfComments(@ptrCast(self), @intCast(numComments));
+        qtc.Attica__Content_SetNumberOfComments(@ptrCast(self), @bitCast(numComments));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-content.html#numberOfComments)
@@ -306,7 +306,7 @@ pub const attica__content = struct {
     /// ` number: i32 `
     ///
     pub fn DownloadUrlDescription(self: ?*anyopaque, number: i32) QtC.Attica__DownloadDescription {
-        return qtc.Attica__Content_DownloadUrlDescription(@ptrCast(self), @intCast(number));
+        return qtc.Attica__Content_DownloadUrlDescription(@ptrCast(self), @bitCast(number));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-content.html#downloadUrlDescriptions)
@@ -335,7 +335,7 @@ pub const attica__content = struct {
     /// ` number: i32 `
     ///
     pub fn HomePageEntry(self: ?*anyopaque, number: i32) QtC.Attica__HomePageEntry {
-        return qtc.Attica__Content_HomePageEntry(@ptrCast(self), @intCast(number));
+        return qtc.Attica__Content_HomePageEntry(@ptrCast(self), @bitCast(number));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-content.html#homePageEntries)

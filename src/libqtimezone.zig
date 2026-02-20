@@ -20,7 +20,7 @@ pub const qtimezone = struct {
     /// ` spec: qtimezone_enums.Initialization `
     ///
     pub fn New2(spec: i32) QtC.QTimeZone {
-        return qtc.QTimeZone_new2(@intCast(spec));
+        return qtc.QTimeZone_new2(@bitCast(spec));
     }
 
     /// New3 constructs a new QTimeZone object.
@@ -30,7 +30,7 @@ pub const qtimezone = struct {
     /// ` offsetSeconds: i32 `
     ///
     pub fn New3(offsetSeconds: i32) QtC.QTimeZone {
-        return qtc.QTimeZone_new3(@intCast(offsetSeconds));
+        return qtc.QTimeZone_new3(@bitCast(offsetSeconds));
     }
 
     /// New4 constructs a new QTimeZone object.
@@ -74,7 +74,7 @@ pub const qtimezone = struct {
             .data = abbreviation.ptr,
         };
 
-        return qtc.QTimeZone_new5(zoneId_str, @intCast(offsetSeconds), name_str, abbreviation_str);
+        return qtc.QTimeZone_new5(zoneId_str, @bitCast(offsetSeconds), name_str, abbreviation_str);
     }
 
     /// New6 constructs a new QTimeZone object.
@@ -115,7 +115,7 @@ pub const qtimezone = struct {
             .data = abbreviation.ptr,
         };
 
-        return qtc.QTimeZone_new7(zoneId_str, @intCast(offsetSeconds), name_str, abbreviation_str, @intCast(territory));
+        return qtc.QTimeZone_new7(zoneId_str, @bitCast(offsetSeconds), name_str, abbreviation_str, @bitCast(territory));
     }
 
     /// New8 constructs a new QTimeZone object.
@@ -152,7 +152,7 @@ pub const qtimezone = struct {
             .data = comment.ptr,
         };
 
-        return qtc.QTimeZone_new8(zoneId_str, @intCast(offsetSeconds), name_str, abbreviation_str, @intCast(territory), comment_str);
+        return qtc.QTimeZone_new8(zoneId_str, @bitCast(offsetSeconds), name_str, abbreviation_str, @bitCast(territory), comment_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#operator-eq)
@@ -196,7 +196,7 @@ pub const qtimezone = struct {
     /// ` offset: i64 of seconds `
     ///
     pub fn FromDurationAheadOfUtc(offset: i64) QtC.QTimeZone {
-        return qtc.QTimeZone_FromDurationAheadOfUtc(@intCast(offset));
+        return qtc.QTimeZone_FromDurationAheadOfUtc(@bitCast(offset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#fromSecondsAheadOfUtc)
@@ -206,7 +206,7 @@ pub const qtimezone = struct {
     /// ` offset: i32 `
     ///
     pub fn FromSecondsAheadOfUtc(offset: i32) QtC.QTimeZone {
-        return qtc.QTimeZone_FromSecondsAheadOfUtc(@intCast(offset));
+        return qtc.QTimeZone_FromSecondsAheadOfUtc(@bitCast(offset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#timeSpec)
@@ -240,7 +240,7 @@ pub const qtimezone = struct {
     /// ` spec: qnamespace_enums.TimeSpec `
     ///
     pub fn IsUtcOrFixedOffset(spec: i32) bool {
-        return qtc.QTimeZone_IsUtcOrFixedOffset(@intCast(spec));
+        return qtc.QTimeZone_IsUtcOrFixedOffset(@bitCast(spec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#isUtcOrFixedOffset)
@@ -368,7 +368,7 @@ pub const qtimezone = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DisplayName2(self: ?*anyopaque, timeType: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTimeZone_DisplayName2(@ptrCast(self), @intCast(timeType));
+        var _str = qtc.QTimeZone_DisplayName2(@ptrCast(self), @bitCast(timeType));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimezone.DisplayName2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -592,7 +592,7 @@ pub const qtimezone = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AvailableTimeZoneIds2(territory: u16, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QTimeZone_AvailableTimeZoneIds2(@intCast(territory));
+        const _arr: qtc.libqt_list = qtc.QTimeZone_AvailableTimeZoneIds2(@bitCast(territory));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -619,7 +619,7 @@ pub const qtimezone = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AvailableTimeZoneIds3(offsetSeconds: i32, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QTimeZone_AvailableTimeZoneIds3(@intCast(offsetSeconds));
+        const _arr: qtc.libqt_list = qtc.QTimeZone_AvailableTimeZoneIds3(@bitCast(offsetSeconds));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -692,7 +692,7 @@ pub const qtimezone = struct {
             .len = windowsId.len,
             .data = windowsId.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QTimeZone_WindowsIdToDefaultIanaId2(windowsId_str, @intCast(territory));
+        var _bytearray: qtc.libqt_string = qtc.QTimeZone_WindowsIdToDefaultIanaId2(windowsId_str, @bitCast(territory));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtimezone.WindowsIdToDefaultIanaId2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -745,7 +745,7 @@ pub const qtimezone = struct {
             .len = windowsId.len,
             .data = windowsId.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QTimeZone_WindowsIdToIanaIds2(windowsId_str, @intCast(territory));
+        const _arr: qtc.libqt_list = qtc.QTimeZone_WindowsIdToIanaIds2(windowsId_str, @bitCast(territory));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -776,7 +776,7 @@ pub const qtimezone = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DisplayName22(self: ?*anyopaque, atDateTime: ?*anyopaque, nameType: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTimeZone_DisplayName22(@ptrCast(self), @ptrCast(atDateTime), @intCast(nameType));
+        var _str = qtc.QTimeZone_DisplayName22(@ptrCast(self), @ptrCast(atDateTime), @bitCast(nameType));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimezone.DisplayName22: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -798,7 +798,7 @@ pub const qtimezone = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DisplayName3(self: ?*anyopaque, atDateTime: ?*anyopaque, nameType: i32, locale: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTimeZone_DisplayName3(@ptrCast(self), @ptrCast(atDateTime), @intCast(nameType), @ptrCast(locale));
+        var _str = qtc.QTimeZone_DisplayName3(@ptrCast(self), @ptrCast(atDateTime), @bitCast(nameType), @ptrCast(locale));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimezone.DisplayName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -818,7 +818,7 @@ pub const qtimezone = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DisplayName23(self: ?*anyopaque, timeType: i32, nameType: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTimeZone_DisplayName23(@ptrCast(self), @intCast(timeType), @intCast(nameType));
+        var _str = qtc.QTimeZone_DisplayName23(@ptrCast(self), @bitCast(timeType), @bitCast(nameType));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimezone.DisplayName23: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -840,7 +840,7 @@ pub const qtimezone = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DisplayName32(self: ?*anyopaque, timeType: i32, nameType: i32, locale: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTimeZone_DisplayName32(@ptrCast(self), @intCast(timeType), @intCast(nameType), @ptrCast(locale));
+        var _str = qtc.QTimeZone_DisplayName32(@ptrCast(self), @bitCast(timeType), @bitCast(nameType), @ptrCast(locale));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimezone.DisplayName32: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -951,7 +951,7 @@ pub const qtimezone__offsetdata = struct {
     /// ` offsetFromUtc: i32 `
     ///
     pub fn SetOffsetFromUtc(self: ?*anyopaque, offsetFromUtc: i32) void {
-        qtc.QTimeZone__OffsetData_SetOffsetFromUtc(@ptrCast(self), @intCast(offsetFromUtc));
+        qtc.QTimeZone__OffsetData_SetOffsetFromUtc(@ptrCast(self), @bitCast(offsetFromUtc));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#standardTimeOffset-var)
@@ -973,7 +973,7 @@ pub const qtimezone__offsetdata = struct {
     /// ` standardTimeOffset: i32 `
     ///
     pub fn SetStandardTimeOffset(self: ?*anyopaque, standardTimeOffset: i32) void {
-        qtc.QTimeZone__OffsetData_SetStandardTimeOffset(@ptrCast(self), @intCast(standardTimeOffset));
+        qtc.QTimeZone__OffsetData_SetStandardTimeOffset(@ptrCast(self), @bitCast(standardTimeOffset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#daylightTimeOffset-var)
@@ -995,7 +995,7 @@ pub const qtimezone__offsetdata = struct {
     /// ` daylightTimeOffset: i32 `
     ///
     pub fn SetDaylightTimeOffset(self: ?*anyopaque, daylightTimeOffset: i32) void {
-        qtc.QTimeZone__OffsetData_SetDaylightTimeOffset(@ptrCast(self), @intCast(daylightTimeOffset));
+        qtc.QTimeZone__OffsetData_SetDaylightTimeOffset(@ptrCast(self), @bitCast(daylightTimeOffset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#operator-eq)

@@ -31,7 +31,7 @@ pub const qprinter = struct {
     /// ` mode: qprinter_enums.PrinterMode `
     ///
     pub fn New3(mode: i32) QtC.QPrinter {
-        return qtc.QPrinter_new3(@intCast(mode));
+        return qtc.QPrinter_new3(@bitCast(mode));
     }
 
     /// New4 constructs a new QPrinter object.
@@ -43,7 +43,7 @@ pub const qprinter = struct {
     /// ` mode: qprinter_enums.PrinterMode `
     ///
     pub fn New4(printer: ?*anyopaque, mode: i32) QtC.QPrinter {
-        return qtc.QPrinter_new4(@ptrCast(printer), @intCast(mode));
+        return qtc.QPrinter_new4(@ptrCast(printer), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#devType)
@@ -67,7 +67,7 @@ pub const qprinter = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPrinter_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPrinter_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#devType)
@@ -91,7 +91,7 @@ pub const qprinter = struct {
     /// ` format: qprinter_enums.OutputFormat `
     ///
     pub fn SetOutputFormat(self: ?*anyopaque, format: i32) void {
-        qtc.QPrinter_SetOutputFormat(@ptrCast(self), @intCast(format));
+        qtc.QPrinter_SetOutputFormat(@ptrCast(self), @bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#outputFormat)
@@ -117,7 +117,7 @@ pub const qprinter = struct {
     /// ` version: qpagedpaintdevice_enums.PdfVersion `
     ///
     pub fn SetPdfVersion(self: ?*anyopaque, version: i32) void {
-        qtc.QPrinter_SetPdfVersion(@ptrCast(self), @intCast(version));
+        qtc.QPrinter_SetPdfVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#pdfVersion)
@@ -313,7 +313,7 @@ pub const qprinter = struct {
     /// ` pageOrder: qprinter_enums.PageOrder `
     ///
     pub fn SetPageOrder(self: ?*anyopaque, pageOrder: i32) void {
-        qtc.QPrinter_SetPageOrder(@ptrCast(self), @intCast(pageOrder));
+        qtc.QPrinter_SetPageOrder(@ptrCast(self), @bitCast(pageOrder));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#pageOrder)
@@ -339,7 +339,7 @@ pub const qprinter = struct {
     /// ` resolution: i32 `
     ///
     pub fn SetResolution(self: ?*anyopaque, resolution: i32) void {
-        qtc.QPrinter_SetResolution(@ptrCast(self), @intCast(resolution));
+        qtc.QPrinter_SetResolution(@ptrCast(self), @bitCast(resolution));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#resolution)
@@ -361,7 +361,7 @@ pub const qprinter = struct {
     /// ` colorMode: qprinter_enums.ColorMode `
     ///
     pub fn SetColorMode(self: ?*anyopaque, colorMode: i32) void {
-        qtc.QPrinter_SetColorMode(@ptrCast(self), @intCast(colorMode));
+        qtc.QPrinter_SetColorMode(@ptrCast(self), @bitCast(colorMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#colorMode)
@@ -431,7 +431,7 @@ pub const qprinter = struct {
     /// ` copyCount: i32 `
     ///
     pub fn SetCopyCount(self: ?*anyopaque, copyCount: i32) void {
-        qtc.QPrinter_SetCopyCount(@ptrCast(self), @intCast(copyCount));
+        qtc.QPrinter_SetCopyCount(@ptrCast(self), @bitCast(copyCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#copyCount)
@@ -463,7 +463,7 @@ pub const qprinter = struct {
     /// ` paperSource: qprinter_enums.PaperSource `
     ///
     pub fn SetPaperSource(self: ?*anyopaque, paperSource: i32) void {
-        qtc.QPrinter_SetPaperSource(@ptrCast(self), @intCast(paperSource));
+        qtc.QPrinter_SetPaperSource(@ptrCast(self), @bitCast(paperSource));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#paperSource)
@@ -489,7 +489,7 @@ pub const qprinter = struct {
     /// ` duplex: qprinter_enums.DuplexMode `
     ///
     pub fn SetDuplex(self: ?*anyopaque, duplex: i32) void {
-        qtc.QPrinter_SetDuplex(@ptrCast(self), @intCast(duplex));
+        qtc.QPrinter_SetDuplex(@ptrCast(self), @bitCast(duplex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#duplex)
@@ -554,7 +554,7 @@ pub const qprinter = struct {
     /// ` param1: qprinter_enums.Unit `
     ///
     pub fn PaperRect(self: ?*anyopaque, param1: i32) QtC.QRectF {
-        return qtc.QPrinter_PaperRect(@ptrCast(self), @intCast(param1));
+        return qtc.QPrinter_PaperRect(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#pageRect)
@@ -566,7 +566,7 @@ pub const qprinter = struct {
     /// ` param1: qprinter_enums.Unit `
     ///
     pub fn PageRect(self: ?*anyopaque, param1: i32) QtC.QRectF {
-        return qtc.QPrinter_PageRect(@ptrCast(self), @intCast(param1));
+        return qtc.QPrinter_PageRect(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#printerSelectionOption)
@@ -622,7 +622,7 @@ pub const qprinter = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnNewPage(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QPrinter_OnNewPage(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPrinter_OnNewPage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#newPage)
@@ -682,7 +682,7 @@ pub const qprinter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
     ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QPrinter_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPrinter_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#paintEngine)
@@ -718,7 +718,7 @@ pub const qprinter = struct {
     /// ` toPage: i32 `
     ///
     pub fn SetFromTo(self: ?*anyopaque, fromPage: i32, toPage: i32) void {
-        qtc.QPrinter_SetFromTo(@ptrCast(self), @intCast(fromPage), @intCast(toPage));
+        qtc.QPrinter_SetFromTo(@ptrCast(self), @bitCast(fromPage), @bitCast(toPage));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#fromPage)
@@ -750,7 +750,7 @@ pub const qprinter = struct {
     /// ` range: qprinter_enums.PrintRange `
     ///
     pub fn SetPrintRange(self: ?*anyopaque, range: i32) void {
-        qtc.QPrinter_SetPrintRange(@ptrCast(self), @intCast(range));
+        qtc.QPrinter_SetPrintRange(@ptrCast(self), @bitCast(range));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#printRange)
@@ -776,7 +776,7 @@ pub const qprinter = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QPrinter_Metric(@ptrCast(self), @intCast(param1));
+        return qtc.QPrinter_Metric(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#metric)
@@ -790,7 +790,7 @@ pub const qprinter = struct {
     /// ` callback: *const fn (self: QtC.QPrinter, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QPrinter_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPrinter_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#metric)
@@ -804,7 +804,7 @@ pub const qprinter = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QPrinter_QBaseMetric(@ptrCast(self), @intCast(param1));
+        return qtc.QPrinter_QBaseMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setEngines)
@@ -832,7 +832,7 @@ pub const qprinter = struct {
     /// ` callback: *const fn (self: QtC.QPrinter, printEngine: QtC.QPrintEngine, paintEngine: QtC.QPaintEngine) callconv(.c) void `
     ///
     pub fn OnSetEngines(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPrinter_OnSetEngines(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPrinter_OnSetEngines(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setEngines)
@@ -1050,7 +1050,7 @@ pub const qprinter = struct {
     /// ` value: f64 `
     ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1098,7 +1098,7 @@ pub const qprinter = struct {
     /// ` callback: *const fn (self: QtC.QPrinter, pageLayout: QtC.QPageLayout) callconv(.c) bool `
     ///
     pub fn OnSetPageLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPrinter_OnSetPageLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPrinter_OnSetPageLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1146,7 +1146,7 @@ pub const qprinter = struct {
     /// ` callback: *const fn (self: QtC.QPrinter, pageSize: QtC.QPageSize) callconv(.c) bool `
     ///
     pub fn OnSetPageSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPrinter_OnSetPageSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPrinter_OnSetPageSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1162,7 +1162,7 @@ pub const qprinter = struct {
     /// ` orientation: qpagelayout_enums.Orientation `
     ///
     pub fn SetPageOrientation(self: ?*anyopaque, orientation: i32) bool {
-        return qtc.QPrinter_SetPageOrientation(@ptrCast(self), @intCast(orientation));
+        return qtc.QPrinter_SetPageOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1178,7 +1178,7 @@ pub const qprinter = struct {
     /// ` orientation: qpagelayout_enums.Orientation `
     ///
     pub fn QBaseSetPageOrientation(self: ?*anyopaque, orientation: i32) bool {
-        return qtc.QPrinter_QBaseSetPageOrientation(@ptrCast(self), @intCast(orientation));
+        return qtc.QPrinter_QBaseSetPageOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1194,7 +1194,7 @@ pub const qprinter = struct {
     /// ` callback: *const fn (self: QtC.QPrinter, orientation: qpagelayout_enums.Orientation) callconv(.c) bool `
     ///
     pub fn OnSetPageOrientation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QPrinter_OnSetPageOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPrinter_OnSetPageOrientation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1212,7 +1212,7 @@ pub const qprinter = struct {
     /// ` units: qpagelayout_enums.Unit `
     ///
     pub fn SetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i32) bool {
-        return qtc.QPrinter_SetPageMargins(@ptrCast(self), @ptrCast(margins), @intCast(units));
+        return qtc.QPrinter_SetPageMargins(@ptrCast(self), @ptrCast(margins), @bitCast(units));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1230,7 +1230,7 @@ pub const qprinter = struct {
     /// ` units: qpagelayout_enums.Unit `
     ///
     pub fn QBaseSetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i32) bool {
-        return qtc.QPrinter_QBaseSetPageMargins(@ptrCast(self), @ptrCast(margins), @intCast(units));
+        return qtc.QPrinter_QBaseSetPageMargins(@ptrCast(self), @ptrCast(margins), @bitCast(units));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1246,7 +1246,7 @@ pub const qprinter = struct {
     /// ` callback: *const fn (self: QtC.QPrinter, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit) callconv(.c) bool `
     ///
     pub fn OnSetPageMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QPrinter_OnSetPageMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPrinter_OnSetPageMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1294,7 +1294,7 @@ pub const qprinter = struct {
     /// ` callback: *const fn (self: QtC.QPrinter, ranges: QtC.QPageRanges) callconv(.c) void `
     ///
     pub fn OnSetPageRanges(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPrinter_OnSetPageRanges(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPrinter_OnSetPageRanges(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1342,7 +1342,7 @@ pub const qprinter = struct {
     /// ` callback: *const fn (self: QtC.QPrinter, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPrinter_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPrinter_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1390,7 +1390,7 @@ pub const qprinter = struct {
     /// ` callback: *const fn (self: QtC.QPrinter, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
     ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QPrinter_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPrinter_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1434,7 +1434,7 @@ pub const qprinter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainter `
     ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QPrinter_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPrinter_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1452,7 +1452,7 @@ pub const qprinter = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QPrinter_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QPrinter_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -1470,7 +1470,7 @@ pub const qprinter = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QPrinter_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QPrinter_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -1486,7 +1486,7 @@ pub const qprinter = struct {
     /// ` callback: *const fn (self: QtC.QPrinter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QPrinter_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPrinter_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#dtor.QPrinter)

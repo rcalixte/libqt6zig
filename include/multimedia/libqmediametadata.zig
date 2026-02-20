@@ -30,7 +30,7 @@ pub const qmediametadata = struct {
     /// ` k: qmediametadata_enums.Key `
     ///
     pub fn Value(self: ?*anyopaque, k: i32) QtC.QVariant {
-        return qtc.QMediaMetaData_Value(@ptrCast(self), @intCast(k));
+        return qtc.QMediaMetaData_Value(@ptrCast(self), @bitCast(k));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#insert)
@@ -44,7 +44,7 @@ pub const qmediametadata = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn Insert(self: ?*anyopaque, k: i32, value: ?*anyopaque) void {
-        qtc.QMediaMetaData_Insert(@ptrCast(self), @intCast(k), @ptrCast(value));
+        qtc.QMediaMetaData_Insert(@ptrCast(self), @bitCast(k), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#remove)
@@ -56,7 +56,7 @@ pub const qmediametadata = struct {
     /// ` k: qmediametadata_enums.Key `
     ///
     pub fn Remove(self: ?*anyopaque, k: i32) void {
-        qtc.QMediaMetaData_Remove(@ptrCast(self), @intCast(k));
+        qtc.QMediaMetaData_Remove(@ptrCast(self), @bitCast(k));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#keys)
@@ -89,7 +89,7 @@ pub const qmediametadata = struct {
     /// ` k: qmediametadata_enums.Key `
     ///
     pub fn OperatorSubscript(self: ?*anyopaque, k: i32) QtC.QVariant {
-        return qtc.QMediaMetaData_OperatorSubscript(@ptrCast(self), @intCast(k));
+        return qtc.QMediaMetaData_OperatorSubscript(@ptrCast(self), @bitCast(k));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#clear)
@@ -123,7 +123,7 @@ pub const qmediametadata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StringValue(self: ?*anyopaque, k: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QMediaMetaData_StringValue(@ptrCast(self), @intCast(k));
+        var _str = qtc.QMediaMetaData_StringValue(@ptrCast(self), @bitCast(k));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmediametadata.StringValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -139,7 +139,7 @@ pub const qmediametadata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MetaDataKeyToString(k: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QMediaMetaData_MetaDataKeyToString(@intCast(k));
+        var _str = qtc.QMediaMetaData_MetaDataKeyToString(@bitCast(k));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmediametadata.MetaDataKeyToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

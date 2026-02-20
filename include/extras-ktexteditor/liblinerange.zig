@@ -39,7 +39,7 @@ pub const ktexteditor__linerange = struct {
     /// ` end: i32 `
     ///
     pub fn New4(start: i32, end: i32) QtC.KTextEditor__LineRange {
-        return qtc.KTextEditor__LineRange_new4(@intCast(start), @intCast(end));
+        return qtc.KTextEditor__LineRange_new4(@bitCast(start), @bitCast(end));
     }
 
     /// New5 constructs a new KTextEditor::LineRange object.
@@ -151,7 +151,7 @@ pub const ktexteditor__linerange = struct {
     /// ` end: i32 `
     ///
     pub fn SetRange2(self: ?*anyopaque, start: i32, end: i32) void {
-        qtc.KTextEditor__LineRange_SetRange2(@ptrCast(self), @intCast(start), @intCast(end));
+        qtc.KTextEditor__LineRange_SetRange2(@ptrCast(self), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#setBothLines)
@@ -163,7 +163,7 @@ pub const ktexteditor__linerange = struct {
     /// ` line: i32 `
     ///
     pub fn SetBothLines(self: ?*anyopaque, line: i32) void {
-        qtc.KTextEditor__LineRange_SetBothLines(@ptrCast(self), @intCast(line));
+        qtc.KTextEditor__LineRange_SetBothLines(@ptrCast(self), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#setStart)
@@ -175,7 +175,7 @@ pub const ktexteditor__linerange = struct {
     /// ` start: i32 `
     ///
     pub fn SetStart(self: ?*anyopaque, start: i32) void {
-        qtc.KTextEditor__LineRange_SetStart(@ptrCast(self), @intCast(start));
+        qtc.KTextEditor__LineRange_SetStart(@ptrCast(self), @bitCast(start));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#setEnd)
@@ -187,7 +187,7 @@ pub const ktexteditor__linerange = struct {
     /// ` end: i32 `
     ///
     pub fn SetEnd(self: ?*anyopaque, end: i32) void {
-        qtc.KTextEditor__LineRange_SetEnd(@ptrCast(self), @intCast(end));
+        qtc.KTextEditor__LineRange_SetEnd(@ptrCast(self), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#expandToRange)
@@ -255,7 +255,7 @@ pub const ktexteditor__linerange = struct {
     /// ` line: i32 `
     ///
     pub fn ContainsLine(self: ?*anyopaque, line: i32) bool {
-        return qtc.KTextEditor__LineRange_ContainsLine(@ptrCast(self), @intCast(line));
+        return qtc.KTextEditor__LineRange_ContainsLine(@ptrCast(self), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#overlaps)
@@ -279,7 +279,7 @@ pub const ktexteditor__linerange = struct {
     /// ` line: i32 `
     ///
     pub fn OverlapsLine(self: ?*anyopaque, line: i32) bool {
-        return qtc.KTextEditor__LineRange_OverlapsLine(@ptrCast(self), @intCast(line));
+        return qtc.KTextEditor__LineRange_OverlapsLine(@ptrCast(self), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#intersect)

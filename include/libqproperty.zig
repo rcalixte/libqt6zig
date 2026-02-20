@@ -153,7 +153,7 @@ pub const qpropertybindingsourcelocation = struct {
     /// ` line: u32 `
     ///
     pub fn SetLine(self: ?*anyopaque, line: u32) void {
-        qtc.QPropertyBindingSourceLocation_SetLine(@ptrCast(self), @intCast(line));
+        qtc.QPropertyBindingSourceLocation_SetLine(@ptrCast(self), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#column-var)
@@ -175,7 +175,7 @@ pub const qpropertybindingsourcelocation = struct {
     /// ` column: u32 `
     ///
     pub fn SetColumn(self: ?*anyopaque, column: u32) void {
-        qtc.QPropertyBindingSourceLocation_SetColumn(@ptrCast(self), @intCast(column));
+        qtc.QPropertyBindingSourceLocation_SetColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#dtor.QPropertyBindingSourceLocation)
@@ -206,7 +206,7 @@ pub const qpropertybindingerror = struct {
     /// ` typeVal: qproperty_enums.Type `
     ///
     pub fn New2(typeVal: i32) QtC.QPropertyBindingError {
-        return qtc.QPropertyBindingError_new2(@intCast(typeVal));
+        return qtc.QPropertyBindingError_new2(@bitCast(typeVal));
     }
 
     /// New3 constructs a new QPropertyBindingError object.
@@ -233,7 +233,7 @@ pub const qpropertybindingerror = struct {
             .data = description.ptr,
         };
 
-        return qtc.QPropertyBindingError_new4(@intCast(typeVal), description_str);
+        return qtc.QPropertyBindingError_new4(@bitCast(typeVal), description_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingerror.html#operator-eq)

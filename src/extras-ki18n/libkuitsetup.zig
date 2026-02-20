@@ -55,7 +55,7 @@ pub const kuitsetup = struct {
             .len = attribNames.len,
             .data = attribNames_arr.ptr,
         };
-        qtc.KuitSetup_SetTagPattern(@ptrCast(self), tagName_str, attribNames_list, @intCast(format), @ptrCast(pattern));
+        qtc.KuitSetup_SetTagPattern(@ptrCast(self), tagName_str, attribNames_list, @bitCast(format), @ptrCast(pattern));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kuitsetup.html#setTagClass)
@@ -73,7 +73,7 @@ pub const kuitsetup = struct {
             .len = tagName.len,
             .data = tagName.ptr,
         };
-        qtc.KuitSetup_SetTagClass(@ptrCast(self), tagName_str, @intCast(aClass));
+        qtc.KuitSetup_SetTagClass(@ptrCast(self), tagName_str, @bitCast(aClass));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kuitsetup.html#setFormatForMarker)
@@ -91,7 +91,7 @@ pub const kuitsetup = struct {
             .len = marker.len,
             .data = marker.ptr,
         };
-        qtc.KuitSetup_SetFormatForMarker(@ptrCast(self), marker_str, @intCast(format));
+        qtc.KuitSetup_SetFormatForMarker(@ptrCast(self), marker_str, @bitCast(format));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kuitsetup.html#dtor.KuitSetup)

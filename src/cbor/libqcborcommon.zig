@@ -28,7 +28,7 @@ pub const qcborerror = struct {
     /// ` c: qcborcommon_enums.Code `
     ///
     pub fn SetC(self: ?*anyopaque, c: i32) void {
-        qtc.QCborError_SetC(@ptrCast(self), @intCast(c));
+        qtc.QCborError_SetC(@ptrCast(self), @bitCast(c));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#operator)

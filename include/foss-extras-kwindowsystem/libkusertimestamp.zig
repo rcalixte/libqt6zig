@@ -16,6 +16,6 @@ pub const kusertimestamp = struct {
     /// ` param1: u64 `
     ///
     pub fn UpdateUserTimestamp(param1: u64) void {
-        qtc.KUserTimestamp_UpdateUserTimestamp(@intCast(param1));
+        qtc.KUserTimestamp_UpdateUserTimestamp(@bitCast(param1));
     }
 };

@@ -54,7 +54,7 @@ pub const kzipfileentry = struct {
             .data = path.ptr,
         };
 
-        return qtc.KZipFileEntry_new(@ptrCast(zip), name_str, @intCast(access), @ptrCast(date), user_str, group_str, symlink_str, path_str, @intCast(start), @intCast(uncompressedSize), @intCast(encoding), @intCast(compressedSize));
+        return qtc.KZipFileEntry_new(@ptrCast(zip), name_str, @bitCast(access), @ptrCast(date), user_str, group_str, symlink_str, path_str, @bitCast(start), @bitCast(uncompressedSize), @bitCast(encoding), @bitCast(compressedSize));
     }
 
     /// New2 constructs a new KZipFileEntry object.
@@ -96,7 +96,7 @@ pub const kzipfileentry = struct {
     /// ` compressedSize: i64 `
     ///
     pub fn SetCompressedSize(self: ?*anyopaque, compressedSize: i64) void {
-        qtc.KZipFileEntry_SetCompressedSize(@ptrCast(self), @intCast(compressedSize));
+        qtc.KZipFileEntry_SetCompressedSize(@ptrCast(self), @bitCast(compressedSize));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#setHeaderStart)
@@ -108,7 +108,7 @@ pub const kzipfileentry = struct {
     /// ` headerstart: i64 `
     ///
     pub fn SetHeaderStart(self: ?*anyopaque, headerstart: i64) void {
-        qtc.KZipFileEntry_SetHeaderStart(@ptrCast(self), @intCast(headerstart));
+        qtc.KZipFileEntry_SetHeaderStart(@ptrCast(self), @bitCast(headerstart));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#headerStart)
@@ -140,7 +140,7 @@ pub const kzipfileentry = struct {
     /// ` crc32: u64 `
     ///
     pub fn SetCRC32(self: ?*anyopaque, crc32: u64) void {
-        qtc.KZipFileEntry_SetCRC32(@ptrCast(self), @intCast(crc32));
+        qtc.KZipFileEntry_SetCRC32(@ptrCast(self), @bitCast(crc32));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#path)
@@ -188,7 +188,7 @@ pub const kzipfileentry = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]u8 `
     ///
     pub fn OnData(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]u8) void {
-        qtc.KZipFileEntry_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZipFileEntry_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#data)
@@ -230,7 +230,7 @@ pub const kzipfileentry = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QIODevice `
     ///
     pub fn OnCreateDevice(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QIODevice) void {
-        qtc.KZipFileEntry_OnCreateDevice(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZipFileEntry_OnCreateDevice(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#createDevice)
@@ -280,7 +280,7 @@ pub const kzipfileentry = struct {
     /// ` s: i64 `
     ///
     pub fn SetSize(self: ?*anyopaque, s: i64) void {
-        qtc.KArchiveFile_SetSize(@ptrCast(self), @intCast(s));
+        qtc.KArchiveFile_SetSize(@ptrCast(self), @bitCast(s));
     }
 
     /// Inherited from KArchiveFile
@@ -340,7 +340,7 @@ pub const kzipfileentry = struct {
     /// ` self: QtC.KZipFileEntry `
     ///
     pub fn Permissions(self: ?*anyopaque) u32 {
-        return @intCast(qtc.KArchiveEntry_Permissions(@ptrCast(self)));
+        return @bitCast(qtc.KArchiveEntry_Permissions(@ptrCast(self)));
     }
 
     /// Inherited from KArchiveEntry
@@ -438,7 +438,7 @@ pub const kzipfileentry = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsFile(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KZipFileEntry_OnIsFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZipFileEntry_OnIsFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchiveFile
@@ -456,7 +456,7 @@ pub const kzipfileentry = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KZipFileEntry_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KZipFileEntry_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from KArchiveFile
@@ -474,7 +474,7 @@ pub const kzipfileentry = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KZipFileEntry_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KZipFileEntry_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from KArchiveFile
@@ -490,7 +490,7 @@ pub const kzipfileentry = struct {
     /// ` callback: *const fn (self: QtC.KZipFileEntry, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KZipFileEntry_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZipFileEntry_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchiveEntry
@@ -534,7 +534,7 @@ pub const kzipfileentry = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsDirectory(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KZipFileEntry_OnIsDirectory(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZipFileEntry_OnIsDirectory(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchiveEntry
@@ -578,7 +578,7 @@ pub const kzipfileentry = struct {
     /// ` callback: *const fn () callconv(.c) QtC.KArchive `
     ///
     pub fn OnArchive(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KArchive) void {
-        qtc.KZipFileEntry_OnArchive(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KZipFileEntry_OnArchive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#dtor.KZipFileEntry)

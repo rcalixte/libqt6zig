@@ -18,7 +18,7 @@ pub const qcolorspace = struct {
     /// ` namedColorSpace: qcolorspace_enums.NamedColorSpace `
     ///
     pub fn New2(namedColorSpace: i32) QtC.QColorSpace {
-        return qtc.QColorSpace_new2(@intCast(namedColorSpace));
+        return qtc.QColorSpace_new2(@bitCast(namedColorSpace));
     }
 
     /// New3 constructs a new QColorSpace object.
@@ -30,7 +30,7 @@ pub const qcolorspace = struct {
     /// ` transferFunction: qcolorspace_enums.TransferFunction `
     ///
     pub fn New3(whitePoint: QtC.QPointF, transferFunction: i32) QtC.QColorSpace {
-        return qtc.QColorSpace_new3(@ptrCast(whitePoint), @intCast(transferFunction));
+        return qtc.QColorSpace_new3(@ptrCast(whitePoint), @bitCast(transferFunction));
     }
 
     /// New4 constructs a new QColorSpace object.
@@ -59,7 +59,7 @@ pub const qcolorspace = struct {
     /// ` transferFunction: qcolorspace_enums.TransferFunction `
     ///
     pub fn New5(primaries: i32, transferFunction: i32) QtC.QColorSpace {
-        return qtc.QColorSpace_new5(@intCast(primaries), @intCast(transferFunction));
+        return qtc.QColorSpace_new5(@bitCast(primaries), @bitCast(transferFunction));
     }
 
     /// New6 constructs a new QColorSpace object.
@@ -71,7 +71,7 @@ pub const qcolorspace = struct {
     /// ` gamma: f32 `
     ///
     pub fn New6(primaries: i32, gamma: f32) QtC.QColorSpace {
-        return qtc.QColorSpace_new6(@intCast(primaries), @floatCast(gamma));
+        return qtc.QColorSpace_new6(@bitCast(primaries), @bitCast(gamma));
     }
 
     /// New7 constructs a new QColorSpace object.
@@ -88,7 +88,7 @@ pub const qcolorspace = struct {
             .data = transferFunctionTable.ptr,
         };
 
-        return qtc.QColorSpace_new7(@intCast(primaries), transferFunctionTable_list);
+        return qtc.QColorSpace_new7(@bitCast(primaries), transferFunctionTable_list);
     }
 
     /// New8 constructs a new QColorSpace object.
@@ -106,7 +106,7 @@ pub const qcolorspace = struct {
     /// ` transferFunction: qcolorspace_enums.TransferFunction `
     ///
     pub fn New8(whitePoint: ?*anyopaque, redPoint: ?*anyopaque, greenPoint: ?*anyopaque, bluePoint: ?*anyopaque, transferFunction: i32) QtC.QColorSpace {
-        return qtc.QColorSpace_new8(@ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint), @intCast(transferFunction));
+        return qtc.QColorSpace_new8(@ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint), @bitCast(transferFunction));
     }
 
     /// New9 constructs a new QColorSpace object.
@@ -188,7 +188,7 @@ pub const qcolorspace = struct {
     /// ` gamma: f32 `
     ///
     pub fn New12(whitePoint: QtC.QPointF, transferFunction: i32, gamma: f32) QtC.QColorSpace {
-        return qtc.QColorSpace_new12(@ptrCast(whitePoint), @intCast(transferFunction), @floatCast(gamma));
+        return qtc.QColorSpace_new12(@ptrCast(whitePoint), @bitCast(transferFunction), @bitCast(gamma));
     }
 
     /// New13 constructs a new QColorSpace object.
@@ -202,7 +202,7 @@ pub const qcolorspace = struct {
     /// ` gamma: f32 `
     ///
     pub fn New13(primaries: i32, transferFunction: i32, gamma: f32) QtC.QColorSpace {
-        return qtc.QColorSpace_new13(@intCast(primaries), @intCast(transferFunction), @floatCast(gamma));
+        return qtc.QColorSpace_new13(@bitCast(primaries), @bitCast(transferFunction), @bitCast(gamma));
     }
 
     /// New14 constructs a new QColorSpace object.
@@ -222,7 +222,7 @@ pub const qcolorspace = struct {
     /// ` gamma: f32 `
     ///
     pub fn New14(whitePoint: ?*anyopaque, redPoint: ?*anyopaque, greenPoint: ?*anyopaque, bluePoint: ?*anyopaque, transferFunction: i32, gamma: f32) QtC.QColorSpace {
-        return qtc.QColorSpace_new14(@ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint), @intCast(transferFunction), @floatCast(gamma));
+        return qtc.QColorSpace_new14(@ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint), @bitCast(transferFunction), @bitCast(gamma));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#operator-eq)
@@ -328,7 +328,7 @@ pub const qcolorspace = struct {
     /// ` transferFunction: qcolorspace_enums.TransferFunction `
     ///
     pub fn SetTransferFunction(self: ?*anyopaque, transferFunction: i32) void {
-        qtc.QColorSpace_SetTransferFunction(@ptrCast(self), @intCast(transferFunction));
+        qtc.QColorSpace_SetTransferFunction(@ptrCast(self), @bitCast(transferFunction));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#setTransferFunction)
@@ -384,7 +384,7 @@ pub const qcolorspace = struct {
     /// ` transferFunction: qcolorspace_enums.TransferFunction `
     ///
     pub fn WithTransferFunction(self: ?*anyopaque, transferFunction: i32) QtC.QColorSpace {
-        return qtc.QColorSpace_WithTransferFunction(@ptrCast(self), @intCast(transferFunction));
+        return qtc.QColorSpace_WithTransferFunction(@ptrCast(self), @bitCast(transferFunction));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#withTransferFunction)
@@ -440,7 +440,7 @@ pub const qcolorspace = struct {
     /// ` primariesId: qcolorspace_enums.Primaries `
     ///
     pub fn SetPrimaries(self: ?*anyopaque, primariesId: i32) void {
-        qtc.QColorSpace_SetPrimaries(@ptrCast(self), @intCast(primariesId));
+        qtc.QColorSpace_SetPrimaries(@ptrCast(self), @bitCast(primariesId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#setPrimaries)
@@ -604,7 +604,7 @@ pub const qcolorspace = struct {
     /// ` gamma: f32 `
     ///
     pub fn SetTransferFunction22(self: ?*anyopaque, transferFunction: i32, gamma: f32) void {
-        qtc.QColorSpace_SetTransferFunction22(@ptrCast(self), @intCast(transferFunction), @floatCast(gamma));
+        qtc.QColorSpace_SetTransferFunction22(@ptrCast(self), @bitCast(transferFunction), @bitCast(gamma));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#withTransferFunction)
@@ -618,7 +618,7 @@ pub const qcolorspace = struct {
     /// ` gamma: f32 `
     ///
     pub fn WithTransferFunction22(self: ?*anyopaque, transferFunction: i32, gamma: f32) QtC.QColorSpace {
-        return qtc.QColorSpace_WithTransferFunction22(@ptrCast(self), @intCast(transferFunction), @floatCast(gamma));
+        return qtc.QColorSpace_WithTransferFunction22(@ptrCast(self), @bitCast(transferFunction), @bitCast(gamma));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#dtor.QColorSpace)

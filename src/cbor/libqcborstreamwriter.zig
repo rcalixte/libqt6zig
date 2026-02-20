@@ -45,7 +45,7 @@ pub const qcborstreamwriter = struct {
     /// ` u: u64 `
     ///
     pub fn Append(self: ?*anyopaque, u: u64) void {
-        qtc.QCborStreamWriter_Append(@ptrCast(self), @intCast(u));
+        qtc.QCborStreamWriter_Append(@ptrCast(self), @bitCast(u));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
@@ -57,7 +57,7 @@ pub const qcborstreamwriter = struct {
     /// ` i: i64 `
     ///
     pub fn Append2(self: ?*anyopaque, i: i64) void {
-        qtc.QCborStreamWriter_Append2(@ptrCast(self), @intCast(i));
+        qtc.QCborStreamWriter_Append2(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
@@ -69,7 +69,7 @@ pub const qcborstreamwriter = struct {
     /// ` n: qcborcommon_enums.QCborNegativeInteger `
     ///
     pub fn Append3(self: ?*anyopaque, n: u64) void {
-        qtc.QCborStreamWriter_Append3(@ptrCast(self), @intCast(n));
+        qtc.QCborStreamWriter_Append3(@ptrCast(self), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
@@ -97,7 +97,7 @@ pub const qcborstreamwriter = struct {
     /// ` tag: qcborcommon_enums.QCborTag `
     ///
     pub fn Append7(self: ?*anyopaque, tag: u64) void {
-        qtc.QCborStreamWriter_Append7(@ptrCast(self), @intCast(tag));
+        qtc.QCborStreamWriter_Append7(@ptrCast(self), @bitCast(tag));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
@@ -109,7 +109,7 @@ pub const qcborstreamwriter = struct {
     /// ` tag: qcborcommon_enums.QCborKnownTags `
     ///
     pub fn Append8(self: ?*anyopaque, tag: i32) void {
-        qtc.QCborStreamWriter_Append8(@ptrCast(self), @intCast(tag));
+        qtc.QCborStreamWriter_Append8(@ptrCast(self), @bitCast(tag));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
@@ -121,7 +121,7 @@ pub const qcborstreamwriter = struct {
     /// ` st: qcborcommon_enums.QCborSimpleType `
     ///
     pub fn Append9(self: ?*anyopaque, st: u8) void {
-        qtc.QCborStreamWriter_Append9(@ptrCast(self), @intCast(st));
+        qtc.QCborStreamWriter_Append9(@ptrCast(self), @bitCast(st));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
@@ -133,7 +133,7 @@ pub const qcborstreamwriter = struct {
     /// ` f: f32 `
     ///
     pub fn Append12(self: ?*anyopaque, f: f32) void {
-        qtc.QCborStreamWriter_Append12(@ptrCast(self), @floatCast(f));
+        qtc.QCborStreamWriter_Append12(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
@@ -145,7 +145,7 @@ pub const qcborstreamwriter = struct {
     /// ` d: f64 `
     ///
     pub fn Append13(self: ?*anyopaque, d: f64) void {
-        qtc.QCborStreamWriter_Append13(@ptrCast(self), @floatCast(d));
+        qtc.QCborStreamWriter_Append13(@ptrCast(self), @bitCast(d));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#appendByteString)
@@ -160,7 +160,7 @@ pub const qcborstreamwriter = struct {
     ///
     pub fn AppendByteString(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) void {
         const data_Cstring = data.ptr;
-        qtc.QCborStreamWriter_AppendByteString(@ptrCast(self), data_Cstring, @intCast(lenVal));
+        qtc.QCborStreamWriter_AppendByteString(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#appendTextString)
@@ -175,7 +175,7 @@ pub const qcborstreamwriter = struct {
     ///
     pub fn AppendTextString(self: ?*anyopaque, utf8: [:0]const u8, lenVal: i64) void {
         const utf8_Cstring = utf8.ptr;
-        qtc.QCborStreamWriter_AppendTextString(@ptrCast(self), utf8_Cstring, @intCast(lenVal));
+        qtc.QCborStreamWriter_AppendTextString(@ptrCast(self), utf8_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
@@ -219,7 +219,7 @@ pub const qcborstreamwriter = struct {
     /// ` i: i32 `
     ///
     pub fn Append15(self: ?*anyopaque, i: i32) void {
-        qtc.QCborStreamWriter_Append15(@ptrCast(self), @intCast(i));
+        qtc.QCborStreamWriter_Append15(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
@@ -231,7 +231,7 @@ pub const qcborstreamwriter = struct {
     /// ` u: u32 `
     ///
     pub fn Append16(self: ?*anyopaque, u: u32) void {
-        qtc.QCborStreamWriter_Append16(@ptrCast(self), @intCast(u));
+        qtc.QCborStreamWriter_Append16(@ptrCast(self), @bitCast(u));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
@@ -266,7 +266,7 @@ pub const qcborstreamwriter = struct {
     /// ` count: u64 `
     ///
     pub fn StartArray2(self: ?*anyopaque, count: u64) void {
-        qtc.QCborStreamWriter_StartArray2(@ptrCast(self), @intCast(count));
+        qtc.QCborStreamWriter_StartArray2(@ptrCast(self), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#endArray)
@@ -298,7 +298,7 @@ pub const qcborstreamwriter = struct {
     /// ` count: u64 `
     ///
     pub fn StartMap2(self: ?*anyopaque, count: u64) void {
-        qtc.QCborStreamWriter_StartMap2(@ptrCast(self), @intCast(count));
+        qtc.QCborStreamWriter_StartMap2(@ptrCast(self), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#endMap)
@@ -323,7 +323,7 @@ pub const qcborstreamwriter = struct {
     ///
     pub fn Append22(self: ?*anyopaque, str: [:0]const u8, size: i64) void {
         const str_Cstring = str.ptr;
-        qtc.QCborStreamWriter_Append22(@ptrCast(self), str_Cstring, @intCast(size));
+        qtc.QCborStreamWriter_Append22(@ptrCast(self), str_Cstring, @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#dtor.QCborStreamWriter)

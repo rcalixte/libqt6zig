@@ -20,7 +20,7 @@ pub const qtimeline = struct {
     /// ` duration: i32 `
     ///
     pub fn New2(duration: i32) QtC.QTimeLine {
-        return qtc.QTimeLine_new2(@intCast(duration));
+        return qtc.QTimeLine_new2(@bitCast(duration));
     }
 
     /// New3 constructs a new QTimeLine object.
@@ -32,7 +32,7 @@ pub const qtimeline = struct {
     /// ` parent: QtC.QObject `
     ///
     pub fn New3(duration: i32, parent: ?*anyopaque) QtC.QTimeLine {
-        return qtc.QTimeLine_new3(@intCast(duration), @ptrCast(parent));
+        return qtc.QTimeLine_new3(@bitCast(duration), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -56,7 +56,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QTimeLine_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -91,7 +91,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QTimeLine_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -118,7 +118,7 @@ pub const qtimeline = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTimeLine_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QTimeLine_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -130,7 +130,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QTimeLine_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -146,7 +146,7 @@ pub const qtimeline = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTimeLine_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QTimeLine_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -199,7 +199,7 @@ pub const qtimeline = struct {
     /// ` count: i32 `
     ///
     pub fn SetLoopCount(self: ?*anyopaque, count: i32) void {
-        qtc.QTimeLine_SetLoopCount(@ptrCast(self), @intCast(count));
+        qtc.QTimeLine_SetLoopCount(@ptrCast(self), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#direction)
@@ -225,7 +225,7 @@ pub const qtimeline = struct {
     /// ` direction: qtimeline_enums.Direction `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QTimeLine_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTimeLine_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#duration)
@@ -247,7 +247,7 @@ pub const qtimeline = struct {
     /// ` duration: i32 `
     ///
     pub fn SetDuration(self: ?*anyopaque, duration: i32) void {
-        qtc.QTimeLine_SetDuration(@ptrCast(self), @intCast(duration));
+        qtc.QTimeLine_SetDuration(@ptrCast(self), @bitCast(duration));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#startFrame)
@@ -269,7 +269,7 @@ pub const qtimeline = struct {
     /// ` frame: i32 `
     ///
     pub fn SetStartFrame(self: ?*anyopaque, frame: i32) void {
-        qtc.QTimeLine_SetStartFrame(@ptrCast(self), @intCast(frame));
+        qtc.QTimeLine_SetStartFrame(@ptrCast(self), @bitCast(frame));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#endFrame)
@@ -291,7 +291,7 @@ pub const qtimeline = struct {
     /// ` frame: i32 `
     ///
     pub fn SetEndFrame(self: ?*anyopaque, frame: i32) void {
-        qtc.QTimeLine_SetEndFrame(@ptrCast(self), @intCast(frame));
+        qtc.QTimeLine_SetEndFrame(@ptrCast(self), @bitCast(frame));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setFrameRange)
@@ -305,7 +305,7 @@ pub const qtimeline = struct {
     /// ` endFrame: i32 `
     ///
     pub fn SetFrameRange(self: ?*anyopaque, startFrame: i32, endFrame: i32) void {
-        qtc.QTimeLine_SetFrameRange(@ptrCast(self), @intCast(startFrame), @intCast(endFrame));
+        qtc.QTimeLine_SetFrameRange(@ptrCast(self), @bitCast(startFrame), @bitCast(endFrame));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#updateInterval)
@@ -327,7 +327,7 @@ pub const qtimeline = struct {
     /// ` interval: i32 `
     ///
     pub fn SetUpdateInterval(self: ?*anyopaque, interval: i32) void {
-        qtc.QTimeLine_SetUpdateInterval(@ptrCast(self), @intCast(interval));
+        qtc.QTimeLine_SetUpdateInterval(@ptrCast(self), @bitCast(interval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#easingCurve)
@@ -391,7 +391,7 @@ pub const qtimeline = struct {
     /// ` msec: i32 `
     ///
     pub fn FrameForTime(self: ?*anyopaque, msec: i32) i32 {
-        return qtc.QTimeLine_FrameForTime(@ptrCast(self), @intCast(msec));
+        return qtc.QTimeLine_FrameForTime(@ptrCast(self), @bitCast(msec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#valueForTime)
@@ -403,7 +403,7 @@ pub const qtimeline = struct {
     /// ` msec: i32 `
     ///
     pub fn ValueForTime(self: ?*anyopaque, msec: i32) f64 {
-        return qtc.QTimeLine_ValueForTime(@ptrCast(self), @intCast(msec));
+        return qtc.QTimeLine_ValueForTime(@ptrCast(self), @bitCast(msec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#valueForTime)
@@ -417,7 +417,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, msec: i32) callconv(.c) f64 `
     ///
     pub fn OnValueForTime(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) f64) void {
-        qtc.QTimeLine_OnValueForTime(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnValueForTime(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#valueForTime)
@@ -431,7 +431,7 @@ pub const qtimeline = struct {
     /// ` msec: i32 `
     ///
     pub fn QBaseValueForTime(self: ?*anyopaque, msec: i32) f64 {
-        return qtc.QTimeLine_QBaseValueForTime(@ptrCast(self), @intCast(msec));
+        return qtc.QTimeLine_QBaseValueForTime(@ptrCast(self), @bitCast(msec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#start)
@@ -485,7 +485,7 @@ pub const qtimeline = struct {
     /// ` msec: i32 `
     ///
     pub fn SetCurrentTime(self: ?*anyopaque, msec: i32) void {
-        qtc.QTimeLine_SetCurrentTime(@ptrCast(self), @intCast(msec));
+        qtc.QTimeLine_SetCurrentTime(@ptrCast(self), @bitCast(msec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#toggleDirection)
@@ -521,7 +521,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeLine_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#timerEvent)
@@ -573,7 +573,7 @@ pub const qtimeline = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeline.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -711,7 +711,7 @@ pub const qtimeline = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -725,7 +725,7 @@ pub const qtimeline = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -739,7 +739,7 @@ pub const qtimeline = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -753,7 +753,7 @@ pub const qtimeline = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1083,7 +1083,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1138,7 +1138,7 @@ pub const qtimeline = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1154,7 +1154,7 @@ pub const qtimeline = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1176,7 +1176,7 @@ pub const qtimeline = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1196,7 +1196,7 @@ pub const qtimeline = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1218,7 +1218,7 @@ pub const qtimeline = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1315,7 +1315,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1363,7 +1363,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTimeLine_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1415,7 +1415,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTimeLine_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1463,7 +1463,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeLine_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1511,7 +1511,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeLine_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1559,7 +1559,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeLine_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1607,7 +1607,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeLine_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1651,7 +1651,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QTimeLine_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1695,7 +1695,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTimeLine_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1745,7 +1745,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTimeLine_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1793,7 +1793,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTimeLine_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#valueChanged)
@@ -1807,7 +1807,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, x: f64) callconv(.c) void `
     ///
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QTimeLine_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_Connect_ValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#frameChanged)
@@ -1821,7 +1821,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, param1: i32) callconv(.c) void `
     ///
     pub fn OnFrameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTimeLine_Connect_FrameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_Connect_FrameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#stateChanged)
@@ -1835,7 +1835,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, newState: qtimeline_enums.State) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTimeLine_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_Connect_StateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#finished)
@@ -1849,7 +1849,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeLine_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTimeLine_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1865,7 +1865,7 @@ pub const qtimeline = struct {
     /// ` callback: *const fn (self: QtC.QTimeLine, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#dtor.QTimeLine)

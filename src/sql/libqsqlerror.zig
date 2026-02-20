@@ -77,7 +77,7 @@ pub const qsqlerror = struct {
             .data = databaseText.ptr,
         };
 
-        return qtc.QSqlError_new5(driverText_str, databaseText_str, @intCast(typeVal));
+        return qtc.QSqlError_new5(driverText_str, databaseText_str, @bitCast(typeVal));
     }
 
     /// New6 constructs a new QSqlError object.
@@ -106,7 +106,7 @@ pub const qsqlerror = struct {
             .data = errorCode.ptr,
         };
 
-        return qtc.QSqlError_new6(driverText_str, databaseText_str, @intCast(typeVal), errorCode_str);
+        return qtc.QSqlError_new6(driverText_str, databaseText_str, @bitCast(typeVal), errorCode_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#operator-eq)

@@ -20,7 +20,7 @@ pub const qabstractfileiconprovider = struct {
     /// ` param1: qabstractfileiconprovider_enums.IconType `
     ///
     pub fn Icon(self: ?*anyopaque, param1: i32) QtC.QIcon {
-        return qtc.QAbstractFileIconProvider_Icon(@ptrCast(self), @intCast(param1));
+        return qtc.QAbstractFileIconProvider_Icon(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
@@ -34,7 +34,7 @@ pub const qabstractfileiconprovider = struct {
     /// ` callback: *const fn (self: QtC.QAbstractFileIconProvider, param1: qabstractfileiconprovider_enums.IconType) callconv(.c) QtC.QIcon `
     ///
     pub fn OnIcon(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QIcon) void {
-        qtc.QAbstractFileIconProvider_OnIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractFileIconProvider_OnIcon(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
@@ -48,7 +48,7 @@ pub const qabstractfileiconprovider = struct {
     /// ` param1: qabstractfileiconprovider_enums.IconType `
     ///
     pub fn QBaseIcon(self: ?*anyopaque, param1: i32) QtC.QIcon {
-        return qtc.QAbstractFileIconProvider_QBaseIcon(@ptrCast(self), @intCast(param1));
+        return qtc.QAbstractFileIconProvider_QBaseIcon(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
@@ -74,7 +74,7 @@ pub const qabstractfileiconprovider = struct {
     /// ` callback: *const fn (self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo) callconv(.c) QtC.QIcon `
     ///
     pub fn OnIcon2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QIcon) void {
-        qtc.QAbstractFileIconProvider_OnIcon2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractFileIconProvider_OnIcon2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
@@ -122,7 +122,7 @@ pub const qabstractfileiconprovider = struct {
     /// ` callback: *const fn (self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
-        qtc.QAbstractFileIconProvider_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractFileIconProvider_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
@@ -154,7 +154,7 @@ pub const qabstractfileiconprovider = struct {
     /// ` options: flag of qabstractfileiconprovider_enums.Option `
     ///
     pub fn SetOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QAbstractFileIconProvider_SetOptions(@ptrCast(self), @intCast(options));
+        qtc.QAbstractFileIconProvider_SetOptions(@ptrCast(self), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
@@ -168,7 +168,7 @@ pub const qabstractfileiconprovider = struct {
     /// ` callback: *const fn (self: QtC.QAbstractFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option) callconv(.c) void `
     ///
     pub fn OnSetOptions(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractFileIconProvider_OnSetOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractFileIconProvider_OnSetOptions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
@@ -182,7 +182,7 @@ pub const qabstractfileiconprovider = struct {
     /// ` options: flag of qabstractfileiconprovider_enums.Option `
     ///
     pub fn QBaseSetOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QAbstractFileIconProvider_QBaseSetOptions(@ptrCast(self), @intCast(options));
+        qtc.QAbstractFileIconProvider_QBaseSetOptions(@ptrCast(self), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
@@ -210,7 +210,7 @@ pub const qabstractfileiconprovider = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnOptions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractFileIconProvider_OnOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractFileIconProvider_OnOptions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)

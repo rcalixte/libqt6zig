@@ -111,7 +111,7 @@ pub const kacl = struct {
     /// ` ownerPermissions: u16 `
     ///
     pub fn SetOwnerPermissions(self: ?*anyopaque, ownerPermissions: u16) bool {
-        return qtc.KACL_SetOwnerPermissions(@ptrCast(self), @intCast(ownerPermissions));
+        return qtc.KACL_SetOwnerPermissions(@ptrCast(self), @bitCast(ownerPermissions));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#owningGroupPermissions)
@@ -133,7 +133,7 @@ pub const kacl = struct {
     /// ` owningGroupPermissions: u16 `
     ///
     pub fn SetOwningGroupPermissions(self: ?*anyopaque, owningGroupPermissions: u16) bool {
-        return qtc.KACL_SetOwningGroupPermissions(@ptrCast(self), @intCast(owningGroupPermissions));
+        return qtc.KACL_SetOwningGroupPermissions(@ptrCast(self), @bitCast(owningGroupPermissions));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#othersPermissions)
@@ -155,7 +155,7 @@ pub const kacl = struct {
     /// ` othersPermissions: u16 `
     ///
     pub fn SetOthersPermissions(self: ?*anyopaque, othersPermissions: u16) bool {
-        return qtc.KACL_SetOthersPermissions(@ptrCast(self), @intCast(othersPermissions));
+        return qtc.KACL_SetOthersPermissions(@ptrCast(self), @bitCast(othersPermissions));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#basePermissions)
@@ -165,7 +165,7 @@ pub const kacl = struct {
     /// ` self: QtC.KACL `
     ///
     pub fn BasePermissions(self: ?*anyopaque) u32 {
-        return @intCast(qtc.KACL_BasePermissions(@ptrCast(self)));
+        return @bitCast(qtc.KACL_BasePermissions(@ptrCast(self)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#isExtended)
@@ -199,7 +199,7 @@ pub const kacl = struct {
     /// ` maskPermissions: u16 `
     ///
     pub fn SetMaskPermissions(self: ?*anyopaque, maskPermissions: u16) bool {
-        return qtc.KACL_SetMaskPermissions(@ptrCast(self), @intCast(maskPermissions));
+        return qtc.KACL_SetMaskPermissions(@ptrCast(self), @bitCast(maskPermissions));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#namedUserPermissions)
@@ -235,7 +235,7 @@ pub const kacl = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KACL_SetNamedUserPermissions(@ptrCast(self), name_str, @intCast(param2));
+        return qtc.KACL_SetNamedUserPermissions(@ptrCast(self), name_str, @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#allUserPermissions)
@@ -302,7 +302,7 @@ pub const kacl = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KACL_SetNamedGroupPermissions(@ptrCast(self), name_str, @intCast(param2));
+        return qtc.KACL_SetNamedGroupPermissions(@ptrCast(self), name_str, @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#allGroupPermissions)
@@ -379,7 +379,7 @@ pub const kacl = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KACL_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KACL_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#virtual_hook)
@@ -393,7 +393,7 @@ pub const kacl = struct {
     /// ` callback: *const fn (self: QtC.KACL, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KACL_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KACL_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#virtual_hook)
@@ -409,7 +409,7 @@ pub const kacl = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KACL_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KACL_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#dtor.KACL)

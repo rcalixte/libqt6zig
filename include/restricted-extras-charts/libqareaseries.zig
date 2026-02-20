@@ -66,7 +66,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QAreaSeries_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -101,7 +101,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QAreaSeries_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -128,7 +128,7 @@ pub const qareaseries = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAreaSeries_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAreaSeries_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -140,7 +140,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QAreaSeries_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -156,7 +156,7 @@ pub const qareaseries = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAreaSeries_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAreaSeries_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -201,7 +201,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAreaSeries_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#type)
@@ -509,7 +509,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAreaSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_Connect_Clicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#hovered)
@@ -535,7 +535,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, point: QtC.QPointF, state: bool) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAreaSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_Connect_Hovered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#pressed)
@@ -559,7 +559,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAreaSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_Connect_Pressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#released)
@@ -583,7 +583,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAreaSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_Connect_Released(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#doubleClicked)
@@ -607,7 +607,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, point: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAreaSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_Connect_DoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#selected)
@@ -629,7 +629,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries) callconv(.c) void `
     ///
     pub fn OnSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAreaSeries_Connect_Selected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_Connect_Selected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#colorChanged)
@@ -653,7 +653,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAreaSeries_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_Connect_ColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#borderColorChanged)
@@ -677,7 +677,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAreaSeries_Connect_BorderColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_Connect_BorderColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#pointLabelsFormatChanged)
@@ -705,7 +705,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, format: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPointLabelsFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAreaSeries_Connect_PointLabelsFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_Connect_PointLabelsFormatChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#pointLabelsVisibilityChanged)
@@ -729,7 +729,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, visible: bool) callconv(.c) void `
     ///
     pub fn OnPointLabelsVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAreaSeries_Connect_PointLabelsVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_Connect_PointLabelsVisibilityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#pointLabelsFontChanged)
@@ -753,7 +753,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, font: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnPointLabelsFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAreaSeries_Connect_PointLabelsFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_Connect_PointLabelsFontChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#pointLabelsColorChanged)
@@ -777,7 +777,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnPointLabelsColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAreaSeries_Connect_PointLabelsColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_Connect_PointLabelsColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#pointLabelsClippingChanged)
@@ -801,7 +801,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, clipping: bool) callconv(.c) void `
     ///
     pub fn OnPointLabelsClippingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAreaSeries_Connect_PointLabelsClippingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_Connect_PointLabelsClippingChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -839,7 +839,7 @@ pub const qareaseries = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qareaseries.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -965,7 +965,7 @@ pub const qareaseries = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QAbstractSeries_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QAbstractSeries_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QAbstractSeries
@@ -1098,7 +1098,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries) callconv(.c) void `
     ///
     pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -1124,7 +1124,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -1150,7 +1150,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries) callconv(.c) void `
     ///
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -1176,7 +1176,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries) callconv(.c) void `
     ///
     pub fn OnUseOpenGLChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -1338,7 +1338,7 @@ pub const qareaseries = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1352,7 +1352,7 @@ pub const qareaseries = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1366,7 +1366,7 @@ pub const qareaseries = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1380,7 +1380,7 @@ pub const qareaseries = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1710,7 +1710,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1765,7 +1765,7 @@ pub const qareaseries = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1781,7 +1781,7 @@ pub const qareaseries = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1803,7 +1803,7 @@ pub const qareaseries = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1823,7 +1823,7 @@ pub const qareaseries = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1845,7 +1845,7 @@ pub const qareaseries = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1942,7 +1942,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1990,7 +1990,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAreaSeries_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2042,7 +2042,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAreaSeries_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2090,7 +2090,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAreaSeries_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2138,7 +2138,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAreaSeries_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2186,7 +2186,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAreaSeries_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2234,7 +2234,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAreaSeries_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2282,7 +2282,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAreaSeries_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2326,7 +2326,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QAreaSeries_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2370,7 +2370,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAreaSeries_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2420,7 +2420,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAreaSeries_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2468,7 +2468,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAreaSeries_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAreaSeries_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2484,7 +2484,7 @@ pub const qareaseries = struct {
     /// ` callback: *const fn (self: QtC.QAreaSeries, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#dtor.QAreaSeries)

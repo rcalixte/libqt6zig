@@ -324,7 +324,7 @@ pub const qsqldatabase = struct {
     /// ` p: i32 `
     ///
     pub fn SetPort(self: ?*anyopaque, p: i32) void {
-        qtc.QSqlDatabase_SetPort(@ptrCast(self), @intCast(p));
+        qtc.QSqlDatabase_SetPort(@ptrCast(self), @bitCast(p));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#setConnectOptions)
@@ -468,7 +468,7 @@ pub const qsqldatabase = struct {
     /// ` precisionPolicy: qtsqlglobal_enums.NumericalPrecisionPolicy `
     ///
     pub fn SetNumericalPrecisionPolicy(self: ?*anyopaque, precisionPolicy: i32) void {
-        qtc.QSqlDatabase_SetNumericalPrecisionPolicy(@ptrCast(self), @intCast(precisionPolicy));
+        qtc.QSqlDatabase_SetNumericalPrecisionPolicy(@ptrCast(self), @bitCast(precisionPolicy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#numericalPrecisionPolicy)
@@ -694,7 +694,7 @@ pub const qsqldatabase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Tables1(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QSqlDatabase_Tables1(@ptrCast(self), @intCast(typeVal));
+        const _arr: qtc.libqt_list = qtc.QSqlDatabase_Tables1(@ptrCast(self), @bitCast(typeVal));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {

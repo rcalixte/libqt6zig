@@ -56,7 +56,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` vPolicy: qsizepolicy_enums.Policy `
     ///
     pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i32, vPolicy: i32) void {
-        qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy));
+        qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self), @bitCast(hPolicy), @bitCast(vPolicy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizePolicy)
@@ -92,7 +92,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` h: f64 `
     ///
     pub fn SetMinimumSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumSize2(@ptrCast(self), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsLayoutItem_SetMinimumSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumSize)
@@ -114,7 +114,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` width: f64 `
     ///
     pub fn SetMinimumWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumWidth(@ptrCast(self), @floatCast(width));
+        qtc.QGraphicsLayoutItem_SetMinimumWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumWidth)
@@ -136,7 +136,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` height: f64 `
     ///
     pub fn SetMinimumHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumHeight(@ptrCast(self), @floatCast(height));
+        qtc.QGraphicsLayoutItem_SetMinimumHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumHeight)
@@ -172,7 +172,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` h: f64 `
     ///
     pub fn SetPreferredSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredSize2(@ptrCast(self), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsLayoutItem_SetPreferredSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredSize)
@@ -194,7 +194,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` width: f64 `
     ///
     pub fn SetPreferredWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredWidth(@ptrCast(self), @floatCast(width));
+        qtc.QGraphicsLayoutItem_SetPreferredWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredWidth)
@@ -216,7 +216,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` height: f64 `
     ///
     pub fn SetPreferredHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredHeight(@ptrCast(self), @floatCast(height));
+        qtc.QGraphicsLayoutItem_SetPreferredHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredHeight)
@@ -252,7 +252,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` h: f64 `
     ///
     pub fn SetMaximumSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumSize2(@ptrCast(self), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsLayoutItem_SetMaximumSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumSize)
@@ -274,7 +274,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` width: f64 `
     ///
     pub fn SetMaximumWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumWidth(@ptrCast(self), @floatCast(width));
+        qtc.QGraphicsLayoutItem_SetMaximumWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumWidth)
@@ -296,7 +296,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` height: f64 `
     ///
     pub fn SetMaximumHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumHeight(@ptrCast(self), @floatCast(height));
+        qtc.QGraphicsLayoutItem_SetMaximumHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumHeight)
@@ -332,7 +332,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLayoutItem, rect: QtC.QRectF) callconv(.c) void `
     ///
     pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLayoutItem_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLayoutItem_OnSetGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGeometry)
@@ -388,7 +388,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLayoutItem, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void `
     ///
     pub fn OnGetContentsMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, *f64, *f64, *f64, *f64) callconv(.c) void) void {
-        qtc.QGraphicsLayoutItem_OnGetContentsMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLayoutItem_OnGetContentsMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#getContentsMargins)
@@ -430,7 +430,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` which: qnamespace_enums.SizeHint `
     ///
     pub fn EffectiveSizeHint(self: ?*anyopaque, which: i32) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self), @intCast(which));
+        return qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self), @bitCast(which));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#updateGeometry)
@@ -454,7 +454,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsLayoutItem_OnUpdateGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLayoutItem_OnUpdateGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#updateGeometry)
@@ -490,7 +490,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGraphicsLayoutItem_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLayoutItem_OnIsEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
@@ -580,7 +580,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLayoutItem, item: QtC.QGraphicsItem) callconv(.c) void `
     ///
     pub fn OnSetGraphicsItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLayoutItem_OnSetGraphicsItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLayoutItem_OnSetGraphicsItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
@@ -620,7 +620,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLayoutItem, ownedByLayout: bool) callconv(.c) void `
     ///
     pub fn OnSetOwnedByLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsLayoutItem_OnSetOwnedByLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLayoutItem_OnSetOwnedByLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
@@ -648,7 +648,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` constraint: QtC.QSizeF `
     ///
     pub fn SizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_SizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
+        return qtc.QGraphicsLayoutItem_SizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizeHint)
@@ -662,7 +662,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsLayoutItem, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF) callconv(.c) QtC.QSizeF `
     ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
-        qtc.QGraphicsLayoutItem_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsLayoutItem_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizeHint)
@@ -678,7 +678,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` constraint: QtC.QSizeF `
     ///
     pub fn QBaseSizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_QBaseSizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
+        return qtc.QGraphicsLayoutItem_QBaseSizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
@@ -694,7 +694,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` controlType: qsizepolicy_enums.ControlType `
     ///
     pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i32, vPolicy: i32, controlType: i32) void {
-        qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy), @intCast(controlType));
+        qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self), @bitCast(hPolicy), @bitCast(vPolicy), @bitCast(controlType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
@@ -708,7 +708,7 @@ pub const qgraphicslayoutitem = struct {
     /// ` constraint: QtC.QSizeF `
     ///
     pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self), @intCast(which), @ptrCast(constraint));
+        return qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#dtor.QGraphicsLayoutItem)

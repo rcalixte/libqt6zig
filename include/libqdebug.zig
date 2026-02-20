@@ -96,7 +96,7 @@ pub const qdebug = struct {
     /// ` verbosityLevel: i32 `
     ///
     pub fn Verbosity(self: ?*anyopaque, verbosityLevel: i32) QtC.QDebug {
-        return qtc.QDebug_Verbosity(@ptrCast(self), @intCast(verbosityLevel));
+        return qtc.QDebug_Verbosity(@ptrCast(self), @bitCast(verbosityLevel));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#verbosity)
@@ -118,7 +118,7 @@ pub const qdebug = struct {
     /// ` verbosityLevel: i32 `
     ///
     pub fn SetVerbosity(self: ?*anyopaque, verbosityLevel: i32) void {
-        qtc.QDebug_SetVerbosity(@ptrCast(self), @intCast(verbosityLevel));
+        qtc.QDebug_SetVerbosity(@ptrCast(self), @bitCast(verbosityLevel));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#autoInsertSpaces)
@@ -228,7 +228,7 @@ pub const qdebug = struct {
     /// ` t: u8 `
     ///
     pub fn OperatorShiftLeft3(self: ?*anyopaque, t: u8) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeft3(@ptrCast(self), @intCast(t));
+        return qtc.QDebug_OperatorShiftLeft3(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
@@ -240,7 +240,7 @@ pub const qdebug = struct {
     /// ` t: i16 `
     ///
     pub fn OperatorShiftLeft4(self: ?*anyopaque, t: i16) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeft4(@ptrCast(self), @intCast(t));
+        return qtc.QDebug_OperatorShiftLeft4(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
@@ -252,7 +252,7 @@ pub const qdebug = struct {
     /// ` t: u16 `
     ///
     pub fn OperatorShiftLeft5(self: ?*anyopaque, t: u16) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeft5(@ptrCast(self), @intCast(t));
+        return qtc.QDebug_OperatorShiftLeft5(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
@@ -264,7 +264,7 @@ pub const qdebug = struct {
     /// ` t: i32 `
     ///
     pub fn OperatorShiftLeft8(self: ?*anyopaque, t: i32) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeft8(@ptrCast(self), @intCast(t));
+        return qtc.QDebug_OperatorShiftLeft8(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
@@ -276,7 +276,7 @@ pub const qdebug = struct {
     /// ` t: u32 `
     ///
     pub fn OperatorShiftLeft9(self: ?*anyopaque, t: u32) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeft9(@ptrCast(self), @intCast(t));
+        return qtc.QDebug_OperatorShiftLeft9(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
@@ -288,7 +288,7 @@ pub const qdebug = struct {
     /// ` t: i64 `
     ///
     pub fn OperatorShiftLeft10(self: ?*anyopaque, t: i64) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeft10(@ptrCast(self), @intCast(t));
+        return qtc.QDebug_OperatorShiftLeft10(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
@@ -300,7 +300,7 @@ pub const qdebug = struct {
     /// ` t: u64 `
     ///
     pub fn OperatorShiftLeft11(self: ?*anyopaque, t: u64) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeft11(@ptrCast(self), @intCast(t));
+        return qtc.QDebug_OperatorShiftLeft11(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
@@ -312,7 +312,7 @@ pub const qdebug = struct {
     /// ` t: i64 `
     ///
     pub fn OperatorShiftLeft12(self: ?*anyopaque, t: i64) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeft12(@ptrCast(self), @intCast(t));
+        return qtc.QDebug_OperatorShiftLeft12(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
@@ -324,7 +324,7 @@ pub const qdebug = struct {
     /// ` t: u64 `
     ///
     pub fn OperatorShiftLeft13(self: ?*anyopaque, t: u64) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeft13(@ptrCast(self), @intCast(t));
+        return qtc.QDebug_OperatorShiftLeft13(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
@@ -336,7 +336,7 @@ pub const qdebug = struct {
     /// ` t: f32 `
     ///
     pub fn OperatorShiftLeft15(self: ?*anyopaque, t: f32) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeft15(@ptrCast(self), @floatCast(t));
+        return qtc.QDebug_OperatorShiftLeft15(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
@@ -348,7 +348,7 @@ pub const qdebug = struct {
     /// ` t: f64 `
     ///
     pub fn OperatorShiftLeft16(self: ?*anyopaque, t: f64) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeft16(@ptrCast(self), @floatCast(t));
+        return qtc.QDebug_OperatorShiftLeft16(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
@@ -433,7 +433,7 @@ pub const qdebug = struct {
     /// ` c: u8 `
     ///
     pub fn MaybeQuote1(self: ?*anyopaque, c: u8) QtC.QDebug {
-        return qtc.QDebug_MaybeQuote1(@ptrCast(self), @intCast(c));
+        return qtc.QDebug_MaybeQuote1(@ptrCast(self), @bitCast(c));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#dtor.QDebug)
@@ -589,7 +589,7 @@ pub const qnodebug = struct {
     /// ` param1: i32 `
     ///
     pub fn Verbosity(self: ?*anyopaque, param1: i32) QtC.QNoDebug {
-        return qtc.QNoDebug_Verbosity(@ptrCast(self), @intCast(param1));
+        return qtc.QNoDebug_Verbosity(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#maybeQuote)
@@ -601,7 +601,7 @@ pub const qnodebug = struct {
     /// ` param1: u8 `
     ///
     pub fn MaybeQuote1(self: ?*anyopaque, param1: u8) QtC.QNoDebug {
-        return qtc.QNoDebug_MaybeQuote1(@ptrCast(self), @intCast(param1));
+        return qtc.QNoDebug_MaybeQuote1(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#dtor.QNoDebug)

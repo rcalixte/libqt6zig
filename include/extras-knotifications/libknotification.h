@@ -104,6 +104,7 @@ KNotificationAction* KNotification_AddDefaultAction(KNotification* self, const l
 KNotificationAction* KNotification_AddAction(KNotification* self, const libqt_string label);
 void KNotification_ClearActions(KNotification* self);
 KNotificationReplyAction* KNotification_ReplyAction(const KNotification* self);
+void KNotification_SetReplyAction(KNotification* self, KNotificationReplyAction* replyAction);
 int KNotification_Flags(const KNotification* self);
 void KNotification_SetFlags(KNotification* self, const int* flags);
 libqt_string KNotification_ComponentName(const KNotification* self);

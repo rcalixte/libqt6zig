@@ -16,7 +16,7 @@ pub const packagekit__bitfield = struct {
     /// ` val: u64 `
     ///
     pub fn New2(val: u64) QtC.PackageKit__Bitfield {
-        return qtc.PackageKit__Bitfield_new2(@intCast(val));
+        return qtc.PackageKit__Bitfield_new2(@bitCast(val));
     }
 
     /// New3 constructs a new PackageKit::Bitfield object.
@@ -38,7 +38,7 @@ pub const packagekit__bitfield = struct {
     /// ` mask: u64 `
     ///
     pub fn OperatorBitwiseAnd(self: ?*anyopaque, mask: u64) u64 {
-        return qtc.PackageKit__Bitfield_OperatorBitwiseAnd(@ptrCast(self), @intCast(mask));
+        return qtc.PackageKit__Bitfield_OperatorBitwiseAnd(@ptrCast(self), @bitCast(mask));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -50,7 +50,7 @@ pub const packagekit__bitfield = struct {
     /// ` mask: u64 `
     ///
     pub fn OperatorBitwiseAndAssign(self: ?*anyopaque, mask: u64) void {
-        qtc.PackageKit__Bitfield_OperatorBitwiseAndAssign(@ptrCast(self), @intCast(mask));
+        qtc.PackageKit__Bitfield_OperatorBitwiseAndAssign(@ptrCast(self), @bitCast(mask));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -62,7 +62,7 @@ pub const packagekit__bitfield = struct {
     /// ` mask: u64 `
     ///
     pub fn OperatorBitwiseOr(self: ?*anyopaque, mask: u64) u64 {
-        return qtc.PackageKit__Bitfield_OperatorBitwiseOr(@ptrCast(self), @intCast(mask));
+        return qtc.PackageKit__Bitfield_OperatorBitwiseOr(@ptrCast(self), @bitCast(mask));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -74,7 +74,7 @@ pub const packagekit__bitfield = struct {
     /// ` mask: u64 `
     ///
     pub fn OperatorBitwiseOrAssign(self: ?*anyopaque, mask: u64) void {
-        qtc.PackageKit__Bitfield_OperatorBitwiseOrAssign(@ptrCast(self), @intCast(mask));
+        qtc.PackageKit__Bitfield_OperatorBitwiseOrAssign(@ptrCast(self), @bitCast(mask));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)

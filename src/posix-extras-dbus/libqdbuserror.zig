@@ -35,7 +35,7 @@ pub const qdbuserror = struct {
             .data = message.ptr,
         };
 
-        return qtc.QDBusError_new3(@intCast(errorVal), message_str);
+        return qtc.QDBusError_new3(@bitCast(errorVal), message_str);
     }
 
     /// New4 constructs a new QDBusError object.
@@ -149,7 +149,7 @@ pub const qdbuserror = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ErrorString(errorVal: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusError_ErrorString(@intCast(errorVal));
+        var _str = qtc.QDBusError_ErrorString(@bitCast(errorVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbuserror.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

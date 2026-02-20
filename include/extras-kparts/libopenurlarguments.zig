@@ -74,7 +74,7 @@ pub const kparts__openurlarguments = struct {
     /// ` x: i32 `
     ///
     pub fn SetXOffset(self: ?*anyopaque, x: i32) void {
-        qtc.KParts__OpenUrlArguments_SetXOffset(@ptrCast(self), @intCast(x));
+        qtc.KParts__OpenUrlArguments_SetXOffset(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#yOffset)
@@ -96,7 +96,7 @@ pub const kparts__openurlarguments = struct {
     /// ` y: i32 `
     ///
     pub fn SetYOffset(self: ?*anyopaque, y: i32) void {
-        qtc.KParts__OpenUrlArguments_SetYOffset(@ptrCast(self), @intCast(y));
+        qtc.KParts__OpenUrlArguments_SetYOffset(@ptrCast(self), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#mimeType)

@@ -20,7 +20,7 @@ pub const qbrush = struct {
     /// ` bs: qnamespace_enums.BrushStyle `
     ///
     pub fn New2(bs: i32) QtC.QBrush {
-        return qtc.QBrush_new2(@intCast(bs));
+        return qtc.QBrush_new2(@bitCast(bs));
     }
 
     /// New3 constructs a new QBrush object.
@@ -40,7 +40,7 @@ pub const qbrush = struct {
     /// ` color: qnamespace_enums.GlobalColor `
     ///
     pub fn New4(color: i32) QtC.QBrush {
-        return qtc.QBrush_new4(@intCast(color));
+        return qtc.QBrush_new4(@bitCast(color));
     }
 
     /// New5 constructs a new QBrush object.
@@ -64,7 +64,7 @@ pub const qbrush = struct {
     /// ` pixmap: QtC.QPixmap `
     ///
     pub fn New6(color: i32, pixmap: ?*anyopaque) QtC.QBrush {
-        return qtc.QBrush_new6(@intCast(color), @ptrCast(pixmap));
+        return qtc.QBrush_new6(@bitCast(color), @ptrCast(pixmap));
     }
 
     /// New7 constructs a new QBrush object.
@@ -116,7 +116,7 @@ pub const qbrush = struct {
     /// ` bs: qnamespace_enums.BrushStyle `
     ///
     pub fn New11(color: ?*anyopaque, bs: i32) QtC.QBrush {
-        return qtc.QBrush_new11(@ptrCast(color), @intCast(bs));
+        return qtc.QBrush_new11(@ptrCast(color), @bitCast(bs));
     }
 
     /// New12 constructs a new QBrush object.
@@ -128,7 +128,7 @@ pub const qbrush = struct {
     /// ` bs: qnamespace_enums.BrushStyle `
     ///
     pub fn New12(color: i32, bs: i32) QtC.QBrush {
-        return qtc.QBrush_new12(@intCast(color), @intCast(bs));
+        return qtc.QBrush_new12(@bitCast(color), @bitCast(bs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator-eq)
@@ -188,7 +188,7 @@ pub const qbrush = struct {
     /// ` style: qnamespace_enums.BrushStyle `
     ///
     pub fn SetStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QBrush_SetStyle(@ptrCast(self), @intCast(style));
+        qtc.QBrush_SetStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#transform)
@@ -288,7 +288,7 @@ pub const qbrush = struct {
     /// ` color: qnamespace_enums.GlobalColor `
     ///
     pub fn SetColor2(self: ?*anyopaque, color: i32) void {
-        qtc.QBrush_SetColor2(@ptrCast(self), @intCast(color));
+        qtc.QBrush_SetColor2(@ptrCast(self), @bitCast(color));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#gradient)
@@ -373,7 +373,7 @@ pub const qgradient = struct {
     /// ` param1: qbrush_enums.Preset `
     ///
     pub fn New2(param1: i32) QtC.QGradient {
-        return qtc.QGradient_new2(@intCast(param1));
+        return qtc.QGradient_new2(@bitCast(param1));
     }
 
     /// New3 constructs a new QGradient object.
@@ -409,7 +409,7 @@ pub const qgradient = struct {
     /// ` spread: qbrush_enums.Spread `
     ///
     pub fn SetSpread(self: ?*anyopaque, spread: i32) void {
-        qtc.QGradient_SetSpread(@ptrCast(self), @intCast(spread));
+        qtc.QGradient_SetSpread(@ptrCast(self), @bitCast(spread));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#spread)
@@ -437,7 +437,7 @@ pub const qgradient = struct {
     /// ` color: QtC.QColor `
     ///
     pub fn SetColorAt(self: ?*anyopaque, pos: f64, color: ?*anyopaque) void {
-        qtc.QGradient_SetColorAt(@ptrCast(self), @floatCast(pos), @ptrCast(color));
+        qtc.QGradient_SetColorAt(@ptrCast(self), @bitCast(pos), @ptrCast(color));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setStops)
@@ -496,7 +496,7 @@ pub const qgradient = struct {
     /// ` mode: qbrush_enums.CoordinateMode `
     ///
     pub fn SetCoordinateMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGradient_SetCoordinateMode(@ptrCast(self), @intCast(mode));
+        qtc.QGradient_SetCoordinateMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#interpolationMode)
@@ -522,7 +522,7 @@ pub const qgradient = struct {
     /// ` mode: qbrush_enums.InterpolationMode `
     ///
     pub fn SetInterpolationMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGradient_SetInterpolationMode(@ptrCast(self), @intCast(mode));
+        qtc.QGradient_SetInterpolationMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-eq-eq)
@@ -595,7 +595,7 @@ pub const qlineargradient = struct {
     /// ` yFinalStop: f64 `
     ///
     pub fn New3(xStart: f64, yStart: f64, xFinalStop: f64, yFinalStop: f64) QtC.QLinearGradient {
-        return qtc.QLinearGradient_new3(@floatCast(xStart), @floatCast(yStart), @floatCast(xFinalStop), @floatCast(yFinalStop));
+        return qtc.QLinearGradient_new3(@bitCast(xStart), @bitCast(yStart), @bitCast(xFinalStop), @bitCast(yFinalStop));
     }
 
     /// New4 constructs a new QLinearGradient object.
@@ -641,7 +641,7 @@ pub const qlineargradient = struct {
     /// ` y: f64 `
     ///
     pub fn SetStart2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QLinearGradient_SetStart2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QLinearGradient_SetStart2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#finalStop)
@@ -677,7 +677,7 @@ pub const qlineargradient = struct {
     /// ` y: f64 `
     ///
     pub fn SetFinalStop2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QLinearGradient_SetFinalStop2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QLinearGradient_SetFinalStop2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGradient
@@ -707,7 +707,7 @@ pub const qlineargradient = struct {
     /// ` spread: qbrush_enums.Spread `
     ///
     pub fn SetSpread(self: ?*anyopaque, spread: i32) void {
-        qtc.QGradient_SetSpread(@ptrCast(self), @intCast(spread));
+        qtc.QGradient_SetSpread(@ptrCast(self), @bitCast(spread));
     }
 
     /// Inherited from QGradient
@@ -739,7 +739,7 @@ pub const qlineargradient = struct {
     /// ` color: QtC.QColor `
     ///
     pub fn SetColorAt(self: ?*anyopaque, pos: f64, color: ?*anyopaque) void {
-        qtc.QGradient_SetColorAt(@ptrCast(self), @floatCast(pos), @ptrCast(color));
+        qtc.QGradient_SetColorAt(@ptrCast(self), @bitCast(pos), @ptrCast(color));
     }
 
     /// Inherited from QGradient
@@ -806,7 +806,7 @@ pub const qlineargradient = struct {
     /// ` mode: qbrush_enums.CoordinateMode `
     ///
     pub fn SetCoordinateMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGradient_SetCoordinateMode(@ptrCast(self), @intCast(mode));
+        qtc.QGradient_SetCoordinateMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGradient
@@ -836,7 +836,7 @@ pub const qlineargradient = struct {
     /// ` mode: qbrush_enums.InterpolationMode `
     ///
     pub fn SetInterpolationMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGradient_SetInterpolationMode(@ptrCast(self), @intCast(mode));
+        qtc.QGradient_SetInterpolationMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGradient
@@ -899,7 +899,7 @@ pub const qradialgradient = struct {
     /// ` focalPoint: QtC.QPointF `
     ///
     pub fn New2(center: ?*anyopaque, radius: f64, focalPoint: ?*anyopaque) QtC.QRadialGradient {
-        return qtc.QRadialGradient_new2(@ptrCast(center), @floatCast(radius), @ptrCast(focalPoint));
+        return qtc.QRadialGradient_new2(@ptrCast(center), @bitCast(radius), @ptrCast(focalPoint));
     }
 
     /// New3 constructs a new QRadialGradient object.
@@ -917,7 +917,7 @@ pub const qradialgradient = struct {
     /// ` fy: f64 `
     ///
     pub fn New3(cx: f64, cy: f64, radius: f64, fx: f64, fy: f64) QtC.QRadialGradient {
-        return qtc.QRadialGradient_new3(@floatCast(cx), @floatCast(cy), @floatCast(radius), @floatCast(fx), @floatCast(fy));
+        return qtc.QRadialGradient_new3(@bitCast(cx), @bitCast(cy), @bitCast(radius), @bitCast(fx), @bitCast(fy));
     }
 
     /// New4 constructs a new QRadialGradient object.
@@ -929,7 +929,7 @@ pub const qradialgradient = struct {
     /// ` radius: f64 `
     ///
     pub fn New4(center: ?*anyopaque, radius: f64) QtC.QRadialGradient {
-        return qtc.QRadialGradient_new4(@ptrCast(center), @floatCast(radius));
+        return qtc.QRadialGradient_new4(@ptrCast(center), @bitCast(radius));
     }
 
     /// New5 constructs a new QRadialGradient object.
@@ -943,7 +943,7 @@ pub const qradialgradient = struct {
     /// ` radius: f64 `
     ///
     pub fn New5(cx: f64, cy: f64, radius: f64) QtC.QRadialGradient {
-        return qtc.QRadialGradient_new5(@floatCast(cx), @floatCast(cy), @floatCast(radius));
+        return qtc.QRadialGradient_new5(@bitCast(cx), @bitCast(cy), @bitCast(radius));
     }
 
     /// New6 constructs a new QRadialGradient object.
@@ -959,7 +959,7 @@ pub const qradialgradient = struct {
     /// ` focalRadius: f64 `
     ///
     pub fn New6(center: ?*anyopaque, centerRadius: f64, focalPoint: ?*anyopaque, focalRadius: f64) QtC.QRadialGradient {
-        return qtc.QRadialGradient_new6(@ptrCast(center), @floatCast(centerRadius), @ptrCast(focalPoint), @floatCast(focalRadius));
+        return qtc.QRadialGradient_new6(@ptrCast(center), @bitCast(centerRadius), @ptrCast(focalPoint), @bitCast(focalRadius));
     }
 
     /// New7 constructs a new QRadialGradient object.
@@ -979,7 +979,7 @@ pub const qradialgradient = struct {
     /// ` focalRadius: f64 `
     ///
     pub fn New7(cx: f64, cy: f64, centerRadius: f64, fx: f64, fy: f64, focalRadius: f64) QtC.QRadialGradient {
-        return qtc.QRadialGradient_new7(@floatCast(cx), @floatCast(cy), @floatCast(centerRadius), @floatCast(fx), @floatCast(fy), @floatCast(focalRadius));
+        return qtc.QRadialGradient_new7(@bitCast(cx), @bitCast(cy), @bitCast(centerRadius), @bitCast(fx), @bitCast(fy), @bitCast(focalRadius));
     }
 
     /// New8 constructs a new QRadialGradient object.
@@ -1025,7 +1025,7 @@ pub const qradialgradient = struct {
     /// ` y: f64 `
     ///
     pub fn SetCenter2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QRadialGradient_SetCenter2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QRadialGradient_SetCenter2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#focalPoint)
@@ -1061,7 +1061,7 @@ pub const qradialgradient = struct {
     /// ` y: f64 `
     ///
     pub fn SetFocalPoint2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QRadialGradient_SetFocalPoint2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QRadialGradient_SetFocalPoint2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#radius)
@@ -1083,7 +1083,7 @@ pub const qradialgradient = struct {
     /// ` radius: f64 `
     ///
     pub fn SetRadius(self: ?*anyopaque, radius: f64) void {
-        qtc.QRadialGradient_SetRadius(@ptrCast(self), @floatCast(radius));
+        qtc.QRadialGradient_SetRadius(@ptrCast(self), @bitCast(radius));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#centerRadius)
@@ -1105,7 +1105,7 @@ pub const qradialgradient = struct {
     /// ` radius: f64 `
     ///
     pub fn SetCenterRadius(self: ?*anyopaque, radius: f64) void {
-        qtc.QRadialGradient_SetCenterRadius(@ptrCast(self), @floatCast(radius));
+        qtc.QRadialGradient_SetCenterRadius(@ptrCast(self), @bitCast(radius));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#focalRadius)
@@ -1127,7 +1127,7 @@ pub const qradialgradient = struct {
     /// ` radius: f64 `
     ///
     pub fn SetFocalRadius(self: ?*anyopaque, radius: f64) void {
-        qtc.QRadialGradient_SetFocalRadius(@ptrCast(self), @floatCast(radius));
+        qtc.QRadialGradient_SetFocalRadius(@ptrCast(self), @bitCast(radius));
     }
 
     /// Inherited from QGradient
@@ -1157,7 +1157,7 @@ pub const qradialgradient = struct {
     /// ` spread: qbrush_enums.Spread `
     ///
     pub fn SetSpread(self: ?*anyopaque, spread: i32) void {
-        qtc.QGradient_SetSpread(@ptrCast(self), @intCast(spread));
+        qtc.QGradient_SetSpread(@ptrCast(self), @bitCast(spread));
     }
 
     /// Inherited from QGradient
@@ -1189,7 +1189,7 @@ pub const qradialgradient = struct {
     /// ` color: QtC.QColor `
     ///
     pub fn SetColorAt(self: ?*anyopaque, pos: f64, color: ?*anyopaque) void {
-        qtc.QGradient_SetColorAt(@ptrCast(self), @floatCast(pos), @ptrCast(color));
+        qtc.QGradient_SetColorAt(@ptrCast(self), @bitCast(pos), @ptrCast(color));
     }
 
     /// Inherited from QGradient
@@ -1256,7 +1256,7 @@ pub const qradialgradient = struct {
     /// ` mode: qbrush_enums.CoordinateMode `
     ///
     pub fn SetCoordinateMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGradient_SetCoordinateMode(@ptrCast(self), @intCast(mode));
+        qtc.QGradient_SetCoordinateMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGradient
@@ -1286,7 +1286,7 @@ pub const qradialgradient = struct {
     /// ` mode: qbrush_enums.InterpolationMode `
     ///
     pub fn SetInterpolationMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGradient_SetInterpolationMode(@ptrCast(self), @intCast(mode));
+        qtc.QGradient_SetInterpolationMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGradient
@@ -1347,7 +1347,7 @@ pub const qconicalgradient = struct {
     /// ` startAngle: f64 `
     ///
     pub fn New2(center: ?*anyopaque, startAngle: f64) QtC.QConicalGradient {
-        return qtc.QConicalGradient_new2(@ptrCast(center), @floatCast(startAngle));
+        return qtc.QConicalGradient_new2(@ptrCast(center), @bitCast(startAngle));
     }
 
     /// New3 constructs a new QConicalGradient object.
@@ -1361,7 +1361,7 @@ pub const qconicalgradient = struct {
     /// ` startAngle: f64 `
     ///
     pub fn New3(cx: f64, cy: f64, startAngle: f64) QtC.QConicalGradient {
-        return qtc.QConicalGradient_new3(@floatCast(cx), @floatCast(cy), @floatCast(startAngle));
+        return qtc.QConicalGradient_new3(@bitCast(cx), @bitCast(cy), @bitCast(startAngle));
     }
 
     /// New4 constructs a new QConicalGradient object.
@@ -1407,7 +1407,7 @@ pub const qconicalgradient = struct {
     /// ` y: f64 `
     ///
     pub fn SetCenter2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QConicalGradient_SetCenter2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QConicalGradient_SetCenter2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#angle)
@@ -1429,7 +1429,7 @@ pub const qconicalgradient = struct {
     /// ` angle: f64 `
     ///
     pub fn SetAngle(self: ?*anyopaque, angle: f64) void {
-        qtc.QConicalGradient_SetAngle(@ptrCast(self), @floatCast(angle));
+        qtc.QConicalGradient_SetAngle(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QGradient
@@ -1459,7 +1459,7 @@ pub const qconicalgradient = struct {
     /// ` spread: qbrush_enums.Spread `
     ///
     pub fn SetSpread(self: ?*anyopaque, spread: i32) void {
-        qtc.QGradient_SetSpread(@ptrCast(self), @intCast(spread));
+        qtc.QGradient_SetSpread(@ptrCast(self), @bitCast(spread));
     }
 
     /// Inherited from QGradient
@@ -1491,7 +1491,7 @@ pub const qconicalgradient = struct {
     /// ` color: QtC.QColor `
     ///
     pub fn SetColorAt(self: ?*anyopaque, pos: f64, color: ?*anyopaque) void {
-        qtc.QGradient_SetColorAt(@ptrCast(self), @floatCast(pos), @ptrCast(color));
+        qtc.QGradient_SetColorAt(@ptrCast(self), @bitCast(pos), @ptrCast(color));
     }
 
     /// Inherited from QGradient
@@ -1558,7 +1558,7 @@ pub const qconicalgradient = struct {
     /// ` mode: qbrush_enums.CoordinateMode `
     ///
     pub fn SetCoordinateMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGradient_SetCoordinateMode(@ptrCast(self), @intCast(mode));
+        qtc.QGradient_SetCoordinateMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGradient
@@ -1588,7 +1588,7 @@ pub const qconicalgradient = struct {
     /// ` mode: qbrush_enums.InterpolationMode `
     ///
     pub fn SetInterpolationMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGradient_SetInterpolationMode(@ptrCast(self), @intCast(mode));
+        qtc.QGradient_SetInterpolationMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGradient

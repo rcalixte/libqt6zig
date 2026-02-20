@@ -45,7 +45,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGridLayout_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -80,7 +80,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGridLayout_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -107,7 +107,7 @@ pub const qgridlayout = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGridLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGridLayout_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -119,7 +119,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGridLayout_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -135,7 +135,7 @@ pub const qgridlayout = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGridLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGridLayout_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -176,7 +176,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QGridLayout_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#sizeHint)
@@ -212,7 +212,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QGridLayout_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnMinimumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumSize)
@@ -248,7 +248,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QGridLayout_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnMaximumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#maximumSize)
@@ -272,7 +272,7 @@ pub const qgridlayout = struct {
     /// ` spacing: i32 `
     ///
     pub fn SetHorizontalSpacing(self: ?*anyopaque, spacing: i32) void {
-        qtc.QGridLayout_SetHorizontalSpacing(@ptrCast(self), @intCast(spacing));
+        qtc.QGridLayout_SetHorizontalSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#horizontalSpacing)
@@ -294,7 +294,7 @@ pub const qgridlayout = struct {
     /// ` spacing: i32 `
     ///
     pub fn SetVerticalSpacing(self: ?*anyopaque, spacing: i32) void {
-        qtc.QGridLayout_SetVerticalSpacing(@ptrCast(self), @intCast(spacing));
+        qtc.QGridLayout_SetVerticalSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#verticalSpacing)
@@ -316,7 +316,7 @@ pub const qgridlayout = struct {
     /// ` spacing: i32 `
     ///
     pub fn SetSpacing(self: ?*anyopaque, spacing: i32) void {
-        qtc.QGridLayout_SetSpacing(@ptrCast(self), @intCast(spacing));
+        qtc.QGridLayout_SetSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setSpacing)
@@ -330,7 +330,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, spacing: i32) callconv(.c) void `
     ///
     pub fn OnSetSpacing(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGridLayout_OnSetSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnSetSpacing(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setSpacing)
@@ -344,7 +344,7 @@ pub const qgridlayout = struct {
     /// ` spacing: i32 `
     ///
     pub fn QBaseSetSpacing(self: ?*anyopaque, spacing: i32) void {
-        qtc.QGridLayout_QBaseSetSpacing(@ptrCast(self), @intCast(spacing));
+        qtc.QGridLayout_QBaseSetSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#spacing)
@@ -368,7 +368,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSpacing(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGridLayout_OnSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnSpacing(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#spacing)
@@ -394,7 +394,7 @@ pub const qgridlayout = struct {
     /// ` stretch: i32 `
     ///
     pub fn SetRowStretch(self: ?*anyopaque, row: i32, stretch: i32) void {
-        qtc.QGridLayout_SetRowStretch(@ptrCast(self), @intCast(row), @intCast(stretch));
+        qtc.QGridLayout_SetRowStretch(@ptrCast(self), @bitCast(row), @bitCast(stretch));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setColumnStretch)
@@ -408,7 +408,7 @@ pub const qgridlayout = struct {
     /// ` stretch: i32 `
     ///
     pub fn SetColumnStretch(self: ?*anyopaque, column: i32, stretch: i32) void {
-        qtc.QGridLayout_SetColumnStretch(@ptrCast(self), @intCast(column), @intCast(stretch));
+        qtc.QGridLayout_SetColumnStretch(@ptrCast(self), @bitCast(column), @bitCast(stretch));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#rowStretch)
@@ -420,7 +420,7 @@ pub const qgridlayout = struct {
     /// ` row: i32 `
     ///
     pub fn RowStretch(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QGridLayout_RowStretch(@ptrCast(self), @intCast(row));
+        return qtc.QGridLayout_RowStretch(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#columnStretch)
@@ -432,7 +432,7 @@ pub const qgridlayout = struct {
     /// ` column: i32 `
     ///
     pub fn ColumnStretch(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QGridLayout_ColumnStretch(@ptrCast(self), @intCast(column));
+        return qtc.QGridLayout_ColumnStretch(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setRowMinimumHeight)
@@ -446,7 +446,7 @@ pub const qgridlayout = struct {
     /// ` minSize: i32 `
     ///
     pub fn SetRowMinimumHeight(self: ?*anyopaque, row: i32, minSize: i32) void {
-        qtc.QGridLayout_SetRowMinimumHeight(@ptrCast(self), @intCast(row), @intCast(minSize));
+        qtc.QGridLayout_SetRowMinimumHeight(@ptrCast(self), @bitCast(row), @bitCast(minSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setColumnMinimumWidth)
@@ -460,7 +460,7 @@ pub const qgridlayout = struct {
     /// ` minSize: i32 `
     ///
     pub fn SetColumnMinimumWidth(self: ?*anyopaque, column: i32, minSize: i32) void {
-        qtc.QGridLayout_SetColumnMinimumWidth(@ptrCast(self), @intCast(column), @intCast(minSize));
+        qtc.QGridLayout_SetColumnMinimumWidth(@ptrCast(self), @bitCast(column), @bitCast(minSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#rowMinimumHeight)
@@ -472,7 +472,7 @@ pub const qgridlayout = struct {
     /// ` row: i32 `
     ///
     pub fn RowMinimumHeight(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QGridLayout_RowMinimumHeight(@ptrCast(self), @intCast(row));
+        return qtc.QGridLayout_RowMinimumHeight(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#columnMinimumWidth)
@@ -484,7 +484,7 @@ pub const qgridlayout = struct {
     /// ` column: i32 `
     ///
     pub fn ColumnMinimumWidth(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QGridLayout_ColumnMinimumWidth(@ptrCast(self), @intCast(column));
+        return qtc.QGridLayout_ColumnMinimumWidth(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#columnCount)
@@ -518,7 +518,7 @@ pub const qgridlayout = struct {
     /// ` column: i32 `
     ///
     pub fn CellRect(self: ?*anyopaque, row: i32, column: i32) QtC.QRect {
-        return qtc.QGridLayout_CellRect(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QGridLayout_CellRect(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#hasHeightForWidth)
@@ -542,7 +542,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGridLayout_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#hasHeightForWidth)
@@ -566,7 +566,7 @@ pub const qgridlayout = struct {
     /// ` param1: i32 `
     ///
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QGridLayout_HeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QGridLayout_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#heightForWidth)
@@ -580,7 +580,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, param1: i32) callconv(.c) i32 `
     ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QGridLayout_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#heightForWidth)
@@ -594,7 +594,7 @@ pub const qgridlayout = struct {
     /// ` param1: i32 `
     ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QGridLayout_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QGridLayout_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumHeightForWidth)
@@ -606,7 +606,7 @@ pub const qgridlayout = struct {
     /// ` param1: i32 `
     ///
     pub fn MinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QGridLayout_MinimumHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QGridLayout_MinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumHeightForWidth)
@@ -620,7 +620,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, param1: i32) callconv(.c) i32 `
     ///
     pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QGridLayout_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnMinimumHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#minimumHeightForWidth)
@@ -634,7 +634,7 @@ pub const qgridlayout = struct {
     /// ` param1: i32 `
     ///
     pub fn QBaseMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QGridLayout_QBaseMinimumHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QGridLayout_QBaseMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#expandingDirections)
@@ -662,7 +662,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGridLayout_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnExpandingDirections(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#expandingDirections)
@@ -702,7 +702,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGridLayout_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnInvalidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#invalidate)
@@ -742,7 +742,7 @@ pub const qgridlayout = struct {
     /// ` column: i32 `
     ///
     pub fn AddWidget2(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QGridLayout_AddWidget2(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column));
+        qtc.QGridLayout_AddWidget2(@ptrCast(self), @ptrCast(param1), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addWidget)
@@ -762,7 +762,7 @@ pub const qgridlayout = struct {
     /// ` columnSpan: i32 `
     ///
     pub fn AddWidget3(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32) void {
-        qtc.QGridLayout_AddWidget3(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan));
+        qtc.QGridLayout_AddWidget3(@ptrCast(self), @ptrCast(param1), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addLayout)
@@ -778,7 +778,7 @@ pub const qgridlayout = struct {
     /// ` column: i32 `
     ///
     pub fn AddLayout(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QGridLayout_AddLayout(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column));
+        qtc.QGridLayout_AddLayout(@ptrCast(self), @ptrCast(param1), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addLayout)
@@ -798,7 +798,7 @@ pub const qgridlayout = struct {
     /// ` columnSpan: i32 `
     ///
     pub fn AddLayout2(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32) void {
-        qtc.QGridLayout_AddLayout2(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan));
+        qtc.QGridLayout_AddLayout2(@ptrCast(self), @ptrCast(param1), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setOriginCorner)
@@ -810,7 +810,7 @@ pub const qgridlayout = struct {
     /// ` originCorner: qnamespace_enums.Corner `
     ///
     pub fn SetOriginCorner(self: ?*anyopaque, originCorner: i32) void {
-        qtc.QGridLayout_SetOriginCorner(@ptrCast(self), @intCast(originCorner));
+        qtc.QGridLayout_SetOriginCorner(@ptrCast(self), @bitCast(originCorner));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#originCorner)
@@ -836,7 +836,7 @@ pub const qgridlayout = struct {
     /// ` index: i32 `
     ///
     pub fn ItemAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
-        return qtc.QGridLayout_ItemAt(@ptrCast(self), @intCast(index));
+        return qtc.QGridLayout_ItemAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#itemAt)
@@ -850,7 +850,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, index: i32) callconv(.c) QtC.QLayoutItem `
     ///
     pub fn OnItemAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QGridLayout_OnItemAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnItemAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#itemAt)
@@ -864,7 +864,7 @@ pub const qgridlayout = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseItemAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
-        return qtc.QGridLayout_QBaseItemAt(@ptrCast(self), @intCast(index));
+        return qtc.QGridLayout_QBaseItemAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#itemAtPosition)
@@ -878,7 +878,7 @@ pub const qgridlayout = struct {
     /// ` column: i32 `
     ///
     pub fn ItemAtPosition(self: ?*anyopaque, row: i32, column: i32) QtC.QLayoutItem {
-        return qtc.QGridLayout_ItemAtPosition(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QGridLayout_ItemAtPosition(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#takeAt)
@@ -890,7 +890,7 @@ pub const qgridlayout = struct {
     /// ` index: i32 `
     ///
     pub fn TakeAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
-        return qtc.QGridLayout_TakeAt(@ptrCast(self), @intCast(index));
+        return qtc.QGridLayout_TakeAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#takeAt)
@@ -904,7 +904,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, index: i32) callconv(.c) QtC.QLayoutItem `
     ///
     pub fn OnTakeAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QGridLayout_OnTakeAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnTakeAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#takeAt)
@@ -918,7 +918,7 @@ pub const qgridlayout = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseTakeAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
-        return qtc.QGridLayout_QBaseTakeAt(@ptrCast(self), @intCast(index));
+        return qtc.QGridLayout_QBaseTakeAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#count)
@@ -942,7 +942,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGridLayout_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#count)
@@ -980,7 +980,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, geometry: QtC.QRect) callconv(.c) void `
     ///
     pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGridLayout_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnSetGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setGeometry)
@@ -1010,7 +1010,7 @@ pub const qgridlayout = struct {
     /// ` column: i32 `
     ///
     pub fn AddItem(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QGridLayout_AddItem(@ptrCast(self), @ptrCast(item), @intCast(row), @intCast(column));
+        qtc.QGridLayout_AddItem(@ptrCast(self), @ptrCast(item), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#setDefaultPositioning)
@@ -1024,7 +1024,7 @@ pub const qgridlayout = struct {
     /// ` orient: qnamespace_enums.Orientation `
     ///
     pub fn SetDefaultPositioning(self: ?*anyopaque, n: i32, orient: i32) void {
-        qtc.QGridLayout_SetDefaultPositioning(@ptrCast(self), @intCast(n), @intCast(orient));
+        qtc.QGridLayout_SetDefaultPositioning(@ptrCast(self), @bitCast(n), @bitCast(orient));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#getItemPosition)
@@ -1044,7 +1044,7 @@ pub const qgridlayout = struct {
     /// ` columnSpan: *i32 `
     ///
     pub fn GetItemPosition(self: ?*anyopaque, idx: i32, row: *i32, column: *i32, rowSpan: *i32, columnSpan: *i32) void {
-        qtc.QGridLayout_GetItemPosition(@ptrCast(self), @intCast(idx), @ptrCast(row), @ptrCast(column), @ptrCast(rowSpan), @ptrCast(columnSpan));
+        qtc.QGridLayout_GetItemPosition(@ptrCast(self), @bitCast(idx), @ptrCast(row), @ptrCast(column), @ptrCast(rowSpan), @ptrCast(columnSpan));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
@@ -1070,7 +1070,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, param1: QtC.QLayoutItem) callconv(.c) void `
     ///
     pub fn OnAddItem2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGridLayout_OnAddItem2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnAddItem2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
@@ -1122,7 +1122,7 @@ pub const qgridlayout = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgridlayout.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1144,7 +1144,7 @@ pub const qgridlayout = struct {
     /// ` param4: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn AddWidget4(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32, param4: i32) void {
-        qtc.QGridLayout_AddWidget4(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column), @intCast(param4));
+        qtc.QGridLayout_AddWidget4(@ptrCast(self), @ptrCast(param1), @bitCast(row), @bitCast(column), @bitCast(param4));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addWidget)
@@ -1166,7 +1166,7 @@ pub const qgridlayout = struct {
     /// ` param6: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn AddWidget6(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32, param6: i32) void {
-        qtc.QGridLayout_AddWidget6(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan), @intCast(param6));
+        qtc.QGridLayout_AddWidget6(@ptrCast(self), @ptrCast(param1), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan), @bitCast(param6));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addLayout)
@@ -1184,7 +1184,7 @@ pub const qgridlayout = struct {
     /// ` param4: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn AddLayout4(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32, param4: i32) void {
-        qtc.QGridLayout_AddLayout4(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column), @intCast(param4));
+        qtc.QGridLayout_AddLayout4(@ptrCast(self), @ptrCast(param1), @bitCast(row), @bitCast(column), @bitCast(param4));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addLayout)
@@ -1206,7 +1206,7 @@ pub const qgridlayout = struct {
     /// ` param6: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn AddLayout6(self: ?*anyopaque, param1: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32, param6: i32) void {
-        qtc.QGridLayout_AddLayout6(@ptrCast(self), @ptrCast(param1), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan), @intCast(param6));
+        qtc.QGridLayout_AddLayout6(@ptrCast(self), @ptrCast(param1), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan), @bitCast(param6));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
@@ -1224,7 +1224,7 @@ pub const qgridlayout = struct {
     /// ` rowSpan: i32 `
     ///
     pub fn AddItem4(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32, rowSpan: i32) void {
-        qtc.QGridLayout_AddItem4(@ptrCast(self), @ptrCast(item), @intCast(row), @intCast(column), @intCast(rowSpan));
+        qtc.QGridLayout_AddItem4(@ptrCast(self), @ptrCast(item), @bitCast(row), @bitCast(column), @bitCast(rowSpan));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
@@ -1244,7 +1244,7 @@ pub const qgridlayout = struct {
     /// ` columnSpan: i32 `
     ///
     pub fn AddItem5(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32) void {
-        qtc.QGridLayout_AddItem5(@ptrCast(self), @ptrCast(item), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan));
+        qtc.QGridLayout_AddItem5(@ptrCast(self), @ptrCast(item), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
@@ -1266,7 +1266,7 @@ pub const qgridlayout = struct {
     /// ` param6: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn AddItem6(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32, param6: i32) void {
-        qtc.QGridLayout_AddItem6(@ptrCast(self), @ptrCast(item), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan), @intCast(param6));
+        qtc.QGridLayout_AddItem6(@ptrCast(self), @ptrCast(item), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan), @bitCast(param6));
     }
 
     /// Inherited from QLayout
@@ -1286,7 +1286,7 @@ pub const qgridlayout = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QLayout_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QLayout_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QLayout
@@ -1372,7 +1372,7 @@ pub const qgridlayout = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i32) bool {
-        return qtc.QLayout_SetAlignment(@ptrCast(self), @ptrCast(w), @intCast(alignment));
+        return qtc.QLayout_SetAlignment(@ptrCast(self), @ptrCast(w), @bitCast(alignment));
     }
 
     /// Inherited from QLayout
@@ -1388,7 +1388,7 @@ pub const qgridlayout = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i32) bool {
-        return qtc.QLayout_SetAlignment2(@ptrCast(self), @ptrCast(l), @intCast(alignment));
+        return qtc.QLayout_SetAlignment2(@ptrCast(self), @ptrCast(l), @bitCast(alignment));
     }
 
     /// Inherited from QLayout
@@ -1402,7 +1402,7 @@ pub const qgridlayout = struct {
     /// ` sizeConstraint: qlayout_enums.SizeConstraint `
     ///
     pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i32) void {
-        qtc.QLayout_SetSizeConstraint(@ptrCast(self), @intCast(sizeConstraint));
+        qtc.QLayout_SetSizeConstraint(@ptrCast(self), @bitCast(sizeConstraint));
     }
 
     /// Inherited from QLayout
@@ -1538,7 +1538,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, param1: QtC.QLayoutItem) callconv(.c) i32 `
     ///
     pub fn OnIndexOf2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QLayout_OnIndexOf2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QLayout_OnIndexOf2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1568,7 +1568,7 @@ pub const qgridlayout = struct {
     /// ` w: i32 `
     ///
     pub fn TotalMinimumHeightForWidth(self: ?*anyopaque, w: i32) i32 {
-        return qtc.QLayout_TotalMinimumHeightForWidth(@ptrCast(self), @intCast(w));
+        return qtc.QLayout_TotalMinimumHeightForWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// Inherited from QLayout
@@ -1582,7 +1582,7 @@ pub const qgridlayout = struct {
     /// ` w: i32 `
     ///
     pub fn TotalHeightForWidth(self: ?*anyopaque, w: i32) i32 {
-        return qtc.QLayout_TotalHeightForWidth(@ptrCast(self), @intCast(w));
+        return qtc.QLayout_TotalHeightForWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// Inherited from QLayout
@@ -1792,7 +1792,7 @@ pub const qgridlayout = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1806,7 +1806,7 @@ pub const qgridlayout = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1820,7 +1820,7 @@ pub const qgridlayout = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1834,7 +1834,7 @@ pub const qgridlayout = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2164,7 +2164,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2219,7 +2219,7 @@ pub const qgridlayout = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2235,7 +2235,7 @@ pub const qgridlayout = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2257,7 +2257,7 @@ pub const qgridlayout = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2277,7 +2277,7 @@ pub const qgridlayout = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2299,7 +2299,7 @@ pub const qgridlayout = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2396,7 +2396,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -2456,7 +2456,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRect `
     ///
     pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
-        qtc.QGridLayout_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2504,7 +2504,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, param1: QtC.QWidget) callconv(.c) i32 `
     ///
     pub fn OnIndexOf(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QGridLayout_OnIndexOf(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnIndexOf(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2548,7 +2548,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGridLayout_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnIsEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2600,7 +2600,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGridLayout_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnControlTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2620,7 +2620,7 @@ pub const qgridlayout = struct {
     /// ` options: flag of qnamespace_enums.FindChildOption `
     ///
     pub fn ReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i32) QtC.QLayoutItem {
-        return qtc.QGridLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
+        return qtc.QGridLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @bitCast(options));
     }
 
     /// Inherited from QLayout
@@ -2640,7 +2640,7 @@ pub const qgridlayout = struct {
     /// ` options: flag of qnamespace_enums.FindChildOption `
     ///
     pub fn QBaseReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i32) QtC.QLayoutItem {
-        return qtc.QGridLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
+        return qtc.QGridLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @bitCast(options));
     }
 
     /// Inherited from QLayout
@@ -2656,7 +2656,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem `
     ///
     pub fn OnReplaceWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QGridLayout_OnReplaceWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnReplaceWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2700,7 +2700,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QLayout `
     ///
     pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
-        qtc.QGridLayout_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2748,7 +2748,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, e: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGridLayout_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2796,7 +2796,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGridLayout_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2848,7 +2848,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGridLayout_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2896,7 +2896,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGridLayout_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2944,7 +2944,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGridLayout_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2992,7 +2992,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGridLayout_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3040,7 +3040,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGridLayout_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -3084,7 +3084,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QWidget `
     ///
     pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
-        qtc.QGridLayout_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -3128,7 +3128,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSpacerItem `
     ///
     pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
-        qtc.QGridLayout_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnSpacerItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3176,7 +3176,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, param1: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnWidgetEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGridLayout_OnWidgetEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnWidgetEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3224,7 +3224,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, l: QtC.QLayout) callconv(.c) void `
     ///
     pub fn OnAddChildLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGridLayout_OnAddChildLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnAddChildLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3272,7 +3272,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, w: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnAddChildWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGridLayout_OnAddChildWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnAddChildWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3320,7 +3320,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, layout: QtC.QLayout) callconv(.c) bool `
     ///
     pub fn OnAdoptLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGridLayout_OnAdoptLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnAdoptLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3368,7 +3368,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, param1: QtC.QRect) callconv(.c) QtC.QRect `
     ///
     pub fn OnAlignmentRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QGridLayout_OnAlignmentRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnAlignmentRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3412,7 +3412,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGridLayout_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3456,7 +3456,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGridLayout_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3506,7 +3506,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGridLayout_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3554,7 +3554,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGridLayout_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGridLayout_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3570,7 +3570,7 @@ pub const qgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGridLayout, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgridlayout.html#dtor.QGridLayout)

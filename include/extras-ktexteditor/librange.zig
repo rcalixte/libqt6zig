@@ -51,7 +51,7 @@ pub const ktexteditor__range = struct {
     /// ` width: i32 `
     ///
     pub fn New5(start: QtC.KTextEditor__Cursor, width: i32) QtC.KTextEditor__Range {
-        return qtc.KTextEditor__Range_new5(@ptrCast(start), @intCast(width));
+        return qtc.KTextEditor__Range_new5(@ptrCast(start), @bitCast(width));
     }
 
     /// New6 constructs a new KTextEditor::Range object.
@@ -65,7 +65,7 @@ pub const ktexteditor__range = struct {
     /// ` endColumn: i32 `
     ///
     pub fn New6(start: QtC.KTextEditor__Cursor, endLine: i32, endColumn: i32) QtC.KTextEditor__Range {
-        return qtc.KTextEditor__Range_new6(@ptrCast(start), @intCast(endLine), @intCast(endColumn));
+        return qtc.KTextEditor__Range_new6(@ptrCast(start), @bitCast(endLine), @bitCast(endColumn));
     }
 
     /// New7 constructs a new KTextEditor::Range object.
@@ -81,7 +81,7 @@ pub const ktexteditor__range = struct {
     /// ` endColumn: i32 `
     ///
     pub fn New7(startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) QtC.KTextEditor__Range {
-        return qtc.KTextEditor__Range_new7(@intCast(startLine), @intCast(startColumn), @intCast(endLine), @intCast(endColumn));
+        return qtc.KTextEditor__Range_new7(@bitCast(startLine), @bitCast(startColumn), @bitCast(endLine), @bitCast(endColumn));
     }
 
     /// New8 constructs a new KTextEditor::Range object.
@@ -189,7 +189,7 @@ pub const ktexteditor__range = struct {
     /// ` line: i32 `
     ///
     pub fn SetBothLines(self: ?*anyopaque, line: i32) void {
-        qtc.KTextEditor__Range_SetBothLines(@ptrCast(self), @intCast(line));
+        qtc.KTextEditor__Range_SetBothLines(@ptrCast(self), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-range.html#setBothColumns)
@@ -201,7 +201,7 @@ pub const ktexteditor__range = struct {
     /// ` column: i32 `
     ///
     pub fn SetBothColumns(self: ?*anyopaque, column: i32) void {
-        qtc.KTextEditor__Range_SetBothColumns(@ptrCast(self), @intCast(column));
+        qtc.KTextEditor__Range_SetBothColumns(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-range.html#setRange)
@@ -351,7 +351,7 @@ pub const ktexteditor__range = struct {
     /// ` line: i32 `
     ///
     pub fn ContainsLine(self: ?*anyopaque, line: i32) bool {
-        return qtc.KTextEditor__Range_ContainsLine(@ptrCast(self), @intCast(line));
+        return qtc.KTextEditor__Range_ContainsLine(@ptrCast(self), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-range.html#containsColumn)
@@ -363,7 +363,7 @@ pub const ktexteditor__range = struct {
     /// ` column: i32 `
     ///
     pub fn ContainsColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.KTextEditor__Range_ContainsColumn(@ptrCast(self), @intCast(column));
+        return qtc.KTextEditor__Range_ContainsColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-range.html#overlaps)
@@ -387,7 +387,7 @@ pub const ktexteditor__range = struct {
     /// ` line: i32 `
     ///
     pub fn OverlapsLine(self: ?*anyopaque, line: i32) bool {
-        return qtc.KTextEditor__Range_OverlapsLine(@ptrCast(self), @intCast(line));
+        return qtc.KTextEditor__Range_OverlapsLine(@ptrCast(self), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-range.html#overlapsColumn)
@@ -399,7 +399,7 @@ pub const ktexteditor__range = struct {
     /// ` column: i32 `
     ///
     pub fn OverlapsColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.KTextEditor__Range_OverlapsColumn(@ptrCast(self), @intCast(column));
+        return qtc.KTextEditor__Range_OverlapsColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-range.html#boundaryAtCursor)

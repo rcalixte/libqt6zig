@@ -44,7 +44,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGraphicsEffect_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -79,7 +79,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGraphicsEffect_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -106,7 +106,7 @@ pub const qgraphicseffect = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsEffect_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsEffect_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -118,7 +118,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsEffect_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -134,7 +134,7 @@ pub const qgraphicseffect = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsEffect_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -177,7 +177,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, sourceRect: QtC.QRectF) callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRectFor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsEffect_OnBoundingRectFor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnBoundingRectFor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
@@ -257,7 +257,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
@@ -283,7 +283,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnDraw(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnDraw(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
@@ -309,7 +309,7 @@ pub const qgraphicseffect = struct {
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
     pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsEffect_SourceChanged(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsEffect_SourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
@@ -323,7 +323,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
     ///
     pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsEffect_OnSourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnSourceChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
@@ -337,7 +337,7 @@ pub const qgraphicseffect = struct {
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsEffect_QBaseSourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
@@ -361,7 +361,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsEffect_OnUpdateBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnUpdateBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
@@ -397,7 +397,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnSourceIsPixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGraphicsEffect_OnSourceIsPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnSourceIsPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
@@ -433,7 +433,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnSourceBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsEffect_OnSourceBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnSourceBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
@@ -471,7 +471,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnDrawSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEffect_OnDrawSource(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnDrawSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
@@ -509,7 +509,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPixmap `
     ///
     pub fn OnSourcePixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPixmap) void {
-        qtc.QGraphicsEffect_OnSourcePixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnSourcePixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -559,7 +559,7 @@ pub const qgraphicseffect = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicseffect.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -575,7 +575,7 @@ pub const qgraphicseffect = struct {
     /// ` system: qnamespace_enums.CoordinateSystem `
     ///
     pub fn SourceBoundingRect1(self: ?*anyopaque, system: i32) QtC.QRectF {
-        return qtc.QGraphicsEffect_SourceBoundingRect1(@ptrCast(self), @intCast(system));
+        return qtc.QGraphicsEffect_SourceBoundingRect1(@ptrCast(self), @bitCast(system));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
@@ -589,7 +589,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem) callconv(.c) QtC.QRectF `
     ///
     pub fn OnSourceBoundingRect1(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsEffect_OnSourceBoundingRect1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnSourceBoundingRect1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
@@ -603,7 +603,7 @@ pub const qgraphicseffect = struct {
     /// ` system: qnamespace_enums.CoordinateSystem `
     ///
     pub fn QBaseSourceBoundingRect1(self: ?*anyopaque, system: i32) QtC.QRectF {
-        return qtc.QGraphicsEffect_QBaseSourceBoundingRect1(@ptrCast(self), @intCast(system));
+        return qtc.QGraphicsEffect_QBaseSourceBoundingRect1(@ptrCast(self), @bitCast(system));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -615,7 +615,7 @@ pub const qgraphicseffect = struct {
     /// ` system: qnamespace_enums.CoordinateSystem `
     ///
     pub fn SourcePixmap1(self: ?*anyopaque, system: i32) QtC.QPixmap {
-        return qtc.QGraphicsEffect_SourcePixmap1(@ptrCast(self), @intCast(system));
+        return qtc.QGraphicsEffect_SourcePixmap1(@ptrCast(self), @bitCast(system));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -629,7 +629,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem) callconv(.c) QtC.QPixmap `
     ///
     pub fn OnSourcePixmap1(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QPixmap) void {
-        qtc.QGraphicsEffect_OnSourcePixmap1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnSourcePixmap1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -643,7 +643,7 @@ pub const qgraphicseffect = struct {
     /// ` system: qnamespace_enums.CoordinateSystem `
     ///
     pub fn QBaseSourcePixmap1(self: ?*anyopaque, system: i32) QtC.QPixmap {
-        return qtc.QGraphicsEffect_QBaseSourcePixmap1(@ptrCast(self), @intCast(system));
+        return qtc.QGraphicsEffect_QBaseSourcePixmap1(@ptrCast(self), @bitCast(system));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -657,7 +657,7 @@ pub const qgraphicseffect = struct {
     /// ` offset: QtC.QPoint `
     ///
     pub fn SourcePixmap2(self: ?*anyopaque, system: i32, offset: ?*anyopaque) QtC.QPixmap {
-        return qtc.QGraphicsEffect_SourcePixmap2(@ptrCast(self), @intCast(system), @ptrCast(offset));
+        return qtc.QGraphicsEffect_SourcePixmap2(@ptrCast(self), @bitCast(system), @ptrCast(offset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -671,7 +671,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QtC.QPoint) callconv(.c) QtC.QPixmap `
     ///
     pub fn OnSourcePixmap2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QPixmap) void {
-        qtc.QGraphicsEffect_OnSourcePixmap2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnSourcePixmap2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -687,7 +687,7 @@ pub const qgraphicseffect = struct {
     /// ` offset: QtC.QPoint `
     ///
     pub fn QBaseSourcePixmap2(self: ?*anyopaque, system: i32, offset: ?*anyopaque) QtC.QPixmap {
-        return qtc.QGraphicsEffect_QBaseSourcePixmap2(@ptrCast(self), @intCast(system), @ptrCast(offset));
+        return qtc.QGraphicsEffect_QBaseSourcePixmap2(@ptrCast(self), @bitCast(system), @ptrCast(offset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -703,7 +703,7 @@ pub const qgraphicseffect = struct {
     /// ` mode: qgraphicseffect_enums.PixmapPadMode `
     ///
     pub fn SourcePixmap3(self: ?*anyopaque, system: i32, offset: ?*anyopaque, mode: i32) QtC.QPixmap {
-        return qtc.QGraphicsEffect_SourcePixmap3(@ptrCast(self), @intCast(system), @ptrCast(offset), @intCast(mode));
+        return qtc.QGraphicsEffect_SourcePixmap3(@ptrCast(self), @bitCast(system), @ptrCast(offset), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -717,7 +717,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QtC.QPoint, mode: qgraphicseffect_enums.PixmapPadMode) callconv(.c) QtC.QPixmap `
     ///
     pub fn OnSourcePixmap3(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, i32) callconv(.c) QtC.QPixmap) void {
-        qtc.QGraphicsEffect_OnSourcePixmap3(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnSourcePixmap3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -735,7 +735,7 @@ pub const qgraphicseffect = struct {
     /// ` mode: qgraphicseffect_enums.PixmapPadMode `
     ///
     pub fn QBaseSourcePixmap3(self: ?*anyopaque, system: i32, offset: ?*anyopaque, mode: i32) QtC.QPixmap {
-        return qtc.QGraphicsEffect_QBaseSourcePixmap3(@ptrCast(self), @intCast(system), @ptrCast(offset), @intCast(mode));
+        return qtc.QGraphicsEffect_QBaseSourcePixmap3(@ptrCast(self), @bitCast(system), @ptrCast(offset), @bitCast(mode));
     }
 
     /// Inherited from QObject
@@ -869,7 +869,7 @@ pub const qgraphicseffect = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -883,7 +883,7 @@ pub const qgraphicseffect = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -897,7 +897,7 @@ pub const qgraphicseffect = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -911,7 +911,7 @@ pub const qgraphicseffect = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1241,7 +1241,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1296,7 +1296,7 @@ pub const qgraphicseffect = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1312,7 +1312,7 @@ pub const qgraphicseffect = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1334,7 +1334,7 @@ pub const qgraphicseffect = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1354,7 +1354,7 @@ pub const qgraphicseffect = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1376,7 +1376,7 @@ pub const qgraphicseffect = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1473,7 +1473,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1521,7 +1521,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsEffect_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1573,7 +1573,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsEffect_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1621,7 +1621,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEffect_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1669,7 +1669,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEffect_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1717,7 +1717,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEffect_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1765,7 +1765,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEffect_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1813,7 +1813,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEffect_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1857,7 +1857,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsEffect_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1901,7 +1901,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsEffect_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1951,7 +1951,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsEffect_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1999,7 +1999,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsEffect_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2015,7 +2015,7 @@ pub const qgraphicseffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#dtor.QGraphicsEffect)
@@ -2070,7 +2070,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGraphicsColorizeEffect_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -2105,7 +2105,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGraphicsColorizeEffect_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -2132,7 +2132,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsColorizeEffect_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsColorizeEffect_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -2144,7 +2144,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsColorizeEffect_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -2160,7 +2160,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsColorizeEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsColorizeEffect_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2221,7 +2221,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` strength: f64 `
     ///
     pub fn SetStrength(self: ?*anyopaque, strength: f64) void {
-        qtc.QGraphicsColorizeEffect_SetStrength(@ptrCast(self), @floatCast(strength));
+        qtc.QGraphicsColorizeEffect_SetStrength(@ptrCast(self), @bitCast(strength));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#colorChanged)
@@ -2245,7 +2245,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsColorizeEffect_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_Connect_ColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strengthChanged)
@@ -2257,7 +2257,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` strength: f64 `
     ///
     pub fn StrengthChanged(self: ?*anyopaque, strength: f64) void {
-        qtc.QGraphicsColorizeEffect_StrengthChanged(@ptrCast(self), @floatCast(strength));
+        qtc.QGraphicsColorizeEffect_StrengthChanged(@ptrCast(self), @bitCast(strength));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strengthChanged)
@@ -2269,7 +2269,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, strength: f64) callconv(.c) void `
     ///
     pub fn OnStrengthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QGraphicsColorizeEffect_Connect_StrengthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_Connect_StrengthChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
@@ -2295,7 +2295,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnDraw(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsColorizeEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnDraw(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
@@ -2347,7 +2347,7 @@ pub const qgraphicscolorizeeffect = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicscolorizeeffect.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2429,7 +2429,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2563,7 +2563,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2577,7 +2577,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2591,7 +2591,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2605,7 +2605,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2935,7 +2935,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2990,7 +2990,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3006,7 +3006,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3028,7 +3028,7 @@ pub const qgraphicscolorizeeffect = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -3048,7 +3048,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -3070,7 +3070,7 @@ pub const qgraphicscolorizeeffect = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -3167,7 +3167,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3215,7 +3215,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, sourceRect: QtC.QRectF) callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRectFor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsColorizeEffect_OnBoundingRectFor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnBoundingRectFor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3231,7 +3231,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
     pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsColorizeEffect_SourceChanged(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsColorizeEffect_SourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3247,7 +3247,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsColorizeEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsColorizeEffect_QBaseSourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3263,7 +3263,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
     ///
     pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsColorizeEffect_OnSourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnSourceChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3311,7 +3311,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsColorizeEffect_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3363,7 +3363,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsColorizeEffect_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3411,7 +3411,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsColorizeEffect_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3459,7 +3459,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsColorizeEffect_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3507,7 +3507,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsColorizeEffect_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3555,7 +3555,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsColorizeEffect_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3603,7 +3603,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsColorizeEffect_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3647,7 +3647,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsColorizeEffect_OnUpdateBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnUpdateBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3691,7 +3691,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnSourceIsPixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGraphicsColorizeEffect_OnSourceIsPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnSourceIsPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3735,7 +3735,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnSourceBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsColorizeEffect_OnSourceBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnSourceBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3783,7 +3783,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnDrawSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsColorizeEffect_OnDrawSource(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnDrawSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3827,7 +3827,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPixmap `
     ///
     pub fn OnSourcePixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPixmap) void {
-        qtc.QGraphicsColorizeEffect_OnSourcePixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnSourcePixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3871,7 +3871,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsColorizeEffect_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3915,7 +3915,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsColorizeEffect_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3965,7 +3965,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsColorizeEffect_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4013,7 +4013,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsColorizeEffect_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsColorizeEffect_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4029,7 +4029,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsColorizeEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#dtor.QGraphicsColorizeEffect)
@@ -4084,7 +4084,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGraphicsBlurEffect_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -4119,7 +4119,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGraphicsBlurEffect_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -4146,7 +4146,7 @@ pub const qgraphicsblureffect = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsBlurEffect_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsBlurEffect_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -4158,7 +4158,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsBlurEffect_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -4174,7 +4174,7 @@ pub const qgraphicsblureffect = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsBlurEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsBlurEffect_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -4217,7 +4217,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, rect: QtC.QRectF) callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRectFor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsBlurEffect_OnBoundingRectFor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnBoundingRectFor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
@@ -4267,7 +4267,7 @@ pub const qgraphicsblureffect = struct {
     /// ` blurRadius: f64 `
     ///
     pub fn SetBlurRadius(self: ?*anyopaque, blurRadius: f64) void {
-        qtc.QGraphicsBlurEffect_SetBlurRadius(@ptrCast(self), @floatCast(blurRadius));
+        qtc.QGraphicsBlurEffect_SetBlurRadius(@ptrCast(self), @bitCast(blurRadius));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#setBlurHints)
@@ -4279,7 +4279,7 @@ pub const qgraphicsblureffect = struct {
     /// ` hints: flag of qgraphicseffect_enums.BlurHint `
     ///
     pub fn SetBlurHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsBlurEffect_SetBlurHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsBlurEffect_SetBlurHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadiusChanged)
@@ -4291,7 +4291,7 @@ pub const qgraphicsblureffect = struct {
     /// ` blurRadius: f64 `
     ///
     pub fn BlurRadiusChanged(self: ?*anyopaque, blurRadius: f64) void {
-        qtc.QGraphicsBlurEffect_BlurRadiusChanged(@ptrCast(self), @floatCast(blurRadius));
+        qtc.QGraphicsBlurEffect_BlurRadiusChanged(@ptrCast(self), @bitCast(blurRadius));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadiusChanged)
@@ -4303,7 +4303,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, blurRadius: f64) callconv(.c) void `
     ///
     pub fn OnBlurRadiusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QGraphicsBlurEffect_Connect_BlurRadiusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_Connect_BlurRadiusChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
@@ -4315,7 +4315,7 @@ pub const qgraphicsblureffect = struct {
     /// ` hints: flag of qgraphicseffect_enums.BlurHint `
     ///
     pub fn BlurHintsChanged(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsBlurEffect_BlurHintsChanged(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsBlurEffect_BlurHintsChanged(@ptrCast(self), @bitCast(hints));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
@@ -4327,7 +4327,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint) callconv(.c) void `
     ///
     pub fn OnBlurHintsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsBlurEffect_Connect_BlurHintsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_Connect_BlurHintsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
@@ -4353,7 +4353,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnDraw(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsBlurEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnDraw(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
@@ -4405,7 +4405,7 @@ pub const qgraphicsblureffect = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsblureffect.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4487,7 +4487,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4621,7 +4621,7 @@ pub const qgraphicsblureffect = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -4635,7 +4635,7 @@ pub const qgraphicsblureffect = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -4649,7 +4649,7 @@ pub const qgraphicsblureffect = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4663,7 +4663,7 @@ pub const qgraphicsblureffect = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4993,7 +4993,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5048,7 +5048,7 @@ pub const qgraphicsblureffect = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5064,7 +5064,7 @@ pub const qgraphicsblureffect = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5086,7 +5086,7 @@ pub const qgraphicsblureffect = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -5106,7 +5106,7 @@ pub const qgraphicsblureffect = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -5128,7 +5128,7 @@ pub const qgraphicsblureffect = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -5225,7 +5225,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -5241,7 +5241,7 @@ pub const qgraphicsblureffect = struct {
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
     pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsBlurEffect_SourceChanged(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsBlurEffect_SourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
@@ -5257,7 +5257,7 @@ pub const qgraphicsblureffect = struct {
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsBlurEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsBlurEffect_QBaseSourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
@@ -5273,7 +5273,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
     ///
     pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsBlurEffect_OnSourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnSourceChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5321,7 +5321,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsBlurEffect_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5373,7 +5373,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsBlurEffect_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5421,7 +5421,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsBlurEffect_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5469,7 +5469,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsBlurEffect_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5517,7 +5517,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsBlurEffect_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5565,7 +5565,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsBlurEffect_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5613,7 +5613,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsBlurEffect_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -5657,7 +5657,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsBlurEffect_OnUpdateBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnUpdateBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -5701,7 +5701,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnSourceIsPixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGraphicsBlurEffect_OnSourceIsPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnSourceIsPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -5745,7 +5745,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnSourceBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsBlurEffect_OnSourceBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnSourceBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -5793,7 +5793,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnDrawSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsBlurEffect_OnDrawSource(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnDrawSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -5837,7 +5837,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPixmap `
     ///
     pub fn OnSourcePixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPixmap) void {
-        qtc.QGraphicsBlurEffect_OnSourcePixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnSourcePixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5881,7 +5881,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsBlurEffect_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5925,7 +5925,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsBlurEffect_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5975,7 +5975,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsBlurEffect_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6023,7 +6023,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsBlurEffect_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsBlurEffect_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6039,7 +6039,7 @@ pub const qgraphicsblureffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsBlurEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#dtor.QGraphicsBlurEffect)
@@ -6094,7 +6094,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGraphicsDropShadowEffect_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -6129,7 +6129,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGraphicsDropShadowEffect_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -6156,7 +6156,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsDropShadowEffect_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsDropShadowEffect_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -6168,7 +6168,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsDropShadowEffect_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -6184,7 +6184,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsDropShadowEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsDropShadowEffect_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -6227,7 +6227,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, rect: QtC.QRectF) callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRectFor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsDropShadowEffect_OnBoundingRectFor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnBoundingRectFor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
@@ -6317,7 +6317,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` dy: f64 `
     ///
     pub fn SetOffset2(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsDropShadowEffect_SetOffset2(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsDropShadowEffect_SetOffset2(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
@@ -6329,7 +6329,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` d: f64 `
     ///
     pub fn SetOffset3(self: ?*anyopaque, d: f64) void {
-        qtc.QGraphicsDropShadowEffect_SetOffset3(@ptrCast(self), @floatCast(d));
+        qtc.QGraphicsDropShadowEffect_SetOffset3(@ptrCast(self), @bitCast(d));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setXOffset)
@@ -6341,7 +6341,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` dx: f64 `
     ///
     pub fn SetXOffset(self: ?*anyopaque, dx: f64) void {
-        qtc.QGraphicsDropShadowEffect_SetXOffset(@ptrCast(self), @floatCast(dx));
+        qtc.QGraphicsDropShadowEffect_SetXOffset(@ptrCast(self), @bitCast(dx));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setYOffset)
@@ -6353,7 +6353,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` dy: f64 `
     ///
     pub fn SetYOffset(self: ?*anyopaque, dy: f64) void {
-        qtc.QGraphicsDropShadowEffect_SetYOffset(@ptrCast(self), @floatCast(dy));
+        qtc.QGraphicsDropShadowEffect_SetYOffset(@ptrCast(self), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setBlurRadius)
@@ -6365,7 +6365,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` blurRadius: f64 `
     ///
     pub fn SetBlurRadius(self: ?*anyopaque, blurRadius: f64) void {
-        qtc.QGraphicsDropShadowEffect_SetBlurRadius(@ptrCast(self), @floatCast(blurRadius));
+        qtc.QGraphicsDropShadowEffect_SetBlurRadius(@ptrCast(self), @bitCast(blurRadius));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setColor)
@@ -6401,7 +6401,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, offset: QtC.QPointF) callconv(.c) void `
     ///
     pub fn OnOffsetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsDropShadowEffect_Connect_OffsetChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_Connect_OffsetChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadiusChanged)
@@ -6413,7 +6413,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` blurRadius: f64 `
     ///
     pub fn BlurRadiusChanged(self: ?*anyopaque, blurRadius: f64) void {
-        qtc.QGraphicsDropShadowEffect_BlurRadiusChanged(@ptrCast(self), @floatCast(blurRadius));
+        qtc.QGraphicsDropShadowEffect_BlurRadiusChanged(@ptrCast(self), @bitCast(blurRadius));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadiusChanged)
@@ -6425,7 +6425,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, blurRadius: f64) callconv(.c) void `
     ///
     pub fn OnBlurRadiusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QGraphicsDropShadowEffect_Connect_BlurRadiusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_Connect_BlurRadiusChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#colorChanged)
@@ -6449,7 +6449,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsDropShadowEffect_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_Connect_ColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
@@ -6475,7 +6475,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnDraw(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsDropShadowEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnDraw(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
@@ -6527,7 +6527,7 @@ pub const qgraphicsdropshadoweffect = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsdropshadoweffect.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6609,7 +6609,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6743,7 +6743,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -6757,7 +6757,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -6771,7 +6771,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6785,7 +6785,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -7115,7 +7115,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7170,7 +7170,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -7186,7 +7186,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -7208,7 +7208,7 @@ pub const qgraphicsdropshadoweffect = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -7228,7 +7228,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -7250,7 +7250,7 @@ pub const qgraphicsdropshadoweffect = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -7347,7 +7347,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -7363,7 +7363,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
     pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsDropShadowEffect_SourceChanged(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsDropShadowEffect_SourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
@@ -7379,7 +7379,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsDropShadowEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsDropShadowEffect_QBaseSourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
@@ -7395,7 +7395,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
     ///
     pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsDropShadowEffect_OnSourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnSourceChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7443,7 +7443,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsDropShadowEffect_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7495,7 +7495,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsDropShadowEffect_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7543,7 +7543,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsDropShadowEffect_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7591,7 +7591,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsDropShadowEffect_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7639,7 +7639,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsDropShadowEffect_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7687,7 +7687,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsDropShadowEffect_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7735,7 +7735,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsDropShadowEffect_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -7779,7 +7779,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsDropShadowEffect_OnUpdateBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnUpdateBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -7823,7 +7823,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnSourceIsPixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGraphicsDropShadowEffect_OnSourceIsPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnSourceIsPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -7867,7 +7867,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnSourceBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsDropShadowEffect_OnSourceBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnSourceBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -7915,7 +7915,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnDrawSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsDropShadowEffect_OnDrawSource(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnDrawSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -7959,7 +7959,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPixmap `
     ///
     pub fn OnSourcePixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPixmap) void {
-        qtc.QGraphicsDropShadowEffect_OnSourcePixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnSourcePixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8003,7 +8003,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsDropShadowEffect_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8047,7 +8047,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsDropShadowEffect_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8097,7 +8097,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsDropShadowEffect_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8145,7 +8145,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsDropShadowEffect_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsDropShadowEffect_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8161,7 +8161,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsDropShadowEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#dtor.QGraphicsDropShadowEffect)
@@ -8216,7 +8216,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGraphicsOpacityEffect_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -8251,7 +8251,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGraphicsOpacityEffect_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -8278,7 +8278,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsOpacityEffect_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsOpacityEffect_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -8290,7 +8290,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsOpacityEffect_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -8306,7 +8306,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsOpacityEffect_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGraphicsOpacityEffect_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -8355,7 +8355,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsOpacityEffect_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsOpacityEffect_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#setOpacityMask)
@@ -8379,7 +8379,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` opacity: f64 `
     ///
     pub fn OpacityChanged(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsOpacityEffect_OpacityChanged(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsOpacityEffect_OpacityChanged(@ptrCast(self), @bitCast(opacity));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityChanged)
@@ -8391,7 +8391,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, opacity: f64) callconv(.c) void `
     ///
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QGraphicsOpacityEffect_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_Connect_OpacityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMaskChanged)
@@ -8415,7 +8415,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, mask: QtC.QBrush) callconv(.c) void `
     ///
     pub fn OnOpacityMaskChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsOpacityEffect_Connect_OpacityMaskChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_Connect_OpacityMaskChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
@@ -8441,7 +8441,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnDraw(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsOpacityEffect_OnDraw(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnDraw(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
@@ -8493,7 +8493,7 @@ pub const qgraphicsopacityeffect = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsopacityeffect.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -8575,7 +8575,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8709,7 +8709,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -8723,7 +8723,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -8737,7 +8737,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -8751,7 +8751,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -9081,7 +9081,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9136,7 +9136,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -9152,7 +9152,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -9174,7 +9174,7 @@ pub const qgraphicsopacityeffect = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -9194,7 +9194,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -9216,7 +9216,7 @@ pub const qgraphicsopacityeffect = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -9313,7 +9313,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9361,7 +9361,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, sourceRect: QtC.QRectF) callconv(.c) QtC.QRectF `
     ///
     pub fn OnBoundingRectFor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsOpacityEffect_OnBoundingRectFor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnBoundingRectFor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9377,7 +9377,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
     pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsOpacityEffect_SourceChanged(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsOpacityEffect_SourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9393,7 +9393,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsOpacityEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsOpacityEffect_QBaseSourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9409,7 +9409,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
     ///
     pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsOpacityEffect_OnSourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnSourceChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9457,7 +9457,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsOpacityEffect_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9509,7 +9509,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsOpacityEffect_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9557,7 +9557,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsOpacityEffect_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9605,7 +9605,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsOpacityEffect_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9653,7 +9653,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsOpacityEffect_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9701,7 +9701,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsOpacityEffect_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9749,7 +9749,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsOpacityEffect_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9793,7 +9793,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsOpacityEffect_OnUpdateBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnUpdateBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9837,7 +9837,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnSourceIsPixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGraphicsOpacityEffect_OnSourceIsPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnSourceIsPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9881,7 +9881,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRectF `
     ///
     pub fn OnSourceBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsOpacityEffect_OnSourceBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnSourceBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9929,7 +9929,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnDrawSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsOpacityEffect_OnDrawSource(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnDrawSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9973,7 +9973,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPixmap `
     ///
     pub fn OnSourcePixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPixmap) void {
-        qtc.QGraphicsOpacityEffect_OnSourcePixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnSourcePixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10017,7 +10017,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsOpacityEffect_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10061,7 +10061,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsOpacityEffect_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10111,7 +10111,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsOpacityEffect_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10159,7 +10159,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsOpacityEffect_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsOpacityEffect_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10175,7 +10175,7 @@ pub const qgraphicsopacityeffect = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsOpacityEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#dtor.QGraphicsOpacityEffect)

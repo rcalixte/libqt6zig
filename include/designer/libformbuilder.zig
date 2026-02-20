@@ -141,7 +141,7 @@ pub const qformbuilder = struct {
     /// ` callback: *const fn (self: QtC.QFormBuilder, widgetName: [*:0]const u8, parentWidget: QtC.QWidget, name: [*:0]const u8) callconv(.c) QtC.QWidget `
     ///
     pub fn OnCreateWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QWidget) void {
-        qtc.QFormBuilder_OnCreateWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormBuilder_OnCreateWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformbuilder.html#createWidget)
@@ -205,7 +205,7 @@ pub const qformbuilder = struct {
     /// ` callback: *const fn (self: QtC.QFormBuilder, layoutName: [*:0]const u8, parent: QtC.QObject, name: [*:0]const u8) callconv(.c) QtC.QLayout `
     ///
     pub fn OnCreateLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QLayout) void {
-        qtc.QFormBuilder_OnCreateLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormBuilder_OnCreateLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformbuilder.html#createLayout)
@@ -255,7 +255,7 @@ pub const qformbuilder = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateCustomWidgets(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFormBuilder_OnUpdateCustomWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormBuilder_OnUpdateCustomWidgets(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformbuilder.html#updateCustomWidgets)
@@ -299,7 +299,7 @@ pub const qformbuilder = struct {
     /// ` callback: *const fn (self: QtC.QFormBuilder, topLevel: QtC.QWidget, name: [*:0]const u8) callconv(.c) QtC.QWidget `
     ///
     pub fn OnWidgetByName(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QWidget) void {
-        qtc.QFormBuilder_OnWidgetByName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormBuilder_OnWidgetByName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformbuilder.html#widgetByName)
@@ -415,7 +415,7 @@ pub const qformbuilder = struct {
     /// ` callback: *const fn (self: QtC.QFormBuilder, dev: QtC.QIODevice, parentWidget: QtC.QWidget) callconv(.c) QtC.QWidget `
     ///
     pub fn OnLoad(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.QFormBuilder_OnLoad(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormBuilder_OnLoad(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractFormBuilder
@@ -467,7 +467,7 @@ pub const qformbuilder = struct {
     /// ` callback: *const fn (self: QtC.QFormBuilder, dev: QtC.QIODevice, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnSave(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFormBuilder_OnSave(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormBuilder_OnSave(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractFormBuilder
@@ -515,7 +515,7 @@ pub const qformbuilder = struct {
     /// ` callback: *const fn (self: QtC.QFormBuilder, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnAddMenuAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFormBuilder_OnAddMenuAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormBuilder_OnAddMenuAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractFormBuilder
@@ -575,7 +575,7 @@ pub const qformbuilder = struct {
     /// ` callback: *const fn (self: QtC.QFormBuilder, parent: QtC.QObject, name: [*:0]const u8) callconv(.c) QtC.QAction `
     ///
     pub fn OnCreateAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QAction) void {
-        qtc.QFormBuilder_OnCreateAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormBuilder_OnCreateAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractFormBuilder
@@ -635,7 +635,7 @@ pub const qformbuilder = struct {
     /// ` callback: *const fn (self: QtC.QFormBuilder, parent: QtC.QObject, name: [*:0]const u8) callconv(.c) QtC.QActionGroup `
     ///
     pub fn OnCreateActionGroup(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QActionGroup) void {
-        qtc.QFormBuilder_OnCreateActionGroup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormBuilder_OnCreateActionGroup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractFormBuilder
@@ -695,7 +695,7 @@ pub const qformbuilder = struct {
     /// ` callback: *const fn (self: QtC.QFormBuilder, obj: QtC.QObject, prop: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnCheckProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QFormBuilder_OnCheckProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormBuilder_OnCheckProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractFormBuilder
@@ -759,7 +759,7 @@ pub const qformbuilder = struct {
     /// ` callback: *const fn (self: QtC.QFormBuilder, o: QtC.QObject, propertyName: [*:0]const u8, value: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnApplyPropertyInternally(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFormBuilder_OnApplyPropertyInternally(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormBuilder_OnApplyPropertyInternally(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractFormBuilder
@@ -803,7 +803,7 @@ pub const qformbuilder = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFormBuilder_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormBuilder_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractFormBuilder
@@ -847,7 +847,7 @@ pub const qformbuilder = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaEnum `
     ///
     pub fn OnToolBarAreaMetaEnum(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaEnum) void {
-        qtc.QFormBuilder_OnToolBarAreaMetaEnum(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormBuilder_OnToolBarAreaMetaEnum(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformbuilder.html#dtor.QFormBuilder)

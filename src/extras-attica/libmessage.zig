@@ -160,7 +160,7 @@ pub const attica__message = struct {
     /// ` status: message_enums.Status `
     ///
     pub fn SetStatus(self: ?*anyopaque, status: i32) void {
-        qtc.Attica__Message_SetStatus(@ptrCast(self), @intCast(status));
+        qtc.Attica__Message_SetStatus(@ptrCast(self), @bitCast(status));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#status)

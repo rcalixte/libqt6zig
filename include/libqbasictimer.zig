@@ -67,7 +67,7 @@ pub const qbasictimer = struct {
     /// ` obj: QtC.QObject `
     ///
     pub fn Start(self: ?*anyopaque, msec: i32, obj: ?*anyopaque) void {
-        qtc.QBasicTimer_Start(@ptrCast(self), @intCast(msec), @ptrCast(obj));
+        qtc.QBasicTimer_Start(@ptrCast(self), @bitCast(msec), @ptrCast(obj));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#start)
@@ -83,7 +83,7 @@ pub const qbasictimer = struct {
     /// ` obj: QtC.QObject `
     ///
     pub fn Start2(self: ?*anyopaque, msec: i32, timerType: i32, obj: ?*anyopaque) void {
-        qtc.QBasicTimer_Start2(@ptrCast(self), @intCast(msec), @intCast(timerType), @ptrCast(obj));
+        qtc.QBasicTimer_Start2(@ptrCast(self), @bitCast(msec), @bitCast(timerType), @ptrCast(obj));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#start)
@@ -97,7 +97,7 @@ pub const qbasictimer = struct {
     /// ` obj: QtC.QObject `
     ///
     pub fn Start3(self: ?*anyopaque, duration: i64, obj: ?*anyopaque) void {
-        qtc.QBasicTimer_Start3(@ptrCast(self), @intCast(duration), @ptrCast(obj));
+        qtc.QBasicTimer_Start3(@ptrCast(self), @bitCast(duration), @ptrCast(obj));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#start)
@@ -113,7 +113,7 @@ pub const qbasictimer = struct {
     /// ` obj: QtC.QObject `
     ///
     pub fn Start4(self: ?*anyopaque, duration: i64, timerType: i32, obj: ?*anyopaque) void {
-        qtc.QBasicTimer_Start4(@ptrCast(self), @intCast(duration), @intCast(timerType), @ptrCast(obj));
+        qtc.QBasicTimer_Start4(@ptrCast(self), @bitCast(duration), @bitCast(timerType), @ptrCast(obj));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#stop)

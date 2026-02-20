@@ -19,7 +19,7 @@ pub const kfilemetadata__propertyinfo = struct {
     /// ` property: properties_enums.Property `
     ///
     pub fn New2(property: i32) QtC.KFileMetaData__PropertyInfo {
-        return qtc.KFileMetaData__PropertyInfo_new2(@intCast(property));
+        return qtc.KFileMetaData__PropertyInfo_new2(@bitCast(property));
     }
 
     /// New3 constructs a new KFileMetaData::PropertyInfo object.

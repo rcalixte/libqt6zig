@@ -53,7 +53,7 @@ pub const qpageranges = struct {
     /// ` pageNumber: i32 `
     ///
     pub fn AddPage(self: ?*anyopaque, pageNumber: i32) void {
-        qtc.QPageRanges_AddPage(@ptrCast(self), @intCast(pageNumber));
+        qtc.QPageRanges_AddPage(@ptrCast(self), @bitCast(pageNumber));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#addRange)
@@ -67,7 +67,7 @@ pub const qpageranges = struct {
     /// ` to: i32 `
     ///
     pub fn AddRange(self: ?*anyopaque, from: i32, to: i32) void {
-        qtc.QPageRanges_AddRange(@ptrCast(self), @intCast(from), @intCast(to));
+        qtc.QPageRanges_AddRange(@ptrCast(self), @bitCast(from), @bitCast(to));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#toRangeList)
@@ -136,7 +136,7 @@ pub const qpageranges = struct {
     /// ` pageNumber: i32 `
     ///
     pub fn Contains(self: ?*anyopaque, pageNumber: i32) bool {
-        return qtc.QPageRanges_Contains(@ptrCast(self), @intCast(pageNumber));
+        return qtc.QPageRanges_Contains(@ptrCast(self), @bitCast(pageNumber));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#isEmpty)
@@ -273,7 +273,7 @@ pub const qpageranges__range = struct {
     /// ` from: i32 `
     ///
     pub fn SetFrom(self: ?*anyopaque, from: i32) void {
-        qtc.QPageRanges__Range_SetFrom(@ptrCast(self), @intCast(from));
+        qtc.QPageRanges__Range_SetFrom(@ptrCast(self), @bitCast(from));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges-range.html#to-var)
@@ -295,7 +295,7 @@ pub const qpageranges__range = struct {
     /// ` to: i32 `
     ///
     pub fn SetTo(self: ?*anyopaque, to: i32) void {
-        qtc.QPageRanges__Range_SetTo(@ptrCast(self), @intCast(to));
+        qtc.QPageRanges__Range_SetTo(@ptrCast(self), @bitCast(to));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges-range.html#contains)
@@ -307,7 +307,7 @@ pub const qpageranges__range = struct {
     /// ` pageNumber: i32 `
     ///
     pub fn Contains(self: ?*anyopaque, pageNumber: i32) bool {
-        return qtc.QPageRanges__Range_Contains(@ptrCast(self), @intCast(pageNumber));
+        return qtc.QPageRanges__Range_Contains(@ptrCast(self), @bitCast(pageNumber));
     }
 
     /// Delete this object from C++ memory.

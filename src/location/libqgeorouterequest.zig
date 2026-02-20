@@ -147,7 +147,7 @@ pub const qgeorouterequest = struct {
     /// ` alternatives: i32 `
     ///
     pub fn SetNumberAlternativeRoutes(self: ?*anyopaque, alternatives: i32) void {
-        qtc.QGeoRouteRequest_SetNumberAlternativeRoutes(@ptrCast(self), @intCast(alternatives));
+        qtc.QGeoRouteRequest_SetNumberAlternativeRoutes(@ptrCast(self), @bitCast(alternatives));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#numberAlternativeRoutes)
@@ -169,7 +169,7 @@ pub const qgeorouterequest = struct {
     /// ` travelModes: flag of qgeorouterequest_enums.TravelMode `
     ///
     pub fn SetTravelModes(self: ?*anyopaque, travelModes: i32) void {
-        qtc.QGeoRouteRequest_SetTravelModes(@ptrCast(self), @intCast(travelModes));
+        qtc.QGeoRouteRequest_SetTravelModes(@ptrCast(self), @bitCast(travelModes));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#travelModes)
@@ -197,7 +197,7 @@ pub const qgeorouterequest = struct {
     /// ` featureWeight: qgeorouterequest_enums.FeatureWeight `
     ///
     pub fn SetFeatureWeight(self: ?*anyopaque, featureType: i32, featureWeight: i32) void {
-        qtc.QGeoRouteRequest_SetFeatureWeight(@ptrCast(self), @intCast(featureType), @intCast(featureWeight));
+        qtc.QGeoRouteRequest_SetFeatureWeight(@ptrCast(self), @bitCast(featureType), @bitCast(featureWeight));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#featureWeight)
@@ -213,7 +213,7 @@ pub const qgeorouterequest = struct {
     /// ` qgeorouterequest_enums.FeatureWeight `
     ///
     pub fn FeatureWeight(self: ?*anyopaque, featureType: i32) i32 {
-        return qtc.QGeoRouteRequest_FeatureWeight(@ptrCast(self), @intCast(featureType));
+        return qtc.QGeoRouteRequest_FeatureWeight(@ptrCast(self), @bitCast(featureType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#featureTypes)
@@ -246,7 +246,7 @@ pub const qgeorouterequest = struct {
     /// ` optimization: flag of qgeorouterequest_enums.RouteOptimization `
     ///
     pub fn SetRouteOptimization(self: ?*anyopaque, optimization: i32) void {
-        qtc.QGeoRouteRequest_SetRouteOptimization(@ptrCast(self), @intCast(optimization));
+        qtc.QGeoRouteRequest_SetRouteOptimization(@ptrCast(self), @bitCast(optimization));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#routeOptimization)
@@ -272,7 +272,7 @@ pub const qgeorouterequest = struct {
     /// ` segmentDetail: qgeorouterequest_enums.SegmentDetail `
     ///
     pub fn SetSegmentDetail(self: ?*anyopaque, segmentDetail: i32) void {
-        qtc.QGeoRouteRequest_SetSegmentDetail(@ptrCast(self), @intCast(segmentDetail));
+        qtc.QGeoRouteRequest_SetSegmentDetail(@ptrCast(self), @bitCast(segmentDetail));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#segmentDetail)
@@ -298,7 +298,7 @@ pub const qgeorouterequest = struct {
     /// ` maneuverDetail: qgeorouterequest_enums.ManeuverDetail `
     ///
     pub fn SetManeuverDetail(self: ?*anyopaque, maneuverDetail: i32) void {
-        qtc.QGeoRouteRequest_SetManeuverDetail(@ptrCast(self), @intCast(maneuverDetail));
+        qtc.QGeoRouteRequest_SetManeuverDetail(@ptrCast(self), @bitCast(maneuverDetail));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#maneuverDetail)

@@ -41,7 +41,7 @@ pub const qlegend = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QLegend_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QLegend_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -240,7 +240,7 @@ pub const qlegend = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QLegend_SetAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QLegend_SetAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegend-qtcharts.html#alignment)
@@ -411,7 +411,7 @@ pub const qlegend = struct {
     /// ` shape: qlegend_enums.MarkerShape `
     ///
     pub fn SetMarkerShape(self: ?*anyopaque, shape: i32) void {
-        qtc.QLegend_SetMarkerShape(@ptrCast(self), @intCast(shape));
+        qtc.QLegend_SetMarkerShape(@ptrCast(self), @bitCast(shape));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegend-qtcharts.html#backgroundVisibleChanged)
@@ -435,7 +435,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend, visible: bool) callconv(.c) void `
     ///
     pub fn OnBackgroundVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QLegend_Connect_BackgroundVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QLegend_Connect_BackgroundVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegend-qtcharts.html#colorChanged)
@@ -459,7 +459,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QLegend_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QLegend_Connect_ColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegend-qtcharts.html#borderColorChanged)
@@ -483,7 +483,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QLegend_Connect_BorderColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QLegend_Connect_BorderColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegend-qtcharts.html#fontChanged)
@@ -507,7 +507,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend, font: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QFont) callconv(.c) void) void {
-        qtc.QLegend_Connect_FontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QLegend_Connect_FontChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegend-qtcharts.html#labelColorChanged)
@@ -531,7 +531,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnLabelColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QLegend_Connect_LabelColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QLegend_Connect_LabelColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegend-qtcharts.html#reverseMarkersChanged)
@@ -555,7 +555,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend, reverseMarkers: bool) callconv(.c) void `
     ///
     pub fn OnReverseMarkersChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QLegend_Connect_ReverseMarkersChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QLegend_Connect_ReverseMarkersChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegend-qtcharts.html#showToolTipsChanged)
@@ -579,7 +579,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend, showToolTips: bool) callconv(.c) void `
     ///
     pub fn OnShowToolTipsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QLegend_Connect_ShowToolTipsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QLegend_Connect_ShowToolTipsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegend-qtcharts.html#markerShapeChanged)
@@ -591,7 +591,7 @@ pub const qlegend = struct {
     /// ` shape: qlegend_enums.MarkerShape `
     ///
     pub fn MarkerShapeChanged(self: ?*anyopaque, shape: i32) void {
-        qtc.QLegend_MarkerShapeChanged(@ptrCast(self), @intCast(shape));
+        qtc.QLegend_MarkerShapeChanged(@ptrCast(self), @bitCast(shape));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegend-qtcharts.html#markerShapeChanged)
@@ -603,7 +603,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend, shape: qlegend_enums.MarkerShape) callconv(.c) void `
     ///
     pub fn OnMarkerShapeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QLegend_Connect_MarkerShapeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QLegend_Connect_MarkerShapeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegend-qtcharts.html#attachedToChartChanged)
@@ -627,7 +627,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend, attachedToChart: bool) callconv(.c) void `
     ///
     pub fn OnAttachedToChartChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QLegend_Connect_AttachedToChartChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QLegend_Connect_AttachedToChartChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegend-qtcharts.html#interactiveChanged)
@@ -651,7 +651,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend, interactive: bool) callconv(.c) void `
     ///
     pub fn OnInteractiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QLegend_Connect_InteractiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QLegend_Connect_InteractiveChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -689,7 +689,7 @@ pub const qlegend = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlegend.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -804,7 +804,7 @@ pub const qlegend = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QGraphicsWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QGraphicsWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QGraphicsWidget
@@ -924,7 +924,7 @@ pub const qlegend = struct {
     /// ` h: f64 `
     ///
     pub fn Resize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsWidget_Resize2(@ptrCast(self), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsWidget_Resize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsWidget
@@ -970,7 +970,7 @@ pub const qlegend = struct {
     /// ` h: f64 `
     ///
     pub fn SetGeometry2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsWidget_SetGeometry2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsWidget_SetGeometry2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1002,7 +1002,7 @@ pub const qlegend = struct {
     /// ` bottom: f64 `
     ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: f64, top: f64, right: f64, bottom: f64) void {
-        qtc.QGraphicsWidget_SetContentsMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+        qtc.QGraphicsWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1056,7 +1056,7 @@ pub const qlegend = struct {
     /// ` bottom: f64 `
     ///
     pub fn SetWindowFrameMargins(self: ?*anyopaque, left: f64, top: f64, right: f64, bottom: f64) void {
-        qtc.QGraphicsWidget_SetWindowFrameMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+        qtc.QGraphicsWidget_SetWindowFrameMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1172,7 +1172,7 @@ pub const qlegend = struct {
     /// ` wFlags: flag of qnamespace_enums.WindowType `
     ///
     pub fn SetWindowFlags(self: ?*anyopaque, wFlags: i32) void {
-        qtc.QGraphicsWidget_SetWindowFlags(@ptrCast(self), @intCast(wFlags));
+        qtc.QGraphicsWidget_SetWindowFlags(@ptrCast(self), @bitCast(wFlags));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1250,7 +1250,7 @@ pub const qlegend = struct {
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QGraphicsWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QGraphicsWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1304,7 +1304,7 @@ pub const qlegend = struct {
     /// ` id: i32 `
     ///
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QGraphicsWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
+        qtc.QGraphicsWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1318,7 +1318,7 @@ pub const qlegend = struct {
     /// ` id: i32 `
     ///
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QGraphicsWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
+        qtc.QGraphicsWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1332,7 +1332,7 @@ pub const qlegend = struct {
     /// ` id: i32 `
     ///
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QGraphicsWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
+        qtc.QGraphicsWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1447,7 +1447,7 @@ pub const qlegend = struct {
     /// ` attribute: qnamespace_enums.WidgetAttribute `
     ///
     pub fn SetAttribute(self: ?*anyopaque, attribute: i32) void {
-        qtc.QGraphicsWidget_SetAttribute(@ptrCast(self), @intCast(attribute));
+        qtc.QGraphicsWidget_SetAttribute(@ptrCast(self), @bitCast(attribute));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1461,7 +1461,7 @@ pub const qlegend = struct {
     /// ` attribute: qnamespace_enums.WidgetAttribute `
     ///
     pub fn TestAttribute(self: ?*anyopaque, attribute: i32) bool {
-        return qtc.QGraphicsWidget_TestAttribute(@ptrCast(self), @intCast(attribute));
+        return qtc.QGraphicsWidget_TestAttribute(@ptrCast(self), @bitCast(attribute));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1541,7 +1541,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsWidget_Connect_GeometryChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsWidget_Connect_GeometryChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1567,7 +1567,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsWidget_Connect_LayoutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsWidget_Connect_LayoutChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1595,7 +1595,7 @@ pub const qlegend = struct {
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
     pub fn GrabShortcut2(self: ?*anyopaque, sequence: ?*anyopaque, context: i32) i32 {
-        return qtc.QGraphicsWidget_GrabShortcut2(@ptrCast(self), @ptrCast(sequence), @intCast(context));
+        return qtc.QGraphicsWidget_GrabShortcut2(@ptrCast(self), @ptrCast(sequence), @bitCast(context));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1611,7 +1611,7 @@ pub const qlegend = struct {
     /// ` enabled: bool `
     ///
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enabled: bool) void {
-        qtc.QGraphicsWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enabled);
+        qtc.QGraphicsWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enabled);
     }
 
     /// Inherited from QGraphicsWidget
@@ -1627,7 +1627,7 @@ pub const qlegend = struct {
     /// ` enabled: bool `
     ///
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enabled: bool) void {
-        qtc.QGraphicsWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enabled);
+        qtc.QGraphicsWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enabled);
     }
 
     /// Inherited from QGraphicsWidget
@@ -1643,7 +1643,7 @@ pub const qlegend = struct {
     /// ` on: bool `
     ///
     pub fn SetAttribute2(self: ?*anyopaque, attribute: i32, on: bool) void {
-        qtc.QGraphicsWidget_SetAttribute2(@ptrCast(self), @intCast(attribute), on);
+        qtc.QGraphicsWidget_SetAttribute2(@ptrCast(self), @bitCast(attribute), on);
     }
 
     /// Inherited from QGraphicsObject
@@ -1657,7 +1657,7 @@ pub const qlegend = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QGraphicsObject_GrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QGraphicsObject_GrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QGraphicsObject
@@ -1671,7 +1671,7 @@ pub const qlegend = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QGraphicsObject_UngrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QGraphicsObject_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QGraphicsObject
@@ -1697,7 +1697,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1723,7 +1723,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1749,7 +1749,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1775,7 +1775,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1801,7 +1801,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1827,7 +1827,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1853,7 +1853,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnZChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1879,7 +1879,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnRotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1905,7 +1905,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1931,7 +1931,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnChildrenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1957,7 +1957,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1983,7 +1983,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1999,7 +1999,7 @@ pub const qlegend = struct {
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
+        qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QObject
@@ -2149,7 +2149,7 @@ pub const qlegend = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2163,7 +2163,7 @@ pub const qlegend = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2177,7 +2177,7 @@ pub const qlegend = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2191,7 +2191,7 @@ pub const qlegend = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2521,7 +2521,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2576,7 +2576,7 @@ pub const qlegend = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2592,7 +2592,7 @@ pub const qlegend = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2614,7 +2614,7 @@ pub const qlegend = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2634,7 +2634,7 @@ pub const qlegend = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2656,7 +2656,7 @@ pub const qlegend = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2753,7 +2753,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -2998,7 +2998,7 @@ pub const qlegend = struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self), @bitCast(flag));
     }
 
     /// Inherited from QGraphicsItem
@@ -3012,7 +3012,7 @@ pub const qlegend = struct {
     /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsItem
@@ -3042,7 +3042,7 @@ pub const qlegend = struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -3072,7 +3072,7 @@ pub const qlegend = struct {
     /// ` panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @bitCast(panelModality));
     }
 
     /// Inherited from QGraphicsItem
@@ -3350,7 +3350,7 @@ pub const qlegend = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QGraphicsItem
@@ -3406,7 +3406,7 @@ pub const qlegend = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @bitCast(buttons));
     }
 
     /// Inherited from QGraphicsItem
@@ -3708,7 +3708,7 @@ pub const qlegend = struct {
     /// ` x: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// Inherited from QGraphicsItem
@@ -3734,7 +3734,7 @@ pub const qlegend = struct {
     /// ` y: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -3776,7 +3776,7 @@ pub const qlegend = struct {
     /// ` y: f64 `
     ///
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -3792,7 +3792,7 @@ pub const qlegend = struct {
     /// ` dy: f64 `
     ///
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -3824,7 +3824,7 @@ pub const qlegend = struct {
     /// ` h: f64 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -3916,7 +3916,7 @@ pub const qlegend = struct {
     /// ` angle: f64 `
     ///
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @floatCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QGraphicsItem
@@ -3942,7 +3942,7 @@ pub const qlegend = struct {
     /// ` scale: f64 `
     ///
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self), @floatCast(scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self), @bitCast(scale));
     }
 
     /// Inherited from QGraphicsItem
@@ -4033,7 +4033,7 @@ pub const qlegend = struct {
     /// ` ay: f64 `
     ///
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @floatCast(ax), @floatCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self), @bitCast(ax), @bitCast(ay));
     }
 
     /// Inherited from QGraphicsItem
@@ -4047,7 +4047,7 @@ pub const qlegend = struct {
     /// ` phase: i32 `
     ///
     pub fn Advance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsItem_Advance(@ptrCast(self), @intCast(phase));
+        qtc.QGraphicsItem_Advance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -4073,7 +4073,7 @@ pub const qlegend = struct {
     /// ` z: f64 `
     ///
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @floatCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self), @bitCast(z));
     }
 
     /// Inherited from QGraphicsItem
@@ -4165,7 +4165,7 @@ pub const qlegend = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
+        return qtc.QGraphicsItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -4181,7 +4181,7 @@ pub const qlegend = struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
+        return qtc.QGraphicsItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -4232,7 +4232,7 @@ pub const qlegend = struct {
     /// ` h: f64 `
     ///
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -4298,7 +4298,7 @@ pub const qlegend = struct {
     /// ` granularity: f64 `
     ///
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @floatCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self), @bitCast(granularity));
     }
 
     /// Inherited from QGraphicsItem
@@ -4330,7 +4330,7 @@ pub const qlegend = struct {
     /// ` height: f64 `
     ///
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(width), @floatCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QGraphicsItem
@@ -4346,7 +4346,7 @@ pub const qlegend = struct {
     /// ` dy: f64 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_Scroll(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QGraphicsItem_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QGraphicsItem
@@ -4628,7 +4628,7 @@ pub const qlegend = struct {
     /// ` y: f64 `
     ///
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -4644,7 +4644,7 @@ pub const qlegend = struct {
     /// ` y: f64 `
     ///
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -4660,7 +4660,7 @@ pub const qlegend = struct {
     /// ` y: f64 `
     ///
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -4682,7 +4682,7 @@ pub const qlegend = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -4702,7 +4702,7 @@ pub const qlegend = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -4722,7 +4722,7 @@ pub const qlegend = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -4740,7 +4740,7 @@ pub const qlegend = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromItem5(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -4756,7 +4756,7 @@ pub const qlegend = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -4772,7 +4772,7 @@ pub const qlegend = struct {
     /// ` y: f64 `
     ///
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -4794,7 +4794,7 @@ pub const qlegend = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self), @ptrCast(item), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -4814,7 +4814,7 @@ pub const qlegend = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -4834,7 +4834,7 @@ pub const qlegend = struct {
     /// ` h: f64 `
     ///
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
-        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        return qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsItem
@@ -4888,7 +4888,7 @@ pub const qlegend = struct {
     /// ` key: i32 `
     ///
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
-        return qtc.QGraphicsItem_Data(@ptrCast(self), @intCast(key));
+        return qtc.QGraphicsItem_Data(@ptrCast(self), @bitCast(key));
     }
 
     /// Inherited from QGraphicsItem
@@ -4904,7 +4904,7 @@ pub const qlegend = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetData(@ptrCast(self), @intCast(key), @ptrCast(value));
+        qtc.QGraphicsItem_SetData(@ptrCast(self), @bitCast(key), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsItem
@@ -4934,7 +4934,7 @@ pub const qlegend = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QGraphicsItem
@@ -4978,7 +4978,7 @@ pub const qlegend = struct {
     /// ` enabled: bool `
     ///
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
     /// Inherited from QGraphicsItem
@@ -4994,7 +4994,7 @@ pub const qlegend = struct {
     /// ` cacheSize: QtC.QSize `
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @bitCast(mode), @ptrCast(cacheSize));
     }
 
     /// Inherited from QGraphicsItem
@@ -5022,7 +5022,7 @@ pub const qlegend = struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @bitCast(focusReason));
     }
 
     /// Inherited from QGraphicsItem
@@ -5052,7 +5052,7 @@ pub const qlegend = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -5070,7 +5070,7 @@ pub const qlegend = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -5092,7 +5092,7 @@ pub const qlegend = struct {
     /// ` xmargin: i32 `
     ///
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -5116,7 +5116,7 @@ pub const qlegend = struct {
     /// ` ymargin: i32 `
     ///
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(xmargin), @intCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// Inherited from QGraphicsItem
@@ -5164,7 +5164,7 @@ pub const qlegend = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qlegend.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -5215,7 +5215,7 @@ pub const qlegend = struct {
     /// ` rect: QtC.QRectF `
     ///
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @floatCast(dx), @floatCast(dy), @ptrCast(rect));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(rect));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -5245,7 +5245,7 @@ pub const qlegend = struct {
     /// ` vPolicy: qsizepolicy_enums.Policy `
     ///
     pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i32, vPolicy: i32) void {
-        qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy));
+        qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self), @bitCast(hPolicy), @bitCast(vPolicy));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -5287,7 +5287,7 @@ pub const qlegend = struct {
     /// ` h: f64 `
     ///
     pub fn SetMinimumSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumSize2(@ptrCast(self), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsLayoutItem_SetMinimumSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -5313,7 +5313,7 @@ pub const qlegend = struct {
     /// ` width: f64 `
     ///
     pub fn SetMinimumWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumWidth(@ptrCast(self), @floatCast(width));
+        qtc.QGraphicsLayoutItem_SetMinimumWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -5339,7 +5339,7 @@ pub const qlegend = struct {
     /// ` height: f64 `
     ///
     pub fn SetMinimumHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumHeight(@ptrCast(self), @floatCast(height));
+        qtc.QGraphicsLayoutItem_SetMinimumHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -5381,7 +5381,7 @@ pub const qlegend = struct {
     /// ` h: f64 `
     ///
     pub fn SetPreferredSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredSize2(@ptrCast(self), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsLayoutItem_SetPreferredSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -5407,7 +5407,7 @@ pub const qlegend = struct {
     /// ` width: f64 `
     ///
     pub fn SetPreferredWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredWidth(@ptrCast(self), @floatCast(width));
+        qtc.QGraphicsLayoutItem_SetPreferredWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -5433,7 +5433,7 @@ pub const qlegend = struct {
     /// ` height: f64 `
     ///
     pub fn SetPreferredHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredHeight(@ptrCast(self), @floatCast(height));
+        qtc.QGraphicsLayoutItem_SetPreferredHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -5475,7 +5475,7 @@ pub const qlegend = struct {
     /// ` h: f64 `
     ///
     pub fn SetMaximumSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumSize2(@ptrCast(self), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsLayoutItem_SetMaximumSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -5501,7 +5501,7 @@ pub const qlegend = struct {
     /// ` width: f64 `
     ///
     pub fn SetMaximumWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumWidth(@ptrCast(self), @floatCast(width));
+        qtc.QGraphicsLayoutItem_SetMaximumWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -5527,7 +5527,7 @@ pub const qlegend = struct {
     /// ` height: f64 `
     ///
     pub fn SetMaximumHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumHeight(@ptrCast(self), @floatCast(height));
+        qtc.QGraphicsLayoutItem_SetMaximumHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -5577,7 +5577,7 @@ pub const qlegend = struct {
     /// ` which: qnamespace_enums.SizeHint `
     ///
     pub fn EffectiveSizeHint(self: ?*anyopaque, which: i32) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self), @intCast(which));
+        return qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self), @bitCast(which));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -5669,7 +5669,7 @@ pub const qlegend = struct {
     /// ` controlType: qsizepolicy_enums.ControlType `
     ///
     pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i32, vPolicy: i32, controlType: i32) void {
-        qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy), @intCast(controlType));
+        qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self), @bitCast(hPolicy), @bitCast(vPolicy), @bitCast(controlType));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -5685,7 +5685,7 @@ pub const qlegend = struct {
     /// ` constraint: QtC.QSizeF `
     ///
     pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self), @intCast(which), @ptrCast(constraint));
+        return qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
     /// Inherited from QObject
@@ -5701,7 +5701,7 @@ pub const qlegend = struct {
     /// ` callback: *const fn (self: QtC.QLegend, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegend-qtcharts.html#dtor.QLegend)

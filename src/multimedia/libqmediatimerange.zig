@@ -19,7 +19,7 @@ pub const qmediatimerange = struct {
     /// ` end: i64 `
     ///
     pub fn New2(start: i64, end: i64) QtC.QMediaTimeRange {
-        return qtc.QMediaTimeRange_new2(@intCast(start), @intCast(end));
+        return qtc.QMediaTimeRange_new2(@bitCast(start), @bitCast(end));
     }
 
     /// New3 constructs a new QMediaTimeRange object.
@@ -154,7 +154,7 @@ pub const qmediatimerange = struct {
     /// ` time: i64 `
     ///
     pub fn Contains(self: ?*anyopaque, time: i64) bool {
-        return qtc.QMediaTimeRange_Contains(@ptrCast(self), @intCast(time));
+        return qtc.QMediaTimeRange_Contains(@ptrCast(self), @bitCast(time));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediatimerange.html#addInterval)
@@ -168,7 +168,7 @@ pub const qmediatimerange = struct {
     /// ` end: i64 `
     ///
     pub fn AddInterval(self: ?*anyopaque, start: i64, end: i64) void {
-        qtc.QMediaTimeRange_AddInterval(@ptrCast(self), @intCast(start), @intCast(end));
+        qtc.QMediaTimeRange_AddInterval(@ptrCast(self), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediatimerange.html#addInterval)
@@ -206,7 +206,7 @@ pub const qmediatimerange = struct {
     /// ` end: i64 `
     ///
     pub fn RemoveInterval(self: ?*anyopaque, start: i64, end: i64) void {
-        qtc.QMediaTimeRange_RemoveInterval(@ptrCast(self), @intCast(start), @intCast(end));
+        qtc.QMediaTimeRange_RemoveInterval(@ptrCast(self), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediatimerange.html#removeInterval)
@@ -341,7 +341,7 @@ pub const qmediatimerange__interval = struct {
     /// ` end: i64 `
     ///
     pub fn New4(start: i64, end: i64) QtC.QMediaTimeRange__Interval {
-        return qtc.QMediaTimeRange__Interval_new4(@intCast(start), @intCast(end));
+        return qtc.QMediaTimeRange__Interval_new4(@bitCast(start), @bitCast(end));
     }
 
     /// New5 constructs a new QMediaTimeRange::Interval object.
@@ -407,7 +407,7 @@ pub const qmediatimerange__interval = struct {
     /// ` time: i64 `
     ///
     pub fn Contains(self: ?*anyopaque, time: i64) bool {
-        return qtc.QMediaTimeRange__Interval_Contains(@ptrCast(self), @intCast(time));
+        return qtc.QMediaTimeRange__Interval_Contains(@ptrCast(self), @bitCast(time));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediatimerange-interval.html#isNormal)
@@ -439,7 +439,7 @@ pub const qmediatimerange__interval = struct {
     /// ` offset: i64 `
     ///
     pub fn Translated(self: ?*anyopaque, offset: i64) QtC.QMediaTimeRange__Interval {
-        return qtc.QMediaTimeRange__Interval_Translated(@ptrCast(self), @intCast(offset));
+        return qtc.QMediaTimeRange__Interval_Translated(@ptrCast(self), @bitCast(offset));
     }
 
     /// Delete this object from C++ memory.

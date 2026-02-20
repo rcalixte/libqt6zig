@@ -37,7 +37,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QCommonStyle_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -72,7 +72,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QCommonStyle_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -99,7 +99,7 @@ pub const qcommonstyle = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QCommonStyle_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QCommonStyle_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -111,7 +111,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QCommonStyle_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -127,7 +127,7 @@ pub const qcommonstyle = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QCommonStyle_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QCommonStyle_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -162,7 +162,7 @@ pub const qcommonstyle = struct {
     /// ` w: QtC.QWidget `
     ///
     pub fn DrawPrimitive(self: ?*anyopaque, pe: i32, opt: ?*anyopaque, p: ?*anyopaque, w: ?*anyopaque) void {
-        qtc.QCommonStyle_DrawPrimitive(@ptrCast(self), @intCast(pe), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
+        qtc.QCommonStyle_DrawPrimitive(@ptrCast(self), @bitCast(pe), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawPrimitive)
@@ -176,7 +176,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, pe: qstyle_enums.PrimitiveElement, opt: QtC.QStyleOption, p: QtC.QPainter, w: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnDrawPrimitive(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnDrawPrimitive(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnDrawPrimitive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawPrimitive)
@@ -196,7 +196,7 @@ pub const qcommonstyle = struct {
     /// ` w: QtC.QWidget `
     ///
     pub fn QBaseDrawPrimitive(self: ?*anyopaque, pe: i32, opt: ?*anyopaque, p: ?*anyopaque, w: ?*anyopaque) void {
-        qtc.QCommonStyle_QBaseDrawPrimitive(@ptrCast(self), @intCast(pe), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
+        qtc.QCommonStyle_QBaseDrawPrimitive(@ptrCast(self), @bitCast(pe), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawControl)
@@ -214,7 +214,7 @@ pub const qcommonstyle = struct {
     /// ` w: QtC.QWidget `
     ///
     pub fn DrawControl(self: ?*anyopaque, element: i32, opt: ?*anyopaque, p: ?*anyopaque, w: ?*anyopaque) void {
-        qtc.QCommonStyle_DrawControl(@ptrCast(self), @intCast(element), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
+        qtc.QCommonStyle_DrawControl(@ptrCast(self), @bitCast(element), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawControl)
@@ -228,7 +228,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, element: qstyle_enums.ControlElement, opt: QtC.QStyleOption, p: QtC.QPainter, w: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnDrawControl(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnDrawControl(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnDrawControl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawControl)
@@ -248,7 +248,7 @@ pub const qcommonstyle = struct {
     /// ` w: QtC.QWidget `
     ///
     pub fn QBaseDrawControl(self: ?*anyopaque, element: i32, opt: ?*anyopaque, p: ?*anyopaque, w: ?*anyopaque) void {
-        qtc.QCommonStyle_QBaseDrawControl(@ptrCast(self), @intCast(element), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
+        qtc.QCommonStyle_QBaseDrawControl(@ptrCast(self), @bitCast(element), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#subElementRect)
@@ -264,7 +264,7 @@ pub const qcommonstyle = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn SubElementRect(self: ?*anyopaque, r: i32, opt: ?*anyopaque, widget: ?*anyopaque) QtC.QRect {
-        return qtc.QCommonStyle_SubElementRect(@ptrCast(self), @intCast(r), @ptrCast(opt), @ptrCast(widget));
+        return qtc.QCommonStyle_SubElementRect(@ptrCast(self), @bitCast(r), @ptrCast(opt), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#subElementRect)
@@ -278,7 +278,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, r: qstyle_enums.SubElement, opt: QtC.QStyleOption, widget: QtC.QWidget) callconv(.c) QtC.QRect `
     ///
     pub fn OnSubElementRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QCommonStyle_OnSubElementRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnSubElementRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#subElementRect)
@@ -296,7 +296,7 @@ pub const qcommonstyle = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn QBaseSubElementRect(self: ?*anyopaque, r: i32, opt: ?*anyopaque, widget: ?*anyopaque) QtC.QRect {
-        return qtc.QCommonStyle_QBaseSubElementRect(@ptrCast(self), @intCast(r), @ptrCast(opt), @ptrCast(widget));
+        return qtc.QCommonStyle_QBaseSubElementRect(@ptrCast(self), @bitCast(r), @ptrCast(opt), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawComplexControl)
@@ -314,7 +314,7 @@ pub const qcommonstyle = struct {
     /// ` w: QtC.QWidget `
     ///
     pub fn DrawComplexControl(self: ?*anyopaque, cc: i32, opt: ?*anyopaque, p: ?*anyopaque, w: ?*anyopaque) void {
-        qtc.QCommonStyle_DrawComplexControl(@ptrCast(self), @intCast(cc), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
+        qtc.QCommonStyle_DrawComplexControl(@ptrCast(self), @bitCast(cc), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawComplexControl)
@@ -328,7 +328,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, cc: qstyle_enums.ComplexControl, opt: QtC.QStyleOptionComplex, p: QtC.QPainter, w: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnDrawComplexControl(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnDrawComplexControl(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnDrawComplexControl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawComplexControl)
@@ -348,7 +348,7 @@ pub const qcommonstyle = struct {
     /// ` w: QtC.QWidget `
     ///
     pub fn QBaseDrawComplexControl(self: ?*anyopaque, cc: i32, opt: ?*anyopaque, p: ?*anyopaque, w: ?*anyopaque) void {
-        qtc.QCommonStyle_QBaseDrawComplexControl(@ptrCast(self), @intCast(cc), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
+        qtc.QCommonStyle_QBaseDrawComplexControl(@ptrCast(self), @bitCast(cc), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#hitTestComplexControl)
@@ -370,7 +370,7 @@ pub const qcommonstyle = struct {
     /// ` qstyle_enums.SubControl `
     ///
     pub fn HitTestComplexControl(self: ?*anyopaque, cc: i32, opt: ?*anyopaque, pt: ?*anyopaque, w: ?*anyopaque) i32 {
-        return qtc.QCommonStyle_HitTestComplexControl(@ptrCast(self), @intCast(cc), @ptrCast(opt), @ptrCast(pt), @ptrCast(w));
+        return qtc.QCommonStyle_HitTestComplexControl(@ptrCast(self), @bitCast(cc), @ptrCast(opt), @ptrCast(pt), @ptrCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#hitTestComplexControl)
@@ -384,7 +384,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, cc: qstyle_enums.ComplexControl, opt: QtC.QStyleOptionComplex, pt: QtC.QPoint, w: QtC.QWidget) callconv(.c) i32 `
     ///
     pub fn OnHitTestComplexControl(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QCommonStyle_OnHitTestComplexControl(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnHitTestComplexControl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#hitTestComplexControl)
@@ -408,7 +408,7 @@ pub const qcommonstyle = struct {
     /// ` qstyle_enums.SubControl `
     ///
     pub fn QBaseHitTestComplexControl(self: ?*anyopaque, cc: i32, opt: ?*anyopaque, pt: ?*anyopaque, w: ?*anyopaque) i32 {
-        return qtc.QCommonStyle_QBaseHitTestComplexControl(@ptrCast(self), @intCast(cc), @ptrCast(opt), @ptrCast(pt), @ptrCast(w));
+        return qtc.QCommonStyle_QBaseHitTestComplexControl(@ptrCast(self), @bitCast(cc), @ptrCast(opt), @ptrCast(pt), @ptrCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#subControlRect)
@@ -426,7 +426,7 @@ pub const qcommonstyle = struct {
     /// ` w: QtC.QWidget `
     ///
     pub fn SubControlRect(self: ?*anyopaque, cc: i32, opt: ?*anyopaque, sc: i32, w: ?*anyopaque) QtC.QRect {
-        return qtc.QCommonStyle_SubControlRect(@ptrCast(self), @intCast(cc), @ptrCast(opt), @intCast(sc), @ptrCast(w));
+        return qtc.QCommonStyle_SubControlRect(@ptrCast(self), @bitCast(cc), @ptrCast(opt), @bitCast(sc), @ptrCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#subControlRect)
@@ -440,7 +440,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, cc: qstyle_enums.ComplexControl, opt: QtC.QStyleOptionComplex, sc: qstyle_enums.SubControl, w: QtC.QWidget) callconv(.c) QtC.QRect `
     ///
     pub fn OnSubControlRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QCommonStyle_OnSubControlRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnSubControlRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#subControlRect)
@@ -460,7 +460,7 @@ pub const qcommonstyle = struct {
     /// ` w: QtC.QWidget `
     ///
     pub fn QBaseSubControlRect(self: ?*anyopaque, cc: i32, opt: ?*anyopaque, sc: i32, w: ?*anyopaque) QtC.QRect {
-        return qtc.QCommonStyle_QBaseSubControlRect(@ptrCast(self), @intCast(cc), @ptrCast(opt), @intCast(sc), @ptrCast(w));
+        return qtc.QCommonStyle_QBaseSubControlRect(@ptrCast(self), @bitCast(cc), @ptrCast(opt), @bitCast(sc), @ptrCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#sizeFromContents)
@@ -478,7 +478,7 @@ pub const qcommonstyle = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn SizeFromContents(self: ?*anyopaque, ct: i32, opt: ?*anyopaque, contentsSize: ?*anyopaque, widget: ?*anyopaque) QtC.QSize {
-        return qtc.QCommonStyle_SizeFromContents(@ptrCast(self), @intCast(ct), @ptrCast(opt), @ptrCast(contentsSize), @ptrCast(widget));
+        return qtc.QCommonStyle_SizeFromContents(@ptrCast(self), @bitCast(ct), @ptrCast(opt), @ptrCast(contentsSize), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#sizeFromContents)
@@ -492,7 +492,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, ct: qstyle_enums.ContentsType, opt: QtC.QStyleOption, contentsSize: QtC.QSize, widget: QtC.QWidget) callconv(.c) QtC.QSize `
     ///
     pub fn OnSizeFromContents(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.QCommonStyle_OnSizeFromContents(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnSizeFromContents(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#sizeFromContents)
@@ -512,7 +512,7 @@ pub const qcommonstyle = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn QBaseSizeFromContents(self: ?*anyopaque, ct: i32, opt: ?*anyopaque, contentsSize: ?*anyopaque, widget: ?*anyopaque) QtC.QSize {
-        return qtc.QCommonStyle_QBaseSizeFromContents(@ptrCast(self), @intCast(ct), @ptrCast(opt), @ptrCast(contentsSize), @ptrCast(widget));
+        return qtc.QCommonStyle_QBaseSizeFromContents(@ptrCast(self), @bitCast(ct), @ptrCast(opt), @ptrCast(contentsSize), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#pixelMetric)
@@ -528,7 +528,7 @@ pub const qcommonstyle = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn PixelMetric(self: ?*anyopaque, m: i32, opt: ?*anyopaque, widget: ?*anyopaque) i32 {
-        return qtc.QCommonStyle_PixelMetric(@ptrCast(self), @intCast(m), @ptrCast(opt), @ptrCast(widget));
+        return qtc.QCommonStyle_PixelMetric(@ptrCast(self), @bitCast(m), @ptrCast(opt), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#pixelMetric)
@@ -542,7 +542,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, m: qstyle_enums.PixelMetric, opt: QtC.QStyleOption, widget: QtC.QWidget) callconv(.c) i32 `
     ///
     pub fn OnPixelMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QCommonStyle_OnPixelMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnPixelMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#pixelMetric)
@@ -560,7 +560,7 @@ pub const qcommonstyle = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn QBasePixelMetric(self: ?*anyopaque, m: i32, opt: ?*anyopaque, widget: ?*anyopaque) i32 {
-        return qtc.QCommonStyle_QBasePixelMetric(@ptrCast(self), @intCast(m), @ptrCast(opt), @ptrCast(widget));
+        return qtc.QCommonStyle_QBasePixelMetric(@ptrCast(self), @bitCast(m), @ptrCast(opt), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#styleHint)
@@ -578,7 +578,7 @@ pub const qcommonstyle = struct {
     /// ` shret: QtC.QStyleHintReturn `
     ///
     pub fn StyleHint(self: ?*anyopaque, sh: i32, opt: ?*anyopaque, w: ?*anyopaque, shret: ?*anyopaque) i32 {
-        return qtc.QCommonStyle_StyleHint(@ptrCast(self), @intCast(sh), @ptrCast(opt), @ptrCast(w), @ptrCast(shret));
+        return qtc.QCommonStyle_StyleHint(@ptrCast(self), @bitCast(sh), @ptrCast(opt), @ptrCast(w), @ptrCast(shret));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#styleHint)
@@ -592,7 +592,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, sh: qstyle_enums.StyleHint, opt: QtC.QStyleOption, w: QtC.QWidget, shret: QtC.QStyleHintReturn) callconv(.c) i32 `
     ///
     pub fn OnStyleHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QCommonStyle_OnStyleHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnStyleHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#styleHint)
@@ -612,7 +612,7 @@ pub const qcommonstyle = struct {
     /// ` shret: QtC.QStyleHintReturn `
     ///
     pub fn QBaseStyleHint(self: ?*anyopaque, sh: i32, opt: ?*anyopaque, w: ?*anyopaque, shret: ?*anyopaque) i32 {
-        return qtc.QCommonStyle_QBaseStyleHint(@ptrCast(self), @intCast(sh), @ptrCast(opt), @ptrCast(w), @ptrCast(shret));
+        return qtc.QCommonStyle_QBaseStyleHint(@ptrCast(self), @bitCast(sh), @ptrCast(opt), @ptrCast(w), @ptrCast(shret));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#standardIcon)
@@ -628,7 +628,7 @@ pub const qcommonstyle = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn StandardIcon(self: ?*anyopaque, standardIcon: i32, opt: ?*anyopaque, widget: ?*anyopaque) QtC.QIcon {
-        return qtc.QCommonStyle_StandardIcon(@ptrCast(self), @intCast(standardIcon), @ptrCast(opt), @ptrCast(widget));
+        return qtc.QCommonStyle_StandardIcon(@ptrCast(self), @bitCast(standardIcon), @ptrCast(opt), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#standardIcon)
@@ -642,7 +642,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, standardIcon: qstyle_enums.StandardPixmap, opt: QtC.QStyleOption, widget: QtC.QWidget) callconv(.c) QtC.QIcon `
     ///
     pub fn OnStandardIcon(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QIcon) void {
-        qtc.QCommonStyle_OnStandardIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnStandardIcon(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#standardIcon)
@@ -660,7 +660,7 @@ pub const qcommonstyle = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn QBaseStandardIcon(self: ?*anyopaque, standardIcon: i32, opt: ?*anyopaque, widget: ?*anyopaque) QtC.QIcon {
-        return qtc.QCommonStyle_QBaseStandardIcon(@ptrCast(self), @intCast(standardIcon), @ptrCast(opt), @ptrCast(widget));
+        return qtc.QCommonStyle_QBaseStandardIcon(@ptrCast(self), @bitCast(standardIcon), @ptrCast(opt), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#standardPixmap)
@@ -676,7 +676,7 @@ pub const qcommonstyle = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn StandardPixmap(self: ?*anyopaque, sp: i32, opt: ?*anyopaque, widget: ?*anyopaque) QtC.QPixmap {
-        return qtc.QCommonStyle_StandardPixmap(@ptrCast(self), @intCast(sp), @ptrCast(opt), @ptrCast(widget));
+        return qtc.QCommonStyle_StandardPixmap(@ptrCast(self), @bitCast(sp), @ptrCast(opt), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#standardPixmap)
@@ -690,7 +690,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, sp: qstyle_enums.StandardPixmap, opt: QtC.QStyleOption, widget: QtC.QWidget) callconv(.c) QtC.QPixmap `
     ///
     pub fn OnStandardPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPixmap) void {
-        qtc.QCommonStyle_OnStandardPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnStandardPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#standardPixmap)
@@ -708,7 +708,7 @@ pub const qcommonstyle = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn QBaseStandardPixmap(self: ?*anyopaque, sp: i32, opt: ?*anyopaque, widget: ?*anyopaque) QtC.QPixmap {
-        return qtc.QCommonStyle_QBaseStandardPixmap(@ptrCast(self), @intCast(sp), @ptrCast(opt), @ptrCast(widget));
+        return qtc.QCommonStyle_QBaseStandardPixmap(@ptrCast(self), @bitCast(sp), @ptrCast(opt), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#generatedIconPixmap)
@@ -724,7 +724,7 @@ pub const qcommonstyle = struct {
     /// ` opt: QtC.QStyleOption `
     ///
     pub fn GeneratedIconPixmap(self: ?*anyopaque, iconMode: i32, pixmap: ?*anyopaque, opt: ?*anyopaque) QtC.QPixmap {
-        return qtc.QCommonStyle_GeneratedIconPixmap(@ptrCast(self), @intCast(iconMode), @ptrCast(pixmap), @ptrCast(opt));
+        return qtc.QCommonStyle_GeneratedIconPixmap(@ptrCast(self), @bitCast(iconMode), @ptrCast(pixmap), @ptrCast(opt));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#generatedIconPixmap)
@@ -738,7 +738,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, iconMode: qicon_enums.Mode, pixmap: QtC.QPixmap, opt: QtC.QStyleOption) callconv(.c) QtC.QPixmap `
     ///
     pub fn OnGeneratedIconPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPixmap) void {
-        qtc.QCommonStyle_OnGeneratedIconPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnGeneratedIconPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#generatedIconPixmap)
@@ -756,7 +756,7 @@ pub const qcommonstyle = struct {
     /// ` opt: QtC.QStyleOption `
     ///
     pub fn QBaseGeneratedIconPixmap(self: ?*anyopaque, iconMode: i32, pixmap: ?*anyopaque, opt: ?*anyopaque) QtC.QPixmap {
-        return qtc.QCommonStyle_QBaseGeneratedIconPixmap(@ptrCast(self), @intCast(iconMode), @ptrCast(pixmap), @ptrCast(opt));
+        return qtc.QCommonStyle_QBaseGeneratedIconPixmap(@ptrCast(self), @bitCast(iconMode), @ptrCast(pixmap), @ptrCast(opt));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#layoutSpacing)
@@ -776,7 +776,7 @@ pub const qcommonstyle = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn LayoutSpacing(self: ?*anyopaque, control1: i32, control2: i32, orientation: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
-        return qtc.QCommonStyle_LayoutSpacing(@ptrCast(self), @intCast(control1), @intCast(control2), @intCast(orientation), @ptrCast(option), @ptrCast(widget));
+        return qtc.QCommonStyle_LayoutSpacing(@ptrCast(self), @bitCast(control1), @bitCast(control2), @bitCast(orientation), @ptrCast(option), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#layoutSpacing)
@@ -790,7 +790,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, control1: qsizepolicy_enums.ControlType, control2: qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption, widget: QtC.QWidget) callconv(.c) i32 `
     ///
     pub fn OnLayoutSpacing(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QCommonStyle_OnLayoutSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnLayoutSpacing(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#layoutSpacing)
@@ -812,7 +812,7 @@ pub const qcommonstyle = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn QBaseLayoutSpacing(self: ?*anyopaque, control1: i32, control2: i32, orientation: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
-        return qtc.QCommonStyle_QBaseLayoutSpacing(@ptrCast(self), @intCast(control1), @intCast(control2), @intCast(orientation), @ptrCast(option), @ptrCast(widget));
+        return qtc.QCommonStyle_QBaseLayoutSpacing(@ptrCast(self), @bitCast(control1), @bitCast(control2), @bitCast(orientation), @ptrCast(option), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
@@ -838,7 +838,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, param1: QtC.QPalette) callconv(.c) void `
     ///
     pub fn OnPolish(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnPolish(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnPolish(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
@@ -878,7 +878,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, app: QtC.QApplication) callconv(.c) void `
     ///
     pub fn OnPolish2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnPolish2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnPolish2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
@@ -918,7 +918,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnPolish3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnPolish3(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnPolish3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
@@ -958,7 +958,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnUnpolish(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnUnpolish(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnUnpolish(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#unpolish)
@@ -998,7 +998,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, application: QtC.QApplication) callconv(.c) void `
     ///
     pub fn OnUnpolish2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnUnpolish2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnUnpolish2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#unpolish)
@@ -1050,7 +1050,7 @@ pub const qcommonstyle = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommonstyle.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1088,7 +1088,7 @@ pub const qcommonstyle = struct {
     /// ` logicalRect: QtC.QRect `
     ///
     pub fn VisualRect(direction: i32, boundingRect: ?*anyopaque, logicalRect: ?*anyopaque) QtC.QRect {
-        return qtc.QStyle_VisualRect(@intCast(direction), @ptrCast(boundingRect), @ptrCast(logicalRect));
+        return qtc.QStyle_VisualRect(@bitCast(direction), @ptrCast(boundingRect), @ptrCast(logicalRect));
     }
 
     /// Inherited from QStyle
@@ -1104,7 +1104,7 @@ pub const qcommonstyle = struct {
     /// ` logicalPos: QtC.QPoint `
     ///
     pub fn VisualPos(direction: i32, boundingRect: ?*anyopaque, logicalPos: ?*anyopaque) QtC.QPoint {
-        return qtc.QStyle_VisualPos(@intCast(direction), @ptrCast(boundingRect), @ptrCast(logicalPos));
+        return qtc.QStyle_VisualPos(@bitCast(direction), @ptrCast(boundingRect), @ptrCast(logicalPos));
     }
 
     /// Inherited from QStyle
@@ -1122,7 +1122,7 @@ pub const qcommonstyle = struct {
     /// ` space: i32 `
     ///
     pub fn SliderPositionFromValue(min: i32, max: i32, val: i32, space: i32) i32 {
-        return qtc.QStyle_SliderPositionFromValue(@intCast(min), @intCast(max), @intCast(val), @intCast(space));
+        return qtc.QStyle_SliderPositionFromValue(@bitCast(min), @bitCast(max), @bitCast(val), @bitCast(space));
     }
 
     /// Inherited from QStyle
@@ -1140,7 +1140,7 @@ pub const qcommonstyle = struct {
     /// ` space: i32 `
     ///
     pub fn SliderValueFromPosition(min: i32, max: i32, pos: i32, space: i32) i32 {
-        return qtc.QStyle_SliderValueFromPosition(@intCast(min), @intCast(max), @intCast(pos), @intCast(space));
+        return qtc.QStyle_SliderValueFromPosition(@bitCast(min), @bitCast(max), @bitCast(pos), @bitCast(space));
     }
 
     /// Inherited from QStyle
@@ -1158,7 +1158,7 @@ pub const qcommonstyle = struct {
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn VisualAlignment(direction: i32, alignment: i32) i32 {
-        return qtc.QStyle_VisualAlignment(@intCast(direction), @intCast(alignment));
+        return qtc.QStyle_VisualAlignment(@bitCast(direction), @bitCast(alignment));
     }
 
     /// Inherited from QStyle
@@ -1176,7 +1176,7 @@ pub const qcommonstyle = struct {
     /// ` rectangle: QtC.QRect `
     ///
     pub fn AlignedRect(direction: i32, alignment: i32, size: ?*anyopaque, rectangle: ?*anyopaque) QtC.QRect {
-        return qtc.QStyle_AlignedRect(@intCast(direction), @intCast(alignment), @ptrCast(size), @ptrCast(rectangle));
+        return qtc.QStyle_AlignedRect(@bitCast(direction), @bitCast(alignment), @ptrCast(size), @ptrCast(rectangle));
     }
 
     /// Inherited from QStyle
@@ -1194,7 +1194,7 @@ pub const qcommonstyle = struct {
     /// ` orientation: qnamespace_enums.Orientation `
     ///
     pub fn CombinedLayoutSpacing(self: ?*anyopaque, controls1: i32, controls2: i32, orientation: i32) i32 {
-        return qtc.QStyle_CombinedLayoutSpacing(@ptrCast(self), @intCast(controls1), @intCast(controls2), @intCast(orientation));
+        return qtc.QStyle_CombinedLayoutSpacing(@ptrCast(self), @bitCast(controls1), @bitCast(controls2), @bitCast(orientation));
     }
 
     /// Inherited from QStyle
@@ -1226,7 +1226,7 @@ pub const qcommonstyle = struct {
     /// ` upsideDown: bool `
     ///
     pub fn SliderPositionFromValue5(min: i32, max: i32, val: i32, space: i32, upsideDown: bool) i32 {
-        return qtc.QStyle_SliderPositionFromValue5(@intCast(min), @intCast(max), @intCast(val), @intCast(space), upsideDown);
+        return qtc.QStyle_SliderPositionFromValue5(@bitCast(min), @bitCast(max), @bitCast(val), @bitCast(space), upsideDown);
     }
 
     /// Inherited from QStyle
@@ -1246,7 +1246,7 @@ pub const qcommonstyle = struct {
     /// ` upsideDown: bool `
     ///
     pub fn SliderValueFromPosition5(min: i32, max: i32, pos: i32, space: i32, upsideDown: bool) i32 {
-        return qtc.QStyle_SliderValueFromPosition5(@intCast(min), @intCast(max), @intCast(pos), @intCast(space), upsideDown);
+        return qtc.QStyle_SliderValueFromPosition5(@bitCast(min), @bitCast(max), @bitCast(pos), @bitCast(space), upsideDown);
     }
 
     /// Inherited from QStyle
@@ -1266,7 +1266,7 @@ pub const qcommonstyle = struct {
     /// ` option: QtC.QStyleOption `
     ///
     pub fn CombinedLayoutSpacing4(self: ?*anyopaque, controls1: i32, controls2: i32, orientation: i32, option: ?*anyopaque) i32 {
-        return qtc.QStyle_CombinedLayoutSpacing4(@ptrCast(self), @intCast(controls1), @intCast(controls2), @intCast(orientation), @ptrCast(option));
+        return qtc.QStyle_CombinedLayoutSpacing4(@ptrCast(self), @bitCast(controls1), @bitCast(controls2), @bitCast(orientation), @ptrCast(option));
     }
 
     /// Inherited from QStyle
@@ -1288,7 +1288,7 @@ pub const qcommonstyle = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn CombinedLayoutSpacing5(self: ?*anyopaque, controls1: i32, controls2: i32, orientation: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
-        return qtc.QStyle_CombinedLayoutSpacing5(@ptrCast(self), @intCast(controls1), @intCast(controls2), @intCast(orientation), @ptrCast(option), @ptrCast(widget));
+        return qtc.QStyle_CombinedLayoutSpacing5(@ptrCast(self), @bitCast(controls1), @bitCast(controls2), @bitCast(orientation), @ptrCast(option), @ptrCast(widget));
     }
 
     /// Inherited from QObject
@@ -1422,7 +1422,7 @@ pub const qcommonstyle = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1436,7 +1436,7 @@ pub const qcommonstyle = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1450,7 +1450,7 @@ pub const qcommonstyle = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1464,7 +1464,7 @@ pub const qcommonstyle = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1794,7 +1794,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1849,7 +1849,7 @@ pub const qcommonstyle = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1865,7 +1865,7 @@ pub const qcommonstyle = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1887,7 +1887,7 @@ pub const qcommonstyle = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1907,7 +1907,7 @@ pub const qcommonstyle = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1929,7 +1929,7 @@ pub const qcommonstyle = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2026,7 +2026,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QStyle
@@ -2054,7 +2054,7 @@ pub const qcommonstyle = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QCommonStyle_ItemTextRect(@ptrCast(self), @ptrCast(fm), @ptrCast(r), @intCast(flags), enabled, text_str);
+        return qtc.QCommonStyle_ItemTextRect(@ptrCast(self), @ptrCast(fm), @ptrCast(r), @bitCast(flags), enabled, text_str);
     }
 
     /// Inherited from QStyle
@@ -2082,7 +2082,7 @@ pub const qcommonstyle = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QCommonStyle_QBaseItemTextRect(@ptrCast(self), @ptrCast(fm), @ptrCast(r), @intCast(flags), enabled, text_str);
+        return qtc.QCommonStyle_QBaseItemTextRect(@ptrCast(self), @ptrCast(fm), @ptrCast(r), @bitCast(flags), enabled, text_str);
     }
 
     /// Inherited from QStyle
@@ -2098,7 +2098,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, fm: QtC.QFontMetrics, r: QtC.QRect, flags: i32, enabled: bool, text: [*:0]const u8) callconv(.c) QtC.QRect `
     ///
     pub fn OnItemTextRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, bool, [*:0]const u8) callconv(.c) QtC.QRect) void {
-        qtc.QCommonStyle_OnItemTextRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnItemTextRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QStyle
@@ -2118,7 +2118,7 @@ pub const qcommonstyle = struct {
     /// ` pixmap: QtC.QPixmap `
     ///
     pub fn ItemPixmapRect(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pixmap: ?*anyopaque) QtC.QRect {
-        return qtc.QCommonStyle_ItemPixmapRect(@ptrCast(self), @ptrCast(r), @intCast(flags), @ptrCast(pixmap));
+        return qtc.QCommonStyle_ItemPixmapRect(@ptrCast(self), @ptrCast(r), @bitCast(flags), @ptrCast(pixmap));
     }
 
     /// Inherited from QStyle
@@ -2138,7 +2138,7 @@ pub const qcommonstyle = struct {
     /// ` pixmap: QtC.QPixmap `
     ///
     pub fn QBaseItemPixmapRect(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pixmap: ?*anyopaque) QtC.QRect {
-        return qtc.QCommonStyle_QBaseItemPixmapRect(@ptrCast(self), @ptrCast(r), @intCast(flags), @ptrCast(pixmap));
+        return qtc.QCommonStyle_QBaseItemPixmapRect(@ptrCast(self), @ptrCast(r), @bitCast(flags), @ptrCast(pixmap));
     }
 
     /// Inherited from QStyle
@@ -2154,7 +2154,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, r: QtC.QRect, flags: i32, pixmap: QtC.QPixmap) callconv(.c) QtC.QRect `
     ///
     pub fn OnItemPixmapRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QCommonStyle_OnItemPixmapRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnItemPixmapRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QStyle
@@ -2186,7 +2186,7 @@ pub const qcommonstyle = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QCommonStyle_DrawItemText(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(flags), @ptrCast(pal), enabled, text_str, @intCast(textRole));
+        qtc.QCommonStyle_DrawItemText(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(flags), @ptrCast(pal), enabled, text_str, @bitCast(textRole));
     }
 
     /// Inherited from QStyle
@@ -2218,7 +2218,7 @@ pub const qcommonstyle = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QCommonStyle_QBaseDrawItemText(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(flags), @ptrCast(pal), enabled, text_str, @intCast(textRole));
+        qtc.QCommonStyle_QBaseDrawItemText(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(flags), @ptrCast(pal), enabled, text_str, @bitCast(textRole));
     }
 
     /// Inherited from QStyle
@@ -2234,7 +2234,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, painter: QtC.QPainter, rect: QtC.QRect, flags: i32, pal: QtC.QPalette, enabled: bool, text: [*:0]const u8, textRole: qpalette_enums.ColorRole) callconv(.c) void `
     ///
     pub fn OnDrawItemText(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, ?*anyopaque, bool, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.QCommonStyle_OnDrawItemText(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnDrawItemText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QStyle
@@ -2256,7 +2256,7 @@ pub const qcommonstyle = struct {
     /// ` pixmap: QtC.QPixmap `
     ///
     pub fn DrawItemPixmap(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, alignment: i32, pixmap: ?*anyopaque) void {
-        qtc.QCommonStyle_DrawItemPixmap(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(alignment), @ptrCast(pixmap));
+        qtc.QCommonStyle_DrawItemPixmap(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(alignment), @ptrCast(pixmap));
     }
 
     /// Inherited from QStyle
@@ -2278,7 +2278,7 @@ pub const qcommonstyle = struct {
     /// ` pixmap: QtC.QPixmap `
     ///
     pub fn QBaseDrawItemPixmap(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, alignment: i32, pixmap: ?*anyopaque) void {
-        qtc.QCommonStyle_QBaseDrawItemPixmap(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(alignment), @ptrCast(pixmap));
+        qtc.QCommonStyle_QBaseDrawItemPixmap(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(alignment), @ptrCast(pixmap));
     }
 
     /// Inherited from QStyle
@@ -2294,7 +2294,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, painter: QtC.QPainter, rect: QtC.QRect, alignment: i32, pixmap: QtC.QPixmap) callconv(.c) void `
     ///
     pub fn OnDrawItemPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnDrawItemPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnDrawItemPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QStyle
@@ -2338,7 +2338,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPalette `
     ///
     pub fn OnStandardPalette(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPalette) void {
-        qtc.QCommonStyle_OnStandardPalette(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnStandardPalette(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2386,7 +2386,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCommonStyle_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2438,7 +2438,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCommonStyle_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2486,7 +2486,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2534,7 +2534,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2582,7 +2582,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2630,7 +2630,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2678,7 +2678,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2722,7 +2722,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QCommonStyle_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2766,7 +2766,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCommonStyle_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2816,7 +2816,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QCommonStyle_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2864,7 +2864,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCommonStyle_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCommonStyle_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2880,7 +2880,7 @@ pub const qcommonstyle = struct {
     /// ` callback: *const fn (self: QtC.QCommonStyle, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#dtor.QCommonStyle)

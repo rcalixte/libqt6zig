@@ -47,7 +47,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QDtlsClientVerifier_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtlsClientVerifier_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -82,7 +82,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QDtlsClientVerifier_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtlsClientVerifier_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -109,7 +109,7 @@ pub const qdtlsclientverifier = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDtlsClientVerifier_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDtlsClientVerifier_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -121,7 +121,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QDtlsClientVerifier_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtlsClientVerifier_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -137,7 +137,7 @@ pub const qdtlsclientverifier = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDtlsClientVerifier_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDtlsClientVerifier_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -198,7 +198,7 @@ pub const qdtlsclientverifier = struct {
             .len = dgram.len,
             .data = dgram.ptr,
         };
-        return qtc.QDtlsClientVerifier_VerifyClient(@ptrCast(self), @ptrCast(socket), dgram_str, @ptrCast(address), @intCast(port));
+        return qtc.QDtlsClientVerifier_VerifyClient(@ptrCast(self), @ptrCast(socket), dgram_str, @ptrCast(address), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#verifiedHello)
@@ -282,7 +282,7 @@ pub const qdtlsclientverifier = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdtlsclientverifier.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -420,7 +420,7 @@ pub const qdtlsclientverifier = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -434,7 +434,7 @@ pub const qdtlsclientverifier = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -448,7 +448,7 @@ pub const qdtlsclientverifier = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -462,7 +462,7 @@ pub const qdtlsclientverifier = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -792,7 +792,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn (self: QtC.QDtlsClientVerifier) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -847,7 +847,7 @@ pub const qdtlsclientverifier = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -863,7 +863,7 @@ pub const qdtlsclientverifier = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -885,7 +885,7 @@ pub const qdtlsclientverifier = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -905,7 +905,7 @@ pub const qdtlsclientverifier = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -927,7 +927,7 @@ pub const qdtlsclientverifier = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1024,7 +1024,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1072,7 +1072,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDtlsClientVerifier_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtlsClientVerifier_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1124,7 +1124,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDtlsClientVerifier_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtlsClientVerifier_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1172,7 +1172,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDtlsClientVerifier_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtlsClientVerifier_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1220,7 +1220,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDtlsClientVerifier_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtlsClientVerifier_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1268,7 +1268,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDtlsClientVerifier_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtlsClientVerifier_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1316,7 +1316,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDtlsClientVerifier_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtlsClientVerifier_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1364,7 +1364,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDtlsClientVerifier_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtlsClientVerifier_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1408,7 +1408,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QDtlsClientVerifier_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtlsClientVerifier_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1452,7 +1452,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDtlsClientVerifier_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtlsClientVerifier_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1502,7 +1502,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDtlsClientVerifier_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtlsClientVerifier_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1550,7 +1550,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDtlsClientVerifier_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtlsClientVerifier_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1566,7 +1566,7 @@ pub const qdtlsclientverifier = struct {
     /// ` callback: *const fn (self: QtC.QDtlsClientVerifier, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#dtor.QDtlsClientVerifier)
@@ -1591,7 +1591,7 @@ pub const qdtls = struct {
     /// ` mode: qsslsocket_enums.SslMode `
     ///
     pub fn New(mode: i32) QtC.QDtls {
-        return qtc.QDtls_new(@intCast(mode));
+        return qtc.QDtls_new(@bitCast(mode));
     }
 
     /// New2 constructs a new QDtls object.
@@ -1603,7 +1603,7 @@ pub const qdtls = struct {
     /// ` parent: QtC.QObject `
     ///
     pub fn New2(mode: i32, parent: ?*anyopaque) QtC.QDtls {
-        return qtc.QDtls_new2(@intCast(mode), @ptrCast(parent));
+        return qtc.QDtls_new2(@bitCast(mode), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -1627,7 +1627,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QDtls_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -1662,7 +1662,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QDtls_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -1689,7 +1689,7 @@ pub const qdtls = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDtls_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDtls_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -1701,7 +1701,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QDtls_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -1717,7 +1717,7 @@ pub const qdtls = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDtls_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDtls_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1748,7 +1748,7 @@ pub const qdtls = struct {
     /// ` port: u16 `
     ///
     pub fn SetPeer(self: ?*anyopaque, address: ?*anyopaque, port: u16) bool {
-        return qtc.QDtls_SetPeer(@ptrCast(self), @ptrCast(address), @intCast(port));
+        return qtc.QDtls_SetPeer(@ptrCast(self), @ptrCast(address), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setPeerVerificationName)
@@ -1826,7 +1826,7 @@ pub const qdtls = struct {
     /// ` mtuHint: u16 `
     ///
     pub fn SetMtuHint(self: ?*anyopaque, mtuHint: u16) void {
-        qtc.QDtls_SetMtuHint(@ptrCast(self), @intCast(mtuHint));
+        qtc.QDtls_SetMtuHint(@ptrCast(self), @bitCast(mtuHint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#mtuHint)
@@ -2117,7 +2117,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
     ///
     pub fn OnPskRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDtls_Connect_PskRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_Connect_PskRequired(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#handshakeTimeout)
@@ -2139,7 +2139,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls) callconv(.c) void `
     ///
     pub fn OnHandshakeTimeout(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDtls_Connect_HandshakeTimeout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_Connect_HandshakeTimeout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2177,7 +2177,7 @@ pub const qdtls = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdtls.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2201,7 +2201,7 @@ pub const qdtls = struct {
             .len = verificationName.len,
             .data = verificationName.ptr,
         };
-        return qtc.QDtls_SetPeer3(@ptrCast(self), @ptrCast(address), @intCast(port), verificationName_str);
+        return qtc.QDtls_SetPeer3(@ptrCast(self), @ptrCast(address), @bitCast(port), verificationName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#doHandshake)
@@ -2353,7 +2353,7 @@ pub const qdtls = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2367,7 +2367,7 @@ pub const qdtls = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2381,7 +2381,7 @@ pub const qdtls = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2395,7 +2395,7 @@ pub const qdtls = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2725,7 +2725,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2780,7 +2780,7 @@ pub const qdtls = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2796,7 +2796,7 @@ pub const qdtls = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2818,7 +2818,7 @@ pub const qdtls = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2838,7 +2838,7 @@ pub const qdtls = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2860,7 +2860,7 @@ pub const qdtls = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2957,7 +2957,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3005,7 +3005,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDtls_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3057,7 +3057,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDtls_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3105,7 +3105,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDtls_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3153,7 +3153,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDtls_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3201,7 +3201,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDtls_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3249,7 +3249,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDtls_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3297,7 +3297,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDtls_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3341,7 +3341,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QDtls_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3385,7 +3385,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDtls_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3435,7 +3435,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDtls_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3483,7 +3483,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDtls_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDtls_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3499,7 +3499,7 @@ pub const qdtls = struct {
     /// ` callback: *const fn (self: QtC.QDtls, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#dtor.QDtls)
@@ -3537,7 +3537,7 @@ pub const qdtlsclientverifier__generatorparameters = struct {
             .data = s.ptr,
         };
 
-        return qtc.QDtlsClientVerifier__GeneratorParameters_new2(@intCast(a), s_str);
+        return qtc.QDtlsClientVerifier__GeneratorParameters_new2(@bitCast(a), s_str);
     }
 
     /// New3 constructs a new QDtlsClientVerifier::GeneratorParameters object.
@@ -3573,7 +3573,7 @@ pub const qdtlsclientverifier__generatorparameters = struct {
     /// ` hash: qcryptographichash_enums.Algorithm `
     ///
     pub fn SetHash(self: ?*anyopaque, hash: i32) void {
-        qtc.QDtlsClientVerifier__GeneratorParameters_SetHash(@ptrCast(self), @intCast(hash));
+        qtc.QDtlsClientVerifier__GeneratorParameters_SetHash(@ptrCast(self), @bitCast(hash));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#secret-var)

@@ -32,7 +32,7 @@ pub const qwaitcondition = struct {
     /// ` time: u64 `
     ///
     pub fn Wait2(self: ?*anyopaque, lockedMutex: ?*anyopaque, time: u64) bool {
-        return qtc.QWaitCondition_Wait2(@ptrCast(self), @ptrCast(lockedMutex), @intCast(time));
+        return qtc.QWaitCondition_Wait2(@ptrCast(self), @ptrCast(lockedMutex), @bitCast(time));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwaitcondition.html#wait)
@@ -58,7 +58,7 @@ pub const qwaitcondition = struct {
     /// ` time: u64 `
     ///
     pub fn Wait4(self: ?*anyopaque, lockedReadWriteLock: ?*anyopaque, time: u64) bool {
-        return qtc.QWaitCondition_Wait4(@ptrCast(self), @ptrCast(lockedReadWriteLock), @intCast(time));
+        return qtc.QWaitCondition_Wait4(@ptrCast(self), @ptrCast(lockedReadWriteLock), @bitCast(time));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwaitcondition.html#wakeOne)

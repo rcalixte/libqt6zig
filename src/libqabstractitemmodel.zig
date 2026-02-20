@@ -16,7 +16,7 @@ pub const qmodelroledata = struct {
     /// ` role: i32 `
     ///
     pub fn New(role: i32) QtC.QModelRoleData {
-        return qtc.QModelRoleData_new(@intCast(role));
+        return qtc.QModelRoleData_new(@bitCast(role));
     }
 
     /// New2 constructs a new QModelRoleData object.
@@ -141,7 +141,7 @@ pub const qmodelroledataspan = struct {
     /// ` lenVal: i64 `
     ///
     pub fn New5(modelRoleData: ?*anyopaque, lenVal: i64) QtC.QModelRoleDataSpan {
-        return qtc.QModelRoleDataSpan_new5(@ptrCast(modelRoleData), @intCast(lenVal));
+        return qtc.QModelRoleDataSpan_new5(@ptrCast(modelRoleData), @bitCast(lenVal));
     }
 
     /// New6 constructs a new QModelRoleDataSpan object.
@@ -237,7 +237,7 @@ pub const qmodelroledataspan = struct {
     /// ` index: i64 `
     ///
     pub fn OperatorSubscript(self: ?*anyopaque, index: i64) QtC.QModelRoleData {
-        return qtc.QModelRoleDataSpan_OperatorSubscript(@ptrCast(self), @intCast(index));
+        return qtc.QModelRoleDataSpan_OperatorSubscript(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmodelroledataspan.html#dataForRole)
@@ -249,7 +249,7 @@ pub const qmodelroledataspan = struct {
     /// ` role: i32 `
     ///
     pub fn DataForRole(self: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QModelRoleDataSpan_DataForRole(@ptrCast(self), @intCast(role));
+        return qtc.QModelRoleDataSpan_DataForRole(@ptrCast(self), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmodelroledataspan.html#dtor.QModelRoleDataSpan)
@@ -398,7 +398,7 @@ pub const qmodelindex = struct {
     /// ` column: i32 `
     ///
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.QModelIndex_Sibling(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QModelIndex_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#siblingAtColumn)
@@ -410,7 +410,7 @@ pub const qmodelindex = struct {
     /// ` column: i32 `
     ///
     pub fn SiblingAtColumn(self: ?*anyopaque, column: i32) QtC.QModelIndex {
-        return qtc.QModelIndex_SiblingAtColumn(@ptrCast(self), @intCast(column));
+        return qtc.QModelIndex_SiblingAtColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#siblingAtRow)
@@ -422,7 +422,7 @@ pub const qmodelindex = struct {
     /// ` row: i32 `
     ///
     pub fn SiblingAtRow(self: ?*anyopaque, row: i32) QtC.QModelIndex {
-        return qtc.QModelIndex_SiblingAtRow(@ptrCast(self), @intCast(row));
+        return qtc.QModelIndex_SiblingAtRow(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#data)
@@ -490,7 +490,7 @@ pub const qmodelindex = struct {
     /// ` role: i32 `
     ///
     pub fn Data1(self: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QModelIndex_Data1(@ptrCast(self), @intCast(role));
+        return qtc.QModelIndex_Data1(@ptrCast(self), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmodelindex.html#dtor.QModelIndex)
@@ -651,7 +651,7 @@ pub const qpersistentmodelindex = struct {
     /// ` column: i32 `
     ///
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.QPersistentModelIndex_Sibling(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QPersistentModelIndex_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#data)
@@ -719,7 +719,7 @@ pub const qpersistentmodelindex = struct {
     /// ` role: i32 `
     ///
     pub fn Data1(self: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QPersistentModelIndex_Data1(@ptrCast(self), @intCast(role));
+        return qtc.QPersistentModelIndex_Data1(@ptrCast(self), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#dtor.QPersistentModelIndex)
@@ -774,7 +774,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QAbstractItemModel_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -809,7 +809,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QAbstractItemModel_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -836,7 +836,7 @@ pub const qabstractitemmodel = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractItemModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAbstractItemModel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -848,7 +848,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractItemModel_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -864,7 +864,7 @@ pub const qabstractitemmodel = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractItemModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAbstractItemModel_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -895,7 +895,7 @@ pub const qabstractitemmodel = struct {
     /// ` column: i32 `
     ///
     pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
-        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#index)
@@ -911,7 +911,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_Index(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#index)
@@ -925,7 +925,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractItemModel_OnIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#index)
@@ -943,7 +943,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_QBaseIndex(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_QBaseIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
@@ -969,7 +969,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, child: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnParent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractItemModel_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
@@ -999,7 +999,7 @@ pub const qabstractitemmodel = struct {
     /// ` idx: QtC.QModelIndex `
     ///
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_Sibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
+        return qtc.QAbstractItemModel_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sibling)
@@ -1013,7 +1013,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, row: i32, column: i32, idx: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnSibling(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractItemModel_OnSibling(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnSibling(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sibling)
@@ -1031,7 +1031,7 @@ pub const qabstractitemmodel = struct {
     /// ` idx: QtC.QModelIndex `
     ///
     pub fn QBaseSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_QBaseSibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
+        return qtc.QAbstractItemModel_QBaseSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
@@ -1057,7 +1057,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnRowCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractItemModel_OnRowCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnRowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
@@ -1097,7 +1097,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnColumnCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractItemModel_OnColumnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnColumnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
@@ -1137,7 +1137,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnHasChildren(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
@@ -1165,7 +1165,7 @@ pub const qabstractitemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QAbstractItemModel_Data(@ptrCast(self), @ptrCast(index), @intCast(role));
+        return qtc.QAbstractItemModel_Data(@ptrCast(self), @ptrCast(index), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
@@ -1179,7 +1179,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, index: QtC.QModelIndex, role: i32) callconv(.c) QtC.QVariant `
     ///
     pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QAbstractItemModel_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
@@ -1195,7 +1195,7 @@ pub const qabstractitemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseData(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QAbstractItemModel_QBaseData(@ptrCast(self), @ptrCast(index), @intCast(role));
+        return qtc.QAbstractItemModel_QBaseData(@ptrCast(self), @ptrCast(index), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
@@ -1211,7 +1211,7 @@ pub const qabstractitemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.QAbstractItemModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
+        return qtc.QAbstractItemModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
@@ -1225,7 +1225,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32) callconv(.c) bool `
     ///
     pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnSetData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setData)
@@ -1243,7 +1243,7 @@ pub const qabstractitemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.QAbstractItemModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
+        return qtc.QAbstractItemModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
@@ -1259,7 +1259,7 @@ pub const qabstractitemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.QAbstractItemModel_HeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
+        return qtc.QAbstractItemModel_HeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
@@ -1273,7 +1273,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QtC.QVariant `
     ///
     pub fn OnHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QAbstractItemModel_OnHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
@@ -1291,7 +1291,7 @@ pub const qabstractitemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.QAbstractItemModel_QBaseHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
+        return qtc.QAbstractItemModel_QBaseHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
@@ -1309,7 +1309,7 @@ pub const qabstractitemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.QAbstractItemModel_SetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
+        return qtc.QAbstractItemModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
@@ -1323,7 +1323,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32) callconv(.c) bool `
     ///
     pub fn OnSetHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnSetHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnSetHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
@@ -1343,7 +1343,7 @@ pub const qabstractitemmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.QAbstractItemModel_QBaseSetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
+        return qtc.QAbstractItemModel_QBaseSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
@@ -1389,7 +1389,7 @@ pub const qabstractitemmodel = struct {
     /// ` C ABI representation of map_i32_qtcqvariant `
     ///
     pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
-        qtc.QAbstractItemModel_OnItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
@@ -1444,7 +1444,7 @@ pub const qabstractitemmodel = struct {
         var roles_it = roles.iterator();
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
-            roles_keys[i] = @intCast(roles_key);
+            roles_keys[i] = @bitCast(roles_key);
             roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
@@ -1466,7 +1466,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, index: QtC.QModelIndex, roles: qtc.libqt_map (map_i32_qtcqvariant)) callconv(.c) bool `
     ///
     pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnSetItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
@@ -1493,7 +1493,7 @@ pub const qabstractitemmodel = struct {
         var roles_it = roles.iterator();
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
-            roles_keys[i] = @intCast(roles_key);
+            roles_keys[i] = @bitCast(roles_key);
             roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
@@ -1527,7 +1527,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, index: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnClearItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnClearItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnClearItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#clearItemData)
@@ -1584,7 +1584,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
     pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QAbstractItemModel_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnMimeTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
@@ -1643,7 +1643,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
     ///
     pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
-        qtc.QAbstractItemModel_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
@@ -1681,7 +1681,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
@@ -1695,7 +1695,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnCanDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnCanDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnCanDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
@@ -1717,7 +1717,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dropMimeData)
@@ -1737,7 +1737,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_DropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dropMimeData)
@@ -1751,7 +1751,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dropMimeData)
@@ -1773,7 +1773,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
@@ -1801,7 +1801,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractItemModel_OnSupportedDropActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
@@ -1845,7 +1845,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSupportedDragActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractItemModel_OnSupportedDragActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnSupportedDragActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
@@ -1877,7 +1877,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
@@ -1891,7 +1891,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
@@ -1909,7 +1909,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_QBaseInsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractItemModel_QBaseInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
@@ -1925,7 +1925,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
@@ -1939,7 +1939,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
@@ -1957,7 +1957,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_QBaseInsertColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractItemModel_QBaseInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
@@ -1973,7 +1973,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
@@ -1987,7 +1987,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRows)
@@ -2005,7 +2005,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_QBaseRemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractItemModel_QBaseRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
@@ -2021,7 +2021,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
@@ -2035,7 +2035,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
@@ -2053,7 +2053,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_QBaseRemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractItemModel_QBaseRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
@@ -2073,7 +2073,7 @@ pub const qabstractitemmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
@@ -2087,7 +2087,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
     pub fn OnMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
@@ -2109,7 +2109,7 @@ pub const qabstractitemmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn QBaseMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
@@ -2129,7 +2129,7 @@ pub const qabstractitemmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
@@ -2143,7 +2143,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
     pub fn OnMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
@@ -2165,7 +2165,7 @@ pub const qabstractitemmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn QBaseMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
@@ -2177,7 +2177,7 @@ pub const qabstractitemmodel = struct {
     /// ` row: i32 `
     ///
     pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
@@ -2189,7 +2189,7 @@ pub const qabstractitemmodel = struct {
     /// ` column: i32 `
     ///
     pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
@@ -2201,7 +2201,7 @@ pub const qabstractitemmodel = struct {
     /// ` row: i32 `
     ///
     pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
@@ -2213,7 +2213,7 @@ pub const qabstractitemmodel = struct {
     /// ` column: i32 `
     ///
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
@@ -2231,7 +2231,7 @@ pub const qabstractitemmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
@@ -2249,7 +2249,7 @@ pub const qabstractitemmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
@@ -2275,7 +2275,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
@@ -2315,7 +2315,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnCanFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnCanFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnCanFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
@@ -2359,7 +2359,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, index: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnFlags(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractItemModel_OnFlags(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnFlags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#flags)
@@ -2391,7 +2391,7 @@ pub const qabstractitemmodel = struct {
     /// ` order: qnamespace_enums.SortOrder `
     ///
     pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QAbstractItemModel_Sort(@ptrCast(self), @intCast(column), @intCast(order));
+        qtc.QAbstractItemModel_Sort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
@@ -2405,7 +2405,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
     pub fn OnSort(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnSort(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#sort)
@@ -2421,7 +2421,7 @@ pub const qabstractitemmodel = struct {
     /// ` order: qnamespace_enums.SortOrder `
     ///
     pub fn QBaseSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QAbstractItemModel_QBaseSort(@ptrCast(self), @intCast(column), @intCast(order));
+        qtc.QAbstractItemModel_QBaseSort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
@@ -2447,7 +2447,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnBuddy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractItemModel_OnBuddy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnBuddy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
@@ -2483,7 +2483,7 @@ pub const qabstractitemmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_Match(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -2508,7 +2508,7 @@ pub const qabstractitemmodel = struct {
     /// ` C ABI representation of []QtC.QModelIndex `
     ///
     pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.QAbstractItemModel_OnMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnMatch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
@@ -2532,7 +2532,7 @@ pub const qabstractitemmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -2563,7 +2563,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, index: QtC.QModelIndex) callconv(.c) QtC.QSize `
     ///
     pub fn OnSpan(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.QAbstractItemModel_OnSpan(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnSpan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
@@ -2627,7 +2627,7 @@ pub const qabstractitemmodel = struct {
     /// ` C ABI representation of map_i32_u8 `
     ///
     pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.QAbstractItemModel_OnRoleNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnRoleNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#roleNames)
@@ -2701,7 +2701,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan) callconv(.c) void `
     ///
     pub fn OnMultiData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.QModelRoleDataSpan) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnMultiData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnMultiData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
@@ -2743,7 +2743,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
@@ -2759,7 +2759,7 @@ pub const qabstractitemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @intCast(orientation), @intCast(first), @intCast(last));
+        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
@@ -2771,7 +2771,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -2793,7 +2793,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel) callconv(.c) void `
     ///
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
@@ -2815,7 +2815,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
@@ -2839,7 +2839,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnSubmit(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnSubmit(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnSubmit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
@@ -2875,7 +2875,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRevert(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnRevert(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnRevert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
@@ -2911,7 +2911,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnResetInternalData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnResetInternalData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnResetInternalData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
@@ -2937,7 +2937,7 @@ pub const qabstractitemmodel = struct {
     /// ` column: i32 `
     ///
     pub fn CreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_CreateIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QAbstractItemModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
@@ -2951,7 +2951,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, row: i32, column: i32) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnCreateIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractItemModel_OnCreateIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnCreateIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
@@ -2967,7 +2967,7 @@ pub const qabstractitemmodel = struct {
     /// ` column: i32 `
     ///
     pub fn QBaseCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_QBaseCreateIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QAbstractItemModel_QBaseCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
@@ -2983,7 +2983,7 @@ pub const qabstractitemmodel = struct {
     /// ` id: usize `
     ///
     pub fn CreateIndex2(self: ?*anyopaque, row: i32, column: i32, id: usize) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_CreateIndex2(@ptrCast(self), @intCast(row), @intCast(column), @intCast(id));
+        return qtc.QAbstractItemModel_CreateIndex2(@ptrCast(self), @bitCast(row), @bitCast(column), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
@@ -2997,7 +2997,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, row: i32, column: i32, id: usize) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnCreateIndex2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, usize) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractItemModel_OnCreateIndex2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnCreateIndex2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
@@ -3015,7 +3015,7 @@ pub const qabstractitemmodel = struct {
     /// ` id: usize `
     ///
     pub fn QBaseCreateIndex2(self: ?*anyopaque, row: i32, column: i32, id: usize) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_QBaseCreateIndex2(@ptrCast(self), @intCast(row), @intCast(column), @intCast(id));
+        return qtc.QAbstractItemModel_QBaseCreateIndex2(@ptrCast(self), @bitCast(row), @bitCast(column), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
@@ -3047,7 +3047,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
     ///
     pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEncodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnEncodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
@@ -3085,7 +3085,7 @@ pub const qabstractitemmodel = struct {
     /// ` stream: QtC.QDataStream `
     ///
     pub fn DecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_DecodeData(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent), @ptrCast(stream));
+        return qtc.QAbstractItemModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
@@ -3099,7 +3099,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, row: i32, column: i32, parent: QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) bool `
     ///
     pub fn OnDecodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnDecodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnDecodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
@@ -3119,7 +3119,7 @@ pub const qabstractitemmodel = struct {
     /// ` stream: QtC.QDataStream `
     ///
     pub fn QBaseDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_QBaseDecodeData(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent), @ptrCast(stream));
+        return qtc.QAbstractItemModel_QBaseDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
@@ -3135,7 +3135,7 @@ pub const qabstractitemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractItemModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
@@ -3149,7 +3149,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnBeginInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnBeginInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
@@ -3167,7 +3167,7 @@ pub const qabstractitemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractItemModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
@@ -3191,7 +3191,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndInsertRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEndInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnEndInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
@@ -3219,7 +3219,7 @@ pub const qabstractitemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractItemModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
@@ -3233,7 +3233,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnBeginRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnBeginRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
@@ -3251,7 +3251,7 @@ pub const qabstractitemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractItemModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
@@ -3275,7 +3275,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndRemoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEndRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnEndRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
@@ -3307,7 +3307,7 @@ pub const qabstractitemmodel = struct {
     /// ` destinationRow: i32 `
     ///
     pub fn BeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.QAbstractItemModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationRow));
+        return qtc.QAbstractItemModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
@@ -3321,7 +3321,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
     pub fn OnBeginMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnBeginMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnBeginMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
@@ -3343,7 +3343,7 @@ pub const qabstractitemmodel = struct {
     /// ` destinationRow: i32 `
     ///
     pub fn QBaseBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.QAbstractItemModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationRow));
+        return qtc.QAbstractItemModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
@@ -3367,7 +3367,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndMoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEndMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnEndMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
@@ -3395,7 +3395,7 @@ pub const qabstractitemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractItemModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
@@ -3409,7 +3409,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnBeginInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnBeginInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
@@ -3427,7 +3427,7 @@ pub const qabstractitemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractItemModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
@@ -3451,7 +3451,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndInsertColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEndInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnEndInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
@@ -3479,7 +3479,7 @@ pub const qabstractitemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractItemModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
@@ -3493,7 +3493,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnBeginRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnBeginRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
@@ -3511,7 +3511,7 @@ pub const qabstractitemmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractItemModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
@@ -3535,7 +3535,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndRemoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEndRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnEndRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
@@ -3567,7 +3567,7 @@ pub const qabstractitemmodel = struct {
     /// ` destinationColumn: i32 `
     ///
     pub fn BeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.QAbstractItemModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationColumn));
+        return qtc.QAbstractItemModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
@@ -3581,7 +3581,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
     pub fn OnBeginMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnBeginMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnBeginMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
@@ -3603,7 +3603,7 @@ pub const qabstractitemmodel = struct {
     /// ` destinationColumn: i32 `
     ///
     pub fn QBaseBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.QAbstractItemModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationColumn));
+        return qtc.QAbstractItemModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
@@ -3627,7 +3627,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndMoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEndMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnEndMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
@@ -3663,7 +3663,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnBeginResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnBeginResetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnBeginResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
@@ -3699,7 +3699,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEndResetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnEndResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
@@ -3739,7 +3739,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, from: QtC.QModelIndex, to: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnChangePersistentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnChangePersistentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnChangePersistentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
@@ -3791,7 +3791,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
     ///
     pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnChangePersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnChangePersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
@@ -3852,7 +3852,7 @@ pub const qabstractitemmodel = struct {
     /// ` C ABI representation of []QtC.QModelIndex `
     ///
     pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QAbstractItemModel_OnPersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnPersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
@@ -3909,7 +3909,7 @@ pub const qabstractitemmodel = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemmodel.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3929,7 +3929,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
@@ -3943,7 +3943,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @intCast(row), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
@@ -3957,7 +3957,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
@@ -3971,7 +3971,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @intCast(row), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
@@ -3985,7 +3985,7 @@ pub const qabstractitemmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
@@ -3999,7 +3999,7 @@ pub const qabstractitemmodel = struct {
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
@@ -4031,7 +4031,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -4059,7 +4059,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -4077,7 +4077,7 @@ pub const qabstractitemmodel = struct {
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @intCast(hint));
+        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -4089,7 +4089,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
@@ -4117,7 +4117,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
@@ -4135,7 +4135,7 @@ pub const qabstractitemmodel = struct {
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @intCast(hint));
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
@@ -4147,7 +4147,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
@@ -4163,7 +4163,7 @@ pub const qabstractitemmodel = struct {
     /// ` data: ?*const anyopaque `
     ///
     pub fn CreateIndex3(self: ?*anyopaque, row: i32, column: i32, data: ?*const anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_CreateIndex3(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(data));
+        return qtc.QAbstractItemModel_CreateIndex3(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
@@ -4177,7 +4177,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, row: i32, column: i32, data: ?*const anyopaque) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnCreateIndex3(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*const anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractItemModel_OnCreateIndex3(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnCreateIndex3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
@@ -4195,7 +4195,7 @@ pub const qabstractitemmodel = struct {
     /// ` data: ?*const anyopaque `
     ///
     pub fn QBaseCreateIndex3(self: ?*anyopaque, row: i32, column: i32, data: ?*const anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_QBaseCreateIndex3(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(data));
+        return qtc.QAbstractItemModel_QBaseCreateIndex3(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(data));
     }
 
     /// Inherited from QObject
@@ -4329,7 +4329,7 @@ pub const qabstractitemmodel = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -4343,7 +4343,7 @@ pub const qabstractitemmodel = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -4357,7 +4357,7 @@ pub const qabstractitemmodel = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4371,7 +4371,7 @@ pub const qabstractitemmodel = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4701,7 +4701,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4744,7 +4744,7 @@ pub const qabstractitemmodel = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4760,7 +4760,7 @@ pub const qabstractitemmodel = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4782,7 +4782,7 @@ pub const qabstractitemmodel = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -4802,7 +4802,7 @@ pub const qabstractitemmodel = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4824,7 +4824,7 @@ pub const qabstractitemmodel = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4921,7 +4921,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4969,7 +4969,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5021,7 +5021,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5069,7 +5069,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5117,7 +5117,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5165,7 +5165,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5213,7 +5213,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5261,7 +5261,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5305,7 +5305,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QAbstractItemModel_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5349,7 +5349,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractItemModel_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5399,7 +5399,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractItemModel_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5447,7 +5447,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
@@ -5461,7 +5461,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
@@ -5475,7 +5475,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
@@ -5489,7 +5489,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
@@ -5503,7 +5503,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
@@ -5517,7 +5517,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
@@ -5531,7 +5531,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
@@ -5545,7 +5545,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
@@ -5559,7 +5559,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
@@ -5573,7 +5573,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel) callconv(.c) void `
     ///
     pub fn OnModelAboutToBeReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
@@ -5587,7 +5587,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel) callconv(.c) void `
     ///
     pub fn OnModelReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
@@ -5601,7 +5601,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
@@ -5615,7 +5615,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
     pub fn OnRowsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
@@ -5629,7 +5629,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
@@ -5643,7 +5643,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
     pub fn OnColumnsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5659,7 +5659,7 @@ pub const qabstractitemmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractItemModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dtor.QAbstractItemModel)
@@ -5714,7 +5714,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QAbstractTableModel_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -5749,7 +5749,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QAbstractTableModel_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -5776,7 +5776,7 @@ pub const qabstracttablemodel = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractTableModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAbstractTableModel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -5788,7 +5788,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractTableModel_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -5804,7 +5804,7 @@ pub const qabstracttablemodel = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractTableModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAbstractTableModel_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5837,7 +5837,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractTableModel_Index(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractTableModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
@@ -5851,7 +5851,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractTableModel_OnIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
@@ -5869,7 +5869,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractTableModel_QBaseIndex(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractTableModel_QBaseIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
@@ -5885,7 +5885,7 @@ pub const qabstracttablemodel = struct {
     /// ` idx: QtC.QModelIndex `
     ///
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractTableModel_Sibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
+        return qtc.QAbstractTableModel_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
@@ -5899,7 +5899,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, row: i32, column: i32, idx: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnSibling(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractTableModel_OnSibling(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnSibling(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
@@ -5917,7 +5917,7 @@ pub const qabstracttablemodel = struct {
     /// ` idx: QtC.QModelIndex `
     ///
     pub fn QBaseSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractTableModel_QBaseSibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
+        return qtc.QAbstractTableModel_QBaseSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
@@ -5937,7 +5937,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractTableModel_DropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractTableModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
@@ -5951,7 +5951,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
@@ -5973,7 +5973,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractTableModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractTableModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#flags)
@@ -6003,7 +6003,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, index: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnFlags(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractTableModel_OnFlags(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnFlags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#flags)
@@ -6059,7 +6059,7 @@ pub const qabstracttablemodel = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracttablemodel.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6079,7 +6079,7 @@ pub const qabstracttablemodel = struct {
     /// ` column: i32 `
     ///
     pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
-        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6109,7 +6109,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, child: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnParent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractItemModel_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6155,7 +6155,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnHasChildren(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6185,7 +6185,7 @@ pub const qabstracttablemodel = struct {
     /// ` row: i32 `
     ///
     pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6199,7 +6199,7 @@ pub const qabstracttablemodel = struct {
     /// ` column: i32 `
     ///
     pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6213,7 +6213,7 @@ pub const qabstracttablemodel = struct {
     /// ` row: i32 `
     ///
     pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6227,7 +6227,7 @@ pub const qabstracttablemodel = struct {
     /// ` column: i32 `
     ///
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6247,7 +6247,7 @@ pub const qabstracttablemodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6267,7 +6267,7 @@ pub const qabstracttablemodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6311,7 +6311,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6329,7 +6329,7 @@ pub const qabstracttablemodel = struct {
     /// ` last: i32 `
     ///
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @intCast(orientation), @intCast(first), @intCast(last));
+        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6343,7 +6343,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6369,7 +6369,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel) callconv(.c) void `
     ///
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6395,7 +6395,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6413,7 +6413,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6429,7 +6429,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @intCast(row), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6445,7 +6445,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6461,7 +6461,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @intCast(row), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6477,7 +6477,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6493,7 +6493,7 @@ pub const qabstracttablemodel = struct {
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @bitCast(options));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6529,7 +6529,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6561,7 +6561,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6581,7 +6581,7 @@ pub const qabstracttablemodel = struct {
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @intCast(hint));
+        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6595,7 +6595,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6627,7 +6627,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6647,7 +6647,7 @@ pub const qabstracttablemodel = struct {
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @intCast(hint));
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6661,7 +6661,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6795,7 +6795,7 @@ pub const qabstracttablemodel = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -6809,7 +6809,7 @@ pub const qabstracttablemodel = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -6823,7 +6823,7 @@ pub const qabstracttablemodel = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6837,7 +6837,7 @@ pub const qabstracttablemodel = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -7167,7 +7167,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7210,7 +7210,7 @@ pub const qabstracttablemodel = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -7226,7 +7226,7 @@ pub const qabstracttablemodel = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -7248,7 +7248,7 @@ pub const qabstracttablemodel = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -7268,7 +7268,7 @@ pub const qabstracttablemodel = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -7290,7 +7290,7 @@ pub const qabstracttablemodel = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -7387,7 +7387,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7435,7 +7435,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnRowCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractTableModel_OnRowCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnRowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7483,7 +7483,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnColumnCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractTableModel_OnColumnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnColumnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7501,7 +7501,7 @@ pub const qabstracttablemodel = struct {
     /// ` role: i32 `
     ///
     pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QAbstractTableModel_Data(@ptrCast(self), @ptrCast(index), @intCast(role));
+        return qtc.QAbstractTableModel_Data(@ptrCast(self), @ptrCast(index), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7519,7 +7519,7 @@ pub const qabstracttablemodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseData(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QAbstractTableModel_QBaseData(@ptrCast(self), @ptrCast(index), @intCast(role));
+        return qtc.QAbstractTableModel_QBaseData(@ptrCast(self), @ptrCast(index), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7535,7 +7535,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, index: QtC.QModelIndex, role: i32) callconv(.c) QtC.QVariant `
     ///
     pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QAbstractTableModel_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7555,7 +7555,7 @@ pub const qabstracttablemodel = struct {
     /// ` role: i32 `
     ///
     pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.QAbstractTableModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
+        return qtc.QAbstractTableModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7575,7 +7575,7 @@ pub const qabstracttablemodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.QAbstractTableModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
+        return qtc.QAbstractTableModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7591,7 +7591,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32) callconv(.c) bool `
     ///
     pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnSetData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7611,7 +7611,7 @@ pub const qabstracttablemodel = struct {
     /// ` role: i32 `
     ///
     pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.QAbstractTableModel_HeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
+        return qtc.QAbstractTableModel_HeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7631,7 +7631,7 @@ pub const qabstracttablemodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.QAbstractTableModel_QBaseHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
+        return qtc.QAbstractTableModel_QBaseHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7647,7 +7647,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QtC.QVariant `
     ///
     pub fn OnHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QAbstractTableModel_OnHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7669,7 +7669,7 @@ pub const qabstracttablemodel = struct {
     /// ` role: i32 `
     ///
     pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.QAbstractTableModel_SetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
+        return qtc.QAbstractTableModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7691,7 +7691,7 @@ pub const qabstracttablemodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.QAbstractTableModel_QBaseSetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
+        return qtc.QAbstractTableModel_QBaseSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7707,7 +7707,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32) callconv(.c) bool `
     ///
     pub fn OnSetHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnSetHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnSetHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7791,7 +7791,7 @@ pub const qabstracttablemodel = struct {
     /// ` C ABI representation of map_i32_qtcqvariant `
     ///
     pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
-        qtc.QAbstractTableModel_OnItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7820,7 +7820,7 @@ pub const qabstracttablemodel = struct {
         var roles_it = roles.iterator();
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
-            roles_keys[i] = @intCast(roles_key);
+            roles_keys[i] = @bitCast(roles_key);
             roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
@@ -7857,7 +7857,7 @@ pub const qabstracttablemodel = struct {
         var roles_it = roles.iterator();
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
-            roles_keys[i] = @intCast(roles_key);
+            roles_keys[i] = @bitCast(roles_key);
             roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
@@ -7881,7 +7881,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, index: QtC.QModelIndex, roles: qtc.libqt_map (map_i32_qtcqvariant)) callconv(.c) bool `
     ///
     pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnSetItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7929,7 +7929,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, index: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnClearItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnClearItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnClearItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8009,7 +8009,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
     pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QAbstractTableModel_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnMimeTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8065,7 +8065,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
     ///
     pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
-        qtc.QAbstractTableModel_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8089,7 +8089,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractTableModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractTableModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8113,7 +8113,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractTableModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractTableModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8129,7 +8129,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnCanDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnCanDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnCanDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8181,7 +8181,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractTableModel_OnSupportedDropActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8233,7 +8233,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSupportedDragActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractTableModel_OnSupportedDragActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnSupportedDragActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8253,7 +8253,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractTableModel_InsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractTableModel_InsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8273,7 +8273,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractTableModel_QBaseInsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractTableModel_QBaseInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8289,7 +8289,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8309,7 +8309,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractTableModel_InsertColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractTableModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8329,7 +8329,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractTableModel_QBaseInsertColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractTableModel_QBaseInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8345,7 +8345,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8365,7 +8365,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractTableModel_RemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractTableModel_RemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8385,7 +8385,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractTableModel_QBaseRemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractTableModel_QBaseRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8401,7 +8401,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8421,7 +8421,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractTableModel_RemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractTableModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8441,7 +8441,7 @@ pub const qabstracttablemodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractTableModel_QBaseRemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractTableModel_QBaseRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8457,7 +8457,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8481,7 +8481,7 @@ pub const qabstracttablemodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractTableModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractTableModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8505,7 +8505,7 @@ pub const qabstracttablemodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn QBaseMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractTableModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractTableModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8521,7 +8521,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
     pub fn OnMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8545,7 +8545,7 @@ pub const qabstracttablemodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractTableModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractTableModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8569,7 +8569,7 @@ pub const qabstracttablemodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn QBaseMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractTableModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractTableModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8585,7 +8585,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
     pub fn OnMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8633,7 +8633,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8681,7 +8681,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnCanFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnCanFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnCanFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8699,7 +8699,7 @@ pub const qabstracttablemodel = struct {
     /// ` order: qnamespace_enums.SortOrder `
     ///
     pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QAbstractTableModel_Sort(@ptrCast(self), @intCast(column), @intCast(order));
+        qtc.QAbstractTableModel_Sort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8717,7 +8717,7 @@ pub const qabstracttablemodel = struct {
     /// ` order: qnamespace_enums.SortOrder `
     ///
     pub fn QBaseSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QAbstractTableModel_QBaseSort(@ptrCast(self), @intCast(column), @intCast(order));
+        qtc.QAbstractTableModel_QBaseSort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8733,7 +8733,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
     pub fn OnSort(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnSort(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8781,7 +8781,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnBuddy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractTableModel_OnBuddy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnBuddy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8807,7 +8807,7 @@ pub const qabstracttablemodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QAbstractTableModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractTableModel_Match(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstracttablemodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -8838,7 +8838,7 @@ pub const qabstracttablemodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QAbstractTableModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractTableModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstracttablemodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -8865,7 +8865,7 @@ pub const qabstracttablemodel = struct {
     /// ` C ABI representation of []QtC.QModelIndex `
     ///
     pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.QAbstractTableModel_OnMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnMatch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -8913,7 +8913,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, index: QtC.QModelIndex) callconv(.c) QtC.QSize `
     ///
     pub fn OnSpan(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.QAbstractTableModel_OnSpan(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnSpan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9005,7 +9005,7 @@ pub const qabstracttablemodel = struct {
     /// ` C ABI representation of map_i32_u8 `
     ///
     pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.QAbstractTableModel_OnRoleNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnRoleNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9057,7 +9057,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan) callconv(.c) void `
     ///
     pub fn OnMultiData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.QModelRoleDataSpan) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnMultiData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnMultiData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9101,7 +9101,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnSubmit(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnSubmit(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnSubmit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9145,7 +9145,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRevert(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnRevert(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnRevert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9189,7 +9189,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnResetInternalData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnResetInternalData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnResetInternalData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9237,7 +9237,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9289,7 +9289,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9337,7 +9337,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9385,7 +9385,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9433,7 +9433,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9481,7 +9481,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9529,7 +9529,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9547,7 +9547,7 @@ pub const qabstracttablemodel = struct {
     /// ` column: i32 `
     ///
     pub fn CreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.QAbstractTableModel_CreateIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QAbstractTableModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9565,7 +9565,7 @@ pub const qabstracttablemodel = struct {
     /// ` column: i32 `
     ///
     pub fn QBaseCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.QAbstractTableModel_QBaseCreateIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QAbstractTableModel_QBaseCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9581,7 +9581,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, row: i32, column: i32) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnCreateIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractTableModel_OnCreateIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnCreateIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9641,7 +9641,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
     ///
     pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEncodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnEncodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9663,7 +9663,7 @@ pub const qabstracttablemodel = struct {
     /// ` stream: QtC.QDataStream `
     ///
     pub fn DecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.QAbstractTableModel_DecodeData(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent), @ptrCast(stream));
+        return qtc.QAbstractTableModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9685,7 +9685,7 @@ pub const qabstracttablemodel = struct {
     /// ` stream: QtC.QDataStream `
     ///
     pub fn QBaseDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.QAbstractTableModel_QBaseDecodeData(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent), @ptrCast(stream));
+        return qtc.QAbstractTableModel_QBaseDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9701,7 +9701,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, row: i32, column: i32, parent: QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) bool `
     ///
     pub fn OnDecodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnDecodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnDecodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9721,7 +9721,7 @@ pub const qabstracttablemodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractTableModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractTableModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9741,7 +9741,7 @@ pub const qabstracttablemodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractTableModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractTableModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9757,7 +9757,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnBeginInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnBeginInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9801,7 +9801,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndInsertRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEndInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnEndInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9821,7 +9821,7 @@ pub const qabstracttablemodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractTableModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractTableModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9841,7 +9841,7 @@ pub const qabstracttablemodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractTableModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractTableModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9857,7 +9857,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnBeginRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnBeginRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9901,7 +9901,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndRemoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEndRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnEndRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9925,7 +9925,7 @@ pub const qabstracttablemodel = struct {
     /// ` destinationRow: i32 `
     ///
     pub fn BeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.QAbstractTableModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationRow));
+        return qtc.QAbstractTableModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9949,7 +9949,7 @@ pub const qabstracttablemodel = struct {
     /// ` destinationRow: i32 `
     ///
     pub fn QBaseBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.QAbstractTableModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationRow));
+        return qtc.QAbstractTableModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -9965,7 +9965,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
     pub fn OnBeginMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnBeginMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnBeginMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10009,7 +10009,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndMoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEndMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnEndMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10029,7 +10029,7 @@ pub const qabstracttablemodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractTableModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractTableModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10049,7 +10049,7 @@ pub const qabstracttablemodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractTableModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractTableModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10065,7 +10065,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnBeginInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnBeginInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10109,7 +10109,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndInsertColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEndInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnEndInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10129,7 +10129,7 @@ pub const qabstracttablemodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractTableModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractTableModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10149,7 +10149,7 @@ pub const qabstracttablemodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractTableModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractTableModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10165,7 +10165,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnBeginRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnBeginRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10209,7 +10209,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndRemoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEndRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnEndRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10233,7 +10233,7 @@ pub const qabstracttablemodel = struct {
     /// ` destinationColumn: i32 `
     ///
     pub fn BeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.QAbstractTableModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationColumn));
+        return qtc.QAbstractTableModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10257,7 +10257,7 @@ pub const qabstracttablemodel = struct {
     /// ` destinationColumn: i32 `
     ///
     pub fn QBaseBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.QAbstractTableModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationColumn));
+        return qtc.QAbstractTableModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10273,7 +10273,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
     pub fn OnBeginMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnBeginMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnBeginMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10317,7 +10317,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndMoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEndMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnEndMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10361,7 +10361,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnBeginResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnBeginResetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnBeginResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10405,7 +10405,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEndResetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnEndResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10457,7 +10457,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, from: QtC.QModelIndex, to: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnChangePersistentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnChangePersistentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnChangePersistentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10525,7 +10525,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
     ///
     pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnChangePersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnChangePersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10589,7 +10589,7 @@ pub const qabstracttablemodel = struct {
     /// ` C ABI representation of []QtC.QModelIndex `
     ///
     pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QAbstractTableModel_OnPersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnPersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10633,7 +10633,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QAbstractTableModel_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10677,7 +10677,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractTableModel_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10727,7 +10727,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractTableModel_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10775,7 +10775,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractTableModel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10791,7 +10791,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10807,7 +10807,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10823,7 +10823,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10839,7 +10839,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10855,7 +10855,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10871,7 +10871,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10887,7 +10887,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10903,7 +10903,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10919,7 +10919,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel) callconv(.c) void `
     ///
     pub fn OnModelAboutToBeReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10935,7 +10935,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel) callconv(.c) void `
     ///
     pub fn OnModelReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10951,7 +10951,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10967,7 +10967,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
     pub fn OnRowsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10983,7 +10983,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -10999,7 +10999,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
     pub fn OnColumnsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11015,7 +11015,7 @@ pub const qabstracttablemodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractTableModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#dtor.QAbstractTableModel)
@@ -11070,7 +11070,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QAbstractListModel_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -11105,7 +11105,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QAbstractListModel_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -11132,7 +11132,7 @@ pub const qabstractlistmodel = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractListModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAbstractListModel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -11144,7 +11144,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractListModel_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -11160,7 +11160,7 @@ pub const qabstractlistmodel = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractListModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QAbstractListModel_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -11193,7 +11193,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractListModel_Index(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractListModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#index)
@@ -11207,7 +11207,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractListModel_OnIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#index)
@@ -11225,7 +11225,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractListModel_QBaseIndex(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractListModel_QBaseIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#sibling)
@@ -11241,7 +11241,7 @@ pub const qabstractlistmodel = struct {
     /// ` idx: QtC.QModelIndex `
     ///
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractListModel_Sibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
+        return qtc.QAbstractListModel_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#sibling)
@@ -11255,7 +11255,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, row: i32, column: i32, idx: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnSibling(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractListModel_OnSibling(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnSibling(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#sibling)
@@ -11273,7 +11273,7 @@ pub const qabstractlistmodel = struct {
     /// ` idx: QtC.QModelIndex `
     ///
     pub fn QBaseSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractListModel_QBaseSibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
+        return qtc.QAbstractListModel_QBaseSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#dropMimeData)
@@ -11293,7 +11293,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_DropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractListModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#dropMimeData)
@@ -11307,7 +11307,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#dropMimeData)
@@ -11329,7 +11329,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractListModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#flags)
@@ -11359,7 +11359,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, index: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnFlags(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractListModel_OnFlags(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnFlags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#flags)
@@ -11415,7 +11415,7 @@ pub const qabstractlistmodel = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractlistmodel.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11435,7 +11435,7 @@ pub const qabstractlistmodel = struct {
     /// ` column: i32 `
     ///
     pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
-        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11465,7 +11465,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, child: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnParent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractItemModel_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11511,7 +11511,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnColumnCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractItemModel_OnColumnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnColumnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11557,7 +11557,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnHasChildren(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11587,7 +11587,7 @@ pub const qabstractlistmodel = struct {
     /// ` row: i32 `
     ///
     pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11601,7 +11601,7 @@ pub const qabstractlistmodel = struct {
     /// ` column: i32 `
     ///
     pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11615,7 +11615,7 @@ pub const qabstractlistmodel = struct {
     /// ` row: i32 `
     ///
     pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11629,7 +11629,7 @@ pub const qabstractlistmodel = struct {
     /// ` column: i32 `
     ///
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11649,7 +11649,7 @@ pub const qabstractlistmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11669,7 +11669,7 @@ pub const qabstractlistmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11713,7 +11713,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11731,7 +11731,7 @@ pub const qabstractlistmodel = struct {
     /// ` last: i32 `
     ///
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @intCast(orientation), @intCast(first), @intCast(last));
+        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11745,7 +11745,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11771,7 +11771,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel) callconv(.c) void `
     ///
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11797,7 +11797,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11815,7 +11815,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11831,7 +11831,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @intCast(row), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11847,7 +11847,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11863,7 +11863,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @intCast(row), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11879,7 +11879,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11895,7 +11895,7 @@ pub const qabstractlistmodel = struct {
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @bitCast(options));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11931,7 +11931,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11963,7 +11963,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11983,7 +11983,7 @@ pub const qabstractlistmodel = struct {
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @intCast(hint));
+        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -11997,7 +11997,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -12029,7 +12029,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -12049,7 +12049,7 @@ pub const qabstractlistmodel = struct {
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @intCast(hint));
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -12063,7 +12063,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12197,7 +12197,7 @@ pub const qabstractlistmodel = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -12211,7 +12211,7 @@ pub const qabstractlistmodel = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -12225,7 +12225,7 @@ pub const qabstractlistmodel = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -12239,7 +12239,7 @@ pub const qabstractlistmodel = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -12569,7 +12569,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12612,7 +12612,7 @@ pub const qabstractlistmodel = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -12628,7 +12628,7 @@ pub const qabstractlistmodel = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -12650,7 +12650,7 @@ pub const qabstractlistmodel = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -12670,7 +12670,7 @@ pub const qabstractlistmodel = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -12692,7 +12692,7 @@ pub const qabstractlistmodel = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -12789,7 +12789,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -12837,7 +12837,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnRowCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractListModel_OnRowCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnRowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -12855,7 +12855,7 @@ pub const qabstractlistmodel = struct {
     /// ` role: i32 `
     ///
     pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QAbstractListModel_Data(@ptrCast(self), @ptrCast(index), @intCast(role));
+        return qtc.QAbstractListModel_Data(@ptrCast(self), @ptrCast(index), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -12873,7 +12873,7 @@ pub const qabstractlistmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseData(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QAbstractListModel_QBaseData(@ptrCast(self), @ptrCast(index), @intCast(role));
+        return qtc.QAbstractListModel_QBaseData(@ptrCast(self), @ptrCast(index), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -12889,7 +12889,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, index: QtC.QModelIndex, role: i32) callconv(.c) QtC.QVariant `
     ///
     pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QAbstractListModel_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -12909,7 +12909,7 @@ pub const qabstractlistmodel = struct {
     /// ` role: i32 `
     ///
     pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.QAbstractListModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
+        return qtc.QAbstractListModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -12929,7 +12929,7 @@ pub const qabstractlistmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.QAbstractListModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
+        return qtc.QAbstractListModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -12945,7 +12945,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32) callconv(.c) bool `
     ///
     pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnSetData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -12965,7 +12965,7 @@ pub const qabstractlistmodel = struct {
     /// ` role: i32 `
     ///
     pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.QAbstractListModel_HeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
+        return qtc.QAbstractListModel_HeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -12985,7 +12985,7 @@ pub const qabstractlistmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.QAbstractListModel_QBaseHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
+        return qtc.QAbstractListModel_QBaseHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13001,7 +13001,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QtC.QVariant `
     ///
     pub fn OnHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QAbstractListModel_OnHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13023,7 +13023,7 @@ pub const qabstractlistmodel = struct {
     /// ` role: i32 `
     ///
     pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.QAbstractListModel_SetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
+        return qtc.QAbstractListModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13045,7 +13045,7 @@ pub const qabstractlistmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.QAbstractListModel_QBaseSetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
+        return qtc.QAbstractListModel_QBaseSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13061,7 +13061,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32) callconv(.c) bool `
     ///
     pub fn OnSetHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnSetHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnSetHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13145,7 +13145,7 @@ pub const qabstractlistmodel = struct {
     /// ` C ABI representation of map_i32_qtcqvariant `
     ///
     pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
-        qtc.QAbstractListModel_OnItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13174,7 +13174,7 @@ pub const qabstractlistmodel = struct {
         var roles_it = roles.iterator();
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
-            roles_keys[i] = @intCast(roles_key);
+            roles_keys[i] = @bitCast(roles_key);
             roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
@@ -13211,7 +13211,7 @@ pub const qabstractlistmodel = struct {
         var roles_it = roles.iterator();
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
-            roles_keys[i] = @intCast(roles_key);
+            roles_keys[i] = @bitCast(roles_key);
             roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
@@ -13235,7 +13235,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, index: QtC.QModelIndex, roles: qtc.libqt_map (map_i32_qtcqvariant)) callconv(.c) bool `
     ///
     pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnSetItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13283,7 +13283,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, index: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnClearItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnClearItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnClearItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13363,7 +13363,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
     pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QAbstractListModel_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnMimeTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13419,7 +13419,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
     ///
     pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
-        qtc.QAbstractListModel_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13443,7 +13443,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractListModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13467,7 +13467,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractListModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13483,7 +13483,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnCanDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnCanDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnCanDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13535,7 +13535,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractListModel_OnSupportedDropActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13587,7 +13587,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSupportedDragActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractListModel_OnSupportedDragActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnSupportedDragActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13607,7 +13607,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_InsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractListModel_InsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13627,7 +13627,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_QBaseInsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractListModel_QBaseInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13643,7 +13643,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13663,7 +13663,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_InsertColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractListModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13683,7 +13683,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_QBaseInsertColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractListModel_QBaseInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13699,7 +13699,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13719,7 +13719,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_RemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractListModel_RemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13739,7 +13739,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_QBaseRemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractListModel_QBaseRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13755,7 +13755,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13775,7 +13775,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_RemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractListModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13795,7 +13795,7 @@ pub const qabstractlistmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_QBaseRemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.QAbstractListModel_QBaseRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13811,7 +13811,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13835,7 +13835,7 @@ pub const qabstractlistmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractListModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractListModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13859,7 +13859,7 @@ pub const qabstractlistmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn QBaseMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractListModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractListModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13875,7 +13875,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
     pub fn OnMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13899,7 +13899,7 @@ pub const qabstractlistmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractListModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractListModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13923,7 +13923,7 @@ pub const qabstractlistmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn QBaseMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractListModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractListModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13939,7 +13939,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
     pub fn OnMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -13987,7 +13987,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14035,7 +14035,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnCanFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnCanFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnCanFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14053,7 +14053,7 @@ pub const qabstractlistmodel = struct {
     /// ` order: qnamespace_enums.SortOrder `
     ///
     pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QAbstractListModel_Sort(@ptrCast(self), @intCast(column), @intCast(order));
+        qtc.QAbstractListModel_Sort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14071,7 +14071,7 @@ pub const qabstractlistmodel = struct {
     /// ` order: qnamespace_enums.SortOrder `
     ///
     pub fn QBaseSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QAbstractListModel_QBaseSort(@ptrCast(self), @intCast(column), @intCast(order));
+        qtc.QAbstractListModel_QBaseSort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14087,7 +14087,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
     pub fn OnSort(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnSort(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14135,7 +14135,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnBuddy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractListModel_OnBuddy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnBuddy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14161,7 +14161,7 @@ pub const qabstractlistmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QAbstractListModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractListModel_Match(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractlistmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -14192,7 +14192,7 @@ pub const qabstractlistmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QAbstractListModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractListModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractlistmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -14219,7 +14219,7 @@ pub const qabstractlistmodel = struct {
     /// ` C ABI representation of []QtC.QModelIndex `
     ///
     pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.QAbstractListModel_OnMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnMatch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14267,7 +14267,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, index: QtC.QModelIndex) callconv(.c) QtC.QSize `
     ///
     pub fn OnSpan(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.QAbstractListModel_OnSpan(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnSpan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14359,7 +14359,7 @@ pub const qabstractlistmodel = struct {
     /// ` C ABI representation of map_i32_u8 `
     ///
     pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.QAbstractListModel_OnRoleNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnRoleNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14411,7 +14411,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan) callconv(.c) void `
     ///
     pub fn OnMultiData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.QModelRoleDataSpan) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnMultiData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnMultiData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14455,7 +14455,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnSubmit(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnSubmit(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnSubmit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14499,7 +14499,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRevert(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnRevert(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnRevert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14543,7 +14543,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnResetInternalData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnResetInternalData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnResetInternalData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -14591,7 +14591,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -14643,7 +14643,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -14691,7 +14691,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -14739,7 +14739,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -14787,7 +14787,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -14835,7 +14835,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -14883,7 +14883,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14901,7 +14901,7 @@ pub const qabstractlistmodel = struct {
     /// ` column: i32 `
     ///
     pub fn CreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.QAbstractListModel_CreateIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QAbstractListModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14919,7 +14919,7 @@ pub const qabstractlistmodel = struct {
     /// ` column: i32 `
     ///
     pub fn QBaseCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.QAbstractListModel_QBaseCreateIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QAbstractListModel_QBaseCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14935,7 +14935,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, row: i32, column: i32) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnCreateIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractListModel_OnCreateIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnCreateIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -14995,7 +14995,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
     ///
     pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEncodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnEncodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15017,7 +15017,7 @@ pub const qabstractlistmodel = struct {
     /// ` stream: QtC.QDataStream `
     ///
     pub fn DecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_DecodeData(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent), @ptrCast(stream));
+        return qtc.QAbstractListModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15039,7 +15039,7 @@ pub const qabstractlistmodel = struct {
     /// ` stream: QtC.QDataStream `
     ///
     pub fn QBaseDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.QAbstractListModel_QBaseDecodeData(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent), @ptrCast(stream));
+        return qtc.QAbstractListModel_QBaseDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15055,7 +15055,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, row: i32, column: i32, parent: QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) bool `
     ///
     pub fn OnDecodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnDecodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnDecodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15075,7 +15075,7 @@ pub const qabstractlistmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractListModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractListModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15095,7 +15095,7 @@ pub const qabstractlistmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractListModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractListModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15111,7 +15111,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnBeginInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnBeginInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15155,7 +15155,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndInsertRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEndInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnEndInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15175,7 +15175,7 @@ pub const qabstractlistmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractListModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractListModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15195,7 +15195,7 @@ pub const qabstractlistmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractListModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractListModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15211,7 +15211,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnBeginRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnBeginRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15255,7 +15255,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndRemoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEndRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnEndRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15279,7 +15279,7 @@ pub const qabstractlistmodel = struct {
     /// ` destinationRow: i32 `
     ///
     pub fn BeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.QAbstractListModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationRow));
+        return qtc.QAbstractListModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15303,7 +15303,7 @@ pub const qabstractlistmodel = struct {
     /// ` destinationRow: i32 `
     ///
     pub fn QBaseBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.QAbstractListModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationRow));
+        return qtc.QAbstractListModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15319,7 +15319,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
     pub fn OnBeginMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnBeginMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnBeginMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15363,7 +15363,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndMoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEndMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnEndMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15383,7 +15383,7 @@ pub const qabstractlistmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractListModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractListModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15403,7 +15403,7 @@ pub const qabstractlistmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractListModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractListModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15419,7 +15419,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnBeginInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnBeginInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15463,7 +15463,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndInsertColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEndInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnEndInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15483,7 +15483,7 @@ pub const qabstractlistmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractListModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractListModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15503,7 +15503,7 @@ pub const qabstractlistmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QAbstractListModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.QAbstractListModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15519,7 +15519,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnBeginRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnBeginRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15563,7 +15563,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndRemoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEndRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnEndRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15587,7 +15587,7 @@ pub const qabstractlistmodel = struct {
     /// ` destinationColumn: i32 `
     ///
     pub fn BeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.QAbstractListModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationColumn));
+        return qtc.QAbstractListModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15611,7 +15611,7 @@ pub const qabstractlistmodel = struct {
     /// ` destinationColumn: i32 `
     ///
     pub fn QBaseBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.QAbstractListModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationColumn));
+        return qtc.QAbstractListModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15627,7 +15627,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
     pub fn OnBeginMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnBeginMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnBeginMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15671,7 +15671,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndMoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEndMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnEndMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15715,7 +15715,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnBeginResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnBeginResetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnBeginResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15759,7 +15759,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEndResetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnEndResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15811,7 +15811,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, from: QtC.QModelIndex, to: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnChangePersistentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnChangePersistentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnChangePersistentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15879,7 +15879,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
     ///
     pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnChangePersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnChangePersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -15943,7 +15943,7 @@ pub const qabstractlistmodel = struct {
     /// ` C ABI representation of []QtC.QModelIndex `
     ///
     pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QAbstractListModel_OnPersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnPersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15987,7 +15987,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QAbstractListModel_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16031,7 +16031,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractListModel_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16081,7 +16081,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractListModel_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16129,7 +16129,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractListModel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -16145,7 +16145,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -16161,7 +16161,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -16177,7 +16177,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -16193,7 +16193,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -16209,7 +16209,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -16225,7 +16225,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -16241,7 +16241,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -16257,7 +16257,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -16273,7 +16273,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel) callconv(.c) void `
     ///
     pub fn OnModelAboutToBeReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -16289,7 +16289,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel) callconv(.c) void `
     ///
     pub fn OnModelReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -16305,7 +16305,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -16321,7 +16321,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
     pub fn OnRowsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -16337,7 +16337,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -16353,7 +16353,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
     pub fn OnColumnsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16369,7 +16369,7 @@ pub const qabstractlistmodel = struct {
     /// ` callback: *const fn (self: QtC.QAbstractListModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#dtor.QAbstractListModel)

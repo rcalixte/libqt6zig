@@ -21,7 +21,7 @@ pub const sonnet__guesslanguage = struct {
     /// ` minConfidence: f64 `
     ///
     pub fn SetLimits(self: ?*anyopaque, maxItems: i32, minConfidence: f64) void {
-        qtc.Sonnet__GuessLanguage_SetLimits(@ptrCast(self), @intCast(maxItems), @floatCast(minConfidence));
+        qtc.Sonnet__GuessLanguage_SetLimits(@ptrCast(self), @bitCast(maxItems), @bitCast(minConfidence));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-guesslanguage.html#identify)

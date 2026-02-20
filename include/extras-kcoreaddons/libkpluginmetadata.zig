@@ -72,7 +72,7 @@ pub const kpluginmetadata = struct {
     /// ` options: flag of kpluginmetadata_enums.KPluginMetaDataOption `
     ///
     pub fn New6(loader: ?*anyopaque, options: i32) QtC.KPluginMetaData {
-        return qtc.KPluginMetaData_new6(@ptrCast(loader), @intCast(options));
+        return qtc.KPluginMetaData_new6(@ptrCast(loader), @bitCast(options));
     }
 
     /// New7 constructs a new KPluginMetaData object.
@@ -89,7 +89,7 @@ pub const kpluginmetadata = struct {
             .data = pluginFile.ptr,
         };
 
-        return qtc.KPluginMetaData_new7(pluginFile_str, @intCast(options));
+        return qtc.KPluginMetaData_new7(pluginFile_str, @bitCast(options));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#operator-eq)
@@ -567,7 +567,7 @@ pub const kpluginmetadata = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.KPluginMetaData_Value6(@ptrCast(self), key_str, @intCast(defaultValue));
+        return qtc.KPluginMetaData_Value6(@ptrCast(self), key_str, @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#value)
@@ -670,7 +670,7 @@ pub const kpluginmetadata = struct {
             .len = pluginId.len,
             .data = pluginId.ptr,
         };
-        return qtc.KPluginMetaData_FindPluginById3(directory_str, pluginId_str, @intCast(options));
+        return qtc.KPluginMetaData_FindPluginById3(directory_str, pluginId_str, @bitCast(options));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#value)

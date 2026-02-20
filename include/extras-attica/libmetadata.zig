@@ -57,7 +57,7 @@ pub const attica__metadata = struct {
     /// ` errorVal: metadata_enums.Error `
     ///
     pub fn SetError(self: ?*anyopaque, errorVal: i32) void {
-        qtc.Attica__Metadata_SetError(@ptrCast(self), @intCast(errorVal));
+        qtc.Attica__Metadata_SetError(@ptrCast(self), @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#statusCode)
@@ -79,7 +79,7 @@ pub const attica__metadata = struct {
     /// ` code: i32 `
     ///
     pub fn SetStatusCode(self: ?*anyopaque, code: i32) void {
-        qtc.Attica__Metadata_SetStatusCode(@ptrCast(self), @intCast(code));
+        qtc.Attica__Metadata_SetStatusCode(@ptrCast(self), @bitCast(code));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#statusString)
@@ -165,7 +165,7 @@ pub const attica__metadata = struct {
     /// ` items: i32 `
     ///
     pub fn SetTotalItems(self: ?*anyopaque, items: i32) void {
-        qtc.Attica__Metadata_SetTotalItems(@ptrCast(self), @intCast(items));
+        qtc.Attica__Metadata_SetTotalItems(@ptrCast(self), @bitCast(items));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#itemsPerPage)
@@ -187,7 +187,7 @@ pub const attica__metadata = struct {
     /// ` itemsPerPage: i32 `
     ///
     pub fn SetItemsPerPage(self: ?*anyopaque, itemsPerPage: i32) void {
-        qtc.Attica__Metadata_SetItemsPerPage(@ptrCast(self), @intCast(itemsPerPage));
+        qtc.Attica__Metadata_SetItemsPerPage(@ptrCast(self), @bitCast(itemsPerPage));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#resultingId)

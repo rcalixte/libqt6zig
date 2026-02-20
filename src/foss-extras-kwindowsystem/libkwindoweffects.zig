@@ -11,7 +11,7 @@ pub const kwindoweffects = struct {
     /// ` param1: kwindoweffects_enums.Effect `
     ///
     pub fn IsEffectAvailable(param1: i32) bool {
-        return qtc.KWindowEffects_IsEffectAvailable(@intCast(param1));
+        return qtc.KWindowEffects_IsEffectAvailable(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwindoweffects.html#enableBlurBehind)
@@ -45,7 +45,7 @@ pub const kwindoweffects = struct {
     /// ` param6: QtC.QRegion `
     ///
     pub fn EnableBackgroundContrast(param1: ?*anyopaque, param2: bool, param3: f64, param4: f64, param5: f64, param6: ?*anyopaque) void {
-        qtc.KWindowEffects_EnableBackgroundContrast(@ptrCast(param1), param2, @floatCast(param3), @floatCast(param4), @floatCast(param5), @ptrCast(param6));
+        qtc.KWindowEffects_EnableBackgroundContrast(@ptrCast(param1), param2, @bitCast(param3), @bitCast(param4), @bitCast(param5), @ptrCast(param6));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwindoweffects.html#slideWindow)
@@ -59,7 +59,7 @@ pub const kwindoweffects = struct {
     /// ` param3: i32 `
     ///
     pub fn SlideWindow(param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.KWindowEffects_SlideWindow(@ptrCast(param1), @intCast(param2), @intCast(param3));
+        qtc.KWindowEffects_SlideWindow(@ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 };
 

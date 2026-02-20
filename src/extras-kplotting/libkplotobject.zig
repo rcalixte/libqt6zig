@@ -30,7 +30,7 @@ pub const kplotobject = struct {
     /// ` otype: kplotobject_enums.PlotType `
     ///
     pub fn New3(color: ?*anyopaque, otype: i32) QtC.KPlotObject {
-        return qtc.KPlotObject_new3(@ptrCast(color), @intCast(otype));
+        return qtc.KPlotObject_new3(@ptrCast(color), @bitCast(otype));
     }
 
     /// New4 constructs a new KPlotObject object.
@@ -44,7 +44,7 @@ pub const kplotobject = struct {
     /// ` size: f64 `
     ///
     pub fn New4(color: ?*anyopaque, otype: i32, size: f64) QtC.KPlotObject {
-        return qtc.KPlotObject_new4(@ptrCast(color), @intCast(otype), @floatCast(size));
+        return qtc.KPlotObject_new4(@ptrCast(color), @bitCast(otype), @bitCast(size));
     }
 
     /// New5 constructs a new KPlotObject object.
@@ -60,7 +60,7 @@ pub const kplotobject = struct {
     /// ` ps: kplotobject_enums.PointStyle `
     ///
     pub fn New5(color: ?*anyopaque, otype: i32, size: f64, ps: i32) QtC.KPlotObject {
-        return qtc.KPlotObject_new5(@ptrCast(color), @intCast(otype), @floatCast(size), @intCast(ps));
+        return qtc.KPlotObject_new5(@ptrCast(color), @bitCast(otype), @bitCast(size), @bitCast(ps));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#plotTypes)
@@ -132,7 +132,7 @@ pub const kplotobject = struct {
     /// ` s: f64 `
     ///
     pub fn SetSize(self: ?*anyopaque, s: f64) void {
-        qtc.KPlotObject_SetSize(@ptrCast(self), @floatCast(s));
+        qtc.KPlotObject_SetSize(@ptrCast(self), @bitCast(s));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#pointStyle)
@@ -158,7 +158,7 @@ pub const kplotobject = struct {
     /// ` p: kplotobject_enums.PointStyle `
     ///
     pub fn SetPointStyle(self: ?*anyopaque, p: i32) void {
-        qtc.KPlotObject_SetPointStyle(@ptrCast(self), @intCast(p));
+        qtc.KPlotObject_SetPointStyle(@ptrCast(self), @bitCast(p));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#pen)
@@ -345,7 +345,7 @@ pub const kplotobject = struct {
     /// ` y: f64 `
     ///
     pub fn AddPoint3(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.KPlotObject_AddPoint3(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.KPlotObject_AddPoint3(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#removePoint)
@@ -357,7 +357,7 @@ pub const kplotobject = struct {
     /// ` index: i32 `
     ///
     pub fn RemovePoint(self: ?*anyopaque, index: i32) void {
-        qtc.KPlotObject_RemovePoint(@ptrCast(self), @intCast(index));
+        qtc.KPlotObject_RemovePoint(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#clearPoints)
@@ -419,7 +419,7 @@ pub const kplotobject = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        qtc.KPlotObject_AddPoint32(@ptrCast(self), @ptrCast(p), label_str, @floatCast(barWidth));
+        qtc.KPlotObject_AddPoint32(@ptrCast(self), @ptrCast(p), label_str, @bitCast(barWidth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
@@ -439,7 +439,7 @@ pub const kplotobject = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        qtc.KPlotObject_AddPoint33(@ptrCast(self), @floatCast(x), @floatCast(y), label_str);
+        qtc.KPlotObject_AddPoint33(@ptrCast(self), @bitCast(x), @bitCast(y), label_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
@@ -461,7 +461,7 @@ pub const kplotobject = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        qtc.KPlotObject_AddPoint4(@ptrCast(self), @floatCast(x), @floatCast(y), label_str, @floatCast(barWidth));
+        qtc.KPlotObject_AddPoint4(@ptrCast(self), @bitCast(x), @bitCast(y), label_str, @bitCast(barWidth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#dtor.KPlotObject)

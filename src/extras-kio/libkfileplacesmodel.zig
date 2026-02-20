@@ -48,7 +48,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KFilePlacesModel_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -83,7 +83,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KFilePlacesModel_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -110,7 +110,7 @@ pub const kfileplacesmodel = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KFilePlacesModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KFilePlacesModel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -122,7 +122,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KFilePlacesModel_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -138,7 +138,7 @@ pub const kfileplacesmodel = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KFilePlacesModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KFilePlacesModel_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -285,7 +285,7 @@ pub const kfileplacesmodel = struct {
     /// ` typeVal: kfileplacesmodel_enums.GroupType `
     ///
     pub fn IsGroupHidden(self: ?*anyopaque, typeVal: i32) bool {
-        return qtc.KFilePlacesModel_IsGroupHidden(@ptrCast(self), @intCast(typeVal));
+        return qtc.KFilePlacesModel_IsGroupHidden(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#isGroupHidden)
@@ -375,7 +375,7 @@ pub const kfileplacesmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GroupIndexes(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KFilePlacesModel_GroupIndexes(@ptrCast(self), @intCast(typeVal));
+        const _arr: qtc.libqt_list = qtc.KFilePlacesModel_GroupIndexes(@ptrCast(self), @bitCast(typeVal));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kfileplacesmodel.GroupIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -562,7 +562,7 @@ pub const kfileplacesmodel = struct {
     /// ` hidden: bool `
     ///
     pub fn SetGroupHidden(self: ?*anyopaque, typeVal: i32, hidden: bool) void {
-        qtc.KFilePlacesModel_SetGroupHidden(@ptrCast(self), @intCast(typeVal), hidden);
+        qtc.KFilePlacesModel_SetGroupHidden(@ptrCast(self), @bitCast(typeVal), hidden);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#movePlace)
@@ -576,7 +576,7 @@ pub const kfileplacesmodel = struct {
     /// ` row: i32 `
     ///
     pub fn MovePlace(self: ?*anyopaque, itemRow: i32, row: i32) bool {
-        return qtc.KFilePlacesModel_MovePlace(@ptrCast(self), @intCast(itemRow), @intCast(row));
+        return qtc.KFilePlacesModel_MovePlace(@ptrCast(self), @bitCast(itemRow), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#hiddenCount)
@@ -600,7 +600,7 @@ pub const kfileplacesmodel = struct {
     /// ` role: i32 `
     ///
     pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KFilePlacesModel_Data(@ptrCast(self), @ptrCast(index), @intCast(role));
+        return qtc.KFilePlacesModel_Data(@ptrCast(self), @ptrCast(index), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#data)
@@ -614,7 +614,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, index: QtC.QModelIndex, role: i32) callconv(.c) QtC.QVariant `
     ///
     pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KFilePlacesModel_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#data)
@@ -630,7 +630,7 @@ pub const kfileplacesmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseData(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KFilePlacesModel_QBaseData(@ptrCast(self), @ptrCast(index), @intCast(role));
+        return qtc.KFilePlacesModel_QBaseData(@ptrCast(self), @ptrCast(index), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#index)
@@ -646,7 +646,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KFilePlacesModel_Index(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.KFilePlacesModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#index)
@@ -660,7 +660,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KFilePlacesModel_OnIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#index)
@@ -678,7 +678,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KFilePlacesModel_QBaseIndex(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.KFilePlacesModel_QBaseIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#parent)
@@ -704,7 +704,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, child: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnParent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KFilePlacesModel_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#parent)
@@ -768,7 +768,7 @@ pub const kfileplacesmodel = struct {
     /// ` C ABI representation of map_i32_u8 `
     ///
     pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.KFilePlacesModel_OnRoleNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnRoleNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#roleNames)
@@ -828,7 +828,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnRowCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KFilePlacesModel_OnRowCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnRowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#rowCount)
@@ -868,7 +868,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnColumnCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KFilePlacesModel_OnColumnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnColumnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#columnCount)
@@ -922,7 +922,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFilePlacesModel_OnSupportedDropActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#supportedDropActions)
@@ -968,7 +968,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, index: QtC.QModelIndex) callconv(.c) i32 `
     ///
     pub fn OnFlags(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KFilePlacesModel_OnFlags(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnFlags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#flags)
@@ -1029,7 +1029,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
     pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.KFilePlacesModel_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnMimeTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#mimeTypes)
@@ -1088,7 +1088,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
     ///
     pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
-        qtc.KFilePlacesModel_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#mimeData)
@@ -1126,7 +1126,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KFilePlacesModel_DropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.KFilePlacesModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#dropMimeData)
@@ -1140,7 +1140,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#dropMimeData)
@@ -1162,7 +1162,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KFilePlacesModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.KFilePlacesModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#refresh)
@@ -1263,7 +1263,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnErrorMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KFilePlacesModel_Connect_ErrorMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_Connect_ErrorMessage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#setupDone)
@@ -1289,7 +1289,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, index: QtC.QModelIndex, success: bool) callconv(.c) void `
     ///
     pub fn OnSetupDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KFilePlacesModel_Connect_SetupDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_Connect_SetupDone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#teardownDone)
@@ -1305,7 +1305,7 @@ pub const kfileplacesmodel = struct {
     /// ` errorData: QtC.QVariant `
     ///
     pub fn TeardownDone(self: ?*anyopaque, index: ?*anyopaque, errorVal: i32, errorData: ?*anyopaque) void {
-        qtc.KFilePlacesModel_TeardownDone(@ptrCast(self), @ptrCast(index), @intCast(errorVal), @ptrCast(errorData));
+        qtc.KFilePlacesModel_TeardownDone(@ptrCast(self), @ptrCast(index), @bitCast(errorVal), @ptrCast(errorData));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#teardownDone)
@@ -1317,7 +1317,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, index: QtC.QModelIndex, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnTeardownDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFilePlacesModel_Connect_TeardownDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_Connect_TeardownDone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#groupHiddenChanged)
@@ -1331,7 +1331,7 @@ pub const kfileplacesmodel = struct {
     /// ` hidden: bool `
     ///
     pub fn GroupHiddenChanged(self: ?*anyopaque, group: i32, hidden: bool) void {
-        qtc.KFilePlacesModel_GroupHiddenChanged(@ptrCast(self), @intCast(group), hidden);
+        qtc.KFilePlacesModel_GroupHiddenChanged(@ptrCast(self), @bitCast(group), hidden);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#groupHiddenChanged)
@@ -1343,7 +1343,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, group: kfileplacesmodel_enums.GroupType, hidden: bool) callconv(.c) void `
     ///
     pub fn OnGroupHiddenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.KFilePlacesModel_Connect_GroupHiddenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_Connect_GroupHiddenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#reloaded)
@@ -1365,7 +1365,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel) callconv(.c) void `
     ///
     pub fn OnReloaded(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KFilePlacesModel_Connect_Reloaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_Connect_Reloaded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#supportedSchemesChanged)
@@ -1387,7 +1387,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel) callconv(.c) void `
     ///
     pub fn OnSupportedSchemesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KFilePlacesModel_Connect_SupportedSchemesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_Connect_SupportedSchemesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1425,7 +1425,7 @@ pub const kfileplacesmodel = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileplacesmodel.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1557,7 +1557,7 @@ pub const kfileplacesmodel = struct {
     /// ` column: i32 `
     ///
     pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
-        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1571,7 +1571,7 @@ pub const kfileplacesmodel = struct {
     /// ` row: i32 `
     ///
     pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1585,7 +1585,7 @@ pub const kfileplacesmodel = struct {
     /// ` column: i32 `
     ///
     pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1599,7 +1599,7 @@ pub const kfileplacesmodel = struct {
     /// ` row: i32 `
     ///
     pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1613,7 +1613,7 @@ pub const kfileplacesmodel = struct {
     /// ` column: i32 `
     ///
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1633,7 +1633,7 @@ pub const kfileplacesmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1653,7 +1653,7 @@ pub const kfileplacesmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1697,7 +1697,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1715,7 +1715,7 @@ pub const kfileplacesmodel = struct {
     /// ` last: i32 `
     ///
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @intCast(orientation), @intCast(first), @intCast(last));
+        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1729,7 +1729,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1755,7 +1755,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel) callconv(.c) void `
     ///
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1781,7 +1781,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1799,7 +1799,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1815,7 +1815,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @intCast(row), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1831,7 +1831,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1847,7 +1847,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @intCast(row), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1863,7 +1863,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1879,7 +1879,7 @@ pub const kfileplacesmodel = struct {
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @bitCast(options));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1915,7 +1915,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1947,7 +1947,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1967,7 +1967,7 @@ pub const kfileplacesmodel = struct {
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @intCast(hint));
+        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1981,7 +1981,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2013,7 +2013,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2033,7 +2033,7 @@ pub const kfileplacesmodel = struct {
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @intCast(hint));
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2047,7 +2047,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2181,7 +2181,7 @@ pub const kfileplacesmodel = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2195,7 +2195,7 @@ pub const kfileplacesmodel = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2209,7 +2209,7 @@ pub const kfileplacesmodel = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2223,7 +2223,7 @@ pub const kfileplacesmodel = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2553,7 +2553,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2596,7 +2596,7 @@ pub const kfileplacesmodel = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2612,7 +2612,7 @@ pub const kfileplacesmodel = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2634,7 +2634,7 @@ pub const kfileplacesmodel = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2654,7 +2654,7 @@ pub const kfileplacesmodel = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2676,7 +2676,7 @@ pub const kfileplacesmodel = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2773,7 +2773,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2793,7 +2793,7 @@ pub const kfileplacesmodel = struct {
     /// ` idx: QtC.QModelIndex `
     ///
     pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KFilePlacesModel_Sibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
+        return qtc.KFilePlacesModel_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2813,7 +2813,7 @@ pub const kfileplacesmodel = struct {
     /// ` idx: QtC.QModelIndex `
     ///
     pub fn QBaseSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KFilePlacesModel_QBaseSibling(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(idx));
+        return qtc.KFilePlacesModel_QBaseSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2829,7 +2829,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, row: i32, column: i32, idx: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnSibling(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KFilePlacesModel_OnSibling(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnSibling(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2877,7 +2877,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnHasChildren(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnHasChildren(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnHasChildren(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2897,7 +2897,7 @@ pub const kfileplacesmodel = struct {
     /// ` role: i32 `
     ///
     pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KFilePlacesModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
+        return qtc.KFilePlacesModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2917,7 +2917,7 @@ pub const kfileplacesmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KFilePlacesModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
+        return qtc.KFilePlacesModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2933,7 +2933,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32) callconv(.c) bool `
     ///
     pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnSetData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2953,7 +2953,7 @@ pub const kfileplacesmodel = struct {
     /// ` role: i32 `
     ///
     pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KFilePlacesModel_HeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
+        return qtc.KFilePlacesModel_HeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2973,7 +2973,7 @@ pub const kfileplacesmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KFilePlacesModel_QBaseHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
+        return qtc.KFilePlacesModel_QBaseHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2989,7 +2989,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QtC.QVariant `
     ///
     pub fn OnHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KFilePlacesModel_OnHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3011,7 +3011,7 @@ pub const kfileplacesmodel = struct {
     /// ` role: i32 `
     ///
     pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KFilePlacesModel_SetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
+        return qtc.KFilePlacesModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3033,7 +3033,7 @@ pub const kfileplacesmodel = struct {
     /// ` role: i32 `
     ///
     pub fn QBaseSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KFilePlacesModel_QBaseSetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
+        return qtc.KFilePlacesModel_QBaseSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3049,7 +3049,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32) callconv(.c) bool `
     ///
     pub fn OnSetHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnSetHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnSetHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3133,7 +3133,7 @@ pub const kfileplacesmodel = struct {
     /// ` C ABI representation of map_i32_qtcqvariant `
     ///
     pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
-        qtc.KFilePlacesModel_OnItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3162,7 +3162,7 @@ pub const kfileplacesmodel = struct {
         var roles_it = roles.iterator();
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
-            roles_keys[i] = @intCast(roles_key);
+            roles_keys[i] = @bitCast(roles_key);
             roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
@@ -3199,7 +3199,7 @@ pub const kfileplacesmodel = struct {
         var roles_it = roles.iterator();
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
-            roles_keys[i] = @intCast(roles_key);
+            roles_keys[i] = @bitCast(roles_key);
             roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
@@ -3223,7 +3223,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, index: QtC.QModelIndex, roles: qtc.libqt_map (map_i32_qtcqvariant)) callconv(.c) bool `
     ///
     pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnSetItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3271,7 +3271,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, index: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnClearItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnClearItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnClearItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3295,7 +3295,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KFilePlacesModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.KFilePlacesModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3319,7 +3319,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KFilePlacesModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
+        return qtc.KFilePlacesModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3335,7 +3335,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnCanDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnCanDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnCanDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3387,7 +3387,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSupportedDragActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFilePlacesModel_OnSupportedDragActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnSupportedDragActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3407,7 +3407,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KFilePlacesModel_InsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.KFilePlacesModel_InsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3427,7 +3427,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KFilePlacesModel_QBaseInsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.KFilePlacesModel_QBaseInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3443,7 +3443,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3463,7 +3463,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KFilePlacesModel_InsertColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.KFilePlacesModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3483,7 +3483,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KFilePlacesModel_QBaseInsertColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.KFilePlacesModel_QBaseInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3499,7 +3499,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3519,7 +3519,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KFilePlacesModel_RemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.KFilePlacesModel_RemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3539,7 +3539,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KFilePlacesModel_QBaseRemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
+        return qtc.KFilePlacesModel_QBaseRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3555,7 +3555,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3575,7 +3575,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KFilePlacesModel_RemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.KFilePlacesModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3595,7 +3595,7 @@ pub const kfileplacesmodel = struct {
     /// ` parent: QtC.QModelIndex `
     ///
     pub fn QBaseRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KFilePlacesModel_QBaseRemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
+        return qtc.KFilePlacesModel_QBaseRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3611,7 +3611,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3635,7 +3635,7 @@ pub const kfileplacesmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KFilePlacesModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.KFilePlacesModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3659,7 +3659,7 @@ pub const kfileplacesmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn QBaseMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KFilePlacesModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceRow), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.KFilePlacesModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3675,7 +3675,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
     pub fn OnMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3699,7 +3699,7 @@ pub const kfileplacesmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn MoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KFilePlacesModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.KFilePlacesModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3723,7 +3723,7 @@ pub const kfileplacesmodel = struct {
     /// ` destinationChild: i32 `
     ///
     pub fn QBaseMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KFilePlacesModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
+        return qtc.KFilePlacesModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3739,7 +3739,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
     pub fn OnMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3787,7 +3787,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3835,7 +3835,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnCanFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnCanFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnCanFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3853,7 +3853,7 @@ pub const kfileplacesmodel = struct {
     /// ` order: qnamespace_enums.SortOrder `
     ///
     pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KFilePlacesModel_Sort(@ptrCast(self), @intCast(column), @intCast(order));
+        qtc.KFilePlacesModel_Sort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3871,7 +3871,7 @@ pub const kfileplacesmodel = struct {
     /// ` order: qnamespace_enums.SortOrder `
     ///
     pub fn QBaseSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KFilePlacesModel_QBaseSort(@ptrCast(self), @intCast(column), @intCast(order));
+        qtc.KFilePlacesModel_QBaseSort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3887,7 +3887,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
     pub fn OnSort(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnSort(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3935,7 +3935,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnBuddy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KFilePlacesModel_OnBuddy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnBuddy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3961,7 +3961,7 @@ pub const kfileplacesmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KFilePlacesModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.KFilePlacesModel_Match(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kfileplacesmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -3992,7 +3992,7 @@ pub const kfileplacesmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KFilePlacesModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.KFilePlacesModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kfileplacesmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -4019,7 +4019,7 @@ pub const kfileplacesmodel = struct {
     /// ` C ABI representation of []QtC.QModelIndex `
     ///
     pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.KFilePlacesModel_OnMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnMatch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4067,7 +4067,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, index: QtC.QModelIndex) callconv(.c) QtC.QSize `
     ///
     pub fn OnSpan(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.KFilePlacesModel_OnSpan(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnSpan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4119,7 +4119,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan) callconv(.c) void `
     ///
     pub fn OnMultiData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.QModelRoleDataSpan) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnMultiData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnMultiData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4163,7 +4163,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnSubmit(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnSubmit(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnSubmit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4207,7 +4207,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnRevert(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnRevert(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnRevert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4251,7 +4251,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnResetInternalData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnResetInternalData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnResetInternalData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4299,7 +4299,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4351,7 +4351,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4399,7 +4399,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4447,7 +4447,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4495,7 +4495,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4543,7 +4543,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4591,7 +4591,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4609,7 +4609,7 @@ pub const kfileplacesmodel = struct {
     /// ` column: i32 `
     ///
     pub fn CreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KFilePlacesModel_CreateIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.KFilePlacesModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4627,7 +4627,7 @@ pub const kfileplacesmodel = struct {
     /// ` column: i32 `
     ///
     pub fn QBaseCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KFilePlacesModel_QBaseCreateIndex(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.KFilePlacesModel_QBaseCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4643,7 +4643,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, row: i32, column: i32) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnCreateIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.KFilePlacesModel_OnCreateIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnCreateIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4703,7 +4703,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
     ///
     pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnEncodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnEncodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4725,7 +4725,7 @@ pub const kfileplacesmodel = struct {
     /// ` stream: QtC.QDataStream `
     ///
     pub fn DecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KFilePlacesModel_DecodeData(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent), @ptrCast(stream));
+        return qtc.KFilePlacesModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4747,7 +4747,7 @@ pub const kfileplacesmodel = struct {
     /// ` stream: QtC.QDataStream `
     ///
     pub fn QBaseDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KFilePlacesModel_QBaseDecodeData(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent), @ptrCast(stream));
+        return qtc.KFilePlacesModel_QBaseDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4763,7 +4763,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, row: i32, column: i32, parent: QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) bool `
     ///
     pub fn OnDecodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnDecodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnDecodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4783,7 +4783,7 @@ pub const kfileplacesmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KFilePlacesModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.KFilePlacesModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4803,7 +4803,7 @@ pub const kfileplacesmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KFilePlacesModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.KFilePlacesModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4819,7 +4819,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnBeginInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnBeginInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4863,7 +4863,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndInsertRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnEndInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnEndInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4883,7 +4883,7 @@ pub const kfileplacesmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KFilePlacesModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.KFilePlacesModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4903,7 +4903,7 @@ pub const kfileplacesmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KFilePlacesModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.KFilePlacesModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4919,7 +4919,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnBeginRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnBeginRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4963,7 +4963,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndRemoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnEndRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnEndRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4987,7 +4987,7 @@ pub const kfileplacesmodel = struct {
     /// ` destinationRow: i32 `
     ///
     pub fn BeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KFilePlacesModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationRow));
+        return qtc.KFilePlacesModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5011,7 +5011,7 @@ pub const kfileplacesmodel = struct {
     /// ` destinationRow: i32 `
     ///
     pub fn QBaseBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KFilePlacesModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationRow));
+        return qtc.KFilePlacesModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5027,7 +5027,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
     pub fn OnBeginMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnBeginMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnBeginMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5071,7 +5071,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndMoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnEndMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnEndMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5091,7 +5091,7 @@ pub const kfileplacesmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KFilePlacesModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.KFilePlacesModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5111,7 +5111,7 @@ pub const kfileplacesmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KFilePlacesModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.KFilePlacesModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5127,7 +5127,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnBeginInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnBeginInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5171,7 +5171,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndInsertColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnEndInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnEndInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5191,7 +5191,7 @@ pub const kfileplacesmodel = struct {
     /// ` last: i32 `
     ///
     pub fn BeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KFilePlacesModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.KFilePlacesModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5211,7 +5211,7 @@ pub const kfileplacesmodel = struct {
     /// ` last: i32 `
     ///
     pub fn QBaseBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KFilePlacesModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @intCast(first), @intCast(last));
+        qtc.KFilePlacesModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5227,7 +5227,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnBeginRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnBeginRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnBeginRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5271,7 +5271,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndRemoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnEndRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnEndRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5295,7 +5295,7 @@ pub const kfileplacesmodel = struct {
     /// ` destinationColumn: i32 `
     ///
     pub fn BeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KFilePlacesModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationColumn));
+        return qtc.KFilePlacesModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5319,7 +5319,7 @@ pub const kfileplacesmodel = struct {
     /// ` destinationColumn: i32 `
     ///
     pub fn QBaseBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KFilePlacesModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceFirst), @intCast(sourceLast), @ptrCast(destinationParent), @intCast(destinationColumn));
+        return qtc.KFilePlacesModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5335,7 +5335,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
     pub fn OnBeginMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnBeginMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnBeginMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5379,7 +5379,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndMoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnEndMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnEndMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5423,7 +5423,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnBeginResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnBeginResetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnBeginResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5467,7 +5467,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnEndResetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnEndResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5519,7 +5519,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, from: QtC.QModelIndex, to: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnChangePersistentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnChangePersistentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnChangePersistentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5587,7 +5587,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
     ///
     pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.KFilePlacesModel_OnChangePersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnChangePersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5651,7 +5651,7 @@ pub const kfileplacesmodel = struct {
     /// ` C ABI representation of []QtC.QModelIndex `
     ///
     pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KFilePlacesModel_OnPersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnPersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5695,7 +5695,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KFilePlacesModel_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5739,7 +5739,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFilePlacesModel_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5789,7 +5789,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KFilePlacesModel_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5837,7 +5837,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFilePlacesModel_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilePlacesModel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5853,7 +5853,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5869,7 +5869,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5885,7 +5885,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5901,7 +5901,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5917,7 +5917,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5933,7 +5933,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5949,7 +5949,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5965,7 +5965,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
     pub fn OnColumnsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5981,7 +5981,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel) callconv(.c) void `
     ///
     pub fn OnModelAboutToBeReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5997,7 +5997,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel) callconv(.c) void `
     ///
     pub fn OnModelReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6013,7 +6013,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6029,7 +6029,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
     pub fn OnRowsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6045,7 +6045,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
     pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6061,7 +6061,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
     pub fn OnColumnsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6077,7 +6077,7 @@ pub const kfileplacesmodel = struct {
     /// ` callback: *const fn (self: QtC.KFilePlacesModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#dtor.KFilePlacesModel)

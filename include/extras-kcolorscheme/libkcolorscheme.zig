@@ -28,7 +28,7 @@ pub const kcolorscheme = struct {
     /// ` param1: qpalette_enums.ColorGroup `
     ///
     pub fn New3(param1: i32) QtC.KColorScheme {
-        return qtc.KColorScheme_new3(@intCast(param1));
+        return qtc.KColorScheme_new3(@bitCast(param1));
     }
 
     /// New4 constructs a new KColorScheme object.
@@ -40,7 +40,7 @@ pub const kcolorscheme = struct {
     /// ` param2: kcolorscheme_enums.ColorSet `
     ///
     pub fn New4(param1: i32, param2: i32) QtC.KColorScheme {
-        return qtc.KColorScheme_new4(@intCast(param1), @intCast(param2));
+        return qtc.KColorScheme_new4(@bitCast(param1), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#operator-eq)
@@ -84,7 +84,7 @@ pub const kcolorscheme = struct {
     /// ` param1: kcolorscheme_enums.DecorationRole `
     ///
     pub fn Decoration(self: ?*anyopaque, param1: i32) QtC.QBrush {
-        return qtc.KColorScheme_Decoration(@ptrCast(self), @intCast(param1));
+        return qtc.KColorScheme_Decoration(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#shade)
@@ -96,7 +96,7 @@ pub const kcolorscheme = struct {
     /// ` param1: kcolorscheme_enums.ShadeRole `
     ///
     pub fn Shade(self: ?*anyopaque, param1: i32) QtC.QColor {
-        return qtc.KColorScheme_Shade(@ptrCast(self), @intCast(param1));
+        return qtc.KColorScheme_Shade(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#contrastF)
@@ -114,7 +114,7 @@ pub const kcolorscheme = struct {
     /// ` param2: kcolorscheme_enums.ShadeRole `
     ///
     pub fn Shade2(param1: ?*anyopaque, param2: i32) QtC.QColor {
-        return qtc.KColorScheme_Shade2(@ptrCast(param1), @intCast(param2));
+        return qtc.KColorScheme_Shade2(@ptrCast(param1), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#shade)
@@ -128,7 +128,7 @@ pub const kcolorscheme = struct {
     /// ` contrast: f64 `
     ///
     pub fn Shade3(param1: ?*anyopaque, param2: i32, contrast: f64) QtC.QColor {
-        return qtc.KColorScheme_Shade3(@ptrCast(param1), @intCast(param2), @floatCast(contrast));
+        return qtc.KColorScheme_Shade3(@ptrCast(param1), @bitCast(param2), @bitCast(contrast));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustBackground)
@@ -172,7 +172,7 @@ pub const kcolorscheme = struct {
     /// ` param1: kcolorscheme_enums.BackgroundRole `
     ///
     pub fn Background1(self: ?*anyopaque, param1: i32) QtC.QBrush {
-        return qtc.KColorScheme_Background1(@ptrCast(self), @intCast(param1));
+        return qtc.KColorScheme_Background1(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#foreground)
@@ -184,7 +184,7 @@ pub const kcolorscheme = struct {
     /// ` param1: kcolorscheme_enums.ForegroundRole `
     ///
     pub fn Foreground1(self: ?*anyopaque, param1: i32) QtC.QBrush {
-        return qtc.KColorScheme_Foreground1(@ptrCast(self), @intCast(param1));
+        return qtc.KColorScheme_Foreground1(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#shade)
@@ -200,7 +200,7 @@ pub const kcolorscheme = struct {
     /// ` chromaAdjust: f64 `
     ///
     pub fn Shade4(param1: ?*anyopaque, param2: i32, contrast: f64, chromaAdjust: f64) QtC.QColor {
-        return qtc.KColorScheme_Shade4(@ptrCast(param1), @intCast(param2), @floatCast(contrast), @floatCast(chromaAdjust));
+        return qtc.KColorScheme_Shade4(@ptrCast(param1), @bitCast(param2), @bitCast(contrast), @bitCast(chromaAdjust));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustBackground)
@@ -212,7 +212,7 @@ pub const kcolorscheme = struct {
     /// ` newRole: kcolorscheme_enums.BackgroundRole `
     ///
     pub fn AdjustBackground2(param1: ?*anyopaque, newRole: i32) void {
-        qtc.KColorScheme_AdjustBackground2(@ptrCast(param1), @intCast(newRole));
+        qtc.KColorScheme_AdjustBackground2(@ptrCast(param1), @bitCast(newRole));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustBackground)
@@ -226,7 +226,7 @@ pub const kcolorscheme = struct {
     /// ` color: qpalette_enums.ColorRole `
     ///
     pub fn AdjustBackground3(param1: ?*anyopaque, newRole: i32, color: i32) void {
-        qtc.KColorScheme_AdjustBackground3(@ptrCast(param1), @intCast(newRole), @intCast(color));
+        qtc.KColorScheme_AdjustBackground3(@ptrCast(param1), @bitCast(newRole), @bitCast(color));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustBackground)
@@ -242,7 +242,7 @@ pub const kcolorscheme = struct {
     /// ` set: kcolorscheme_enums.ColorSet `
     ///
     pub fn AdjustBackground4(param1: ?*anyopaque, newRole: i32, color: i32, set: i32) void {
-        qtc.KColorScheme_AdjustBackground4(@ptrCast(param1), @intCast(newRole), @intCast(color), @intCast(set));
+        qtc.KColorScheme_AdjustBackground4(@ptrCast(param1), @bitCast(newRole), @bitCast(color), @bitCast(set));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustForeground)
@@ -254,7 +254,7 @@ pub const kcolorscheme = struct {
     /// ` newRole: kcolorscheme_enums.ForegroundRole `
     ///
     pub fn AdjustForeground2(param1: ?*anyopaque, newRole: i32) void {
-        qtc.KColorScheme_AdjustForeground2(@ptrCast(param1), @intCast(newRole));
+        qtc.KColorScheme_AdjustForeground2(@ptrCast(param1), @bitCast(newRole));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustForeground)
@@ -268,7 +268,7 @@ pub const kcolorscheme = struct {
     /// ` color: qpalette_enums.ColorRole `
     ///
     pub fn AdjustForeground3(param1: ?*anyopaque, newRole: i32, color: i32) void {
-        qtc.KColorScheme_AdjustForeground3(@ptrCast(param1), @intCast(newRole), @intCast(color));
+        qtc.KColorScheme_AdjustForeground3(@ptrCast(param1), @bitCast(newRole), @bitCast(color));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustForeground)
@@ -284,7 +284,7 @@ pub const kcolorscheme = struct {
     /// ` set: kcolorscheme_enums.ColorSet `
     ///
     pub fn AdjustForeground4(param1: ?*anyopaque, newRole: i32, color: i32, set: i32) void {
-        qtc.KColorScheme_AdjustForeground4(@ptrCast(param1), @intCast(newRole), @intCast(color), @intCast(set));
+        qtc.KColorScheme_AdjustForeground4(@ptrCast(param1), @bitCast(newRole), @bitCast(color), @bitCast(set));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#dtor.KColorScheme)

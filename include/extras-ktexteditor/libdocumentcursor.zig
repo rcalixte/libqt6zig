@@ -37,7 +37,7 @@ pub const ktexteditor__documentcursor = struct {
     /// ` column: i32 `
     ///
     pub fn New3(document: ?*anyopaque, line: i32, column: i32) QtC.KTextEditor__DocumentCursor {
-        return qtc.KTextEditor__DocumentCursor_new3(@ptrCast(document), @intCast(line), @intCast(column));
+        return qtc.KTextEditor__DocumentCursor_new3(@ptrCast(document), @bitCast(line), @bitCast(column));
     }
 
     /// New4 constructs a new KTextEditor::DocumentCursor object.
@@ -133,7 +133,7 @@ pub const ktexteditor__documentcursor = struct {
     /// ` column: i32 `
     ///
     pub fn SetPosition2(self: ?*anyopaque, line: i32, column: i32) void {
-        qtc.KTextEditor__DocumentCursor_SetPosition2(@ptrCast(self), @intCast(line), @intCast(column));
+        qtc.KTextEditor__DocumentCursor_SetPosition2(@ptrCast(self), @bitCast(line), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-documentcursor.html#setLine)
@@ -145,7 +145,7 @@ pub const ktexteditor__documentcursor = struct {
     /// ` line: i32 `
     ///
     pub fn SetLine(self: ?*anyopaque, line: i32) void {
-        qtc.KTextEditor__DocumentCursor_SetLine(@ptrCast(self), @intCast(line));
+        qtc.KTextEditor__DocumentCursor_SetLine(@ptrCast(self), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-documentcursor.html#setColumn)
@@ -157,7 +157,7 @@ pub const ktexteditor__documentcursor = struct {
     /// ` column: i32 `
     ///
     pub fn SetColumn(self: ?*anyopaque, column: i32) void {
-        qtc.KTextEditor__DocumentCursor_SetColumn(@ptrCast(self), @intCast(column));
+        qtc.KTextEditor__DocumentCursor_SetColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-documentcursor.html#atStartOfLine)
@@ -229,7 +229,7 @@ pub const ktexteditor__documentcursor = struct {
     /// ` chars: i32 `
     ///
     pub fn Move(self: ?*anyopaque, chars: i32) bool {
-        return qtc.KTextEditor__DocumentCursor_Move(@ptrCast(self), @intCast(chars));
+        return qtc.KTextEditor__DocumentCursor_Move(@ptrCast(self), @bitCast(chars));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-documentcursor.html#toCursor)
@@ -265,7 +265,7 @@ pub const ktexteditor__documentcursor = struct {
     /// ` wrapBehavior: documentcursor_enums.WrapBehavior `
     ///
     pub fn Move2(self: ?*anyopaque, chars: i32, wrapBehavior: i32) bool {
-        return qtc.KTextEditor__DocumentCursor_Move2(@ptrCast(self), @intCast(chars), @intCast(wrapBehavior));
+        return qtc.KTextEditor__DocumentCursor_Move2(@ptrCast(self), @bitCast(chars), @bitCast(wrapBehavior));
     }
 
     /// Delete this object from C++ memory.

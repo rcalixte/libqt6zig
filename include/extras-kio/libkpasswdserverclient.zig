@@ -22,7 +22,7 @@ pub const kpasswdserverclient = struct {
     /// ` usertime: i64 `
     ///
     pub fn CheckAuthInfo(self: ?*anyopaque, info: ?*anyopaque, windowId: i64, usertime: i64) bool {
-        return qtc.KPasswdServerClient_CheckAuthInfo(@ptrCast(self), @ptrCast(info), @intCast(windowId), @intCast(usertime));
+        return qtc.KPasswdServerClient_CheckAuthInfo(@ptrCast(self), @ptrCast(info), @bitCast(windowId), @bitCast(usertime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpasswdserverclient.html#queryAuthInfo)
@@ -44,7 +44,7 @@ pub const kpasswdserverclient = struct {
             .len = errorMsg.len,
             .data = errorMsg.ptr,
         };
-        return qtc.KPasswdServerClient_QueryAuthInfo(@ptrCast(self), @ptrCast(info), errorMsg_str, @intCast(windowId), @intCast(usertime));
+        return qtc.KPasswdServerClient_QueryAuthInfo(@ptrCast(self), @ptrCast(info), errorMsg_str, @bitCast(windowId), @bitCast(usertime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpasswdserverclient.html#addAuthInfo)
@@ -58,7 +58,7 @@ pub const kpasswdserverclient = struct {
     /// ` windowId: i64 `
     ///
     pub fn AddAuthInfo(self: ?*anyopaque, info: ?*anyopaque, windowId: i64) void {
-        qtc.KPasswdServerClient_AddAuthInfo(@ptrCast(self), @ptrCast(info), @intCast(windowId));
+        qtc.KPasswdServerClient_AddAuthInfo(@ptrCast(self), @ptrCast(info), @bitCast(windowId));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpasswdserverclient.html#removeAuthInfo)

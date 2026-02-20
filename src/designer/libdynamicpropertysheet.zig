@@ -30,7 +30,7 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnDynamicPropertiesAllowed(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerDynamicPropertySheetExtension_OnDynamicPropertiesAllowed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerDynamicPropertySheetExtension_OnDynamicPropertiesAllowed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#dynamicPropertiesAllowed)
@@ -74,7 +74,7 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerDynamicPropertySheetExtension, propertyName: [*:0]const u8, value: QtC.QVariant) callconv(.c) i32 `
     ///
     pub fn OnAddDynamicProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QDesignerDynamicPropertySheetExtension_OnAddDynamicProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerDynamicPropertySheetExtension_OnAddDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#addDynamicProperty)
@@ -106,7 +106,7 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn RemoveDynamicProperty(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerDynamicPropertySheetExtension_RemoveDynamicProperty(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerDynamicPropertySheetExtension_RemoveDynamicProperty(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#removeDynamicProperty)
@@ -120,7 +120,7 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerDynamicPropertySheetExtension, index: i32) callconv(.c) bool `
     ///
     pub fn OnRemoveDynamicProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QDesignerDynamicPropertySheetExtension_OnRemoveDynamicProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerDynamicPropertySheetExtension_OnRemoveDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#removeDynamicProperty)
@@ -134,7 +134,7 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseRemoveDynamicProperty(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerDynamicPropertySheetExtension_QBaseRemoveDynamicProperty(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerDynamicPropertySheetExtension_QBaseRemoveDynamicProperty(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#isDynamicProperty)
@@ -146,7 +146,7 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn IsDynamicProperty(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerDynamicPropertySheetExtension_IsDynamicProperty(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerDynamicPropertySheetExtension_IsDynamicProperty(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#isDynamicProperty)
@@ -160,7 +160,7 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerDynamicPropertySheetExtension, index: i32) callconv(.c) bool `
     ///
     pub fn OnIsDynamicProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QDesignerDynamicPropertySheetExtension_OnIsDynamicProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerDynamicPropertySheetExtension_OnIsDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#isDynamicProperty)
@@ -174,7 +174,7 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseIsDynamicProperty(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerDynamicPropertySheetExtension_QBaseIsDynamicProperty(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerDynamicPropertySheetExtension_QBaseIsDynamicProperty(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#canAddDynamicProperty)
@@ -204,7 +204,7 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerDynamicPropertySheetExtension, propertyName: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnCanAddDynamicProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QDesignerDynamicPropertySheetExtension_OnCanAddDynamicProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerDynamicPropertySheetExtension_OnCanAddDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#canAddDynamicProperty)

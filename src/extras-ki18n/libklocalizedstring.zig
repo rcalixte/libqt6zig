@@ -120,7 +120,7 @@ pub const klocalizedstring = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString4(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KLocalizedString_ToString4(@ptrCast(self), @intCast(format));
+        var _str = qtc.KLocalizedString_ToString4(@ptrCast(self), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring.ToString4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -175,7 +175,7 @@ pub const klocalizedstring = struct {
     /// ` format: kuitsetup_enums.VisualFormat `
     ///
     pub fn WithFormat(self: ?*anyopaque, format: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_WithFormat(@ptrCast(self), @intCast(format));
+        return qtc.KLocalizedString_WithFormat(@ptrCast(self), @bitCast(format));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -187,7 +187,7 @@ pub const klocalizedstring = struct {
     /// ` a: i32 `
     ///
     pub fn Subs(self: ?*anyopaque, a: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs(@ptrCast(self), @intCast(a));
+        return qtc.KLocalizedString_Subs(@ptrCast(self), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -199,7 +199,7 @@ pub const klocalizedstring = struct {
     /// ` a: u32 `
     ///
     pub fn Subs2(self: ?*anyopaque, a: u32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs2(@ptrCast(self), @intCast(a));
+        return qtc.KLocalizedString_Subs2(@ptrCast(self), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -211,7 +211,7 @@ pub const klocalizedstring = struct {
     /// ` a: i64 `
     ///
     pub fn Subs3(self: ?*anyopaque, a: i64) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs3(@ptrCast(self), @intCast(a));
+        return qtc.KLocalizedString_Subs3(@ptrCast(self), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -223,7 +223,7 @@ pub const klocalizedstring = struct {
     /// ` a: u64 `
     ///
     pub fn Subs4(self: ?*anyopaque, a: u64) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs4(@ptrCast(self), @intCast(a));
+        return qtc.KLocalizedString_Subs4(@ptrCast(self), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -235,7 +235,7 @@ pub const klocalizedstring = struct {
     /// ` a: i64 `
     ///
     pub fn Subs5(self: ?*anyopaque, a: i64) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs5(@ptrCast(self), @intCast(a));
+        return qtc.KLocalizedString_Subs5(@ptrCast(self), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -247,7 +247,7 @@ pub const klocalizedstring = struct {
     /// ` a: u64 `
     ///
     pub fn Subs6(self: ?*anyopaque, a: u64) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs6(@ptrCast(self), @intCast(a));
+        return qtc.KLocalizedString_Subs6(@ptrCast(self), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -259,7 +259,7 @@ pub const klocalizedstring = struct {
     /// ` a: f64 `
     ///
     pub fn Subs7(self: ?*anyopaque, a: f64) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs7(@ptrCast(self), @floatCast(a));
+        return qtc.KLocalizedString_Subs7(@ptrCast(self), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -566,7 +566,7 @@ pub const klocalizedstring = struct {
     /// ` fieldWidth: i32 `
     ///
     pub fn Subs22(self: ?*anyopaque, a: i32, fieldWidth: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs22(@ptrCast(self), @intCast(a), @intCast(fieldWidth));
+        return qtc.KLocalizedString_Subs22(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -582,7 +582,7 @@ pub const klocalizedstring = struct {
     /// ` base: i32 `
     ///
     pub fn Subs32(self: ?*anyopaque, a: i32, fieldWidth: i32, base: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs32(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base));
+        return qtc.KLocalizedString_Subs32(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -600,7 +600,7 @@ pub const klocalizedstring = struct {
     /// ` fillChar: QtC.QChar `
     ///
     pub fn Subs42(self: ?*anyopaque, a: i32, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs42(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base), @ptrCast(fillChar));
+        return qtc.KLocalizedString_Subs42(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base), @ptrCast(fillChar));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -614,7 +614,7 @@ pub const klocalizedstring = struct {
     /// ` fieldWidth: i32 `
     ///
     pub fn Subs23(self: ?*anyopaque, a: u32, fieldWidth: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs23(@ptrCast(self), @intCast(a), @intCast(fieldWidth));
+        return qtc.KLocalizedString_Subs23(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -630,7 +630,7 @@ pub const klocalizedstring = struct {
     /// ` base: i32 `
     ///
     pub fn Subs33(self: ?*anyopaque, a: u32, fieldWidth: i32, base: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs33(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base));
+        return qtc.KLocalizedString_Subs33(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -648,7 +648,7 @@ pub const klocalizedstring = struct {
     /// ` fillChar: QtC.QChar `
     ///
     pub fn Subs43(self: ?*anyopaque, a: u32, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs43(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base), @ptrCast(fillChar));
+        return qtc.KLocalizedString_Subs43(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base), @ptrCast(fillChar));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -662,7 +662,7 @@ pub const klocalizedstring = struct {
     /// ` fieldWidth: i32 `
     ///
     pub fn Subs24(self: ?*anyopaque, a: i64, fieldWidth: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs24(@ptrCast(self), @intCast(a), @intCast(fieldWidth));
+        return qtc.KLocalizedString_Subs24(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -678,7 +678,7 @@ pub const klocalizedstring = struct {
     /// ` base: i32 `
     ///
     pub fn Subs34(self: ?*anyopaque, a: i64, fieldWidth: i32, base: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs34(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base));
+        return qtc.KLocalizedString_Subs34(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -696,7 +696,7 @@ pub const klocalizedstring = struct {
     /// ` fillChar: QtC.QChar `
     ///
     pub fn Subs44(self: ?*anyopaque, a: i64, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs44(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base), @ptrCast(fillChar));
+        return qtc.KLocalizedString_Subs44(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base), @ptrCast(fillChar));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -710,7 +710,7 @@ pub const klocalizedstring = struct {
     /// ` fieldWidth: i32 `
     ///
     pub fn Subs25(self: ?*anyopaque, a: u64, fieldWidth: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs25(@ptrCast(self), @intCast(a), @intCast(fieldWidth));
+        return qtc.KLocalizedString_Subs25(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -726,7 +726,7 @@ pub const klocalizedstring = struct {
     /// ` base: i32 `
     ///
     pub fn Subs35(self: ?*anyopaque, a: u64, fieldWidth: i32, base: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs35(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base));
+        return qtc.KLocalizedString_Subs35(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -744,7 +744,7 @@ pub const klocalizedstring = struct {
     /// ` fillChar: QtC.QChar `
     ///
     pub fn Subs45(self: ?*anyopaque, a: u64, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs45(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base), @ptrCast(fillChar));
+        return qtc.KLocalizedString_Subs45(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base), @ptrCast(fillChar));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -758,7 +758,7 @@ pub const klocalizedstring = struct {
     /// ` fieldWidth: i32 `
     ///
     pub fn Subs26(self: ?*anyopaque, a: i64, fieldWidth: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs26(@ptrCast(self), @intCast(a), @intCast(fieldWidth));
+        return qtc.KLocalizedString_Subs26(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -774,7 +774,7 @@ pub const klocalizedstring = struct {
     /// ` base: i32 `
     ///
     pub fn Subs36(self: ?*anyopaque, a: i64, fieldWidth: i32, base: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs36(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base));
+        return qtc.KLocalizedString_Subs36(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -792,7 +792,7 @@ pub const klocalizedstring = struct {
     /// ` fillChar: QtC.QChar `
     ///
     pub fn Subs46(self: ?*anyopaque, a: i64, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs46(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base), @ptrCast(fillChar));
+        return qtc.KLocalizedString_Subs46(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base), @ptrCast(fillChar));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -806,7 +806,7 @@ pub const klocalizedstring = struct {
     /// ` fieldWidth: i32 `
     ///
     pub fn Subs27(self: ?*anyopaque, a: u64, fieldWidth: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs27(@ptrCast(self), @intCast(a), @intCast(fieldWidth));
+        return qtc.KLocalizedString_Subs27(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -822,7 +822,7 @@ pub const klocalizedstring = struct {
     /// ` base: i32 `
     ///
     pub fn Subs37(self: ?*anyopaque, a: u64, fieldWidth: i32, base: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs37(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base));
+        return qtc.KLocalizedString_Subs37(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -840,7 +840,7 @@ pub const klocalizedstring = struct {
     /// ` fillChar: QtC.QChar `
     ///
     pub fn Subs47(self: ?*anyopaque, a: u64, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs47(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base), @ptrCast(fillChar));
+        return qtc.KLocalizedString_Subs47(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base), @ptrCast(fillChar));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -854,7 +854,7 @@ pub const klocalizedstring = struct {
     /// ` fieldWidth: i32 `
     ///
     pub fn Subs28(self: ?*anyopaque, a: f64, fieldWidth: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs28(@ptrCast(self), @floatCast(a), @intCast(fieldWidth));
+        return qtc.KLocalizedString_Subs28(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -870,7 +870,7 @@ pub const klocalizedstring = struct {
     /// ` format: u8 `
     ///
     pub fn Subs38(self: ?*anyopaque, a: f64, fieldWidth: i32, format: u8) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs38(@ptrCast(self), @floatCast(a), @intCast(fieldWidth), @intCast(format));
+        return qtc.KLocalizedString_Subs38(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(format));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -888,7 +888,7 @@ pub const klocalizedstring = struct {
     /// ` precision: i32 `
     ///
     pub fn Subs48(self: ?*anyopaque, a: f64, fieldWidth: i32, format: u8, precision: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs48(@ptrCast(self), @floatCast(a), @intCast(fieldWidth), @intCast(format), @intCast(precision));
+        return qtc.KLocalizedString_Subs48(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(format), @bitCast(precision));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -908,7 +908,7 @@ pub const klocalizedstring = struct {
     /// ` fillChar: QtC.QChar `
     ///
     pub fn Subs52(self: ?*anyopaque, a: f64, fieldWidth: i32, format: u8, precision: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs52(@ptrCast(self), @floatCast(a), @intCast(fieldWidth), @intCast(format), @intCast(precision), @ptrCast(fillChar));
+        return qtc.KLocalizedString_Subs52(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(format), @bitCast(precision), @ptrCast(fillChar));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -922,7 +922,7 @@ pub const klocalizedstring = struct {
     /// ` fieldWidth: i32 `
     ///
     pub fn Subs29(self: ?*anyopaque, a: QtC.QChar, fieldWidth: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs29(@ptrCast(self), @ptrCast(a), @intCast(fieldWidth));
+        return qtc.KLocalizedString_Subs29(@ptrCast(self), @ptrCast(a), @bitCast(fieldWidth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -938,7 +938,7 @@ pub const klocalizedstring = struct {
     /// ` fillChar: QtC.QChar `
     ///
     pub fn Subs39(self: ?*anyopaque, a: QtC.QChar, fieldWidth: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs39(@ptrCast(self), @ptrCast(a), @intCast(fieldWidth), @ptrCast(fillChar));
+        return qtc.KLocalizedString_Subs39(@ptrCast(self), @ptrCast(a), @bitCast(fieldWidth), @ptrCast(fillChar));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -956,7 +956,7 @@ pub const klocalizedstring = struct {
             .len = a.len,
             .data = a.ptr,
         };
-        return qtc.KLocalizedString_Subs210(@ptrCast(self), a_str, @intCast(fieldWidth));
+        return qtc.KLocalizedString_Subs210(@ptrCast(self), a_str, @bitCast(fieldWidth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -976,7 +976,7 @@ pub const klocalizedstring = struct {
             .len = a.len,
             .data = a.ptr,
         };
-        return qtc.KLocalizedString_Subs310(@ptrCast(self), a_str, @intCast(fieldWidth), @ptrCast(fillChar));
+        return qtc.KLocalizedString_Subs310(@ptrCast(self), a_str, @bitCast(fieldWidth), @ptrCast(fillChar));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -990,7 +990,7 @@ pub const klocalizedstring = struct {
     /// ` fieldWidth: i32 `
     ///
     pub fn Subs211(self: ?*anyopaque, a: ?*anyopaque, fieldWidth: i32) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs211(@ptrCast(self), @ptrCast(a), @intCast(fieldWidth));
+        return qtc.KLocalizedString_Subs211(@ptrCast(self), @ptrCast(a), @bitCast(fieldWidth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#subs)
@@ -1006,7 +1006,7 @@ pub const klocalizedstring = struct {
     /// ` fillChar: QtC.QChar `
     ///
     pub fn Subs311(self: ?*anyopaque, a: ?*anyopaque, fieldWidth: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
-        return qtc.KLocalizedString_Subs311(@ptrCast(self), @ptrCast(a), @intCast(fieldWidth), @ptrCast(fillChar));
+        return qtc.KLocalizedString_Subs311(@ptrCast(self), @ptrCast(a), @bitCast(fieldWidth), @ptrCast(fillChar));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#dtor.KLocalizedString)

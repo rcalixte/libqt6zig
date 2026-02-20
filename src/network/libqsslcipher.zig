@@ -40,7 +40,7 @@ pub const qsslcipher = struct {
             .data = name.ptr,
         };
 
-        return qtc.QSslCipher_new3(name_str, @intCast(protocol));
+        return qtc.QSslCipher_new3(name_str, @bitCast(protocol));
     }
 
     /// New4 constructs a new QSslCipher object.

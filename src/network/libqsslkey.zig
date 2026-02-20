@@ -25,7 +25,7 @@ pub const qsslkey = struct {
             .data = encoded.ptr,
         };
 
-        return qtc.QSslKey_new2(encoded_str, @intCast(algorithm));
+        return qtc.QSslKey_new2(encoded_str, @bitCast(algorithm));
     }
 
     /// New3 constructs a new QSslKey object.
@@ -37,7 +37,7 @@ pub const qsslkey = struct {
     /// ` algorithm: qssl_enums.KeyAlgorithm `
     ///
     pub fn New3(device: ?*anyopaque, algorithm: i32) QtC.QSslKey {
-        return qtc.QSslKey_new3(@ptrCast(device), @intCast(algorithm));
+        return qtc.QSslKey_new3(@ptrCast(device), @bitCast(algorithm));
     }
 
     /// New4 constructs a new QSslKey object.
@@ -76,7 +76,7 @@ pub const qsslkey = struct {
             .data = encoded.ptr,
         };
 
-        return qtc.QSslKey_new6(encoded_str, @intCast(algorithm), @intCast(format));
+        return qtc.QSslKey_new6(encoded_str, @bitCast(algorithm), @bitCast(format));
     }
 
     /// New7 constructs a new QSslKey object.
@@ -97,7 +97,7 @@ pub const qsslkey = struct {
             .data = encoded.ptr,
         };
 
-        return qtc.QSslKey_new7(encoded_str, @intCast(algorithm), @intCast(format), @intCast(typeVal));
+        return qtc.QSslKey_new7(encoded_str, @bitCast(algorithm), @bitCast(format), @bitCast(typeVal));
     }
 
     /// New8 constructs a new QSslKey object.
@@ -124,7 +124,7 @@ pub const qsslkey = struct {
             .data = passPhrase.ptr,
         };
 
-        return qtc.QSslKey_new8(encoded_str, @intCast(algorithm), @intCast(format), @intCast(typeVal), passPhrase_str);
+        return qtc.QSslKey_new8(encoded_str, @bitCast(algorithm), @bitCast(format), @bitCast(typeVal), passPhrase_str);
     }
 
     /// New9 constructs a new QSslKey object.
@@ -138,7 +138,7 @@ pub const qsslkey = struct {
     /// ` format: qssl_enums.EncodingFormat `
     ///
     pub fn New9(device: ?*anyopaque, algorithm: i32, format: i32) QtC.QSslKey {
-        return qtc.QSslKey_new9(@ptrCast(device), @intCast(algorithm), @intCast(format));
+        return qtc.QSslKey_new9(@ptrCast(device), @bitCast(algorithm), @bitCast(format));
     }
 
     /// New10 constructs a new QSslKey object.
@@ -154,7 +154,7 @@ pub const qsslkey = struct {
     /// ` typeVal: qssl_enums.KeyType `
     ///
     pub fn New10(device: ?*anyopaque, algorithm: i32, format: i32, typeVal: i32) QtC.QSslKey {
-        return qtc.QSslKey_new10(@ptrCast(device), @intCast(algorithm), @intCast(format), @intCast(typeVal));
+        return qtc.QSslKey_new10(@ptrCast(device), @bitCast(algorithm), @bitCast(format), @bitCast(typeVal));
     }
 
     /// New11 constructs a new QSslKey object.
@@ -177,7 +177,7 @@ pub const qsslkey = struct {
             .data = passPhrase.ptr,
         };
 
-        return qtc.QSslKey_new11(@ptrCast(device), @intCast(algorithm), @intCast(format), @intCast(typeVal), passPhrase_str);
+        return qtc.QSslKey_new11(@ptrCast(device), @bitCast(algorithm), @bitCast(format), @bitCast(typeVal), passPhrase_str);
     }
 
     /// New12 constructs a new QSslKey object.
@@ -189,7 +189,7 @@ pub const qsslkey = struct {
     /// ` typeVal: qssl_enums.KeyType `
     ///
     pub fn New12(handle: ?*anyopaque, typeVal: i32) QtC.QSslKey {
-        return qtc.QSslKey_new12(@ptrCast(handle), @intCast(typeVal));
+        return qtc.QSslKey_new12(@ptrCast(handle), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#operator-eq)

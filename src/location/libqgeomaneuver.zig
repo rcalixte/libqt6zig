@@ -119,7 +119,7 @@ pub const qgeomaneuver = struct {
     /// ` direction: qgeomaneuver_enums.InstructionDirection `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QGeoManeuver_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QGeoManeuver_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#direction)
@@ -145,7 +145,7 @@ pub const qgeomaneuver = struct {
     /// ` secs: i32 `
     ///
     pub fn SetTimeToNextInstruction(self: ?*anyopaque, secs: i32) void {
-        qtc.QGeoManeuver_SetTimeToNextInstruction(@ptrCast(self), @intCast(secs));
+        qtc.QGeoManeuver_SetTimeToNextInstruction(@ptrCast(self), @bitCast(secs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#timeToNextInstruction)
@@ -167,7 +167,7 @@ pub const qgeomaneuver = struct {
     /// ` distance: f64 `
     ///
     pub fn SetDistanceToNextInstruction(self: ?*anyopaque, distance: f64) void {
-        qtc.QGeoManeuver_SetDistanceToNextInstruction(@ptrCast(self), @floatCast(distance));
+        qtc.QGeoManeuver_SetDistanceToNextInstruction(@ptrCast(self), @bitCast(distance));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#distanceToNextInstruction)

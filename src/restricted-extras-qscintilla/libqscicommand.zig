@@ -38,7 +38,7 @@ pub const qscicommand = struct {
     /// ` key: i32 `
     ///
     pub fn SetKey(self: ?*anyopaque, key: i32) void {
-        qtc.QsciCommand_SetKey(@ptrCast(self), @intCast(key));
+        qtc.QsciCommand_SetKey(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
@@ -50,7 +50,7 @@ pub const qscicommand = struct {
     /// ` altkey: i32 `
     ///
     pub fn SetAlternateKey(self: ?*anyopaque, altkey: i32) void {
-        qtc.QsciCommand_SetAlternateKey(@ptrCast(self), @intCast(altkey));
+        qtc.QsciCommand_SetAlternateKey(@ptrCast(self), @bitCast(altkey));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
@@ -80,7 +80,7 @@ pub const qscicommand = struct {
     /// ` key: i32 `
     ///
     pub fn ValidKey(key: i32) bool {
-        return qtc.QsciCommand_ValidKey(@intCast(key));
+        return qtc.QsciCommand_ValidKey(@bitCast(key));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)

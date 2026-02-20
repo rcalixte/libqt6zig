@@ -39,7 +39,7 @@ pub const ktexteditor__cursor = struct {
     /// ` column: i32 `
     ///
     pub fn New4(line: i32, column: i32) QtC.KTextEditor__Cursor {
-        return qtc.KTextEditor__Cursor_new4(@intCast(line), @intCast(column));
+        return qtc.KTextEditor__Cursor_new4(@bitCast(line), @bitCast(column));
     }
 
     /// New5 constructs a new KTextEditor::Cursor object.
@@ -137,7 +137,7 @@ pub const ktexteditor__cursor = struct {
     /// ` column: i32 `
     ///
     pub fn SetPosition2(self: ?*anyopaque, line: i32, column: i32) void {
-        qtc.KTextEditor__Cursor_SetPosition2(@ptrCast(self), @intCast(line), @intCast(column));
+        qtc.KTextEditor__Cursor_SetPosition2(@ptrCast(self), @bitCast(line), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#line)
@@ -159,7 +159,7 @@ pub const ktexteditor__cursor = struct {
     /// ` line: i32 `
     ///
     pub fn SetLine(self: ?*anyopaque, line: i32) void {
-        qtc.KTextEditor__Cursor_SetLine(@ptrCast(self), @intCast(line));
+        qtc.KTextEditor__Cursor_SetLine(@ptrCast(self), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#column)
@@ -181,7 +181,7 @@ pub const ktexteditor__cursor = struct {
     /// ` column: i32 `
     ///
     pub fn SetColumn(self: ?*anyopaque, column: i32) void {
-        qtc.KTextEditor__Cursor_SetColumn(@ptrCast(self), @intCast(column));
+        qtc.KTextEditor__Cursor_SetColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#atStartOfLine)

@@ -153,7 +153,7 @@ pub const qwebenginehttprequest = struct {
     /// ` method: qwebenginehttprequest_enums.Method `
     ///
     pub fn SetMethod(self: ?*anyopaque, method: i32) void {
-        qtc.QWebEngineHttpRequest_SetMethod(@ptrCast(self), @intCast(method));
+        qtc.QWebEngineHttpRequest_SetMethod(@ptrCast(self), @bitCast(method));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#url)

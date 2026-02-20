@@ -37,7 +37,7 @@ pub const qquaternion = struct {
     /// ` param1: qnamespace_enums.Initialization `
     ///
     pub fn New4(param1: i32) QtC.QQuaternion {
-        return qtc.QQuaternion_new4(@intCast(param1));
+        return qtc.QQuaternion_new4(@bitCast(param1));
     }
 
     /// New5 constructs a new QQuaternion object.
@@ -53,7 +53,7 @@ pub const qquaternion = struct {
     /// ` zpos: f32 `
     ///
     pub fn New5(scalar: f32, xpos: f32, ypos: f32, zpos: f32) QtC.QQuaternion {
-        return qtc.QQuaternion_new5(@floatCast(scalar), @floatCast(xpos), @floatCast(ypos), @floatCast(zpos));
+        return qtc.QQuaternion_new5(@bitCast(scalar), @bitCast(xpos), @bitCast(ypos), @bitCast(zpos));
     }
 
     /// New6 constructs a new QQuaternion object.
@@ -65,7 +65,7 @@ pub const qquaternion = struct {
     /// ` vector: QtC.QVector3D `
     ///
     pub fn New6(scalar: f32, vector: ?*anyopaque) QtC.QQuaternion {
-        return qtc.QQuaternion_new6(@floatCast(scalar), @ptrCast(vector));
+        return qtc.QQuaternion_new6(@bitCast(scalar), @ptrCast(vector));
     }
 
     /// New7 constructs a new QQuaternion object.
@@ -167,7 +167,7 @@ pub const qquaternion = struct {
     /// ` z: f32 `
     ///
     pub fn SetVector2(self: ?*anyopaque, x: f32, y: f32, z: f32) void {
-        qtc.QQuaternion_SetVector2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(z));
+        qtc.QQuaternion_SetVector2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(z));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#x)
@@ -219,7 +219,7 @@ pub const qquaternion = struct {
     /// ` x: f32 `
     ///
     pub fn SetX(self: ?*anyopaque, x: f32) void {
-        qtc.QQuaternion_SetX(@ptrCast(self), @floatCast(x));
+        qtc.QQuaternion_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#setY)
@@ -231,7 +231,7 @@ pub const qquaternion = struct {
     /// ` y: f32 `
     ///
     pub fn SetY(self: ?*anyopaque, y: f32) void {
-        qtc.QQuaternion_SetY(@ptrCast(self), @floatCast(y));
+        qtc.QQuaternion_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#setZ)
@@ -243,7 +243,7 @@ pub const qquaternion = struct {
     /// ` z: f32 `
     ///
     pub fn SetZ(self: ?*anyopaque, z: f32) void {
-        qtc.QQuaternion_SetZ(@ptrCast(self), @floatCast(z));
+        qtc.QQuaternion_SetZ(@ptrCast(self), @bitCast(z));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#setScalar)
@@ -255,7 +255,7 @@ pub const qquaternion = struct {
     /// ` scalar: f32 `
     ///
     pub fn SetScalar(self: ?*anyopaque, scalar: f32) void {
-        qtc.QQuaternion_SetScalar(@ptrCast(self), @floatCast(scalar));
+        qtc.QQuaternion_SetScalar(@ptrCast(self), @bitCast(scalar));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#dotProduct)
@@ -375,7 +375,7 @@ pub const qquaternion = struct {
     /// ` factor: f32 `
     ///
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, factor: f32) QtC.QQuaternion {
-        return qtc.QQuaternion_OperatorMultiplyAssign(@ptrCast(self), @floatCast(factor));
+        return qtc.QQuaternion_OperatorMultiplyAssign(@ptrCast(self), @bitCast(factor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#operator-2a-eq)
@@ -399,7 +399,7 @@ pub const qquaternion = struct {
     /// ` divisor: f32 `
     ///
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f32) QtC.QQuaternion {
-        return qtc.QQuaternion_OperatorDivideAssign(@ptrCast(self), @floatCast(divisor));
+        return qtc.QQuaternion_OperatorDivideAssign(@ptrCast(self), @bitCast(divisor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#toVector4D)
@@ -445,7 +445,7 @@ pub const qquaternion = struct {
     /// ` angle: f32 `
     ///
     pub fn FromAxisAndAngle(axis: ?*anyopaque, angle: f32) QtC.QQuaternion {
-        return qtc.QQuaternion_FromAxisAndAngle(@ptrCast(axis), @floatCast(angle));
+        return qtc.QQuaternion_FromAxisAndAngle(@ptrCast(axis), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#getAxisAndAngle)
@@ -479,7 +479,7 @@ pub const qquaternion = struct {
     /// ` angle: f32 `
     ///
     pub fn FromAxisAndAngle2(x: f32, y: f32, z: f32, angle: f32) QtC.QQuaternion {
-        return qtc.QQuaternion_FromAxisAndAngle2(@floatCast(x), @floatCast(y), @floatCast(z), @floatCast(angle));
+        return qtc.QQuaternion_FromAxisAndAngle2(@bitCast(x), @bitCast(y), @bitCast(z), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#toEulerAngles)
@@ -529,7 +529,7 @@ pub const qquaternion = struct {
     /// ` roll: f32 `
     ///
     pub fn FromEulerAngles2(pitch: f32, yaw: f32, roll: f32) QtC.QQuaternion {
-        return qtc.QQuaternion_FromEulerAngles2(@floatCast(pitch), @floatCast(yaw), @floatCast(roll));
+        return qtc.QQuaternion_FromEulerAngles2(@bitCast(pitch), @bitCast(yaw), @bitCast(roll));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#getAxes)
@@ -597,7 +597,7 @@ pub const qquaternion = struct {
     /// ` t: f32 `
     ///
     pub fn Slerp(q1: ?*anyopaque, q2: ?*anyopaque, t: f32) QtC.QQuaternion {
-        return qtc.QQuaternion_Slerp(@ptrCast(q1), @ptrCast(q2), @floatCast(t));
+        return qtc.QQuaternion_Slerp(@ptrCast(q1), @ptrCast(q2), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#nlerp)
@@ -611,7 +611,7 @@ pub const qquaternion = struct {
     /// ` t: f32 `
     ///
     pub fn Nlerp(q1: ?*anyopaque, q2: ?*anyopaque, t: f32) QtC.QQuaternion {
-        return qtc.QQuaternion_Nlerp(@ptrCast(q1), @ptrCast(q2), @floatCast(t));
+        return qtc.QQuaternion_Nlerp(@ptrCast(q1), @ptrCast(q2), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#dtor.QQuaternion)

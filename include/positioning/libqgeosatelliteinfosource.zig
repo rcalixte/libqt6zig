@@ -39,7 +39,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGeoSatelliteInfoSource_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -74,7 +74,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGeoSatelliteInfoSource_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -101,7 +101,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGeoSatelliteInfoSource_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGeoSatelliteInfoSource_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -113,7 +113,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGeoSatelliteInfoSource_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -129,7 +129,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGeoSatelliteInfoSource_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGeoSatelliteInfoSource_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -299,7 +299,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` msec: i32 `
     ///
     pub fn SetUpdateInterval(self: ?*anyopaque, msec: i32) void {
-        qtc.QGeoSatelliteInfoSource_SetUpdateInterval(@ptrCast(self), @intCast(msec));
+        qtc.QGeoSatelliteInfoSource_SetUpdateInterval(@ptrCast(self), @bitCast(msec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#setUpdateInterval)
@@ -313,7 +313,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, msec: i32) callconv(.c) void `
     ///
     pub fn OnSetUpdateInterval(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGeoSatelliteInfoSource_OnSetUpdateInterval(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnSetUpdateInterval(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#setUpdateInterval)
@@ -327,7 +327,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` msec: i32 `
     ///
     pub fn QBaseSetUpdateInterval(self: ?*anyopaque, msec: i32) void {
-        qtc.QGeoSatelliteInfoSource_QBaseSetUpdateInterval(@ptrCast(self), @intCast(msec));
+        qtc.QGeoSatelliteInfoSource_QBaseSetUpdateInterval(@ptrCast(self), @bitCast(msec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#updateInterval)
@@ -361,7 +361,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnMinimumUpdateInterval(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGeoSatelliteInfoSource_OnMinimumUpdateInterval(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnMinimumUpdateInterval(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#minimumUpdateInterval)
@@ -401,7 +401,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnError(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGeoSatelliteInfoSource_OnError(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#error)
@@ -449,7 +449,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, name: [*:0]const u8, value: QtC.QVariant) callconv(.c) bool `
     ///
     pub fn OnSetBackendProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGeoSatelliteInfoSource_OnSetBackendProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnSetBackendProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#setBackendProperty)
@@ -499,7 +499,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, name: [*:0]const u8) callconv(.c) QtC.QVariant `
     ///
     pub fn OnBackendProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QVariant) void {
-        qtc.QGeoSatelliteInfoSource_OnBackendProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnBackendProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#backendProperty)
@@ -541,7 +541,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnStartUpdates(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGeoSatelliteInfoSource_OnStartUpdates(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnStartUpdates(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#startUpdates)
@@ -577,7 +577,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnStopUpdates(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGeoSatelliteInfoSource_OnStopUpdates(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnStopUpdates(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#stopUpdates)
@@ -601,7 +601,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` timeout: i32 `
     ///
     pub fn RequestUpdate(self: ?*anyopaque, timeout: i32) void {
-        qtc.QGeoSatelliteInfoSource_RequestUpdate(@ptrCast(self), @intCast(timeout));
+        qtc.QGeoSatelliteInfoSource_RequestUpdate(@ptrCast(self), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#requestUpdate)
@@ -615,7 +615,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, timeout: i32) callconv(.c) void `
     ///
     pub fn OnRequestUpdate(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGeoSatelliteInfoSource_OnRequestUpdate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnRequestUpdate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#requestUpdate)
@@ -629,7 +629,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` timeout: i32 `
     ///
     pub fn QBaseRequestUpdate(self: ?*anyopaque, timeout: i32) void {
-        qtc.QGeoSatelliteInfoSource_QBaseRequestUpdate(@ptrCast(self), @intCast(timeout));
+        qtc.QGeoSatelliteInfoSource_QBaseRequestUpdate(@ptrCast(self), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#satellitesInViewUpdated)
@@ -657,7 +657,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, satellites: qtc.libqt_list ([]QtC.QGeoSatelliteInfo)) callconv(.c) void `
     ///
     pub fn OnSatellitesInViewUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QGeoSatelliteInfoSource_Connect_SatellitesInViewUpdated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_Connect_SatellitesInViewUpdated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#satellitesInUseUpdated)
@@ -685,7 +685,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, satellites: qtc.libqt_list ([]QtC.QGeoSatelliteInfo)) callconv(.c) void `
     ///
     pub fn OnSatellitesInUseUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QGeoSatelliteInfoSource_Connect_SatellitesInUseUpdated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_Connect_SatellitesInUseUpdated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#errorOccurred)
@@ -697,7 +697,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` param1: qgeosatelliteinfosource_enums.Error `
     ///
     pub fn ErrorOccurred(self: ?*anyopaque, param1: i32) void {
-        qtc.QGeoSatelliteInfoSource_ErrorOccurred(@ptrCast(self), @intCast(param1));
+        qtc.QGeoSatelliteInfoSource_ErrorOccurred(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#errorOccurred)
@@ -709,7 +709,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, param1: qgeosatelliteinfosource_enums.Error) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGeoSatelliteInfoSource_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -747,7 +747,7 @@ pub const qgeosatelliteinfosource = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeosatelliteinfosource.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -885,7 +885,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -899,7 +899,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -913,7 +913,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -927,7 +927,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1257,7 +1257,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1312,7 +1312,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1328,7 +1328,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1350,7 +1350,7 @@ pub const qgeosatelliteinfosource = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1370,7 +1370,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1392,7 +1392,7 @@ pub const qgeosatelliteinfosource = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1489,7 +1489,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1537,7 +1537,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGeoSatelliteInfoSource_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1589,7 +1589,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGeoSatelliteInfoSource_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1637,7 +1637,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoSatelliteInfoSource_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1685,7 +1685,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoSatelliteInfoSource_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1733,7 +1733,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoSatelliteInfoSource_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1781,7 +1781,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoSatelliteInfoSource_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1829,7 +1829,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoSatelliteInfoSource_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1873,7 +1873,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGeoSatelliteInfoSource_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1917,7 +1917,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGeoSatelliteInfoSource_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1967,7 +1967,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGeoSatelliteInfoSource_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2015,7 +2015,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGeoSatelliteInfoSource_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoSatelliteInfoSource_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2031,7 +2031,7 @@ pub const qgeosatelliteinfosource = struct {
     /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#dtor.QGeoSatelliteInfoSource)

@@ -65,7 +65,7 @@ pub const qopenglversionprofile = struct {
     /// ` minorVersion: i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, majorVersion: i32, minorVersion: i32) void {
-        qtc.QOpenGLVersionProfile_SetVersion(@ptrCast(self), @intCast(majorVersion), @intCast(minorVersion));
+        qtc.QOpenGLVersionProfile_SetVersion(@ptrCast(self), @bitCast(majorVersion), @bitCast(minorVersion));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html#profile)
@@ -91,7 +91,7 @@ pub const qopenglversionprofile = struct {
     /// ` profile: qsurfaceformat_enums.OpenGLContextProfile `
     ///
     pub fn SetProfile(self: ?*anyopaque, profile: i32) void {
-        qtc.QOpenGLVersionProfile_SetProfile(@ptrCast(self), @intCast(profile));
+        qtc.QOpenGLVersionProfile_SetProfile(@ptrCast(self), @bitCast(profile));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html#hasProfiles)

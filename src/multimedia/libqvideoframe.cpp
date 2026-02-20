@@ -26,11 +26,15 @@ QVideoFrame* QVideoFrame_new3(const QImage* image) {
     return new QVideoFrame(*image);
 }
 
-QVideoFrame* QVideoFrame_new4(const QVideoFrame* other) {
+QVideoFrame* QVideoFrame_new4(QAbstractVideoBuffer* videoBuffer) {
+    return new QVideoFrame(std::unique_ptr<QAbstractVideoBuffer>(videoBuffer));
+}
+
+QVideoFrame* QVideoFrame_new5(const QVideoFrame* other) {
     return new QVideoFrame(*other);
 }
 
-QVideoFrame* QVideoFrame_new5(QAbstractVideoBuffer* buffer, const QVideoFrameFormat* format) {
+QVideoFrame* QVideoFrame_new6(QAbstractVideoBuffer* buffer, const QVideoFrameFormat* format) {
     return new QVideoFrame(buffer, *format);
 }
 

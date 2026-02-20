@@ -50,7 +50,7 @@ pub const qplaceresult = struct {
     /// ` distance: f64 `
     ///
     pub fn SetDistance(self: ?*anyopaque, distance: f64) void {
-        qtc.QPlaceResult_SetDistance(@ptrCast(self), @floatCast(distance));
+        qtc.QPlaceResult_SetDistance(@ptrCast(self), @bitCast(distance));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceresult.html#place)

@@ -118,7 +118,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QCompleter_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -153,7 +153,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QCompleter_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -180,7 +180,7 @@ pub const qcompleter = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QCompleter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QCompleter_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -192,7 +192,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QCompleter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -208,7 +208,7 @@ pub const qcompleter = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QCompleter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QCompleter_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -281,7 +281,7 @@ pub const qcompleter = struct {
     /// ` mode: qcompleter_enums.CompletionMode `
     ///
     pub fn SetCompletionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QCompleter_SetCompletionMode(@ptrCast(self), @intCast(mode));
+        qtc.QCompleter_SetCompletionMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionMode)
@@ -307,7 +307,7 @@ pub const qcompleter = struct {
     /// ` filterMode: flag of qnamespace_enums.MatchFlag `
     ///
     pub fn SetFilterMode(self: ?*anyopaque, filterMode: i32) void {
-        qtc.QCompleter_SetFilterMode(@ptrCast(self), @intCast(filterMode));
+        qtc.QCompleter_SetFilterMode(@ptrCast(self), @bitCast(filterMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#filterMode)
@@ -355,7 +355,7 @@ pub const qcompleter = struct {
     /// ` caseSensitivity: qnamespace_enums.CaseSensitivity `
     ///
     pub fn SetCaseSensitivity(self: ?*anyopaque, caseSensitivity: i32) void {
-        qtc.QCompleter_SetCaseSensitivity(@ptrCast(self), @intCast(caseSensitivity));
+        qtc.QCompleter_SetCaseSensitivity(@ptrCast(self), @bitCast(caseSensitivity));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#caseSensitivity)
@@ -381,7 +381,7 @@ pub const qcompleter = struct {
     /// ` sorting: qcompleter_enums.ModelSorting `
     ///
     pub fn SetModelSorting(self: ?*anyopaque, sorting: i32) void {
-        qtc.QCompleter_SetModelSorting(@ptrCast(self), @intCast(sorting));
+        qtc.QCompleter_SetModelSorting(@ptrCast(self), @bitCast(sorting));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#modelSorting)
@@ -407,7 +407,7 @@ pub const qcompleter = struct {
     /// ` column: i32 `
     ///
     pub fn SetCompletionColumn(self: ?*anyopaque, column: i32) void {
-        qtc.QCompleter_SetCompletionColumn(@ptrCast(self), @intCast(column));
+        qtc.QCompleter_SetCompletionColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionColumn)
@@ -429,7 +429,7 @@ pub const qcompleter = struct {
     /// ` role: i32 `
     ///
     pub fn SetCompletionRole(self: ?*anyopaque, role: i32) void {
-        qtc.QCompleter_SetCompletionRole(@ptrCast(self), @intCast(role));
+        qtc.QCompleter_SetCompletionRole(@ptrCast(self), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionRole)
@@ -471,7 +471,7 @@ pub const qcompleter = struct {
     /// ` maxItems: i32 `
     ///
     pub fn SetMaxVisibleItems(self: ?*anyopaque, maxItems: i32) void {
-        qtc.QCompleter_SetMaxVisibleItems(@ptrCast(self), @intCast(maxItems));
+        qtc.QCompleter_SetMaxVisibleItems(@ptrCast(self), @bitCast(maxItems));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#completionCount)
@@ -493,7 +493,7 @@ pub const qcompleter = struct {
     /// ` row: i32 `
     ///
     pub fn SetCurrentRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QCompleter_SetCurrentRow(@ptrCast(self), @intCast(row));
+        return qtc.QCompleter_SetCurrentRow(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#currentRow)
@@ -627,7 +627,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, index: QtC.QModelIndex) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnPathFromIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
-        qtc.QCompleter_OnPathFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnPathFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#pathFromIndex)
@@ -696,7 +696,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, path: [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
     pub fn OnSplitPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QCompleter_OnSplitPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnSplitPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#splitPath)
@@ -759,7 +759,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, o: QtC.QObject, e: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCompleter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#eventFilter)
@@ -801,7 +801,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, param1: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCompleter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#event)
@@ -909,7 +909,7 @@ pub const qcompleter = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcompleter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1059,7 +1059,7 @@ pub const qcompleter = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1073,7 +1073,7 @@ pub const qcompleter = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1087,7 +1087,7 @@ pub const qcompleter = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1101,7 +1101,7 @@ pub const qcompleter = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1431,7 +1431,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1486,7 +1486,7 @@ pub const qcompleter = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1502,7 +1502,7 @@ pub const qcompleter = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1524,7 +1524,7 @@ pub const qcompleter = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1544,7 +1544,7 @@ pub const qcompleter = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1566,7 +1566,7 @@ pub const qcompleter = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1663,7 +1663,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1711,7 +1711,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCompleter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1759,7 +1759,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCompleter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1807,7 +1807,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCompleter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1855,7 +1855,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCompleter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1903,7 +1903,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCompleter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1947,7 +1947,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QCompleter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1991,7 +1991,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCompleter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2041,7 +2041,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QCompleter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2089,7 +2089,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCompleter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCompleter_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2105,7 +2105,7 @@ pub const qcompleter = struct {
     /// ` callback: *const fn (self: QtC.QCompleter, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#dtor.QCompleter)

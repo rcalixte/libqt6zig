@@ -18,7 +18,7 @@ pub const qnativeipckey = struct {
     /// ` typeVal: qtipccommon_enums.Type `
     ///
     pub fn New2(typeVal: u16) QtC.QNativeIpcKey {
-        return qtc.QNativeIpcKey_new2(@intCast(typeVal));
+        return qtc.QNativeIpcKey_new2(@bitCast(typeVal));
     }
 
     /// New3 constructs a new QNativeIpcKey object.
@@ -60,7 +60,7 @@ pub const qnativeipckey = struct {
             .data = k.ptr,
         };
 
-        return qtc.QNativeIpcKey_new5(k_str, @intCast(typeVal));
+        return qtc.QNativeIpcKey_new5(k_str, @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#legacyDefaultTypeForOs)
@@ -140,7 +140,7 @@ pub const qnativeipckey = struct {
     /// ` typeVal: qtipccommon_enums.Type `
     ///
     pub fn SetType(self: ?*anyopaque, typeVal: u16) void {
-        qtc.QNativeIpcKey_SetType(@ptrCast(self), @intCast(typeVal));
+        qtc.QNativeIpcKey_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#nativeKey)

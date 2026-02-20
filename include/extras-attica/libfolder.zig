@@ -105,7 +105,7 @@ pub const attica__folder = struct {
     /// ` messageCount: i32 `
     ///
     pub fn SetMessageCount(self: ?*anyopaque, messageCount: i32) void {
-        qtc.Attica__Folder_SetMessageCount(@ptrCast(self), @intCast(messageCount));
+        qtc.Attica__Folder_SetMessageCount(@ptrCast(self), @bitCast(messageCount));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-folder.html#messageCount)

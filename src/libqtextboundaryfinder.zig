@@ -35,7 +35,7 @@ pub const qtextboundaryfinder = struct {
             .data = stringVal.ptr,
         };
 
-        return qtc.QTextBoundaryFinder_new3(@intCast(typeVal), stringVal_str);
+        return qtc.QTextBoundaryFinder_new3(@bitCast(typeVal), stringVal_str);
     }
 
     /// New4 constructs a new QTextBoundaryFinder object.
@@ -49,7 +49,7 @@ pub const qtextboundaryfinder = struct {
     /// ` length: i64 `
     ///
     pub fn New4(typeVal: i32, chars: ?*anyopaque, length: i64) QtC.QTextBoundaryFinder {
-        return qtc.QTextBoundaryFinder_new4(@intCast(typeVal), @ptrCast(chars), @intCast(length));
+        return qtc.QTextBoundaryFinder_new4(@bitCast(typeVal), @ptrCast(chars), @bitCast(length));
     }
 
     /// New5 constructs a new QTextBoundaryFinder object.
@@ -65,7 +65,7 @@ pub const qtextboundaryfinder = struct {
     /// ` buffer: *u8 `
     ///
     pub fn New5(typeVal: i32, chars: ?*anyopaque, length: i64, buffer: *u8) QtC.QTextBoundaryFinder {
-        return qtc.QTextBoundaryFinder_new5(@intCast(typeVal), @ptrCast(chars), @intCast(length), @ptrCast(buffer));
+        return qtc.QTextBoundaryFinder_new5(@bitCast(typeVal), @ptrCast(chars), @bitCast(length), @ptrCast(buffer));
     }
 
     /// New6 constructs a new QTextBoundaryFinder object.
@@ -83,7 +83,7 @@ pub const qtextboundaryfinder = struct {
     /// ` bufferSize: i64 `
     ///
     pub fn New6(typeVal: i32, chars: ?*anyopaque, length: i64, buffer: *u8, bufferSize: i64) QtC.QTextBoundaryFinder {
-        return qtc.QTextBoundaryFinder_new6(@intCast(typeVal), @ptrCast(chars), @intCast(length), @ptrCast(buffer), @intCast(bufferSize));
+        return qtc.QTextBoundaryFinder_new6(@bitCast(typeVal), @ptrCast(chars), @bitCast(length), @ptrCast(buffer), @bitCast(bufferSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextboundaryfinder.html#operator-eq)
@@ -177,7 +177,7 @@ pub const qtextboundaryfinder = struct {
     /// ` position: i64 `
     ///
     pub fn SetPosition(self: ?*anyopaque, position: i64) void {
-        qtc.QTextBoundaryFinder_SetPosition(@ptrCast(self), @intCast(position));
+        qtc.QTextBoundaryFinder_SetPosition(@ptrCast(self), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextboundaryfinder.html#toNextBoundary)

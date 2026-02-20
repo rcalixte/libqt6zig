@@ -36,7 +36,7 @@ pub const qnetworkproxyquery = struct {
             .data = hostname.ptr,
         };
 
-        return qtc.QNetworkProxyQuery_new3(hostname_str, @intCast(port));
+        return qtc.QNetworkProxyQuery_new3(hostname_str, @bitCast(port));
     }
 
     /// New4 constructs a new QNetworkProxyQuery object.
@@ -46,7 +46,7 @@ pub const qnetworkproxyquery = struct {
     /// ` bindPort: u16 `
     ///
     pub fn New4(bindPort: u16) QtC.QNetworkProxyQuery {
-        return qtc.QNetworkProxyQuery_new4(@intCast(bindPort));
+        return qtc.QNetworkProxyQuery_new4(@bitCast(bindPort));
     }
 
     /// New5 constructs a new QNetworkProxyQuery object.
@@ -68,7 +68,7 @@ pub const qnetworkproxyquery = struct {
     /// ` queryType: qnetworkproxy_enums.QueryType `
     ///
     pub fn New6(requestUrl: ?*anyopaque, queryType: i32) QtC.QNetworkProxyQuery {
-        return qtc.QNetworkProxyQuery_new6(@ptrCast(requestUrl), @intCast(queryType));
+        return qtc.QNetworkProxyQuery_new6(@ptrCast(requestUrl), @bitCast(queryType));
     }
 
     /// New7 constructs a new QNetworkProxyQuery object.
@@ -91,7 +91,7 @@ pub const qnetworkproxyquery = struct {
             .data = protocolTag.ptr,
         };
 
-        return qtc.QNetworkProxyQuery_new7(hostname_str, @intCast(port), protocolTag_str);
+        return qtc.QNetworkProxyQuery_new7(hostname_str, @bitCast(port), protocolTag_str);
     }
 
     /// New8 constructs a new QNetworkProxyQuery object.
@@ -116,7 +116,7 @@ pub const qnetworkproxyquery = struct {
             .data = protocolTag.ptr,
         };
 
-        return qtc.QNetworkProxyQuery_new8(hostname_str, @intCast(port), protocolTag_str, @intCast(queryType));
+        return qtc.QNetworkProxyQuery_new8(hostname_str, @bitCast(port), protocolTag_str, @bitCast(queryType));
     }
 
     /// New9 constructs a new QNetworkProxyQuery object.
@@ -133,7 +133,7 @@ pub const qnetworkproxyquery = struct {
             .data = protocolTag.ptr,
         };
 
-        return qtc.QNetworkProxyQuery_new9(@intCast(bindPort), protocolTag_str);
+        return qtc.QNetworkProxyQuery_new9(@bitCast(bindPort), protocolTag_str);
     }
 
     /// New10 constructs a new QNetworkProxyQuery object.
@@ -152,7 +152,7 @@ pub const qnetworkproxyquery = struct {
             .data = protocolTag.ptr,
         };
 
-        return qtc.QNetworkProxyQuery_new10(@intCast(bindPort), protocolTag_str, @intCast(queryType));
+        return qtc.QNetworkProxyQuery_new10(@bitCast(bindPort), protocolTag_str, @bitCast(queryType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#operator-eq)
@@ -226,7 +226,7 @@ pub const qnetworkproxyquery = struct {
     /// ` typeVal: qnetworkproxy_enums.QueryType `
     ///
     pub fn SetQueryType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QNetworkProxyQuery_SetQueryType(@ptrCast(self), @intCast(typeVal));
+        qtc.QNetworkProxyQuery_SetQueryType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#peerPort)
@@ -248,7 +248,7 @@ pub const qnetworkproxyquery = struct {
     /// ` port: i32 `
     ///
     pub fn SetPeerPort(self: ?*anyopaque, port: i32) void {
-        qtc.QNetworkProxyQuery_SetPeerPort(@ptrCast(self), @intCast(port));
+        qtc.QNetworkProxyQuery_SetPeerPort(@ptrCast(self), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#peerHostName)
@@ -302,7 +302,7 @@ pub const qnetworkproxyquery = struct {
     /// ` port: i32 `
     ///
     pub fn SetLocalPort(self: ?*anyopaque, port: i32) void {
-        qtc.QNetworkProxyQuery_SetLocalPort(@ptrCast(self), @intCast(port));
+        qtc.QNetworkProxyQuery_SetLocalPort(@ptrCast(self), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#protocolTag)
@@ -387,7 +387,7 @@ pub const qnetworkproxy = struct {
     /// ` typeVal: qnetworkproxy_enums.ProxyType `
     ///
     pub fn New2(typeVal: i32) QtC.QNetworkProxy {
-        return qtc.QNetworkProxy_new2(@intCast(typeVal));
+        return qtc.QNetworkProxy_new2(@bitCast(typeVal));
     }
 
     /// New3 constructs a new QNetworkProxy object.
@@ -414,7 +414,7 @@ pub const qnetworkproxy = struct {
             .data = hostName.ptr,
         };
 
-        return qtc.QNetworkProxy_new4(@intCast(typeVal), hostName_str);
+        return qtc.QNetworkProxy_new4(@bitCast(typeVal), hostName_str);
     }
 
     /// New5 constructs a new QNetworkProxy object.
@@ -433,7 +433,7 @@ pub const qnetworkproxy = struct {
             .data = hostName.ptr,
         };
 
-        return qtc.QNetworkProxy_new5(@intCast(typeVal), hostName_str, @intCast(port));
+        return qtc.QNetworkProxy_new5(@bitCast(typeVal), hostName_str, @bitCast(port));
     }
 
     /// New6 constructs a new QNetworkProxy object.
@@ -458,7 +458,7 @@ pub const qnetworkproxy = struct {
             .data = user.ptr,
         };
 
-        return qtc.QNetworkProxy_new6(@intCast(typeVal), hostName_str, @intCast(port), user_str);
+        return qtc.QNetworkProxy_new6(@bitCast(typeVal), hostName_str, @bitCast(port), user_str);
     }
 
     /// New7 constructs a new QNetworkProxy object.
@@ -489,7 +489,7 @@ pub const qnetworkproxy = struct {
             .data = password.ptr,
         };
 
-        return qtc.QNetworkProxy_new7(@intCast(typeVal), hostName_str, @intCast(port), user_str, password_str);
+        return qtc.QNetworkProxy_new7(@bitCast(typeVal), hostName_str, @bitCast(port), user_str, password_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#operator-eq)
@@ -549,7 +549,7 @@ pub const qnetworkproxy = struct {
     /// ` typeVal: qnetworkproxy_enums.ProxyType `
     ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QNetworkProxy_SetType(@ptrCast(self), @intCast(typeVal));
+        qtc.QNetworkProxy_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#type)
@@ -575,7 +575,7 @@ pub const qnetworkproxy = struct {
     /// ` capab: flag of qnetworkproxy_enums.Capability `
     ///
     pub fn SetCapabilities(self: ?*anyopaque, capab: i32) void {
-        qtc.QNetworkProxy_SetCapabilities(@ptrCast(self), @intCast(capab));
+        qtc.QNetworkProxy_SetCapabilities(@ptrCast(self), @bitCast(capab));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#capabilities)
@@ -717,7 +717,7 @@ pub const qnetworkproxy = struct {
     /// ` port: u16 `
     ///
     pub fn SetPort(self: ?*anyopaque, port: u16) void {
-        qtc.QNetworkProxy_SetPort(@ptrCast(self), @intCast(port));
+        qtc.QNetworkProxy_SetPort(@ptrCast(self), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#port)
@@ -777,7 +777,7 @@ pub const qnetworkproxy = struct {
     /// ` header: qnetworkrequest_enums.KnownHeaders `
     ///
     pub fn Header(self: ?*anyopaque, header: i32) QtC.QVariant {
-        return qtc.QNetworkProxy_Header(@ptrCast(self), @intCast(header));
+        return qtc.QNetworkProxy_Header(@ptrCast(self), @bitCast(header));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#setHeader)
@@ -791,7 +791,7 @@ pub const qnetworkproxy = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetHeader(self: ?*anyopaque, header: i32, value: ?*anyopaque) void {
-        qtc.QNetworkProxy_SetHeader(@ptrCast(self), @intCast(header), @ptrCast(value));
+        qtc.QNetworkProxy_SetHeader(@ptrCast(self), @bitCast(header), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#hasRawHeader)
@@ -938,7 +938,7 @@ pub const qnetworkproxyfactory = struct {
     /// ` C ABI representation of []QtC.QNetworkProxy `
     ///
     pub fn OnQueryProxy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_list) void {
-        qtc.QNetworkProxyFactory_OnQueryProxy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QNetworkProxyFactory_OnQueryProxy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#queryProxy)

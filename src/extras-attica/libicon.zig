@@ -72,7 +72,7 @@ pub const attica__icon = struct {
     /// ` width: u32 `
     ///
     pub fn SetWidth(self: ?*anyopaque, width: u32) void {
-        qtc.Attica__Icon_SetWidth(@ptrCast(self), @intCast(width));
+        qtc.Attica__Icon_SetWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-icon.html#height)
@@ -94,7 +94,7 @@ pub const attica__icon = struct {
     /// ` height: u32 `
     ///
     pub fn SetHeight(self: ?*anyopaque, height: u32) void {
-        qtc.Attica__Icon_SetHeight(@ptrCast(self), @intCast(height));
+        qtc.Attica__Icon_SetHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// Delete this object from C++ memory.

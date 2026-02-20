@@ -181,7 +181,7 @@ pub const attica__forum = struct {
     /// ` childCount: i32 `
     ///
     pub fn SetChildCount(self: ?*anyopaque, childCount: i32) void {
-        qtc.Attica__Forum_SetChildCount(@ptrCast(self), @intCast(childCount));
+        qtc.Attica__Forum_SetChildCount(@ptrCast(self), @bitCast(childCount));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-forum.html#childCount)
@@ -203,7 +203,7 @@ pub const attica__forum = struct {
     /// ` topics: i32 `
     ///
     pub fn SetTopics(self: ?*anyopaque, topics: i32) void {
-        qtc.Attica__Forum_SetTopics(@ptrCast(self), @intCast(topics));
+        qtc.Attica__Forum_SetTopics(@ptrCast(self), @bitCast(topics));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-forum.html#topics)

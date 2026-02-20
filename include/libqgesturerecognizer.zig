@@ -34,7 +34,7 @@ pub const qgesturerecognizer = struct {
     /// ` callback: *const fn (self: QtC.QGestureRecognizer, target: QtC.QObject) callconv(.c) QtC.QGesture `
     ///
     pub fn OnCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QGesture) void {
-        qtc.QGestureRecognizer_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGestureRecognizer_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#create)
@@ -82,7 +82,7 @@ pub const qgesturerecognizer = struct {
     /// ` callback: *const fn (self: QtC.QGestureRecognizer, state: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) i32 `
     ///
     pub fn OnRecognize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QGestureRecognizer_OnRecognize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGestureRecognizer_OnRecognize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
@@ -130,7 +130,7 @@ pub const qgesturerecognizer = struct {
     /// ` callback: *const fn (self: QtC.QGestureRecognizer, state: QtC.QGesture) callconv(.c) void `
     ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGestureRecognizer_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGestureRecognizer_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
@@ -168,7 +168,7 @@ pub const qgesturerecognizer = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn UnregisterRecognizer(typeVal: i32) void {
-        qtc.QGestureRecognizer_UnregisterRecognizer(@intCast(typeVal));
+        qtc.QGestureRecognizer_UnregisterRecognizer(@bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#operator-eq)

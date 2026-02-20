@@ -56,7 +56,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QStackedLayout_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -91,7 +91,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QStackedLayout_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -118,7 +118,7 @@ pub const qstackedlayout = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QStackedLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QStackedLayout_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -130,7 +130,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QStackedLayout_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -146,7 +146,7 @@ pub const qstackedlayout = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QStackedLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QStackedLayout_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -189,7 +189,7 @@ pub const qstackedlayout = struct {
     /// ` w: QtC.QWidget `
     ///
     pub fn InsertWidget(self: ?*anyopaque, index: i32, w: ?*anyopaque) i32 {
-        return qtc.QStackedLayout_InsertWidget(@ptrCast(self), @intCast(index), @ptrCast(w));
+        return qtc.QStackedLayout_InsertWidget(@ptrCast(self), @bitCast(index), @ptrCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#currentWidget)
@@ -221,7 +221,7 @@ pub const qstackedlayout = struct {
     /// ` param1: i32 `
     ///
     pub fn Widget(self: ?*anyopaque, param1: i32) QtC.QWidget {
-        return qtc.QStackedLayout_Widget(@ptrCast(self), @intCast(param1));
+        return qtc.QStackedLayout_Widget(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#count)
@@ -245,7 +245,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QStackedLayout_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#count)
@@ -283,7 +283,7 @@ pub const qstackedlayout = struct {
     /// ` stackingMode: qstackedlayout_enums.StackingMode `
     ///
     pub fn SetStackingMode(self: ?*anyopaque, stackingMode: i32) void {
-        qtc.QStackedLayout_SetStackingMode(@ptrCast(self), @intCast(stackingMode));
+        qtc.QStackedLayout_SetStackingMode(@ptrCast(self), @bitCast(stackingMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#addItem)
@@ -309,7 +309,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, item: QtC.QLayoutItem) callconv(.c) void `
     ///
     pub fn OnAddItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStackedLayout_OnAddItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnAddItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#addItem)
@@ -347,7 +347,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QStackedLayout_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#sizeHint)
@@ -383,7 +383,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QStackedLayout_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnMinimumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#minimumSize)
@@ -407,7 +407,7 @@ pub const qstackedlayout = struct {
     /// ` param1: i32 `
     ///
     pub fn ItemAt(self: ?*anyopaque, param1: i32) QtC.QLayoutItem {
-        return qtc.QStackedLayout_ItemAt(@ptrCast(self), @intCast(param1));
+        return qtc.QStackedLayout_ItemAt(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#itemAt)
@@ -421,7 +421,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, param1: i32) callconv(.c) QtC.QLayoutItem `
     ///
     pub fn OnItemAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QStackedLayout_OnItemAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnItemAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#itemAt)
@@ -435,7 +435,7 @@ pub const qstackedlayout = struct {
     /// ` param1: i32 `
     ///
     pub fn QBaseItemAt(self: ?*anyopaque, param1: i32) QtC.QLayoutItem {
-        return qtc.QStackedLayout_QBaseItemAt(@ptrCast(self), @intCast(param1));
+        return qtc.QStackedLayout_QBaseItemAt(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#takeAt)
@@ -447,7 +447,7 @@ pub const qstackedlayout = struct {
     /// ` param1: i32 `
     ///
     pub fn TakeAt(self: ?*anyopaque, param1: i32) QtC.QLayoutItem {
-        return qtc.QStackedLayout_TakeAt(@ptrCast(self), @intCast(param1));
+        return qtc.QStackedLayout_TakeAt(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#takeAt)
@@ -461,7 +461,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, param1: i32) callconv(.c) QtC.QLayoutItem `
     ///
     pub fn OnTakeAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QStackedLayout_OnTakeAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnTakeAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#takeAt)
@@ -475,7 +475,7 @@ pub const qstackedlayout = struct {
     /// ` param1: i32 `
     ///
     pub fn QBaseTakeAt(self: ?*anyopaque, param1: i32) QtC.QLayoutItem {
-        return qtc.QStackedLayout_QBaseTakeAt(@ptrCast(self), @intCast(param1));
+        return qtc.QStackedLayout_QBaseTakeAt(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#setGeometry)
@@ -501,7 +501,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, rect: QtC.QRect) callconv(.c) void `
     ///
     pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStackedLayout_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnSetGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#setGeometry)
@@ -539,7 +539,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QStackedLayout_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#hasHeightForWidth)
@@ -563,7 +563,7 @@ pub const qstackedlayout = struct {
     /// ` width: i32 `
     ///
     pub fn HeightForWidth(self: ?*anyopaque, width: i32) i32 {
-        return qtc.QStackedLayout_HeightForWidth(@ptrCast(self), @intCast(width));
+        return qtc.QStackedLayout_HeightForWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#heightForWidth)
@@ -577,7 +577,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, width: i32) callconv(.c) i32 `
     ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QStackedLayout_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#heightForWidth)
@@ -591,7 +591,7 @@ pub const qstackedlayout = struct {
     /// ` width: i32 `
     ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, width: i32) i32 {
-        return qtc.QStackedLayout_QBaseHeightForWidth(@ptrCast(self), @intCast(width));
+        return qtc.QStackedLayout_QBaseHeightForWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#widgetRemoved)
@@ -603,7 +603,7 @@ pub const qstackedlayout = struct {
     /// ` index: i32 `
     ///
     pub fn WidgetRemoved(self: ?*anyopaque, index: i32) void {
-        qtc.QStackedLayout_WidgetRemoved(@ptrCast(self), @intCast(index));
+        qtc.QStackedLayout_WidgetRemoved(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#widgetRemoved)
@@ -615,7 +615,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, index: i32) callconv(.c) void `
     ///
     pub fn OnWidgetRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStackedLayout_Connect_WidgetRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_Connect_WidgetRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#currentChanged)
@@ -627,7 +627,7 @@ pub const qstackedlayout = struct {
     /// ` index: i32 `
     ///
     pub fn CurrentChanged(self: ?*anyopaque, index: i32) void {
-        qtc.QStackedLayout_CurrentChanged(@ptrCast(self), @intCast(index));
+        qtc.QStackedLayout_CurrentChanged(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#currentChanged)
@@ -639,7 +639,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, index: i32) callconv(.c) void `
     ///
     pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStackedLayout_Connect_CurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_Connect_CurrentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#setCurrentIndex)
@@ -651,7 +651,7 @@ pub const qstackedlayout = struct {
     /// ` index: i32 `
     ///
     pub fn SetCurrentIndex(self: ?*anyopaque, index: i32) void {
-        qtc.QStackedLayout_SetCurrentIndex(@ptrCast(self), @intCast(index));
+        qtc.QStackedLayout_SetCurrentIndex(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#setCurrentWidget)
@@ -701,7 +701,7 @@ pub const qstackedlayout = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstackedlayout.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -725,7 +725,7 @@ pub const qstackedlayout = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QLayout_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QLayout_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QLayout
@@ -811,7 +811,7 @@ pub const qstackedlayout = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i32) bool {
-        return qtc.QLayout_SetAlignment(@ptrCast(self), @ptrCast(w), @intCast(alignment));
+        return qtc.QLayout_SetAlignment(@ptrCast(self), @ptrCast(w), @bitCast(alignment));
     }
 
     /// Inherited from QLayout
@@ -827,7 +827,7 @@ pub const qstackedlayout = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i32) bool {
-        return qtc.QLayout_SetAlignment2(@ptrCast(self), @ptrCast(l), @intCast(alignment));
+        return qtc.QLayout_SetAlignment2(@ptrCast(self), @ptrCast(l), @bitCast(alignment));
     }
 
     /// Inherited from QLayout
@@ -841,7 +841,7 @@ pub const qstackedlayout = struct {
     /// ` sizeConstraint: qlayout_enums.SizeConstraint `
     ///
     pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i32) void {
-        qtc.QLayout_SetSizeConstraint(@ptrCast(self), @intCast(sizeConstraint));
+        qtc.QLayout_SetSizeConstraint(@ptrCast(self), @bitCast(sizeConstraint));
     }
 
     /// Inherited from QLayout
@@ -977,7 +977,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, param1: QtC.QLayoutItem) callconv(.c) i32 `
     ///
     pub fn OnIndexOf2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QLayout_OnIndexOf2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QLayout_OnIndexOf2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1007,7 +1007,7 @@ pub const qstackedlayout = struct {
     /// ` w: i32 `
     ///
     pub fn TotalMinimumHeightForWidth(self: ?*anyopaque, w: i32) i32 {
-        return qtc.QLayout_TotalMinimumHeightForWidth(@ptrCast(self), @intCast(w));
+        return qtc.QLayout_TotalMinimumHeightForWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// Inherited from QLayout
@@ -1021,7 +1021,7 @@ pub const qstackedlayout = struct {
     /// ` w: i32 `
     ///
     pub fn TotalHeightForWidth(self: ?*anyopaque, w: i32) i32 {
-        return qtc.QLayout_TotalHeightForWidth(@ptrCast(self), @intCast(w));
+        return qtc.QLayout_TotalHeightForWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// Inherited from QLayout
@@ -1231,7 +1231,7 @@ pub const qstackedlayout = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1245,7 +1245,7 @@ pub const qstackedlayout = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1259,7 +1259,7 @@ pub const qstackedlayout = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1273,7 +1273,7 @@ pub const qstackedlayout = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1603,7 +1603,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1658,7 +1658,7 @@ pub const qstackedlayout = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1674,7 +1674,7 @@ pub const qstackedlayout = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1696,7 +1696,7 @@ pub const qstackedlayout = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1716,7 +1716,7 @@ pub const qstackedlayout = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1738,7 +1738,7 @@ pub const qstackedlayout = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1835,7 +1835,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -1895,7 +1895,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSpacing(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QStackedLayout_OnSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnSpacing(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1911,7 +1911,7 @@ pub const qstackedlayout = struct {
     /// ` spacing: i32 `
     ///
     pub fn SetSpacing(self: ?*anyopaque, spacing: i32) void {
-        qtc.QStackedLayout_SetSpacing(@ptrCast(self), @intCast(spacing));
+        qtc.QStackedLayout_SetSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// Inherited from QLayout
@@ -1927,7 +1927,7 @@ pub const qstackedlayout = struct {
     /// ` spacing: i32 `
     ///
     pub fn QBaseSetSpacing(self: ?*anyopaque, spacing: i32) void {
-        qtc.QStackedLayout_QBaseSetSpacing(@ptrCast(self), @intCast(spacing));
+        qtc.QStackedLayout_QBaseSetSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// Inherited from QLayout
@@ -1943,7 +1943,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, spacing: i32) callconv(.c) void `
     ///
     pub fn OnSetSpacing(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStackedLayout_OnSetSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnSetSpacing(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1987,7 +1987,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QStackedLayout_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnInvalidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2031,7 +2031,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRect `
     ///
     pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
-        qtc.QStackedLayout_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2083,7 +2083,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QStackedLayout_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnExpandingDirections(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2127,7 +2127,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QStackedLayout_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnMaximumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2175,7 +2175,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, param1: QtC.QWidget) callconv(.c) i32 `
     ///
     pub fn OnIndexOf(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QStackedLayout_OnIndexOf(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnIndexOf(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2219,7 +2219,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QStackedLayout_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnIsEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2271,7 +2271,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QStackedLayout_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnControlTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2291,7 +2291,7 @@ pub const qstackedlayout = struct {
     /// ` options: flag of qnamespace_enums.FindChildOption `
     ///
     pub fn ReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i32) QtC.QLayoutItem {
-        return qtc.QStackedLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
+        return qtc.QStackedLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @bitCast(options));
     }
 
     /// Inherited from QLayout
@@ -2311,7 +2311,7 @@ pub const qstackedlayout = struct {
     /// ` options: flag of qnamespace_enums.FindChildOption `
     ///
     pub fn QBaseReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i32) QtC.QLayoutItem {
-        return qtc.QStackedLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
+        return qtc.QStackedLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @bitCast(options));
     }
 
     /// Inherited from QLayout
@@ -2327,7 +2327,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem `
     ///
     pub fn OnReplaceWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QStackedLayout_OnReplaceWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnReplaceWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2371,7 +2371,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QLayout `
     ///
     pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
-        qtc.QStackedLayout_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2419,7 +2419,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, e: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStackedLayout_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2467,7 +2467,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QStackedLayout_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2519,7 +2519,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QStackedLayout_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2567,7 +2567,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStackedLayout_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2615,7 +2615,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStackedLayout_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2663,7 +2663,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStackedLayout_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2711,7 +2711,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStackedLayout_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -2727,7 +2727,7 @@ pub const qstackedlayout = struct {
     /// ` param1: i32 `
     ///
     pub fn MinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QStackedLayout_MinimumHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QStackedLayout_MinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QLayoutItem
@@ -2743,7 +2743,7 @@ pub const qstackedlayout = struct {
     /// ` param1: i32 `
     ///
     pub fn QBaseMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QStackedLayout_QBaseMinimumHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QStackedLayout_QBaseMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QLayoutItem
@@ -2759,7 +2759,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, param1: i32) callconv(.c) i32 `
     ///
     pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QStackedLayout_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnMinimumHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -2803,7 +2803,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSpacerItem `
     ///
     pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
-        qtc.QStackedLayout_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnSpacerItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2851,7 +2851,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, param1: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnWidgetEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStackedLayout_OnWidgetEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnWidgetEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2899,7 +2899,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, l: QtC.QLayout) callconv(.c) void `
     ///
     pub fn OnAddChildLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStackedLayout_OnAddChildLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnAddChildLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2947,7 +2947,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, w: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnAddChildWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStackedLayout_OnAddChildWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnAddChildWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2995,7 +2995,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, layout: QtC.QLayout) callconv(.c) bool `
     ///
     pub fn OnAdoptLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QStackedLayout_OnAdoptLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnAdoptLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3043,7 +3043,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, param1: QtC.QRect) callconv(.c) QtC.QRect `
     ///
     pub fn OnAlignmentRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QStackedLayout_OnAlignmentRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnAlignmentRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3087,7 +3087,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QStackedLayout_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3131,7 +3131,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QStackedLayout_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3181,7 +3181,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QStackedLayout_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3229,7 +3229,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QStackedLayout_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStackedLayout_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3245,7 +3245,7 @@ pub const qstackedlayout = struct {
     /// ` callback: *const fn (self: QtC.QStackedLayout, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#dtor.QStackedLayout)

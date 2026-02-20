@@ -99,7 +99,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGeoRoutingManagerEngine_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -134,7 +134,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGeoRoutingManagerEngine_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -161,7 +161,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGeoRoutingManagerEngine_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGeoRoutingManagerEngine_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -173,7 +173,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGeoRoutingManagerEngine_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -189,7 +189,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGeoRoutingManagerEngine_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGeoRoutingManagerEngine_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -258,7 +258,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, request: QtC.QGeoRouteRequest) callconv(.c) QtC.QGeoRouteReply `
     ///
     pub fn OnCalculateRoute(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QGeoRouteReply) void {
-        qtc.QGeoRoutingManagerEngine_OnCalculateRoute(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnCalculateRoute(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#calculateRoute)
@@ -300,7 +300,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, route: QtC.QGeoRoute, position: QtC.QGeoCoordinate) callconv(.c) QtC.QGeoRouteReply `
     ///
     pub fn OnUpdateRoute(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QGeoRouteReply) void {
-        qtc.QGeoRoutingManagerEngine_OnUpdateRoute(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnUpdateRoute(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#updateRoute)
@@ -434,7 +434,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` system: qlocale_enums.MeasurementSystem `
     ///
     pub fn SetMeasurementSystem(self: ?*anyopaque, system: i32) void {
-        qtc.QGeoRoutingManagerEngine_SetMeasurementSystem(@ptrCast(self), @intCast(system));
+        qtc.QGeoRoutingManagerEngine_SetMeasurementSystem(@ptrCast(self), @bitCast(system));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#measurementSystem)
@@ -472,7 +472,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, reply: QtC.QGeoRouteReply) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#errorOccurred)
@@ -486,7 +486,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` errorVal: qgeoroutereply_enums.Error `
     ///
     pub fn ErrorOccurred(self: ?*anyopaque, reply: ?*anyopaque, errorVal: i32) void {
-        qtc.QGeoRoutingManagerEngine_ErrorOccurred(@ptrCast(self), @ptrCast(reply), @intCast(errorVal));
+        qtc.QGeoRoutingManagerEngine_ErrorOccurred(@ptrCast(self), @ptrCast(reply), @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#errorOccurred)
@@ -498,7 +498,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, reply: QtC.QGeoRouteReply, errorVal: qgeoroutereply_enums.Error) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedTravelModes)
@@ -510,7 +510,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` travelModes: flag of qgeorouterequest_enums.TravelMode `
     ///
     pub fn SetSupportedTravelModes(self: ?*anyopaque, travelModes: i32) void {
-        qtc.QGeoRoutingManagerEngine_SetSupportedTravelModes(@ptrCast(self), @intCast(travelModes));
+        qtc.QGeoRoutingManagerEngine_SetSupportedTravelModes(@ptrCast(self), @bitCast(travelModes));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedTravelModes)
@@ -524,7 +524,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, travelModes: flag of qgeorouterequest_enums.TravelMode) callconv(.c) void `
     ///
     pub fn OnSetSupportedTravelModes(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnSetSupportedTravelModes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnSetSupportedTravelModes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedTravelModes)
@@ -538,7 +538,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` travelModes: flag of qgeorouterequest_enums.TravelMode `
     ///
     pub fn QBaseSetSupportedTravelModes(self: ?*anyopaque, travelModes: i32) void {
-        qtc.QGeoRoutingManagerEngine_QBaseSetSupportedTravelModes(@ptrCast(self), @intCast(travelModes));
+        qtc.QGeoRoutingManagerEngine_QBaseSetSupportedTravelModes(@ptrCast(self), @bitCast(travelModes));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedFeatureTypes)
@@ -550,7 +550,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` featureTypes: flag of qgeorouterequest_enums.FeatureType `
     ///
     pub fn SetSupportedFeatureTypes(self: ?*anyopaque, featureTypes: i32) void {
-        qtc.QGeoRoutingManagerEngine_SetSupportedFeatureTypes(@ptrCast(self), @intCast(featureTypes));
+        qtc.QGeoRoutingManagerEngine_SetSupportedFeatureTypes(@ptrCast(self), @bitCast(featureTypes));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedFeatureTypes)
@@ -564,7 +564,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, featureTypes: flag of qgeorouterequest_enums.FeatureType) callconv(.c) void `
     ///
     pub fn OnSetSupportedFeatureTypes(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnSetSupportedFeatureTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnSetSupportedFeatureTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedFeatureTypes)
@@ -578,7 +578,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` featureTypes: flag of qgeorouterequest_enums.FeatureType `
     ///
     pub fn QBaseSetSupportedFeatureTypes(self: ?*anyopaque, featureTypes: i32) void {
-        qtc.QGeoRoutingManagerEngine_QBaseSetSupportedFeatureTypes(@ptrCast(self), @intCast(featureTypes));
+        qtc.QGeoRoutingManagerEngine_QBaseSetSupportedFeatureTypes(@ptrCast(self), @bitCast(featureTypes));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedFeatureWeights)
@@ -590,7 +590,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` featureWeights: flag of qgeorouterequest_enums.FeatureWeight `
     ///
     pub fn SetSupportedFeatureWeights(self: ?*anyopaque, featureWeights: i32) void {
-        qtc.QGeoRoutingManagerEngine_SetSupportedFeatureWeights(@ptrCast(self), @intCast(featureWeights));
+        qtc.QGeoRoutingManagerEngine_SetSupportedFeatureWeights(@ptrCast(self), @bitCast(featureWeights));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedFeatureWeights)
@@ -604,7 +604,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, featureWeights: flag of qgeorouterequest_enums.FeatureWeight) callconv(.c) void `
     ///
     pub fn OnSetSupportedFeatureWeights(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnSetSupportedFeatureWeights(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnSetSupportedFeatureWeights(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedFeatureWeights)
@@ -618,7 +618,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` featureWeights: flag of qgeorouterequest_enums.FeatureWeight `
     ///
     pub fn QBaseSetSupportedFeatureWeights(self: ?*anyopaque, featureWeights: i32) void {
-        qtc.QGeoRoutingManagerEngine_QBaseSetSupportedFeatureWeights(@ptrCast(self), @intCast(featureWeights));
+        qtc.QGeoRoutingManagerEngine_QBaseSetSupportedFeatureWeights(@ptrCast(self), @bitCast(featureWeights));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedRouteOptimizations)
@@ -630,7 +630,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` optimizations: flag of qgeorouterequest_enums.RouteOptimization `
     ///
     pub fn SetSupportedRouteOptimizations(self: ?*anyopaque, optimizations: i32) void {
-        qtc.QGeoRoutingManagerEngine_SetSupportedRouteOptimizations(@ptrCast(self), @intCast(optimizations));
+        qtc.QGeoRoutingManagerEngine_SetSupportedRouteOptimizations(@ptrCast(self), @bitCast(optimizations));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedRouteOptimizations)
@@ -644,7 +644,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, optimizations: flag of qgeorouterequest_enums.RouteOptimization) callconv(.c) void `
     ///
     pub fn OnSetSupportedRouteOptimizations(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnSetSupportedRouteOptimizations(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnSetSupportedRouteOptimizations(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedRouteOptimizations)
@@ -658,7 +658,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` optimizations: flag of qgeorouterequest_enums.RouteOptimization `
     ///
     pub fn QBaseSetSupportedRouteOptimizations(self: ?*anyopaque, optimizations: i32) void {
-        qtc.QGeoRoutingManagerEngine_QBaseSetSupportedRouteOptimizations(@ptrCast(self), @intCast(optimizations));
+        qtc.QGeoRoutingManagerEngine_QBaseSetSupportedRouteOptimizations(@ptrCast(self), @bitCast(optimizations));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedSegmentDetails)
@@ -670,7 +670,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` segmentDetails: flag of qgeorouterequest_enums.SegmentDetail `
     ///
     pub fn SetSupportedSegmentDetails(self: ?*anyopaque, segmentDetails: i32) void {
-        qtc.QGeoRoutingManagerEngine_SetSupportedSegmentDetails(@ptrCast(self), @intCast(segmentDetails));
+        qtc.QGeoRoutingManagerEngine_SetSupportedSegmentDetails(@ptrCast(self), @bitCast(segmentDetails));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedSegmentDetails)
@@ -684,7 +684,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, segmentDetails: flag of qgeorouterequest_enums.SegmentDetail) callconv(.c) void `
     ///
     pub fn OnSetSupportedSegmentDetails(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnSetSupportedSegmentDetails(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnSetSupportedSegmentDetails(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedSegmentDetails)
@@ -698,7 +698,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` segmentDetails: flag of qgeorouterequest_enums.SegmentDetail `
     ///
     pub fn QBaseSetSupportedSegmentDetails(self: ?*anyopaque, segmentDetails: i32) void {
-        qtc.QGeoRoutingManagerEngine_QBaseSetSupportedSegmentDetails(@ptrCast(self), @intCast(segmentDetails));
+        qtc.QGeoRoutingManagerEngine_QBaseSetSupportedSegmentDetails(@ptrCast(self), @bitCast(segmentDetails));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedManeuverDetails)
@@ -710,7 +710,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` maneuverDetails: flag of qgeorouterequest_enums.ManeuverDetail `
     ///
     pub fn SetSupportedManeuverDetails(self: ?*anyopaque, maneuverDetails: i32) void {
-        qtc.QGeoRoutingManagerEngine_SetSupportedManeuverDetails(@ptrCast(self), @intCast(maneuverDetails));
+        qtc.QGeoRoutingManagerEngine_SetSupportedManeuverDetails(@ptrCast(self), @bitCast(maneuverDetails));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedManeuverDetails)
@@ -724,7 +724,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, maneuverDetails: flag of qgeorouterequest_enums.ManeuverDetail) callconv(.c) void `
     ///
     pub fn OnSetSupportedManeuverDetails(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnSetSupportedManeuverDetails(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnSetSupportedManeuverDetails(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedManeuverDetails)
@@ -738,7 +738,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` maneuverDetails: flag of qgeorouterequest_enums.ManeuverDetail `
     ///
     pub fn QBaseSetSupportedManeuverDetails(self: ?*anyopaque, maneuverDetails: i32) void {
-        qtc.QGeoRoutingManagerEngine_QBaseSetSupportedManeuverDetails(@ptrCast(self), @intCast(maneuverDetails));
+        qtc.QGeoRoutingManagerEngine_QBaseSetSupportedManeuverDetails(@ptrCast(self), @bitCast(maneuverDetails));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -776,7 +776,7 @@ pub const qgeoroutingmanagerengine = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoroutingmanagerengine.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -800,7 +800,7 @@ pub const qgeoroutingmanagerengine = struct {
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QGeoRoutingManagerEngine_ErrorOccurred3(@ptrCast(self), @ptrCast(reply), @intCast(errorVal), errorString_str);
+        qtc.QGeoRoutingManagerEngine_ErrorOccurred3(@ptrCast(self), @ptrCast(reply), @bitCast(errorVal), errorString_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#errorOccurred)
@@ -812,7 +812,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, reply: QtC.QGeoRouteReply, errorVal: qgeoroutereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnErrorOccurred3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_Connect_ErrorOccurred3(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_Connect_ErrorOccurred3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -946,7 +946,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -960,7 +960,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -974,7 +974,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -988,7 +988,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1318,7 +1318,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1373,7 +1373,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1389,7 +1389,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1411,7 +1411,7 @@ pub const qgeoroutingmanagerengine = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1431,7 +1431,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1453,7 +1453,7 @@ pub const qgeoroutingmanagerengine = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1550,7 +1550,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1598,7 +1598,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGeoRoutingManagerEngine_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1650,7 +1650,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGeoRoutingManagerEngine_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1698,7 +1698,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1746,7 +1746,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1794,7 +1794,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1842,7 +1842,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1890,7 +1890,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1934,7 +1934,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGeoRoutingManagerEngine_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1978,7 +1978,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGeoRoutingManagerEngine_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2028,7 +2028,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGeoRoutingManagerEngine_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2076,7 +2076,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGeoRoutingManagerEngine_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoRoutingManagerEngine_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2092,7 +2092,7 @@ pub const qgeoroutingmanagerengine = struct {
     /// ` callback: *const fn (self: QtC.QGeoRoutingManagerEngine, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#dtor.QGeoRoutingManagerEngine)

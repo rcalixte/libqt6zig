@@ -35,7 +35,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KShellCompletion_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -70,7 +70,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KShellCompletion_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -97,7 +97,7 @@ pub const kshellcompletion = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KShellCompletion_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KShellCompletion_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -109,7 +109,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KShellCompletion_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -125,7 +125,7 @@ pub const kshellcompletion = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KShellCompletion_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KShellCompletion_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -180,7 +180,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, text: [*:0]const u8) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnMakeCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
-        qtc.KShellCompletion_OnMakeCompletion(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnMakeCompletion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshellcompletion.html#makeCompletion)
@@ -244,7 +244,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, matches: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
     pub fn OnPostProcessMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.KShellCompletion_OnPostProcessMatches(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnPostProcessMatches(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshellcompletion.html#postProcessMatches)
@@ -298,7 +298,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, matches: QtC.KCompletionMatches) callconv(.c) void `
     ///
     pub fn OnPostProcessMatches2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShellCompletion_OnPostProcessMatches2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnPostProcessMatches2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshellcompletion.html#postProcessMatches)
@@ -350,7 +350,7 @@ pub const kshellcompletion = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kshellcompletion.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -837,7 +837,7 @@ pub const kshellcompletion = struct {
             .len = item.len,
             .data = item.ptr,
         };
-        qtc.KCompletion_AddItem2(@ptrCast(self), item_str, @intCast(weight));
+        qtc.KCompletion_AddItem2(@ptrCast(self), item_str, @bitCast(weight));
     }
 
     /// Inherited from KCompletion
@@ -887,7 +887,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, item: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KCompletion_Connect_Match(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletion_Connect_Match(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -929,7 +929,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, matchlist: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
     pub fn OnMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.KCompletion_Connect_Matches(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletion_Connect_Matches(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -955,7 +955,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion) callconv(.c) void `
     ///
     pub fn OnMultipleMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletion_Connect_MultipleMatches(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCompletion_Connect_MultipleMatches(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1089,7 +1089,7 @@ pub const kshellcompletion = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1103,7 +1103,7 @@ pub const kshellcompletion = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1117,7 +1117,7 @@ pub const kshellcompletion = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1131,7 +1131,7 @@ pub const kshellcompletion = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1461,7 +1461,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1516,7 +1516,7 @@ pub const kshellcompletion = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1532,7 +1532,7 @@ pub const kshellcompletion = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1554,7 +1554,7 @@ pub const kshellcompletion = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1574,7 +1574,7 @@ pub const kshellcompletion = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1596,7 +1596,7 @@ pub const kshellcompletion = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1693,7 +1693,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KUrlCompletion
@@ -1741,7 +1741,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, dir: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnSetDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShellCompletion_OnSetDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnSetDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KUrlCompletion
@@ -1785,7 +1785,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QUrl `
     ///
     pub fn OnDir(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QUrl) void {
-        qtc.KShellCompletion_OnDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KUrlCompletion
@@ -1829,7 +1829,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsRunning(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KShellCompletion_OnIsRunning(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnIsRunning(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KUrlCompletion
@@ -1873,7 +1873,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnStop(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KShellCompletion_OnStop(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnStop(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KUrlCompletion
@@ -1925,7 +1925,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnMode(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KShellCompletion_OnMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KUrlCompletion
@@ -1941,7 +1941,7 @@ pub const kshellcompletion = struct {
     /// ` mode: kurlcompletion_enums.Mode `
     ///
     pub fn SetMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KShellCompletion_SetMode(@ptrCast(self), @intCast(mode));
+        qtc.KShellCompletion_SetMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KUrlCompletion
@@ -1957,7 +1957,7 @@ pub const kshellcompletion = struct {
     /// ` mode: kurlcompletion_enums.Mode `
     ///
     pub fn QBaseSetMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KShellCompletion_QBaseSetMode(@ptrCast(self), @intCast(mode));
+        qtc.KShellCompletion_QBaseSetMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KUrlCompletion
@@ -1973,7 +1973,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, mode: kurlcompletion_enums.Mode) callconv(.c) void `
     ///
     pub fn OnSetMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KShellCompletion_OnSetMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnSetMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KUrlCompletion
@@ -2017,7 +2017,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnReplaceEnv(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KShellCompletion_OnReplaceEnv(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnReplaceEnv(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KUrlCompletion
@@ -2065,7 +2065,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, replace: bool) callconv(.c) void `
     ///
     pub fn OnSetReplaceEnv(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KShellCompletion_OnSetReplaceEnv(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnSetReplaceEnv(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KUrlCompletion
@@ -2109,7 +2109,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnReplaceHome(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KShellCompletion_OnReplaceHome(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnReplaceHome(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KUrlCompletion
@@ -2157,7 +2157,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, replace: bool) callconv(.c) void `
     ///
     pub fn OnSetReplaceHome(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KShellCompletion_OnSetReplaceHome(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnSetReplaceHome(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2215,7 +2215,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnLastMatch(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KShellCompletion_OnLastMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnLastMatch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2231,7 +2231,7 @@ pub const kshellcompletion = struct {
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
     pub fn SetCompletionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KShellCompletion_SetCompletionMode(@ptrCast(self), @intCast(mode));
+        qtc.KShellCompletion_SetCompletionMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KCompletion
@@ -2247,7 +2247,7 @@ pub const kshellcompletion = struct {
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
     pub fn QBaseSetCompletionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KShellCompletion_QBaseSetCompletionMode(@ptrCast(self), @intCast(mode));
+        qtc.KShellCompletion_QBaseSetCompletionMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KCompletion
@@ -2263,7 +2263,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, mode: kcompletion_enums.CompletionMode) callconv(.c) void `
     ///
     pub fn OnSetCompletionMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KShellCompletion_OnSetCompletionMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnSetCompletionMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2279,7 +2279,7 @@ pub const kshellcompletion = struct {
     /// ` order: kcompletion_enums.CompOrder `
     ///
     pub fn SetOrder(self: ?*anyopaque, order: i32) void {
-        qtc.KShellCompletion_SetOrder(@ptrCast(self), @intCast(order));
+        qtc.KShellCompletion_SetOrder(@ptrCast(self), @bitCast(order));
     }
 
     /// Inherited from KCompletion
@@ -2295,7 +2295,7 @@ pub const kshellcompletion = struct {
     /// ` order: kcompletion_enums.CompOrder `
     ///
     pub fn QBaseSetOrder(self: ?*anyopaque, order: i32) void {
-        qtc.KShellCompletion_QBaseSetOrder(@ptrCast(self), @intCast(order));
+        qtc.KShellCompletion_QBaseSetOrder(@ptrCast(self), @bitCast(order));
     }
 
     /// Inherited from KCompletion
@@ -2311,7 +2311,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, order: kcompletion_enums.CompOrder) callconv(.c) void `
     ///
     pub fn OnSetOrder(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KShellCompletion_OnSetOrder(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnSetOrder(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2359,7 +2359,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, ignoreCase: bool) callconv(.c) void `
     ///
     pub fn OnSetIgnoreCase(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KShellCompletion_OnSetIgnoreCase(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnSetIgnoreCase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2407,7 +2407,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, enable: bool) callconv(.c) void `
     ///
     pub fn OnSetSoundsEnabled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KShellCompletion_OnSetSoundsEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnSetSoundsEnabled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2483,7 +2483,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, itemList: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.KShellCompletion_OnSetItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnSetItems(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2527,7 +2527,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KShellCompletion_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnClear(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2575,7 +2575,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KShellCompletion_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2627,7 +2627,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KShellCompletion_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2675,7 +2675,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShellCompletion_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2723,7 +2723,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShellCompletion_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2771,7 +2771,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShellCompletion_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2819,7 +2819,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShellCompletion_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2867,7 +2867,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShellCompletion_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2915,7 +2915,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, shouldAutosuggest: bool) callconv(.c) void `
     ///
     pub fn OnSetShouldAutoSuggest(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KShellCompletion_OnSetShouldAutoSuggest(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnSetShouldAutoSuggest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2959,7 +2959,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KShellCompletion_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3003,7 +3003,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KShellCompletion_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3053,7 +3053,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KShellCompletion_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3101,7 +3101,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KShellCompletion_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KShellCompletion_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3117,7 +3117,7 @@ pub const kshellcompletion = struct {
     /// ` callback: *const fn (self: QtC.KShellCompletion, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshellcompletion.html#dtor.KShellCompletion)

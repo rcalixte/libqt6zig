@@ -151,7 +151,7 @@ pub const kfilemetadata__extractionresult = struct {
     /// ` callback: *const fn (self: QtC.KFileMetaData__ExtractionResult, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnAppend(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KFileMetaData__ExtractionResult_OnAppend(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFileMetaData__ExtractionResult_OnAppend(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#append)
@@ -183,7 +183,7 @@ pub const kfilemetadata__extractionresult = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn Add(self: ?*anyopaque, property: i32, value: ?*anyopaque) void {
-        qtc.KFileMetaData__ExtractionResult_Add(@ptrCast(self), @intCast(property), @ptrCast(value));
+        qtc.KFileMetaData__ExtractionResult_Add(@ptrCast(self), @bitCast(property), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#add)
@@ -197,7 +197,7 @@ pub const kfilemetadata__extractionresult = struct {
     /// ` callback: *const fn (self: QtC.KFileMetaData__ExtractionResult, property: properties_enums.Property, value: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnAdd(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFileMetaData__ExtractionResult_OnAdd(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFileMetaData__ExtractionResult_OnAdd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#add)
@@ -213,7 +213,7 @@ pub const kfilemetadata__extractionresult = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseAdd(self: ?*anyopaque, property: i32, value: ?*anyopaque) void {
-        qtc.KFileMetaData__ExtractionResult_QBaseAdd(@ptrCast(self), @intCast(property), @ptrCast(value));
+        qtc.KFileMetaData__ExtractionResult_QBaseAdd(@ptrCast(self), @bitCast(property), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#addType)
@@ -225,7 +225,7 @@ pub const kfilemetadata__extractionresult = struct {
     /// ` typeVal: types_enums.Type `
     ///
     pub fn AddType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.KFileMetaData__ExtractionResult_AddType(@ptrCast(self), @intCast(typeVal));
+        qtc.KFileMetaData__ExtractionResult_AddType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#addType)
@@ -239,7 +239,7 @@ pub const kfilemetadata__extractionresult = struct {
     /// ` callback: *const fn (self: QtC.KFileMetaData__ExtractionResult, typeVal: types_enums.Type) callconv(.c) void `
     ///
     pub fn OnAddType(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KFileMetaData__ExtractionResult_OnAddType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFileMetaData__ExtractionResult_OnAddType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#addType)
@@ -253,7 +253,7 @@ pub const kfilemetadata__extractionresult = struct {
     /// ` typeVal: types_enums.Type `
     ///
     pub fn QBaseAddType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.KFileMetaData__ExtractionResult_QBaseAddType(@ptrCast(self), @intCast(typeVal));
+        qtc.KFileMetaData__ExtractionResult_QBaseAddType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#imageData)

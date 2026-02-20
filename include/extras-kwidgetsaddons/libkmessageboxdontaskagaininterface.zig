@@ -39,7 +39,7 @@ pub const kmessageboxdontaskagaininterface = struct {
     /// ` callback: *const fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8, result: *kmessagebox_enums.ButtonCode) callconv(.c) bool `
     ///
     pub fn OnShouldBeShownTwoActions(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) bool) void {
-        qtc.KMessageBoxDontAskAgainInterface_OnShouldBeShownTwoActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KMessageBoxDontAskAgainInterface_OnShouldBeShownTwoActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownTwoActions)
@@ -89,7 +89,7 @@ pub const kmessageboxdontaskagaininterface = struct {
     /// ` callback: *const fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnShouldBeShownContinue(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.KMessageBoxDontAskAgainInterface_OnShouldBeShownContinue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KMessageBoxDontAskAgainInterface_OnShouldBeShownContinue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownContinue)
@@ -125,7 +125,7 @@ pub const kmessageboxdontaskagaininterface = struct {
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
         };
-        qtc.KMessageBoxDontAskAgainInterface_SaveDontShowAgainTwoActions(@ptrCast(self), dontShowAgainName_str, @intCast(result));
+        qtc.KMessageBoxDontAskAgainInterface_SaveDontShowAgainTwoActions(@ptrCast(self), dontShowAgainName_str, @bitCast(result));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainTwoActions)
@@ -139,7 +139,7 @@ pub const kmessageboxdontaskagaininterface = struct {
     /// ` callback: *const fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8, result: kmessagebox_enums.ButtonCode) callconv(.c) void `
     ///
     pub fn OnSaveDontShowAgainTwoActions(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainTwoActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainTwoActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainTwoActions)
@@ -159,7 +159,7 @@ pub const kmessageboxdontaskagaininterface = struct {
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
         };
-        qtc.KMessageBoxDontAskAgainInterface_QBaseSaveDontShowAgainTwoActions(@ptrCast(self), dontShowAgainName_str, @intCast(result));
+        qtc.KMessageBoxDontAskAgainInterface_QBaseSaveDontShowAgainTwoActions(@ptrCast(self), dontShowAgainName_str, @bitCast(result));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainContinue)
@@ -189,7 +189,7 @@ pub const kmessageboxdontaskagaininterface = struct {
     /// ` callback: *const fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSaveDontShowAgainContinue(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainContinue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainContinue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainContinue)
@@ -231,7 +231,7 @@ pub const kmessageboxdontaskagaininterface = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEnableAllMessages(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KMessageBoxDontAskAgainInterface_OnEnableAllMessages(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KMessageBoxDontAskAgainInterface_OnEnableAllMessages(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableAllMessages)
@@ -273,7 +273,7 @@ pub const kmessageboxdontaskagaininterface = struct {
     /// ` callback: *const fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnEnableMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KMessageBoxDontAskAgainInterface_OnEnableMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KMessageBoxDontAskAgainInterface_OnEnableMessage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableMessage)
@@ -317,7 +317,7 @@ pub const kmessageboxdontaskagaininterface = struct {
     /// ` callback: *const fn (self: QtC.KMessageBoxDontAskAgainInterface, config: QtC.KConfig) callconv(.c) void `
     ///
     pub fn OnSetConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KMessageBoxDontAskAgainInterface_OnSetConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KMessageBoxDontAskAgainInterface_OnSetConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#setConfig)

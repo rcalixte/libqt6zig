@@ -39,7 +39,7 @@ pub const qscroller = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QScroller_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QScroller_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -177,7 +177,7 @@ pub const qscroller = struct {
     /// ` position: QtC.QPointF `
     ///
     pub fn HandleInput(self: ?*anyopaque, input: i32, position: ?*anyopaque) bool {
-        return qtc.QScroller_HandleInput(@ptrCast(self), @intCast(input), @ptrCast(position));
+        return qtc.QScroller_HandleInput(@ptrCast(self), @bitCast(input), @ptrCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#stop)
@@ -257,7 +257,7 @@ pub const qscroller = struct {
     /// ` interval: f64 `
     ///
     pub fn SetSnapPositionsX2(self: ?*anyopaque, first: f64, interval: f64) void {
-        qtc.QScroller_SetSnapPositionsX2(@ptrCast(self), @floatCast(first), @floatCast(interval));
+        qtc.QScroller_SetSnapPositionsX2(@ptrCast(self), @bitCast(first), @bitCast(interval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#setSnapPositionsY)
@@ -287,7 +287,7 @@ pub const qscroller = struct {
     /// ` interval: f64 `
     ///
     pub fn SetSnapPositionsY2(self: ?*anyopaque, first: f64, interval: f64) void {
-        qtc.QScroller_SetSnapPositionsY2(@ptrCast(self), @floatCast(first), @floatCast(interval));
+        qtc.QScroller_SetSnapPositionsY2(@ptrCast(self), @bitCast(first), @bitCast(interval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#setScrollerProperties)
@@ -325,7 +325,7 @@ pub const qscroller = struct {
     /// ` scrollTime: i32 `
     ///
     pub fn ScrollTo2(self: ?*anyopaque, pos: ?*anyopaque, scrollTime: i32) void {
-        qtc.QScroller_ScrollTo2(@ptrCast(self), @ptrCast(pos), @intCast(scrollTime));
+        qtc.QScroller_ScrollTo2(@ptrCast(self), @ptrCast(pos), @bitCast(scrollTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#ensureVisible)
@@ -341,7 +341,7 @@ pub const qscroller = struct {
     /// ` ymargin: f64 `
     ///
     pub fn EnsureVisible(self: ?*anyopaque, rect: ?*anyopaque, xmargin: f64, ymargin: f64) void {
-        qtc.QScroller_EnsureVisible(@ptrCast(self), @ptrCast(rect), @floatCast(xmargin), @floatCast(ymargin));
+        qtc.QScroller_EnsureVisible(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#ensureVisible)
@@ -359,7 +359,7 @@ pub const qscroller = struct {
     /// ` scrollTime: i32 `
     ///
     pub fn EnsureVisible2(self: ?*anyopaque, rect: ?*anyopaque, xmargin: f64, ymargin: f64, scrollTime: i32) void {
-        qtc.QScroller_EnsureVisible2(@ptrCast(self), @ptrCast(rect), @floatCast(xmargin), @floatCast(ymargin), @intCast(scrollTime));
+        qtc.QScroller_EnsureVisible2(@ptrCast(self), @ptrCast(rect), @bitCast(xmargin), @bitCast(ymargin), @bitCast(scrollTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#resendPrepareEvent)
@@ -381,7 +381,7 @@ pub const qscroller = struct {
     /// ` newstate: qscroller_enums.State `
     ///
     pub fn StateChanged(self: ?*anyopaque, newstate: i32) void {
-        qtc.QScroller_StateChanged(@ptrCast(self), @intCast(newstate));
+        qtc.QScroller_StateChanged(@ptrCast(self), @bitCast(newstate));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#stateChanged)
@@ -393,7 +393,7 @@ pub const qscroller = struct {
     /// ` callback: *const fn (self: QtC.QScroller, newstate: qscroller_enums.State) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QScroller_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QScroller_Connect_StateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#scrollerPropertiesChanged)
@@ -417,7 +417,7 @@ pub const qscroller = struct {
     /// ` callback: *const fn (self: QtC.QScroller, param1: QtC.QScrollerProperties) callconv(.c) void `
     ///
     pub fn OnScrollerPropertiesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QScroller_Connect_ScrollerPropertiesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QScroller_Connect_ScrollerPropertiesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -455,7 +455,7 @@ pub const qscroller = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscroller.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -475,7 +475,7 @@ pub const qscroller = struct {
     /// ` qnamespace_enums.GestureType `
     ///
     pub fn GrabGesture2(target: ?*anyopaque, gestureType: i32) i32 {
-        return qtc.QScroller_GrabGesture2(@ptrCast(target), @intCast(gestureType));
+        return qtc.QScroller_GrabGesture2(@ptrCast(target), @bitCast(gestureType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#handleInput)
@@ -491,7 +491,7 @@ pub const qscroller = struct {
     /// ` timestamp: i64 `
     ///
     pub fn HandleInput3(self: ?*anyopaque, input: i32, position: ?*anyopaque, timestamp: i64) bool {
-        return qtc.QScroller_HandleInput3(@ptrCast(self), @intCast(input), @ptrCast(position), @intCast(timestamp));
+        return qtc.QScroller_HandleInput3(@ptrCast(self), @bitCast(input), @ptrCast(position), @bitCast(timestamp));
     }
 
     /// Inherited from QObject
@@ -655,7 +655,7 @@ pub const qscroller = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -669,7 +669,7 @@ pub const qscroller = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -683,7 +683,7 @@ pub const qscroller = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -697,7 +697,7 @@ pub const qscroller = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1027,7 +1027,7 @@ pub const qscroller = struct {
     /// ` callback: *const fn (self: QtC.QScroller) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1082,7 +1082,7 @@ pub const qscroller = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1098,7 +1098,7 @@ pub const qscroller = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1120,7 +1120,7 @@ pub const qscroller = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1140,7 +1140,7 @@ pub const qscroller = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1162,7 +1162,7 @@ pub const qscroller = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1259,7 +1259,7 @@ pub const qscroller = struct {
     /// ` callback: *const fn (self: QtC.QScroller, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1275,7 +1275,7 @@ pub const qscroller = struct {
     /// ` callback: *const fn (self: QtC.QScroller, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 };
 

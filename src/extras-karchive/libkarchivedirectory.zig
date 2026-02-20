@@ -40,7 +40,7 @@ pub const karchivedirectory = struct {
             .data = symlink.ptr,
         };
 
-        return qtc.KArchiveDirectory_new(@ptrCast(archive), name_str, @intCast(access), @ptrCast(date), user_str, group_str, symlink_str);
+        return qtc.KArchiveDirectory_new(@ptrCast(archive), name_str, @bitCast(access), @ptrCast(date), user_str, group_str, symlink_str);
     }
 
     /// New2 constructs a new KArchiveDirectory object.
@@ -181,7 +181,7 @@ pub const karchivedirectory = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsDirectory(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KArchiveDirectory_OnIsDirectory(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KArchiveDirectory_OnIsDirectory(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivedirectory.html#isDirectory)
@@ -223,7 +223,7 @@ pub const karchivedirectory = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KArchiveDirectory_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KArchiveDirectory_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivedirectory.html#virtual_hook)
@@ -237,7 +237,7 @@ pub const karchivedirectory = struct {
     /// ` callback: *const fn (self: QtC.KArchiveDirectory, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KArchiveDirectory_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KArchiveDirectory_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivedirectory.html#virtual_hook)
@@ -253,7 +253,7 @@ pub const karchivedirectory = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KArchiveDirectory_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KArchiveDirectory_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivedirectory.html#copyTo)
@@ -313,7 +313,7 @@ pub const karchivedirectory = struct {
     /// ` self: QtC.KArchiveDirectory `
     ///
     pub fn Permissions(self: ?*anyopaque) u32 {
-        return @intCast(qtc.KArchiveEntry_Permissions(@ptrCast(self)));
+        return @bitCast(qtc.KArchiveEntry_Permissions(@ptrCast(self)));
     }
 
     /// Inherited from KArchiveEntry
@@ -411,7 +411,7 @@ pub const karchivedirectory = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsFile(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KArchiveDirectory_OnIsFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KArchiveDirectory_OnIsFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchiveEntry
@@ -455,7 +455,7 @@ pub const karchivedirectory = struct {
     /// ` callback: *const fn () callconv(.c) QtC.KArchive `
     ///
     pub fn OnArchive(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KArchive) void {
-        qtc.KArchiveDirectory_OnArchive(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KArchiveDirectory_OnArchive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivedirectory.html#dtor.KArchiveDirectory)

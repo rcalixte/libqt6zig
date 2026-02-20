@@ -169,7 +169,7 @@ pub const kwindowinfo = struct {
     /// ` desktop: i32 `
     ///
     pub fn IsOnDesktop(self: ?*anyopaque, desktop: i32) bool {
-        return qtc.KWindowInfo_IsOnDesktop(@ptrCast(self), @intCast(desktop));
+        return qtc.KWindowInfo_IsOnDesktop(@ptrCast(self), @bitCast(desktop));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwindowinfo.html#onAllDesktops)

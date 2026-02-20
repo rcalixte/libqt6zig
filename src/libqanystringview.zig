@@ -104,7 +104,7 @@ pub const qanystringview = struct {
     /// ` pos: i64 `
     ///
     pub fn Mid(self: ?*anyopaque, pos: i64) []const u8 {
-        const _ret = qtc.QAnyStringView_Mid(@ptrCast(self), @intCast(pos));
+        const _ret = qtc.QAnyStringView_Mid(@ptrCast(self), @bitCast(pos));
         return std.mem.span(_ret);
     }
 
@@ -117,7 +117,7 @@ pub const qanystringview = struct {
     /// ` n: i64 `
     ///
     pub fn Left(self: ?*anyopaque, n: i64) []const u8 {
-        const _ret = qtc.QAnyStringView_Left(@ptrCast(self), @intCast(n));
+        const _ret = qtc.QAnyStringView_Left(@ptrCast(self), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -130,7 +130,7 @@ pub const qanystringview = struct {
     /// ` n: i64 `
     ///
     pub fn Right(self: ?*anyopaque, n: i64) []const u8 {
-        const _ret = qtc.QAnyStringView_Right(@ptrCast(self), @intCast(n));
+        const _ret = qtc.QAnyStringView_Right(@ptrCast(self), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -143,7 +143,7 @@ pub const qanystringview = struct {
     /// ` pos: i64 `
     ///
     pub fn Sliced(self: ?*anyopaque, pos: i64) []const u8 {
-        const _ret = qtc.QAnyStringView_Sliced(@ptrCast(self), @intCast(pos));
+        const _ret = qtc.QAnyStringView_Sliced(@ptrCast(self), @bitCast(pos));
         return std.mem.span(_ret);
     }
 
@@ -158,7 +158,7 @@ pub const qanystringview = struct {
     /// ` n: i64 `
     ///
     pub fn Sliced2(self: ?*anyopaque, pos: i64, n: i64) []const u8 {
-        const _ret = qtc.QAnyStringView_Sliced2(@ptrCast(self), @intCast(pos), @intCast(n));
+        const _ret = qtc.QAnyStringView_Sliced2(@ptrCast(self), @bitCast(pos), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -171,7 +171,7 @@ pub const qanystringview = struct {
     /// ` n: i64 `
     ///
     pub fn First(self: ?*anyopaque, n: i64) []const u8 {
-        const _ret = qtc.QAnyStringView_First(@ptrCast(self), @intCast(n));
+        const _ret = qtc.QAnyStringView_First(@ptrCast(self), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -184,7 +184,7 @@ pub const qanystringview = struct {
     /// ` n: i64 `
     ///
     pub fn Last(self: ?*anyopaque, n: i64) []const u8 {
-        const _ret = qtc.QAnyStringView_Last(@ptrCast(self), @intCast(n));
+        const _ret = qtc.QAnyStringView_Last(@ptrCast(self), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -197,7 +197,7 @@ pub const qanystringview = struct {
     /// ` n: i64 `
     ///
     pub fn Chopped(self: ?*anyopaque, n: i64) []const u8 {
-        const _ret = qtc.QAnyStringView_Chopped(@ptrCast(self), @intCast(n));
+        const _ret = qtc.QAnyStringView_Chopped(@ptrCast(self), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -210,7 +210,7 @@ pub const qanystringview = struct {
     /// ` pos: i64 `
     ///
     pub fn Slice(self: ?*anyopaque, pos: i64) []const u8 {
-        const _ret = qtc.QAnyStringView_Slice(@ptrCast(self), @intCast(pos));
+        const _ret = qtc.QAnyStringView_Slice(@ptrCast(self), @bitCast(pos));
         return std.mem.span(_ret);
     }
 
@@ -225,7 +225,7 @@ pub const qanystringview = struct {
     /// ` n: i64 `
     ///
     pub fn Slice2(self: ?*anyopaque, pos: i64, n: i64) []const u8 {
-        const _ret = qtc.QAnyStringView_Slice2(@ptrCast(self), @intCast(pos), @intCast(n));
+        const _ret = qtc.QAnyStringView_Slice2(@ptrCast(self), @bitCast(pos), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -238,7 +238,7 @@ pub const qanystringview = struct {
     /// ` n: i64 `
     ///
     pub fn Truncate(self: ?*anyopaque, n: i64) void {
-        qtc.QAnyStringView_Truncate(@ptrCast(self), @intCast(n));
+        qtc.QAnyStringView_Truncate(@ptrCast(self), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#chop)
@@ -250,7 +250,7 @@ pub const qanystringview = struct {
     /// ` n: i64 `
     ///
     pub fn Chop(self: ?*anyopaque, n: i64) void {
-        qtc.QAnyStringView_Chop(@ptrCast(self), @intCast(n));
+        qtc.QAnyStringView_Chop(@ptrCast(self), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#toString)
@@ -404,7 +404,7 @@ pub const qanystringview = struct {
     /// ` n: i64 `
     ///
     pub fn Mid2(self: ?*anyopaque, pos: i64, n: i64) []const u8 {
-        const _ret = qtc.QAnyStringView_Mid2(@ptrCast(self), @intCast(pos), @intCast(n));
+        const _ret = qtc.QAnyStringView_Mid2(@ptrCast(self), @bitCast(pos), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -419,7 +419,7 @@ pub const qanystringview = struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn Compare3(lhs: []const u8, rhs: []const u8, cs: i32) i32 {
-        return qtc.QAnyStringView_Compare3(lhs.ptr, rhs.ptr, @intCast(cs));
+        return qtc.QAnyStringView_Compare3(lhs.ptr, rhs.ptr, @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#dtor.QAnyStringView)

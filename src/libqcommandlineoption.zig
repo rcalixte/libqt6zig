@@ -454,7 +454,7 @@ pub const qcommandlineoption = struct {
     /// ` aflags: flag of qcommandlineoption_enums.Flag `
     ///
     pub fn SetFlags(self: ?*anyopaque, aflags: i32) void {
-        qtc.QCommandLineOption_SetFlags(@ptrCast(self), @intCast(aflags));
+        qtc.QCommandLineOption_SetFlags(@ptrCast(self), @bitCast(aflags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#dtor.QCommandLineOption)

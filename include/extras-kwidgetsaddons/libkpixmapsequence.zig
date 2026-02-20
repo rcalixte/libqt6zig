@@ -43,7 +43,7 @@ pub const kpixmapsequence = struct {
             .data = fullPath.ptr,
         };
 
-        return qtc.KPixmapSequence_new4(fullPath_str, @intCast(size));
+        return qtc.KPixmapSequence_new4(fullPath_str, @bitCast(size));
     }
 
     /// New5 constructs a new KPixmapSequence object.
@@ -119,7 +119,7 @@ pub const kpixmapsequence = struct {
     /// ` index: i32 `
     ///
     pub fn FrameAt(self: ?*anyopaque, index: i32) QtC.QPixmap {
-        return qtc.KPixmapSequence_FrameAt(@ptrCast(self), @intCast(index));
+        return qtc.KPixmapSequence_FrameAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#dtor.KPixmapSequence)

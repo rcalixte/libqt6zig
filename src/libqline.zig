@@ -55,7 +55,7 @@ pub const qline = struct {
     /// ` y2: i32 `
     ///
     pub fn New5(x1: i32, y1: i32, x2: i32, y2: i32) QtC.QLine {
-        return qtc.QLine_new5(@intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
+        return qtc.QLine_new5(@bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
     }
 
     /// New6 constructs a new QLine object.
@@ -205,7 +205,7 @@ pub const qline = struct {
     /// ` dy: i32 `
     ///
     pub fn Translate2(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QLine_Translate2(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QLine_Translate2(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qline.html#translated)
@@ -231,7 +231,7 @@ pub const qline = struct {
     /// ` dy: i32 `
     ///
     pub fn Translated2(self: ?*anyopaque, dx: i32, dy: i32) QtC.QLine {
-        return qtc.QLine_Translated2(@ptrCast(self), @intCast(dx), @intCast(dy));
+        return qtc.QLine_Translated2(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qline.html#center)
@@ -297,7 +297,7 @@ pub const qline = struct {
     /// ` y2: i32 `
     ///
     pub fn SetLine(self: ?*anyopaque, x1: i32, y1: i32, x2: i32, y2: i32) void {
-        qtc.QLine_SetLine(@ptrCast(self), @intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
+        qtc.QLine_SetLine(@ptrCast(self), @bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qline.html#toLineF)
@@ -376,7 +376,7 @@ pub const qlinef = struct {
     /// ` y2: f64 `
     ///
     pub fn New5(x1: f64, y1: f64, x2: f64, y2: f64) QtC.QLineF {
-        return qtc.QLineF_new5(@floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
+        return qtc.QLineF_new5(@bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
     }
 
     /// New6 constructs a new QLineF object.
@@ -432,7 +432,7 @@ pub const qlinef = struct {
     /// ` angle: f64 `
     ///
     pub fn FromPolar(length: f64, angle: f64) QtC.QLineF {
-        return qtc.QLineF_FromPolar(@floatCast(length), @floatCast(angle));
+        return qtc.QLineF_FromPolar(@bitCast(length), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#isNull)
@@ -544,7 +544,7 @@ pub const qlinef = struct {
     /// ` lenVal: f64 `
     ///
     pub fn SetLength(self: ?*anyopaque, lenVal: f64) void {
-        qtc.QLineF_SetLength(@ptrCast(self), @floatCast(lenVal));
+        qtc.QLineF_SetLength(@ptrCast(self), @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#angle)
@@ -566,7 +566,7 @@ pub const qlinef = struct {
     /// ` angle: f64 `
     ///
     pub fn SetAngle(self: ?*anyopaque, angle: f64) void {
-        qtc.QLineF_SetAngle(@ptrCast(self), @floatCast(angle));
+        qtc.QLineF_SetAngle(@ptrCast(self), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#angleTo)
@@ -626,7 +626,7 @@ pub const qlinef = struct {
     /// ` t: f64 `
     ///
     pub fn PointAt(self: ?*anyopaque, t: f64) QtC.QPointF {
-        return qtc.QLineF_PointAt(@ptrCast(self), @floatCast(t));
+        return qtc.QLineF_PointAt(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#translate)
@@ -652,7 +652,7 @@ pub const qlinef = struct {
     /// ` dy: f64 `
     ///
     pub fn Translate2(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QLineF_Translate2(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QLineF_Translate2(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#translated)
@@ -678,7 +678,7 @@ pub const qlinef = struct {
     /// ` dy: f64 `
     ///
     pub fn Translated2(self: ?*anyopaque, dx: f64, dy: f64) QtC.QLineF {
-        return qtc.QLineF_Translated2(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        return qtc.QLineF_Translated2(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#center)
@@ -744,7 +744,7 @@ pub const qlinef = struct {
     /// ` y2: f64 `
     ///
     pub fn SetLine(self: ?*anyopaque, x1: f64, y1: f64, x2: f64, y2: f64) void {
-        qtc.QLineF_SetLine(@ptrCast(self), @floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
+        qtc.QLineF_SetLine(@ptrCast(self), @bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#toLine)

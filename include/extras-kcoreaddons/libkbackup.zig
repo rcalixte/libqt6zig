@@ -54,6 +54,6 @@ pub const kbackup = struct {
             .len = param3.len,
             .data = param3.ptr,
         };
-        return qtc.KBackup_NumberedBackupFile(param1_str, param2_str, param3_str, @intCast(param4));
+        return qtc.KBackup_NumberedBackupFile(param1_str, param2_str, param3_str, @bitCast(param4));
     }
 };

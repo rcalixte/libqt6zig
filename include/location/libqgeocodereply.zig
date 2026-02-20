@@ -21,7 +21,7 @@ pub const qgeocodereply = struct {
             .data = errorString.ptr,
         };
 
-        return qtc.QGeoCodeReply_new(@intCast(errorVal), errorString_str);
+        return qtc.QGeoCodeReply_new(@bitCast(errorVal), errorString_str);
     }
 
     /// New2 constructs a new QGeoCodeReply object.
@@ -40,7 +40,7 @@ pub const qgeocodereply = struct {
             .data = errorString.ptr,
         };
 
-        return qtc.QGeoCodeReply_new2(@intCast(errorVal), errorString_str, @ptrCast(parent));
+        return qtc.QGeoCodeReply_new2(@bitCast(errorVal), errorString_str, @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -64,7 +64,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGeoCodeReply_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -99,7 +99,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGeoCodeReply_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -126,7 +126,7 @@ pub const qgeocodereply = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGeoCodeReply_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGeoCodeReply_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -138,7 +138,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGeoCodeReply_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -154,7 +154,7 @@ pub const qgeocodereply = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGeoCodeReply_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QGeoCodeReply_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -282,7 +282,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAbort(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnAbort(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnAbort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#abort)
@@ -316,7 +316,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoCodeReply_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#aborted)
@@ -338,7 +338,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply) callconv(.c) void `
     ///
     pub fn OnAborted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoCodeReply_Connect_Aborted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_Connect_Aborted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#errorOccurred)
@@ -350,7 +350,7 @@ pub const qgeocodereply = struct {
     /// ` errorVal: qgeocodereply_enums.Error `
     ///
     pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i32) void {
-        qtc.QGeoCodeReply_ErrorOccurred(@ptrCast(self), @intCast(errorVal));
+        qtc.QGeoCodeReply_ErrorOccurred(@ptrCast(self), @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#errorOccurred)
@@ -362,7 +362,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, errorVal: qgeocodereply_enums.Error) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGeoCodeReply_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setError)
@@ -380,7 +380,7 @@ pub const qgeocodereply = struct {
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QGeoCodeReply_SetError(@ptrCast(self), @intCast(errorVal), errorString_str);
+        qtc.QGeoCodeReply_SetError(@ptrCast(self), @bitCast(errorVal), errorString_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setError)
@@ -394,7 +394,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, errorVal: qgeocodereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnSetError(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnSetError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setError)
@@ -414,7 +414,7 @@ pub const qgeocodereply = struct {
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QGeoCodeReply_QBaseSetError(@ptrCast(self), @intCast(errorVal), errorString_str);
+        qtc.QGeoCodeReply_QBaseSetError(@ptrCast(self), @bitCast(errorVal), errorString_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setFinished)
@@ -440,7 +440,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, finished: bool) callconv(.c) void `
     ///
     pub fn OnSetFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnSetFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnSetFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setFinished)
@@ -480,7 +480,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, viewport: QtC.QGeoShape) callconv(.c) void `
     ///
     pub fn OnSetViewport(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnSetViewport(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnSetViewport(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setViewport)
@@ -520,7 +520,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, location: QtC.QGeoLocation) callconv(.c) void `
     ///
     pub fn OnAddLocation(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnAddLocation(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnAddLocation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#addLocation)
@@ -564,7 +564,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, locations: qtc.libqt_list ([]QtC.QGeoLocation)) callconv(.c) void `
     ///
     pub fn OnSetLocations(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnSetLocations(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnSetLocations(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setLocations)
@@ -594,7 +594,7 @@ pub const qgeocodereply = struct {
     /// ` limit: i64 `
     ///
     pub fn SetLimit(self: ?*anyopaque, limit: i64) void {
-        qtc.QGeoCodeReply_SetLimit(@ptrCast(self), @intCast(limit));
+        qtc.QGeoCodeReply_SetLimit(@ptrCast(self), @bitCast(limit));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setLimit)
@@ -608,7 +608,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, limit: i64) callconv(.c) void `
     ///
     pub fn OnSetLimit(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnSetLimit(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnSetLimit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setLimit)
@@ -622,7 +622,7 @@ pub const qgeocodereply = struct {
     /// ` limit: i64 `
     ///
     pub fn QBaseSetLimit(self: ?*anyopaque, limit: i64) void {
-        qtc.QGeoCodeReply_QBaseSetLimit(@ptrCast(self), @intCast(limit));
+        qtc.QGeoCodeReply_QBaseSetLimit(@ptrCast(self), @bitCast(limit));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setOffset)
@@ -634,7 +634,7 @@ pub const qgeocodereply = struct {
     /// ` offset: i64 `
     ///
     pub fn SetOffset(self: ?*anyopaque, offset: i64) void {
-        qtc.QGeoCodeReply_SetOffset(@ptrCast(self), @intCast(offset));
+        qtc.QGeoCodeReply_SetOffset(@ptrCast(self), @bitCast(offset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setOffset)
@@ -648,7 +648,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, offset: i64) callconv(.c) void `
     ///
     pub fn OnSetOffset(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnSetOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnSetOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setOffset)
@@ -662,7 +662,7 @@ pub const qgeocodereply = struct {
     /// ` offset: i64 `
     ///
     pub fn QBaseSetOffset(self: ?*anyopaque, offset: i64) void {
-        qtc.QGeoCodeReply_QBaseSetOffset(@ptrCast(self), @intCast(offset));
+        qtc.QGeoCodeReply_QBaseSetOffset(@ptrCast(self), @bitCast(offset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -700,7 +700,7 @@ pub const qgeocodereply = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeocodereply.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -722,7 +722,7 @@ pub const qgeocodereply = struct {
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QGeoCodeReply_ErrorOccurred2(@ptrCast(self), @intCast(errorVal), errorString_str);
+        qtc.QGeoCodeReply_ErrorOccurred2(@ptrCast(self), @bitCast(errorVal), errorString_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#errorOccurred)
@@ -734,7 +734,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, errorVal: qgeocodereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnErrorOccurred2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QGeoCodeReply_Connect_ErrorOccurred2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_Connect_ErrorOccurred2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -868,7 +868,7 @@ pub const qgeocodereply = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -882,7 +882,7 @@ pub const qgeocodereply = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -896,7 +896,7 @@ pub const qgeocodereply = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -910,7 +910,7 @@ pub const qgeocodereply = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1240,7 +1240,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1295,7 +1295,7 @@ pub const qgeocodereply = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1311,7 +1311,7 @@ pub const qgeocodereply = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1333,7 +1333,7 @@ pub const qgeocodereply = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1353,7 +1353,7 @@ pub const qgeocodereply = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1375,7 +1375,7 @@ pub const qgeocodereply = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1472,7 +1472,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1520,7 +1520,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGeoCodeReply_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1572,7 +1572,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGeoCodeReply_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1620,7 +1620,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1668,7 +1668,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1716,7 +1716,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1764,7 +1764,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1812,7 +1812,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1856,7 +1856,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGeoCodeReply_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1900,7 +1900,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGeoCodeReply_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1950,7 +1950,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGeoCodeReply_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1998,7 +1998,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGeoCodeReply_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGeoCodeReply_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2014,7 +2014,7 @@ pub const qgeocodereply = struct {
     /// ` callback: *const fn (self: QtC.QGeoCodeReply, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#dtor.QGeoCodeReply)

@@ -17,7 +17,7 @@ pub const qreadwritelock = struct {
     /// ` recursionMode: qreadwritelock_enums.RecursionMode `
     ///
     pub fn New2(recursionMode: i32) QtC.QReadWriteLock {
-        return qtc.QReadWriteLock_new2(@intCast(recursionMode));
+        return qtc.QReadWriteLock_new2(@bitCast(recursionMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#lockForRead)
@@ -39,7 +39,7 @@ pub const qreadwritelock = struct {
     /// ` timeout: i32 `
     ///
     pub fn TryLockForRead(self: ?*anyopaque, timeout: i32) bool {
-        return qtc.QReadWriteLock_TryLockForRead(@ptrCast(self), @intCast(timeout));
+        return qtc.QReadWriteLock_TryLockForRead(@ptrCast(self), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForRead)
@@ -71,7 +71,7 @@ pub const qreadwritelock = struct {
     /// ` timeout: i32 `
     ///
     pub fn TryLockForWrite(self: ?*anyopaque, timeout: i32) bool {
-        return qtc.QReadWriteLock_TryLockForWrite(@ptrCast(self), @intCast(timeout));
+        return qtc.QReadWriteLock_TryLockForWrite(@ptrCast(self), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForWrite)

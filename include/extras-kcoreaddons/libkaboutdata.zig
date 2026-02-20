@@ -12,7 +12,7 @@ pub const kcrash = struct {
     /// ` param1: i32 `
     ///
     pub fn DefaultCrashHandler(param1: i32) void {
-        qtc.KCrash_DefaultCrashHandler(@intCast(param1));
+        qtc.KCrash_DefaultCrashHandler(@bitCast(param1));
     }
 };
 
@@ -391,7 +391,7 @@ pub const kaboutlicense = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name1(self: ?*anyopaque, formatName: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutLicense_Name1(@ptrCast(self), @intCast(formatName));
+        var _str = qtc.KAboutLicense_Name1(@ptrCast(self), @bitCast(formatName));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutlicense.Name1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -596,7 +596,7 @@ pub const kaboutcomponent = struct {
             .data = webAddress.ptr,
         };
 
-        return qtc.KAboutComponent_new8(name_str, description_str, version_str, webAddress_str, @intCast(licenseType));
+        return qtc.KAboutComponent_new8(name_str, description_str, version_str, webAddress_str, @bitCast(licenseType));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutcomponent.html#operator-eq)
@@ -732,7 +732,7 @@ pub const kaboutdata = struct {
             .data = shortDescription.ptr,
         };
 
-        return qtc.KAboutData_new(componentName_str, displayName_str, version_str, shortDescription_str, @intCast(licenseType));
+        return qtc.KAboutData_new(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType));
     }
 
     /// New2 constructs a new KAboutData object.
@@ -789,7 +789,7 @@ pub const kaboutdata = struct {
             .data = copyrightStatement.ptr,
         };
 
-        return qtc.KAboutData_new4(componentName_str, displayName_str, version_str, shortDescription_str, @intCast(licenseType), copyrightStatement_str);
+        return qtc.KAboutData_new4(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType), copyrightStatement_str);
     }
 
     /// New5 constructs a new KAboutData object.
@@ -836,7 +836,7 @@ pub const kaboutdata = struct {
             .data = otherText.ptr,
         };
 
-        return qtc.KAboutData_new5(componentName_str, displayName_str, version_str, shortDescription_str, @intCast(licenseType), copyrightStatement_str, otherText_str);
+        return qtc.KAboutData_new5(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType), copyrightStatement_str, otherText_str);
     }
 
     /// New6 constructs a new KAboutData object.
@@ -889,7 +889,7 @@ pub const kaboutdata = struct {
             .data = homePageAddress.ptr,
         };
 
-        return qtc.KAboutData_new6(componentName_str, displayName_str, version_str, shortDescription_str, @intCast(licenseType), copyrightStatement_str, otherText_str, homePageAddress_str);
+        return qtc.KAboutData_new6(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType), copyrightStatement_str, otherText_str, homePageAddress_str);
     }
 
     /// New7 constructs a new KAboutData object.
@@ -948,7 +948,7 @@ pub const kaboutdata = struct {
             .data = bugAddress.ptr,
         };
 
-        return qtc.KAboutData_new7(componentName_str, displayName_str, version_str, shortDescription_str, @intCast(licenseType), copyrightStatement_str, otherText_str, homePageAddress_str, bugAddress_str);
+        return qtc.KAboutData_new7(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType), copyrightStatement_str, otherText_str, homePageAddress_str, bugAddress_str);
     }
 
     /// New8 constructs a new KAboutData object.
@@ -1417,7 +1417,7 @@ pub const kaboutdata = struct {
     /// ` licenseKey: kaboutdata_enums.LicenseKey `
     ///
     pub fn SetLicense(self: ?*anyopaque, licenseKey: i32) QtC.KAboutData {
-        return qtc.KAboutData_SetLicense(@ptrCast(self), @intCast(licenseKey));
+        return qtc.KAboutData_SetLicense(@ptrCast(self), @bitCast(licenseKey));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setLicense)
@@ -1431,7 +1431,7 @@ pub const kaboutdata = struct {
     /// ` versionRestriction: kaboutdata_enums.VersionRestriction `
     ///
     pub fn SetLicense2(self: ?*anyopaque, licenseKey: i32, versionRestriction: i32) QtC.KAboutData {
-        return qtc.KAboutData_SetLicense2(@ptrCast(self), @intCast(licenseKey), @intCast(versionRestriction));
+        return qtc.KAboutData_SetLicense2(@ptrCast(self), @bitCast(licenseKey), @bitCast(versionRestriction));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addLicense)
@@ -1443,7 +1443,7 @@ pub const kaboutdata = struct {
     /// ` licenseKey: kaboutdata_enums.LicenseKey `
     ///
     pub fn AddLicense(self: ?*anyopaque, licenseKey: i32) QtC.KAboutData {
-        return qtc.KAboutData_AddLicense(@ptrCast(self), @intCast(licenseKey));
+        return qtc.KAboutData_AddLicense(@ptrCast(self), @bitCast(licenseKey));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addLicense)
@@ -1457,7 +1457,7 @@ pub const kaboutdata = struct {
     /// ` versionRestriction: kaboutdata_enums.VersionRestriction `
     ///
     pub fn AddLicense2(self: ?*anyopaque, licenseKey: i32, versionRestriction: i32) QtC.KAboutData {
-        return qtc.KAboutData_AddLicense2(@ptrCast(self), @intCast(licenseKey), @intCast(versionRestriction));
+        return qtc.KAboutData_AddLicense2(@ptrCast(self), @bitCast(licenseKey), @bitCast(versionRestriction));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setCopyrightStatement)
@@ -2356,7 +2356,7 @@ pub const kaboutdata = struct {
             .len = webAddress.len,
             .data = webAddress.ptr,
         };
-        return qtc.KAboutData_AddComponent5(@ptrCast(self), name_str, description_str, version_str, webAddress_str, @intCast(licenseKey));
+        return qtc.KAboutData_AddComponent5(@ptrCast(self), name_str, description_str, version_str, webAddress_str, @bitCast(licenseKey));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#dtor.KAboutData)

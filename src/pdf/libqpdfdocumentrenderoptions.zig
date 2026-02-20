@@ -87,7 +87,7 @@ pub const qpdfdocumentrenderoptions = struct {
     /// ` r: qpdfdocumentrenderoptions_enums.Rotation `
     ///
     pub fn SetRotation(self: ?*anyopaque, r: i32) void {
-        qtc.QPdfDocumentRenderOptions_SetRotation(@ptrCast(self), @intCast(r));
+        qtc.QPdfDocumentRenderOptions_SetRotation(@ptrCast(self), @bitCast(r));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#renderFlags)
@@ -113,7 +113,7 @@ pub const qpdfdocumentrenderoptions = struct {
     /// ` r: flag of qpdfdocumentrenderoptions_enums.RenderFlag `
     ///
     pub fn SetRenderFlags(self: ?*anyopaque, r: i32) void {
-        qtc.QPdfDocumentRenderOptions_SetRenderFlags(@ptrCast(self), @intCast(r));
+        qtc.QPdfDocumentRenderOptions_SetRenderFlags(@ptrCast(self), @bitCast(r));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#scaledClipRect)

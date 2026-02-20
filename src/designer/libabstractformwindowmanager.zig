@@ -44,7 +44,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QDesignerFormWindowManagerInterface_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -79,7 +79,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QDesignerFormWindowManagerInterface_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -106,7 +106,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerFormWindowManagerInterface_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDesignerFormWindowManagerInterface_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -118,7 +118,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QDesignerFormWindowManagerInterface_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -134,7 +134,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDesignerFormWindowManagerInterface_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -163,7 +163,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` action: abstractformwindowmanager_enums.Action `
     ///
     pub fn Action(self: ?*anyopaque, action: i32) QtC.QAction {
-        return qtc.QDesignerFormWindowManagerInterface_Action(@ptrCast(self), @intCast(action));
+        return qtc.QDesignerFormWindowManagerInterface_Action(@ptrCast(self), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#action)
@@ -177,7 +177,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, action: abstractformwindowmanager_enums.Action) callconv(.c) QtC.QAction `
     ///
     pub fn OnAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QAction) void {
-        qtc.QDesignerFormWindowManagerInterface_OnAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#action)
@@ -191,7 +191,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` action: abstractformwindowmanager_enums.Action `
     ///
     pub fn QBaseAction(self: ?*anyopaque, action: i32) QtC.QAction {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseAction(@ptrCast(self), @intCast(action));
+        return qtc.QDesignerFormWindowManagerInterface_QBaseAction(@ptrCast(self), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#actionGroup)
@@ -203,7 +203,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` actionGroup: abstractformwindowmanager_enums.ActionGroup `
     ///
     pub fn ActionGroup(self: ?*anyopaque, actionGroup: i32) QtC.QActionGroup {
-        return qtc.QDesignerFormWindowManagerInterface_ActionGroup(@ptrCast(self), @intCast(actionGroup));
+        return qtc.QDesignerFormWindowManagerInterface_ActionGroup(@ptrCast(self), @bitCast(actionGroup));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#actionGroup)
@@ -217,7 +217,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, actionGroup: abstractformwindowmanager_enums.ActionGroup) callconv(.c) QtC.QActionGroup `
     ///
     pub fn OnActionGroup(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QActionGroup) void {
-        qtc.QDesignerFormWindowManagerInterface_OnActionGroup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnActionGroup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#actionGroup)
@@ -231,7 +231,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` actionGroup: abstractformwindowmanager_enums.ActionGroup `
     ///
     pub fn QBaseActionGroup(self: ?*anyopaque, actionGroup: i32) QtC.QActionGroup {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseActionGroup(@ptrCast(self), @intCast(actionGroup));
+        return qtc.QDesignerFormWindowManagerInterface_QBaseActionGroup(@ptrCast(self), @bitCast(actionGroup));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#actionCut)
@@ -435,7 +435,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QDesignerFormWindowInterface `
     ///
     pub fn OnActiveFormWindow(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDesignerFormWindowInterface) void {
-        qtc.QDesignerFormWindowManagerInterface_OnActiveFormWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnActiveFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#activeFormWindow)
@@ -471,7 +471,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnFormWindowCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerFormWindowManagerInterface_OnFormWindowCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnFormWindowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#formWindowCount)
@@ -495,7 +495,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` index: i32 `
     ///
     pub fn FormWindow(self: ?*anyopaque, index: i32) QtC.QDesignerFormWindowInterface {
-        return qtc.QDesignerFormWindowManagerInterface_FormWindow(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerFormWindowManagerInterface_FormWindow(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#formWindow)
@@ -509,7 +509,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, index: i32) callconv(.c) QtC.QDesignerFormWindowInterface `
     ///
     pub fn OnFormWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QDesignerFormWindowInterface) void {
-        qtc.QDesignerFormWindowManagerInterface_OnFormWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#formWindow)
@@ -523,7 +523,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseFormWindow(self: ?*anyopaque, index: i32) QtC.QDesignerFormWindowInterface {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseFormWindow(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerFormWindowManagerInterface_QBaseFormWindow(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#createFormWindow)
@@ -537,7 +537,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
     pub fn CreateFormWindow(self: ?*anyopaque, parentWidget: ?*anyopaque, flags: i32) QtC.QDesignerFormWindowInterface {
-        return qtc.QDesignerFormWindowManagerInterface_CreateFormWindow(@ptrCast(self), @ptrCast(parentWidget), @intCast(flags));
+        return qtc.QDesignerFormWindowManagerInterface_CreateFormWindow(@ptrCast(self), @ptrCast(parentWidget), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#createFormWindow)
@@ -551,7 +551,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, parentWidget: QtC.QWidget, flags: flag of qnamespace_enums.WindowType) callconv(.c) QtC.QDesignerFormWindowInterface `
     ///
     pub fn OnCreateFormWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QDesignerFormWindowInterface) void {
-        qtc.QDesignerFormWindowManagerInterface_OnCreateFormWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnCreateFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#createFormWindow)
@@ -567,7 +567,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
     pub fn QBaseCreateFormWindow(self: ?*anyopaque, parentWidget: ?*anyopaque, flags: i32) QtC.QDesignerFormWindowInterface {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseCreateFormWindow(@ptrCast(self), @ptrCast(parentWidget), @intCast(flags));
+        return qtc.QDesignerFormWindowManagerInterface_QBaseCreateFormWindow(@ptrCast(self), @ptrCast(parentWidget), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#core)
@@ -591,7 +591,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QDesignerFormEditorInterface `
     ///
     pub fn OnCore(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDesignerFormEditorInterface) void {
-        qtc.QDesignerFormWindowManagerInterface_OnCore(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnCore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#core)
@@ -633,7 +633,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, item_list: qtc.libqt_list ([]QtC.QDesignerDnDItemInterface)) callconv(.c) void `
     ///
     pub fn OnDragItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_OnDragItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnDragItems(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#dragItems)
@@ -675,7 +675,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPixmap `
     ///
     pub fn OnCreatePreviewPixmap(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPixmap) void {
-        qtc.QDesignerFormWindowManagerInterface_OnCreatePreviewPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnCreatePreviewPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#createPreviewPixmap)
@@ -711,7 +711,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, formWindow: QtC.QDesignerFormWindowInterface) callconv(.c) void `
     ///
     pub fn OnFormWindowAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_Connect_FormWindowAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_Connect_FormWindowAdded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#formWindowRemoved)
@@ -735,7 +735,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, formWindow: QtC.QDesignerFormWindowInterface) callconv(.c) void `
     ///
     pub fn OnFormWindowRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_Connect_FormWindowRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_Connect_FormWindowRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#activeFormWindowChanged)
@@ -759,7 +759,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, formWindow: QtC.QDesignerFormWindowInterface) callconv(.c) void `
     ///
     pub fn OnActiveFormWindowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_Connect_ActiveFormWindowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_Connect_ActiveFormWindowChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#formWindowSettingsChanged)
@@ -783,7 +783,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, fw: QtC.QDesignerFormWindowInterface) callconv(.c) void `
     ///
     pub fn OnFormWindowSettingsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_Connect_FormWindowSettingsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_Connect_FormWindowSettingsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#addFormWindow)
@@ -809,7 +809,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, formWindow: QtC.QDesignerFormWindowInterface) callconv(.c) void `
     ///
     pub fn OnAddFormWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_OnAddFormWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnAddFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#addFormWindow)
@@ -849,7 +849,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, formWindow: QtC.QDesignerFormWindowInterface) callconv(.c) void `
     ///
     pub fn OnRemoveFormWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_OnRemoveFormWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnRemoveFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#removeFormWindow)
@@ -889,7 +889,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, formWindow: QtC.QDesignerFormWindowInterface) callconv(.c) void `
     ///
     pub fn OnSetActiveFormWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_OnSetActiveFormWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnSetActiveFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#setActiveFormWindow)
@@ -927,7 +927,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnShowPreview(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_OnShowPreview(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnShowPreview(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#showPreview)
@@ -963,7 +963,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnCloseAllPreviews(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_OnCloseAllPreviews(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnCloseAllPreviews(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#closeAllPreviews)
@@ -999,7 +999,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnShowPluginDialog(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_OnShowPluginDialog(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnShowPluginDialog(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#showPluginDialog)
@@ -1049,7 +1049,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowmanagerinterface.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1187,7 +1187,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1201,7 +1201,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1215,7 +1215,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1229,7 +1229,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1559,7 +1559,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1614,7 +1614,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1630,7 +1630,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1652,7 +1652,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1672,7 +1672,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1694,7 +1694,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1791,7 +1791,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1839,7 +1839,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerFormWindowManagerInterface_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1891,7 +1891,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerFormWindowManagerInterface_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1939,7 +1939,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1987,7 +1987,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2035,7 +2035,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2083,7 +2083,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2131,7 +2131,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowManagerInterface_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2175,7 +2175,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QDesignerFormWindowManagerInterface_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2219,7 +2219,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerFormWindowManagerInterface_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2269,7 +2269,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerFormWindowManagerInterface_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2317,7 +2317,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerFormWindowManagerInterface_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerFormWindowManagerInterface_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2333,7 +2333,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#dtor.QDesignerFormWindowManagerInterface)

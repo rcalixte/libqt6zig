@@ -44,7 +44,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QSequentialAnimationGroup_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -79,7 +79,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QSequentialAnimationGroup_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -106,7 +106,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSequentialAnimationGroup_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QSequentialAnimationGroup_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -118,7 +118,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QSequentialAnimationGroup_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -134,7 +134,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSequentialAnimationGroup_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QSequentialAnimationGroup_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -163,7 +163,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` msecs: i32 `
     ///
     pub fn AddPause(self: ?*anyopaque, msecs: i32) QtC.QPauseAnimation {
-        return qtc.QSequentialAnimationGroup_AddPause(@ptrCast(self), @intCast(msecs));
+        return qtc.QSequentialAnimationGroup_AddPause(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#insertPause)
@@ -177,7 +177,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` msecs: i32 `
     ///
     pub fn InsertPause(self: ?*anyopaque, index: i32, msecs: i32) QtC.QPauseAnimation {
-        return qtc.QSequentialAnimationGroup_InsertPause(@ptrCast(self), @intCast(index), @intCast(msecs));
+        return qtc.QSequentialAnimationGroup_InsertPause(@ptrCast(self), @bitCast(index), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#currentAnimation)
@@ -211,7 +211,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDuration(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSequentialAnimationGroup_OnDuration(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnDuration(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#duration)
@@ -247,7 +247,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, current: QtC.QAbstractAnimation) callconv(.c) void `
     ///
     pub fn OnCurrentAnimationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSequentialAnimationGroup_Connect_CurrentAnimationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_Connect_CurrentAnimationChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event)
@@ -273,7 +273,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSequentialAnimationGroup_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event)
@@ -299,7 +299,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` param1: i32 `
     ///
     pub fn UpdateCurrentTime(self: ?*anyopaque, param1: i32) void {
-        qtc.QSequentialAnimationGroup_UpdateCurrentTime(@ptrCast(self), @intCast(param1));
+        qtc.QSequentialAnimationGroup_UpdateCurrentTime(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime)
@@ -313,7 +313,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, param1: i32) callconv(.c) void `
     ///
     pub fn OnUpdateCurrentTime(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSequentialAnimationGroup_OnUpdateCurrentTime(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnUpdateCurrentTime(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime)
@@ -327,7 +327,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` param1: i32 `
     ///
     pub fn QBaseUpdateCurrentTime(self: ?*anyopaque, param1: i32) void {
-        qtc.QSequentialAnimationGroup_QBaseUpdateCurrentTime(@ptrCast(self), @intCast(param1));
+        qtc.QSequentialAnimationGroup_QBaseUpdateCurrentTime(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
@@ -341,7 +341,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` oldState: qabstractanimation_enums.State `
     ///
     pub fn UpdateState(self: ?*anyopaque, newState: i32, oldState: i32) void {
-        qtc.QSequentialAnimationGroup_UpdateState(@ptrCast(self), @intCast(newState), @intCast(oldState));
+        qtc.QSequentialAnimationGroup_UpdateState(@ptrCast(self), @bitCast(newState), @bitCast(oldState));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
@@ -355,7 +355,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
     ///
     pub fn OnUpdateState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QSequentialAnimationGroup_OnUpdateState(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnUpdateState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
@@ -371,7 +371,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` oldState: qabstractanimation_enums.State `
     ///
     pub fn QBaseUpdateState(self: ?*anyopaque, newState: i32, oldState: i32) void {
-        qtc.QSequentialAnimationGroup_QBaseUpdateState(@ptrCast(self), @intCast(newState), @intCast(oldState));
+        qtc.QSequentialAnimationGroup_QBaseUpdateState(@ptrCast(self), @bitCast(newState), @bitCast(oldState));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
@@ -383,7 +383,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` direction: qabstractanimation_enums.Direction `
     ///
     pub fn UpdateDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QSequentialAnimationGroup_UpdateDirection(@ptrCast(self), @intCast(direction));
+        qtc.QSequentialAnimationGroup_UpdateDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
@@ -397,7 +397,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, direction: qabstractanimation_enums.Direction) callconv(.c) void `
     ///
     pub fn OnUpdateDirection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSequentialAnimationGroup_OnUpdateDirection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnUpdateDirection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
@@ -411,7 +411,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` direction: qabstractanimation_enums.Direction `
     ///
     pub fn QBaseUpdateDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QSequentialAnimationGroup_QBaseUpdateDirection(@ptrCast(self), @intCast(direction));
+        qtc.QSequentialAnimationGroup_QBaseUpdateDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -449,7 +449,7 @@ pub const qsequentialanimationgroup = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsequentialanimationgroup.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -467,7 +467,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` index: i32 `
     ///
     pub fn AnimationAt(self: ?*anyopaque, index: i32) QtC.QAbstractAnimation {
-        return qtc.QAnimationGroup_AnimationAt(@ptrCast(self), @intCast(index));
+        return qtc.QAnimationGroup_AnimationAt(@ptrCast(self), @bitCast(index));
     }
 
     /// Inherited from QAnimationGroup
@@ -523,7 +523,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` animation: QtC.QAbstractAnimation `
     ///
     pub fn InsertAnimation(self: ?*anyopaque, index: i32, animation: ?*anyopaque) void {
-        qtc.QAnimationGroup_InsertAnimation(@ptrCast(self), @intCast(index), @ptrCast(animation));
+        qtc.QAnimationGroup_InsertAnimation(@ptrCast(self), @bitCast(index), @ptrCast(animation));
     }
 
     /// Inherited from QAnimationGroup
@@ -551,7 +551,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` index: i32 `
     ///
     pub fn TakeAnimation(self: ?*anyopaque, index: i32) QtC.QAbstractAnimation {
-        return qtc.QAnimationGroup_TakeAnimation(@ptrCast(self), @intCast(index));
+        return qtc.QAnimationGroup_TakeAnimation(@ptrCast(self), @bitCast(index));
     }
 
     /// Inherited from QAnimationGroup
@@ -621,7 +621,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` direction: qabstractanimation_enums.Direction `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QAbstractAnimation_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QAbstractAnimation_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QAbstractAnimation
@@ -671,7 +671,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` loopCount: i32 `
     ///
     pub fn SetLoopCount(self: ?*anyopaque, loopCount: i32) void {
-        qtc.QAbstractAnimation_SetLoopCount(@ptrCast(self), @intCast(loopCount));
+        qtc.QAbstractAnimation_SetLoopCount(@ptrCast(self), @bitCast(loopCount));
     }
 
     /// Inherited from QAbstractAnimation
@@ -721,7 +721,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAnimation_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAnimation_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAnimation
@@ -737,7 +737,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` oldState: qabstractanimation_enums.State `
     ///
     pub fn StateChanged(self: ?*anyopaque, newState: i32, oldState: i32) void {
-        qtc.QAbstractAnimation_StateChanged(@ptrCast(self), @intCast(newState), @intCast(oldState));
+        qtc.QAbstractAnimation_StateChanged(@ptrCast(self), @bitCast(newState), @bitCast(oldState));
     }
 
     /// Inherited from QAbstractAnimation
@@ -751,7 +751,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractAnimation_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAnimation_Connect_StateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAnimation
@@ -765,7 +765,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` currentLoop: i32 `
     ///
     pub fn CurrentLoopChanged(self: ?*anyopaque, currentLoop: i32) void {
-        qtc.QAbstractAnimation_CurrentLoopChanged(@ptrCast(self), @intCast(currentLoop));
+        qtc.QAbstractAnimation_CurrentLoopChanged(@ptrCast(self), @bitCast(currentLoop));
     }
 
     /// Inherited from QAbstractAnimation
@@ -779,7 +779,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, currentLoop: i32) callconv(.c) void `
     ///
     pub fn OnCurrentLoopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractAnimation_Connect_CurrentLoopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAnimation_Connect_CurrentLoopChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAnimation
@@ -793,7 +793,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` param1: qabstractanimation_enums.Direction `
     ///
     pub fn DirectionChanged(self: ?*anyopaque, param1: i32) void {
-        qtc.QAbstractAnimation_DirectionChanged(@ptrCast(self), @intCast(param1));
+        qtc.QAbstractAnimation_DirectionChanged(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QAbstractAnimation
@@ -807,7 +807,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, param1: qabstractanimation_enums.Direction) callconv(.c) void `
     ///
     pub fn OnDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractAnimation_Connect_DirectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAnimation_Connect_DirectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAnimation
@@ -883,7 +883,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` msecs: i32 `
     ///
     pub fn SetCurrentTime(self: ?*anyopaque, msecs: i32) void {
-        qtc.QAbstractAnimation_SetCurrentTime(@ptrCast(self), @intCast(msecs));
+        qtc.QAbstractAnimation_SetCurrentTime(@ptrCast(self), @bitCast(msecs));
     }
 
     /// Inherited from QAbstractAnimation
@@ -897,7 +897,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` policy: qabstractanimation_enums.DeletionPolicy `
     ///
     pub fn Start1(self: ?*anyopaque, policy: i32) void {
-        qtc.QAbstractAnimation_Start1(@ptrCast(self), @intCast(policy));
+        qtc.QAbstractAnimation_Start1(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QObject
@@ -1031,7 +1031,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1045,7 +1045,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1059,7 +1059,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1073,7 +1073,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1403,7 +1403,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1458,7 +1458,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1474,7 +1474,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1496,7 +1496,7 @@ pub const qsequentialanimationgroup = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1516,7 +1516,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1538,7 +1538,7 @@ pub const qsequentialanimationgroup = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1635,7 +1635,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1687,7 +1687,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSequentialAnimationGroup_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1735,7 +1735,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSequentialAnimationGroup_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1783,7 +1783,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSequentialAnimationGroup_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1831,7 +1831,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSequentialAnimationGroup_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1879,7 +1879,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSequentialAnimationGroup_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1927,7 +1927,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSequentialAnimationGroup_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1971,7 +1971,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QSequentialAnimationGroup_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2015,7 +2015,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSequentialAnimationGroup_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2065,7 +2065,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSequentialAnimationGroup_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2113,7 +2113,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSequentialAnimationGroup_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QSequentialAnimationGroup_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2129,7 +2129,7 @@ pub const qsequentialanimationgroup = struct {
     /// ` callback: *const fn (self: QtC.QSequentialAnimationGroup, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#dtor.QSequentialAnimationGroup)

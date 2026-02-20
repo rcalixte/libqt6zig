@@ -20,7 +20,7 @@ pub const kcrash = struct {
     /// ` param1: i32 `
     ///
     pub fn DefaultCrashHandler(param1: i32) void {
-        qtc.KCrash_DefaultCrashHandler(@intCast(param1));
+        qtc.KCrash_DefaultCrashHandler(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setFlags)
@@ -30,7 +30,7 @@ pub const kcrash = struct {
     /// ` param1: flag of kcrash_enums.CrashFlag `
     ///
     pub fn SetFlags(param1: i32) void {
-        qtc.KCrash_SetFlags(@intCast(param1));
+        qtc.KCrash_SetFlags(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setDrKonqiEnabled)

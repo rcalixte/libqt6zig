@@ -658,7 +658,7 @@ pub const qfileinfo = struct {
     /// ` permissions: flag of qfiledevice_enums.Permission `
     ///
     pub fn Permission(self: ?*anyopaque, permissions: i32) bool {
-        return qtc.QFileInfo_Permission(@ptrCast(self), @intCast(permissions));
+        return qtc.QFileInfo_Permission(@ptrCast(self), @bitCast(permissions));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileinfo.html#permissions)
@@ -734,7 +734,7 @@ pub const qfileinfo = struct {
     /// ` time: qfiledevice_enums.FileTime `
     ///
     pub fn FileTime(self: ?*anyopaque, time: i32) QtC.QDateTime {
-        return qtc.QFileInfo_FileTime(@ptrCast(self), @intCast(time));
+        return qtc.QFileInfo_FileTime(@ptrCast(self), @bitCast(time));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileinfo.html#birthTime)
@@ -796,7 +796,7 @@ pub const qfileinfo = struct {
     /// ` tz: QtC.QTimeZone `
     ///
     pub fn FileTime2(self: ?*anyopaque, time: i32, tz: ?*anyopaque) QtC.QDateTime {
-        return qtc.QFileInfo_FileTime2(@ptrCast(self), @intCast(time), @ptrCast(tz));
+        return qtc.QFileInfo_FileTime2(@ptrCast(self), @bitCast(time), @ptrCast(tz));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileinfo.html#caching)

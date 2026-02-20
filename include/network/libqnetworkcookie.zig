@@ -172,7 +172,7 @@ pub const qnetworkcookie = struct {
     /// ` sameSite: qnetworkcookie_enums.SameSite `
     ///
     pub fn SetSameSitePolicy(self: ?*anyopaque, sameSite: i32) void {
-        qtc.QNetworkCookie_SetSameSitePolicy(@ptrCast(self), @intCast(sameSite));
+        qtc.QNetworkCookie_SetSameSitePolicy(@ptrCast(self), @bitCast(sameSite));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#isSessionCookie)
@@ -407,7 +407,7 @@ pub const qnetworkcookie = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToRawForm1(self: ?*anyopaque, form: i32, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QNetworkCookie_ToRawForm1(@ptrCast(self), @intCast(form));
+        var _bytearray: qtc.libqt_string = qtc.QNetworkCookie_ToRawForm1(@ptrCast(self), @bitCast(form));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkcookie.ToRawForm1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

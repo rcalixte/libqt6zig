@@ -60,7 +60,7 @@ pub const kxmlguiclient = struct {
     /// ` callback: *const fn (self: QtC.KXMLGUIClient, element: QtC.QDomElement) callconv(.c) QtC.QAction `
     ///
     pub fn OnAction2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
-        qtc.KXMLGUIClient_OnAction2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KXMLGUIClient_OnAction2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
@@ -98,7 +98,7 @@ pub const kxmlguiclient = struct {
     /// ` callback: *const fn () callconv(.c) QtC.KActionCollection `
     ///
     pub fn OnActionCollection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KActionCollection) void {
-        qtc.KXMLGUIClient_OnActionCollection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KXMLGUIClient_OnActionCollection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
@@ -142,7 +142,7 @@ pub const kxmlguiclient = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnComponentName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KXMLGUIClient_OnComponentName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KXMLGUIClient_OnComponentName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
@@ -184,7 +184,7 @@ pub const kxmlguiclient = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QDomDocument `
     ///
     pub fn OnDomDocument(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDomDocument) void {
-        qtc.KXMLGUIClient_OnDomDocument(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KXMLGUIClient_OnDomDocument(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
@@ -228,7 +228,7 @@ pub const kxmlguiclient = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnXmlFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KXMLGUIClient_OnXmlFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KXMLGUIClient_OnXmlFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
@@ -278,7 +278,7 @@ pub const kxmlguiclient = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnLocalXMLFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KXMLGUIClient_OnLocalXMLFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KXMLGUIClient_OnLocalXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
@@ -667,7 +667,7 @@ pub const kxmlguiclient = struct {
     /// ` callback: *const fn (self: QtC.KXMLGUIClient, componentName: [*:0]const u8, componentDisplayName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetComponentName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.KXMLGUIClient_OnSetComponentName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KXMLGUIClient_OnSetComponentName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
@@ -725,7 +725,7 @@ pub const kxmlguiclient = struct {
     /// ` callback: *const fn (self: QtC.KXMLGUIClient, file: [*:0]const u8, merge: bool, setXMLDoc: bool) callconv(.c) void `
     ///
     pub fn OnSetXMLFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool, bool) callconv(.c) void) void {
-        qtc.KXMLGUIClient_OnSetXMLFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KXMLGUIClient_OnSetXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
@@ -779,7 +779,7 @@ pub const kxmlguiclient = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnStandardsXmlFileLocation(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KXMLGUIClient_OnStandardsXmlFileLocation(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KXMLGUIClient_OnStandardsXmlFileLocation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
@@ -821,7 +821,7 @@ pub const kxmlguiclient = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnLoadStandardsXmlFile(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KXMLGUIClient_OnLoadStandardsXmlFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KXMLGUIClient_OnLoadStandardsXmlFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
@@ -863,7 +863,7 @@ pub const kxmlguiclient = struct {
     /// ` callback: *const fn (self: QtC.KXMLGUIClient, file: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetLocalXMLFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KXMLGUIClient_OnSetLocalXMLFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KXMLGUIClient_OnSetLocalXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
@@ -913,7 +913,7 @@ pub const kxmlguiclient = struct {
     /// ` callback: *const fn (self: QtC.KXMLGUIClient, document: [*:0]const u8, merge: bool) callconv(.c) void `
     ///
     pub fn OnSetXML(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
-        qtc.KXMLGUIClient_OnSetXML(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KXMLGUIClient_OnSetXML(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
@@ -961,7 +961,7 @@ pub const kxmlguiclient = struct {
     /// ` callback: *const fn (self: QtC.KXMLGUIClient, document: QtC.QDomDocument, merge: bool) callconv(.c) void `
     ///
     pub fn OnSetDOMDocument(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KXMLGUIClient_OnSetDOMDocument(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KXMLGUIClient_OnSetDOMDocument(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
@@ -995,7 +995,7 @@ pub const kxmlguiclient = struct {
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KXMLGUIClient_StateChanged(@ptrCast(self), newstate_str, @intCast(reverse));
+        qtc.KXMLGUIClient_StateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
@@ -1009,7 +1009,7 @@ pub const kxmlguiclient = struct {
     /// ` callback: *const fn (self: QtC.KXMLGUIClient, newstate: [*:0]const u8, reverse: kxmlguiclient_enums.ReverseStateChange) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.KXMLGUIClient_OnStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KXMLGUIClient_OnStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
@@ -1029,7 +1029,7 @@ pub const kxmlguiclient = struct {
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KXMLGUIClient_QBaseStateChanged(@ptrCast(self), newstate_str, @intCast(reverse));
+        qtc.KXMLGUIClient_QBaseStateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)

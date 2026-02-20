@@ -39,7 +39,7 @@ pub const qvariant = struct {
     /// ` i: i32 `
     ///
     pub fn New4(i: i32) QtC.QVariant {
-        return qtc.QVariant_new4(@intCast(i));
+        return qtc.QVariant_new4(@bitCast(i));
     }
 
     /// New5 constructs a new QVariant object.
@@ -49,7 +49,7 @@ pub const qvariant = struct {
     /// ` ui: u32 `
     ///
     pub fn New5(ui: u32) QtC.QVariant {
-        return qtc.QVariant_new5(@intCast(ui));
+        return qtc.QVariant_new5(@bitCast(ui));
     }
 
     /// New6 constructs a new QVariant object.
@@ -59,7 +59,7 @@ pub const qvariant = struct {
     /// ` ll: i64 `
     ///
     pub fn New6(ll: i64) QtC.QVariant {
-        return qtc.QVariant_new6(@intCast(ll));
+        return qtc.QVariant_new6(@bitCast(ll));
     }
 
     /// New7 constructs a new QVariant object.
@@ -69,7 +69,7 @@ pub const qvariant = struct {
     /// ` ull: u64 `
     ///
     pub fn New7(ull: u64) QtC.QVariant {
-        return qtc.QVariant_new7(@intCast(ull));
+        return qtc.QVariant_new7(@bitCast(ull));
     }
 
     /// New8 constructs a new QVariant object.
@@ -89,7 +89,7 @@ pub const qvariant = struct {
     /// ` d: f64 `
     ///
     pub fn New9(d: f64) QtC.QVariant {
-        return qtc.QVariant_new9(@floatCast(d));
+        return qtc.QVariant_new9(@bitCast(d));
     }
 
     /// New10 constructs a new QVariant object.
@@ -99,7 +99,7 @@ pub const qvariant = struct {
     /// ` f: f32 `
     ///
     pub fn New10(f: f32) QtC.QVariant {
-        return qtc.QVariant_new10(@floatCast(f));
+        return qtc.QVariant_new10(@bitCast(f));
     }
 
     /// New11 constructs a new QVariant object.
@@ -497,7 +497,7 @@ pub const qvariant = struct {
     /// ` typeVal: qvariant_enums.Type `
     ///
     pub fn New42(typeVal: i32) QtC.QVariant {
-        return qtc.QVariant_new42(@intCast(typeVal));
+        return qtc.QVariant_new42(@bitCast(typeVal));
     }
 
     /// New43 constructs a new QVariant object.
@@ -622,7 +622,7 @@ pub const qvariant = struct {
     /// ` targetTypeId: i32 `
     ///
     pub fn CanConvert2(self: ?*anyopaque, targetTypeId: i32) bool {
-        return qtc.QVariant_CanConvert2(@ptrCast(self), @intCast(targetTypeId));
+        return qtc.QVariant_CanConvert2(@ptrCast(self), @bitCast(targetTypeId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#convert)
@@ -634,7 +634,7 @@ pub const qvariant = struct {
     /// ` targetTypeId: i32 `
     ///
     pub fn Convert2(self: ?*anyopaque, targetTypeId: i32) bool {
-        return qtc.QVariant_Convert2(@ptrCast(self), @intCast(targetTypeId));
+        return qtc.QVariant_Convert2(@ptrCast(self), @bitCast(targetTypeId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#isValid)
@@ -1192,7 +1192,7 @@ pub const qvariant = struct {
     /// ` typeId: i32 `
     ///
     pub fn TypeToName(typeId: i32) [:0]const u8 {
-        const _ret = qtc.QVariant_TypeToName(@intCast(typeId));
+        const _ret = qtc.QVariant_TypeToName(@bitCast(typeId));
         return std.mem.span(_ret);
     }
 

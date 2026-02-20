@@ -259,7 +259,7 @@ pub const kcodecs__codec = struct {
     /// ` newline: kcodecs_enums.NewlineType `
     ///
     pub fn MaxEncodedSizeFor(self: ?*anyopaque, insize: i64, newline: i32) i64 {
-        return qtc.KCodecs__Codec_MaxEncodedSizeFor(@ptrCast(self), @intCast(insize), @intCast(newline));
+        return qtc.KCodecs__Codec_MaxEncodedSizeFor(@ptrCast(self), @bitCast(insize), @bitCast(newline));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#maxDecodedSizeFor)
@@ -273,7 +273,7 @@ pub const kcodecs__codec = struct {
     /// ` newline: kcodecs_enums.NewlineType `
     ///
     pub fn MaxDecodedSizeFor(self: ?*anyopaque, insize: i64, newline: i32) i64 {
-        return qtc.KCodecs__Codec_MaxDecodedSizeFor(@ptrCast(self), @intCast(insize), @intCast(newline));
+        return qtc.KCodecs__Codec_MaxDecodedSizeFor(@ptrCast(self), @bitCast(insize), @bitCast(newline));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#makeEncoder)
@@ -285,7 +285,7 @@ pub const kcodecs__codec = struct {
     /// ` newline: kcodecs_enums.NewlineType `
     ///
     pub fn MakeEncoder(self: ?*anyopaque, newline: i32) QtC.KCodecs__Encoder {
-        return qtc.KCodecs__Codec_MakeEncoder(@ptrCast(self), @intCast(newline));
+        return qtc.KCodecs__Codec_MakeEncoder(@ptrCast(self), @bitCast(newline));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#makeDecoder)
@@ -297,7 +297,7 @@ pub const kcodecs__codec = struct {
     /// ` newline: kcodecs_enums.NewlineType `
     ///
     pub fn MakeDecoder(self: ?*anyopaque, newline: i32) QtC.KCodecs__Decoder {
-        return qtc.KCodecs__Codec_MakeDecoder(@ptrCast(self), @intCast(newline));
+        return qtc.KCodecs__Codec_MakeDecoder(@ptrCast(self), @bitCast(newline));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#encode)
@@ -321,7 +321,7 @@ pub const kcodecs__codec = struct {
         const send_Cstring = send.ptr;
         const dcursor_Cstring = dcursor.ptr;
         const dend_Cstring = dend.ptr;
-        return qtc.KCodecs__Codec_Encode(@ptrCast(self), scursor_Cstring, send_Cstring, dcursor_Cstring, dend_Cstring, @intCast(newline));
+        return qtc.KCodecs__Codec_Encode(@ptrCast(self), scursor_Cstring, send_Cstring, dcursor_Cstring, dend_Cstring, @bitCast(newline));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#decode)
@@ -345,7 +345,7 @@ pub const kcodecs__codec = struct {
         const send_Cstring = send.ptr;
         const dcursor_Cstring = dcursor.ptr;
         const dend_Cstring = dend.ptr;
-        return qtc.KCodecs__Codec_Decode(@ptrCast(self), scursor_Cstring, send_Cstring, dcursor_Cstring, dend_Cstring, @intCast(newline));
+        return qtc.KCodecs__Codec_Decode(@ptrCast(self), scursor_Cstring, send_Cstring, dcursor_Cstring, dend_Cstring, @bitCast(newline));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#encode)
@@ -420,7 +420,7 @@ pub const kcodecs__codec = struct {
             .len = src.len,
             .data = src.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Encode22(@ptrCast(self), src_str, @intCast(newline));
+        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Encode22(@ptrCast(self), src_str, @bitCast(newline));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs__codec.Encode22: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -444,7 +444,7 @@ pub const kcodecs__codec = struct {
             .len = src.len,
             .data = src.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Decode22(@ptrCast(self), src_str, @intCast(newline));
+        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Decode22(@ptrCast(self), src_str, @bitCast(newline));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs__codec.Decode22: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

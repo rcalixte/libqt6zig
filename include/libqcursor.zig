@@ -17,7 +17,7 @@ pub const qcursor = struct {
     /// ` shape: qnamespace_enums.CursorShape `
     ///
     pub fn New2(shape: i32) QtC.QCursor {
-        return qtc.QCursor_new2(@intCast(shape));
+        return qtc.QCursor_new2(@bitCast(shape));
     }
 
     /// New3 constructs a new QCursor object.
@@ -63,7 +63,7 @@ pub const qcursor = struct {
     /// ` hotX: i32 `
     ///
     pub fn New6(bitmap: ?*anyopaque, mask: ?*anyopaque, hotX: i32) QtC.QCursor {
-        return qtc.QCursor_new6(@ptrCast(bitmap), @ptrCast(mask), @intCast(hotX));
+        return qtc.QCursor_new6(@ptrCast(bitmap), @ptrCast(mask), @bitCast(hotX));
     }
 
     /// New7 constructs a new QCursor object.
@@ -79,7 +79,7 @@ pub const qcursor = struct {
     /// ` hotY: i32 `
     ///
     pub fn New7(bitmap: ?*anyopaque, mask: ?*anyopaque, hotX: i32, hotY: i32) QtC.QCursor {
-        return qtc.QCursor_new7(@ptrCast(bitmap), @ptrCast(mask), @intCast(hotX), @intCast(hotY));
+        return qtc.QCursor_new7(@ptrCast(bitmap), @ptrCast(mask), @bitCast(hotX), @bitCast(hotY));
     }
 
     /// New8 constructs a new QCursor object.
@@ -91,7 +91,7 @@ pub const qcursor = struct {
     /// ` hotX: i32 `
     ///
     pub fn New8(pixmap: ?*anyopaque, hotX: i32) QtC.QCursor {
-        return qtc.QCursor_new8(@ptrCast(pixmap), @intCast(hotX));
+        return qtc.QCursor_new8(@ptrCast(pixmap), @bitCast(hotX));
     }
 
     /// New9 constructs a new QCursor object.
@@ -105,7 +105,7 @@ pub const qcursor = struct {
     /// ` hotY: i32 `
     ///
     pub fn New9(pixmap: ?*anyopaque, hotX: i32, hotY: i32) QtC.QCursor {
-        return qtc.QCursor_new9(@ptrCast(pixmap), @intCast(hotX), @intCast(hotY));
+        return qtc.QCursor_new9(@ptrCast(pixmap), @bitCast(hotX), @bitCast(hotY));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#operator-eq)
@@ -165,7 +165,7 @@ pub const qcursor = struct {
     /// ` newShape: qnamespace_enums.CursorShape `
     ///
     pub fn SetShape(self: ?*anyopaque, newShape: i32) void {
-        qtc.QCursor_SetShape(@ptrCast(self), @intCast(newShape));
+        qtc.QCursor_SetShape(@ptrCast(self), @bitCast(newShape));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#bitmap)
@@ -177,7 +177,7 @@ pub const qcursor = struct {
     /// ` param1: qnamespace_enums.ReturnByValueConstant `
     ///
     pub fn Bitmap(self: ?*anyopaque, param1: i32) QtC.QBitmap {
-        return qtc.QCursor_Bitmap(@ptrCast(self), @intCast(param1));
+        return qtc.QCursor_Bitmap(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#mask)
@@ -189,7 +189,7 @@ pub const qcursor = struct {
     /// ` param1: qnamespace_enums.ReturnByValueConstant `
     ///
     pub fn Mask(self: ?*anyopaque, param1: i32) QtC.QBitmap {
-        return qtc.QCursor_Mask(@ptrCast(self), @intCast(param1));
+        return qtc.QCursor_Mask(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#bitmap)
@@ -257,7 +257,7 @@ pub const qcursor = struct {
     /// ` y: i32 `
     ///
     pub fn SetPos(x: i32, y: i32) void {
-        qtc.QCursor_SetPos(@intCast(x), @intCast(y));
+        qtc.QCursor_SetPos(@bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#setPos)
@@ -271,7 +271,7 @@ pub const qcursor = struct {
     /// ` y: i32 `
     ///
     pub fn SetPos2(screen: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QCursor_SetPos2(@ptrCast(screen), @intCast(x), @intCast(y));
+        qtc.QCursor_SetPos2(@ptrCast(screen), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#setPos)

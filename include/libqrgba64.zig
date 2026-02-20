@@ -26,7 +26,7 @@ pub const qrgba64 = struct {
     /// ` c: u64 `
     ///
     pub fn FromRgba64(c: u64) QtC.QRgba64 {
-        return qtc.QRgba64_FromRgba64(@intCast(c));
+        return qtc.QRgba64_FromRgba64(@bitCast(c));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64.html#fromRgba64)
@@ -42,7 +42,7 @@ pub const qrgba64 = struct {
     /// ` alpha: u16 `
     ///
     pub fn FromRgba642(red: u16, green: u16, blue: u16, alpha: u16) QtC.QRgba64 {
-        return qtc.QRgba64_FromRgba642(@intCast(red), @intCast(green), @intCast(blue), @intCast(alpha));
+        return qtc.QRgba64_FromRgba642(@bitCast(red), @bitCast(green), @bitCast(blue), @bitCast(alpha));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64.html#fromRgba)
@@ -58,7 +58,7 @@ pub const qrgba64 = struct {
     /// ` alpha: u8 `
     ///
     pub fn FromRgba(red: u8, green: u8, blue: u8, alpha: u8) QtC.QRgba64 {
-        return qtc.QRgba64_FromRgba(@intCast(red), @intCast(green), @intCast(blue), @intCast(alpha));
+        return qtc.QRgba64_FromRgba(@bitCast(red), @bitCast(green), @bitCast(blue), @bitCast(alpha));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64.html#fromArgb32)
@@ -68,7 +68,7 @@ pub const qrgba64 = struct {
     /// ` rgb: u32 `
     ///
     pub fn FromArgb32(rgb: u32) QtC.QRgba64 {
-        return qtc.QRgba64_FromArgb32(@intCast(rgb));
+        return qtc.QRgba64_FromArgb32(@bitCast(rgb));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64.html#isOpaque)
@@ -140,7 +140,7 @@ pub const qrgba64 = struct {
     /// ` _red: u16 `
     ///
     pub fn SetRed(self: ?*anyopaque, _red: u16) void {
-        qtc.QRgba64_SetRed(@ptrCast(self), @intCast(_red));
+        qtc.QRgba64_SetRed(@ptrCast(self), @bitCast(_red));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64.html#setGreen)
@@ -152,7 +152,7 @@ pub const qrgba64 = struct {
     /// ` _green: u16 `
     ///
     pub fn SetGreen(self: ?*anyopaque, _green: u16) void {
-        qtc.QRgba64_SetGreen(@ptrCast(self), @intCast(_green));
+        qtc.QRgba64_SetGreen(@ptrCast(self), @bitCast(_green));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64.html#setBlue)
@@ -164,7 +164,7 @@ pub const qrgba64 = struct {
     /// ` _blue: u16 `
     ///
     pub fn SetBlue(self: ?*anyopaque, _blue: u16) void {
-        qtc.QRgba64_SetBlue(@ptrCast(self), @intCast(_blue));
+        qtc.QRgba64_SetBlue(@ptrCast(self), @bitCast(_blue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64.html#setAlpha)
@@ -176,7 +176,7 @@ pub const qrgba64 = struct {
     /// ` _alpha: u16 `
     ///
     pub fn SetAlpha(self: ?*anyopaque, _alpha: u16) void {
-        qtc.QRgba64_SetAlpha(@ptrCast(self), @intCast(_alpha));
+        qtc.QRgba64_SetAlpha(@ptrCast(self), @bitCast(_alpha));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64.html#red8)
@@ -278,7 +278,7 @@ pub const qrgba64 = struct {
     /// ` _rgba: u64 `
     ///
     pub fn OperatorAssign(self: ?*anyopaque, _rgba: u64) void {
-        qtc.QRgba64_OperatorAssign(@ptrCast(self), @intCast(_rgba));
+        qtc.QRgba64_OperatorAssign(@ptrCast(self), @bitCast(_rgba));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64.html#dtor.QRgba64)

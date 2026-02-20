@@ -34,7 +34,7 @@ pub const knscore = struct {
     /// ` param2: u64 `
     ///
     pub fn QHash(param1: ?*anyopaque, param2: u64) u64 {
-        return qtc.KNSCore_QHash(@ptrCast(param1), @intCast(param2));
+        return qtc.KNSCore_QHash(@ptrCast(param1), @bitCast(param2));
     }
 };
 
@@ -653,7 +653,7 @@ pub const knscore__entry = struct {
     /// ` rating: i32 `
     ///
     pub fn SetRating(self: ?*anyopaque, rating: i32) void {
-        qtc.KNSCore__Entry_SetRating(@ptrCast(self), @intCast(rating));
+        qtc.KNSCore__Entry_SetRating(@ptrCast(self), @bitCast(rating));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-entry.html#rating)
@@ -675,7 +675,7 @@ pub const knscore__entry = struct {
     /// ` comments: i32 `
     ///
     pub fn SetNumberOfComments(self: ?*anyopaque, comments: i32) void {
-        qtc.KNSCore__Entry_SetNumberOfComments(@ptrCast(self), @intCast(comments));
+        qtc.KNSCore__Entry_SetNumberOfComments(@ptrCast(self), @bitCast(comments));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-entry.html#numberOfComments)
@@ -697,7 +697,7 @@ pub const knscore__entry = struct {
     /// ` downloads: i32 `
     ///
     pub fn SetDownloadCount(self: ?*anyopaque, downloads: i32) void {
-        qtc.KNSCore__Entry_SetDownloadCount(@ptrCast(self), @intCast(downloads));
+        qtc.KNSCore__Entry_SetDownloadCount(@ptrCast(self), @bitCast(downloads));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-entry.html#downloadCount)
@@ -729,7 +729,7 @@ pub const knscore__entry = struct {
     /// ` fans: i32 `
     ///
     pub fn SetNumberFans(self: ?*anyopaque, fans: i32) void {
-        qtc.KNSCore__Entry_SetNumberFans(@ptrCast(self), @intCast(fans));
+        qtc.KNSCore__Entry_SetNumberFans(@ptrCast(self), @bitCast(fans));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-entry.html#numberKnowledgebaseEntries)
@@ -751,7 +751,7 @@ pub const knscore__entry = struct {
     /// ` num: i32 `
     ///
     pub fn SetNumberKnowledgebaseEntries(self: ?*anyopaque, num: i32) void {
-        qtc.KNSCore__Entry_SetNumberKnowledgebaseEntries(@ptrCast(self), @intCast(num));
+        qtc.KNSCore__Entry_SetNumberKnowledgebaseEntries(@ptrCast(self), @bitCast(num));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-entry.html#knowledgebaseLink)
@@ -961,7 +961,7 @@ pub const knscore__entry = struct {
     /// ` source: entry_enums.Source `
     ///
     pub fn SetSource(self: ?*anyopaque, source: i32) void {
-        qtc.KNSCore__Entry_SetSource(@ptrCast(self), @intCast(source));
+        qtc.KNSCore__Entry_SetSource(@ptrCast(self), @bitCast(source));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-entry.html#source)
@@ -987,7 +987,7 @@ pub const knscore__entry = struct {
     /// ` typeVal: entry_enums.EntryType `
     ///
     pub fn SetEntryType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.KNSCore__Entry_SetEntryType(@ptrCast(self), @intCast(typeVal));
+        qtc.KNSCore__Entry_SetEntryType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-entry.html#entryType)
@@ -1025,7 +1025,7 @@ pub const knscore__entry = struct {
     /// ` status: entry_enums.Status `
     ///
     pub fn SetStatus(self: ?*anyopaque, status: i32) void {
-        qtc.KNSCore__Entry_SetStatus(@ptrCast(self), @intCast(status));
+        qtc.KNSCore__Entry_SetStatus(@ptrCast(self), @bitCast(status));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-entry.html#status)
@@ -1067,7 +1067,7 @@ pub const knscore__entry = struct {
             .len = url.len,
             .data = url.ptr,
         };
-        qtc.KNSCore__Entry_SetPreviewUrl2(@ptrCast(self), url_str, @intCast(typeVal));
+        qtc.KNSCore__Entry_SetPreviewUrl2(@ptrCast(self), url_str, @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-entry.html#previewUrl)
@@ -1081,7 +1081,7 @@ pub const knscore__entry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PreviewUrl1(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KNSCore__Entry_PreviewUrl1(@ptrCast(self), @intCast(typeVal));
+        var _str = qtc.KNSCore__Entry_PreviewUrl1(@ptrCast(self), @bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.PreviewUrl1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1097,7 +1097,7 @@ pub const knscore__entry = struct {
     /// ` typeVal: entry_enums.PreviewType `
     ///
     pub fn PreviewImage1(self: ?*anyopaque, typeVal: i32) QtC.QImage {
-        return qtc.KNSCore__Entry_PreviewImage1(@ptrCast(self), @intCast(typeVal));
+        return qtc.KNSCore__Entry_PreviewImage1(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-entry.html#setPreviewImage)
@@ -1111,7 +1111,7 @@ pub const knscore__entry = struct {
     /// ` typeVal: entry_enums.PreviewType `
     ///
     pub fn SetPreviewImage2(self: ?*anyopaque, image: ?*anyopaque, typeVal: i32) void {
-        qtc.KNSCore__Entry_SetPreviewImage2(@ptrCast(self), @ptrCast(image), @intCast(typeVal));
+        qtc.KNSCore__Entry_SetPreviewImage2(@ptrCast(self), @ptrCast(image), @bitCast(typeVal));
     }
 
     /// Delete this object from C++ memory.
@@ -1284,7 +1284,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
     /// ` id: i32 `
     ///
     pub fn SetId(self: ?*anyopaque, id: i32) void {
-        qtc.KNSCore__Entry__DownloadLinkInformation_SetId(@ptrCast(self), @intCast(id));
+        qtc.KNSCore__Entry__DownloadLinkInformation_SetId(@ptrCast(self), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#isDownloadtypeLink-var)
@@ -1328,7 +1328,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
     /// ` size: u64 `
     ///
     pub fn SetSize(self: ?*anyopaque, size: u64) void {
-        qtc.KNSCore__Entry__DownloadLinkInformation_SetSize(@ptrCast(self), @intCast(size));
+        qtc.KNSCore__Entry__DownloadLinkInformation_SetSize(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#tags-var)

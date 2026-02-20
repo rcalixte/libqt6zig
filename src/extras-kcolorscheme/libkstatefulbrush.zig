@@ -20,7 +20,7 @@ pub const kstatefulbrush = struct {
     /// ` param2: kcolorscheme_enums.ForegroundRole `
     ///
     pub fn New2(param1: i32, param2: i32) QtC.KStatefulBrush {
-        return qtc.KStatefulBrush_new2(@intCast(param1), @intCast(param2));
+        return qtc.KStatefulBrush_new2(@bitCast(param1), @bitCast(param2));
     }
 
     /// New3 constructs a new KStatefulBrush object.
@@ -32,7 +32,7 @@ pub const kstatefulbrush = struct {
     /// ` param2: kcolorscheme_enums.BackgroundRole `
     ///
     pub fn New3(param1: i32, param2: i32) QtC.KStatefulBrush {
-        return qtc.KStatefulBrush_new3(@intCast(param1), @intCast(param2));
+        return qtc.KStatefulBrush_new3(@bitCast(param1), @bitCast(param2));
     }
 
     /// New4 constructs a new KStatefulBrush object.
@@ -44,7 +44,7 @@ pub const kstatefulbrush = struct {
     /// ` param2: kcolorscheme_enums.DecorationRole `
     ///
     pub fn New4(param1: i32, param2: i32) QtC.KStatefulBrush {
-        return qtc.KStatefulBrush_new4(@intCast(param1), @intCast(param2));
+        return qtc.KStatefulBrush_new4(@bitCast(param1), @bitCast(param2));
     }
 
     /// New5 constructs a new KStatefulBrush object.
@@ -100,7 +100,7 @@ pub const kstatefulbrush = struct {
     /// ` param1: qpalette_enums.ColorGroup `
     ///
     pub fn Brush(self: ?*anyopaque, param1: i32) QtC.QBrush {
-        return qtc.KStatefulBrush_Brush(@ptrCast(self), @intCast(param1));
+        return qtc.KStatefulBrush_Brush(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstatefulbrush.html#brush)

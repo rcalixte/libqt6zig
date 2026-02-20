@@ -627,6 +627,10 @@ KNotificationReplyAction* KNotification_ReplyAction(const KNotification* self) {
     return self->replyAction();
 }
 
+void KNotification_SetReplyAction(KNotification* self, KNotificationReplyAction* replyAction) {
+    self->setReplyAction(std::unique_ptr<KNotificationReplyAction>(replyAction));
+}
+
 int KNotification_Flags(const KNotification* self) {
     return static_cast<int>(self->flags());
 }

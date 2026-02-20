@@ -108,7 +108,7 @@ pub const solid__predicate = struct {
             .data = property.ptr,
         };
 
-        return qtc.Solid__Predicate_new7(@ptrCast(ifaceType), property_str, @ptrCast(value), @intCast(compOperator));
+        return qtc.Solid__Predicate_new7(@ptrCast(ifaceType), property_str, @ptrCast(value), @bitCast(compOperator));
     }
 
     /// New8 constructs a new Solid::Predicate object.
@@ -133,7 +133,7 @@ pub const solid__predicate = struct {
             .data = property.ptr,
         };
 
-        return qtc.Solid__Predicate_new8(ifaceName_str, property_str, @ptrCast(value), @intCast(compOperator));
+        return qtc.Solid__Predicate_new8(ifaceName_str, property_str, @ptrCast(value), @bitCast(compOperator));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#operator-eq)

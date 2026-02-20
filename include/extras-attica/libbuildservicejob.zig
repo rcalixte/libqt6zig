@@ -287,7 +287,7 @@ pub const attica__buildservicejob = struct {
     /// ` status: i32 `
     ///
     pub fn SetStatus(self: ?*anyopaque, status: i32) void {
-        qtc.Attica__BuildServiceJob_SetStatus(@ptrCast(self), @intCast(status));
+        qtc.Attica__BuildServiceJob_SetStatus(@ptrCast(self), @bitCast(status));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#isRunning)

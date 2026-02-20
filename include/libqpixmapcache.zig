@@ -60,7 +60,7 @@ pub const qpixmapcache = struct {
     /// ` cacheLimit: i32 `
     ///
     pub fn SetCacheLimit(cacheLimit: i32) void {
-        qtc.QPixmapCache_SetCacheLimit(@intCast(cacheLimit));
+        qtc.QPixmapCache_SetCacheLimit(@bitCast(cacheLimit));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmapcache.html#find)

@@ -44,7 +44,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QDateTimeAxis_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -79,7 +79,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QDateTimeAxis_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -106,7 +106,7 @@ pub const qdatetimeaxis = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDateTimeAxis_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDateTimeAxis_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -118,7 +118,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QDateTimeAxis_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -134,7 +134,7 @@ pub const qdatetimeaxis = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDateTimeAxis_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QDateTimeAxis_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -179,7 +179,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDateTimeAxis_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#type)
@@ -297,7 +297,7 @@ pub const qdatetimeaxis = struct {
     /// ` count: i32 `
     ///
     pub fn SetTickCount(self: ?*anyopaque, count: i32) void {
-        qtc.QDateTimeAxis_SetTickCount(@ptrCast(self), @intCast(count));
+        qtc.QDateTimeAxis_SetTickCount(@ptrCast(self), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#tickCount)
@@ -331,7 +331,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, min: QtC.QDateTime) callconv(.c) void `
     ///
     pub fn OnMinChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDateTime) callconv(.c) void) void {
-        qtc.QDateTimeAxis_Connect_MinChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_Connect_MinChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#maxChanged)
@@ -355,7 +355,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, max: QtC.QDateTime) callconv(.c) void `
     ///
     pub fn OnMaxChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDateTime) callconv(.c) void) void {
-        qtc.QDateTimeAxis_Connect_MaxChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_Connect_MaxChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#rangeChanged)
@@ -381,7 +381,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, min: QtC.QDateTime, max: QtC.QDateTime) callconv(.c) void `
     ///
     pub fn OnRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDateTime, QtC.QDateTime) callconv(.c) void) void {
-        qtc.QDateTimeAxis_Connect_RangeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_Connect_RangeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#formatChanged)
@@ -409,7 +409,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, format: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDateTimeAxis_Connect_FormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_Connect_FormatChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#tickCountChanged)
@@ -421,7 +421,7 @@ pub const qdatetimeaxis = struct {
     /// ` tick: i32 `
     ///
     pub fn TickCountChanged(self: ?*anyopaque, tick: i32) void {
-        qtc.QDateTimeAxis_TickCountChanged(@ptrCast(self), @intCast(tick));
+        qtc.QDateTimeAxis_TickCountChanged(@ptrCast(self), @bitCast(tick));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#tickCountChanged)
@@ -433,7 +433,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, tick: i32) callconv(.c) void `
     ///
     pub fn OnTickCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDateTimeAxis_Connect_TickCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_Connect_TickCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -471,7 +471,7 @@ pub const qdatetimeaxis = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeaxis.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -841,7 +841,7 @@ pub const qdatetimeaxis = struct {
     /// ` angle: i32 `
     ///
     pub fn SetLabelsAngle(self: ?*anyopaque, angle: i32) void {
-        qtc.QAbstractAxis_SetLabelsAngle(@ptrCast(self), @intCast(angle));
+        qtc.QAbstractAxis_SetLabelsAngle(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QAbstractAxis
@@ -1263,7 +1263,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_VisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1291,7 +1291,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LinePenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1319,7 +1319,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnLineVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LineVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LineVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1347,7 +1347,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnLabelsVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LabelsVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1375,7 +1375,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, brush: QtC.QBrush) callconv(.c) void `
     ///
     pub fn OnLabelsBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LabelsBrushChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1403,7 +1403,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, pen: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnLabelsFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LabelsFontChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1417,7 +1417,7 @@ pub const qdatetimeaxis = struct {
     /// ` angle: i32 `
     ///
     pub fn LabelsAngleChanged(self: ?*anyopaque, angle: i32) void {
-        qtc.QAbstractAxis_LabelsAngleChanged(@ptrCast(self), @intCast(angle));
+        qtc.QAbstractAxis_LabelsAngleChanged(@ptrCast(self), @bitCast(angle));
     }
 
     /// Inherited from QAbstractAxis
@@ -1431,7 +1431,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, angle: i32) callconv(.c) void `
     ///
     pub fn OnLabelsAngleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsAngleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LabelsAngleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1459,7 +1459,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnGridLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_GridLinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_GridLinePenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1487,7 +1487,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnGridVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_GridVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_GridVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1515,7 +1515,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnMinorGridVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_MinorGridVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_MinorGridVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1543,7 +1543,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnMinorGridLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_MinorGridLinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_MinorGridLinePenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1571,7 +1571,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnGridLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_GridLineColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_GridLineColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1599,7 +1599,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnMinorGridLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_MinorGridLineColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_MinorGridLineColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1627,7 +1627,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_ColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1655,7 +1655,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnLabelsColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LabelsColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1687,7 +1687,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTitleTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1715,7 +1715,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, brush: QtC.QBrush) callconv(.c) void `
     ///
     pub fn OnTitleBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_TitleBrushChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1743,7 +1743,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnTitleVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_TitleVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1771,7 +1771,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, font: QtC.QFont) callconv(.c) void `
     ///
     pub fn OnTitleFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_TitleFontChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1799,7 +1799,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, visible: bool) callconv(.c) void `
     ///
     pub fn OnShadesVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_ShadesVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1827,7 +1827,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnShadesColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_ShadesColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1855,7 +1855,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, color: QtC.QColor) callconv(.c) void `
     ///
     pub fn OnShadesBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesBorderColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_ShadesBorderColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1883,7 +1883,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, pen: QtC.QPen) callconv(.c) void `
     ///
     pub fn OnShadesPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesPenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_ShadesPenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1911,7 +1911,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, brush: QtC.QBrush) callconv(.c) void `
     ///
     pub fn OnShadesBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_ShadesBrushChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1939,7 +1939,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, reverse: bool) callconv(.c) void `
     ///
     pub fn OnReverseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ReverseChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_ReverseChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1967,7 +1967,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, editable: bool) callconv(.c) void `
     ///
     pub fn OnLabelsEditableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsEditableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LabelsEditableChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1995,7 +1995,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, labelsTruncated: bool) callconv(.c) void `
     ///
     pub fn OnLabelsTruncatedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsTruncatedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_LabelsTruncatedChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2023,7 +2023,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, truncateLabels: bool) callconv(.c) void `
     ///
     pub fn OnTruncateLabelsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TruncateLabelsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAxis_Connect_TruncateLabelsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2297,7 +2297,7 @@ pub const qdatetimeaxis = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2311,7 +2311,7 @@ pub const qdatetimeaxis = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2325,7 +2325,7 @@ pub const qdatetimeaxis = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2339,7 +2339,7 @@ pub const qdatetimeaxis = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2669,7 +2669,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2724,7 +2724,7 @@ pub const qdatetimeaxis = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2740,7 +2740,7 @@ pub const qdatetimeaxis = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2762,7 +2762,7 @@ pub const qdatetimeaxis = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2782,7 +2782,7 @@ pub const qdatetimeaxis = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2804,7 +2804,7 @@ pub const qdatetimeaxis = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2901,7 +2901,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2949,7 +2949,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDateTimeAxis_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3001,7 +3001,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDateTimeAxis_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3049,7 +3049,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeAxis_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3097,7 +3097,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeAxis_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3145,7 +3145,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeAxis_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3193,7 +3193,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeAxis_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3241,7 +3241,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeAxis_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3285,7 +3285,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QDateTimeAxis_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3329,7 +3329,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDateTimeAxis_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3379,7 +3379,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDateTimeAxis_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3427,7 +3427,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDateTimeAxis_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDateTimeAxis_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3443,7 +3443,7 @@ pub const qdatetimeaxis = struct {
     /// ` callback: *const fn (self: QtC.QDateTimeAxis, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#dtor.QDateTimeAxis)

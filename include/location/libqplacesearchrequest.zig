@@ -222,7 +222,7 @@ pub const qplacesearchrequest = struct {
     /// ` visibilityScopes: flag of qlocation_enums.Visibility `
     ///
     pub fn SetVisibilityScope(self: ?*anyopaque, visibilityScopes: i32) void {
-        qtc.QPlaceSearchRequest_SetVisibilityScope(@ptrCast(self), @intCast(visibilityScopes));
+        qtc.QPlaceSearchRequest_SetVisibilityScope(@ptrCast(self), @bitCast(visibilityScopes));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#relevanceHint)
@@ -248,7 +248,7 @@ pub const qplacesearchrequest = struct {
     /// ` hint: qplacesearchrequest_enums.RelevanceHint `
     ///
     pub fn SetRelevanceHint(self: ?*anyopaque, hint: i32) void {
-        qtc.QPlaceSearchRequest_SetRelevanceHint(@ptrCast(self), @intCast(hint));
+        qtc.QPlaceSearchRequest_SetRelevanceHint(@ptrCast(self), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#limit)
@@ -270,7 +270,7 @@ pub const qplacesearchrequest = struct {
     /// ` limit: i32 `
     ///
     pub fn SetLimit(self: ?*anyopaque, limit: i32) void {
-        qtc.QPlaceSearchRequest_SetLimit(@ptrCast(self), @intCast(limit));
+        qtc.QPlaceSearchRequest_SetLimit(@ptrCast(self), @bitCast(limit));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#clear)

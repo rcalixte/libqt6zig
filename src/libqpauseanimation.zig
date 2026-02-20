@@ -20,7 +20,7 @@ pub const qpauseanimation = struct {
     /// ` msecs: i32 `
     ///
     pub fn New2(msecs: i32) QtC.QPauseAnimation {
-        return qtc.QPauseAnimation_new2(@intCast(msecs));
+        return qtc.QPauseAnimation_new2(@bitCast(msecs));
     }
 
     /// New3 constructs a new QPauseAnimation object.
@@ -42,7 +42,7 @@ pub const qpauseanimation = struct {
     /// ` parent: QtC.QObject `
     ///
     pub fn New4(msecs: i32, parent: ?*anyopaque) QtC.QPauseAnimation {
-        return qtc.QPauseAnimation_new4(@intCast(msecs), @ptrCast(parent));
+        return qtc.QPauseAnimation_new4(@bitCast(msecs), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -66,7 +66,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QPauseAnimation_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -101,7 +101,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QPauseAnimation_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -128,7 +128,7 @@ pub const qpauseanimation = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPauseAnimation_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QPauseAnimation_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -140,7 +140,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QPauseAnimation_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -156,7 +156,7 @@ pub const qpauseanimation = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPauseAnimation_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QPauseAnimation_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -197,7 +197,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDuration(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPauseAnimation_OnDuration(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnDuration(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpauseanimation.html#duration)
@@ -221,7 +221,7 @@ pub const qpauseanimation = struct {
     /// ` msecs: i32 `
     ///
     pub fn SetDuration(self: ?*anyopaque, msecs: i32) void {
-        qtc.QPauseAnimation_SetDuration(@ptrCast(self), @intCast(msecs));
+        qtc.QPauseAnimation_SetDuration(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpauseanimation.html#event)
@@ -247,7 +247,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, e: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPauseAnimation_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpauseanimation.html#event)
@@ -273,7 +273,7 @@ pub const qpauseanimation = struct {
     /// ` param1: i32 `
     ///
     pub fn UpdateCurrentTime(self: ?*anyopaque, param1: i32) void {
-        qtc.QPauseAnimation_UpdateCurrentTime(@ptrCast(self), @intCast(param1));
+        qtc.QPauseAnimation_UpdateCurrentTime(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpauseanimation.html#updateCurrentTime)
@@ -287,7 +287,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, param1: i32) callconv(.c) void `
     ///
     pub fn OnUpdateCurrentTime(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPauseAnimation_OnUpdateCurrentTime(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnUpdateCurrentTime(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpauseanimation.html#updateCurrentTime)
@@ -301,7 +301,7 @@ pub const qpauseanimation = struct {
     /// ` param1: i32 `
     ///
     pub fn QBaseUpdateCurrentTime(self: ?*anyopaque, param1: i32) void {
-        qtc.QPauseAnimation_QBaseUpdateCurrentTime(@ptrCast(self), @intCast(param1));
+        qtc.QPauseAnimation_QBaseUpdateCurrentTime(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -339,7 +339,7 @@ pub const qpauseanimation = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qpauseanimation.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -401,7 +401,7 @@ pub const qpauseanimation = struct {
     /// ` direction: qabstractanimation_enums.Direction `
     ///
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QAbstractAnimation_SetDirection(@ptrCast(self), @intCast(direction));
+        qtc.QAbstractAnimation_SetDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QAbstractAnimation
@@ -451,7 +451,7 @@ pub const qpauseanimation = struct {
     /// ` loopCount: i32 `
     ///
     pub fn SetLoopCount(self: ?*anyopaque, loopCount: i32) void {
-        qtc.QAbstractAnimation_SetLoopCount(@ptrCast(self), @intCast(loopCount));
+        qtc.QAbstractAnimation_SetLoopCount(@ptrCast(self), @bitCast(loopCount));
     }
 
     /// Inherited from QAbstractAnimation
@@ -501,7 +501,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAnimation_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAnimation_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAnimation
@@ -517,7 +517,7 @@ pub const qpauseanimation = struct {
     /// ` oldState: qabstractanimation_enums.State `
     ///
     pub fn StateChanged(self: ?*anyopaque, newState: i32, oldState: i32) void {
-        qtc.QAbstractAnimation_StateChanged(@ptrCast(self), @intCast(newState), @intCast(oldState));
+        qtc.QAbstractAnimation_StateChanged(@ptrCast(self), @bitCast(newState), @bitCast(oldState));
     }
 
     /// Inherited from QAbstractAnimation
@@ -531,7 +531,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractAnimation_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAnimation_Connect_StateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAnimation
@@ -545,7 +545,7 @@ pub const qpauseanimation = struct {
     /// ` currentLoop: i32 `
     ///
     pub fn CurrentLoopChanged(self: ?*anyopaque, currentLoop: i32) void {
-        qtc.QAbstractAnimation_CurrentLoopChanged(@ptrCast(self), @intCast(currentLoop));
+        qtc.QAbstractAnimation_CurrentLoopChanged(@ptrCast(self), @bitCast(currentLoop));
     }
 
     /// Inherited from QAbstractAnimation
@@ -559,7 +559,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, currentLoop: i32) callconv(.c) void `
     ///
     pub fn OnCurrentLoopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractAnimation_Connect_CurrentLoopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAnimation_Connect_CurrentLoopChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAnimation
@@ -573,7 +573,7 @@ pub const qpauseanimation = struct {
     /// ` param1: qabstractanimation_enums.Direction `
     ///
     pub fn DirectionChanged(self: ?*anyopaque, param1: i32) void {
-        qtc.QAbstractAnimation_DirectionChanged(@ptrCast(self), @intCast(param1));
+        qtc.QAbstractAnimation_DirectionChanged(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QAbstractAnimation
@@ -587,7 +587,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, param1: qabstractanimation_enums.Direction) callconv(.c) void `
     ///
     pub fn OnDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractAnimation_Connect_DirectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractAnimation_Connect_DirectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAnimation
@@ -663,7 +663,7 @@ pub const qpauseanimation = struct {
     /// ` msecs: i32 `
     ///
     pub fn SetCurrentTime(self: ?*anyopaque, msecs: i32) void {
-        qtc.QAbstractAnimation_SetCurrentTime(@ptrCast(self), @intCast(msecs));
+        qtc.QAbstractAnimation_SetCurrentTime(@ptrCast(self), @bitCast(msecs));
     }
 
     /// Inherited from QAbstractAnimation
@@ -677,7 +677,7 @@ pub const qpauseanimation = struct {
     /// ` policy: qabstractanimation_enums.DeletionPolicy `
     ///
     pub fn Start1(self: ?*anyopaque, policy: i32) void {
-        qtc.QAbstractAnimation_Start1(@ptrCast(self), @intCast(policy));
+        qtc.QAbstractAnimation_Start1(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QObject
@@ -811,7 +811,7 @@ pub const qpauseanimation = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -825,7 +825,7 @@ pub const qpauseanimation = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -839,7 +839,7 @@ pub const qpauseanimation = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -853,7 +853,7 @@ pub const qpauseanimation = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1183,7 +1183,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1238,7 +1238,7 @@ pub const qpauseanimation = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1254,7 +1254,7 @@ pub const qpauseanimation = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1276,7 +1276,7 @@ pub const qpauseanimation = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1296,7 +1296,7 @@ pub const qpauseanimation = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1318,7 +1318,7 @@ pub const qpauseanimation = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1415,7 +1415,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAnimation
@@ -1433,7 +1433,7 @@ pub const qpauseanimation = struct {
     /// ` oldState: qabstractanimation_enums.State `
     ///
     pub fn UpdateState(self: ?*anyopaque, newState: i32, oldState: i32) void {
-        qtc.QPauseAnimation_UpdateState(@ptrCast(self), @intCast(newState), @intCast(oldState));
+        qtc.QPauseAnimation_UpdateState(@ptrCast(self), @bitCast(newState), @bitCast(oldState));
     }
 
     /// Inherited from QAbstractAnimation
@@ -1451,7 +1451,7 @@ pub const qpauseanimation = struct {
     /// ` oldState: qabstractanimation_enums.State `
     ///
     pub fn QBaseUpdateState(self: ?*anyopaque, newState: i32, oldState: i32) void {
-        qtc.QPauseAnimation_QBaseUpdateState(@ptrCast(self), @intCast(newState), @intCast(oldState));
+        qtc.QPauseAnimation_QBaseUpdateState(@ptrCast(self), @bitCast(newState), @bitCast(oldState));
     }
 
     /// Inherited from QAbstractAnimation
@@ -1467,7 +1467,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
     ///
     pub fn OnUpdateState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QPauseAnimation_OnUpdateState(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnUpdateState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAnimation
@@ -1483,7 +1483,7 @@ pub const qpauseanimation = struct {
     /// ` direction: qabstractanimation_enums.Direction `
     ///
     pub fn UpdateDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QPauseAnimation_UpdateDirection(@ptrCast(self), @intCast(direction));
+        qtc.QPauseAnimation_UpdateDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QAbstractAnimation
@@ -1499,7 +1499,7 @@ pub const qpauseanimation = struct {
     /// ` direction: qabstractanimation_enums.Direction `
     ///
     pub fn QBaseUpdateDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QPauseAnimation_QBaseUpdateDirection(@ptrCast(self), @intCast(direction));
+        qtc.QPauseAnimation_QBaseUpdateDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QAbstractAnimation
@@ -1515,7 +1515,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, direction: qabstractanimation_enums.Direction) callconv(.c) void `
     ///
     pub fn OnUpdateDirection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPauseAnimation_OnUpdateDirection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnUpdateDirection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1567,7 +1567,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPauseAnimation_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1615,7 +1615,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPauseAnimation_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1663,7 +1663,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPauseAnimation_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1711,7 +1711,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPauseAnimation_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1759,7 +1759,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPauseAnimation_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1807,7 +1807,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPauseAnimation_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1851,7 +1851,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QPauseAnimation_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1895,7 +1895,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPauseAnimation_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1945,7 +1945,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPauseAnimation_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1993,7 +1993,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPauseAnimation_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPauseAnimation_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2009,7 +2009,7 @@ pub const qpauseanimation = struct {
     /// ` callback: *const fn (self: QtC.QPauseAnimation, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpauseanimation.html#dtor.QPauseAnimation)

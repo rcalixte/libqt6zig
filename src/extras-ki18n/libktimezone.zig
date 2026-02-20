@@ -13,7 +13,7 @@ pub const ktimezone = struct {
     /// ` param2: f32 `
     ///
     pub fn FromLocation(param1: f32, param2: f32) [:0]const u8 {
-        const _ret = qtc.KTimeZone_FromLocation(@floatCast(param1), @floatCast(param2));
+        const _ret = qtc.KTimeZone_FromLocation(@bitCast(param1), @bitCast(param2));
         return std.mem.span(_ret);
     }
 

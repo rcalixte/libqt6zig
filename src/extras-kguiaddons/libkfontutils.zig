@@ -27,7 +27,7 @@ pub const kfontutils = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        return qtc.KFontUtils_AdaptFontSize(@ptrCast(param1), param2_str, @floatCast(param3), @floatCast(param4), @floatCast(param5), @floatCast(param6), @intCast(param7));
+        return qtc.KFontUtils_AdaptFontSize(@ptrCast(param1), param2_str, @bitCast(param3), @bitCast(param4), @bitCast(param5), @bitCast(param6), @bitCast(param7));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfontutils.html#adaptFontSize)
@@ -51,7 +51,7 @@ pub const kfontutils = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        return qtc.KFontUtils_AdaptFontSize2(@ptrCast(param1), param2_str, @ptrCast(param3), @floatCast(param4), @floatCast(param5), @intCast(param6));
+        return qtc.KFontUtils_AdaptFontSize2(@ptrCast(param1), param2_str, @ptrCast(param3), @bitCast(param4), @bitCast(param5), @bitCast(param6));
     }
 };
 

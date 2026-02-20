@@ -177,7 +177,7 @@ pub const qimagewriter = struct {
     /// ` quality: i32 `
     ///
     pub fn SetQuality(self: ?*anyopaque, quality: i32) void {
-        qtc.QImageWriter_SetQuality(@ptrCast(self), @intCast(quality));
+        qtc.QImageWriter_SetQuality(@ptrCast(self), @bitCast(quality));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#quality)
@@ -199,7 +199,7 @@ pub const qimagewriter = struct {
     /// ` compression: i32 `
     ///
     pub fn SetCompression(self: ?*anyopaque, compression: i32) void {
-        qtc.QImageWriter_SetCompression(@ptrCast(self), @intCast(compression));
+        qtc.QImageWriter_SetCompression(@ptrCast(self), @bitCast(compression));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#compression)
@@ -338,7 +338,7 @@ pub const qimagewriter = struct {
     /// ` orientation: flag of qimageiohandler_enums.Transformation `
     ///
     pub fn SetTransformation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QImageWriter_SetTransformation(@ptrCast(self), @intCast(orientation));
+        qtc.QImageWriter_SetTransformation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#setText)
@@ -424,7 +424,7 @@ pub const qimagewriter = struct {
     /// ` option: qimageiohandler_enums.ImageOption `
     ///
     pub fn SupportsOption(self: ?*anyopaque, option: i32) bool {
-        return qtc.QImageWriter_SupportsOption(@ptrCast(self), @intCast(option));
+        return qtc.QImageWriter_SupportsOption(@ptrCast(self), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#supportedImageFormats)
@@ -543,7 +543,7 @@ pub const qimagewriter = struct {
     pub fn Tr3(sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
-        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagewriter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

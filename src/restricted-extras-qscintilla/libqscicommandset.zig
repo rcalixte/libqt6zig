@@ -75,7 +75,7 @@ pub const qscicommandset = struct {
     /// ` key: i32 `
     ///
     pub fn BoundTo(self: ?*anyopaque, key: i32) QtC.QsciCommand {
-        return qtc.QsciCommandSet_BoundTo(@ptrCast(self), @intCast(key));
+        return qtc.QsciCommandSet_BoundTo(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommandSet.html)
@@ -87,7 +87,7 @@ pub const qscicommandset = struct {
     /// ` command: qscicommand_enums.Command `
     ///
     pub fn Find(self: ?*anyopaque, command: i32) QtC.QsciCommand {
-        return qtc.QsciCommandSet_Find(@ptrCast(self), @intCast(command));
+        return qtc.QsciCommandSet_Find(@ptrCast(self), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommandSet.html)

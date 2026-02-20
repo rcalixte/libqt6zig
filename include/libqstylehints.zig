@@ -38,7 +38,7 @@ pub const qstylehints = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QStyleHints_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QStyleHints_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -67,7 +67,7 @@ pub const qstylehints = struct {
     /// ` mouseDoubleClickInterval: i32 `
     ///
     pub fn SetMouseDoubleClickInterval(self: ?*anyopaque, mouseDoubleClickInterval: i32) void {
-        qtc.QStyleHints_SetMouseDoubleClickInterval(@ptrCast(self), @intCast(mouseDoubleClickInterval));
+        qtc.QStyleHints_SetMouseDoubleClickInterval(@ptrCast(self), @bitCast(mouseDoubleClickInterval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mouseDoubleClickInterval)
@@ -109,7 +109,7 @@ pub const qstylehints = struct {
     /// ` mousePressAndHoldInterval: i32 `
     ///
     pub fn SetMousePressAndHoldInterval(self: ?*anyopaque, mousePressAndHoldInterval: i32) void {
-        qtc.QStyleHints_SetMousePressAndHoldInterval(@ptrCast(self), @intCast(mousePressAndHoldInterval));
+        qtc.QStyleHints_SetMousePressAndHoldInterval(@ptrCast(self), @bitCast(mousePressAndHoldInterval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mousePressAndHoldInterval)
@@ -131,7 +131,7 @@ pub const qstylehints = struct {
     /// ` startDragDistance: i32 `
     ///
     pub fn SetStartDragDistance(self: ?*anyopaque, startDragDistance: i32) void {
-        qtc.QStyleHints_SetStartDragDistance(@ptrCast(self), @intCast(startDragDistance));
+        qtc.QStyleHints_SetStartDragDistance(@ptrCast(self), @bitCast(startDragDistance));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#startDragDistance)
@@ -153,7 +153,7 @@ pub const qstylehints = struct {
     /// ` startDragTime: i32 `
     ///
     pub fn SetStartDragTime(self: ?*anyopaque, startDragTime: i32) void {
-        qtc.QStyleHints_SetStartDragTime(@ptrCast(self), @intCast(startDragTime));
+        qtc.QStyleHints_SetStartDragTime(@ptrCast(self), @bitCast(startDragTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#startDragTime)
@@ -185,7 +185,7 @@ pub const qstylehints = struct {
     /// ` keyboardInputInterval: i32 `
     ///
     pub fn SetKeyboardInputInterval(self: ?*anyopaque, keyboardInputInterval: i32) void {
-        qtc.QStyleHints_SetKeyboardInputInterval(@ptrCast(self), @intCast(keyboardInputInterval));
+        qtc.QStyleHints_SetKeyboardInputInterval(@ptrCast(self), @bitCast(keyboardInputInterval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#keyboardInputInterval)
@@ -227,7 +227,7 @@ pub const qstylehints = struct {
     /// ` cursorFlashTime: i32 `
     ///
     pub fn SetCursorFlashTime(self: ?*anyopaque, cursorFlashTime: i32) void {
-        qtc.QStyleHints_SetCursorFlashTime(@ptrCast(self), @intCast(cursorFlashTime));
+        qtc.QStyleHints_SetCursorFlashTime(@ptrCast(self), @bitCast(cursorFlashTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#cursorFlashTime)
@@ -305,7 +305,7 @@ pub const qstylehints = struct {
     /// ` contextMenuTrigger: qnamespace_enums.ContextMenuTrigger `
     ///
     pub fn SetContextMenuTrigger(self: ?*anyopaque, contextMenuTrigger: i32) void {
-        qtc.QStyleHints_SetContextMenuTrigger(@ptrCast(self), @intCast(contextMenuTrigger));
+        qtc.QStyleHints_SetContextMenuTrigger(@ptrCast(self), @bitCast(contextMenuTrigger));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#passwordMaskDelay)
@@ -381,7 +381,7 @@ pub const qstylehints = struct {
     /// ` tabFocusBehavior: qnamespace_enums.TabFocusBehavior `
     ///
     pub fn SetTabFocusBehavior(self: ?*anyopaque, tabFocusBehavior: i32) void {
-        qtc.QStyleHints_SetTabFocusBehavior(@ptrCast(self), @intCast(tabFocusBehavior));
+        qtc.QStyleHints_SetTabFocusBehavior(@ptrCast(self), @bitCast(tabFocusBehavior));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#singleClickActivation)
@@ -435,7 +435,7 @@ pub const qstylehints = struct {
     /// ` scrollLines: i32 `
     ///
     pub fn SetWheelScrollLines(self: ?*anyopaque, scrollLines: i32) void {
-        qtc.QStyleHints_SetWheelScrollLines(@ptrCast(self), @intCast(scrollLines));
+        qtc.QStyleHints_SetWheelScrollLines(@ptrCast(self), @bitCast(scrollLines));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#setMouseQuickSelectionThreshold)
@@ -447,7 +447,7 @@ pub const qstylehints = struct {
     /// ` threshold: i32 `
     ///
     pub fn SetMouseQuickSelectionThreshold(self: ?*anyopaque, threshold: i32) void {
-        qtc.QStyleHints_SetMouseQuickSelectionThreshold(@ptrCast(self), @intCast(threshold));
+        qtc.QStyleHints_SetMouseQuickSelectionThreshold(@ptrCast(self), @bitCast(threshold));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mouseQuickSelectionThreshold)
@@ -483,7 +483,7 @@ pub const qstylehints = struct {
     /// ` scheme: qnamespace_enums.ColorScheme `
     ///
     pub fn SetColorScheme(self: ?*anyopaque, scheme: i32) void {
-        qtc.QStyleHints_SetColorScheme(@ptrCast(self), @intCast(scheme));
+        qtc.QStyleHints_SetColorScheme(@ptrCast(self), @bitCast(scheme));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#unsetColorScheme)
@@ -505,7 +505,7 @@ pub const qstylehints = struct {
     /// ` cursorFlashTime: i32 `
     ///
     pub fn CursorFlashTimeChanged(self: ?*anyopaque, cursorFlashTime: i32) void {
-        qtc.QStyleHints_CursorFlashTimeChanged(@ptrCast(self), @intCast(cursorFlashTime));
+        qtc.QStyleHints_CursorFlashTimeChanged(@ptrCast(self), @bitCast(cursorFlashTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#cursorFlashTimeChanged)
@@ -517,7 +517,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, cursorFlashTime: i32) callconv(.c) void `
     ///
     pub fn OnCursorFlashTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_CursorFlashTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStyleHints_Connect_CursorFlashTimeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#keyboardInputIntervalChanged)
@@ -529,7 +529,7 @@ pub const qstylehints = struct {
     /// ` keyboardInputInterval: i32 `
     ///
     pub fn KeyboardInputIntervalChanged(self: ?*anyopaque, keyboardInputInterval: i32) void {
-        qtc.QStyleHints_KeyboardInputIntervalChanged(@ptrCast(self), @intCast(keyboardInputInterval));
+        qtc.QStyleHints_KeyboardInputIntervalChanged(@ptrCast(self), @bitCast(keyboardInputInterval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#keyboardInputIntervalChanged)
@@ -541,7 +541,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, keyboardInputInterval: i32) callconv(.c) void `
     ///
     pub fn OnKeyboardInputIntervalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_KeyboardInputIntervalChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStyleHints_Connect_KeyboardInputIntervalChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mouseDoubleClickIntervalChanged)
@@ -553,7 +553,7 @@ pub const qstylehints = struct {
     /// ` mouseDoubleClickInterval: i32 `
     ///
     pub fn MouseDoubleClickIntervalChanged(self: ?*anyopaque, mouseDoubleClickInterval: i32) void {
-        qtc.QStyleHints_MouseDoubleClickIntervalChanged(@ptrCast(self), @intCast(mouseDoubleClickInterval));
+        qtc.QStyleHints_MouseDoubleClickIntervalChanged(@ptrCast(self), @bitCast(mouseDoubleClickInterval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mouseDoubleClickIntervalChanged)
@@ -565,7 +565,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, mouseDoubleClickInterval: i32) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickIntervalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_MouseDoubleClickIntervalChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStyleHints_Connect_MouseDoubleClickIntervalChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mousePressAndHoldIntervalChanged)
@@ -577,7 +577,7 @@ pub const qstylehints = struct {
     /// ` mousePressAndHoldInterval: i32 `
     ///
     pub fn MousePressAndHoldIntervalChanged(self: ?*anyopaque, mousePressAndHoldInterval: i32) void {
-        qtc.QStyleHints_MousePressAndHoldIntervalChanged(@ptrCast(self), @intCast(mousePressAndHoldInterval));
+        qtc.QStyleHints_MousePressAndHoldIntervalChanged(@ptrCast(self), @bitCast(mousePressAndHoldInterval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mousePressAndHoldIntervalChanged)
@@ -589,7 +589,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, mousePressAndHoldInterval: i32) callconv(.c) void `
     ///
     pub fn OnMousePressAndHoldIntervalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_MousePressAndHoldIntervalChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStyleHints_Connect_MousePressAndHoldIntervalChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#startDragDistanceChanged)
@@ -601,7 +601,7 @@ pub const qstylehints = struct {
     /// ` startDragDistance: i32 `
     ///
     pub fn StartDragDistanceChanged(self: ?*anyopaque, startDragDistance: i32) void {
-        qtc.QStyleHints_StartDragDistanceChanged(@ptrCast(self), @intCast(startDragDistance));
+        qtc.QStyleHints_StartDragDistanceChanged(@ptrCast(self), @bitCast(startDragDistance));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#startDragDistanceChanged)
@@ -613,7 +613,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, startDragDistance: i32) callconv(.c) void `
     ///
     pub fn OnStartDragDistanceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_StartDragDistanceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStyleHints_Connect_StartDragDistanceChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#startDragTimeChanged)
@@ -625,7 +625,7 @@ pub const qstylehints = struct {
     /// ` startDragTime: i32 `
     ///
     pub fn StartDragTimeChanged(self: ?*anyopaque, startDragTime: i32) void {
-        qtc.QStyleHints_StartDragTimeChanged(@ptrCast(self), @intCast(startDragTime));
+        qtc.QStyleHints_StartDragTimeChanged(@ptrCast(self), @bitCast(startDragTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#startDragTimeChanged)
@@ -637,7 +637,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, startDragTime: i32) callconv(.c) void `
     ///
     pub fn OnStartDragTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_StartDragTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStyleHints_Connect_StartDragTimeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#tabFocusBehaviorChanged)
@@ -649,7 +649,7 @@ pub const qstylehints = struct {
     /// ` tabFocusBehavior: qnamespace_enums.TabFocusBehavior `
     ///
     pub fn TabFocusBehaviorChanged(self: ?*anyopaque, tabFocusBehavior: i32) void {
-        qtc.QStyleHints_TabFocusBehaviorChanged(@ptrCast(self), @intCast(tabFocusBehavior));
+        qtc.QStyleHints_TabFocusBehaviorChanged(@ptrCast(self), @bitCast(tabFocusBehavior));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#tabFocusBehaviorChanged)
@@ -661,7 +661,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, tabFocusBehavior: qnamespace_enums.TabFocusBehavior) callconv(.c) void `
     ///
     pub fn OnTabFocusBehaviorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_TabFocusBehaviorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStyleHints_Connect_TabFocusBehaviorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#useHoverEffectsChanged)
@@ -685,7 +685,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, useHoverEffects: bool) callconv(.c) void `
     ///
     pub fn OnUseHoverEffectsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_UseHoverEffectsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStyleHints_Connect_UseHoverEffectsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#showShortcutsInContextMenusChanged)
@@ -709,7 +709,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, param1: bool) callconv(.c) void `
     ///
     pub fn OnShowShortcutsInContextMenusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_ShowShortcutsInContextMenusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStyleHints_Connect_ShowShortcutsInContextMenusChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#contextMenuTriggerChanged)
@@ -721,7 +721,7 @@ pub const qstylehints = struct {
     /// ` contextMenuTrigger: qnamespace_enums.ContextMenuTrigger `
     ///
     pub fn ContextMenuTriggerChanged(self: ?*anyopaque, contextMenuTrigger: i32) void {
-        qtc.QStyleHints_ContextMenuTriggerChanged(@ptrCast(self), @intCast(contextMenuTrigger));
+        qtc.QStyleHints_ContextMenuTriggerChanged(@ptrCast(self), @bitCast(contextMenuTrigger));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#contextMenuTriggerChanged)
@@ -733,7 +733,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, contextMenuTrigger: qnamespace_enums.ContextMenuTrigger) callconv(.c) void `
     ///
     pub fn OnContextMenuTriggerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_ContextMenuTriggerChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStyleHints_Connect_ContextMenuTriggerChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#wheelScrollLinesChanged)
@@ -745,7 +745,7 @@ pub const qstylehints = struct {
     /// ` scrollLines: i32 `
     ///
     pub fn WheelScrollLinesChanged(self: ?*anyopaque, scrollLines: i32) void {
-        qtc.QStyleHints_WheelScrollLinesChanged(@ptrCast(self), @intCast(scrollLines));
+        qtc.QStyleHints_WheelScrollLinesChanged(@ptrCast(self), @bitCast(scrollLines));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#wheelScrollLinesChanged)
@@ -757,7 +757,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, scrollLines: i32) callconv(.c) void `
     ///
     pub fn OnWheelScrollLinesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_WheelScrollLinesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStyleHints_Connect_WheelScrollLinesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mouseQuickSelectionThresholdChanged)
@@ -769,7 +769,7 @@ pub const qstylehints = struct {
     /// ` threshold: i32 `
     ///
     pub fn MouseQuickSelectionThresholdChanged(self: ?*anyopaque, threshold: i32) void {
-        qtc.QStyleHints_MouseQuickSelectionThresholdChanged(@ptrCast(self), @intCast(threshold));
+        qtc.QStyleHints_MouseQuickSelectionThresholdChanged(@ptrCast(self), @bitCast(threshold));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mouseQuickSelectionThresholdChanged)
@@ -781,7 +781,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, threshold: i32) callconv(.c) void `
     ///
     pub fn OnMouseQuickSelectionThresholdChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_MouseQuickSelectionThresholdChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStyleHints_Connect_MouseQuickSelectionThresholdChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#colorSchemeChanged)
@@ -793,7 +793,7 @@ pub const qstylehints = struct {
     /// ` colorScheme: qnamespace_enums.ColorScheme `
     ///
     pub fn ColorSchemeChanged(self: ?*anyopaque, colorScheme: i32) void {
-        qtc.QStyleHints_ColorSchemeChanged(@ptrCast(self), @intCast(colorScheme));
+        qtc.QStyleHints_ColorSchemeChanged(@ptrCast(self), @bitCast(colorScheme));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#colorSchemeChanged)
@@ -805,7 +805,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, colorScheme: qnamespace_enums.ColorScheme) callconv(.c) void `
     ///
     pub fn OnColorSchemeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_ColorSchemeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStyleHints_Connect_ColorSchemeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -843,7 +843,7 @@ pub const qstylehints = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstylehints.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1011,7 +1011,7 @@ pub const qstylehints = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1025,7 +1025,7 @@ pub const qstylehints = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1039,7 +1039,7 @@ pub const qstylehints = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1053,7 +1053,7 @@ pub const qstylehints = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1383,7 +1383,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1438,7 +1438,7 @@ pub const qstylehints = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1454,7 +1454,7 @@ pub const qstylehints = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1476,7 +1476,7 @@ pub const qstylehints = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1496,7 +1496,7 @@ pub const qstylehints = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1518,7 +1518,7 @@ pub const qstylehints = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1615,7 +1615,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1631,7 +1631,7 @@ pub const qstylehints = struct {
     /// ` callback: *const fn (self: QtC.QStyleHints, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#dtor.QStyleHints)

@@ -127,7 +127,7 @@ pub const qwebengineurlscheme = struct {
     /// ` newValue: qwebengineurlscheme_enums.Syntax `
     ///
     pub fn SetSyntax(self: ?*anyopaque, newValue: i32) void {
-        qtc.QWebEngineUrlScheme_SetSyntax(@ptrCast(self), @intCast(newValue));
+        qtc.QWebEngineUrlScheme_SetSyntax(@ptrCast(self), @bitCast(newValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#defaultPort)
@@ -149,7 +149,7 @@ pub const qwebengineurlscheme = struct {
     /// ` newValue: i32 `
     ///
     pub fn SetDefaultPort(self: ?*anyopaque, newValue: i32) void {
-        qtc.QWebEngineUrlScheme_SetDefaultPort(@ptrCast(self), @intCast(newValue));
+        qtc.QWebEngineUrlScheme_SetDefaultPort(@ptrCast(self), @bitCast(newValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#flags)
@@ -175,7 +175,7 @@ pub const qwebengineurlscheme = struct {
     /// ` newValue: flag of qwebengineurlscheme_enums.Flag `
     ///
     pub fn SetFlags(self: ?*anyopaque, newValue: i32) void {
-        qtc.QWebEngineUrlScheme_SetFlags(@ptrCast(self), @intCast(newValue));
+        qtc.QWebEngineUrlScheme_SetFlags(@ptrCast(self), @bitCast(newValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#registerScheme)

@@ -71,7 +71,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.Sonnet__Highlighter_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -106,7 +106,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.Sonnet__Highlighter_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -133,7 +133,7 @@ pub const sonnet__highlighter = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Sonnet__Highlighter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.Sonnet__Highlighter_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -145,7 +145,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.Sonnet__Highlighter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -161,7 +161,7 @@ pub const sonnet__highlighter = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Sonnet__Highlighter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.Sonnet__Highlighter_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -448,7 +448,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, description: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_Connect_ActiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_Connect_ActiveChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#highlightBlock)
@@ -478,7 +478,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnHighlightBlock(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnHighlightBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnHighlightBlock(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#highlightBlock)
@@ -510,7 +510,7 @@ pub const sonnet__highlighter = struct {
     /// ` count: i32 `
     ///
     pub fn SetMisspelled(self: ?*anyopaque, start: i32, count: i32) void {
-        qtc.Sonnet__Highlighter_SetMisspelled(@ptrCast(self), @intCast(start), @intCast(count));
+        qtc.Sonnet__Highlighter_SetMisspelled(@ptrCast(self), @bitCast(start), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setMisspelled)
@@ -524,7 +524,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, start: i32, count: i32) callconv(.c) void `
     ///
     pub fn OnSetMisspelled(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnSetMisspelled(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnSetMisspelled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setMisspelled)
@@ -540,7 +540,7 @@ pub const sonnet__highlighter = struct {
     /// ` count: i32 `
     ///
     pub fn QBaseSetMisspelled(self: ?*anyopaque, start: i32, count: i32) void {
-        qtc.Sonnet__Highlighter_QBaseSetMisspelled(@ptrCast(self), @intCast(start), @intCast(count));
+        qtc.Sonnet__Highlighter_QBaseSetMisspelled(@ptrCast(self), @bitCast(start), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#unsetMisspelled)
@@ -554,7 +554,7 @@ pub const sonnet__highlighter = struct {
     /// ` count: i32 `
     ///
     pub fn UnsetMisspelled(self: ?*anyopaque, start: i32, count: i32) void {
-        qtc.Sonnet__Highlighter_UnsetMisspelled(@ptrCast(self), @intCast(start), @intCast(count));
+        qtc.Sonnet__Highlighter_UnsetMisspelled(@ptrCast(self), @bitCast(start), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#unsetMisspelled)
@@ -568,7 +568,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, start: i32, count: i32) callconv(.c) void `
     ///
     pub fn OnUnsetMisspelled(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnUnsetMisspelled(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnUnsetMisspelled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#unsetMisspelled)
@@ -584,7 +584,7 @@ pub const sonnet__highlighter = struct {
     /// ` count: i32 `
     ///
     pub fn QBaseUnsetMisspelled(self: ?*anyopaque, start: i32, count: i32) void {
-        qtc.Sonnet__Highlighter_QBaseUnsetMisspelled(@ptrCast(self), @intCast(start), @intCast(count));
+        qtc.Sonnet__Highlighter_QBaseUnsetMisspelled(@ptrCast(self), @bitCast(start), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#eventFilter)
@@ -612,7 +612,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, o: QtC.QObject, e: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Sonnet__Highlighter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#eventFilter)
@@ -652,7 +652,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIntraWordEditing(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.Sonnet__Highlighter_OnIntraWordEditing(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnIntraWordEditing(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#intraWordEditing)
@@ -690,7 +690,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, editing: bool) callconv(.c) void `
     ///
     pub fn OnSetIntraWordEditing(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnSetIntraWordEditing(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnSetIntraWordEditing(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setIntraWordEditing)
@@ -778,7 +778,7 @@ pub const sonnet__highlighter = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__highlighter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -802,7 +802,7 @@ pub const sonnet__highlighter = struct {
             .len = word.len,
             .data = word.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.Sonnet__Highlighter_SuggestionsForWord22(@ptrCast(self), word_str, @intCast(max));
+        const _arr: qtc.libqt_list = qtc.Sonnet__Highlighter_SuggestionsForWord22(@ptrCast(self), word_str, @bitCast(max));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -839,7 +839,7 @@ pub const sonnet__highlighter = struct {
             .len = word.len,
             .data = word.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.Sonnet__Highlighter_SuggestionsForWord3(@ptrCast(self), word_str, @ptrCast(cursor), @intCast(max));
+        const _arr: qtc.libqt_list = qtc.Sonnet__Highlighter_SuggestionsForWord3(@ptrCast(self), word_str, @ptrCast(cursor), @bitCast(max));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -1026,7 +1026,7 @@ pub const sonnet__highlighter = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1040,7 +1040,7 @@ pub const sonnet__highlighter = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1054,7 +1054,7 @@ pub const sonnet__highlighter = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1068,7 +1068,7 @@ pub const sonnet__highlighter = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1398,7 +1398,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1453,7 +1453,7 @@ pub const sonnet__highlighter = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1469,7 +1469,7 @@ pub const sonnet__highlighter = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1491,7 +1491,7 @@ pub const sonnet__highlighter = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1511,7 +1511,7 @@ pub const sonnet__highlighter = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1533,7 +1533,7 @@ pub const sonnet__highlighter = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1630,7 +1630,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1678,7 +1678,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Sonnet__Highlighter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1726,7 +1726,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1774,7 +1774,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1822,7 +1822,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1870,7 +1870,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1918,7 +1918,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1938,7 +1938,7 @@ pub const sonnet__highlighter = struct {
     /// ` format: QtC.QTextCharFormat `
     ///
     pub fn SetFormat(self: ?*anyopaque, start: i32, count: i32, format: ?*anyopaque) void {
-        qtc.Sonnet__Highlighter_SetFormat(@ptrCast(self), @intCast(start), @intCast(count), @ptrCast(format));
+        qtc.Sonnet__Highlighter_SetFormat(@ptrCast(self), @bitCast(start), @bitCast(count), @ptrCast(format));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1958,7 +1958,7 @@ pub const sonnet__highlighter = struct {
     /// ` format: QtC.QTextCharFormat `
     ///
     pub fn QBaseSetFormat(self: ?*anyopaque, start: i32, count: i32, format: ?*anyopaque) void {
-        qtc.Sonnet__Highlighter_QBaseSetFormat(@ptrCast(self), @intCast(start), @intCast(count), @ptrCast(format));
+        qtc.Sonnet__Highlighter_QBaseSetFormat(@ptrCast(self), @bitCast(start), @bitCast(count), @ptrCast(format));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1974,7 +1974,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, start: i32, count: i32, format: QtC.QTextCharFormat) callconv(.c) void `
     ///
     pub fn OnSetFormat(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnSetFormat(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnSetFormat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1990,7 +1990,7 @@ pub const sonnet__highlighter = struct {
     /// ` pos: i32 `
     ///
     pub fn Format(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
-        return qtc.Sonnet__Highlighter_Format(@ptrCast(self), @intCast(pos));
+        return qtc.Sonnet__Highlighter_Format(@ptrCast(self), @bitCast(pos));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -2006,7 +2006,7 @@ pub const sonnet__highlighter = struct {
     /// ` pos: i32 `
     ///
     pub fn QBaseFormat(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
-        return qtc.Sonnet__Highlighter_QBaseFormat(@ptrCast(self), @intCast(pos));
+        return qtc.Sonnet__Highlighter_QBaseFormat(@ptrCast(self), @bitCast(pos));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -2022,7 +2022,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, pos: i32) callconv(.c) QtC.QTextCharFormat `
     ///
     pub fn OnFormat(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QTextCharFormat) void {
-        qtc.Sonnet__Highlighter_OnFormat(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnFormat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -2066,7 +2066,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnPreviousBlockState(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.Sonnet__Highlighter_OnPreviousBlockState(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnPreviousBlockState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -2110,7 +2110,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCurrentBlockState(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.Sonnet__Highlighter_OnCurrentBlockState(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnCurrentBlockState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -2126,7 +2126,7 @@ pub const sonnet__highlighter = struct {
     /// ` newState: i32 `
     ///
     pub fn SetCurrentBlockState(self: ?*anyopaque, newState: i32) void {
-        qtc.Sonnet__Highlighter_SetCurrentBlockState(@ptrCast(self), @intCast(newState));
+        qtc.Sonnet__Highlighter_SetCurrentBlockState(@ptrCast(self), @bitCast(newState));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -2142,7 +2142,7 @@ pub const sonnet__highlighter = struct {
     /// ` newState: i32 `
     ///
     pub fn QBaseSetCurrentBlockState(self: ?*anyopaque, newState: i32) void {
-        qtc.Sonnet__Highlighter_QBaseSetCurrentBlockState(@ptrCast(self), @intCast(newState));
+        qtc.Sonnet__Highlighter_QBaseSetCurrentBlockState(@ptrCast(self), @bitCast(newState));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -2158,7 +2158,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, newState: i32) callconv(.c) void `
     ///
     pub fn OnSetCurrentBlockState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnSetCurrentBlockState(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnSetCurrentBlockState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -2206,7 +2206,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, data: QtC.QTextBlockUserData) callconv(.c) void `
     ///
     pub fn OnSetCurrentBlockUserData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnSetCurrentBlockUserData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnSetCurrentBlockUserData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -2250,7 +2250,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QTextBlockUserData `
     ///
     pub fn OnCurrentBlockUserData(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTextBlockUserData) void {
-        qtc.Sonnet__Highlighter_OnCurrentBlockUserData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnCurrentBlockUserData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -2294,7 +2294,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QTextBlock `
     ///
     pub fn OnCurrentBlock(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTextBlock) void {
-        qtc.Sonnet__Highlighter_OnCurrentBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnCurrentBlock(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2338,7 +2338,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.Sonnet__Highlighter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2382,7 +2382,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.Sonnet__Highlighter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2432,7 +2432,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Sonnet__Highlighter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2480,7 +2480,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Sonnet__Highlighter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.Sonnet__Highlighter_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2496,7 +2496,7 @@ pub const sonnet__highlighter = struct {
     /// ` callback: *const fn (self: QtC.Sonnet__Highlighter, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

@@ -224,7 +224,7 @@ pub const attica__downloaditem = struct {
     /// ` typeVal: downloaddescription_enums.Type `
     ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.Attica__DownloadItem_SetType(@ptrCast(self), @intCast(typeVal));
+        qtc.Attica__DownloadItem_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#type)

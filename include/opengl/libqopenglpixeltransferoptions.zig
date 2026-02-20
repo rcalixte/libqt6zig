@@ -52,7 +52,7 @@ pub const qopenglpixeltransferoptions = struct {
     /// ` alignment: i32 `
     ///
     pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QOpenGLPixelTransferOptions_SetAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QOpenGLPixelTransferOptions_SetAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#alignment)
@@ -74,7 +74,7 @@ pub const qopenglpixeltransferoptions = struct {
     /// ` skipImages: i32 `
     ///
     pub fn SetSkipImages(self: ?*anyopaque, skipImages: i32) void {
-        qtc.QOpenGLPixelTransferOptions_SetSkipImages(@ptrCast(self), @intCast(skipImages));
+        qtc.QOpenGLPixelTransferOptions_SetSkipImages(@ptrCast(self), @bitCast(skipImages));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#skipImages)
@@ -96,7 +96,7 @@ pub const qopenglpixeltransferoptions = struct {
     /// ` skipRows: i32 `
     ///
     pub fn SetSkipRows(self: ?*anyopaque, skipRows: i32) void {
-        qtc.QOpenGLPixelTransferOptions_SetSkipRows(@ptrCast(self), @intCast(skipRows));
+        qtc.QOpenGLPixelTransferOptions_SetSkipRows(@ptrCast(self), @bitCast(skipRows));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#skipRows)
@@ -118,7 +118,7 @@ pub const qopenglpixeltransferoptions = struct {
     /// ` skipPixels: i32 `
     ///
     pub fn SetSkipPixels(self: ?*anyopaque, skipPixels: i32) void {
-        qtc.QOpenGLPixelTransferOptions_SetSkipPixels(@ptrCast(self), @intCast(skipPixels));
+        qtc.QOpenGLPixelTransferOptions_SetSkipPixels(@ptrCast(self), @bitCast(skipPixels));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#skipPixels)
@@ -140,7 +140,7 @@ pub const qopenglpixeltransferoptions = struct {
     /// ` imageHeight: i32 `
     ///
     pub fn SetImageHeight(self: ?*anyopaque, imageHeight: i32) void {
-        qtc.QOpenGLPixelTransferOptions_SetImageHeight(@ptrCast(self), @intCast(imageHeight));
+        qtc.QOpenGLPixelTransferOptions_SetImageHeight(@ptrCast(self), @bitCast(imageHeight));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#imageHeight)
@@ -162,7 +162,7 @@ pub const qopenglpixeltransferoptions = struct {
     /// ` rowLength: i32 `
     ///
     pub fn SetRowLength(self: ?*anyopaque, rowLength: i32) void {
-        qtc.QOpenGLPixelTransferOptions_SetRowLength(@ptrCast(self), @intCast(rowLength));
+        qtc.QOpenGLPixelTransferOptions_SetRowLength(@ptrCast(self), @bitCast(rowLength));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#rowLength)

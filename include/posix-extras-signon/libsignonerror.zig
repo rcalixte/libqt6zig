@@ -27,7 +27,7 @@ pub const signon__error = struct {
     /// ` typeVal: i32 `
     ///
     pub fn New3(typeVal: i32) QtC.SignOn__Error {
-        return qtc.SignOn__Error_new3(@intCast(typeVal));
+        return qtc.SignOn__Error_new3(@bitCast(typeVal));
     }
 
     /// New4 constructs a new SignOn::Error object.
@@ -44,7 +44,7 @@ pub const signon__error = struct {
             .data = message.ptr,
         };
 
-        return qtc.SignOn__Error_new4(@intCast(typeVal), message_str);
+        return qtc.SignOn__Error_new4(@bitCast(typeVal), message_str);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
@@ -68,7 +68,7 @@ pub const signon__error = struct {
     /// ` typeVal: i32 `
     ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.SignOn__Error_SetType(@ptrCast(self), @intCast(typeVal));
+        qtc.SignOn__Error_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)

@@ -97,7 +97,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QUndoView_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -132,7 +132,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QUndoView_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -159,7 +159,7 @@ pub const qundoview = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QUndoView_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QUndoView_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -171,7 +171,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QUndoView_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -187,7 +187,7 @@ pub const qundoview = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QUndoView_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QUndoView_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -340,7 +340,7 @@ pub const qundoview = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qundoview.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -358,7 +358,7 @@ pub const qundoview = struct {
     /// ` movement: qlistview_enums.Movement `
     ///
     pub fn SetMovement(self: ?*anyopaque, movement: i32) void {
-        qtc.QListView_SetMovement(@ptrCast(self), @intCast(movement));
+        qtc.QListView_SetMovement(@ptrCast(self), @bitCast(movement));
     }
 
     /// Inherited from QListView
@@ -388,7 +388,7 @@ pub const qundoview = struct {
     /// ` flow: qlistview_enums.Flow `
     ///
     pub fn SetFlow(self: ?*anyopaque, flow: i32) void {
-        qtc.QListView_SetFlow(@ptrCast(self), @intCast(flow));
+        qtc.QListView_SetFlow(@ptrCast(self), @bitCast(flow));
     }
 
     /// Inherited from QListView
@@ -444,7 +444,7 @@ pub const qundoview = struct {
     /// ` mode: qlistview_enums.ResizeMode `
     ///
     pub fn SetResizeMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QListView_SetResizeMode(@ptrCast(self), @intCast(mode));
+        qtc.QListView_SetResizeMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QListView
@@ -474,7 +474,7 @@ pub const qundoview = struct {
     /// ` mode: qlistview_enums.LayoutMode `
     ///
     pub fn SetLayoutMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QListView_SetLayoutMode(@ptrCast(self), @intCast(mode));
+        qtc.QListView_SetLayoutMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QListView
@@ -504,7 +504,7 @@ pub const qundoview = struct {
     /// ` space: i32 `
     ///
     pub fn SetSpacing(self: ?*anyopaque, space: i32) void {
-        qtc.QListView_SetSpacing(@ptrCast(self), @intCast(space));
+        qtc.QListView_SetSpacing(@ptrCast(self), @bitCast(space));
     }
 
     /// Inherited from QListView
@@ -530,7 +530,7 @@ pub const qundoview = struct {
     /// ` batchSize: i32 `
     ///
     pub fn SetBatchSize(self: ?*anyopaque, batchSize: i32) void {
-        qtc.QListView_SetBatchSize(@ptrCast(self), @intCast(batchSize));
+        qtc.QListView_SetBatchSize(@ptrCast(self), @bitCast(batchSize));
     }
 
     /// Inherited from QListView
@@ -582,7 +582,7 @@ pub const qundoview = struct {
     /// ` mode: qlistview_enums.ViewMode `
     ///
     pub fn SetViewMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QListView_SetViewMode(@ptrCast(self), @intCast(mode));
+        qtc.QListView_SetViewMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QListView
@@ -624,7 +624,7 @@ pub const qundoview = struct {
     /// ` row: i32 `
     ///
     pub fn IsRowHidden(self: ?*anyopaque, row: i32) bool {
-        return qtc.QListView_IsRowHidden(@ptrCast(self), @intCast(row));
+        return qtc.QListView_IsRowHidden(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QListView
@@ -640,7 +640,7 @@ pub const qundoview = struct {
     /// ` hide: bool `
     ///
     pub fn SetRowHidden(self: ?*anyopaque, row: i32, hide: bool) void {
-        qtc.QListView_SetRowHidden(@ptrCast(self), @intCast(row), hide);
+        qtc.QListView_SetRowHidden(@ptrCast(self), @bitCast(row), hide);
     }
 
     /// Inherited from QListView
@@ -654,7 +654,7 @@ pub const qundoview = struct {
     /// ` column: i32 `
     ///
     pub fn SetModelColumn(self: ?*anyopaque, column: i32) void {
-        qtc.QListView_SetModelColumn(@ptrCast(self), @intCast(column));
+        qtc.QListView_SetModelColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QListView
@@ -758,7 +758,7 @@ pub const qundoview = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetItemAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QListView_SetItemAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QListView_SetItemAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// Inherited from QListView
@@ -806,7 +806,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
     ///
     pub fn OnIndexesMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QListView_Connect_IndexesMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QListView_Connect_IndexesMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -870,7 +870,7 @@ pub const qundoview = struct {
     /// ` mode: qabstractitemview_enums.SelectionMode `
     ///
     pub fn SetSelectionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -900,7 +900,7 @@ pub const qundoview = struct {
     /// ` behavior: qabstractitemview_enums.SelectionBehavior `
     ///
     pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i32) void {
-        qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self), @intCast(behavior));
+        qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self), @bitCast(behavior));
     }
 
     /// Inherited from QAbstractItemView
@@ -954,7 +954,7 @@ pub const qundoview = struct {
     /// ` triggers: flag of qabstractitemview_enums.EditTrigger `
     ///
     pub fn SetEditTriggers(self: ?*anyopaque, triggers: i32) void {
-        qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self), @intCast(triggers));
+        qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self), @bitCast(triggers));
     }
 
     /// Inherited from QAbstractItemView
@@ -984,7 +984,7 @@ pub const qundoview = struct {
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
     pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -1026,7 +1026,7 @@ pub const qundoview = struct {
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
     pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -1094,7 +1094,7 @@ pub const qundoview = struct {
     /// ` margin: i32 `
     ///
     pub fn SetAutoScrollMargin(self: ?*anyopaque, margin: i32) void {
-        qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self), @intCast(margin));
+        qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// Inherited from QAbstractItemView
@@ -1224,7 +1224,7 @@ pub const qundoview = struct {
     /// ` behavior: qabstractitemview_enums.DragDropMode `
     ///
     pub fn SetDragDropMode(self: ?*anyopaque, behavior: i32) void {
-        qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self), @intCast(behavior));
+        qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self), @bitCast(behavior));
     }
 
     /// Inherited from QAbstractItemView
@@ -1254,7 +1254,7 @@ pub const qundoview = struct {
     /// ` dropAction: qnamespace_enums.DropAction `
     ///
     pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i32) void {
-        qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self), @intCast(dropAction));
+        qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self), @bitCast(dropAction));
     }
 
     /// Inherited from QAbstractItemView
@@ -1336,7 +1336,7 @@ pub const qundoview = struct {
     /// ` mode: qnamespace_enums.TextElideMode `
     ///
     pub fn SetTextElideMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -1454,7 +1454,7 @@ pub const qundoview = struct {
     /// ` delegate: QtC.QAbstractItemDelegate `
     ///
     pub fn SetItemDelegateForRow(self: ?*anyopaque, row: i32, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self), @intCast(row), @ptrCast(delegate));
+        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self), @bitCast(row), @ptrCast(delegate));
     }
 
     /// Inherited from QAbstractItemView
@@ -1468,7 +1468,7 @@ pub const qundoview = struct {
     /// ` row: i32 `
     ///
     pub fn ItemDelegateForRow(self: ?*anyopaque, row: i32) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemView
@@ -1484,7 +1484,7 @@ pub const qundoview = struct {
     /// ` delegate: QtC.QAbstractItemDelegate `
     ///
     pub fn SetItemDelegateForColumn(self: ?*anyopaque, column: i32, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self), @intCast(column), @ptrCast(delegate));
+        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self), @bitCast(column), @ptrCast(delegate));
     }
 
     /// Inherited from QAbstractItemView
@@ -1498,7 +1498,7 @@ pub const qundoview = struct {
     /// ` column: i32 `
     ///
     pub fn ItemDelegateForColumn(self: ?*anyopaque, column: i32) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemView
@@ -1618,7 +1618,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -1646,7 +1646,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -1674,7 +1674,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -1702,7 +1702,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -1730,7 +1730,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -1756,7 +1756,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView) callconv(.c) void `
     ///
     pub fn OnViewportEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -1784,7 +1784,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, size: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -1814,7 +1814,7 @@ pub const qundoview = struct {
     /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @intCast(verticalScrollBarPolicy));
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @bitCast(verticalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -1870,7 +1870,7 @@ pub const qundoview = struct {
     /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @intCast(horizontalScrollBarPolicy));
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @bitCast(horizontalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -1938,7 +1938,7 @@ pub const qundoview = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
-        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
+        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @bitCast(alignment));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -1954,7 +1954,7 @@ pub const qundoview = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qundoview.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
@@ -2027,7 +2027,7 @@ pub const qundoview = struct {
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QFrame
@@ -2053,7 +2053,7 @@ pub const qundoview = struct {
     /// ` frameStyle: i32 `
     ///
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self), @intCast(frameStyle));
+        qtc.QFrame_SetFrameStyle(@ptrCast(self), @bitCast(frameStyle));
     }
 
     /// Inherited from QFrame
@@ -2095,7 +2095,7 @@ pub const qundoview = struct {
     /// ` frameShape: qframe_enums.Shape `
     ///
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self), @intCast(frameShape));
+        qtc.QFrame_SetFrameShape(@ptrCast(self), @bitCast(frameShape));
     }
 
     /// Inherited from QFrame
@@ -2125,7 +2125,7 @@ pub const qundoview = struct {
     /// ` frameShadow: qframe_enums.Shadow `
     ///
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self), @intCast(frameShadow));
+        qtc.QFrame_SetFrameShadow(@ptrCast(self), @bitCast(frameShadow));
     }
 
     /// Inherited from QFrame
@@ -2151,7 +2151,7 @@ pub const qundoview = struct {
     /// ` lineWidth: i32 `
     ///
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self), @intCast(lineWidth));
+        qtc.QFrame_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
     }
 
     /// Inherited from QFrame
@@ -2177,7 +2177,7 @@ pub const qundoview = struct {
     /// ` midLineWidth: i32 `
     ///
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @intCast(midLineWidth));
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
     }
 
     /// Inherited from QFrame
@@ -2343,7 +2343,7 @@ pub const qundoview = struct {
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
+        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -2669,7 +2669,7 @@ pub const qundoview = struct {
     /// ` minh: i32 `
     ///
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2699,7 +2699,7 @@ pub const qundoview = struct {
     /// ` maxh: i32 `
     ///
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2713,7 +2713,7 @@ pub const qundoview = struct {
     /// ` minw: i32 `
     ///
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -2727,7 +2727,7 @@ pub const qundoview = struct {
     /// ` minh: i32 `
     ///
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2741,7 +2741,7 @@ pub const qundoview = struct {
     /// ` maxw: i32 `
     ///
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -2755,7 +2755,7 @@ pub const qundoview = struct {
     /// ` maxh: i32 `
     ///
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2797,7 +2797,7 @@ pub const qundoview = struct {
     /// ` h: i32 `
     ///
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2839,7 +2839,7 @@ pub const qundoview = struct {
     /// ` baseh: i32 `
     ///
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
+        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -2869,7 +2869,7 @@ pub const qundoview = struct {
     /// ` h: i32 `
     ///
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2883,7 +2883,7 @@ pub const qundoview = struct {
     /// ` w: i32 `
     ///
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
+        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -2897,7 +2897,7 @@ pub const qundoview = struct {
     /// ` h: i32 `
     ///
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
+        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3149,7 +3149,7 @@ pub const qundoview = struct {
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -3179,7 +3179,7 @@ pub const qundoview = struct {
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
+        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -3479,7 +3479,7 @@ pub const qundoview = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3493,7 +3493,7 @@ pub const qundoview = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3713,7 +3713,7 @@ pub const qundoview = struct {
     /// ` level: f64 `
     ///
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -3787,7 +3787,7 @@ pub const qundoview = struct {
     /// ` msec: i32 `
     ///
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -3957,7 +3957,7 @@ pub const qundoview = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -4109,7 +4109,7 @@ pub const qundoview = struct {
     /// ` reason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
+        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -4139,7 +4139,7 @@ pub const qundoview = struct {
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -4221,7 +4221,7 @@ pub const qundoview = struct {
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -4311,7 +4311,7 @@ pub const qundoview = struct {
     /// ` id: i32 `
     ///
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4325,7 +4325,7 @@ pub const qundoview = struct {
     /// ` id: i32 `
     ///
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4339,7 +4339,7 @@ pub const qundoview = struct {
     /// ` id: i32 `
     ///
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4425,7 +4425,7 @@ pub const qundoview = struct {
     /// ` h: i32 `
     ///
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4473,7 +4473,7 @@ pub const qundoview = struct {
     /// ` h: i32 `
     ///
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4653,7 +4653,7 @@ pub const qundoview = struct {
     /// ` y: i32 `
     ///
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
+        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -4683,7 +4683,7 @@ pub const qundoview = struct {
     /// ` h: i32 `
     ///
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4717,7 +4717,7 @@ pub const qundoview = struct {
     /// ` h: i32 `
     ///
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4883,7 +4883,7 @@ pub const qundoview = struct {
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4897,7 +4897,7 @@ pub const qundoview = struct {
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4939,7 +4939,7 @@ pub const qundoview = struct {
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -4971,7 +4971,7 @@ pub const qundoview = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -5077,7 +5077,7 @@ pub const qundoview = struct {
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
+        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -5093,7 +5093,7 @@ pub const qundoview = struct {
     /// ` dy: i32 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -5111,7 +5111,7 @@ pub const qundoview = struct {
     /// ` param3: QtC.QRect `
     ///
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
+        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
     }
 
     /// Inherited from QWidget
@@ -5380,7 +5380,7 @@ pub const qundoview = struct {
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5410,7 +5410,7 @@ pub const qundoview = struct {
     /// ` param1: qnamespace_enums.WindowType `
     ///
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5424,7 +5424,7 @@ pub const qundoview = struct {
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5452,7 +5452,7 @@ pub const qundoview = struct {
     /// ` param1: u64 `
     ///
     pub fn Find(param1: u64) QtC.QWidget {
-        return qtc.QWidget_Find(@intCast(param1));
+        return qtc.QWidget_Find(@bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5468,7 +5468,7 @@ pub const qundoview = struct {
     /// ` y: i32 `
     ///
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
+        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -5510,7 +5510,7 @@ pub const qundoview = struct {
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5524,7 +5524,7 @@ pub const qundoview = struct {
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
+        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5670,7 +5670,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5698,7 +5698,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5730,7 +5730,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5758,7 +5758,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5788,7 +5788,7 @@ pub const qundoview = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -5842,7 +5842,7 @@ pub const qundoview = struct {
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5896,7 +5896,7 @@ pub const qundoview = struct {
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5926,7 +5926,7 @@ pub const qundoview = struct {
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
+        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -5942,7 +5942,7 @@ pub const qundoview = struct {
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -5958,7 +5958,7 @@ pub const qundoview = struct {
     /// ` enable: bool `
     ///
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5974,7 +5974,7 @@ pub const qundoview = struct {
     /// ` enable: bool `
     ///
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5990,7 +5990,7 @@ pub const qundoview = struct {
     /// ` on: bool `
     ///
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -6006,7 +6006,7 @@ pub const qundoview = struct {
     /// ` on: bool `
     ///
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -6036,7 +6036,7 @@ pub const qundoview = struct {
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
+        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
     }
 
     /// Inherited from QObject
@@ -6170,7 +6170,7 @@ pub const qundoview = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -6184,7 +6184,7 @@ pub const qundoview = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -6198,7 +6198,7 @@ pub const qundoview = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6212,7 +6212,7 @@ pub const qundoview = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6528,7 +6528,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6583,7 +6583,7 @@ pub const qundoview = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6599,7 +6599,7 @@ pub const qundoview = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6621,7 +6621,7 @@ pub const qundoview = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -6641,7 +6641,7 @@ pub const qundoview = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -6663,7 +6663,7 @@ pub const qundoview = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -6760,7 +6760,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -6914,7 +6914,7 @@ pub const qundoview = struct {
     /// ` value: f64 `
     ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
 
     /// Inherited from QListView
@@ -6962,7 +6962,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) QtC.QRect `
     ///
     pub fn OnVisualRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QUndoView_OnVisualRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnVisualRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -6980,7 +6980,7 @@ pub const qundoview = struct {
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
     pub fn ScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.QUndoView_ScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
+        qtc.QUndoView_ScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
     }
 
     /// Inherited from QListView
@@ -6998,7 +6998,7 @@ pub const qundoview = struct {
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
     pub fn QBaseScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.QUndoView_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
+        qtc.QUndoView_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
     }
 
     /// Inherited from QListView
@@ -7014,7 +7014,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void `
     ///
     pub fn OnScrollTo(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnScrollTo(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnScrollTo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7062,7 +7062,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, p: QtC.QPoint) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnIndexAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QUndoView_OnIndexAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnIndexAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7106,7 +7106,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnDoItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnDoItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnDoItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7150,7 +7150,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7198,7 +7198,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnSetRootIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnSetRootIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSetRootIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7246,7 +7246,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, e: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QUndoView_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7264,7 +7264,7 @@ pub const qundoview = struct {
     /// ` dy: i32 `
     ///
     pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QUndoView_ScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QUndoView_ScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QListView
@@ -7282,7 +7282,7 @@ pub const qundoview = struct {
     /// ` dy: i32 `
     ///
     pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QUndoView_QBaseScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QUndoView_QBaseScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QListView
@@ -7298,7 +7298,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, dx: i32, dy: i32) callconv(.c) void `
     ///
     pub fn OnScrollContentsBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnScrollContentsBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnScrollContentsBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7362,7 +7362,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QUndoView_OnDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7382,7 +7382,7 @@ pub const qundoview = struct {
     /// ` end: i32 `
     ///
     pub fn RowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QUndoView_RowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.QUndoView_RowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QListView
@@ -7402,7 +7402,7 @@ pub const qundoview = struct {
     /// ` end: i32 `
     ///
     pub fn QBaseRowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QUndoView_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.QUndoView_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QListView
@@ -7418,7 +7418,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
     pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnRowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnRowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7438,7 +7438,7 @@ pub const qundoview = struct {
     /// ` end: i32 `
     ///
     pub fn RowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QUndoView_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.QUndoView_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QListView
@@ -7458,7 +7458,7 @@ pub const qundoview = struct {
     /// ` end: i32 `
     ///
     pub fn QBaseRowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QUndoView_QBaseRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.QUndoView_QBaseRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QListView
@@ -7474,7 +7474,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnRowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnRowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7522,7 +7522,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, e: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7570,7 +7570,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, e: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7618,7 +7618,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, e: QtC.QWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7666,7 +7666,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, e: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7714,7 +7714,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, e: QtC.QResizeEvent) callconv(.c) void `
     ///
     pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7762,7 +7762,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, e: QtC.QDragMoveEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7810,7 +7810,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, e: QtC.QDragLeaveEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7858,7 +7858,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, e: QtC.QDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7874,7 +7874,7 @@ pub const qundoview = struct {
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
     pub fn StartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.QUndoView_StartDrag(@ptrCast(self), @intCast(supportedActions));
+        qtc.QUndoView_StartDrag(@ptrCast(self), @bitCast(supportedActions));
     }
 
     /// Inherited from QListView
@@ -7890,7 +7890,7 @@ pub const qundoview = struct {
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
     pub fn QBaseStartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.QUndoView_QBaseStartDrag(@ptrCast(self), @intCast(supportedActions));
+        qtc.QUndoView_QBaseStartDrag(@ptrCast(self), @bitCast(supportedActions));
     }
 
     /// Inherited from QListView
@@ -7906,7 +7906,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void `
     ///
     pub fn OnStartDrag(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnStartDrag(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnStartDrag(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -7954,7 +7954,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, option: QtC.QStyleOptionViewItem) callconv(.c) void `
     ///
     pub fn OnInitViewItemOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnInitViewItemOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnInitViewItemOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8002,7 +8002,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, e: QtC.QPaintEvent) callconv(.c) void `
     ///
     pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8046,7 +8046,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnHorizontalOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QUndoView_OnHorizontalOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnHorizontalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8090,7 +8090,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnVerticalOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QUndoView_OnVerticalOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnVerticalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8108,7 +8108,7 @@ pub const qundoview = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn MoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
-        return qtc.QUndoView_MoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
+        return qtc.QUndoView_MoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
     }
 
     /// Inherited from QListView
@@ -8126,7 +8126,7 @@ pub const qundoview = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn QBaseMoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
-        return qtc.QUndoView_QBaseMoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
+        return qtc.QUndoView_QBaseMoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
     }
 
     /// Inherited from QListView
@@ -8142,7 +8142,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnMoveCursor(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.QUndoView_OnMoveCursor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnMoveCursor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8160,7 +8160,7 @@ pub const qundoview = struct {
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
-        qtc.QUndoView_SetSelection(@ptrCast(self), @ptrCast(rect), @intCast(command));
+        qtc.QUndoView_SetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
     }
 
     /// Inherited from QListView
@@ -8178,7 +8178,7 @@ pub const qundoview = struct {
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn QBaseSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
-        qtc.QUndoView_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @intCast(command));
+        qtc.QUndoView_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
     }
 
     /// Inherited from QListView
@@ -8194,7 +8194,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
     pub fn OnSetSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnSetSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSetSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8242,7 +8242,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, selection: QtC.QItemSelection) callconv(.c) QtC.QRegion `
     ///
     pub fn OnVisualRegionForSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRegion) void {
-        qtc.QUndoView_OnVisualRegionForSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnVisualRegionForSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8306,7 +8306,7 @@ pub const qundoview = struct {
     /// ` C ABI representation of []QtC.QModelIndex `
     ///
     pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QUndoView_OnSelectedIndexes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSelectedIndexes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8350,7 +8350,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateGeometries(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnUpdateGeometries(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnUpdateGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8398,7 +8398,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnIsIndexHidden(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QUndoView_OnIsIndexHidden(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnIsIndexHidden(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8450,7 +8450,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, selected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void `
     ///
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnSelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8502,7 +8502,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnCurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnCurrentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -8546,7 +8546,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnViewportSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QUndoView_OnViewportSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnViewportSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8594,7 +8594,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, model: QtC.QAbstractItemModel) callconv(.c) void `
     ///
     pub fn OnSetModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnSetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8642,7 +8642,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, selectionModel: QtC.QItemSelectionModel) callconv(.c) void `
     ///
     pub fn OnSetSelectionModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnSetSelectionModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSetSelectionModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8698,7 +8698,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, search: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnKeyboardSearch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QUndoView_OnKeyboardSearch(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnKeyboardSearch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8714,7 +8714,7 @@ pub const qundoview = struct {
     /// ` row: i32 `
     ///
     pub fn SizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QUndoView_SizeHintForRow(@ptrCast(self), @intCast(row));
+        return qtc.QUndoView_SizeHintForRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemView
@@ -8730,7 +8730,7 @@ pub const qundoview = struct {
     /// ` row: i32 `
     ///
     pub fn QBaseSizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QUndoView_QBaseSizeHintForRow(@ptrCast(self), @intCast(row));
+        return qtc.QUndoView_QBaseSizeHintForRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemView
@@ -8746,7 +8746,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, row: i32) callconv(.c) i32 `
     ///
     pub fn OnSizeHintForRow(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QUndoView_OnSizeHintForRow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSizeHintForRow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8762,7 +8762,7 @@ pub const qundoview = struct {
     /// ` column: i32 `
     ///
     pub fn SizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QUndoView_SizeHintForColumn(@ptrCast(self), @intCast(column));
+        return qtc.QUndoView_SizeHintForColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemView
@@ -8778,7 +8778,7 @@ pub const qundoview = struct {
     /// ` column: i32 `
     ///
     pub fn QBaseSizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QUndoView_QBaseSizeHintForColumn(@ptrCast(self), @intCast(column));
+        return qtc.QUndoView_QBaseSizeHintForColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemView
@@ -8794,7 +8794,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, column: i32) callconv(.c) i32 `
     ///
     pub fn OnSizeHintForColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QUndoView_OnSizeHintForColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSizeHintForColumn(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8842,7 +8842,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) QtC.QAbstractItemDelegate `
     ///
     pub fn OnItemDelegateForIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAbstractItemDelegate) void {
-        qtc.QUndoView_OnItemDelegateForIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnItemDelegateForIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8858,7 +8858,7 @@ pub const qundoview = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QUndoView_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QUndoView_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QAbstractItemView
@@ -8874,7 +8874,7 @@ pub const qundoview = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QUndoView_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QUndoView_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QAbstractItemView
@@ -8890,7 +8890,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QUndoView_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8934,7 +8934,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSelectAll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnSelectAll(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSelectAll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8978,7 +8978,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateEditorData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnUpdateEditorData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnUpdateEditorData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9022,7 +9022,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateEditorGeometries(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnUpdateEditorGeometries(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnUpdateEditorGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9038,7 +9038,7 @@ pub const qundoview = struct {
     /// ` action: i32 `
     ///
     pub fn VerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QUndoView_VerticalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.QUndoView_VerticalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QAbstractItemView
@@ -9054,7 +9054,7 @@ pub const qundoview = struct {
     /// ` action: i32 `
     ///
     pub fn QBaseVerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QUndoView_QBaseVerticalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.QUndoView_QBaseVerticalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QAbstractItemView
@@ -9070,7 +9070,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, action: i32) callconv(.c) void `
     ///
     pub fn OnVerticalScrollbarAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnVerticalScrollbarAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnVerticalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9086,7 +9086,7 @@ pub const qundoview = struct {
     /// ` action: i32 `
     ///
     pub fn HorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QUndoView_HorizontalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.QUndoView_HorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QAbstractItemView
@@ -9102,7 +9102,7 @@ pub const qundoview = struct {
     /// ` action: i32 `
     ///
     pub fn QBaseHorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QUndoView_QBaseHorizontalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.QUndoView_QBaseHorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QAbstractItemView
@@ -9118,7 +9118,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, action: i32) callconv(.c) void `
     ///
     pub fn OnHorizontalScrollbarAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnHorizontalScrollbarAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnHorizontalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9134,7 +9134,7 @@ pub const qundoview = struct {
     /// ` value: i32 `
     ///
     pub fn VerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QUndoView_VerticalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.QUndoView_VerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -9150,7 +9150,7 @@ pub const qundoview = struct {
     /// ` value: i32 `
     ///
     pub fn QBaseVerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QUndoView_QBaseVerticalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.QUndoView_QBaseVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -9166,7 +9166,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, value: i32) callconv(.c) void `
     ///
     pub fn OnVerticalScrollbarValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnVerticalScrollbarValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9182,7 +9182,7 @@ pub const qundoview = struct {
     /// ` value: i32 `
     ///
     pub fn HorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QUndoView_HorizontalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.QUndoView_HorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -9198,7 +9198,7 @@ pub const qundoview = struct {
     /// ` value: i32 `
     ///
     pub fn QBaseHorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QUndoView_QBaseHorizontalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.QUndoView_QBaseHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -9214,7 +9214,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, value: i32) callconv(.c) void `
     ///
     pub fn OnHorizontalScrollbarValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnHorizontalScrollbarValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9232,7 +9232,7 @@ pub const qundoview = struct {
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
     pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.QUndoView_CloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
+        qtc.QUndoView_CloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemView
@@ -9250,7 +9250,7 @@ pub const qundoview = struct {
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
     pub fn QBaseCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.QUndoView_QBaseCloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
+        qtc.QUndoView_QBaseCloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemView
@@ -9266,7 +9266,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
     pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnCloseEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnCloseEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9314,7 +9314,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, editor: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnCommitData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnCommitData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9362,7 +9362,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, editor: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnEditorDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnEditorDestroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnEditorDestroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9382,7 +9382,7 @@ pub const qundoview = struct {
     /// ` event: QtC.QEvent `
     ///
     pub fn Edit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.QUndoView_Edit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
+        return qtc.QUndoView_Edit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9402,7 +9402,7 @@ pub const qundoview = struct {
     /// ` event: QtC.QEvent `
     ///
     pub fn QBaseEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.QUndoView_QBaseEdit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
+        return qtc.QUndoView_QBaseEdit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9418,7 +9418,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEdit2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QUndoView_OnEdit2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnEdit2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9478,7 +9478,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex, event: QtC.QEvent) callconv(.c) i32 `
     ///
     pub fn OnSelectionCommand(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QUndoView_OnSelectionCommand(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSelectionCommand(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9526,7 +9526,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, next: bool) callconv(.c) bool `
     ///
     pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QUndoView_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9574,7 +9574,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnViewportEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QUndoView_OnViewportEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnViewportEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9622,7 +9622,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9670,7 +9670,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9718,7 +9718,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QDragEnterEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9766,7 +9766,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9814,7 +9814,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9862,7 +9862,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9910,7 +9910,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9962,7 +9962,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, object: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QUndoView_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10006,7 +10006,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QUndoView_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10050,7 +10050,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QUndoView_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10098,7 +10098,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, viewport: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnSetupViewport(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnSetupViewport(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSetupViewport(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10146,7 +10146,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, param1: QtC.QContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -10194,7 +10194,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, param1: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -10242,7 +10242,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, option: QtC.QStyleOptionFrame) callconv(.c) void `
     ///
     pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10286,7 +10286,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QUndoView_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10334,7 +10334,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, visible: bool) callconv(.c) void `
     ///
     pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QUndoView_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10350,7 +10350,7 @@ pub const qundoview = struct {
     /// ` param1: i32 `
     ///
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QUndoView_HeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QUndoView_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10366,7 +10366,7 @@ pub const qundoview = struct {
     /// ` param1: i32 `
     ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QUndoView_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QUndoView_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10382,7 +10382,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, param1: i32) callconv(.c) i32 `
     ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QUndoView_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10426,7 +10426,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QUndoView_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10470,7 +10470,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
     ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QUndoView_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10518,7 +10518,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10566,7 +10566,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QEnterEvent) callconv(.c) void `
     ///
     pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10614,7 +10614,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10662,7 +10662,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QMoveEvent) callconv(.c) void `
     ///
     pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10710,7 +10710,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QCloseEvent) callconv(.c) void `
     ///
     pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10758,7 +10758,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QTabletEvent) callconv(.c) void `
     ///
     pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10806,7 +10806,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QActionEvent) callconv(.c) void `
     ///
     pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10854,7 +10854,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QShowEvent) callconv(.c) void `
     ///
     pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10902,7 +10902,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QHideEvent) callconv(.c) void `
     ///
     pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10966,7 +10966,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QUndoView_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10982,7 +10982,7 @@ pub const qundoview = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QUndoView_Metric(@ptrCast(self), @intCast(param1));
+        return qtc.QUndoView_Metric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10998,7 +10998,7 @@ pub const qundoview = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QUndoView_QBaseMetric(@ptrCast(self), @intCast(param1));
+        return qtc.QUndoView_QBaseMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -11014,7 +11014,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QUndoView_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11062,7 +11062,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11110,7 +11110,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
     ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QUndoView_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11154,7 +11154,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainter `
     ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QUndoView_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11202,7 +11202,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11250,7 +11250,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11298,7 +11298,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11346,7 +11346,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -11364,7 +11364,7 @@ pub const qundoview = struct {
     /// ` height: i32 `
     ///
     pub fn ResizeContents(self: ?*anyopaque, width: i32, height: i32) void {
-        qtc.QUndoView_ResizeContents(@ptrCast(self), @intCast(width), @intCast(height));
+        qtc.QUndoView_ResizeContents(@ptrCast(self), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QListView
@@ -11382,7 +11382,7 @@ pub const qundoview = struct {
     /// ` height: i32 `
     ///
     pub fn QBaseResizeContents(self: ?*anyopaque, width: i32, height: i32) void {
-        qtc.QUndoView_QBaseResizeContents(@ptrCast(self), @intCast(width), @intCast(height));
+        qtc.QUndoView_QBaseResizeContents(@ptrCast(self), @bitCast(width), @bitCast(height));
     }
 
     /// Inherited from QListView
@@ -11398,7 +11398,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, width: i32, height: i32) callconv(.c) void `
     ///
     pub fn OnResizeContents(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnResizeContents(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnResizeContents(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -11442,7 +11442,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnContentsSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QUndoView_OnContentsSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnContentsSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -11490,7 +11490,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, index: QtC.QModelIndex) callconv(.c) QtC.QRect `
     ///
     pub fn OnRectForIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QUndoView_OnRectForIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnRectForIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QListView
@@ -11542,7 +11542,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, position: QtC.QPoint, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnSetPositionForIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnSetPositionForIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSetPositionForIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11594,7 +11594,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnState(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QUndoView_OnState(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11610,7 +11610,7 @@ pub const qundoview = struct {
     /// ` state: qabstractitemview_enums.State `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QUndoView_SetState(@ptrCast(self), @intCast(state));
+        qtc.QUndoView_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QAbstractItemView
@@ -11626,7 +11626,7 @@ pub const qundoview = struct {
     /// ` state: qabstractitemview_enums.State `
     ///
     pub fn QBaseSetState(self: ?*anyopaque, state: i32) void {
-        qtc.QUndoView_QBaseSetState(@ptrCast(self), @intCast(state));
+        qtc.QUndoView_QBaseSetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QAbstractItemView
@@ -11642,7 +11642,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, state: qabstractitemview_enums.State) callconv(.c) void `
     ///
     pub fn OnSetState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnSetState(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSetState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11686,7 +11686,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnScheduleDelayedItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnScheduleDelayedItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnScheduleDelayedItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11730,7 +11730,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnExecuteDelayedItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnExecuteDelayedItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnExecuteDelayedItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11778,7 +11778,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, region: QtC.QRegion) callconv(.c) void `
     ///
     pub fn OnSetDirtyRegion(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnSetDirtyRegion(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSetDirtyRegion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11796,7 +11796,7 @@ pub const qundoview = struct {
     /// ` dy: i32 `
     ///
     pub fn ScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QUndoView_ScrollDirtyRegion(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QUndoView_ScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QAbstractItemView
@@ -11814,7 +11814,7 @@ pub const qundoview = struct {
     /// ` dy: i32 `
     ///
     pub fn QBaseScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QUndoView_QBaseScrollDirtyRegion(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QUndoView_QBaseScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QAbstractItemView
@@ -11830,7 +11830,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, dx: i32, dy: i32) callconv(.c) void `
     ///
     pub fn OnScrollDirtyRegion(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnScrollDirtyRegion(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnScrollDirtyRegion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11874,7 +11874,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPoint `
     ///
     pub fn OnDirtyRegionOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPoint) void {
-        qtc.QUndoView_OnDirtyRegionOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnDirtyRegionOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11918,7 +11918,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnStartAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnStartAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnStartAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11962,7 +11962,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnStopAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnStopAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnStopAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12006,7 +12006,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnDoAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnDoAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnDoAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12058,7 +12058,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDropIndicatorPosition(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QUndoView_OnDropIndicatorPosition(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnDropIndicatorPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12080,7 +12080,7 @@ pub const qundoview = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QUndoView_SetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QUndoView_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12102,7 +12102,7 @@ pub const qundoview = struct {
     /// ` bottom: i32 `
     ///
     pub fn QBaseSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QUndoView_QBaseSetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QUndoView_QBaseSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12118,7 +12118,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
     pub fn OnSetViewportMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnSetViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSetViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12162,7 +12162,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMargins `
     ///
     pub fn OnViewportMargins(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMargins) void {
-        qtc.QUndoView_OnViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -12210,7 +12210,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, param1: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoView_OnDrawFrame(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnDrawFrame(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12254,7 +12254,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12298,7 +12298,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12342,7 +12342,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12386,7 +12386,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QUndoView_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12430,7 +12430,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QUndoView_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12474,7 +12474,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QUndoView_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12518,7 +12518,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QUndoView_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12568,7 +12568,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QUndoView_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12616,7 +12616,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QUndoView_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -12634,7 +12634,7 @@ pub const qundoview = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QUndoView_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QUndoView_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -12652,7 +12652,7 @@ pub const qundoview = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QUndoView_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QUndoView_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -12668,7 +12668,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QUndoView_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QUndoView_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12684,7 +12684,7 @@ pub const qundoview = struct {
     /// ` callback: *const fn (self: QtC.QUndoView, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundoview.html#dtor.QUndoView)

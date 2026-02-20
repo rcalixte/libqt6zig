@@ -73,7 +73,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KComboBox_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -108,7 +108,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KComboBox_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -135,7 +135,7 @@ pub const kcombobox = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KComboBox_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KComboBox_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -147,7 +147,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KComboBox_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -163,7 +163,7 @@ pub const kcombobox = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KComboBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KComboBox_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -232,7 +232,7 @@ pub const kcombobox = struct {
     /// ` url: QtC.QUrl `
     ///
     pub fn InsertUrl(self: ?*anyopaque, index: i32, url: ?*anyopaque) void {
-        qtc.KComboBox_InsertUrl(@ptrCast(self), @intCast(index), @ptrCast(url));
+        qtc.KComboBox_InsertUrl(@ptrCast(self), @bitCast(index), @ptrCast(url));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#insertUrl)
@@ -248,7 +248,7 @@ pub const kcombobox = struct {
     /// ` url: QtC.QUrl `
     ///
     pub fn InsertUrl2(self: ?*anyopaque, index: i32, icon: ?*anyopaque, url: ?*anyopaque) void {
-        qtc.KComboBox_InsertUrl2(@ptrCast(self), @intCast(index), @ptrCast(icon), @ptrCast(url));
+        qtc.KComboBox_InsertUrl2(@ptrCast(self), @bitCast(index), @ptrCast(icon), @ptrCast(url));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#changeUrl)
@@ -262,7 +262,7 @@ pub const kcombobox = struct {
     /// ` url: QtC.QUrl `
     ///
     pub fn ChangeUrl(self: ?*anyopaque, index: i32, url: ?*anyopaque) void {
-        qtc.KComboBox_ChangeUrl(@ptrCast(self), @intCast(index), @ptrCast(url));
+        qtc.KComboBox_ChangeUrl(@ptrCast(self), @bitCast(index), @ptrCast(url));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#changeUrl)
@@ -278,7 +278,7 @@ pub const kcombobox = struct {
     /// ` url: QtC.QUrl `
     ///
     pub fn ChangeUrl2(self: ?*anyopaque, index: i32, icon: ?*anyopaque, url: ?*anyopaque) void {
-        qtc.KComboBox_ChangeUrl2(@ptrCast(self), @intCast(index), @ptrCast(icon), @ptrCast(url));
+        qtc.KComboBox_ChangeUrl2(@ptrCast(self), @bitCast(index), @ptrCast(icon), @ptrCast(url));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#cursorPosition)
@@ -314,7 +314,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, autocomplete: bool) callconv(.c) void `
     ///
     pub fn OnSetAutoCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KComboBox_OnSetAutoCompletion(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSetAutoCompletion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#setAutoCompletion)
@@ -422,7 +422,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, lineEdit: QtC.QLineEdit) callconv(.c) void `
     ///
     pub fn OnSetLineEdit(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnSetLineEdit(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSetLineEdit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#setLineEdit)
@@ -482,7 +482,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KComboBox_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#minimumSizeHint)
@@ -522,7 +522,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnReturnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KComboBox_Connect_ReturnPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_Connect_ReturnPressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#completion)
@@ -550,7 +550,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KComboBox_Connect_Completion(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_Connect_Completion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#substringCompletion)
@@ -578,7 +578,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSubstringCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KComboBox_Connect_SubstringCompletion(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_Connect_SubstringCompletion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#textRotation)
@@ -590,7 +590,7 @@ pub const kcombobox = struct {
     /// ` param1: kcompletionbase_enums.KeyBindingType `
     ///
     pub fn TextRotation(self: ?*anyopaque, param1: i32) void {
-        qtc.KComboBox_TextRotation(@ptrCast(self), @intCast(param1));
+        qtc.KComboBox_TextRotation(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#textRotation)
@@ -602,7 +602,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: kcompletionbase_enums.KeyBindingType) callconv(.c) void `
     ///
     pub fn OnTextRotation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KComboBox_Connect_TextRotation(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_Connect_TextRotation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#completionModeChanged)
@@ -614,7 +614,7 @@ pub const kcombobox = struct {
     /// ` param1: kcompletion_enums.CompletionMode `
     ///
     pub fn CompletionModeChanged(self: ?*anyopaque, param1: i32) void {
-        qtc.KComboBox_CompletionModeChanged(@ptrCast(self), @intCast(param1));
+        qtc.KComboBox_CompletionModeChanged(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#completionModeChanged)
@@ -626,7 +626,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: kcompletion_enums.CompletionMode) callconv(.c) void `
     ///
     pub fn OnCompletionModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KComboBox_Connect_CompletionModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_Connect_CompletionModeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#aboutToShowContextMenu)
@@ -650,7 +650,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, contextMenu: QtC.QMenu) callconv(.c) void `
     ///
     pub fn OnAboutToShowContextMenu(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_Connect_AboutToShowContextMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_Connect_AboutToShowContextMenu(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#rotateText)
@@ -662,7 +662,7 @@ pub const kcombobox = struct {
     /// ` typeVal: kcompletionbase_enums.KeyBindingType `
     ///
     pub fn RotateText(self: ?*anyopaque, typeVal: i32) void {
-        qtc.KComboBox_RotateText(@ptrCast(self), @intCast(typeVal));
+        qtc.KComboBox_RotateText(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#setCompletedText)
@@ -692,7 +692,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, completedText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetCompletedText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KComboBox_OnSetCompletedText(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSetCompletedText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#setCompletedText)
@@ -752,7 +752,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, items: ?[*:null]?[*:0]const u8, autoSuggest: bool) callconv(.c) void `
     ///
     pub fn OnSetCompletedItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8, bool) callconv(.c) void) void {
-        qtc.KComboBox_OnSetCompletedItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSetCompletedItems(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#setCompletedItems)
@@ -828,7 +828,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnMakeCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KComboBox_OnMakeCompletion(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnMakeCompletion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#makeCompletion)
@@ -878,7 +878,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, text: [*:0]const u8, marked: bool) callconv(.c) void `
     ///
     pub fn OnSetCompletedText2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
-        qtc.KComboBox_OnSetCompletedText2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSetCompletedText2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#setCompletedText)
@@ -936,7 +936,7 @@ pub const kcombobox = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcombobox.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -990,7 +990,7 @@ pub const kcombobox = struct {
             .len = item.len,
             .data = item.ptr,
         };
-        qtc.KComboBox_SetCurrentItem3(@ptrCast(self), item_str, insert, @intCast(index));
+        qtc.KComboBox_SetCurrentItem3(@ptrCast(self), item_str, insert, @bitCast(index));
     }
 
     /// Inherited from QComboBox
@@ -1016,7 +1016,7 @@ pub const kcombobox = struct {
     /// ` maxItems: i32 `
     ///
     pub fn SetMaxVisibleItems(self: ?*anyopaque, maxItems: i32) void {
-        qtc.QComboBox_SetMaxVisibleItems(@ptrCast(self), @intCast(maxItems));
+        qtc.QComboBox_SetMaxVisibleItems(@ptrCast(self), @bitCast(maxItems));
     }
 
     /// Inherited from QComboBox
@@ -1042,7 +1042,7 @@ pub const kcombobox = struct {
     /// ` max: i32 `
     ///
     pub fn SetMaxCount(self: ?*anyopaque, max: i32) void {
-        qtc.QComboBox_SetMaxCount(@ptrCast(self), @intCast(max));
+        qtc.QComboBox_SetMaxCount(@ptrCast(self), @bitCast(max));
     }
 
     /// Inherited from QComboBox
@@ -1168,7 +1168,7 @@ pub const kcombobox = struct {
     /// ` policy: qcombobox_enums.InsertPolicy `
     ///
     pub fn SetInsertPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QComboBox_SetInsertPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QComboBox_SetInsertPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QComboBox
@@ -1198,7 +1198,7 @@ pub const kcombobox = struct {
     /// ` policy: qcombobox_enums.SizeAdjustPolicy `
     ///
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QComboBox_SetSizeAdjustPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QComboBox_SetSizeAdjustPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QComboBox
@@ -1224,7 +1224,7 @@ pub const kcombobox = struct {
     /// ` characters: i32 `
     ///
     pub fn SetMinimumContentsLength(self: ?*anyopaque, characters: i32) void {
-        qtc.QComboBox_SetMinimumContentsLength(@ptrCast(self), @intCast(characters));
+        qtc.QComboBox_SetMinimumContentsLength(@ptrCast(self), @bitCast(characters));
     }
 
     /// Inherited from QComboBox
@@ -1452,7 +1452,7 @@ pub const kcombobox = struct {
     /// ` visibleColumn: i32 `
     ///
     pub fn SetModelColumn(self: ?*anyopaque, visibleColumn: i32) void {
-        qtc.QComboBox_SetModelColumn(@ptrCast(self), @intCast(visibleColumn));
+        qtc.QComboBox_SetModelColumn(@ptrCast(self), @bitCast(visibleColumn));
     }
 
     /// Inherited from QComboBox
@@ -1510,7 +1510,7 @@ pub const kcombobox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ItemText(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QComboBox_ItemText(@ptrCast(self), @intCast(index));
+        var _str = qtc.QComboBox_ItemText(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcombobox.ItemText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1528,7 +1528,7 @@ pub const kcombobox = struct {
     /// ` index: i32 `
     ///
     pub fn ItemIcon(self: ?*anyopaque, index: i32) QtC.QIcon {
-        return qtc.QComboBox_ItemIcon(@ptrCast(self), @intCast(index));
+        return qtc.QComboBox_ItemIcon(@ptrCast(self), @bitCast(index));
     }
 
     /// Inherited from QComboBox
@@ -1542,7 +1542,7 @@ pub const kcombobox = struct {
     /// ` index: i32 `
     ///
     pub fn ItemData(self: ?*anyopaque, index: i32) QtC.QVariant {
-        return qtc.QComboBox_ItemData(@ptrCast(self), @intCast(index));
+        return qtc.QComboBox_ItemData(@ptrCast(self), @bitCast(index));
     }
 
     /// Inherited from QComboBox
@@ -1628,7 +1628,7 @@ pub const kcombobox = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QComboBox_InsertItem(@ptrCast(self), @intCast(index), text_str);
+        qtc.QComboBox_InsertItem(@ptrCast(self), @bitCast(index), text_str);
     }
 
     /// Inherited from QComboBox
@@ -1650,7 +1650,7 @@ pub const kcombobox = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QComboBox_InsertItem2(@ptrCast(self), @intCast(index), @ptrCast(icon), text_str);
+        qtc.QComboBox_InsertItem2(@ptrCast(self), @bitCast(index), @ptrCast(icon), text_str);
     }
 
     /// Inherited from QComboBox
@@ -1680,7 +1680,7 @@ pub const kcombobox = struct {
             .len = texts.len,
             .data = texts_arr.ptr,
         };
-        qtc.QComboBox_InsertItems(@ptrCast(self), @intCast(index), texts_list);
+        qtc.QComboBox_InsertItems(@ptrCast(self), @bitCast(index), texts_list);
     }
 
     /// Inherited from QComboBox
@@ -1694,7 +1694,7 @@ pub const kcombobox = struct {
     /// ` index: i32 `
     ///
     pub fn InsertSeparator(self: ?*anyopaque, index: i32) void {
-        qtc.QComboBox_InsertSeparator(@ptrCast(self), @intCast(index));
+        qtc.QComboBox_InsertSeparator(@ptrCast(self), @bitCast(index));
     }
 
     /// Inherited from QComboBox
@@ -1708,7 +1708,7 @@ pub const kcombobox = struct {
     /// ` index: i32 `
     ///
     pub fn RemoveItem(self: ?*anyopaque, index: i32) void {
-        qtc.QComboBox_RemoveItem(@ptrCast(self), @intCast(index));
+        qtc.QComboBox_RemoveItem(@ptrCast(self), @bitCast(index));
     }
 
     /// Inherited from QComboBox
@@ -1728,7 +1728,7 @@ pub const kcombobox = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QComboBox_SetItemText(@ptrCast(self), @intCast(index), text_str);
+        qtc.QComboBox_SetItemText(@ptrCast(self), @bitCast(index), text_str);
     }
 
     /// Inherited from QComboBox
@@ -1744,7 +1744,7 @@ pub const kcombobox = struct {
     /// ` icon: QtC.QIcon `
     ///
     pub fn SetItemIcon(self: ?*anyopaque, index: i32, icon: ?*anyopaque) void {
-        qtc.QComboBox_SetItemIcon(@ptrCast(self), @intCast(index), @ptrCast(icon));
+        qtc.QComboBox_SetItemIcon(@ptrCast(self), @bitCast(index), @ptrCast(icon));
     }
 
     /// Inherited from QComboBox
@@ -1760,7 +1760,7 @@ pub const kcombobox = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetItemData(self: ?*anyopaque, index: i32, value: ?*anyopaque) void {
-        qtc.QComboBox_SetItemData(@ptrCast(self), @intCast(index), @ptrCast(value));
+        qtc.QComboBox_SetItemData(@ptrCast(self), @bitCast(index), @ptrCast(value));
     }
 
     /// Inherited from QComboBox
@@ -1802,7 +1802,7 @@ pub const kcombobox = struct {
     /// ` argument: QtC.QVariant `
     ///
     pub fn InputMethodQuery2(self: ?*anyopaque, query: i32, argument: ?*anyopaque) QtC.QVariant {
-        return qtc.QComboBox_InputMethodQuery2(@ptrCast(self), @intCast(query), @ptrCast(argument));
+        return qtc.QComboBox_InputMethodQuery2(@ptrCast(self), @bitCast(query), @ptrCast(argument));
     }
 
     /// Inherited from QComboBox
@@ -1858,7 +1858,7 @@ pub const kcombobox = struct {
     /// ` index: i32 `
     ///
     pub fn SetCurrentIndex(self: ?*anyopaque, index: i32) void {
-        qtc.QComboBox_SetCurrentIndex(@ptrCast(self), @intCast(index));
+        qtc.QComboBox_SetCurrentIndex(@ptrCast(self), @bitCast(index));
     }
 
     /// Inherited from QComboBox
@@ -1908,7 +1908,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnEditTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QComboBox_Connect_EditTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QComboBox_Connect_EditTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -1922,7 +1922,7 @@ pub const kcombobox = struct {
     /// ` index: i32 `
     ///
     pub fn Activated(self: ?*anyopaque, index: i32) void {
-        qtc.QComboBox_Activated(@ptrCast(self), @intCast(index));
+        qtc.QComboBox_Activated(@ptrCast(self), @bitCast(index));
     }
 
     /// Inherited from QComboBox
@@ -1936,7 +1936,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, index: i32) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QComboBox_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QComboBox_Connect_Activated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -1968,7 +1968,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QComboBox_Connect_TextActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QComboBox_Connect_TextActivated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -1982,7 +1982,7 @@ pub const kcombobox = struct {
     /// ` index: i32 `
     ///
     pub fn Highlighted(self: ?*anyopaque, index: i32) void {
-        qtc.QComboBox_Highlighted(@ptrCast(self), @intCast(index));
+        qtc.QComboBox_Highlighted(@ptrCast(self), @bitCast(index));
     }
 
     /// Inherited from QComboBox
@@ -1996,7 +1996,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, index: i32) callconv(.c) void `
     ///
     pub fn OnHighlighted(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QComboBox_Connect_Highlighted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QComboBox_Connect_Highlighted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -2028,7 +2028,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextHighlighted(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QComboBox_Connect_TextHighlighted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QComboBox_Connect_TextHighlighted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -2042,7 +2042,7 @@ pub const kcombobox = struct {
     /// ` index: i32 `
     ///
     pub fn CurrentIndexChanged(self: ?*anyopaque, index: i32) void {
-        qtc.QComboBox_CurrentIndexChanged(@ptrCast(self), @intCast(index));
+        qtc.QComboBox_CurrentIndexChanged(@ptrCast(self), @bitCast(index));
     }
 
     /// Inherited from QComboBox
@@ -2056,7 +2056,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, index: i32) callconv(.c) void `
     ///
     pub fn OnCurrentIndexChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QComboBox_Connect_CurrentIndexChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QComboBox_Connect_CurrentIndexChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -2088,7 +2088,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnCurrentTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QComboBox_Connect_CurrentTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QComboBox_Connect_CurrentTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -2108,7 +2108,7 @@ pub const kcombobox = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QComboBox_FindText2(@ptrCast(self), text_str, @intCast(flags));
+        return qtc.QComboBox_FindText2(@ptrCast(self), text_str, @bitCast(flags));
     }
 
     /// Inherited from QComboBox
@@ -2124,7 +2124,7 @@ pub const kcombobox = struct {
     /// ` role: i32 `
     ///
     pub fn FindData2(self: ?*anyopaque, data: ?*anyopaque, role: i32) i32 {
-        return qtc.QComboBox_FindData2(@ptrCast(self), @ptrCast(data), @intCast(role));
+        return qtc.QComboBox_FindData2(@ptrCast(self), @ptrCast(data), @bitCast(role));
     }
 
     /// Inherited from QComboBox
@@ -2142,7 +2142,7 @@ pub const kcombobox = struct {
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
     pub fn FindData3(self: ?*anyopaque, data: ?*anyopaque, role: i32, flags: i32) i32 {
-        return qtc.QComboBox_FindData3(@ptrCast(self), @ptrCast(data), @intCast(role), @intCast(flags));
+        return qtc.QComboBox_FindData3(@ptrCast(self), @ptrCast(data), @bitCast(role), @bitCast(flags));
     }
 
     /// Inherited from QComboBox
@@ -2156,7 +2156,7 @@ pub const kcombobox = struct {
     /// ` role: i32 `
     ///
     pub fn CurrentData1(self: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QComboBox_CurrentData1(@ptrCast(self), @intCast(role));
+        return qtc.QComboBox_CurrentData1(@ptrCast(self), @bitCast(role));
     }
 
     /// Inherited from QComboBox
@@ -2172,7 +2172,7 @@ pub const kcombobox = struct {
     /// ` role: i32 `
     ///
     pub fn ItemData2(self: ?*anyopaque, index: i32, role: i32) QtC.QVariant {
-        return qtc.QComboBox_ItemData2(@ptrCast(self), @intCast(index), @intCast(role));
+        return qtc.QComboBox_ItemData2(@ptrCast(self), @bitCast(index), @bitCast(role));
     }
 
     /// Inherited from QComboBox
@@ -2236,7 +2236,7 @@ pub const kcombobox = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QComboBox_InsertItem3(@ptrCast(self), @intCast(index), text_str, @ptrCast(userData));
+        qtc.QComboBox_InsertItem3(@ptrCast(self), @bitCast(index), text_str, @ptrCast(userData));
     }
 
     /// Inherited from QComboBox
@@ -2260,7 +2260,7 @@ pub const kcombobox = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QComboBox_InsertItem4(@ptrCast(self), @intCast(index), @ptrCast(icon), text_str, @ptrCast(userData));
+        qtc.QComboBox_InsertItem4(@ptrCast(self), @bitCast(index), @ptrCast(icon), text_str, @ptrCast(userData));
     }
 
     /// Inherited from QComboBox
@@ -2278,7 +2278,7 @@ pub const kcombobox = struct {
     /// ` role: i32 `
     ///
     pub fn SetItemData3(self: ?*anyopaque, index: i32, value: ?*anyopaque, role: i32) void {
-        qtc.QComboBox_SetItemData3(@ptrCast(self), @intCast(index), @ptrCast(value), @intCast(role));
+        qtc.QComboBox_SetItemData3(@ptrCast(self), @bitCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QWidget
@@ -2418,7 +2418,7 @@ pub const kcombobox = struct {
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
+        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -2744,7 +2744,7 @@ pub const kcombobox = struct {
     /// ` minh: i32 `
     ///
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2774,7 +2774,7 @@ pub const kcombobox = struct {
     /// ` maxh: i32 `
     ///
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2788,7 +2788,7 @@ pub const kcombobox = struct {
     /// ` minw: i32 `
     ///
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -2802,7 +2802,7 @@ pub const kcombobox = struct {
     /// ` minh: i32 `
     ///
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2816,7 +2816,7 @@ pub const kcombobox = struct {
     /// ` maxw: i32 `
     ///
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -2830,7 +2830,7 @@ pub const kcombobox = struct {
     /// ` maxh: i32 `
     ///
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2872,7 +2872,7 @@ pub const kcombobox = struct {
     /// ` h: i32 `
     ///
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2914,7 +2914,7 @@ pub const kcombobox = struct {
     /// ` baseh: i32 `
     ///
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
+        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -2944,7 +2944,7 @@ pub const kcombobox = struct {
     /// ` h: i32 `
     ///
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2958,7 +2958,7 @@ pub const kcombobox = struct {
     /// ` w: i32 `
     ///
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
+        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -2972,7 +2972,7 @@ pub const kcombobox = struct {
     /// ` h: i32 `
     ///
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
+        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3224,7 +3224,7 @@ pub const kcombobox = struct {
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -3254,7 +3254,7 @@ pub const kcombobox = struct {
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
+        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -3554,7 +3554,7 @@ pub const kcombobox = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3568,7 +3568,7 @@ pub const kcombobox = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3788,7 +3788,7 @@ pub const kcombobox = struct {
     /// ` level: f64 `
     ///
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -3862,7 +3862,7 @@ pub const kcombobox = struct {
     /// ` msec: i32 `
     ///
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -4032,7 +4032,7 @@ pub const kcombobox = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -4184,7 +4184,7 @@ pub const kcombobox = struct {
     /// ` reason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
+        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -4214,7 +4214,7 @@ pub const kcombobox = struct {
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -4296,7 +4296,7 @@ pub const kcombobox = struct {
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -4386,7 +4386,7 @@ pub const kcombobox = struct {
     /// ` id: i32 `
     ///
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4400,7 +4400,7 @@ pub const kcombobox = struct {
     /// ` id: i32 `
     ///
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4414,7 +4414,7 @@ pub const kcombobox = struct {
     /// ` id: i32 `
     ///
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4512,7 +4512,7 @@ pub const kcombobox = struct {
     /// ` h: i32 `
     ///
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4560,7 +4560,7 @@ pub const kcombobox = struct {
     /// ` h: i32 `
     ///
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4740,7 +4740,7 @@ pub const kcombobox = struct {
     /// ` y: i32 `
     ///
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
+        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -4770,7 +4770,7 @@ pub const kcombobox = struct {
     /// ` h: i32 `
     ///
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4804,7 +4804,7 @@ pub const kcombobox = struct {
     /// ` h: i32 `
     ///
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4970,7 +4970,7 @@ pub const kcombobox = struct {
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4984,7 +4984,7 @@ pub const kcombobox = struct {
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -5026,7 +5026,7 @@ pub const kcombobox = struct {
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -5058,7 +5058,7 @@ pub const kcombobox = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -5164,7 +5164,7 @@ pub const kcombobox = struct {
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
+        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -5180,7 +5180,7 @@ pub const kcombobox = struct {
     /// ` dy: i32 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -5198,7 +5198,7 @@ pub const kcombobox = struct {
     /// ` param3: QtC.QRect `
     ///
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
+        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
     }
 
     /// Inherited from QWidget
@@ -5467,7 +5467,7 @@ pub const kcombobox = struct {
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5497,7 +5497,7 @@ pub const kcombobox = struct {
     /// ` param1: qnamespace_enums.WindowType `
     ///
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5511,7 +5511,7 @@ pub const kcombobox = struct {
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5539,7 +5539,7 @@ pub const kcombobox = struct {
     /// ` param1: u64 `
     ///
     pub fn Find(param1: u64) QtC.QWidget {
-        return qtc.QWidget_Find(@intCast(param1));
+        return qtc.QWidget_Find(@bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5555,7 +5555,7 @@ pub const kcombobox = struct {
     /// ` y: i32 `
     ///
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
+        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -5597,7 +5597,7 @@ pub const kcombobox = struct {
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5611,7 +5611,7 @@ pub const kcombobox = struct {
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
+        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5757,7 +5757,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5785,7 +5785,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5817,7 +5817,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5845,7 +5845,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5875,7 +5875,7 @@ pub const kcombobox = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -5929,7 +5929,7 @@ pub const kcombobox = struct {
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5983,7 +5983,7 @@ pub const kcombobox = struct {
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -6013,7 +6013,7 @@ pub const kcombobox = struct {
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
+        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -6029,7 +6029,7 @@ pub const kcombobox = struct {
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -6045,7 +6045,7 @@ pub const kcombobox = struct {
     /// ` enable: bool `
     ///
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -6061,7 +6061,7 @@ pub const kcombobox = struct {
     /// ` enable: bool `
     ///
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -6077,7 +6077,7 @@ pub const kcombobox = struct {
     /// ` on: bool `
     ///
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -6093,7 +6093,7 @@ pub const kcombobox = struct {
     /// ` on: bool `
     ///
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -6123,7 +6123,7 @@ pub const kcombobox = struct {
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
+        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
     }
 
     /// Inherited from QObject
@@ -6257,7 +6257,7 @@ pub const kcombobox = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -6271,7 +6271,7 @@ pub const kcombobox = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -6285,7 +6285,7 @@ pub const kcombobox = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6299,7 +6299,7 @@ pub const kcombobox = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6615,7 +6615,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6670,7 +6670,7 @@ pub const kcombobox = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6686,7 +6686,7 @@ pub const kcombobox = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6708,7 +6708,7 @@ pub const kcombobox = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -6728,7 +6728,7 @@ pub const kcombobox = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -6750,7 +6750,7 @@ pub const kcombobox = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -6847,7 +6847,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -7001,7 +7001,7 @@ pub const kcombobox = struct {
     /// ` value: f64 `
     ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
 
     /// Inherited from KCompletionBase
@@ -7127,7 +7127,7 @@ pub const kcombobox = struct {
             .len = key.len,
             .data = @ptrCast(key.ptr),
         };
-        return qtc.KCompletionBase_SetKeyBinding(@ptrCast(self), @intCast(item), key_list);
+        return qtc.KCompletionBase_SetKeyBinding(@ptrCast(self), @bitCast(item), key_list);
     }
 
     /// Inherited from KCompletionBase
@@ -7143,7 +7143,7 @@ pub const kcombobox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn KeyBinding(self: ?*anyopaque, item: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
-        const _arr: qtc.libqt_list = qtc.KCompletionBase_KeyBinding(@ptrCast(self), @intCast(item));
+        const _arr: qtc.libqt_list = qtc.KCompletionBase_KeyBinding(@ptrCast(self), @bitCast(item));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("kcombobox.KeyBinding: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -7234,7 +7234,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, model: QtC.QAbstractItemModel) callconv(.c) void `
     ///
     pub fn OnSetModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnSetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7278,7 +7278,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KComboBox_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7322,7 +7322,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnShowPopup(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KComboBox_OnShowPopup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnShowPopup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7366,7 +7366,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnHidePopup(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KComboBox_OnHidePopup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnHidePopup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7414,7 +7414,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KComboBox_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7430,7 +7430,7 @@ pub const kcombobox = struct {
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KComboBox_InputMethodQuery(@ptrCast(self), @intCast(param1));
+        return qtc.KComboBox_InputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QComboBox
@@ -7446,7 +7446,7 @@ pub const kcombobox = struct {
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KComboBox_QBaseInputMethodQuery(@ptrCast(self), @intCast(param1));
+        return qtc.KComboBox_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QComboBox
@@ -7462,7 +7462,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KComboBox_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7510,7 +7510,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, e: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7558,7 +7558,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, e: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7606,7 +7606,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, e: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7654,7 +7654,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, e: QtC.QResizeEvent) callconv(.c) void `
     ///
     pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7702,7 +7702,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, e: QtC.QPaintEvent) callconv(.c) void `
     ///
     pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7750,7 +7750,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, e: QtC.QShowEvent) callconv(.c) void `
     ///
     pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7798,7 +7798,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, e: QtC.QHideEvent) callconv(.c) void `
     ///
     pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7846,7 +7846,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, e: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7894,7 +7894,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, e: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7942,7 +7942,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, e: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -7990,7 +7990,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, e: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -8038,7 +8038,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, e: QtC.QWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -8086,7 +8086,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, e: QtC.QContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -8134,7 +8134,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QComboBox
@@ -8182,7 +8182,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, option: QtC.QStyleOptionComboBox) callconv(.c) void `
     ///
     pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8226,7 +8226,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KComboBox_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8274,7 +8274,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, visible: bool) callconv(.c) void `
     ///
     pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KComboBox_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8290,7 +8290,7 @@ pub const kcombobox = struct {
     /// ` param1: i32 `
     ///
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KComboBox_HeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.KComboBox_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8306,7 +8306,7 @@ pub const kcombobox = struct {
     /// ` param1: i32 `
     ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KComboBox_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.KComboBox_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8322,7 +8322,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: i32) callconv(.c) i32 `
     ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KComboBox_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8366,7 +8366,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KComboBox_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8410,7 +8410,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
     ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.KComboBox_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8458,7 +8458,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8506,7 +8506,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8554,7 +8554,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QEnterEvent) callconv(.c) void `
     ///
     pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8602,7 +8602,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8650,7 +8650,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QMoveEvent) callconv(.c) void `
     ///
     pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8698,7 +8698,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QCloseEvent) callconv(.c) void `
     ///
     pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8746,7 +8746,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QTabletEvent) callconv(.c) void `
     ///
     pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8794,7 +8794,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QActionEvent) callconv(.c) void `
     ///
     pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8842,7 +8842,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QDragEnterEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8890,7 +8890,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QDragMoveEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8938,7 +8938,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QDragLeaveEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8986,7 +8986,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9050,7 +9050,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.KComboBox_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9066,7 +9066,7 @@ pub const kcombobox = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KComboBox_Metric(@ptrCast(self), @intCast(param1));
+        return qtc.KComboBox_Metric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9082,7 +9082,7 @@ pub const kcombobox = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KComboBox_QBaseMetric(@ptrCast(self), @intCast(param1));
+        return qtc.KComboBox_QBaseMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9098,7 +9098,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KComboBox_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9146,7 +9146,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9194,7 +9194,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
     ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.KComboBox_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9238,7 +9238,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainter `
     ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.KComboBox_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9286,7 +9286,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, next: bool) callconv(.c) bool `
     ///
     pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KComboBox_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9338,7 +9338,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KComboBox_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9386,7 +9386,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9434,7 +9434,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9482,7 +9482,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9530,7 +9530,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9578,7 +9578,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase
@@ -9630,7 +9630,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, completionObject: QtC.KCompletion, handleSignals: bool) callconv(.c) void `
     ///
     pub fn OnSetCompletionObject(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KComboBox_OnSetCompletionObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSetCompletionObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase
@@ -9678,7 +9678,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, handle: bool) callconv(.c) void `
     ///
     pub fn OnSetHandleSignals(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KComboBox_OnSetHandleSignals(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSetHandleSignals(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase
@@ -9694,7 +9694,7 @@ pub const kcombobox = struct {
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
     pub fn SetCompletionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KComboBox_SetCompletionMode(@ptrCast(self), @intCast(mode));
+        qtc.KComboBox_SetCompletionMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KCompletionBase
@@ -9710,7 +9710,7 @@ pub const kcombobox = struct {
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
     pub fn QBaseSetCompletionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KComboBox_QBaseSetCompletionMode(@ptrCast(self), @intCast(mode));
+        qtc.KComboBox_QBaseSetCompletionMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KCompletionBase
@@ -9726,7 +9726,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, mode: kcompletion_enums.CompletionMode) callconv(.c) void `
     ///
     pub fn OnSetCompletionMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KComboBox_OnSetCompletionMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSetCompletionMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase
@@ -9744,7 +9744,7 @@ pub const kcombobox = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KComboBox_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KComboBox_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from KCompletionBase
@@ -9762,7 +9762,7 @@ pub const kcombobox = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KComboBox_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KComboBox_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from KCompletionBase
@@ -9778,7 +9778,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9822,7 +9822,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KComboBox_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9866,7 +9866,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KComboBox_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9910,7 +9910,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KComboBox_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9954,7 +9954,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KComboBox_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9998,7 +9998,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KComboBox_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10042,7 +10042,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KComboBox_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10086,7 +10086,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KComboBox_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10136,7 +10136,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KComboBox_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10184,7 +10184,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KComboBox_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -10202,7 +10202,7 @@ pub const kcombobox = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KComboBox_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.KComboBox_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -10220,7 +10220,7 @@ pub const kcombobox = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KComboBox_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.KComboBox_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -10236,7 +10236,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.KComboBox_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase
@@ -10338,7 +10338,7 @@ pub const kcombobox = struct {
     /// ` C ABI representation of map_i32_sliceqtcqkeysequence `
     ///
     pub fn OnKeyBindingMap(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.KComboBox_OnKeyBindingMap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnKeyBindingMap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase
@@ -10365,7 +10365,7 @@ pub const kcombobox = struct {
         var keyBindingMap_it = keyBindingMap.iterator();
         while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
             const keyBindingMap_key = it_entry.key_ptr.*;
-            keyBindingMap_keys[i] = @intCast(keyBindingMap_key);
+            keyBindingMap_keys[i] = @bitCast(keyBindingMap_key);
             const value = it_entry.value_ptr.*;
             keyBindingMap_values[i] = qtc.libqt_list{
                 .len = value.len,
@@ -10404,7 +10404,7 @@ pub const kcombobox = struct {
         var keyBindingMap_it = keyBindingMap.iterator();
         while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
             const keyBindingMap_key = it_entry.key_ptr.*;
-            keyBindingMap_keys[i] = @intCast(keyBindingMap_key);
+            keyBindingMap_keys[i] = @bitCast(keyBindingMap_key);
             const value = it_entry.value_ptr.*;
             keyBindingMap_values[i] = qtc.libqt_list{
                 .len = value.len,
@@ -10432,7 +10432,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, keyBindingMap: qtc.libqt_map (map_i32_sliceqtcqkeysequence)) callconv(.c) void `
     ///
     pub fn OnSetKeyBindingMap(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_map) callconv(.c) void) void {
-        qtc.KComboBox_OnSetKeyBindingMap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSetKeyBindingMap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase
@@ -10480,7 +10480,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, delegate: QtC.KCompletionBase) callconv(.c) void `
     ///
     pub fn OnSetDelegate(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KComboBox_OnSetDelegate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnSetDelegate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase
@@ -10524,7 +10524,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn () callconv(.c) QtC.KCompletionBase `
     ///
     pub fn OnDelegate(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KCompletionBase) void {
-        qtc.KComboBox_OnDelegate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KComboBox_OnDelegate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10540,7 +10540,7 @@ pub const kcombobox = struct {
     /// ` callback: *const fn (self: QtC.KComboBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#dtor.KComboBox)

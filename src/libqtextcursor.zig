@@ -96,7 +96,7 @@ pub const qtextcursor = struct {
     /// ` pos: i32 `
     ///
     pub fn SetPosition(self: ?*anyopaque, pos: i32) void {
-        qtc.QTextCursor_SetPosition(@ptrCast(self), @intCast(pos));
+        qtc.QTextCursor_SetPosition(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#position)
@@ -172,7 +172,7 @@ pub const qtextcursor = struct {
     /// ` op: qtextcursor_enums.MoveOperation `
     ///
     pub fn MovePosition(self: ?*anyopaque, op: i32) bool {
-        return qtc.QTextCursor_MovePosition(@ptrCast(self), @intCast(op));
+        return qtc.QTextCursor_MovePosition(@ptrCast(self), @bitCast(op));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#visualNavigation)
@@ -206,7 +206,7 @@ pub const qtextcursor = struct {
     /// ` x: i32 `
     ///
     pub fn SetVerticalMovementX(self: ?*anyopaque, x: i32) void {
-        qtc.QTextCursor_SetVerticalMovementX(@ptrCast(self), @intCast(x));
+        qtc.QTextCursor_SetVerticalMovementX(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#verticalMovementX)
@@ -270,7 +270,7 @@ pub const qtextcursor = struct {
     /// ` selection: qtextcursor_enums.SelectionType `
     ///
     pub fn Select(self: ?*anyopaque, selection: i32) void {
-        qtc.QTextCursor_Select(@ptrCast(self), @intCast(selection));
+        qtc.QTextCursor_Select(@ptrCast(self), @bitCast(selection));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#hasSelection)
@@ -586,7 +586,7 @@ pub const qtextcursor = struct {
     /// ` style: qtextformat_enums.Style `
     ///
     pub fn InsertList2(self: ?*anyopaque, style: i32) QtC.QTextList {
-        return qtc.QTextCursor_InsertList2(@ptrCast(self), @intCast(style));
+        return qtc.QTextCursor_InsertList2(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#createList)
@@ -610,7 +610,7 @@ pub const qtextcursor = struct {
     /// ` style: qtextformat_enums.Style `
     ///
     pub fn CreateList2(self: ?*anyopaque, style: i32) QtC.QTextList {
-        return qtc.QTextCursor_CreateList2(@ptrCast(self), @intCast(style));
+        return qtc.QTextCursor_CreateList2(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#currentList)
@@ -636,7 +636,7 @@ pub const qtextcursor = struct {
     /// ` format: QtC.QTextTableFormat `
     ///
     pub fn InsertTable(self: ?*anyopaque, rows: i32, cols: i32, format: ?*anyopaque) QtC.QTextTable {
-        return qtc.QTextCursor_InsertTable(@ptrCast(self), @intCast(rows), @intCast(cols), @ptrCast(format));
+        return qtc.QTextCursor_InsertTable(@ptrCast(self), @bitCast(rows), @bitCast(cols), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertTable)
@@ -650,7 +650,7 @@ pub const qtextcursor = struct {
     /// ` cols: i32 `
     ///
     pub fn InsertTable2(self: ?*anyopaque, rows: i32, cols: i32) QtC.QTextTable {
-        return qtc.QTextCursor_InsertTable2(@ptrCast(self), @intCast(rows), @intCast(cols));
+        return qtc.QTextCursor_InsertTable2(@ptrCast(self), @bitCast(rows), @bitCast(cols));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#currentTable)
@@ -740,7 +740,7 @@ pub const qtextcursor = struct {
     /// ` alignment: qtextformat_enums.Position `
     ///
     pub fn InsertImage(self: ?*anyopaque, format: ?*anyopaque, alignment: i32) void {
-        qtc.QTextCursor_InsertImage(@ptrCast(self), @ptrCast(format), @intCast(alignment));
+        qtc.QTextCursor_InsertImage(@ptrCast(self), @ptrCast(format), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
@@ -938,7 +938,7 @@ pub const qtextcursor = struct {
     /// ` mode: qtextcursor_enums.MoveMode `
     ///
     pub fn SetPosition2(self: ?*anyopaque, pos: i32, mode: i32) void {
-        qtc.QTextCursor_SetPosition2(@ptrCast(self), @intCast(pos), @intCast(mode));
+        qtc.QTextCursor_SetPosition2(@ptrCast(self), @bitCast(pos), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#movePosition)
@@ -952,7 +952,7 @@ pub const qtextcursor = struct {
     /// ` param2: qtextcursor_enums.MoveMode `
     ///
     pub fn MovePosition2(self: ?*anyopaque, op: i32, param2: i32) bool {
-        return qtc.QTextCursor_MovePosition2(@ptrCast(self), @intCast(op), @intCast(param2));
+        return qtc.QTextCursor_MovePosition2(@ptrCast(self), @bitCast(op), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#movePosition)
@@ -968,7 +968,7 @@ pub const qtextcursor = struct {
     /// ` n: i32 `
     ///
     pub fn MovePosition3(self: ?*anyopaque, op: i32, param2: i32, n: i32) bool {
-        return qtc.QTextCursor_MovePosition3(@ptrCast(self), @intCast(op), @intCast(param2), @intCast(n));
+        return qtc.QTextCursor_MovePosition3(@ptrCast(self), @bitCast(op), @bitCast(param2), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertMarkdown)
@@ -986,7 +986,7 @@ pub const qtextcursor = struct {
             .len = markdown.len,
             .data = markdown.ptr,
         };
-        qtc.QTextCursor_InsertMarkdown2(@ptrCast(self), markdown_str, @intCast(features));
+        qtc.QTextCursor_InsertMarkdown2(@ptrCast(self), markdown_str, @bitCast(features));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)

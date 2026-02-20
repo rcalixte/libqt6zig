@@ -45,7 +45,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KTwoFingerSwipe_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipe_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -80,7 +80,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KTwoFingerSwipe_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipe_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -107,7 +107,7 @@ pub const ktwofingerswipe = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KTwoFingerSwipe_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KTwoFingerSwipe_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -119,7 +119,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KTwoFingerSwipe_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipe_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -135,7 +135,7 @@ pub const ktwofingerswipe = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KTwoFingerSwipe_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KTwoFingerSwipe_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -240,7 +240,7 @@ pub const ktwofingerswipe = struct {
     /// ` swipeAngle: f64 `
     ///
     pub fn SetSwipeAngle(self: ?*anyopaque, swipeAngle: f64) void {
-        qtc.KTwoFingerSwipe_SetSwipeAngle(@ptrCast(self), @floatCast(swipeAngle));
+        qtc.KTwoFingerSwipe_SetSwipeAngle(@ptrCast(self), @bitCast(swipeAngle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -278,7 +278,7 @@ pub const ktwofingerswipe = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktwofingerswipe.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -378,7 +378,7 @@ pub const ktwofingerswipe = struct {
     /// ` policy: qgesture_enums.GestureCancelPolicy `
     ///
     pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QGesture
@@ -528,7 +528,7 @@ pub const ktwofingerswipe = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -542,7 +542,7 @@ pub const ktwofingerswipe = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -556,7 +556,7 @@ pub const ktwofingerswipe = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -570,7 +570,7 @@ pub const ktwofingerswipe = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -900,7 +900,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipe) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -955,7 +955,7 @@ pub const ktwofingerswipe = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -971,7 +971,7 @@ pub const ktwofingerswipe = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -993,7 +993,7 @@ pub const ktwofingerswipe = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1013,7 +1013,7 @@ pub const ktwofingerswipe = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1035,7 +1035,7 @@ pub const ktwofingerswipe = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1132,7 +1132,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1180,7 +1180,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTwoFingerSwipe_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipe_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1232,7 +1232,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTwoFingerSwipe_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipe_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1280,7 +1280,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTwoFingerSwipe_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipe_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1328,7 +1328,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTwoFingerSwipe_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipe_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1376,7 +1376,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTwoFingerSwipe_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipe_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1424,7 +1424,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTwoFingerSwipe_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipe_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1472,7 +1472,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTwoFingerSwipe_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipe_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1516,7 +1516,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KTwoFingerSwipe_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipe_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1560,7 +1560,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KTwoFingerSwipe_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipe_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1610,7 +1610,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KTwoFingerSwipe_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipe_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1658,7 +1658,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTwoFingerSwipe_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipe_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1674,7 +1674,7 @@ pub const ktwofingerswipe = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipe, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingerswipe.html#dtor.KTwoFingerSwipe)
@@ -1721,7 +1721,7 @@ pub const ktwofingerswiperecognizer = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipeRecognizer, target: QtC.QObject) callconv(.c) QtC.QGesture `
     ///
     pub fn OnCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QGesture) void {
-        qtc.KTwoFingerSwipeRecognizer_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipeRecognizer_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#create)
@@ -1769,7 +1769,7 @@ pub const ktwofingerswiperecognizer = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipeRecognizer, gesture: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) i32 `
     ///
     pub fn OnRecognize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KTwoFingerSwipeRecognizer_OnRecognize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipeRecognizer_OnRecognize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#recognize)
@@ -1813,7 +1813,7 @@ pub const ktwofingerswiperecognizer = struct {
     /// ` i: i32 `
     ///
     pub fn SetMaxSwipeTime(self: ?*anyopaque, i: i32) void {
-        qtc.KTwoFingerSwipeRecognizer_SetMaxSwipeTime(@ptrCast(self), @intCast(i));
+        qtc.KTwoFingerSwipeRecognizer_SetMaxSwipeTime(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#minSswipeDistance)
@@ -1835,7 +1835,7 @@ pub const ktwofingerswiperecognizer = struct {
     /// ` i: i32 `
     ///
     pub fn SetSwipeDistance(self: ?*anyopaque, i: i32) void {
-        qtc.KTwoFingerSwipeRecognizer_SetSwipeDistance(@ptrCast(self), @intCast(i));
+        qtc.KTwoFingerSwipeRecognizer_SetSwipeDistance(@ptrCast(self), @bitCast(i));
     }
 
     /// Inherited from QGestureRecognizer
@@ -1863,7 +1863,7 @@ pub const ktwofingerswiperecognizer = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn UnregisterRecognizer(typeVal: i32) void {
-        qtc.QGestureRecognizer_UnregisterRecognizer(@intCast(typeVal));
+        qtc.QGestureRecognizer_UnregisterRecognizer(@bitCast(typeVal));
     }
 
     /// Inherited from QGestureRecognizer
@@ -1925,7 +1925,7 @@ pub const ktwofingerswiperecognizer = struct {
     /// ` callback: *const fn (self: QtC.KTwoFingerSwipeRecognizer, state: QtC.QGesture) callconv(.c) void `
     ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTwoFingerSwipeRecognizer_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTwoFingerSwipeRecognizer_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#dtor.KTwoFingerSwipeRecognizer)

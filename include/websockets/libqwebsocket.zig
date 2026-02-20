@@ -44,7 +44,7 @@ pub const qwebsocket = struct {
             .data = origin.ptr,
         };
 
-        return qtc.QWebSocket_new3(origin_str, @intCast(version));
+        return qtc.QWebSocket_new3(origin_str, @bitCast(version));
     }
 
     /// New4 constructs a new QWebSocket object.
@@ -63,7 +63,7 @@ pub const qwebsocket = struct {
             .data = origin.ptr,
         };
 
-        return qtc.QWebSocket_new4(origin_str, @intCast(version), @ptrCast(parent));
+        return qtc.QWebSocket_new4(origin_str, @bitCast(version), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -87,7 +87,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QWebSocket_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -122,7 +122,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QWebSocket_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -149,7 +149,7 @@ pub const qwebsocket = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWebSocket_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QWebSocket_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -161,7 +161,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QWebSocket_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -177,7 +177,7 @@ pub const qwebsocket = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWebSocket_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QWebSocket_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -390,7 +390,7 @@ pub const qwebsocket = struct {
     /// ` size: i64 `
     ///
     pub fn SetReadBufferSize(self: ?*anyopaque, size: i64) void {
-        qtc.QWebSocket_SetReadBufferSize(@ptrCast(self), @intCast(size));
+        qtc.QWebSocket_SetReadBufferSize(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#resume)
@@ -412,7 +412,7 @@ pub const qwebsocket = struct {
     /// ` pauseMode: flag of qabstractsocket_enums.PauseMode `
     ///
     pub fn SetPauseMode(self: ?*anyopaque, pauseMode: i32) void {
-        qtc.QWebSocket_SetPauseMode(@ptrCast(self), @intCast(pauseMode));
+        qtc.QWebSocket_SetPauseMode(@ptrCast(self), @bitCast(pauseMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#state)
@@ -650,7 +650,7 @@ pub const qwebsocket = struct {
     /// ` maxAllowedIncomingFrameSize: u64 `
     ///
     pub fn SetMaxAllowedIncomingFrameSize(self: ?*anyopaque, maxAllowedIncomingFrameSize: u64) void {
-        qtc.QWebSocket_SetMaxAllowedIncomingFrameSize(@ptrCast(self), @intCast(maxAllowedIncomingFrameSize));
+        qtc.QWebSocket_SetMaxAllowedIncomingFrameSize(@ptrCast(self), @bitCast(maxAllowedIncomingFrameSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#maxAllowedIncomingFrameSize)
@@ -672,7 +672,7 @@ pub const qwebsocket = struct {
     /// ` maxAllowedIncomingMessageSize: u64 `
     ///
     pub fn SetMaxAllowedIncomingMessageSize(self: ?*anyopaque, maxAllowedIncomingMessageSize: u64) void {
-        qtc.QWebSocket_SetMaxAllowedIncomingMessageSize(@ptrCast(self), @intCast(maxAllowedIncomingMessageSize));
+        qtc.QWebSocket_SetMaxAllowedIncomingMessageSize(@ptrCast(self), @bitCast(maxAllowedIncomingMessageSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#maxAllowedIncomingMessageSize)
@@ -706,7 +706,7 @@ pub const qwebsocket = struct {
     /// ` outgoingFrameSize: u64 `
     ///
     pub fn SetOutgoingFrameSize(self: ?*anyopaque, outgoingFrameSize: u64) void {
-        qtc.QWebSocket_SetOutgoingFrameSize(@ptrCast(self), @intCast(outgoingFrameSize));
+        qtc.QWebSocket_SetOutgoingFrameSize(@ptrCast(self), @bitCast(outgoingFrameSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#outgoingFrameSize)
@@ -826,7 +826,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket) callconv(.c) void `
     ///
     pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_AboutToClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_AboutToClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#connected)
@@ -848,7 +848,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket) callconv(.c) void `
     ///
     pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_Connected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_Connected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#disconnected)
@@ -870,7 +870,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket) callconv(.c) void `
     ///
     pub fn OnDisconnected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_Disconnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_Disconnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#stateChanged)
@@ -882,7 +882,7 @@ pub const qwebsocket = struct {
     /// ` state: qabstractsocket_enums.SocketState `
     ///
     pub fn StateChanged(self: ?*anyopaque, state: i32) void {
-        qtc.QWebSocket_StateChanged(@ptrCast(self), @intCast(state));
+        qtc.QWebSocket_StateChanged(@ptrCast(self), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#stateChanged)
@@ -894,7 +894,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, state: qabstractsocket_enums.SocketState) callconv(.c) void `
     ///
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_StateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#proxyAuthenticationRequired)
@@ -920,7 +920,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, proxy: QtC.QNetworkProxy, pAuthenticator: QtC.QAuthenticator) callconv(.c) void `
     ///
     pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_ProxyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_ProxyAuthenticationRequired(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#authenticationRequired)
@@ -944,7 +944,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, authenticator: QtC.QAuthenticator) callconv(.c) void `
     ///
     pub fn OnAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_AuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_AuthenticationRequired(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#readChannelFinished)
@@ -966,7 +966,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket) callconv(.c) void `
     ///
     pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_ReadChannelFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_ReadChannelFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#textFrameReceived)
@@ -996,7 +996,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, frame: [*:0]const u8, isLastFrame: bool) callconv(.c) void `
     ///
     pub fn OnTextFrameReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_TextFrameReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_TextFrameReceived(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#binaryFrameReceived)
@@ -1026,7 +1026,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, frame: qtc.libqt_string, isLastFrame: bool) callconv(.c) void `
     ///
     pub fn OnBinaryFrameReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, bool) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_BinaryFrameReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_BinaryFrameReceived(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#textMessageReceived)
@@ -1054,7 +1054,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextMessageReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_TextMessageReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_TextMessageReceived(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#binaryMessageReceived)
@@ -1082,7 +1082,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, message: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn OnBinaryMessageReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_BinaryMessageReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_BinaryMessageReceived(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#error)
@@ -1094,7 +1094,7 @@ pub const qwebsocket = struct {
     /// ` errorVal: qabstractsocket_enums.SocketError `
     ///
     pub fn Error2(self: ?*anyopaque, errorVal: i32) void {
-        qtc.QWebSocket_Error2(@ptrCast(self), @intCast(errorVal));
+        qtc.QWebSocket_Error2(@ptrCast(self), @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#errorOccurred)
@@ -1106,7 +1106,7 @@ pub const qwebsocket = struct {
     /// ` errorVal: qabstractsocket_enums.SocketError `
     ///
     pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i32) void {
-        qtc.QWebSocket_ErrorOccurred(@ptrCast(self), @intCast(errorVal));
+        qtc.QWebSocket_ErrorOccurred(@ptrCast(self), @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#errorOccurred)
@@ -1118,7 +1118,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, errorVal: qabstractsocket_enums.SocketError) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#pong)
@@ -1136,7 +1136,7 @@ pub const qwebsocket = struct {
             .len = payload.len,
             .data = payload.ptr,
         };
-        qtc.QWebSocket_Pong(@ptrCast(self), @intCast(elapsedTime), payload_str);
+        qtc.QWebSocket_Pong(@ptrCast(self), @bitCast(elapsedTime), payload_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#pong)
@@ -1148,7 +1148,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, elapsedTime: u64, payload: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn OnPong(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64, qtc.libqt_string) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_Pong(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_Pong(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#bytesWritten)
@@ -1160,7 +1160,7 @@ pub const qwebsocket = struct {
     /// ` bytes: i64 `
     ///
     pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
-        qtc.QWebSocket_BytesWritten(@ptrCast(self), @intCast(bytes));
+        qtc.QWebSocket_BytesWritten(@ptrCast(self), @bitCast(bytes));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#bytesWritten)
@@ -1172,7 +1172,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, bytes: i64) callconv(.c) void `
     ///
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_BytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_BytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#peerVerifyError)
@@ -1196,7 +1196,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, errorVal: QtC.QSslError) callconv(.c) void `
     ///
     pub fn OnPeerVerifyError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_PeerVerifyError(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_PeerVerifyError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#sslErrors)
@@ -1224,7 +1224,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, errors: qtc.libqt_list ([]QtC.QSslError)) callconv(.c) void `
     ///
     pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_SslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_SslErrors(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#preSharedKeyAuthenticationRequired)
@@ -1248,7 +1248,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
     ///
     pub fn OnPreSharedKeyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#alertSent)
@@ -1268,7 +1268,7 @@ pub const qwebsocket = struct {
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWebSocket_AlertSent(@ptrCast(self), @intCast(level), @intCast(typeVal), description_str);
+        qtc.QWebSocket_AlertSent(@ptrCast(self), @bitCast(level), @bitCast(typeVal), description_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#alertSent)
@@ -1280,7 +1280,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnAlertSent(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_AlertSent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_AlertSent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#alertReceived)
@@ -1300,7 +1300,7 @@ pub const qwebsocket = struct {
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWebSocket_AlertReceived(@ptrCast(self), @intCast(level), @intCast(typeVal), description_str);
+        qtc.QWebSocket_AlertReceived(@ptrCast(self), @bitCast(level), @bitCast(typeVal), description_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#alertReceived)
@@ -1312,7 +1312,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnAlertReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_AlertReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_AlertReceived(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#handshakeInterruptedOnError)
@@ -1336,7 +1336,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, errorVal: QtC.QSslError) callconv(.c) void `
     ///
     pub fn OnHandshakeInterruptedOnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebSocket_Connect_HandshakeInterruptedOnError(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_Connect_HandshakeInterruptedOnError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1374,7 +1374,7 @@ pub const qwebsocket = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebsocket.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1390,7 +1390,7 @@ pub const qwebsocket = struct {
     /// ` closeCode: qwebsocketprotocol_enums.CloseCode `
     ///
     pub fn Close1(self: ?*anyopaque, closeCode: i32) void {
-        qtc.QWebSocket_Close1(@ptrCast(self), @intCast(closeCode));
+        qtc.QWebSocket_Close1(@ptrCast(self), @bitCast(closeCode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#close)
@@ -1408,7 +1408,7 @@ pub const qwebsocket = struct {
             .len = reason.len,
             .data = reason.ptr,
         };
-        qtc.QWebSocket_Close2(@ptrCast(self), @intCast(closeCode), reason_str);
+        qtc.QWebSocket_Close2(@ptrCast(self), @bitCast(closeCode), reason_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#ping)
@@ -1558,7 +1558,7 @@ pub const qwebsocket = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1572,7 +1572,7 @@ pub const qwebsocket = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1586,7 +1586,7 @@ pub const qwebsocket = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1600,7 +1600,7 @@ pub const qwebsocket = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1930,7 +1930,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1985,7 +1985,7 @@ pub const qwebsocket = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2001,7 +2001,7 @@ pub const qwebsocket = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2023,7 +2023,7 @@ pub const qwebsocket = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2043,7 +2043,7 @@ pub const qwebsocket = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2065,7 +2065,7 @@ pub const qwebsocket = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2162,7 +2162,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2210,7 +2210,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWebSocket_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2262,7 +2262,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWebSocket_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2310,7 +2310,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebSocket_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2358,7 +2358,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebSocket_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2406,7 +2406,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebSocket_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2454,7 +2454,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebSocket_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2502,7 +2502,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebSocket_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2546,7 +2546,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QWebSocket_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2590,7 +2590,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWebSocket_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2640,7 +2640,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QWebSocket_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2688,7 +2688,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWebSocket_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWebSocket_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2704,7 +2704,7 @@ pub const qwebsocket = struct {
     /// ` callback: *const fn (self: QtC.QWebSocket, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#dtor.QWebSocket)

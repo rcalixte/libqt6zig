@@ -192,7 +192,7 @@ pub const qfontmetrics = struct {
     /// ` ucs4: u32 `
     ///
     pub fn InFontUcs4(self: ?*anyopaque, ucs4: u32) bool {
-        return qtc.QFontMetrics_InFontUcs4(@ptrCast(self), @intCast(ucs4));
+        return qtc.QFontMetrics_InFontUcs4(@ptrCast(self), @bitCast(ucs4));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#leftBearing)
@@ -328,7 +328,7 @@ pub const qfontmetrics = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QFontMetrics_BoundingRect4(@ptrCast(self), @ptrCast(r), @intCast(flags), text_str);
+        return qtc.QFontMetrics_BoundingRect4(@ptrCast(self), @ptrCast(r), @bitCast(flags), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
@@ -354,7 +354,7 @@ pub const qfontmetrics = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QFontMetrics_BoundingRect5(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(flags), text_str);
+        return qtc.QFontMetrics_BoundingRect5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#size)
@@ -372,7 +372,7 @@ pub const qfontmetrics = struct {
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.QFontMetrics_Size(@ptrCast(self), @intCast(flags), str_str);
+        return qtc.QFontMetrics_Size(@ptrCast(self), @bitCast(flags), str_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#tightBoundingRect)
@@ -428,7 +428,7 @@ pub const qfontmetrics = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.QFontMetrics_ElidedText(@ptrCast(self), text_str, @intCast(mode), @intCast(width));
+        var _str = qtc.QFontMetrics_ElidedText(@ptrCast(self), text_str, @bitCast(mode), @bitCast(width));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontmetrics.ElidedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -524,7 +524,7 @@ pub const qfontmetrics = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        return qtc.QFontMetrics_HorizontalAdvance22(@ptrCast(self), param1_str, @intCast(lenVal));
+        return qtc.QFontMetrics_HorizontalAdvance22(@ptrCast(self), param1_str, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
@@ -546,7 +546,7 @@ pub const qfontmetrics = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QFontMetrics_BoundingRect42(@ptrCast(self), @ptrCast(r), @intCast(flags), text_str, @intCast(tabstops));
+        return qtc.QFontMetrics_BoundingRect42(@ptrCast(self), @ptrCast(r), @bitCast(flags), text_str, @bitCast(tabstops));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
@@ -570,7 +570,7 @@ pub const qfontmetrics = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QFontMetrics_BoundingRect52(@ptrCast(self), @ptrCast(r), @intCast(flags), text_str, @intCast(tabstops), @ptrCast(tabarray));
+        return qtc.QFontMetrics_BoundingRect52(@ptrCast(self), @ptrCast(r), @bitCast(flags), text_str, @bitCast(tabstops), @ptrCast(tabarray));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
@@ -598,7 +598,7 @@ pub const qfontmetrics = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QFontMetrics_BoundingRect7(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(flags), text_str, @intCast(tabstops));
+        return qtc.QFontMetrics_BoundingRect7(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str, @bitCast(tabstops));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
@@ -628,7 +628,7 @@ pub const qfontmetrics = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QFontMetrics_BoundingRect8(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(flags), text_str, @intCast(tabstops), @ptrCast(tabarray));
+        return qtc.QFontMetrics_BoundingRect8(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str, @bitCast(tabstops), @ptrCast(tabarray));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#size)
@@ -648,7 +648,7 @@ pub const qfontmetrics = struct {
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.QFontMetrics_Size3(@ptrCast(self), @intCast(flags), str_str, @intCast(tabstops));
+        return qtc.QFontMetrics_Size3(@ptrCast(self), @bitCast(flags), str_str, @bitCast(tabstops));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#size)
@@ -670,7 +670,7 @@ pub const qfontmetrics = struct {
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.QFontMetrics_Size4(@ptrCast(self), @intCast(flags), str_str, @intCast(tabstops), @ptrCast(tabarray));
+        return qtc.QFontMetrics_Size4(@ptrCast(self), @bitCast(flags), str_str, @bitCast(tabstops), @ptrCast(tabarray));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#elidedText)
@@ -694,7 +694,7 @@ pub const qfontmetrics = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.QFontMetrics_ElidedText4(@ptrCast(self), text_str, @intCast(mode), @intCast(width), @intCast(flags));
+        var _str = qtc.QFontMetrics_ElidedText4(@ptrCast(self), text_str, @bitCast(mode), @bitCast(width), @bitCast(flags));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontmetrics.ElidedText4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -925,7 +925,7 @@ pub const qfontmetricsf = struct {
     /// ` ucs4: u32 `
     ///
     pub fn InFontUcs4(self: ?*anyopaque, ucs4: u32) bool {
-        return qtc.QFontMetricsF_InFontUcs4(@ptrCast(self), @intCast(ucs4));
+        return qtc.QFontMetricsF_InFontUcs4(@ptrCast(self), @bitCast(ucs4));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#leftBearing)
@@ -1061,7 +1061,7 @@ pub const qfontmetricsf = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QFontMetricsF_BoundingRect4(@ptrCast(self), @ptrCast(r), @intCast(flags), stringVal_str);
+        return qtc.QFontMetricsF_BoundingRect4(@ptrCast(self), @ptrCast(r), @bitCast(flags), stringVal_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#size)
@@ -1079,7 +1079,7 @@ pub const qfontmetricsf = struct {
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.QFontMetricsF_Size(@ptrCast(self), @intCast(flags), str_str);
+        return qtc.QFontMetricsF_Size(@ptrCast(self), @bitCast(flags), str_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#tightBoundingRect)
@@ -1135,7 +1135,7 @@ pub const qfontmetricsf = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.QFontMetricsF_ElidedText(@ptrCast(self), text_str, @intCast(mode), @floatCast(width));
+        var _str = qtc.QFontMetricsF_ElidedText(@ptrCast(self), text_str, @bitCast(mode), @bitCast(width));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontmetricsf.ElidedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1231,7 +1231,7 @@ pub const qfontmetricsf = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QFontMetricsF_HorizontalAdvance22(@ptrCast(self), stringVal_str, @intCast(length));
+        return qtc.QFontMetricsF_HorizontalAdvance22(@ptrCast(self), stringVal_str, @bitCast(length));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#boundingRect)
@@ -1253,7 +1253,7 @@ pub const qfontmetricsf = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QFontMetricsF_BoundingRect42(@ptrCast(self), @ptrCast(r), @intCast(flags), stringVal_str, @intCast(tabstops));
+        return qtc.QFontMetricsF_BoundingRect42(@ptrCast(self), @ptrCast(r), @bitCast(flags), stringVal_str, @bitCast(tabstops));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#boundingRect)
@@ -1277,7 +1277,7 @@ pub const qfontmetricsf = struct {
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QFontMetricsF_BoundingRect5(@ptrCast(self), @ptrCast(r), @intCast(flags), stringVal_str, @intCast(tabstops), @ptrCast(tabarray));
+        return qtc.QFontMetricsF_BoundingRect5(@ptrCast(self), @ptrCast(r), @bitCast(flags), stringVal_str, @bitCast(tabstops), @ptrCast(tabarray));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#size)
@@ -1297,7 +1297,7 @@ pub const qfontmetricsf = struct {
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.QFontMetricsF_Size3(@ptrCast(self), @intCast(flags), str_str, @intCast(tabstops));
+        return qtc.QFontMetricsF_Size3(@ptrCast(self), @bitCast(flags), str_str, @bitCast(tabstops));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#size)
@@ -1319,7 +1319,7 @@ pub const qfontmetricsf = struct {
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.QFontMetricsF_Size4(@ptrCast(self), @intCast(flags), str_str, @intCast(tabstops), @ptrCast(tabarray));
+        return qtc.QFontMetricsF_Size4(@ptrCast(self), @bitCast(flags), str_str, @bitCast(tabstops), @ptrCast(tabarray));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#elidedText)
@@ -1343,7 +1343,7 @@ pub const qfontmetricsf = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.QFontMetricsF_ElidedText4(@ptrCast(self), text_str, @intCast(mode), @floatCast(width), @intCast(flags));
+        var _str = qtc.QFontMetricsF_ElidedText4(@ptrCast(self), text_str, @bitCast(mode), @bitCast(width), @bitCast(flags));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontmetricsf.ElidedText4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

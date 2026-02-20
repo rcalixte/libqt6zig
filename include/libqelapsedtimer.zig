@@ -139,7 +139,7 @@ pub const qelapsedtimer = struct {
     /// ` timeout: i64 `
     ///
     pub fn HasExpired(self: ?*anyopaque, timeout: i64) bool {
-        return qtc.QElapsedTimer_HasExpired(@ptrCast(self), @intCast(timeout));
+        return qtc.QElapsedTimer_HasExpired(@ptrCast(self), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#msecsSinceReference)

@@ -59,7 +59,7 @@ pub const quuid = struct {
     /// ` b8: u8 `
     ///
     pub fn New4(l: u32, w1: u16, w2: u16, b1: u8, b2: u8, b3: u8, b4: u8, b5: u8, b6: u8, b7: u8, b8: u8) QtC.QUuid {
-        return qtc.QUuid_new4(@intCast(l), @intCast(w1), @intCast(w2), @intCast(b1), @intCast(b2), @intCast(b3), @intCast(b4), @intCast(b5), @intCast(b6), @intCast(b7), @intCast(b8));
+        return qtc.QUuid_new4(@bitCast(l), @bitCast(w1), @bitCast(w2), @bitCast(b1), @bitCast(b2), @bitCast(b3), @bitCast(b4), @bitCast(b5), @bitCast(b6), @bitCast(b7), @bitCast(b8));
     }
 
     /// New5 constructs a new QUuid object.
@@ -101,7 +101,7 @@ pub const quuid = struct {
     /// ` order: qsysinfo_enums.Endian `
     ///
     pub fn New8(id128: QtC.QUuid__Id128Bytes, order: i32) QtC.QUuid {
-        return qtc.QUuid_new8(@ptrCast(id128), @intCast(order));
+        return qtc.QUuid_new8(@ptrCast(id128), @bitCast(order));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -315,7 +315,7 @@ pub const quuid = struct {
     /// ` data1: u32 `
     ///
     pub fn SetData1(self: ?*anyopaque, data1: u32) void {
-        qtc.QUuid_SetData1(@ptrCast(self), @intCast(data1));
+        qtc.QUuid_SetData1(@ptrCast(self), @bitCast(data1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#data2-var)
@@ -337,7 +337,7 @@ pub const quuid = struct {
     /// ` data2: u16 `
     ///
     pub fn SetData2(self: ?*anyopaque, data2: u16) void {
-        qtc.QUuid_SetData2(@ptrCast(self), @intCast(data2));
+        qtc.QUuid_SetData2(@ptrCast(self), @bitCast(data2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#data3-var)
@@ -359,7 +359,7 @@ pub const quuid = struct {
     /// ` data3: u16 `
     ///
     pub fn SetData3(self: ?*anyopaque, data3: u16) void {
-        qtc.QUuid_SetData3(@ptrCast(self), @intCast(data3));
+        qtc.QUuid_SetData3(@ptrCast(self), @bitCast(data3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#toString)
@@ -373,7 +373,7 @@ pub const quuid = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToString1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QUuid_ToString1(@ptrCast(self), @intCast(mode));
+        var _str = qtc.QUuid_ToString1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("quuid.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -391,7 +391,7 @@ pub const quuid = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ToByteArray1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QUuid_ToByteArray1(@ptrCast(self), @intCast(mode));
+        var _bytearray: qtc.libqt_string = qtc.QUuid_ToByteArray1(@ptrCast(self), @bitCast(mode));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("quuid.ToByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -407,7 +407,7 @@ pub const quuid = struct {
     /// ` order: qsysinfo_enums.Endian `
     ///
     pub fn ToBytes1(self: ?*anyopaque, order: i32) QtC.QUuid__Id128Bytes {
-        return qtc.QUuid_ToBytes1(@ptrCast(self), @intCast(order));
+        return qtc.QUuid_ToBytes1(@ptrCast(self), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#fromBytes)
@@ -419,7 +419,7 @@ pub const quuid = struct {
     /// ` order: qsysinfo_enums.Endian `
     ///
     pub fn FromBytes2(bytes: ?*const anyopaque, order: i32) QtC.QUuid {
-        return qtc.QUuid_FromBytes2(@ptrCast(bytes), @intCast(order));
+        return qtc.QUuid_FromBytes2(@ptrCast(bytes), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#dtor.QUuid)

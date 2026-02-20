@@ -38,7 +38,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` columnSpan: i32 `
     ///
     pub fn AddItem(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32) void {
-        qtc.QGraphicsGridLayout_AddItem(@ptrCast(self), @ptrCast(item), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan));
+        qtc.QGraphicsGridLayout_AddItem(@ptrCast(self), @ptrCast(item), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#addItem)
@@ -54,7 +54,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` column: i32 `
     ///
     pub fn AddItem2(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QGraphicsGridLayout_AddItem2(@ptrCast(self), @ptrCast(item), @intCast(row), @intCast(column));
+        qtc.QGraphicsGridLayout_AddItem2(@ptrCast(self), @ptrCast(item), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setHorizontalSpacing)
@@ -66,7 +66,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetHorizontalSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QGraphicsGridLayout_SetHorizontalSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QGraphicsGridLayout_SetHorizontalSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#horizontalSpacing)
@@ -88,7 +88,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetVerticalSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QGraphicsGridLayout_SetVerticalSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QGraphicsGridLayout_SetVerticalSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#verticalSpacing)
@@ -110,7 +110,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QGraphicsGridLayout_SetSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QGraphicsGridLayout_SetSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setRowSpacing)
@@ -124,7 +124,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetRowSpacing(self: ?*anyopaque, row: i32, spacing: f64) void {
-        qtc.QGraphicsGridLayout_SetRowSpacing(@ptrCast(self), @intCast(row), @floatCast(spacing));
+        qtc.QGraphicsGridLayout_SetRowSpacing(@ptrCast(self), @bitCast(row), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#rowSpacing)
@@ -136,7 +136,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` row: i32 `
     ///
     pub fn RowSpacing(self: ?*anyopaque, row: i32) f64 {
-        return qtc.QGraphicsGridLayout_RowSpacing(@ptrCast(self), @intCast(row));
+        return qtc.QGraphicsGridLayout_RowSpacing(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setColumnSpacing)
@@ -150,7 +150,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetColumnSpacing(self: ?*anyopaque, column: i32, spacing: f64) void {
-        qtc.QGraphicsGridLayout_SetColumnSpacing(@ptrCast(self), @intCast(column), @floatCast(spacing));
+        qtc.QGraphicsGridLayout_SetColumnSpacing(@ptrCast(self), @bitCast(column), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#columnSpacing)
@@ -162,7 +162,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` column: i32 `
     ///
     pub fn ColumnSpacing(self: ?*anyopaque, column: i32) f64 {
-        return qtc.QGraphicsGridLayout_ColumnSpacing(@ptrCast(self), @intCast(column));
+        return qtc.QGraphicsGridLayout_ColumnSpacing(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setRowStretchFactor)
@@ -176,7 +176,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` stretch: i32 `
     ///
     pub fn SetRowStretchFactor(self: ?*anyopaque, row: i32, stretch: i32) void {
-        qtc.QGraphicsGridLayout_SetRowStretchFactor(@ptrCast(self), @intCast(row), @intCast(stretch));
+        qtc.QGraphicsGridLayout_SetRowStretchFactor(@ptrCast(self), @bitCast(row), @bitCast(stretch));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#rowStretchFactor)
@@ -188,7 +188,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` row: i32 `
     ///
     pub fn RowStretchFactor(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QGraphicsGridLayout_RowStretchFactor(@ptrCast(self), @intCast(row));
+        return qtc.QGraphicsGridLayout_RowStretchFactor(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setColumnStretchFactor)
@@ -202,7 +202,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` stretch: i32 `
     ///
     pub fn SetColumnStretchFactor(self: ?*anyopaque, column: i32, stretch: i32) void {
-        qtc.QGraphicsGridLayout_SetColumnStretchFactor(@ptrCast(self), @intCast(column), @intCast(stretch));
+        qtc.QGraphicsGridLayout_SetColumnStretchFactor(@ptrCast(self), @bitCast(column), @bitCast(stretch));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#columnStretchFactor)
@@ -214,7 +214,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` column: i32 `
     ///
     pub fn ColumnStretchFactor(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QGraphicsGridLayout_ColumnStretchFactor(@ptrCast(self), @intCast(column));
+        return qtc.QGraphicsGridLayout_ColumnStretchFactor(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setRowMinimumHeight)
@@ -228,7 +228,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` height: f64 `
     ///
     pub fn SetRowMinimumHeight(self: ?*anyopaque, row: i32, height: f64) void {
-        qtc.QGraphicsGridLayout_SetRowMinimumHeight(@ptrCast(self), @intCast(row), @floatCast(height));
+        qtc.QGraphicsGridLayout_SetRowMinimumHeight(@ptrCast(self), @bitCast(row), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#rowMinimumHeight)
@@ -240,7 +240,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` row: i32 `
     ///
     pub fn RowMinimumHeight(self: ?*anyopaque, row: i32) f64 {
-        return qtc.QGraphicsGridLayout_RowMinimumHeight(@ptrCast(self), @intCast(row));
+        return qtc.QGraphicsGridLayout_RowMinimumHeight(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setRowPreferredHeight)
@@ -254,7 +254,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` height: f64 `
     ///
     pub fn SetRowPreferredHeight(self: ?*anyopaque, row: i32, height: f64) void {
-        qtc.QGraphicsGridLayout_SetRowPreferredHeight(@ptrCast(self), @intCast(row), @floatCast(height));
+        qtc.QGraphicsGridLayout_SetRowPreferredHeight(@ptrCast(self), @bitCast(row), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#rowPreferredHeight)
@@ -266,7 +266,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` row: i32 `
     ///
     pub fn RowPreferredHeight(self: ?*anyopaque, row: i32) f64 {
-        return qtc.QGraphicsGridLayout_RowPreferredHeight(@ptrCast(self), @intCast(row));
+        return qtc.QGraphicsGridLayout_RowPreferredHeight(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setRowMaximumHeight)
@@ -280,7 +280,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` height: f64 `
     ///
     pub fn SetRowMaximumHeight(self: ?*anyopaque, row: i32, height: f64) void {
-        qtc.QGraphicsGridLayout_SetRowMaximumHeight(@ptrCast(self), @intCast(row), @floatCast(height));
+        qtc.QGraphicsGridLayout_SetRowMaximumHeight(@ptrCast(self), @bitCast(row), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#rowMaximumHeight)
@@ -292,7 +292,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` row: i32 `
     ///
     pub fn RowMaximumHeight(self: ?*anyopaque, row: i32) f64 {
-        return qtc.QGraphicsGridLayout_RowMaximumHeight(@ptrCast(self), @intCast(row));
+        return qtc.QGraphicsGridLayout_RowMaximumHeight(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setRowFixedHeight)
@@ -306,7 +306,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` height: f64 `
     ///
     pub fn SetRowFixedHeight(self: ?*anyopaque, row: i32, height: f64) void {
-        qtc.QGraphicsGridLayout_SetRowFixedHeight(@ptrCast(self), @intCast(row), @floatCast(height));
+        qtc.QGraphicsGridLayout_SetRowFixedHeight(@ptrCast(self), @bitCast(row), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setColumnMinimumWidth)
@@ -320,7 +320,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` width: f64 `
     ///
     pub fn SetColumnMinimumWidth(self: ?*anyopaque, column: i32, width: f64) void {
-        qtc.QGraphicsGridLayout_SetColumnMinimumWidth(@ptrCast(self), @intCast(column), @floatCast(width));
+        qtc.QGraphicsGridLayout_SetColumnMinimumWidth(@ptrCast(self), @bitCast(column), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#columnMinimumWidth)
@@ -332,7 +332,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` column: i32 `
     ///
     pub fn ColumnMinimumWidth(self: ?*anyopaque, column: i32) f64 {
-        return qtc.QGraphicsGridLayout_ColumnMinimumWidth(@ptrCast(self), @intCast(column));
+        return qtc.QGraphicsGridLayout_ColumnMinimumWidth(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setColumnPreferredWidth)
@@ -346,7 +346,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` width: f64 `
     ///
     pub fn SetColumnPreferredWidth(self: ?*anyopaque, column: i32, width: f64) void {
-        qtc.QGraphicsGridLayout_SetColumnPreferredWidth(@ptrCast(self), @intCast(column), @floatCast(width));
+        qtc.QGraphicsGridLayout_SetColumnPreferredWidth(@ptrCast(self), @bitCast(column), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#columnPreferredWidth)
@@ -358,7 +358,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` column: i32 `
     ///
     pub fn ColumnPreferredWidth(self: ?*anyopaque, column: i32) f64 {
-        return qtc.QGraphicsGridLayout_ColumnPreferredWidth(@ptrCast(self), @intCast(column));
+        return qtc.QGraphicsGridLayout_ColumnPreferredWidth(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setColumnMaximumWidth)
@@ -372,7 +372,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` width: f64 `
     ///
     pub fn SetColumnMaximumWidth(self: ?*anyopaque, column: i32, width: f64) void {
-        qtc.QGraphicsGridLayout_SetColumnMaximumWidth(@ptrCast(self), @intCast(column), @floatCast(width));
+        qtc.QGraphicsGridLayout_SetColumnMaximumWidth(@ptrCast(self), @bitCast(column), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#columnMaximumWidth)
@@ -384,7 +384,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` column: i32 `
     ///
     pub fn ColumnMaximumWidth(self: ?*anyopaque, column: i32) f64 {
-        return qtc.QGraphicsGridLayout_ColumnMaximumWidth(@ptrCast(self), @intCast(column));
+        return qtc.QGraphicsGridLayout_ColumnMaximumWidth(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setColumnFixedWidth)
@@ -398,7 +398,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` width: f64 `
     ///
     pub fn SetColumnFixedWidth(self: ?*anyopaque, column: i32, width: f64) void {
-        qtc.QGraphicsGridLayout_SetColumnFixedWidth(@ptrCast(self), @intCast(column), @floatCast(width));
+        qtc.QGraphicsGridLayout_SetColumnFixedWidth(@ptrCast(self), @bitCast(column), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setRowAlignment)
@@ -412,7 +412,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetRowAlignment(self: ?*anyopaque, row: i32, alignment: i32) void {
-        qtc.QGraphicsGridLayout_SetRowAlignment(@ptrCast(self), @intCast(row), @intCast(alignment));
+        qtc.QGraphicsGridLayout_SetRowAlignment(@ptrCast(self), @bitCast(row), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#rowAlignment)
@@ -428,7 +428,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn RowAlignment(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QGraphicsGridLayout_RowAlignment(@ptrCast(self), @intCast(row));
+        return qtc.QGraphicsGridLayout_RowAlignment(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setColumnAlignment)
@@ -442,7 +442,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetColumnAlignment(self: ?*anyopaque, column: i32, alignment: i32) void {
-        qtc.QGraphicsGridLayout_SetColumnAlignment(@ptrCast(self), @intCast(column), @intCast(alignment));
+        qtc.QGraphicsGridLayout_SetColumnAlignment(@ptrCast(self), @bitCast(column), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#columnAlignment)
@@ -458,7 +458,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn ColumnAlignment(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QGraphicsGridLayout_ColumnAlignment(@ptrCast(self), @intCast(column));
+        return qtc.QGraphicsGridLayout_ColumnAlignment(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setAlignment)
@@ -472,7 +472,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetAlignment(self: ?*anyopaque, item: ?*anyopaque, alignment: i32) void {
-        qtc.QGraphicsGridLayout_SetAlignment(@ptrCast(self), @ptrCast(item), @intCast(alignment));
+        qtc.QGraphicsGridLayout_SetAlignment(@ptrCast(self), @ptrCast(item), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#alignment)
@@ -522,7 +522,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` column: i32 `
     ///
     pub fn ItemAt(self: ?*anyopaque, row: i32, column: i32) QtC.QGraphicsLayoutItem {
-        return qtc.QGraphicsGridLayout_ItemAt(@ptrCast(self), @intCast(row), @intCast(column));
+        return qtc.QGraphicsGridLayout_ItemAt(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#count)
@@ -546,7 +546,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsGridLayout_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsGridLayout_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#count)
@@ -570,7 +570,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` index: i32 `
     ///
     pub fn ItemAt2(self: ?*anyopaque, index: i32) QtC.QGraphicsLayoutItem {
-        return qtc.QGraphicsGridLayout_ItemAt2(@ptrCast(self), @intCast(index));
+        return qtc.QGraphicsGridLayout_ItemAt2(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#itemAt)
@@ -584,7 +584,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsGridLayout, index: i32) callconv(.c) QtC.QGraphicsLayoutItem `
     ///
     pub fn OnItemAt2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QGraphicsLayoutItem) void {
-        qtc.QGraphicsGridLayout_OnItemAt2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsGridLayout_OnItemAt2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#itemAt)
@@ -598,7 +598,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseItemAt2(self: ?*anyopaque, index: i32) QtC.QGraphicsLayoutItem {
-        return qtc.QGraphicsGridLayout_QBaseItemAt2(@ptrCast(self), @intCast(index));
+        return qtc.QGraphicsGridLayout_QBaseItemAt2(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#removeAt)
@@ -610,7 +610,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` index: i32 `
     ///
     pub fn RemoveAt(self: ?*anyopaque, index: i32) void {
-        qtc.QGraphicsGridLayout_RemoveAt(@ptrCast(self), @intCast(index));
+        qtc.QGraphicsGridLayout_RemoveAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#removeAt)
@@ -624,7 +624,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsGridLayout, index: i32) callconv(.c) void `
     ///
     pub fn OnRemoveAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsGridLayout_OnRemoveAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsGridLayout_OnRemoveAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#removeAt)
@@ -638,7 +638,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseRemoveAt(self: ?*anyopaque, index: i32) void {
-        qtc.QGraphicsGridLayout_QBaseRemoveAt(@ptrCast(self), @intCast(index));
+        qtc.QGraphicsGridLayout_QBaseRemoveAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#removeItem)
@@ -674,7 +674,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsGridLayout_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsGridLayout_OnInvalidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#invalidate)
@@ -712,7 +712,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsGridLayout, rect: QtC.QRectF) callconv(.c) void `
     ///
     pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsGridLayout_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsGridLayout_OnSetGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setGeometry)
@@ -740,7 +740,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` constraint: QtC.QSizeF `
     ///
     pub fn SizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsGridLayout_SizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
+        return qtc.QGraphicsGridLayout_SizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#sizeHint)
@@ -754,7 +754,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsGridLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF) callconv(.c) QtC.QSizeF `
     ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
-        qtc.QGraphicsGridLayout_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsGridLayout_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#sizeHint)
@@ -770,7 +770,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` constraint: QtC.QSizeF `
     ///
     pub fn QBaseSizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsGridLayout_QBaseSizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
+        return qtc.QGraphicsGridLayout_QBaseSizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#addItem)
@@ -792,7 +792,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn AddItem6(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32, alignment: i32) void {
-        qtc.QGraphicsGridLayout_AddItem6(@ptrCast(self), @ptrCast(item), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan), @intCast(alignment));
+        qtc.QGraphicsGridLayout_AddItem6(@ptrCast(self), @ptrCast(item), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#addItem)
@@ -810,7 +810,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn AddItem4(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32, alignment: i32) void {
-        qtc.QGraphicsGridLayout_AddItem4(@ptrCast(self), @ptrCast(item), @intCast(row), @intCast(column), @intCast(alignment));
+        qtc.QGraphicsGridLayout_AddItem4(@ptrCast(self), @ptrCast(item), @bitCast(row), @bitCast(column), @bitCast(alignment));
     }
 
     /// Inherited from QGraphicsLayout
@@ -830,7 +830,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` bottom: f64 `
     ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: f64, top: f64, right: f64, bottom: f64) void {
-        qtc.QGraphicsLayout_SetContentsMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+        qtc.QGraphicsLayout_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QGraphicsLayout
@@ -904,7 +904,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` vPolicy: qsizepolicy_enums.Policy `
     ///
     pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i32, vPolicy: i32) void {
-        qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy));
+        qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self), @bitCast(hPolicy), @bitCast(vPolicy));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -946,7 +946,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` h: f64 `
     ///
     pub fn SetMinimumSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumSize2(@ptrCast(self), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsLayoutItem_SetMinimumSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -972,7 +972,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` width: f64 `
     ///
     pub fn SetMinimumWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumWidth(@ptrCast(self), @floatCast(width));
+        qtc.QGraphicsLayoutItem_SetMinimumWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -998,7 +998,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` height: f64 `
     ///
     pub fn SetMinimumHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumHeight(@ptrCast(self), @floatCast(height));
+        qtc.QGraphicsLayoutItem_SetMinimumHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1040,7 +1040,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` h: f64 `
     ///
     pub fn SetPreferredSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredSize2(@ptrCast(self), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsLayoutItem_SetPreferredSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1066,7 +1066,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` width: f64 `
     ///
     pub fn SetPreferredWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredWidth(@ptrCast(self), @floatCast(width));
+        qtc.QGraphicsLayoutItem_SetPreferredWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1092,7 +1092,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` height: f64 `
     ///
     pub fn SetPreferredHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredHeight(@ptrCast(self), @floatCast(height));
+        qtc.QGraphicsLayoutItem_SetPreferredHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1134,7 +1134,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` h: f64 `
     ///
     pub fn SetMaximumSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumSize2(@ptrCast(self), @floatCast(w), @floatCast(h));
+        qtc.QGraphicsLayoutItem_SetMaximumSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1160,7 +1160,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` width: f64 `
     ///
     pub fn SetMaximumWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumWidth(@ptrCast(self), @floatCast(width));
+        qtc.QGraphicsLayoutItem_SetMaximumWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1186,7 +1186,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` height: f64 `
     ///
     pub fn SetMaximumHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumHeight(@ptrCast(self), @floatCast(height));
+        qtc.QGraphicsLayoutItem_SetMaximumHeight(@ptrCast(self), @bitCast(height));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1236,7 +1236,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` which: qnamespace_enums.SizeHint `
     ///
     pub fn EffectiveSizeHint(self: ?*anyopaque, which: i32) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self), @intCast(which));
+        return qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self), @bitCast(which));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1316,7 +1316,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` controlType: qsizepolicy_enums.ControlType `
     ///
     pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i32, vPolicy: i32, controlType: i32) void {
-        qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy), @intCast(controlType));
+        qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self), @bitCast(hPolicy), @bitCast(vPolicy), @bitCast(controlType));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1332,7 +1332,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` constraint: QtC.QSizeF `
     ///
     pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self), @intCast(which), @ptrCast(constraint));
+        return qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1392,7 +1392,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsGridLayout, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void `
     ///
     pub fn OnGetContentsMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, *f64, *f64, *f64, *f64) callconv(.c) void) void {
-        qtc.QGraphicsGridLayout_OnGetContentsMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsGridLayout_OnGetContentsMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1436,7 +1436,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsGridLayout_OnUpdateGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsGridLayout_OnUpdateGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1484,7 +1484,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsGridLayout, e: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnWidgetEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsGridLayout_OnWidgetEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsGridLayout_OnWidgetEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1528,7 +1528,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGraphicsGridLayout_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsGridLayout_OnIsEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1576,7 +1576,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsGridLayout, layoutItem: QtC.QGraphicsLayoutItem) callconv(.c) void `
     ///
     pub fn OnAddChildLayoutItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsGridLayout_OnAddChildLayoutItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsGridLayout_OnAddChildLayoutItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1624,7 +1624,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsGridLayout, item: QtC.QGraphicsItem) callconv(.c) void `
     ///
     pub fn OnSetGraphicsItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsGridLayout_OnSetGraphicsItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsGridLayout_OnSetGraphicsItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1672,7 +1672,7 @@ pub const qgraphicsgridlayout = struct {
     /// ` callback: *const fn (self: QtC.QGraphicsGridLayout, ownedByLayout: bool) callconv(.c) void `
     ///
     pub fn OnSetOwnedByLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsGridLayout_OnSetOwnedByLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QGraphicsGridLayout_OnSetOwnedByLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#dtor.QGraphicsGridLayout)

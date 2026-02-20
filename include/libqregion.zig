@@ -24,7 +24,7 @@ pub const qregion = struct {
     /// ` h: i32 `
     ///
     pub fn New2(x: i32, y: i32, w: i32, h: i32) QtC.QRegion {
-        return qtc.QRegion_new2(@intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        return qtc.QRegion_new2(@bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// New3 constructs a new QRegion object.
@@ -72,7 +72,7 @@ pub const qregion = struct {
     /// ` t: qregion_enums.RegionType `
     ///
     pub fn New6(x: i32, y: i32, w: i32, h: i32, t: i32) QtC.QRegion {
-        return qtc.QRegion_new6(@intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(t));
+        return qtc.QRegion_new6(@bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(t));
     }
 
     /// New7 constructs a new QRegion object.
@@ -84,7 +84,7 @@ pub const qregion = struct {
     /// ` t: qregion_enums.RegionType `
     ///
     pub fn New7(r: ?*anyopaque, t: i32) QtC.QRegion {
-        return qtc.QRegion_new7(@ptrCast(r), @intCast(t));
+        return qtc.QRegion_new7(@ptrCast(r), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregion.html#operator-eq)
@@ -206,7 +206,7 @@ pub const qregion = struct {
     /// ` dy: i32 `
     ///
     pub fn Translate(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QRegion_Translate(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QRegion_Translate(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregion.html#translate)
@@ -232,7 +232,7 @@ pub const qregion = struct {
     /// ` dy: i32 `
     ///
     pub fn Translated(self: ?*anyopaque, dx: i32, dy: i32) QtC.QRegion {
-        return qtc.QRegion_Translated(@ptrCast(self), @intCast(dx), @intCast(dy));
+        return qtc.QRegion_Translated(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregion.html#translated)
@@ -364,7 +364,7 @@ pub const qregion = struct {
     /// ` num: i32 `
     ///
     pub fn SetRects(self: ?*anyopaque, rect: ?*anyopaque, num: i32) void {
-        qtc.QRegion_SetRects(@ptrCast(self), @ptrCast(rect), @intCast(num));
+        qtc.QRegion_SetRects(@ptrCast(self), @ptrCast(rect), @bitCast(num));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregion.html#setRects)

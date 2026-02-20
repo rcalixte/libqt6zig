@@ -15,7 +15,7 @@ pub const qaudio = struct {
     /// ` param3: qaudio_enums.VolumeScale `
     ///
     pub fn ConvertVolume(param1: f32, param2: i32, param3: i32) f32 {
-        return qtc.QAudio_ConvertVolume(@floatCast(param1), @intCast(param2), @intCast(param3));
+        return qtc.QAudio_ConvertVolume(@bitCast(param1), @bitCast(param2), @bitCast(param3));
     }
 };
 

@@ -20,7 +20,7 @@ pub const kstandardaction = struct {
     ///
     pub fn Create(param1: i32, param2: ?*anyopaque, param3: [:0]const u8, param4: ?*anyopaque) QtC.QAction {
         const param3_Cstring = param3.ptr;
-        return qtc.KStandardAction_Create(@intCast(param1), @ptrCast(param2), param3_Cstring, @ptrCast(param4));
+        return qtc.KStandardAction_Create(@bitCast(param1), @ptrCast(param2), param3_Cstring, @ptrCast(param4));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#_k_createInternal)
@@ -32,7 +32,7 @@ pub const kstandardaction = struct {
     /// ` param2: QtC.QObject `
     ///
     pub fn KCreateInternal(param1: i32, param2: ?*anyopaque) QtC.QAction {
-        return qtc.KStandardAction_KCreateInternal(@intCast(param1), @ptrCast(param2));
+        return qtc.KStandardAction_KCreateInternal(@bitCast(param1), @ptrCast(param2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#name)
@@ -44,7 +44,7 @@ pub const kstandardaction = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(param1: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KStandardAction_Name(@intCast(param1));
+        var _str = qtc.KStandardAction_Name(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardaction.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -106,7 +106,7 @@ pub const kstandardaction = struct {
     /// ` kstandardshortcut_enums.StandardShortcut `
     ///
     pub fn ShortcutForActionId(param1: i32) i32 {
-        return qtc.KStandardAction_ShortcutForActionId(@intCast(param1));
+        return qtc.KStandardAction_ShortcutForActionId(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#openNew)

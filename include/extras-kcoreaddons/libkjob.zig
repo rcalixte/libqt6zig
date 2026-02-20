@@ -44,7 +44,7 @@ pub const kjob = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KJob_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -79,7 +79,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KJob_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -106,7 +106,7 @@ pub const kjob = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KJob_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KJob_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -118,7 +118,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KJob_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -134,7 +134,7 @@ pub const kjob = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KJob_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KJob_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -221,7 +221,7 @@ pub const kjob = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnStart(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KJob_OnStart(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnStart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#start)
@@ -287,7 +287,7 @@ pub const kjob = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnDoKill(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KJob_OnDoKill(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnDoKill(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doKill)
@@ -323,7 +323,7 @@ pub const kjob = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnDoSuspend(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KJob_OnDoSuspend(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnDoSuspend(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doSuspend)
@@ -359,7 +359,7 @@ pub const kjob = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnDoResume(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KJob_OnDoResume(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnDoResume(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doResume)
@@ -383,7 +383,7 @@ pub const kjob = struct {
     /// ` capabilities: flag of kjob_enums.Capability `
     ///
     pub fn SetCapabilities(self: ?*anyopaque, capabilities: i32) void {
-        qtc.KJob_SetCapabilities(@ptrCast(self), @intCast(capabilities));
+        qtc.KJob_SetCapabilities(@ptrCast(self), @bitCast(capabilities));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
@@ -397,7 +397,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void `
     ///
     pub fn OnSetCapabilities(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KJob_OnSetCapabilities(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnSetCapabilities(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
@@ -411,7 +411,7 @@ pub const kjob = struct {
     /// ` capabilities: flag of kjob_enums.Capability `
     ///
     pub fn QBaseSetCapabilities(self: ?*anyopaque, capabilities: i32) void {
-        qtc.KJob_QBaseSetCapabilities(@ptrCast(self), @intCast(capabilities));
+        qtc.KJob_QBaseSetCapabilities(@ptrCast(self), @bitCast(capabilities));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#exec)
@@ -479,7 +479,7 @@ pub const kjob = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnErrorString(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KJob_OnErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnErrorString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#errorString)
@@ -509,7 +509,7 @@ pub const kjob = struct {
     /// ` unit: kjob_enums.Unit `
     ///
     pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) u64 {
-        return qtc.KJob_ProcessedAmount(@ptrCast(self), @intCast(unit));
+        return qtc.KJob_ProcessedAmount(@ptrCast(self), @bitCast(unit));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#totalAmount)
@@ -521,7 +521,7 @@ pub const kjob = struct {
     /// ` unit: kjob_enums.Unit `
     ///
     pub fn TotalAmount(self: ?*anyopaque, unit: i32) u64 {
-        return qtc.KJob_TotalAmount(@ptrCast(self), @intCast(unit));
+        return qtc.KJob_TotalAmount(@ptrCast(self), @bitCast(unit));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#percent)
@@ -623,7 +623,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_InfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_InfoMessage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#warning)
@@ -653,7 +653,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_Warning(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_Warning(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#totalSize)
@@ -667,7 +667,7 @@ pub const kjob = struct {
     /// ` size: u64 `
     ///
     pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
-        qtc.KJob_TotalSize(@ptrCast(self), @ptrCast(job), @intCast(size));
+        qtc.KJob_TotalSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#totalSize)
@@ -679,7 +679,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, size: u64) callconv(.c) void `
     ///
     pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_TotalSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#processedSize)
@@ -693,7 +693,7 @@ pub const kjob = struct {
     /// ` size: u64 `
     ///
     pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
-        qtc.KJob_ProcessedSize(@ptrCast(self), @ptrCast(job), @intCast(size));
+        qtc.KJob_ProcessedSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#processedSize)
@@ -705,7 +705,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, size: u64) callconv(.c) void `
     ///
     pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#speed)
@@ -719,7 +719,7 @@ pub const kjob = struct {
     /// ` speed: u64 `
     ///
     pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: u64) void {
-        qtc.KJob_Speed(@ptrCast(self), @ptrCast(job), @intCast(speed));
+        qtc.KJob_Speed(@ptrCast(self), @ptrCast(job), @bitCast(speed));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#speed)
@@ -731,7 +731,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, speed: u64) callconv(.c) void `
     ///
     pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_Speed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_Speed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#isFinished)
@@ -755,7 +755,7 @@ pub const kjob = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsFinished(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KJob_OnIsFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnIsFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#isFinished)
@@ -779,7 +779,7 @@ pub const kjob = struct {
     /// ` errorCode: i32 `
     ///
     pub fn SetError(self: ?*anyopaque, errorCode: i32) void {
-        qtc.KJob_SetError(@ptrCast(self), @intCast(errorCode));
+        qtc.KJob_SetError(@ptrCast(self), @bitCast(errorCode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setError)
@@ -793,7 +793,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, errorCode: i32) callconv(.c) void `
     ///
     pub fn OnSetError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KJob_OnSetError(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnSetError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setError)
@@ -807,7 +807,7 @@ pub const kjob = struct {
     /// ` errorCode: i32 `
     ///
     pub fn QBaseSetError(self: ?*anyopaque, errorCode: i32) void {
-        qtc.KJob_QBaseSetError(@ptrCast(self), @intCast(errorCode));
+        qtc.KJob_QBaseSetError(@ptrCast(self), @bitCast(errorCode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
@@ -837,7 +837,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, errorText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetErrorText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_OnSetErrorText(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnSetErrorText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
@@ -869,7 +869,7 @@ pub const kjob = struct {
     /// ` amount: u64 `
     ///
     pub fn SetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
-        qtc.KJob_SetProcessedAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
+        qtc.KJob_SetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
@@ -883,7 +883,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
     ///
     pub fn OnSetProcessedAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KJob_OnSetProcessedAmount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnSetProcessedAmount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
@@ -899,7 +899,7 @@ pub const kjob = struct {
     /// ` amount: u64 `
     ///
     pub fn QBaseSetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
-        qtc.KJob_QBaseSetProcessedAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
+        qtc.KJob_QBaseSetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
@@ -913,7 +913,7 @@ pub const kjob = struct {
     /// ` amount: u64 `
     ///
     pub fn SetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
-        qtc.KJob_SetTotalAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
+        qtc.KJob_SetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
@@ -927,7 +927,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
     ///
     pub fn OnSetTotalAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KJob_OnSetTotalAmount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnSetTotalAmount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
@@ -943,7 +943,7 @@ pub const kjob = struct {
     /// ` amount: u64 `
     ///
     pub fn QBaseSetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
-        qtc.KJob_QBaseSetTotalAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
+        qtc.KJob_QBaseSetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
@@ -955,7 +955,7 @@ pub const kjob = struct {
     /// ` unit: kjob_enums.Unit `
     ///
     pub fn SetProgressUnit(self: ?*anyopaque, unit: i32) void {
-        qtc.KJob_SetProgressUnit(@ptrCast(self), @intCast(unit));
+        qtc.KJob_SetProgressUnit(@ptrCast(self), @bitCast(unit));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
@@ -969,7 +969,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, unit: kjob_enums.Unit) callconv(.c) void `
     ///
     pub fn OnSetProgressUnit(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KJob_OnSetProgressUnit(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnSetProgressUnit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
@@ -983,7 +983,7 @@ pub const kjob = struct {
     /// ` unit: kjob_enums.Unit `
     ///
     pub fn QBaseSetProgressUnit(self: ?*anyopaque, unit: i32) void {
-        qtc.KJob_QBaseSetProgressUnit(@ptrCast(self), @intCast(unit));
+        qtc.KJob_QBaseSetProgressUnit(@ptrCast(self), @bitCast(unit));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setPercent)
@@ -995,7 +995,7 @@ pub const kjob = struct {
     /// ` percentage: u64 `
     ///
     pub fn SetPercent(self: ?*anyopaque, percentage: u64) void {
-        qtc.KJob_SetPercent(@ptrCast(self), @intCast(percentage));
+        qtc.KJob_SetPercent(@ptrCast(self), @bitCast(percentage));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setPercent)
@@ -1009,7 +1009,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, percentage: u64) callconv(.c) void `
     ///
     pub fn OnSetPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_OnSetPercent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnSetPercent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setPercent)
@@ -1023,7 +1023,7 @@ pub const kjob = struct {
     /// ` percentage: u64 `
     ///
     pub fn QBaseSetPercent(self: ?*anyopaque, percentage: u64) void {
-        qtc.KJob_QBaseSetPercent(@ptrCast(self), @intCast(percentage));
+        qtc.KJob_QBaseSetPercent(@ptrCast(self), @bitCast(percentage));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitResult)
@@ -1047,7 +1047,7 @@ pub const kjob = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEmitResult(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KJob_OnEmitResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnEmitResult(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitResult)
@@ -1073,7 +1073,7 @@ pub const kjob = struct {
     /// ` totalAmount: u64 `
     ///
     pub fn EmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
-        qtc.KJob_EmitPercent(@ptrCast(self), @intCast(processedAmount), @intCast(totalAmount));
+        qtc.KJob_EmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
@@ -1087,7 +1087,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, processedAmount: u64, totalAmount: u64) callconv(.c) void `
     ///
     pub fn OnEmitPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64, u64) callconv(.c) void) void {
-        qtc.KJob_OnEmitPercent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnEmitPercent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
@@ -1103,7 +1103,7 @@ pub const kjob = struct {
     /// ` totalAmount: u64 `
     ///
     pub fn QBaseEmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
-        qtc.KJob_QBaseEmitPercent(@ptrCast(self), @intCast(processedAmount), @intCast(totalAmount));
+        qtc.KJob_QBaseEmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
@@ -1115,7 +1115,7 @@ pub const kjob = struct {
     /// ` speed: u64 `
     ///
     pub fn EmitSpeed(self: ?*anyopaque, speed: u64) void {
-        qtc.KJob_EmitSpeed(@ptrCast(self), @intCast(speed));
+        qtc.KJob_EmitSpeed(@ptrCast(self), @bitCast(speed));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
@@ -1129,7 +1129,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, speed: u64) callconv(.c) void `
     ///
     pub fn OnEmitSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_OnEmitSpeed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnEmitSpeed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
@@ -1143,7 +1143,7 @@ pub const kjob = struct {
     /// ` speed: u64 `
     ///
     pub fn QBaseEmitSpeed(self: ?*anyopaque, speed: u64) void {
-        qtc.KJob_QBaseEmitSpeed(@ptrCast(self), @intCast(speed));
+        qtc.KJob_QBaseEmitSpeed(@ptrCast(self), @bitCast(speed));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
@@ -1167,7 +1167,7 @@ pub const kjob = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnStartElapsedTimer(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KJob_OnStartElapsedTimer(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnStartElapsedTimer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
@@ -1217,7 +1217,7 @@ pub const kjob = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kjob.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1233,7 +1233,7 @@ pub const kjob = struct {
     /// ` verbosity: kjob_enums.KillVerbosity `
     ///
     pub fn Kill1(self: ?*anyopaque, verbosity: i32) bool {
-        return qtc.KJob_Kill1(@ptrCast(self), @intCast(verbosity));
+        return qtc.KJob_Kill1(@ptrCast(self), @bitCast(verbosity));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
@@ -1379,7 +1379,7 @@ pub const kjob = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1393,7 +1393,7 @@ pub const kjob = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1407,7 +1407,7 @@ pub const kjob = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1421,7 +1421,7 @@ pub const kjob = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1751,7 +1751,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1806,7 +1806,7 @@ pub const kjob = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1822,7 +1822,7 @@ pub const kjob = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1844,7 +1844,7 @@ pub const kjob = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1864,7 +1864,7 @@ pub const kjob = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1886,7 +1886,7 @@ pub const kjob = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1983,7 +1983,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2031,7 +2031,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KJob_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2083,7 +2083,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KJob_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2131,7 +2131,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2179,7 +2179,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2227,7 +2227,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2275,7 +2275,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2323,7 +2323,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2367,7 +2367,7 @@ pub const kjob = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KJob_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2411,7 +2411,7 @@ pub const kjob = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KJob_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2461,7 +2461,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KJob_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2509,7 +2509,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KJob_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#finished)
@@ -2523,7 +2523,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#suspended)
@@ -2537,7 +2537,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Suspended(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_Suspended(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#resumed)
@@ -2551,7 +2551,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Resumed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_Resumed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#result)
@@ -2565,7 +2565,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob) callconv(.c) void `
     ///
     pub fn OnResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Result(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_Result(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#totalAmountChanged)
@@ -2579,7 +2579,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
     ///
     pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#processedAmountChanged)
@@ -2593,7 +2593,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
     ///
     pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#percentChanged)
@@ -2607,7 +2607,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, percent: u64) callconv(.c) void `
     ///
     pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_PercentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KJob_Connect_PercentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2623,7 +2623,7 @@ pub const kjob = struct {
     /// ` callback: *const fn (self: QtC.KJob, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#dtor.KJob)

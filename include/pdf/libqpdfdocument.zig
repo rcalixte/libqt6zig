@@ -44,7 +44,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QPdfDocument_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -79,7 +79,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QPdfDocument_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -106,7 +106,7 @@ pub const qpdfdocument = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPdfDocument_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QPdfDocument_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -118,7 +118,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QPdfDocument_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -134,7 +134,7 @@ pub const qpdfdocument = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPdfDocument_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QPdfDocument_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -241,7 +241,7 @@ pub const qpdfdocument = struct {
     /// ` field: qpdfdocument_enums.MetaDataField `
     ///
     pub fn MetaData(self: ?*anyopaque, field: i32) QtC.QVariant {
-        return qtc.QPdfDocument_MetaData(@ptrCast(self), @intCast(field));
+        return qtc.QPdfDocument_MetaData(@ptrCast(self), @bitCast(field));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#error)
@@ -287,7 +287,7 @@ pub const qpdfdocument = struct {
     /// ` page: i32 `
     ///
     pub fn PagePointSize(self: ?*anyopaque, page: i32) QtC.QSizeF {
-        return qtc.QPdfDocument_PagePointSize(@ptrCast(self), @intCast(page));
+        return qtc.QPdfDocument_PagePointSize(@ptrCast(self), @bitCast(page));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#pageLabel)
@@ -301,7 +301,7 @@ pub const qpdfdocument = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PageLabel(self: ?*anyopaque, page: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QPdfDocument_PageLabel(@ptrCast(self), @intCast(page));
+        var _str = qtc.QPdfDocument_PageLabel(@ptrCast(self), @bitCast(page));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qpdfdocument.PageLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -345,7 +345,7 @@ pub const qpdfdocument = struct {
     /// ` imageSize: QtC.QSize `
     ///
     pub fn Render(self: ?*anyopaque, page: i32, imageSize: QtC.QSize) QtC.QImage {
-        return qtc.QPdfDocument_Render(@ptrCast(self), @intCast(page), @ptrCast(imageSize));
+        return qtc.QPdfDocument_Render(@ptrCast(self), @bitCast(page), @ptrCast(imageSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#getSelection)
@@ -361,7 +361,7 @@ pub const qpdfdocument = struct {
     /// ` end: QtC.QPointF `
     ///
     pub fn GetSelection(self: ?*anyopaque, page: i32, start: QtC.QPointF, end: QtC.QPointF) QtC.QPdfSelection {
-        return qtc.QPdfDocument_GetSelection(@ptrCast(self), @intCast(page), @ptrCast(start), @ptrCast(end));
+        return qtc.QPdfDocument_GetSelection(@ptrCast(self), @bitCast(page), @ptrCast(start), @ptrCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#getSelectionAtIndex)
@@ -377,7 +377,7 @@ pub const qpdfdocument = struct {
     /// ` maxLength: i32 `
     ///
     pub fn GetSelectionAtIndex(self: ?*anyopaque, page: i32, startIndex: i32, maxLength: i32) QtC.QPdfSelection {
-        return qtc.QPdfDocument_GetSelectionAtIndex(@ptrCast(self), @intCast(page), @intCast(startIndex), @intCast(maxLength));
+        return qtc.QPdfDocument_GetSelectionAtIndex(@ptrCast(self), @bitCast(page), @bitCast(startIndex), @bitCast(maxLength));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#getAllText)
@@ -389,7 +389,7 @@ pub const qpdfdocument = struct {
     /// ` page: i32 `
     ///
     pub fn GetAllText(self: ?*anyopaque, page: i32) QtC.QPdfSelection {
-        return qtc.QPdfDocument_GetAllText(@ptrCast(self), @intCast(page));
+        return qtc.QPdfDocument_GetAllText(@ptrCast(self), @bitCast(page));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#passwordChanged)
@@ -411,7 +411,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument) callconv(.c) void `
     ///
     pub fn OnPasswordChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfDocument_Connect_PasswordChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_Connect_PasswordChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#passwordRequired)
@@ -433,7 +433,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument) callconv(.c) void `
     ///
     pub fn OnPasswordRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfDocument_Connect_PasswordRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_Connect_PasswordRequired(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#statusChanged)
@@ -445,7 +445,7 @@ pub const qpdfdocument = struct {
     /// ` status: qpdfdocument_enums.Status `
     ///
     pub fn StatusChanged(self: ?*anyopaque, status: i32) void {
-        qtc.QPdfDocument_StatusChanged(@ptrCast(self), @intCast(status));
+        qtc.QPdfDocument_StatusChanged(@ptrCast(self), @bitCast(status));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#statusChanged)
@@ -457,7 +457,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, status: qpdfdocument_enums.Status) callconv(.c) void `
     ///
     pub fn OnStatusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPdfDocument_Connect_StatusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_Connect_StatusChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#pageCountChanged)
@@ -469,7 +469,7 @@ pub const qpdfdocument = struct {
     /// ` pageCount: i32 `
     ///
     pub fn PageCountChanged(self: ?*anyopaque, pageCount: i32) void {
-        qtc.QPdfDocument_PageCountChanged(@ptrCast(self), @intCast(pageCount));
+        qtc.QPdfDocument_PageCountChanged(@ptrCast(self), @bitCast(pageCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#pageCountChanged)
@@ -481,7 +481,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, pageCount: i32) callconv(.c) void `
     ///
     pub fn OnPageCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPdfDocument_Connect_PageCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_Connect_PageCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#pageModelChanged)
@@ -503,7 +503,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument) callconv(.c) void `
     ///
     pub fn OnPageModelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfDocument_Connect_PageModelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_Connect_PageModelChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -541,7 +541,7 @@ pub const qpdfdocument = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qpdfdocument.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -561,7 +561,7 @@ pub const qpdfdocument = struct {
     /// ` options: QtC.QPdfDocumentRenderOptions `
     ///
     pub fn Render3(self: ?*anyopaque, page: i32, imageSize: QtC.QSize, options: QtC.QPdfDocumentRenderOptions) QtC.QImage {
-        return qtc.QPdfDocument_Render3(@ptrCast(self), @intCast(page), @ptrCast(imageSize), @ptrCast(options));
+        return qtc.QPdfDocument_Render3(@ptrCast(self), @bitCast(page), @ptrCast(imageSize), @ptrCast(options));
     }
 
     /// Inherited from QObject
@@ -695,7 +695,7 @@ pub const qpdfdocument = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -709,7 +709,7 @@ pub const qpdfdocument = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -723,7 +723,7 @@ pub const qpdfdocument = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -737,7 +737,7 @@ pub const qpdfdocument = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1067,7 +1067,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1122,7 +1122,7 @@ pub const qpdfdocument = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1138,7 +1138,7 @@ pub const qpdfdocument = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1160,7 +1160,7 @@ pub const qpdfdocument = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1180,7 +1180,7 @@ pub const qpdfdocument = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1202,7 +1202,7 @@ pub const qpdfdocument = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1299,7 +1299,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1347,7 +1347,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPdfDocument_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1399,7 +1399,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPdfDocument_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1447,7 +1447,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfDocument_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1495,7 +1495,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfDocument_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1543,7 +1543,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfDocument_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1591,7 +1591,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfDocument_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1639,7 +1639,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfDocument_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1683,7 +1683,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QPdfDocument_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1727,7 +1727,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPdfDocument_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1777,7 +1777,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPdfDocument_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1825,7 +1825,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPdfDocument_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPdfDocument_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1841,7 +1841,7 @@ pub const qpdfdocument = struct {
     /// ` callback: *const fn (self: QtC.QPdfDocument, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#dtor.QPdfDocument)

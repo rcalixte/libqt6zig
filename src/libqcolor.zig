@@ -39,7 +39,7 @@ pub const qcolor = struct {
     /// ` color: qnamespace_enums.GlobalColor `
     ///
     pub fn New4(color: i32) QtC.QColor {
-        return qtc.QColor_new4(@intCast(color));
+        return qtc.QColor_new4(@bitCast(color));
     }
 
     /// New5 constructs a new QColor object.
@@ -53,7 +53,7 @@ pub const qcolor = struct {
     /// ` b: i32 `
     ///
     pub fn New5(r: i32, g: i32, b: i32) QtC.QColor {
-        return qtc.QColor_new5(@intCast(r), @intCast(g), @intCast(b));
+        return qtc.QColor_new5(@bitCast(r), @bitCast(g), @bitCast(b));
     }
 
     /// New6 constructs a new QColor object.
@@ -63,7 +63,7 @@ pub const qcolor = struct {
     /// ` rgb: u32 `
     ///
     pub fn New6(rgb: u32) QtC.QColor {
-        return qtc.QColor_new6(@intCast(rgb));
+        return qtc.QColor_new6(@bitCast(rgb));
     }
 
     /// New7 constructs a new QColor object.
@@ -110,7 +110,7 @@ pub const qcolor = struct {
     /// ` spec: qcolor_enums.Spec `
     ///
     pub fn New10(spec: i32) QtC.QColor {
-        return qtc.QColor_new10(@intCast(spec));
+        return qtc.QColor_new10(@bitCast(spec));
     }
 
     /// New11 constructs a new QColor object.
@@ -128,7 +128,7 @@ pub const qcolor = struct {
     /// ` a4: u16 `
     ///
     pub fn New11(spec: i32, a1: u16, a2: u16, a3: u16, a4: u16) QtC.QColor {
-        return qtc.QColor_new11(@intCast(spec), @intCast(a1), @intCast(a2), @intCast(a3), @intCast(a4));
+        return qtc.QColor_new11(@bitCast(spec), @bitCast(a1), @bitCast(a2), @bitCast(a3), @bitCast(a4));
     }
 
     /// New12 constructs a new QColor object.
@@ -154,7 +154,7 @@ pub const qcolor = struct {
     /// ` a: i32 `
     ///
     pub fn New13(r: i32, g: i32, b: i32, a: i32) QtC.QColor {
-        return qtc.QColor_new13(@intCast(r), @intCast(g), @intCast(b), @intCast(a));
+        return qtc.QColor_new13(@bitCast(r), @bitCast(g), @bitCast(b), @bitCast(a));
     }
 
     /// New14 constructs a new QColor object.
@@ -174,7 +174,7 @@ pub const qcolor = struct {
     /// ` a5: u16 `
     ///
     pub fn New14(spec: i32, a1: u16, a2: u16, a3: u16, a4: u16, a5: u16) QtC.QColor {
-        return qtc.QColor_new14(@intCast(spec), @intCast(a1), @intCast(a2), @intCast(a3), @intCast(a4), @intCast(a5));
+        return qtc.QColor_new14(@bitCast(spec), @bitCast(a1), @bitCast(a2), @bitCast(a3), @bitCast(a4), @bitCast(a5));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -220,7 +220,7 @@ pub const qcolor = struct {
     /// ` color: qnamespace_enums.GlobalColor `
     ///
     pub fn OperatorAssign(self: ?*anyopaque, color: i32) void {
-        qtc.QColor_OperatorAssign(@ptrCast(self), @intCast(color));
+        qtc.QColor_OperatorAssign(@ptrCast(self), @bitCast(color));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#isValid)
@@ -323,7 +323,7 @@ pub const qcolor = struct {
     /// ` alpha: i32 `
     ///
     pub fn SetAlpha(self: ?*anyopaque, alpha: i32) void {
-        qtc.QColor_SetAlpha(@ptrCast(self), @intCast(alpha));
+        qtc.QColor_SetAlpha(@ptrCast(self), @bitCast(alpha));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#alphaF)
@@ -345,7 +345,7 @@ pub const qcolor = struct {
     /// ` alpha: f32 `
     ///
     pub fn SetAlphaF(self: ?*anyopaque, alpha: f32) void {
-        qtc.QColor_SetAlphaF(@ptrCast(self), @floatCast(alpha));
+        qtc.QColor_SetAlphaF(@ptrCast(self), @bitCast(alpha));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#red)
@@ -387,7 +387,7 @@ pub const qcolor = struct {
     /// ` red: i32 `
     ///
     pub fn SetRed(self: ?*anyopaque, red: i32) void {
-        qtc.QColor_SetRed(@ptrCast(self), @intCast(red));
+        qtc.QColor_SetRed(@ptrCast(self), @bitCast(red));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#setGreen)
@@ -399,7 +399,7 @@ pub const qcolor = struct {
     /// ` green: i32 `
     ///
     pub fn SetGreen(self: ?*anyopaque, green: i32) void {
-        qtc.QColor_SetGreen(@ptrCast(self), @intCast(green));
+        qtc.QColor_SetGreen(@ptrCast(self), @bitCast(green));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#setBlue)
@@ -411,7 +411,7 @@ pub const qcolor = struct {
     /// ` blue: i32 `
     ///
     pub fn SetBlue(self: ?*anyopaque, blue: i32) void {
-        qtc.QColor_SetBlue(@ptrCast(self), @intCast(blue));
+        qtc.QColor_SetBlue(@ptrCast(self), @bitCast(blue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#redF)
@@ -453,7 +453,7 @@ pub const qcolor = struct {
     /// ` red: f32 `
     ///
     pub fn SetRedF(self: ?*anyopaque, red: f32) void {
-        qtc.QColor_SetRedF(@ptrCast(self), @floatCast(red));
+        qtc.QColor_SetRedF(@ptrCast(self), @bitCast(red));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#setGreenF)
@@ -465,7 +465,7 @@ pub const qcolor = struct {
     /// ` green: f32 `
     ///
     pub fn SetGreenF(self: ?*anyopaque, green: f32) void {
-        qtc.QColor_SetGreenF(@ptrCast(self), @floatCast(green));
+        qtc.QColor_SetGreenF(@ptrCast(self), @bitCast(green));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#setBlueF)
@@ -477,7 +477,7 @@ pub const qcolor = struct {
     /// ` blue: f32 `
     ///
     pub fn SetBlueF(self: ?*anyopaque, blue: f32) void {
-        qtc.QColor_SetBlueF(@ptrCast(self), @floatCast(blue));
+        qtc.QColor_SetBlueF(@ptrCast(self), @bitCast(blue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#getRgb)
@@ -509,7 +509,7 @@ pub const qcolor = struct {
     /// ` b: i32 `
     ///
     pub fn SetRgb(self: ?*anyopaque, r: i32, g: i32, b: i32) void {
-        qtc.QColor_SetRgb(@ptrCast(self), @intCast(r), @intCast(g), @intCast(b));
+        qtc.QColor_SetRgb(@ptrCast(self), @bitCast(r), @bitCast(g), @bitCast(b));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#getRgbF)
@@ -541,7 +541,7 @@ pub const qcolor = struct {
     /// ` b: f32 `
     ///
     pub fn SetRgbF(self: ?*anyopaque, r: f32, g: f32, b: f32) void {
-        qtc.QColor_SetRgbF(@ptrCast(self), @floatCast(r), @floatCast(g), @floatCast(b));
+        qtc.QColor_SetRgbF(@ptrCast(self), @bitCast(r), @bitCast(g), @bitCast(b));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#rgba64)
@@ -585,7 +585,7 @@ pub const qcolor = struct {
     /// ` rgba: u32 `
     ///
     pub fn SetRgba(self: ?*anyopaque, rgba: u32) void {
-        qtc.QColor_SetRgba(@ptrCast(self), @intCast(rgba));
+        qtc.QColor_SetRgba(@ptrCast(self), @bitCast(rgba));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#rgb)
@@ -607,7 +607,7 @@ pub const qcolor = struct {
     /// ` rgb: u32 `
     ///
     pub fn SetRgb2(self: ?*anyopaque, rgb: u32) void {
-        qtc.QColor_SetRgb2(@ptrCast(self), @intCast(rgb));
+        qtc.QColor_SetRgb2(@ptrCast(self), @bitCast(rgb));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#hue)
@@ -739,7 +739,7 @@ pub const qcolor = struct {
     /// ` v: i32 `
     ///
     pub fn SetHsv(self: ?*anyopaque, h: i32, s: i32, v: i32) void {
-        qtc.QColor_SetHsv(@ptrCast(self), @intCast(h), @intCast(s), @intCast(v));
+        qtc.QColor_SetHsv(@ptrCast(self), @bitCast(h), @bitCast(s), @bitCast(v));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#getHsvF)
@@ -771,7 +771,7 @@ pub const qcolor = struct {
     /// ` v: f32 `
     ///
     pub fn SetHsvF(self: ?*anyopaque, h: f32, s: f32, v: f32) void {
-        qtc.QColor_SetHsvF(@ptrCast(self), @floatCast(h), @floatCast(s), @floatCast(v));
+        qtc.QColor_SetHsvF(@ptrCast(self), @bitCast(h), @bitCast(s), @bitCast(v));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#cyan)
@@ -887,7 +887,7 @@ pub const qcolor = struct {
     /// ` k: i32 `
     ///
     pub fn SetCmyk(self: ?*anyopaque, c: i32, m: i32, y: i32, k: i32) void {
-        qtc.QColor_SetCmyk(@ptrCast(self), @intCast(c), @intCast(m), @intCast(y), @intCast(k));
+        qtc.QColor_SetCmyk(@ptrCast(self), @bitCast(c), @bitCast(m), @bitCast(y), @bitCast(k));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#getCmykF)
@@ -923,7 +923,7 @@ pub const qcolor = struct {
     /// ` k: f32 `
     ///
     pub fn SetCmykF(self: ?*anyopaque, c: f32, m: f32, y: f32, k: f32) void {
-        qtc.QColor_SetCmykF(@ptrCast(self), @floatCast(c), @floatCast(m), @floatCast(y), @floatCast(k));
+        qtc.QColor_SetCmykF(@ptrCast(self), @bitCast(c), @bitCast(m), @bitCast(y), @bitCast(k));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#hslHue)
@@ -1015,7 +1015,7 @@ pub const qcolor = struct {
     /// ` l: i32 `
     ///
     pub fn SetHsl(self: ?*anyopaque, h: i32, s: i32, l: i32) void {
-        qtc.QColor_SetHsl(@ptrCast(self), @intCast(h), @intCast(s), @intCast(l));
+        qtc.QColor_SetHsl(@ptrCast(self), @bitCast(h), @bitCast(s), @bitCast(l));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#getHslF)
@@ -1047,7 +1047,7 @@ pub const qcolor = struct {
     /// ` l: f32 `
     ///
     pub fn SetHslF(self: ?*anyopaque, h: f32, s: f32, l: f32) void {
-        qtc.QColor_SetHslF(@ptrCast(self), @floatCast(h), @floatCast(s), @floatCast(l));
+        qtc.QColor_SetHslF(@ptrCast(self), @bitCast(h), @bitCast(s), @bitCast(l));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#toRgb)
@@ -1109,7 +1109,7 @@ pub const qcolor = struct {
     /// ` colorSpec: qcolor_enums.Spec `
     ///
     pub fn ConvertTo(self: ?*anyopaque, colorSpec: i32) QtC.QColor {
-        return qtc.QColor_ConvertTo(@ptrCast(self), @intCast(colorSpec));
+        return qtc.QColor_ConvertTo(@ptrCast(self), @bitCast(colorSpec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromRgb)
@@ -1119,7 +1119,7 @@ pub const qcolor = struct {
     /// ` rgb: u32 `
     ///
     pub fn FromRgb(rgb: u32) QtC.QColor {
-        return qtc.QColor_FromRgb(@intCast(rgb));
+        return qtc.QColor_FromRgb(@bitCast(rgb));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromRgba)
@@ -1129,7 +1129,7 @@ pub const qcolor = struct {
     /// ` rgba: u32 `
     ///
     pub fn FromRgba(rgba: u32) QtC.QColor {
-        return qtc.QColor_FromRgba(@intCast(rgba));
+        return qtc.QColor_FromRgba(@bitCast(rgba));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromRgb)
@@ -1143,7 +1143,7 @@ pub const qcolor = struct {
     /// ` b: i32 `
     ///
     pub fn FromRgb2(r: i32, g: i32, b: i32) QtC.QColor {
-        return qtc.QColor_FromRgb2(@intCast(r), @intCast(g), @intCast(b));
+        return qtc.QColor_FromRgb2(@bitCast(r), @bitCast(g), @bitCast(b));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromRgbF)
@@ -1157,7 +1157,7 @@ pub const qcolor = struct {
     /// ` b: f32 `
     ///
     pub fn FromRgbF(r: f32, g: f32, b: f32) QtC.QColor {
-        return qtc.QColor_FromRgbF(@floatCast(r), @floatCast(g), @floatCast(b));
+        return qtc.QColor_FromRgbF(@bitCast(r), @bitCast(g), @bitCast(b));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromRgba64)
@@ -1171,7 +1171,7 @@ pub const qcolor = struct {
     /// ` b: u16 `
     ///
     pub fn FromRgba64(r: u16, g: u16, b: u16) QtC.QColor {
-        return qtc.QColor_FromRgba64(@intCast(r), @intCast(g), @intCast(b));
+        return qtc.QColor_FromRgba64(@bitCast(r), @bitCast(g), @bitCast(b));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromRgba64)
@@ -1195,7 +1195,7 @@ pub const qcolor = struct {
     /// ` v: i32 `
     ///
     pub fn FromHsv(h: i32, s: i32, v: i32) QtC.QColor {
-        return qtc.QColor_FromHsv(@intCast(h), @intCast(s), @intCast(v));
+        return qtc.QColor_FromHsv(@bitCast(h), @bitCast(s), @bitCast(v));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromHsvF)
@@ -1209,7 +1209,7 @@ pub const qcolor = struct {
     /// ` v: f32 `
     ///
     pub fn FromHsvF(h: f32, s: f32, v: f32) QtC.QColor {
-        return qtc.QColor_FromHsvF(@floatCast(h), @floatCast(s), @floatCast(v));
+        return qtc.QColor_FromHsvF(@bitCast(h), @bitCast(s), @bitCast(v));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromCmyk)
@@ -1225,7 +1225,7 @@ pub const qcolor = struct {
     /// ` k: i32 `
     ///
     pub fn FromCmyk(c: i32, m: i32, y: i32, k: i32) QtC.QColor {
-        return qtc.QColor_FromCmyk(@intCast(c), @intCast(m), @intCast(y), @intCast(k));
+        return qtc.QColor_FromCmyk(@bitCast(c), @bitCast(m), @bitCast(y), @bitCast(k));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromCmykF)
@@ -1241,7 +1241,7 @@ pub const qcolor = struct {
     /// ` k: f32 `
     ///
     pub fn FromCmykF(c: f32, m: f32, y: f32, k: f32) QtC.QColor {
-        return qtc.QColor_FromCmykF(@floatCast(c), @floatCast(m), @floatCast(y), @floatCast(k));
+        return qtc.QColor_FromCmykF(@bitCast(c), @bitCast(m), @bitCast(y), @bitCast(k));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromHsl)
@@ -1255,7 +1255,7 @@ pub const qcolor = struct {
     /// ` l: i32 `
     ///
     pub fn FromHsl(h: i32, s: i32, l: i32) QtC.QColor {
-        return qtc.QColor_FromHsl(@intCast(h), @intCast(s), @intCast(l));
+        return qtc.QColor_FromHsl(@bitCast(h), @bitCast(s), @bitCast(l));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromHslF)
@@ -1269,7 +1269,7 @@ pub const qcolor = struct {
     /// ` l: f32 `
     ///
     pub fn FromHslF(h: f32, s: f32, l: f32) QtC.QColor {
-        return qtc.QColor_FromHslF(@floatCast(h), @floatCast(s), @floatCast(l));
+        return qtc.QColor_FromHslF(@bitCast(h), @bitCast(s), @bitCast(l));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#lighter)
@@ -1361,7 +1361,7 @@ pub const qcolor = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name1(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QColor_Name1(@ptrCast(self), @intCast(format));
+        var _str = qtc.QColor_Name1(@ptrCast(self), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolor.Name1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1401,7 +1401,7 @@ pub const qcolor = struct {
     /// ` a: i32 `
     ///
     pub fn SetRgb4(self: ?*anyopaque, r: i32, g: i32, b: i32, a: i32) void {
-        qtc.QColor_SetRgb4(@ptrCast(self), @intCast(r), @intCast(g), @intCast(b), @intCast(a));
+        qtc.QColor_SetRgb4(@ptrCast(self), @bitCast(r), @bitCast(g), @bitCast(b), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#getRgbF)
@@ -1437,7 +1437,7 @@ pub const qcolor = struct {
     /// ` a: f32 `
     ///
     pub fn SetRgbF4(self: ?*anyopaque, r: f32, g: f32, b: f32, a: f32) void {
-        qtc.QColor_SetRgbF4(@ptrCast(self), @floatCast(r), @floatCast(g), @floatCast(b), @floatCast(a));
+        qtc.QColor_SetRgbF4(@ptrCast(self), @bitCast(r), @bitCast(g), @bitCast(b), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#getHsv)
@@ -1473,7 +1473,7 @@ pub const qcolor = struct {
     /// ` a: i32 `
     ///
     pub fn SetHsv4(self: ?*anyopaque, h: i32, s: i32, v: i32, a: i32) void {
-        qtc.QColor_SetHsv4(@ptrCast(self), @intCast(h), @intCast(s), @intCast(v), @intCast(a));
+        qtc.QColor_SetHsv4(@ptrCast(self), @bitCast(h), @bitCast(s), @bitCast(v), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#getHsvF)
@@ -1509,7 +1509,7 @@ pub const qcolor = struct {
     /// ` a: f32 `
     ///
     pub fn SetHsvF4(self: ?*anyopaque, h: f32, s: f32, v: f32, a: f32) void {
-        qtc.QColor_SetHsvF4(@ptrCast(self), @floatCast(h), @floatCast(s), @floatCast(v), @floatCast(a));
+        qtc.QColor_SetHsvF4(@ptrCast(self), @bitCast(h), @bitCast(s), @bitCast(v), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#getCmyk)
@@ -1549,7 +1549,7 @@ pub const qcolor = struct {
     /// ` a: i32 `
     ///
     pub fn SetCmyk5(self: ?*anyopaque, c: i32, m: i32, y: i32, k: i32, a: i32) void {
-        qtc.QColor_SetCmyk5(@ptrCast(self), @intCast(c), @intCast(m), @intCast(y), @intCast(k), @intCast(a));
+        qtc.QColor_SetCmyk5(@ptrCast(self), @bitCast(c), @bitCast(m), @bitCast(y), @bitCast(k), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#getCmykF)
@@ -1589,7 +1589,7 @@ pub const qcolor = struct {
     /// ` a: f32 `
     ///
     pub fn SetCmykF5(self: ?*anyopaque, c: f32, m: f32, y: f32, k: f32, a: f32) void {
-        qtc.QColor_SetCmykF5(@ptrCast(self), @floatCast(c), @floatCast(m), @floatCast(y), @floatCast(k), @floatCast(a));
+        qtc.QColor_SetCmykF5(@ptrCast(self), @bitCast(c), @bitCast(m), @bitCast(y), @bitCast(k), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#getHsl)
@@ -1625,7 +1625,7 @@ pub const qcolor = struct {
     /// ` a: i32 `
     ///
     pub fn SetHsl4(self: ?*anyopaque, h: i32, s: i32, l: i32, a: i32) void {
-        qtc.QColor_SetHsl4(@ptrCast(self), @intCast(h), @intCast(s), @intCast(l), @intCast(a));
+        qtc.QColor_SetHsl4(@ptrCast(self), @bitCast(h), @bitCast(s), @bitCast(l), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#getHslF)
@@ -1661,7 +1661,7 @@ pub const qcolor = struct {
     /// ` a: f32 `
     ///
     pub fn SetHslF4(self: ?*anyopaque, h: f32, s: f32, l: f32, a: f32) void {
-        qtc.QColor_SetHslF4(@ptrCast(self), @floatCast(h), @floatCast(s), @floatCast(l), @floatCast(a));
+        qtc.QColor_SetHslF4(@ptrCast(self), @bitCast(h), @bitCast(s), @bitCast(l), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromRgb)
@@ -1677,7 +1677,7 @@ pub const qcolor = struct {
     /// ` a: i32 `
     ///
     pub fn FromRgb4(r: i32, g: i32, b: i32, a: i32) QtC.QColor {
-        return qtc.QColor_FromRgb4(@intCast(r), @intCast(g), @intCast(b), @intCast(a));
+        return qtc.QColor_FromRgb4(@bitCast(r), @bitCast(g), @bitCast(b), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromRgbF)
@@ -1693,7 +1693,7 @@ pub const qcolor = struct {
     /// ` a: f32 `
     ///
     pub fn FromRgbF4(r: f32, g: f32, b: f32, a: f32) QtC.QColor {
-        return qtc.QColor_FromRgbF4(@floatCast(r), @floatCast(g), @floatCast(b), @floatCast(a));
+        return qtc.QColor_FromRgbF4(@bitCast(r), @bitCast(g), @bitCast(b), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromRgba64)
@@ -1709,7 +1709,7 @@ pub const qcolor = struct {
     /// ` a: u16 `
     ///
     pub fn FromRgba644(r: u16, g: u16, b: u16, a: u16) QtC.QColor {
-        return qtc.QColor_FromRgba644(@intCast(r), @intCast(g), @intCast(b), @intCast(a));
+        return qtc.QColor_FromRgba644(@bitCast(r), @bitCast(g), @bitCast(b), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromHsv)
@@ -1725,7 +1725,7 @@ pub const qcolor = struct {
     /// ` a: i32 `
     ///
     pub fn FromHsv4(h: i32, s: i32, v: i32, a: i32) QtC.QColor {
-        return qtc.QColor_FromHsv4(@intCast(h), @intCast(s), @intCast(v), @intCast(a));
+        return qtc.QColor_FromHsv4(@bitCast(h), @bitCast(s), @bitCast(v), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromHsvF)
@@ -1741,7 +1741,7 @@ pub const qcolor = struct {
     /// ` a: f32 `
     ///
     pub fn FromHsvF4(h: f32, s: f32, v: f32, a: f32) QtC.QColor {
-        return qtc.QColor_FromHsvF4(@floatCast(h), @floatCast(s), @floatCast(v), @floatCast(a));
+        return qtc.QColor_FromHsvF4(@bitCast(h), @bitCast(s), @bitCast(v), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromCmyk)
@@ -1759,7 +1759,7 @@ pub const qcolor = struct {
     /// ` a: i32 `
     ///
     pub fn FromCmyk5(c: i32, m: i32, y: i32, k: i32, a: i32) QtC.QColor {
-        return qtc.QColor_FromCmyk5(@intCast(c), @intCast(m), @intCast(y), @intCast(k), @intCast(a));
+        return qtc.QColor_FromCmyk5(@bitCast(c), @bitCast(m), @bitCast(y), @bitCast(k), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromCmykF)
@@ -1777,7 +1777,7 @@ pub const qcolor = struct {
     /// ` a: f32 `
     ///
     pub fn FromCmykF5(c: f32, m: f32, y: f32, k: f32, a: f32) QtC.QColor {
-        return qtc.QColor_FromCmykF5(@floatCast(c), @floatCast(m), @floatCast(y), @floatCast(k), @floatCast(a));
+        return qtc.QColor_FromCmykF5(@bitCast(c), @bitCast(m), @bitCast(y), @bitCast(k), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromHsl)
@@ -1793,7 +1793,7 @@ pub const qcolor = struct {
     /// ` a: i32 `
     ///
     pub fn FromHsl4(h: i32, s: i32, l: i32, a: i32) QtC.QColor {
-        return qtc.QColor_FromHsl4(@intCast(h), @intCast(s), @intCast(l), @intCast(a));
+        return qtc.QColor_FromHsl4(@bitCast(h), @bitCast(s), @bitCast(l), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#fromHslF)
@@ -1809,7 +1809,7 @@ pub const qcolor = struct {
     /// ` a: f32 `
     ///
     pub fn FromHslF4(h: f32, s: f32, l: f32, a: f32) QtC.QColor {
-        return qtc.QColor_FromHslF4(@floatCast(h), @floatCast(s), @floatCast(l), @floatCast(a));
+        return qtc.QColor_FromHslF4(@bitCast(h), @bitCast(s), @bitCast(l), @bitCast(a));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#lighter)
@@ -1821,7 +1821,7 @@ pub const qcolor = struct {
     /// ` f: i32 `
     ///
     pub fn Lighter1(self: ?*anyopaque, f: i32) QtC.QColor {
-        return qtc.QColor_Lighter1(@ptrCast(self), @intCast(f));
+        return qtc.QColor_Lighter1(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#darker)
@@ -1833,7 +1833,7 @@ pub const qcolor = struct {
     /// ` f: i32 `
     ///
     pub fn Darker1(self: ?*anyopaque, f: i32) QtC.QColor {
-        return qtc.QColor_Darker1(@ptrCast(self), @intCast(f));
+        return qtc.QColor_Darker1(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#dtor.QColor)

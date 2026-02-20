@@ -12,7 +12,7 @@ pub const qcryptographichash = struct {
     /// ` method: qcryptographichash_enums.Algorithm `
     ///
     pub fn New(method: i32) QtC.QCryptographicHash {
-        return qtc.QCryptographicHash_new(@intCast(method));
+        return qtc.QCryptographicHash_new(@bitCast(method));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#swap)
@@ -63,7 +63,7 @@ pub const qcryptographichash = struct {
     ///
     pub fn AddData(self: ?*anyopaque, data: [:0]const u8, length: i64) void {
         const data_Cstring = data.ptr;
-        qtc.QCryptographicHash_AddData(@ptrCast(self), data_Cstring, @intCast(length));
+        qtc.QCryptographicHash_AddData(@ptrCast(self), data_Cstring, @bitCast(length));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#addData)
@@ -141,7 +141,7 @@ pub const qcryptographichash = struct {
             .len = data.len,
             .data = data.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_Hash(data_str, @intCast(method));
+        var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_Hash(data_str, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.Hash: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -169,7 +169,7 @@ pub const qcryptographichash = struct {
             .len = data.len,
             .data = data.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_HashInto(buffer_list, data_str, @intCast(method));
+        var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_HashInto(buffer_list, data_str, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.HashInto: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -197,7 +197,7 @@ pub const qcryptographichash = struct {
             .len = data.len,
             .data = data.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_HashInto2(buffer_list, data_str, @intCast(method));
+        var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_HashInto2(buffer_list, data_str, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.HashInto2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -233,7 +233,7 @@ pub const qcryptographichash = struct {
             .len = data.len,
             .data = data_arr.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_HashInto4(buffer_list, data_list, @intCast(method));
+        var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_HashInto4(buffer_list, data_list, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.HashInto4: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -269,7 +269,7 @@ pub const qcryptographichash = struct {
             .len = data.len,
             .data = data_arr.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_HashInto5(buffer_list, data_list, @intCast(method));
+        var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_HashInto5(buffer_list, data_list, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.HashInto5: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -283,7 +283,7 @@ pub const qcryptographichash = struct {
     /// ` method: qcryptographichash_enums.Algorithm `
     ///
     pub fn HashLength(method: i32) i32 {
-        return qtc.QCryptographicHash_HashLength(@intCast(method));
+        return qtc.QCryptographicHash_HashLength(@bitCast(method));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#supportsAlgorithm)
@@ -293,7 +293,7 @@ pub const qcryptographichash = struct {
     /// ` method: qcryptographichash_enums.Algorithm `
     ///
     pub fn SupportsAlgorithm(method: i32) bool {
-        return qtc.QCryptographicHash_SupportsAlgorithm(@intCast(method));
+        return qtc.QCryptographicHash_SupportsAlgorithm(@bitCast(method));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#dtor.QCryptographicHash)

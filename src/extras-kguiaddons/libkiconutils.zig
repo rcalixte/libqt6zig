@@ -17,7 +17,7 @@ pub const kiconutils = struct {
     /// ` param3: qnamespace_enums.Corner `
     ///
     pub fn AddOverlay(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.QIcon {
-        return qtc.KIconUtils_AddOverlay(@ptrCast(param1), @ptrCast(param2), @intCast(param3));
+        return qtc.KIconUtils_AddOverlay(@ptrCast(param1), @ptrCast(param2), @bitCast(param3));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconutils.html#addOverlays)
@@ -40,7 +40,7 @@ pub const kiconutils = struct {
         var param2_it = param2.iterator();
         while (param2_it.next()) |it_entry| : (i += 1) {
             const param2_key = it_entry.key_ptr.*;
-            param2_keys[i] = @intCast(param2_key);
+            param2_keys[i] = @bitCast(param2_key);
             param2_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const param2_map = qtc.libqt_map{

@@ -13,7 +13,7 @@ pub const ktexteditor__movingrange = struct {
     /// ` insertBehaviors: flag of movingrange_enums.InsertBehavior `
     ///
     pub fn SetInsertBehaviors(self: ?*anyopaque, insertBehaviors: i32) void {
-        qtc.KTextEditor__MovingRange_SetInsertBehaviors(@ptrCast(self), @intCast(insertBehaviors));
+        qtc.KTextEditor__MovingRange_SetInsertBehaviors(@ptrCast(self), @bitCast(insertBehaviors));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#insertBehaviors)
@@ -39,7 +39,7 @@ pub const ktexteditor__movingrange = struct {
     /// ` emptyBehavior: movingrange_enums.EmptyBehavior `
     ///
     pub fn SetEmptyBehavior(self: ?*anyopaque, emptyBehavior: i32) void {
-        qtc.KTextEditor__MovingRange_SetEmptyBehavior(@ptrCast(self), @intCast(emptyBehavior));
+        qtc.KTextEditor__MovingRange_SetEmptyBehavior(@ptrCast(self), @bitCast(emptyBehavior));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#emptyBehavior)
@@ -183,7 +183,7 @@ pub const ktexteditor__movingrange = struct {
     /// ` zDepth: f64 `
     ///
     pub fn SetZDepth(self: ?*anyopaque, zDepth: f64) void {
-        qtc.KTextEditor__MovingRange_SetZDepth(@ptrCast(self), @floatCast(zDepth));
+        qtc.KTextEditor__MovingRange_SetZDepth(@ptrCast(self), @bitCast(zDepth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setRange)
@@ -263,7 +263,7 @@ pub const ktexteditor__movingrange = struct {
     /// ` line: i32 `
     ///
     pub fn ContainsLine(self: ?*anyopaque, line: i32) bool {
-        return qtc.KTextEditor__MovingRange_ContainsLine(@ptrCast(self), @intCast(line));
+        return qtc.KTextEditor__MovingRange_ContainsLine(@ptrCast(self), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#containsColumn)
@@ -275,7 +275,7 @@ pub const ktexteditor__movingrange = struct {
     /// ` column: i32 `
     ///
     pub fn ContainsColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.KTextEditor__MovingRange_ContainsColumn(@ptrCast(self), @intCast(column));
+        return qtc.KTextEditor__MovingRange_ContainsColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#overlaps)
@@ -299,7 +299,7 @@ pub const ktexteditor__movingrange = struct {
     /// ` line: i32 `
     ///
     pub fn OverlapsLine(self: ?*anyopaque, line: i32) bool {
-        return qtc.KTextEditor__MovingRange_OverlapsLine(@ptrCast(self), @intCast(line));
+        return qtc.KTextEditor__MovingRange_OverlapsLine(@ptrCast(self), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#overlapsColumn)
@@ -311,7 +311,7 @@ pub const ktexteditor__movingrange = struct {
     /// ` column: i32 `
     ///
     pub fn OverlapsColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.KTextEditor__MovingRange_OverlapsColumn(@ptrCast(self), @intCast(column));
+        return qtc.KTextEditor__MovingRange_OverlapsColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#onSingleLine)

@@ -39,7 +39,7 @@ pub const qdesigneroptionspageinterface = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerOptionsPageInterface_OnName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerOptionsPageInterface_OnName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#name)
@@ -83,7 +83,7 @@ pub const qdesigneroptionspageinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerOptionsPageInterface, parent: QtC.QWidget) callconv(.c) QtC.QWidget `
     ///
     pub fn OnCreatePage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.QDesignerOptionsPageInterface_OnCreatePage(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerOptionsPageInterface_OnCreatePage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#createPage)
@@ -121,7 +121,7 @@ pub const qdesigneroptionspageinterface = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnApply(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerOptionsPageInterface_OnApply(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerOptionsPageInterface_OnApply(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#apply)
@@ -157,7 +157,7 @@ pub const qdesigneroptionspageinterface = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnFinish(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerOptionsPageInterface_OnFinish(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerOptionsPageInterface_OnFinish(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#finish)

@@ -66,7 +66,7 @@ pub const qrect = struct {
     /// ` height: i32 `
     ///
     pub fn New6(left: i32, top: i32, width: i32, height: i32) QtC.QRect {
-        return qtc.QRect_new6(@intCast(left), @intCast(top), @intCast(width), @intCast(height));
+        return qtc.QRect_new6(@bitCast(left), @bitCast(top), @bitCast(width), @bitCast(height));
     }
 
     /// New7 constructs a new QRect object.
@@ -212,7 +212,7 @@ pub const qrect = struct {
     /// ` pos: i32 `
     ///
     pub fn SetLeft(self: ?*anyopaque, pos: i32) void {
-        qtc.QRect_SetLeft(@ptrCast(self), @intCast(pos));
+        qtc.QRect_SetLeft(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setTop)
@@ -224,7 +224,7 @@ pub const qrect = struct {
     /// ` pos: i32 `
     ///
     pub fn SetTop(self: ?*anyopaque, pos: i32) void {
-        qtc.QRect_SetTop(@ptrCast(self), @intCast(pos));
+        qtc.QRect_SetTop(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setRight)
@@ -236,7 +236,7 @@ pub const qrect = struct {
     /// ` pos: i32 `
     ///
     pub fn SetRight(self: ?*anyopaque, pos: i32) void {
-        qtc.QRect_SetRight(@ptrCast(self), @intCast(pos));
+        qtc.QRect_SetRight(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setBottom)
@@ -248,7 +248,7 @@ pub const qrect = struct {
     /// ` pos: i32 `
     ///
     pub fn SetBottom(self: ?*anyopaque, pos: i32) void {
-        qtc.QRect_SetBottom(@ptrCast(self), @intCast(pos));
+        qtc.QRect_SetBottom(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setX)
@@ -260,7 +260,7 @@ pub const qrect = struct {
     /// ` x: i32 `
     ///
     pub fn SetX(self: ?*anyopaque, x: i32) void {
-        qtc.QRect_SetX(@ptrCast(self), @intCast(x));
+        qtc.QRect_SetX(@ptrCast(self), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setY)
@@ -272,7 +272,7 @@ pub const qrect = struct {
     /// ` y: i32 `
     ///
     pub fn SetY(self: ?*anyopaque, y: i32) void {
-        qtc.QRect_SetY(@ptrCast(self), @intCast(y));
+        qtc.QRect_SetY(@ptrCast(self), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setTopLeft)
@@ -382,7 +382,7 @@ pub const qrect = struct {
     /// ` pos: i32 `
     ///
     pub fn MoveLeft(self: ?*anyopaque, pos: i32) void {
-        qtc.QRect_MoveLeft(@ptrCast(self), @intCast(pos));
+        qtc.QRect_MoveLeft(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveTop)
@@ -394,7 +394,7 @@ pub const qrect = struct {
     /// ` pos: i32 `
     ///
     pub fn MoveTop(self: ?*anyopaque, pos: i32) void {
-        qtc.QRect_MoveTop(@ptrCast(self), @intCast(pos));
+        qtc.QRect_MoveTop(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveRight)
@@ -406,7 +406,7 @@ pub const qrect = struct {
     /// ` pos: i32 `
     ///
     pub fn MoveRight(self: ?*anyopaque, pos: i32) void {
-        qtc.QRect_MoveRight(@ptrCast(self), @intCast(pos));
+        qtc.QRect_MoveRight(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveBottom)
@@ -418,7 +418,7 @@ pub const qrect = struct {
     /// ` pos: i32 `
     ///
     pub fn MoveBottom(self: ?*anyopaque, pos: i32) void {
-        qtc.QRect_MoveBottom(@ptrCast(self), @intCast(pos));
+        qtc.QRect_MoveBottom(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveTopLeft)
@@ -492,7 +492,7 @@ pub const qrect = struct {
     /// ` dy: i32 `
     ///
     pub fn Translate(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QRect_Translate(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QRect_Translate(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#translate)
@@ -518,7 +518,7 @@ pub const qrect = struct {
     /// ` dy: i32 `
     ///
     pub fn Translated(self: ?*anyopaque, dx: i32, dy: i32) QtC.QRect {
-        return qtc.QRect_Translated(@ptrCast(self), @intCast(dx), @intCast(dy));
+        return qtc.QRect_Translated(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#translated)
@@ -554,7 +554,7 @@ pub const qrect = struct {
     /// ` t: i32 `
     ///
     pub fn MoveTo(self: ?*anyopaque, x: i32, t: i32) void {
-        qtc.QRect_MoveTo(@ptrCast(self), @intCast(x), @intCast(t));
+        qtc.QRect_MoveTo(@ptrCast(self), @bitCast(x), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#moveTo)
@@ -584,7 +584,7 @@ pub const qrect = struct {
     /// ` h: i32 `
     ///
     pub fn SetRect(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QRect_SetRect(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QRect_SetRect(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#getRect)
@@ -620,7 +620,7 @@ pub const qrect = struct {
     /// ` y2: i32 `
     ///
     pub fn SetCoords(self: ?*anyopaque, x1: i32, y1: i32, x2: i32, y2: i32) void {
-        qtc.QRect_SetCoords(@ptrCast(self), @intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
+        qtc.QRect_SetCoords(@ptrCast(self), @bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#getCoords)
@@ -656,7 +656,7 @@ pub const qrect = struct {
     /// ` y2: i32 `
     ///
     pub fn Adjust(self: ?*anyopaque, x1: i32, y1: i32, x2: i32, y2: i32) void {
-        qtc.QRect_Adjust(@ptrCast(self), @intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
+        qtc.QRect_Adjust(@ptrCast(self), @bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#adjusted)
@@ -674,7 +674,7 @@ pub const qrect = struct {
     /// ` y2: i32 `
     ///
     pub fn Adjusted(self: ?*anyopaque, x1: i32, y1: i32, x2: i32, y2: i32) QtC.QRect {
-        return qtc.QRect_Adjusted(@ptrCast(self), @intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
+        return qtc.QRect_Adjusted(@ptrCast(self), @bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#size)
@@ -716,7 +716,7 @@ pub const qrect = struct {
     /// ` w: i32 `
     ///
     pub fn SetWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QRect_SetWidth(@ptrCast(self), @intCast(w));
+        qtc.QRect_SetWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setHeight)
@@ -728,7 +728,7 @@ pub const qrect = struct {
     /// ` h: i32 `
     ///
     pub fn SetHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QRect_SetHeight(@ptrCast(self), @intCast(h));
+        qtc.QRect_SetHeight(@ptrCast(self), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#setSize)
@@ -826,7 +826,7 @@ pub const qrect = struct {
     /// ` y: i32 `
     ///
     pub fn Contains3(self: ?*anyopaque, x: i32, y: i32) bool {
-        return qtc.QRect_Contains3(@ptrCast(self), @intCast(x), @intCast(y));
+        return qtc.QRect_Contains3(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#contains)
@@ -842,7 +842,7 @@ pub const qrect = struct {
     /// ` proper: bool `
     ///
     pub fn Contains4(self: ?*anyopaque, x: i32, y: i32, proper: bool) bool {
-        return qtc.QRect_Contains4(@ptrCast(self), @intCast(x), @intCast(y), proper);
+        return qtc.QRect_Contains4(@ptrCast(self), @bitCast(x), @bitCast(y), proper);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#united)
@@ -1057,7 +1057,7 @@ pub const qrectf = struct {
     /// ` height: f64 `
     ///
     pub fn New6(left: f64, top: f64, width: f64, height: f64) QtC.QRectF {
-        return qtc.QRectF_new6(@floatCast(left), @floatCast(top), @floatCast(width), @floatCast(height));
+        return qtc.QRectF_new6(@bitCast(left), @bitCast(top), @bitCast(width), @bitCast(height));
     }
 
     /// New7 constructs a new QRectF object.
@@ -1213,7 +1213,7 @@ pub const qrectf = struct {
     /// ` pos: f64 `
     ///
     pub fn SetLeft(self: ?*anyopaque, pos: f64) void {
-        qtc.QRectF_SetLeft(@ptrCast(self), @floatCast(pos));
+        qtc.QRectF_SetLeft(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setTop)
@@ -1225,7 +1225,7 @@ pub const qrectf = struct {
     /// ` pos: f64 `
     ///
     pub fn SetTop(self: ?*anyopaque, pos: f64) void {
-        qtc.QRectF_SetTop(@ptrCast(self), @floatCast(pos));
+        qtc.QRectF_SetTop(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setRight)
@@ -1237,7 +1237,7 @@ pub const qrectf = struct {
     /// ` pos: f64 `
     ///
     pub fn SetRight(self: ?*anyopaque, pos: f64) void {
-        qtc.QRectF_SetRight(@ptrCast(self), @floatCast(pos));
+        qtc.QRectF_SetRight(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setBottom)
@@ -1249,7 +1249,7 @@ pub const qrectf = struct {
     /// ` pos: f64 `
     ///
     pub fn SetBottom(self: ?*anyopaque, pos: f64) void {
-        qtc.QRectF_SetBottom(@ptrCast(self), @floatCast(pos));
+        qtc.QRectF_SetBottom(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setX)
@@ -1261,7 +1261,7 @@ pub const qrectf = struct {
     /// ` pos: f64 `
     ///
     pub fn SetX(self: ?*anyopaque, pos: f64) void {
-        qtc.QRectF_SetX(@ptrCast(self), @floatCast(pos));
+        qtc.QRectF_SetX(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setY)
@@ -1273,7 +1273,7 @@ pub const qrectf = struct {
     /// ` pos: f64 `
     ///
     pub fn SetY(self: ?*anyopaque, pos: f64) void {
-        qtc.QRectF_SetY(@ptrCast(self), @floatCast(pos));
+        qtc.QRectF_SetY(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#topLeft)
@@ -1383,7 +1383,7 @@ pub const qrectf = struct {
     /// ` pos: f64 `
     ///
     pub fn MoveLeft(self: ?*anyopaque, pos: f64) void {
-        qtc.QRectF_MoveLeft(@ptrCast(self), @floatCast(pos));
+        qtc.QRectF_MoveLeft(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveTop)
@@ -1395,7 +1395,7 @@ pub const qrectf = struct {
     /// ` pos: f64 `
     ///
     pub fn MoveTop(self: ?*anyopaque, pos: f64) void {
-        qtc.QRectF_MoveTop(@ptrCast(self), @floatCast(pos));
+        qtc.QRectF_MoveTop(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveRight)
@@ -1407,7 +1407,7 @@ pub const qrectf = struct {
     /// ` pos: f64 `
     ///
     pub fn MoveRight(self: ?*anyopaque, pos: f64) void {
-        qtc.QRectF_MoveRight(@ptrCast(self), @floatCast(pos));
+        qtc.QRectF_MoveRight(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveBottom)
@@ -1419,7 +1419,7 @@ pub const qrectf = struct {
     /// ` pos: f64 `
     ///
     pub fn MoveBottom(self: ?*anyopaque, pos: f64) void {
-        qtc.QRectF_MoveBottom(@ptrCast(self), @floatCast(pos));
+        qtc.QRectF_MoveBottom(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveTopLeft)
@@ -1493,7 +1493,7 @@ pub const qrectf = struct {
     /// ` dy: f64 `
     ///
     pub fn Translate(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QRectF_Translate(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        qtc.QRectF_Translate(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#translate)
@@ -1519,7 +1519,7 @@ pub const qrectf = struct {
     /// ` dy: f64 `
     ///
     pub fn Translated(self: ?*anyopaque, dx: f64, dy: f64) QtC.QRectF {
-        return qtc.QRectF_Translated(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+        return qtc.QRectF_Translated(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#translated)
@@ -1555,7 +1555,7 @@ pub const qrectf = struct {
     /// ` y: f64 `
     ///
     pub fn MoveTo(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.QRectF_MoveTo(@ptrCast(self), @floatCast(x), @floatCast(y));
+        qtc.QRectF_MoveTo(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#moveTo)
@@ -1585,7 +1585,7 @@ pub const qrectf = struct {
     /// ` h: f64 `
     ///
     pub fn SetRect(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QRectF_SetRect(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+        qtc.QRectF_SetRect(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#getRect)
@@ -1621,7 +1621,7 @@ pub const qrectf = struct {
     /// ` y2: f64 `
     ///
     pub fn SetCoords(self: ?*anyopaque, x1: f64, y1: f64, x2: f64, y2: f64) void {
-        qtc.QRectF_SetCoords(@ptrCast(self), @floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
+        qtc.QRectF_SetCoords(@ptrCast(self), @bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#getCoords)
@@ -1657,7 +1657,7 @@ pub const qrectf = struct {
     /// ` y2: f64 `
     ///
     pub fn Adjust(self: ?*anyopaque, x1: f64, y1: f64, x2: f64, y2: f64) void {
-        qtc.QRectF_Adjust(@ptrCast(self), @floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
+        qtc.QRectF_Adjust(@ptrCast(self), @bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#adjusted)
@@ -1675,7 +1675,7 @@ pub const qrectf = struct {
     /// ` y2: f64 `
     ///
     pub fn Adjusted(self: ?*anyopaque, x1: f64, y1: f64, x2: f64, y2: f64) QtC.QRectF {
-        return qtc.QRectF_Adjusted(@ptrCast(self), @floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
+        return qtc.QRectF_Adjusted(@ptrCast(self), @bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#size)
@@ -1717,7 +1717,7 @@ pub const qrectf = struct {
     /// ` w: f64 `
     ///
     pub fn SetWidth(self: ?*anyopaque, w: f64) void {
-        qtc.QRectF_SetWidth(@ptrCast(self), @floatCast(w));
+        qtc.QRectF_SetWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setHeight)
@@ -1729,7 +1729,7 @@ pub const qrectf = struct {
     /// ` h: f64 `
     ///
     pub fn SetHeight(self: ?*anyopaque, h: f64) void {
-        qtc.QRectF_SetHeight(@ptrCast(self), @floatCast(h));
+        qtc.QRectF_SetHeight(@ptrCast(self), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#setSize)
@@ -1827,7 +1827,7 @@ pub const qrectf = struct {
     /// ` y: f64 `
     ///
     pub fn Contains3(self: ?*anyopaque, x: f64, y: f64) bool {
-        return qtc.QRectF_Contains3(@ptrCast(self), @floatCast(x), @floatCast(y));
+        return qtc.QRectF_Contains3(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#united)

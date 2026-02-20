@@ -46,7 +46,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QFormLayout_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -81,7 +81,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QFormLayout_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -108,7 +108,7 @@ pub const qformlayout = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFormLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QFormLayout_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -120,7 +120,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QFormLayout_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -136,7 +136,7 @@ pub const qformlayout = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFormLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QFormLayout_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -165,7 +165,7 @@ pub const qformlayout = struct {
     /// ` policy: qformlayout_enums.FieldGrowthPolicy `
     ///
     pub fn SetFieldGrowthPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QFormLayout_SetFieldGrowthPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QFormLayout_SetFieldGrowthPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#fieldGrowthPolicy)
@@ -191,7 +191,7 @@ pub const qformlayout = struct {
     /// ` policy: qformlayout_enums.RowWrapPolicy `
     ///
     pub fn SetRowWrapPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QFormLayout_SetRowWrapPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QFormLayout_SetRowWrapPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#rowWrapPolicy)
@@ -217,7 +217,7 @@ pub const qformlayout = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetLabelAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QFormLayout_SetLabelAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QFormLayout_SetLabelAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#labelAlignment)
@@ -243,7 +243,7 @@ pub const qformlayout = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetFormAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QFormLayout_SetFormAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QFormLayout_SetFormAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#formAlignment)
@@ -269,7 +269,7 @@ pub const qformlayout = struct {
     /// ` spacing: i32 `
     ///
     pub fn SetHorizontalSpacing(self: ?*anyopaque, spacing: i32) void {
-        qtc.QFormLayout_SetHorizontalSpacing(@ptrCast(self), @intCast(spacing));
+        qtc.QFormLayout_SetHorizontalSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#horizontalSpacing)
@@ -291,7 +291,7 @@ pub const qformlayout = struct {
     /// ` spacing: i32 `
     ///
     pub fn SetVerticalSpacing(self: ?*anyopaque, spacing: i32) void {
-        qtc.QFormLayout_SetVerticalSpacing(@ptrCast(self), @intCast(spacing));
+        qtc.QFormLayout_SetVerticalSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#verticalSpacing)
@@ -325,7 +325,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSpacing(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFormLayout_OnSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnSpacing(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#spacing)
@@ -349,7 +349,7 @@ pub const qformlayout = struct {
     /// ` spacing: i32 `
     ///
     pub fn SetSpacing(self: ?*anyopaque, spacing: i32) void {
-        qtc.QFormLayout_SetSpacing(@ptrCast(self), @intCast(spacing));
+        qtc.QFormLayout_SetSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setSpacing)
@@ -363,7 +363,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, spacing: i32) callconv(.c) void `
     ///
     pub fn OnSetSpacing(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QFormLayout_OnSetSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnSetSpacing(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setSpacing)
@@ -377,7 +377,7 @@ pub const qformlayout = struct {
     /// ` spacing: i32 `
     ///
     pub fn QBaseSetSpacing(self: ?*anyopaque, spacing: i32) void {
-        qtc.QFormLayout_QBaseSetSpacing(@ptrCast(self), @intCast(spacing));
+        qtc.QFormLayout_QBaseSetSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
@@ -481,7 +481,7 @@ pub const qformlayout = struct {
     /// ` field: QtC.QWidget `
     ///
     pub fn InsertRow(self: ?*anyopaque, row: i32, label: ?*anyopaque, field: ?*anyopaque) void {
-        qtc.QFormLayout_InsertRow(@ptrCast(self), @intCast(row), @ptrCast(label), @ptrCast(field));
+        qtc.QFormLayout_InsertRow(@ptrCast(self), @bitCast(row), @ptrCast(label), @ptrCast(field));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
@@ -497,7 +497,7 @@ pub const qformlayout = struct {
     /// ` field: QtC.QLayout `
     ///
     pub fn InsertRow2(self: ?*anyopaque, row: i32, label: ?*anyopaque, field: ?*anyopaque) void {
-        qtc.QFormLayout_InsertRow2(@ptrCast(self), @intCast(row), @ptrCast(label), @ptrCast(field));
+        qtc.QFormLayout_InsertRow2(@ptrCast(self), @bitCast(row), @ptrCast(label), @ptrCast(field));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
@@ -517,7 +517,7 @@ pub const qformlayout = struct {
             .len = labelText.len,
             .data = labelText.ptr,
         };
-        qtc.QFormLayout_InsertRow3(@ptrCast(self), @intCast(row), labelText_str, @ptrCast(field));
+        qtc.QFormLayout_InsertRow3(@ptrCast(self), @bitCast(row), labelText_str, @ptrCast(field));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
@@ -537,7 +537,7 @@ pub const qformlayout = struct {
             .len = labelText.len,
             .data = labelText.ptr,
         };
-        qtc.QFormLayout_InsertRow4(@ptrCast(self), @intCast(row), labelText_str, @ptrCast(field));
+        qtc.QFormLayout_InsertRow4(@ptrCast(self), @bitCast(row), labelText_str, @ptrCast(field));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
@@ -551,7 +551,7 @@ pub const qformlayout = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn InsertRow5(self: ?*anyopaque, row: i32, widget: ?*anyopaque) void {
-        qtc.QFormLayout_InsertRow5(@ptrCast(self), @intCast(row), @ptrCast(widget));
+        qtc.QFormLayout_InsertRow5(@ptrCast(self), @bitCast(row), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
@@ -565,7 +565,7 @@ pub const qformlayout = struct {
     /// ` layout: QtC.QLayout `
     ///
     pub fn InsertRow6(self: ?*anyopaque, row: i32, layout: ?*anyopaque) void {
-        qtc.QFormLayout_InsertRow6(@ptrCast(self), @intCast(row), @ptrCast(layout));
+        qtc.QFormLayout_InsertRow6(@ptrCast(self), @bitCast(row), @ptrCast(layout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#removeRow)
@@ -577,7 +577,7 @@ pub const qformlayout = struct {
     /// ` row: i32 `
     ///
     pub fn RemoveRow(self: ?*anyopaque, row: i32) void {
-        qtc.QFormLayout_RemoveRow(@ptrCast(self), @intCast(row));
+        qtc.QFormLayout_RemoveRow(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#removeRow)
@@ -613,7 +613,7 @@ pub const qformlayout = struct {
     /// ` row: i32 `
     ///
     pub fn TakeRow(self: ?*anyopaque, row: i32) QtC.QFormLayout__TakeRowResult {
-        return qtc.QFormLayout_TakeRow(@ptrCast(self), @intCast(row));
+        return qtc.QFormLayout_TakeRow(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeRow)
@@ -653,7 +653,7 @@ pub const qformlayout = struct {
     /// ` item: QtC.QLayoutItem `
     ///
     pub fn SetItem(self: ?*anyopaque, row: i32, role: i32, item: ?*anyopaque) void {
-        qtc.QFormLayout_SetItem(@ptrCast(self), @intCast(row), @intCast(role), @ptrCast(item));
+        qtc.QFormLayout_SetItem(@ptrCast(self), @bitCast(row), @bitCast(role), @ptrCast(item));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setWidget)
@@ -669,7 +669,7 @@ pub const qformlayout = struct {
     /// ` widget: QtC.QWidget `
     ///
     pub fn SetWidget(self: ?*anyopaque, row: i32, role: i32, widget: ?*anyopaque) void {
-        qtc.QFormLayout_SetWidget(@ptrCast(self), @intCast(row), @intCast(role), @ptrCast(widget));
+        qtc.QFormLayout_SetWidget(@ptrCast(self), @bitCast(row), @bitCast(role), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setLayout)
@@ -685,7 +685,7 @@ pub const qformlayout = struct {
     /// ` layout: QtC.QLayout `
     ///
     pub fn SetLayout(self: ?*anyopaque, row: i32, role: i32, layout: ?*anyopaque) void {
-        qtc.QFormLayout_SetLayout(@ptrCast(self), @intCast(row), @intCast(role), @ptrCast(layout));
+        qtc.QFormLayout_SetLayout(@ptrCast(self), @bitCast(row), @bitCast(role), @ptrCast(layout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setRowVisible)
@@ -699,7 +699,7 @@ pub const qformlayout = struct {
     /// ` on: bool `
     ///
     pub fn SetRowVisible(self: ?*anyopaque, row: i32, on: bool) void {
-        qtc.QFormLayout_SetRowVisible(@ptrCast(self), @intCast(row), on);
+        qtc.QFormLayout_SetRowVisible(@ptrCast(self), @bitCast(row), on);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setRowVisible)
@@ -739,7 +739,7 @@ pub const qformlayout = struct {
     /// ` row: i32 `
     ///
     pub fn IsRowVisible(self: ?*anyopaque, row: i32) bool {
-        return qtc.QFormLayout_IsRowVisible(@ptrCast(self), @intCast(row));
+        return qtc.QFormLayout_IsRowVisible(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#isRowVisible)
@@ -777,7 +777,7 @@ pub const qformlayout = struct {
     /// ` role: qformlayout_enums.ItemRole `
     ///
     pub fn ItemAt(self: ?*anyopaque, row: i32, role: i32) QtC.QLayoutItem {
-        return qtc.QFormLayout_ItemAt(@ptrCast(self), @intCast(row), @intCast(role));
+        return qtc.QFormLayout_ItemAt(@ptrCast(self), @bitCast(row), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#getItemPosition)
@@ -793,7 +793,7 @@ pub const qformlayout = struct {
     /// ` rolePtr: *qformlayout_enums.ItemRole `
     ///
     pub fn GetItemPosition(self: ?*anyopaque, index: i32, rowPtr: *i32, rolePtr: *i32) void {
-        qtc.QFormLayout_GetItemPosition(@ptrCast(self), @intCast(index), @ptrCast(rowPtr), @ptrCast(rolePtr));
+        qtc.QFormLayout_GetItemPosition(@ptrCast(self), @bitCast(index), @ptrCast(rowPtr), @ptrCast(rolePtr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#getWidgetPosition)
@@ -875,7 +875,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, item: QtC.QLayoutItem) callconv(.c) void `
     ///
     pub fn OnAddItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFormLayout_OnAddItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnAddItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addItem)
@@ -901,7 +901,7 @@ pub const qformlayout = struct {
     /// ` index: i32 `
     ///
     pub fn ItemAt2(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
-        return qtc.QFormLayout_ItemAt2(@ptrCast(self), @intCast(index));
+        return qtc.QFormLayout_ItemAt2(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
@@ -915,7 +915,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, index: i32) callconv(.c) QtC.QLayoutItem `
     ///
     pub fn OnItemAt2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QFormLayout_OnItemAt2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnItemAt2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
@@ -929,7 +929,7 @@ pub const qformlayout = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseItemAt2(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
-        return qtc.QFormLayout_QBaseItemAt2(@ptrCast(self), @intCast(index));
+        return qtc.QFormLayout_QBaseItemAt2(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
@@ -941,7 +941,7 @@ pub const qformlayout = struct {
     /// ` index: i32 `
     ///
     pub fn TakeAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
-        return qtc.QFormLayout_TakeAt(@ptrCast(self), @intCast(index));
+        return qtc.QFormLayout_TakeAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
@@ -955,7 +955,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, index: i32) callconv(.c) QtC.QLayoutItem `
     ///
     pub fn OnTakeAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QFormLayout_OnTakeAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnTakeAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
@@ -969,7 +969,7 @@ pub const qformlayout = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseTakeAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
-        return qtc.QFormLayout_QBaseTakeAt(@ptrCast(self), @intCast(index));
+        return qtc.QFormLayout_QBaseTakeAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setGeometry)
@@ -995,7 +995,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, rect: QtC.QRect) callconv(.c) void `
     ///
     pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFormLayout_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnSetGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setGeometry)
@@ -1033,7 +1033,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QFormLayout_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnMinimumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#minimumSize)
@@ -1069,7 +1069,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QFormLayout_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#sizeHint)
@@ -1105,7 +1105,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFormLayout_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnInvalidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#invalidate)
@@ -1141,7 +1141,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFormLayout_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#hasHeightForWidth)
@@ -1165,7 +1165,7 @@ pub const qformlayout = struct {
     /// ` width: i32 `
     ///
     pub fn HeightForWidth(self: ?*anyopaque, width: i32) i32 {
-        return qtc.QFormLayout_HeightForWidth(@ptrCast(self), @intCast(width));
+        return qtc.QFormLayout_HeightForWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#heightForWidth)
@@ -1179,7 +1179,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, width: i32) callconv(.c) i32 `
     ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QFormLayout_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#heightForWidth)
@@ -1193,7 +1193,7 @@ pub const qformlayout = struct {
     /// ` width: i32 `
     ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, width: i32) i32 {
-        return qtc.QFormLayout_QBaseHeightForWidth(@ptrCast(self), @intCast(width));
+        return qtc.QFormLayout_QBaseHeightForWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#expandingDirections)
@@ -1221,7 +1221,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFormLayout_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnExpandingDirections(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#expandingDirections)
@@ -1261,7 +1261,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFormLayout_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#count)
@@ -1321,7 +1321,7 @@ pub const qformlayout = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qformlayout.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1345,7 +1345,7 @@ pub const qformlayout = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QLayout_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QLayout_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QLayout
@@ -1431,7 +1431,7 @@ pub const qformlayout = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i32) bool {
-        return qtc.QLayout_SetAlignment(@ptrCast(self), @ptrCast(w), @intCast(alignment));
+        return qtc.QLayout_SetAlignment(@ptrCast(self), @ptrCast(w), @bitCast(alignment));
     }
 
     /// Inherited from QLayout
@@ -1447,7 +1447,7 @@ pub const qformlayout = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i32) bool {
-        return qtc.QLayout_SetAlignment2(@ptrCast(self), @ptrCast(l), @intCast(alignment));
+        return qtc.QLayout_SetAlignment2(@ptrCast(self), @ptrCast(l), @bitCast(alignment));
     }
 
     /// Inherited from QLayout
@@ -1461,7 +1461,7 @@ pub const qformlayout = struct {
     /// ` sizeConstraint: qlayout_enums.SizeConstraint `
     ///
     pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i32) void {
-        qtc.QLayout_SetSizeConstraint(@ptrCast(self), @intCast(sizeConstraint));
+        qtc.QLayout_SetSizeConstraint(@ptrCast(self), @bitCast(sizeConstraint));
     }
 
     /// Inherited from QLayout
@@ -1611,7 +1611,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, param1: QtC.QLayoutItem) callconv(.c) i32 `
     ///
     pub fn OnIndexOf2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QLayout_OnIndexOf2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QLayout_OnIndexOf2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1641,7 +1641,7 @@ pub const qformlayout = struct {
     /// ` w: i32 `
     ///
     pub fn TotalMinimumHeightForWidth(self: ?*anyopaque, w: i32) i32 {
-        return qtc.QLayout_TotalMinimumHeightForWidth(@ptrCast(self), @intCast(w));
+        return qtc.QLayout_TotalMinimumHeightForWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// Inherited from QLayout
@@ -1655,7 +1655,7 @@ pub const qformlayout = struct {
     /// ` w: i32 `
     ///
     pub fn TotalHeightForWidth(self: ?*anyopaque, w: i32) i32 {
-        return qtc.QLayout_TotalHeightForWidth(@ptrCast(self), @intCast(w));
+        return qtc.QLayout_TotalHeightForWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// Inherited from QLayout
@@ -1865,7 +1865,7 @@ pub const qformlayout = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1879,7 +1879,7 @@ pub const qformlayout = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1893,7 +1893,7 @@ pub const qformlayout = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1907,7 +1907,7 @@ pub const qformlayout = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2237,7 +2237,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2292,7 +2292,7 @@ pub const qformlayout = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2308,7 +2308,7 @@ pub const qformlayout = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2330,7 +2330,7 @@ pub const qformlayout = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2350,7 +2350,7 @@ pub const qformlayout = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2372,7 +2372,7 @@ pub const qformlayout = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2469,7 +2469,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -2529,7 +2529,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QRect `
     ///
     pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
-        qtc.QFormLayout_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2573,7 +2573,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QFormLayout_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnMaximumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2621,7 +2621,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, param1: QtC.QWidget) callconv(.c) i32 `
     ///
     pub fn OnIndexOf(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QFormLayout_OnIndexOf(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnIndexOf(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2665,7 +2665,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFormLayout_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnIsEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2717,7 +2717,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFormLayout_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnControlTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2737,7 +2737,7 @@ pub const qformlayout = struct {
     /// ` options: flag of qnamespace_enums.FindChildOption `
     ///
     pub fn ReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i32) QtC.QLayoutItem {
-        return qtc.QFormLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
+        return qtc.QFormLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @bitCast(options));
     }
 
     /// Inherited from QLayout
@@ -2757,7 +2757,7 @@ pub const qformlayout = struct {
     /// ` options: flag of qnamespace_enums.FindChildOption `
     ///
     pub fn QBaseReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i32) QtC.QLayoutItem {
-        return qtc.QFormLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
+        return qtc.QFormLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @bitCast(options));
     }
 
     /// Inherited from QLayout
@@ -2773,7 +2773,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem `
     ///
     pub fn OnReplaceWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QFormLayout_OnReplaceWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnReplaceWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2817,7 +2817,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QLayout `
     ///
     pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
-        qtc.QFormLayout_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2865,7 +2865,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, e: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFormLayout_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2913,7 +2913,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFormLayout_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2965,7 +2965,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFormLayout_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3013,7 +3013,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFormLayout_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3061,7 +3061,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFormLayout_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3109,7 +3109,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFormLayout_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3157,7 +3157,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFormLayout_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -3173,7 +3173,7 @@ pub const qformlayout = struct {
     /// ` param1: i32 `
     ///
     pub fn MinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QFormLayout_MinimumHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QFormLayout_MinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QLayoutItem
@@ -3189,7 +3189,7 @@ pub const qformlayout = struct {
     /// ` param1: i32 `
     ///
     pub fn QBaseMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QFormLayout_QBaseMinimumHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QFormLayout_QBaseMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QLayoutItem
@@ -3205,7 +3205,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, param1: i32) callconv(.c) i32 `
     ///
     pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QFormLayout_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnMinimumHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -3249,7 +3249,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QWidget `
     ///
     pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
-        qtc.QFormLayout_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -3293,7 +3293,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSpacerItem `
     ///
     pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
-        qtc.QFormLayout_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnSpacerItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3341,7 +3341,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, param1: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnWidgetEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFormLayout_OnWidgetEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnWidgetEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3389,7 +3389,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, l: QtC.QLayout) callconv(.c) void `
     ///
     pub fn OnAddChildLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFormLayout_OnAddChildLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnAddChildLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3437,7 +3437,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, w: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnAddChildWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFormLayout_OnAddChildWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnAddChildWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3485,7 +3485,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, layout: QtC.QLayout) callconv(.c) bool `
     ///
     pub fn OnAdoptLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFormLayout_OnAdoptLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnAdoptLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3533,7 +3533,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, param1: QtC.QRect) callconv(.c) QtC.QRect `
     ///
     pub fn OnAlignmentRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QFormLayout_OnAlignmentRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnAlignmentRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3577,7 +3577,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QFormLayout_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3621,7 +3621,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFormLayout_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3671,7 +3671,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QFormLayout_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3719,7 +3719,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFormLayout_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFormLayout_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3735,7 +3735,7 @@ pub const qformlayout = struct {
     /// ` callback: *const fn (self: QtC.QFormLayout, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#dtor.QFormLayout)

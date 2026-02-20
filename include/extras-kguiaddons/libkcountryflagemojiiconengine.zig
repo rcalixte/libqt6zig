@@ -41,7 +41,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QIconEngine `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QIconEngine) void {
-        qtc.KCountryFlagEmojiIconEngine_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCountryFlagEmojiIconEngine_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#clone)
@@ -85,7 +85,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnKey(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KCountryFlagEmojiIconEngine_OnKey(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCountryFlagEmojiIconEngine_OnKey(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#key)
@@ -121,7 +121,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i32, state: i32) void {
-        qtc.KCountryFlagEmojiIconEngine_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(mode), @intCast(state));
+        qtc.KCountryFlagEmojiIconEngine_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(mode), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#paint)
@@ -135,7 +135,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, painter: QtC.QPainter, rect: QtC.QRect, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
     ///
     pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KCountryFlagEmojiIconEngine_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCountryFlagEmojiIconEngine_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#paint)
@@ -155,7 +155,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn QBasePaint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i32, state: i32) void {
-        qtc.KCountryFlagEmojiIconEngine_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(mode), @intCast(state));
+        qtc.KCountryFlagEmojiIconEngine_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(mode), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
@@ -171,7 +171,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn Pixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QPixmap {
-        return qtc.KCountryFlagEmojiIconEngine_Pixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
+        return qtc.KCountryFlagEmojiIconEngine_Pixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
@@ -185,7 +185,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QtC.QPixmap `
     ///
     pub fn OnPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.QPixmap) void {
-        qtc.KCountryFlagEmojiIconEngine_OnPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCountryFlagEmojiIconEngine_OnPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
@@ -203,7 +203,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn QBasePixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QPixmap {
-        return qtc.KCountryFlagEmojiIconEngine_QBasePixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
+        return qtc.KCountryFlagEmojiIconEngine_QBasePixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
@@ -221,7 +221,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` scale: f64 `
     ///
     pub fn ScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32, scale: f64) QtC.QPixmap {
-        return qtc.KCountryFlagEmojiIconEngine_ScaledPixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state), @floatCast(scale));
+        return qtc.KCountryFlagEmojiIconEngine_ScaledPixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state), @bitCast(scale));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
@@ -235,7 +235,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State, scale: f64) callconv(.c) QtC.QPixmap `
     ///
     pub fn OnScaledPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, f64) callconv(.c) QtC.QPixmap) void {
-        qtc.KCountryFlagEmojiIconEngine_OnScaledPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCountryFlagEmojiIconEngine_OnScaledPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
@@ -255,7 +255,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` scale: f64 `
     ///
     pub fn QBaseScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32, scale: f64) QtC.QPixmap {
-        return qtc.KCountryFlagEmojiIconEngine_QBaseScaledPixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state), @floatCast(scale));
+        return qtc.KCountryFlagEmojiIconEngine_QBaseScaledPixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state), @bitCast(scale));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#isNull)
@@ -279,7 +279,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsNull(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KCountryFlagEmojiIconEngine_OnIsNull(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCountryFlagEmojiIconEngine_OnIsNull(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#isNull)
@@ -321,7 +321,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn ActualSize(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QSize {
-        return qtc.KCountryFlagEmojiIconEngine_ActualSize(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
+        return qtc.KCountryFlagEmojiIconEngine_ActualSize(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -341,7 +341,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn QBaseActualSize(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QSize {
-        return qtc.KCountryFlagEmojiIconEngine_QBaseActualSize(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
+        return qtc.KCountryFlagEmojiIconEngine_QBaseActualSize(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -357,7 +357,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QtC.QSize `
     ///
     pub fn OnActualSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.QSize) void {
-        qtc.KCountryFlagEmojiIconEngine_OnActualSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCountryFlagEmojiIconEngine_OnActualSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -377,7 +377,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn AddPixmap(self: ?*anyopaque, pixmap: ?*anyopaque, mode: i32, state: i32) void {
-        qtc.KCountryFlagEmojiIconEngine_AddPixmap(@ptrCast(self), @ptrCast(pixmap), @intCast(mode), @intCast(state));
+        qtc.KCountryFlagEmojiIconEngine_AddPixmap(@ptrCast(self), @ptrCast(pixmap), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -397,7 +397,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` state: qicon_enums.State `
     ///
     pub fn QBaseAddPixmap(self: ?*anyopaque, pixmap: ?*anyopaque, mode: i32, state: i32) void {
-        qtc.KCountryFlagEmojiIconEngine_QBaseAddPixmap(@ptrCast(self), @ptrCast(pixmap), @intCast(mode), @intCast(state));
+        qtc.KCountryFlagEmojiIconEngine_QBaseAddPixmap(@ptrCast(self), @ptrCast(pixmap), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -413,7 +413,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, pixmap: QtC.QPixmap, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
     ///
     pub fn OnAddPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KCountryFlagEmojiIconEngine_OnAddPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCountryFlagEmojiIconEngine_OnAddPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -439,7 +439,7 @@ pub const kcountryflagemojiiconengine = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.KCountryFlagEmojiIconEngine_AddFile(@ptrCast(self), fileName_str, @ptrCast(size), @intCast(mode), @intCast(state));
+        qtc.KCountryFlagEmojiIconEngine_AddFile(@ptrCast(self), fileName_str, @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -465,7 +465,7 @@ pub const kcountryflagemojiiconengine = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.KCountryFlagEmojiIconEngine_QBaseAddFile(@ptrCast(self), fileName_str, @ptrCast(size), @intCast(mode), @intCast(state));
+        qtc.KCountryFlagEmojiIconEngine_QBaseAddFile(@ptrCast(self), fileName_str, @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -481,7 +481,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, fileName: [*:0]const u8, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
     ///
     pub fn OnAddFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KCountryFlagEmojiIconEngine_OnAddFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCountryFlagEmojiIconEngine_OnAddFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -529,7 +529,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, in: QtC.QDataStream) callconv(.c) bool `
     ///
     pub fn OnRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCountryFlagEmojiIconEngine_OnRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCountryFlagEmojiIconEngine_OnRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -577,7 +577,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, out: QtC.QDataStream) callconv(.c) bool `
     ///
     pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCountryFlagEmojiIconEngine_OnWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCountryFlagEmojiIconEngine_OnWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -597,7 +597,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AvailableSizes(self: ?*anyopaque, mode: i32, state: i32, allocator: std.mem.Allocator) []QtC.QSize {
-        const _arr: qtc.libqt_list = qtc.KCountryFlagEmojiIconEngine_AvailableSizes(@ptrCast(self), @intCast(mode), @intCast(state));
+        const _arr: qtc.libqt_list = qtc.KCountryFlagEmojiIconEngine_AvailableSizes(@ptrCast(self), @bitCast(mode), @bitCast(state));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("kcountryflagemojiiconengine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
@@ -622,7 +622,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseAvailableSizes(self: ?*anyopaque, mode: i32, state: i32, allocator: std.mem.Allocator) []QtC.QSize {
-        const _arr: qtc.libqt_list = qtc.KCountryFlagEmojiIconEngine_QBaseAvailableSizes(@ptrCast(self), @intCast(mode), @intCast(state));
+        const _arr: qtc.libqt_list = qtc.KCountryFlagEmojiIconEngine_QBaseAvailableSizes(@ptrCast(self), @bitCast(mode), @bitCast(state));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("kcountryflagemojiiconengine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
@@ -649,7 +649,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` C ABI representation of []QtC.QSize `
     ///
     pub fn OnAvailableSizes(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.KCountryFlagEmojiIconEngine_OnAvailableSizes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCountryFlagEmojiIconEngine_OnAvailableSizes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -707,7 +707,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
     pub fn OnIconName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KCountryFlagEmojiIconEngine_OnIconName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCountryFlagEmojiIconEngine_OnIconName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -725,7 +725,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KCountryFlagEmojiIconEngine_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KCountryFlagEmojiIconEngine_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from QIconEngine
@@ -743,7 +743,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KCountryFlagEmojiIconEngine_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KCountryFlagEmojiIconEngine_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from QIconEngine
@@ -759,7 +759,7 @@ pub const kcountryflagemojiiconengine = struct {
     /// ` callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCountryFlagEmojiIconEngine_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KCountryFlagEmojiIconEngine_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#dtor.KCountryFlagEmojiIconEngine)

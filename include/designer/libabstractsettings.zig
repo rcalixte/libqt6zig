@@ -36,7 +36,7 @@ pub const qdesignersettingsinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerSettingsInterface, prefix: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnBeginGroup(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerSettingsInterface_OnBeginGroup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerSettingsInterface_OnBeginGroup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#beginGroup)
@@ -78,7 +78,7 @@ pub const qdesignersettingsinterface = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnEndGroup(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerSettingsInterface_OnEndGroup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerSettingsInterface_OnEndGroup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#endGroup)
@@ -120,7 +120,7 @@ pub const qdesignersettingsinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerSettingsInterface, key: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QDesignerSettingsInterface_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerSettingsInterface_OnContains(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#contains)
@@ -170,7 +170,7 @@ pub const qdesignersettingsinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerSettingsInterface, key: [*:0]const u8, value: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetValue(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerSettingsInterface_OnSetValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerSettingsInterface_OnSetValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#setValue)
@@ -222,7 +222,7 @@ pub const qdesignersettingsinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerSettingsInterface, key: [*:0]const u8, defaultValue: QtC.QVariant) callconv(.c) QtC.QVariant `
     ///
     pub fn OnValue(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QDesignerSettingsInterface_OnValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerSettingsInterface_OnValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#value)
@@ -272,7 +272,7 @@ pub const qdesignersettingsinterface = struct {
     /// ` callback: *const fn (self: QtC.QDesignerSettingsInterface, key: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnRemove(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerSettingsInterface_OnRemove(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerSettingsInterface_OnRemove(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#remove)

@@ -14,7 +14,7 @@ pub const qstandardpaths = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WritableLocation(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QStandardPaths_WritableLocation(@intCast(typeVal));
+        var _str = qtc.QStandardPaths_WritableLocation(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandardpaths.WritableLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -30,7 +30,7 @@ pub const qstandardpaths = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StandardLocations(typeVal: i32, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QStandardPaths_StandardLocations(@intCast(typeVal));
+        const _arr: qtc.libqt_list = qtc.QStandardPaths_StandardLocations(@bitCast(typeVal));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -63,7 +63,7 @@ pub const qstandardpaths = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        var _str = qtc.QStandardPaths_Locate(@intCast(typeVal), fileName_str);
+        var _str = qtc.QStandardPaths_Locate(@bitCast(typeVal), fileName_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandardpaths.Locate: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -85,7 +85,7 @@ pub const qstandardpaths = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QStandardPaths_LocateAll(@intCast(typeVal), fileName_str);
+        const _arr: qtc.libqt_list = qtc.QStandardPaths_LocateAll(@bitCast(typeVal), fileName_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -112,7 +112,7 @@ pub const qstandardpaths = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn DisplayName(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QStandardPaths_DisplayName(@intCast(typeVal));
+        var _str = qtc.QStandardPaths_DisplayName(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandardpaths.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -172,7 +172,7 @@ pub const qstandardpaths = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        var _str = qtc.QStandardPaths_Locate3(@intCast(typeVal), fileName_str, @intCast(options));
+        var _str = qtc.QStandardPaths_Locate3(@bitCast(typeVal), fileName_str, @bitCast(options));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandardpaths.Locate3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -196,7 +196,7 @@ pub const qstandardpaths = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QStandardPaths_LocateAll3(@intCast(typeVal), fileName_str, @intCast(options));
+        const _arr: qtc.libqt_list = qtc.QStandardPaths_LocateAll3(@bitCast(typeVal), fileName_str, @bitCast(options));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {

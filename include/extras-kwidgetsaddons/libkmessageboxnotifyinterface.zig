@@ -27,7 +27,7 @@ pub const kmessageboxnotifyinterface = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KMessageBoxNotifyInterface_SendNotification(@ptrCast(self), @intCast(notificationType), message_str, @ptrCast(parent));
+        qtc.KMessageBoxNotifyInterface_SendNotification(@ptrCast(self), @bitCast(notificationType), message_str, @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxnotifyinterface.html#sendNotification)
@@ -41,7 +41,7 @@ pub const kmessageboxnotifyinterface = struct {
     /// ` callback: *const fn (self: QtC.KMessageBoxNotifyInterface, notificationType: qmessagebox_enums.Icon, message: [*:0]const u8, parent: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnSendNotification(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.KMessageBoxNotifyInterface_OnSendNotification(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KMessageBoxNotifyInterface_OnSendNotification(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxnotifyinterface.html#sendNotification)
@@ -63,7 +63,7 @@ pub const kmessageboxnotifyinterface = struct {
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KMessageBoxNotifyInterface_QBaseSendNotification(@ptrCast(self), @intCast(notificationType), message_str, @ptrCast(parent));
+        qtc.KMessageBoxNotifyInterface_QBaseSendNotification(@ptrCast(self), @bitCast(notificationType), message_str, @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxnotifyinterface.html#operator-eq)

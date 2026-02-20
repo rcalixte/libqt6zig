@@ -39,7 +39,7 @@ pub const qsize = struct {
     /// ` h: i32 `
     ///
     pub fn New4(w: i32, h: i32) QtC.QSize {
-        return qtc.QSize_new4(@intCast(w), @intCast(h));
+        return qtc.QSize_new4(@bitCast(w), @bitCast(h));
     }
 
     /// New5 constructs a new QSize object.
@@ -135,7 +135,7 @@ pub const qsize = struct {
     /// ` w: i32 `
     ///
     pub fn SetWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QSize_SetWidth(@ptrCast(self), @intCast(w));
+        qtc.QSize_SetWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#setHeight)
@@ -147,7 +147,7 @@ pub const qsize = struct {
     /// ` h: i32 `
     ///
     pub fn SetHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QSize_SetHeight(@ptrCast(self), @intCast(h));
+        qtc.QSize_SetHeight(@ptrCast(self), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#transpose)
@@ -183,7 +183,7 @@ pub const qsize = struct {
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
     pub fn Scale(self: ?*anyopaque, w: i32, h: i32, mode: i32) void {
-        qtc.QSize_Scale(@ptrCast(self), @intCast(w), @intCast(h), @intCast(mode));
+        qtc.QSize_Scale(@ptrCast(self), @bitCast(w), @bitCast(h), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#scale)
@@ -197,7 +197,7 @@ pub const qsize = struct {
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
     pub fn Scale2(self: ?*anyopaque, s: ?*anyopaque, mode: i32) void {
-        qtc.QSize_Scale2(@ptrCast(self), @ptrCast(s), @intCast(mode));
+        qtc.QSize_Scale2(@ptrCast(self), @ptrCast(s), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#scaled)
@@ -213,7 +213,7 @@ pub const qsize = struct {
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
     pub fn Scaled(self: ?*anyopaque, w: i32, h: i32, mode: i32) QtC.QSize {
-        return qtc.QSize_Scaled(@ptrCast(self), @intCast(w), @intCast(h), @intCast(mode));
+        return qtc.QSize_Scaled(@ptrCast(self), @bitCast(w), @bitCast(h), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#scaled)
@@ -227,7 +227,7 @@ pub const qsize = struct {
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
     pub fn Scaled2(self: ?*anyopaque, s: ?*anyopaque, mode: i32) QtC.QSize {
-        return qtc.QSize_Scaled2(@ptrCast(self), @ptrCast(s), @intCast(mode));
+        return qtc.QSize_Scaled2(@ptrCast(self), @ptrCast(s), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#expandedTo)
@@ -331,7 +331,7 @@ pub const qsize = struct {
     /// ` c: f64 `
     ///
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, c: f64) QtC.QSize {
-        return qtc.QSize_OperatorMultiplyAssign(@ptrCast(self), @floatCast(c));
+        return qtc.QSize_OperatorMultiplyAssign(@ptrCast(self), @bitCast(c));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#operator-2f-eq)
@@ -343,7 +343,7 @@ pub const qsize = struct {
     /// ` c: f64 `
     ///
     pub fn OperatorDivideAssign(self: ?*anyopaque, c: f64) QtC.QSize {
-        return qtc.QSize_OperatorDivideAssign(@ptrCast(self), @floatCast(c));
+        return qtc.QSize_OperatorDivideAssign(@ptrCast(self), @bitCast(c));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#toSizeF)
@@ -416,7 +416,7 @@ pub const qsizef = struct {
     /// ` h: f64 `
     ///
     pub fn New5(w: f64, h: f64) QtC.QSizeF {
-        return qtc.QSizeF_new5(@floatCast(w), @floatCast(h));
+        return qtc.QSizeF_new5(@bitCast(w), @bitCast(h));
     }
 
     /// New6 constructs a new QSizeF object.
@@ -512,7 +512,7 @@ pub const qsizef = struct {
     /// ` w: f64 `
     ///
     pub fn SetWidth(self: ?*anyopaque, w: f64) void {
-        qtc.QSizeF_SetWidth(@ptrCast(self), @floatCast(w));
+        qtc.QSizeF_SetWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#setHeight)
@@ -524,7 +524,7 @@ pub const qsizef = struct {
     /// ` h: f64 `
     ///
     pub fn SetHeight(self: ?*anyopaque, h: f64) void {
-        qtc.QSizeF_SetHeight(@ptrCast(self), @floatCast(h));
+        qtc.QSizeF_SetHeight(@ptrCast(self), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#transpose)
@@ -560,7 +560,7 @@ pub const qsizef = struct {
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
     pub fn Scale(self: ?*anyopaque, w: f64, h: f64, mode: i32) void {
-        qtc.QSizeF_Scale(@ptrCast(self), @floatCast(w), @floatCast(h), @intCast(mode));
+        qtc.QSizeF_Scale(@ptrCast(self), @bitCast(w), @bitCast(h), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#scale)
@@ -574,7 +574,7 @@ pub const qsizef = struct {
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
     pub fn Scale2(self: ?*anyopaque, s: ?*anyopaque, mode: i32) void {
-        qtc.QSizeF_Scale2(@ptrCast(self), @ptrCast(s), @intCast(mode));
+        qtc.QSizeF_Scale2(@ptrCast(self), @ptrCast(s), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#scaled)
@@ -590,7 +590,7 @@ pub const qsizef = struct {
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
     pub fn Scaled(self: ?*anyopaque, w: f64, h: f64, mode: i32) QtC.QSizeF {
-        return qtc.QSizeF_Scaled(@ptrCast(self), @floatCast(w), @floatCast(h), @intCast(mode));
+        return qtc.QSizeF_Scaled(@ptrCast(self), @bitCast(w), @bitCast(h), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#scaled)
@@ -604,7 +604,7 @@ pub const qsizef = struct {
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
     pub fn Scaled2(self: ?*anyopaque, s: ?*anyopaque, mode: i32) QtC.QSizeF {
-        return qtc.QSizeF_Scaled2(@ptrCast(self), @ptrCast(s), @intCast(mode));
+        return qtc.QSizeF_Scaled2(@ptrCast(self), @ptrCast(s), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#expandedTo)
@@ -708,7 +708,7 @@ pub const qsizef = struct {
     /// ` c: f64 `
     ///
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, c: f64) QtC.QSizeF {
-        return qtc.QSizeF_OperatorMultiplyAssign(@ptrCast(self), @floatCast(c));
+        return qtc.QSizeF_OperatorMultiplyAssign(@ptrCast(self), @bitCast(c));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#operator-2f-eq)
@@ -720,7 +720,7 @@ pub const qsizef = struct {
     /// ` c: f64 `
     ///
     pub fn OperatorDivideAssign(self: ?*anyopaque, c: f64) QtC.QSizeF {
-        return qtc.QSizeF_OperatorDivideAssign(@ptrCast(self), @floatCast(c));
+        return qtc.QSizeF_OperatorDivideAssign(@ptrCast(self), @bitCast(c));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#toSize)

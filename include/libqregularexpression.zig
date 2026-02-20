@@ -50,7 +50,7 @@ pub const qregularexpression = struct {
             .data = pattern.ptr,
         };
 
-        return qtc.QRegularExpression_new4(pattern_str, @intCast(options));
+        return qtc.QRegularExpression_new4(pattern_str, @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpression.html#patternOptions)
@@ -76,7 +76,7 @@ pub const qregularexpression = struct {
     /// ` options: flag of qregularexpression_enums.PatternOption `
     ///
     pub fn SetPatternOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QRegularExpression_SetPatternOptions(@ptrCast(self), @intCast(options));
+        qtc.QRegularExpression_SetPatternOptions(@ptrCast(self), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpression.html#operator-eq)
@@ -325,7 +325,7 @@ pub const qregularexpression = struct {
             .len = subject.len,
             .data = subject.ptr,
         };
-        return qtc.QRegularExpression_Match22(@ptrCast(self), subject_str, @intCast(offset));
+        return qtc.QRegularExpression_Match22(@ptrCast(self), subject_str, @bitCast(offset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpression.html#match)
@@ -345,7 +345,7 @@ pub const qregularexpression = struct {
             .len = subject.len,
             .data = subject.ptr,
         };
-        return qtc.QRegularExpression_Match3(@ptrCast(self), subject_str, @intCast(offset), @intCast(matchType));
+        return qtc.QRegularExpression_Match3(@ptrCast(self), subject_str, @bitCast(offset), @bitCast(matchType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpression.html#match)
@@ -367,7 +367,7 @@ pub const qregularexpression = struct {
             .len = subject.len,
             .data = subject.ptr,
         };
-        return qtc.QRegularExpression_Match4(@ptrCast(self), subject_str, @intCast(offset), @intCast(matchType), @intCast(matchOptions));
+        return qtc.QRegularExpression_Match4(@ptrCast(self), subject_str, @bitCast(offset), @bitCast(matchType), @bitCast(matchOptions));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpression.html#globalMatch)
@@ -385,7 +385,7 @@ pub const qregularexpression = struct {
             .len = subject.len,
             .data = subject.ptr,
         };
-        return qtc.QRegularExpression_GlobalMatch22(@ptrCast(self), subject_str, @intCast(offset));
+        return qtc.QRegularExpression_GlobalMatch22(@ptrCast(self), subject_str, @bitCast(offset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpression.html#globalMatch)
@@ -405,7 +405,7 @@ pub const qregularexpression = struct {
             .len = subject.len,
             .data = subject.ptr,
         };
-        return qtc.QRegularExpression_GlobalMatch3(@ptrCast(self), subject_str, @intCast(offset), @intCast(matchType));
+        return qtc.QRegularExpression_GlobalMatch3(@ptrCast(self), subject_str, @bitCast(offset), @bitCast(matchType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpression.html#globalMatch)
@@ -427,7 +427,7 @@ pub const qregularexpression = struct {
             .len = subject.len,
             .data = subject.ptr,
         };
-        return qtc.QRegularExpression_GlobalMatch4(@ptrCast(self), subject_str, @intCast(offset), @intCast(matchType), @intCast(matchOptions));
+        return qtc.QRegularExpression_GlobalMatch4(@ptrCast(self), subject_str, @bitCast(offset), @bitCast(matchType), @bitCast(matchOptions));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpression.html#wildcardToRegularExpression)
@@ -445,7 +445,7 @@ pub const qregularexpression = struct {
             .len = str.len,
             .data = str.ptr,
         };
-        var _str = qtc.QRegularExpression_WildcardToRegularExpression22(str_str, @intCast(options));
+        var _str = qtc.QRegularExpression_WildcardToRegularExpression22(str_str, @bitCast(options));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qregularexpression.WildcardToRegularExpression22: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -606,7 +606,7 @@ pub const qregularexpressionmatch = struct {
     /// ` nth: i32 `
     ///
     pub fn HasCaptured2(self: ?*anyopaque, nth: i32) bool {
-        return qtc.QRegularExpressionMatch_HasCaptured2(@ptrCast(self), @intCast(nth));
+        return qtc.QRegularExpressionMatch_HasCaptured2(@ptrCast(self), @bitCast(nth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionmatch.html#captured)
@@ -747,7 +747,7 @@ pub const qregularexpressionmatch = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Captured1(self: ?*anyopaque, nth: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QRegularExpressionMatch_Captured1(@ptrCast(self), @intCast(nth));
+        var _str = qtc.QRegularExpressionMatch_Captured1(@ptrCast(self), @bitCast(nth));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qregularexpressionmatch.Captured1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -763,7 +763,7 @@ pub const qregularexpressionmatch = struct {
     /// ` nth: i32 `
     ///
     pub fn CapturedStart1(self: ?*anyopaque, nth: i32) i64 {
-        return qtc.QRegularExpressionMatch_CapturedStart1(@ptrCast(self), @intCast(nth));
+        return qtc.QRegularExpressionMatch_CapturedStart1(@ptrCast(self), @bitCast(nth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionmatch.html#capturedLength)
@@ -775,7 +775,7 @@ pub const qregularexpressionmatch = struct {
     /// ` nth: i32 `
     ///
     pub fn CapturedLength1(self: ?*anyopaque, nth: i32) i64 {
-        return qtc.QRegularExpressionMatch_CapturedLength1(@ptrCast(self), @intCast(nth));
+        return qtc.QRegularExpressionMatch_CapturedLength1(@ptrCast(self), @bitCast(nth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionmatch.html#capturedEnd)
@@ -787,7 +787,7 @@ pub const qregularexpressionmatch = struct {
     /// ` nth: i32 `
     ///
     pub fn CapturedEnd1(self: ?*anyopaque, nth: i32) i64 {
-        return qtc.QRegularExpressionMatch_CapturedEnd1(@ptrCast(self), @intCast(nth));
+        return qtc.QRegularExpressionMatch_CapturedEnd1(@ptrCast(self), @bitCast(nth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionmatch.html#dtor.QRegularExpressionMatch)

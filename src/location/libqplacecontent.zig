@@ -28,7 +28,7 @@ pub const qplacecontent = struct {
     /// ` typeVal: qplacecontent_enums.Type `
     ///
     pub fn New3(typeVal: i32) QtC.QPlaceContent {
-        return qtc.QPlaceContent_new3(@intCast(typeVal));
+        return qtc.QPlaceContent_new3(@bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#operator-eq)
@@ -133,7 +133,7 @@ pub const qplacecontent = struct {
     /// ` tag: qplacecontent_enums.DataTag `
     ///
     pub fn Value(self: ?*anyopaque, tag: i32) QtC.QVariant {
-        return qtc.QPlaceContent_Value(@ptrCast(self), @intCast(tag));
+        return qtc.QPlaceContent_Value(@ptrCast(self), @bitCast(tag));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#setValue)
@@ -147,7 +147,7 @@ pub const qplacecontent = struct {
     /// ` param2: QtC.QVariant `
     ///
     pub fn SetValue(self: ?*anyopaque, tag: i32, param2: ?*anyopaque) void {
-        qtc.QPlaceContent_SetValue(@ptrCast(self), @intCast(tag), @ptrCast(param2));
+        qtc.QPlaceContent_SetValue(@ptrCast(self), @bitCast(tag), @ptrCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#supplier)

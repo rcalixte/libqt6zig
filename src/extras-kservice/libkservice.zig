@@ -681,7 +681,7 @@ pub const kservice = struct {
     /// ` t: ksycocatype_enums.KSycocaType `
     ///
     pub fn IsType(self: ?*anyopaque, t: i32) bool {
-        return qtc.KSycocaEntry_IsType(@ptrCast(self), @intCast(t));
+        return qtc.KSycocaEntry_IsType(@ptrCast(self), @bitCast(t));
     }
 
     /// Inherited from KSycocaEntry

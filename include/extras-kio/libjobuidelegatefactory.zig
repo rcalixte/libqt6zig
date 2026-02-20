@@ -25,7 +25,7 @@ pub const kio__jobuidelegatefactory = struct {
     /// ` window: QtC.QWidget `
     ///
     pub fn CreateDelegate2(self: ?*anyopaque, flags: i32, window: ?*anyopaque) QtC.KJobUiDelegate {
-        return qtc.KIO__JobUiDelegateFactory_CreateDelegate2(@ptrCast(self), @intCast(flags), @ptrCast(window));
+        return qtc.KIO__JobUiDelegateFactory_CreateDelegate2(@ptrCast(self), @bitCast(flags), @ptrCast(window));
     }
 };
 
@@ -46,7 +46,7 @@ pub const kio = struct {
     /// ` param2: QtC.QWidget `
     ///
     pub fn CreateDefaultJobUiDelegate2(param1: i32, param2: ?*anyopaque) QtC.KJobUiDelegate {
-        return qtc.KIO_CreateDefaultJobUiDelegate2(@intCast(param1), @ptrCast(param2));
+        return qtc.KIO_CreateDefaultJobUiDelegate2(@bitCast(param1), @ptrCast(param2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#defaultJobUiDelegateFactory)

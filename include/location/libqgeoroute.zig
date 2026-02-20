@@ -180,7 +180,7 @@ pub const qgeoroute = struct {
     /// ` secs: i32 `
     ///
     pub fn SetTravelTime(self: ?*anyopaque, secs: i32) void {
-        qtc.QGeoRoute_SetTravelTime(@ptrCast(self), @intCast(secs));
+        qtc.QGeoRoute_SetTravelTime(@ptrCast(self), @bitCast(secs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroute.html#travelTime)
@@ -202,7 +202,7 @@ pub const qgeoroute = struct {
     /// ` distance: f64 `
     ///
     pub fn SetDistance(self: ?*anyopaque, distance: f64) void {
-        qtc.QGeoRoute_SetDistance(@ptrCast(self), @floatCast(distance));
+        qtc.QGeoRoute_SetDistance(@ptrCast(self), @bitCast(distance));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroute.html#distance)
@@ -224,7 +224,7 @@ pub const qgeoroute = struct {
     /// ` mode: qgeorouterequest_enums.TravelMode `
     ///
     pub fn SetTravelMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QGeoRoute_SetTravelMode(@ptrCast(self), @intCast(mode));
+        qtc.QGeoRoute_SetTravelMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroute.html#travelMode)
@@ -382,7 +382,7 @@ pub const qgeoroute = struct {
     /// ` idx: i32 `
     ///
     pub fn SetLegIndex(self: ?*anyopaque, idx: i32) void {
-        qtc.QGeoRoute_SetLegIndex(@ptrCast(self), @intCast(idx));
+        qtc.QGeoRoute_SetLegIndex(@ptrCast(self), @bitCast(idx));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroute.html#legIndex)

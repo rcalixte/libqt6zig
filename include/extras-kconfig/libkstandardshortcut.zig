@@ -14,7 +14,7 @@ pub const kstandardshortcut = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Shortcut(param1: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
-        const _arr: qtc.libqt_list = qtc.KStandardShortcut_Shortcut(@intCast(param1));
+        const _arr: qtc.libqt_list = qtc.KStandardShortcut_Shortcut(@bitCast(param1));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("kstandardshortcut.Shortcut: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -31,7 +31,7 @@ pub const kstandardshortcut = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Name(param1: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KStandardShortcut_Name(@intCast(param1));
+        var _str = qtc.KStandardShortcut_Name(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardshortcut.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -47,7 +47,7 @@ pub const kstandardshortcut = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Label(param1: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KStandardShortcut_Label(@intCast(param1));
+        var _str = qtc.KStandardShortcut_Label(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardshortcut.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -63,7 +63,7 @@ pub const kstandardshortcut = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WhatsThis(param1: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KStandardShortcut_WhatsThis(@intCast(param1));
+        var _str = qtc.KStandardShortcut_WhatsThis(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardshortcut.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -111,7 +111,7 @@ pub const kstandardshortcut = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn HardcodedDefaultShortcut(param1: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
-        const _arr: qtc.libqt_list = qtc.KStandardShortcut_HardcodedDefaultShortcut(@intCast(param1));
+        const _arr: qtc.libqt_list = qtc.KStandardShortcut_HardcodedDefaultShortcut(@bitCast(param1));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("kstandardshortcut.HardcodedDefaultShortcut: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -132,7 +132,7 @@ pub const kstandardshortcut = struct {
             .len = param2.len,
             .data = @ptrCast(param2.ptr),
         };
-        qtc.KStandardShortcut_SaveShortcut(@intCast(param1), param2_list);
+        qtc.KStandardShortcut_SaveShortcut(@bitCast(param1), param2_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#category)
@@ -146,7 +146,7 @@ pub const kstandardshortcut = struct {
     /// ` kstandardshortcut_enums.Category `
     ///
     pub fn Category(param1: i32) i32 {
-        return qtc.KStandardShortcut_Category(@intCast(param1));
+        return qtc.KStandardShortcut_Category(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#open)

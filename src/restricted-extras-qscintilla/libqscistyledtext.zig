@@ -18,7 +18,7 @@ pub const qscistyledtext = struct {
             .data = text.ptr,
         };
 
-        return qtc.QsciStyledText_new(text_str, @intCast(style));
+        return qtc.QsciStyledText_new(text_str, @bitCast(style));
     }
 
     /// New2 constructs a new QsciStyledText object.

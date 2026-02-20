@@ -12,7 +12,7 @@ pub const qmessageauthenticationcode = struct {
     /// ` method: qcryptographichash_enums.Algorithm `
     ///
     pub fn New(method: i32) QtC.QMessageAuthenticationCode {
-        return qtc.QMessageAuthenticationCode_new(@intCast(method));
+        return qtc.QMessageAuthenticationCode_new(@bitCast(method));
     }
 
     /// New2 constructs a new QMessageAuthenticationCode object.
@@ -29,7 +29,7 @@ pub const qmessageauthenticationcode = struct {
             .data = key.ptr,
         };
 
-        return qtc.QMessageAuthenticationCode_new2(@intCast(method), key_str);
+        return qtc.QMessageAuthenticationCode_new2(@bitCast(method), key_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#swap)
@@ -82,7 +82,7 @@ pub const qmessageauthenticationcode = struct {
     ///
     pub fn AddData(self: ?*anyopaque, data: [:0]const u8, length: i64) void {
         const data_Cstring = data.ptr;
-        qtc.QMessageAuthenticationCode_AddData(@ptrCast(self), data_Cstring, @intCast(length));
+        qtc.QMessageAuthenticationCode_AddData(@ptrCast(self), data_Cstring, @bitCast(length));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
@@ -166,7 +166,7 @@ pub const qmessageauthenticationcode = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QMessageAuthenticationCode_Hash(message_str, key_str, @intCast(method));
+        var _bytearray: qtc.libqt_string = qtc.QMessageAuthenticationCode_Hash(message_str, key_str, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmessageauthenticationcode.Hash: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -200,7 +200,7 @@ pub const qmessageauthenticationcode = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QMessageAuthenticationCode_HashInto(buffer_list, message_str, key_str, @intCast(method));
+        var _bytearray: qtc.libqt_string = qtc.QMessageAuthenticationCode_HashInto(buffer_list, message_str, key_str, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmessageauthenticationcode.HashInto: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -234,7 +234,7 @@ pub const qmessageauthenticationcode = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QMessageAuthenticationCode_HashInto2(buffer_list, message_str, key_str, @intCast(method));
+        var _bytearray: qtc.libqt_string = qtc.QMessageAuthenticationCode_HashInto2(buffer_list, message_str, key_str, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmessageauthenticationcode.HashInto2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -276,7 +276,7 @@ pub const qmessageauthenticationcode = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QMessageAuthenticationCode_HashInto4(buffer_list, messageParts_list, key_str, @intCast(method));
+        var _bytearray: qtc.libqt_string = qtc.QMessageAuthenticationCode_HashInto4(buffer_list, messageParts_list, key_str, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmessageauthenticationcode.HashInto4: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -318,7 +318,7 @@ pub const qmessageauthenticationcode = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QMessageAuthenticationCode_HashInto5(buffer_list, messageParts_list, key_str, @intCast(method));
+        var _bytearray: qtc.libqt_string = qtc.QMessageAuthenticationCode_HashInto5(buffer_list, messageParts_list, key_str, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmessageauthenticationcode.HashInto5: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

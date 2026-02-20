@@ -43,7 +43,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KLocalizedTranslator_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -78,7 +78,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KLocalizedTranslator_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -105,7 +105,7 @@ pub const klocalizedtranslator = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KLocalizedTranslator_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KLocalizedTranslator_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -117,7 +117,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KLocalizedTranslator_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -133,7 +133,7 @@ pub const klocalizedtranslator = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KLocalizedTranslator_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KLocalizedTranslator_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -173,7 +173,7 @@ pub const klocalizedtranslator = struct {
         const context_Cstring = context.ptr;
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
-        var _str = qtc.KLocalizedTranslator_Translate(@ptrCast(self), context_Cstring, sourceText_Cstring, disambiguation_Cstring, @intCast(n));
+        var _str = qtc.KLocalizedTranslator_Translate(@ptrCast(self), context_Cstring, sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedtranslator.Translate: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -193,7 +193,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator, context: [*:0]const u8, sourceText: [*:0]const u8, disambiguation: [*:0]const u8, n: i32) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnTranslate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
-        qtc.KLocalizedTranslator_OnTranslate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnTranslate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedtranslator.html#translate)
@@ -218,7 +218,7 @@ pub const klocalizedtranslator = struct {
         const context_Cstring = context.ptr;
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
-        var _str = qtc.KLocalizedTranslator_QBaseTranslate(@ptrCast(self), context_Cstring, sourceText_Cstring, disambiguation_Cstring, @intCast(n));
+        var _str = qtc.KLocalizedTranslator_QBaseTranslate(@ptrCast(self), context_Cstring, sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedtranslator.Translate: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -308,7 +308,7 @@ pub const klocalizedtranslator = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedtranslator.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -402,7 +402,7 @@ pub const klocalizedtranslator = struct {
     /// ` lenVal: i32 `
     ///
     pub fn Load3(self: ?*anyopaque, data: *const u8, lenVal: i32) bool {
-        return qtc.QTranslator_Load3(@ptrCast(self), @ptrCast(data), @intCast(lenVal));
+        return qtc.QTranslator_Load3(@ptrCast(self), @ptrCast(data), @bitCast(lenVal));
     }
 
     /// Inherited from QTranslator
@@ -610,7 +610,7 @@ pub const klocalizedtranslator = struct {
             .len = directory.len,
             .data = directory.ptr,
         };
-        return qtc.QTranslator_Load34(@ptrCast(self), @ptrCast(data), @intCast(lenVal), directory_str);
+        return qtc.QTranslator_Load34(@ptrCast(self), @ptrCast(data), @bitCast(lenVal), directory_str);
     }
 
     /// Inherited from QObject
@@ -744,7 +744,7 @@ pub const klocalizedtranslator = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -758,7 +758,7 @@ pub const klocalizedtranslator = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -772,7 +772,7 @@ pub const klocalizedtranslator = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -786,7 +786,7 @@ pub const klocalizedtranslator = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1116,7 +1116,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1171,7 +1171,7 @@ pub const klocalizedtranslator = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1187,7 +1187,7 @@ pub const klocalizedtranslator = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1209,7 +1209,7 @@ pub const klocalizedtranslator = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1229,7 +1229,7 @@ pub const klocalizedtranslator = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1251,7 +1251,7 @@ pub const klocalizedtranslator = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1348,7 +1348,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTranslator
@@ -1392,7 +1392,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KLocalizedTranslator_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnIsEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1440,7 +1440,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KLocalizedTranslator_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1492,7 +1492,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KLocalizedTranslator_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1540,7 +1540,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLocalizedTranslator_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1588,7 +1588,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLocalizedTranslator_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1636,7 +1636,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLocalizedTranslator_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1684,7 +1684,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLocalizedTranslator_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1732,7 +1732,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLocalizedTranslator_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1776,7 +1776,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KLocalizedTranslator_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1820,7 +1820,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KLocalizedTranslator_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1870,7 +1870,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KLocalizedTranslator_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1918,7 +1918,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KLocalizedTranslator_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KLocalizedTranslator_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1934,7 +1934,7 @@ pub const klocalizedtranslator = struct {
     /// ` callback: *const fn (self: QtC.KLocalizedTranslator, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalizedtranslator.html#dtor.KLocalizedTranslator)

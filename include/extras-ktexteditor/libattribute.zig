@@ -29,7 +29,7 @@ pub const ktexteditor__attribute = struct {
             .data = name.ptr,
         };
 
-        return qtc.KTextEditor__Attribute_new2(name_str, @intCast(style));
+        return qtc.KTextEditor__Attribute_new2(name_str, @bitCast(style));
     }
 
     /// New3 constructs a new KTextEditor::Attribute object.
@@ -97,7 +97,7 @@ pub const ktexteditor__attribute = struct {
     /// ` style: theme_enums.TextStyle `
     ///
     pub fn SetDefaultStyle(self: ?*anyopaque, style: i32) void {
-        qtc.KTextEditor__Attribute_SetDefaultStyle(@ptrCast(self), @intCast(style));
+        qtc.KTextEditor__Attribute_SetDefaultStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#skipSpellChecking)
@@ -441,7 +441,7 @@ pub const ktexteditor__attribute = struct {
     /// ` size: f64 `
     ///
     pub fn SetFontPointSize(self: ?*anyopaque, size: f64) void {
-        qtc.QTextCharFormat_SetFontPointSize(@ptrCast(self), @floatCast(size));
+        qtc.QTextCharFormat_SetFontPointSize(@ptrCast(self), @bitCast(size));
     }
 
     /// Inherited from QTextCharFormat
@@ -467,7 +467,7 @@ pub const ktexteditor__attribute = struct {
     /// ` weight: i32 `
     ///
     pub fn SetFontWeight(self: ?*anyopaque, weight: i32) void {
-        qtc.QTextCharFormat_SetFontWeight(@ptrCast(self), @intCast(weight));
+        qtc.QTextCharFormat_SetFontWeight(@ptrCast(self), @bitCast(weight));
     }
 
     /// Inherited from QTextCharFormat
@@ -519,7 +519,7 @@ pub const ktexteditor__attribute = struct {
     /// ` capitalization: qfont_enums.Capitalization `
     ///
     pub fn SetFontCapitalization(self: ?*anyopaque, capitalization: i32) void {
-        qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @intCast(capitalization));
+        qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @bitCast(capitalization));
     }
 
     /// Inherited from QTextCharFormat
@@ -549,7 +549,7 @@ pub const ktexteditor__attribute = struct {
     /// ` letterSpacingType: qfont_enums.SpacingType `
     ///
     pub fn SetFontLetterSpacingType(self: ?*anyopaque, letterSpacingType: i32) void {
-        qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @intCast(letterSpacingType));
+        qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @bitCast(letterSpacingType));
     }
 
     /// Inherited from QTextCharFormat
@@ -579,7 +579,7 @@ pub const ktexteditor__attribute = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetFontLetterSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// Inherited from QTextCharFormat
@@ -605,7 +605,7 @@ pub const ktexteditor__attribute = struct {
     /// ` spacing: f64 `
     ///
     pub fn SetFontWordSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QTextCharFormat_SetFontWordSpacing(@ptrCast(self), @floatCast(spacing));
+        qtc.QTextCharFormat_SetFontWordSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// Inherited from QTextCharFormat
@@ -761,7 +761,7 @@ pub const ktexteditor__attribute = struct {
     /// ` factor: i32 `
     ///
     pub fn SetFontStretch(self: ?*anyopaque, factor: i32) void {
-        qtc.QTextCharFormat_SetFontStretch(@ptrCast(self), @intCast(factor));
+        qtc.QTextCharFormat_SetFontStretch(@ptrCast(self), @bitCast(factor));
     }
 
     /// Inherited from QTextCharFormat
@@ -787,7 +787,7 @@ pub const ktexteditor__attribute = struct {
     /// ` hint: qfont_enums.StyleHint `
     ///
     pub fn SetFontStyleHint(self: ?*anyopaque, hint: i32) void {
-        qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @intCast(hint));
+        qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @bitCast(hint));
     }
 
     /// Inherited from QTextCharFormat
@@ -801,7 +801,7 @@ pub const ktexteditor__attribute = struct {
     /// ` strategy: qfont_enums.StyleStrategy `
     ///
     pub fn SetFontStyleStrategy(self: ?*anyopaque, strategy: i32) void {
-        qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @intCast(strategy));
+        qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @bitCast(strategy));
     }
 
     /// Inherited from QTextCharFormat
@@ -847,7 +847,7 @@ pub const ktexteditor__attribute = struct {
     /// ` hintingPreference: qfont_enums.HintingPreference `
     ///
     pub fn SetFontHintingPreference(self: ?*anyopaque, hintingPreference: i32) void {
-        qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @intCast(hintingPreference));
+        qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @bitCast(hintingPreference));
     }
 
     /// Inherited from QTextCharFormat
@@ -903,7 +903,7 @@ pub const ktexteditor__attribute = struct {
     /// ` style: qtextformat_enums.UnderlineStyle `
     ///
     pub fn SetUnderlineStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @intCast(style));
+        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QTextCharFormat
@@ -933,7 +933,7 @@ pub const ktexteditor__attribute = struct {
     /// ` alignment: qtextformat_enums.VerticalAlignment `
     ///
     pub fn SetVerticalAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// Inherited from QTextCharFormat
@@ -1025,7 +1025,7 @@ pub const ktexteditor__attribute = struct {
     /// ` baseline: f64 `
     ///
     pub fn SetSuperScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self), @bitCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
@@ -1051,7 +1051,7 @@ pub const ktexteditor__attribute = struct {
     /// ` baseline: f64 `
     ///
     pub fn SetSubScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self), @bitCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
@@ -1077,7 +1077,7 @@ pub const ktexteditor__attribute = struct {
     /// ` baseline: f64 `
     ///
     pub fn SetBaselineOffset(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextCharFormat_SetBaselineOffset(@ptrCast(self), @floatCast(baseline));
+        qtc.QTextCharFormat_SetBaselineOffset(@ptrCast(self), @bitCast(baseline));
     }
 
     /// Inherited from QTextCharFormat
@@ -1222,7 +1222,7 @@ pub const ktexteditor__attribute = struct {
     /// ` tableCellRowSpan: i32 `
     ///
     pub fn SetTableCellRowSpan(self: ?*anyopaque, tableCellRowSpan: i32) void {
-        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self), @intCast(tableCellRowSpan));
+        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self), @bitCast(tableCellRowSpan));
     }
 
     /// Inherited from QTextCharFormat
@@ -1248,7 +1248,7 @@ pub const ktexteditor__attribute = struct {
     /// ` tableCellColumnSpan: i32 `
     ///
     pub fn SetTableCellColumnSpan(self: ?*anyopaque, tableCellColumnSpan: i32) void {
-        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self), @intCast(tableCellColumnSpan));
+        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self), @bitCast(tableCellColumnSpan));
     }
 
     /// Inherited from QTextCharFormat
@@ -1276,7 +1276,7 @@ pub const ktexteditor__attribute = struct {
     /// ` behavior: qtextformat_enums.FontPropertiesInheritanceBehavior `
     ///
     pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, behavior: i32) void {
-        qtc.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @intCast(behavior));
+        qtc.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @bitCast(behavior));
     }
 
     /// Inherited from QTextCharFormat
@@ -1292,7 +1292,7 @@ pub const ktexteditor__attribute = struct {
     /// ` strategy: qfont_enums.StyleStrategy `
     ///
     pub fn SetFontStyleHint2(self: ?*anyopaque, hint: i32, strategy: i32) void {
-        qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @intCast(hint), @intCast(strategy));
+        qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @bitCast(hint), @bitCast(strategy));
     }
 
     /// Inherited from QTextFormat
@@ -1370,7 +1370,7 @@ pub const ktexteditor__attribute = struct {
     /// ` object: i32 `
     ///
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
-        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @intCast(object));
+        qtc.QTextFormat_SetObjectIndex(@ptrCast(self), @bitCast(object));
     }
 
     /// Inherited from QTextFormat
@@ -1384,7 +1384,7 @@ pub const ktexteditor__attribute = struct {
     /// ` propertyId: i32 `
     ///
     pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
-        return qtc.QTextFormat_Property(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_Property(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1400,7 +1400,7 @@ pub const ktexteditor__attribute = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
-        qtc.QTextFormat_SetProperty(@ptrCast(self), @intCast(propertyId), @ptrCast(value));
+        qtc.QTextFormat_SetProperty(@ptrCast(self), @bitCast(propertyId), @ptrCast(value));
     }
 
     /// Inherited from QTextFormat
@@ -1414,7 +1414,7 @@ pub const ktexteditor__attribute = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
-        qtc.QTextFormat_ClearProperty(@ptrCast(self), @intCast(propertyId));
+        qtc.QTextFormat_ClearProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1428,7 +1428,7 @@ pub const ktexteditor__attribute = struct {
     /// ` propertyId: i32 `
     ///
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_HasProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_HasProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1442,7 +1442,7 @@ pub const ktexteditor__attribute = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
-        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BoolProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1456,7 +1456,7 @@ pub const ktexteditor__attribute = struct {
     /// ` propertyId: i32 `
     ///
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
-        return qtc.QTextFormat_IntProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_IntProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1470,7 +1470,7 @@ pub const ktexteditor__attribute = struct {
     /// ` propertyId: i32 `
     ///
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
-        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_DoubleProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1486,7 +1486,7 @@ pub const ktexteditor__attribute = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
+        var _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__attribute.StringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1504,7 +1504,7 @@ pub const ktexteditor__attribute = struct {
     /// ` propertyId: i32 `
     ///
     pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
-        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_ColorProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1518,7 +1518,7 @@ pub const ktexteditor__attribute = struct {
     /// ` propertyId: i32 `
     ///
     pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
-        return qtc.QTextFormat_PenProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_PenProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1532,7 +1532,7 @@ pub const ktexteditor__attribute = struct {
     /// ` propertyId: i32 `
     ///
     pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
-        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_BrushProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1546,7 +1546,7 @@ pub const ktexteditor__attribute = struct {
     /// ` propertyId: i32 `
     ///
     pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
-        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @intCast(propertyId));
+        return qtc.QTextFormat_LengthProperty(@ptrCast(self), @bitCast(propertyId));
     }
 
     /// Inherited from QTextFormat
@@ -1562,7 +1562,7 @@ pub const ktexteditor__attribute = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("ktexteditor__attribute.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -1587,7 +1587,7 @@ pub const ktexteditor__attribute = struct {
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
-        qtc.QTextFormat_SetProperty2(@ptrCast(self), @intCast(propertyId), lengths_list);
+        qtc.QTextFormat_SetProperty2(@ptrCast(self), @bitCast(propertyId), lengths_list);
     }
 
     /// Inherited from QTextFormat
@@ -1641,7 +1641,7 @@ pub const ktexteditor__attribute = struct {
     /// ` typeVal: i32 `
     ///
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QTextFormat_SetObjectType(@ptrCast(self), @intCast(typeVal));
+        qtc.QTextFormat_SetObjectType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QTextFormat
@@ -1875,7 +1875,7 @@ pub const ktexteditor__attribute = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QTextFormat
@@ -2012,7 +2012,7 @@ pub const ktexteditor__attributeblock = struct {
     /// ` start: i32 `
     ///
     pub fn SetStart(self: ?*anyopaque, start: i32) void {
-        qtc.KTextEditor__AttributeBlock_SetStart(@ptrCast(self), @intCast(start));
+        qtc.KTextEditor__AttributeBlock_SetStart(@ptrCast(self), @bitCast(start));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-attributeblock.html#length-var)
@@ -2034,7 +2034,7 @@ pub const ktexteditor__attributeblock = struct {
     /// ` length: i32 `
     ///
     pub fn SetLength(self: ?*anyopaque, length: i32) void {
-        qtc.KTextEditor__AttributeBlock_SetLength(@ptrCast(self), @intCast(length));
+        qtc.KTextEditor__AttributeBlock_SetLength(@ptrCast(self), @bitCast(length));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-attributeblock.html#operator-eq)

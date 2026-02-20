@@ -2,7 +2,7 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__AuthInfo
 #include <KIO/MetaData>
 #include <KIO/UDSEntry>
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__WorkerBase
+#include <KIO/WorkerBase>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__WorkerResult
 #include <KRemoteEncoding>
 #include <QByteArray>

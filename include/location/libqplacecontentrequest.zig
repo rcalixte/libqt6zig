@@ -68,7 +68,7 @@ pub const qplacecontentrequest = struct {
     /// ` typeVal: qplacecontent_enums.Type `
     ///
     pub fn SetContentType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QPlaceContentRequest_SetContentType(@ptrCast(self), @intCast(typeVal));
+        qtc.QPlaceContentRequest_SetContentType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#placeId)
@@ -144,7 +144,7 @@ pub const qplacecontentrequest = struct {
     /// ` limit: i32 `
     ///
     pub fn SetLimit(self: ?*anyopaque, limit: i32) void {
-        qtc.QPlaceContentRequest_SetLimit(@ptrCast(self), @intCast(limit));
+        qtc.QPlaceContentRequest_SetLimit(@ptrCast(self), @bitCast(limit));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#clear)

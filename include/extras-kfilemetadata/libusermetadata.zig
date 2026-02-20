@@ -148,7 +148,7 @@ pub const kfilemetadata__usermetadata = struct {
     /// ` usermetadata_enums.Error `
     ///
     pub fn SetRating(self: ?*anyopaque, rating: i32) i32 {
-        return qtc.KFileMetaData__UserMetaData_SetRating(@ptrCast(self), @intCast(rating));
+        return qtc.KFileMetaData__UserMetaData_SetRating(@ptrCast(self), @bitCast(rating));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#userComment)
@@ -450,7 +450,7 @@ pub const kfilemetadata__usermetadata = struct {
     /// ` flag of usermetadata_enums.Attribute `
     ///
     pub fn QueryAttributes1(self: ?*anyopaque, attributes: u32) u32 {
-        return qtc.KFileMetaData__UserMetaData_QueryAttributes1(@ptrCast(self), @intCast(attributes));
+        return qtc.KFileMetaData__UserMetaData_QueryAttributes1(@ptrCast(self), @bitCast(attributes));
     }
 
     /// Delete this object from C++ memory.

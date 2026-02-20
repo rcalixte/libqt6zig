@@ -12,7 +12,7 @@ pub const qtvideo = struct {
     /// ` param1: qtvideo_enums.Rotation `
     ///
     pub fn GetEnumMetaObject(param1: i32) QtC.QMetaObject {
-        return qtc.QtVideo_GetEnumMetaObject(@intCast(param1));
+        return qtc.QtVideo_GetEnumMetaObject(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtvideo.html#qt_getEnumName)
@@ -22,7 +22,7 @@ pub const qtvideo = struct {
     /// ` param1: qtvideo_enums.Rotation `
     ///
     pub fn GetEnumName(param1: i32) [:0]const u8 {
-        const _ret = qtc.QtVideo_GetEnumName(@intCast(param1));
+        const _ret = qtc.QtVideo_GetEnumName(@bitCast(param1));
         return std.mem.span(_ret);
     }
 };

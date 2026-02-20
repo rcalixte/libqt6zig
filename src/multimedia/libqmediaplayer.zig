@@ -44,7 +44,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QMediaPlayer_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -79,7 +79,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QMediaPlayer_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -106,7 +106,7 @@ pub const qmediaplayer = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QMediaPlayer_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QMediaPlayer_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -118,7 +118,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QMediaPlayer_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -134,7 +134,7 @@ pub const qmediaplayer = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QMediaPlayer_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QMediaPlayer_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -244,7 +244,7 @@ pub const qmediaplayer = struct {
     /// ` index: i32 `
     ///
     pub fn SetActiveAudioTrack(self: ?*anyopaque, index: i32) void {
-        qtc.QMediaPlayer_SetActiveAudioTrack(@ptrCast(self), @intCast(index));
+        qtc.QMediaPlayer_SetActiveAudioTrack(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setActiveVideoTrack)
@@ -256,7 +256,7 @@ pub const qmediaplayer = struct {
     /// ` index: i32 `
     ///
     pub fn SetActiveVideoTrack(self: ?*anyopaque, index: i32) void {
-        qtc.QMediaPlayer_SetActiveVideoTrack(@ptrCast(self), @intCast(index));
+        qtc.QMediaPlayer_SetActiveVideoTrack(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setActiveSubtitleTrack)
@@ -268,7 +268,7 @@ pub const qmediaplayer = struct {
     /// ` index: i32 `
     ///
     pub fn SetActiveSubtitleTrack(self: ?*anyopaque, index: i32) void {
-        qtc.QMediaPlayer_SetActiveSubtitleTrack(@ptrCast(self), @intCast(index));
+        qtc.QMediaPlayer_SetActiveSubtitleTrack(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setAudioBufferOutput)
@@ -516,7 +516,7 @@ pub const qmediaplayer = struct {
     /// ` loops: i32 `
     ///
     pub fn SetLoops(self: ?*anyopaque, loops: i32) void {
-        qtc.QMediaPlayer_SetLoops(@ptrCast(self), @intCast(loops));
+        qtc.QMediaPlayer_SetLoops(@ptrCast(self), @bitCast(loops));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#error)
@@ -608,7 +608,7 @@ pub const qmediaplayer = struct {
     /// ` position: i64 `
     ///
     pub fn SetPosition(self: ?*anyopaque, position: i64) void {
-        qtc.QMediaPlayer_SetPosition(@ptrCast(self), @intCast(position));
+        qtc.QMediaPlayer_SetPosition(@ptrCast(self), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setPlaybackRate)
@@ -620,7 +620,7 @@ pub const qmediaplayer = struct {
     /// ` rate: f64 `
     ///
     pub fn SetPlaybackRate(self: ?*anyopaque, rate: f64) void {
-        qtc.QMediaPlayer_SetPlaybackRate(@ptrCast(self), @floatCast(rate));
+        qtc.QMediaPlayer_SetPlaybackRate(@ptrCast(self), @bitCast(rate));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setSource)
@@ -668,7 +668,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, media: QtC.QUrl) callconv(.c) void `
     ///
     pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_SourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_SourceChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#playbackStateChanged)
@@ -680,7 +680,7 @@ pub const qmediaplayer = struct {
     /// ` newState: qmediaplayer_enums.PlaybackState `
     ///
     pub fn PlaybackStateChanged(self: ?*anyopaque, newState: i32) void {
-        qtc.QMediaPlayer_PlaybackStateChanged(@ptrCast(self), @intCast(newState));
+        qtc.QMediaPlayer_PlaybackStateChanged(@ptrCast(self), @bitCast(newState));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#playbackStateChanged)
@@ -692,7 +692,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, newState: qmediaplayer_enums.PlaybackState) callconv(.c) void `
     ///
     pub fn OnPlaybackStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_PlaybackStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_PlaybackStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#mediaStatusChanged)
@@ -704,7 +704,7 @@ pub const qmediaplayer = struct {
     /// ` status: qmediaplayer_enums.MediaStatus `
     ///
     pub fn MediaStatusChanged(self: ?*anyopaque, status: i32) void {
-        qtc.QMediaPlayer_MediaStatusChanged(@ptrCast(self), @intCast(status));
+        qtc.QMediaPlayer_MediaStatusChanged(@ptrCast(self), @bitCast(status));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#mediaStatusChanged)
@@ -716,7 +716,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, status: qmediaplayer_enums.MediaStatus) callconv(.c) void `
     ///
     pub fn OnMediaStatusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_MediaStatusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_MediaStatusChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#durationChanged)
@@ -728,7 +728,7 @@ pub const qmediaplayer = struct {
     /// ` duration: i64 `
     ///
     pub fn DurationChanged(self: ?*anyopaque, duration: i64) void {
-        qtc.QMediaPlayer_DurationChanged(@ptrCast(self), @intCast(duration));
+        qtc.QMediaPlayer_DurationChanged(@ptrCast(self), @bitCast(duration));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#durationChanged)
@@ -740,7 +740,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, duration: i64) callconv(.c) void `
     ///
     pub fn OnDurationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_DurationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_DurationChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#positionChanged)
@@ -752,7 +752,7 @@ pub const qmediaplayer = struct {
     /// ` position: i64 `
     ///
     pub fn PositionChanged(self: ?*anyopaque, position: i64) void {
-        qtc.QMediaPlayer_PositionChanged(@ptrCast(self), @intCast(position));
+        qtc.QMediaPlayer_PositionChanged(@ptrCast(self), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#positionChanged)
@@ -764,7 +764,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, position: i64) callconv(.c) void `
     ///
     pub fn OnPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_PositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_PositionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#hasAudioChanged)
@@ -788,7 +788,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, available: bool) callconv(.c) void `
     ///
     pub fn OnHasAudioChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_HasAudioChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_HasAudioChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#hasVideoChanged)
@@ -812,7 +812,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, videoAvailable: bool) callconv(.c) void `
     ///
     pub fn OnHasVideoChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_HasVideoChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_HasVideoChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#bufferProgressChanged)
@@ -824,7 +824,7 @@ pub const qmediaplayer = struct {
     /// ` progress: f32 `
     ///
     pub fn BufferProgressChanged(self: ?*anyopaque, progress: f32) void {
-        qtc.QMediaPlayer_BufferProgressChanged(@ptrCast(self), @floatCast(progress));
+        qtc.QMediaPlayer_BufferProgressChanged(@ptrCast(self), @bitCast(progress));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#bufferProgressChanged)
@@ -836,7 +836,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, progress: f32) callconv(.c) void `
     ///
     pub fn OnBufferProgressChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_BufferProgressChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_BufferProgressChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#seekableChanged)
@@ -860,7 +860,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, seekable: bool) callconv(.c) void `
     ///
     pub fn OnSeekableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_SeekableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_SeekableChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#playingChanged)
@@ -884,7 +884,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, playing: bool) callconv(.c) void `
     ///
     pub fn OnPlayingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_PlayingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_PlayingChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#playbackRateChanged)
@@ -896,7 +896,7 @@ pub const qmediaplayer = struct {
     /// ` rate: f64 `
     ///
     pub fn PlaybackRateChanged(self: ?*anyopaque, rate: f64) void {
-        qtc.QMediaPlayer_PlaybackRateChanged(@ptrCast(self), @floatCast(rate));
+        qtc.QMediaPlayer_PlaybackRateChanged(@ptrCast(self), @bitCast(rate));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#playbackRateChanged)
@@ -908,7 +908,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, rate: f64) callconv(.c) void `
     ///
     pub fn OnPlaybackRateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_PlaybackRateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_PlaybackRateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#loopsChanged)
@@ -930,7 +930,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer) callconv(.c) void `
     ///
     pub fn OnLoopsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_LoopsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_LoopsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#metaDataChanged)
@@ -952,7 +952,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer) callconv(.c) void `
     ///
     pub fn OnMetaDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_MetaDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_MetaDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#videoOutputChanged)
@@ -974,7 +974,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer) callconv(.c) void `
     ///
     pub fn OnVideoOutputChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_VideoOutputChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_VideoOutputChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#audioOutputChanged)
@@ -996,7 +996,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer) callconv(.c) void `
     ///
     pub fn OnAudioOutputChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_AudioOutputChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_AudioOutputChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#audioBufferOutputChanged)
@@ -1018,7 +1018,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer) callconv(.c) void `
     ///
     pub fn OnAudioBufferOutputChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_AudioBufferOutputChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_AudioBufferOutputChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#tracksChanged)
@@ -1040,7 +1040,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer) callconv(.c) void `
     ///
     pub fn OnTracksChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_TracksChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_TracksChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#activeTracksChanged)
@@ -1062,7 +1062,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer) callconv(.c) void `
     ///
     pub fn OnActiveTracksChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_ActiveTracksChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_ActiveTracksChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#errorChanged)
@@ -1084,7 +1084,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer) callconv(.c) void `
     ///
     pub fn OnErrorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_ErrorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_ErrorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#errorOccurred)
@@ -1102,7 +1102,7 @@ pub const qmediaplayer = struct {
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QMediaPlayer_ErrorOccurred(@ptrCast(self), @intCast(errorVal), errorString_str);
+        qtc.QMediaPlayer_ErrorOccurred(@ptrCast(self), @bitCast(errorVal), errorString_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#errorOccurred)
@@ -1114,7 +1114,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, errorVal: qmediaplayer_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QMediaPlayer_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1152,7 +1152,7 @@ pub const qmediaplayer = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmediaplayer.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1304,7 +1304,7 @@ pub const qmediaplayer = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1318,7 +1318,7 @@ pub const qmediaplayer = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1332,7 +1332,7 @@ pub const qmediaplayer = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1346,7 +1346,7 @@ pub const qmediaplayer = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1676,7 +1676,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1731,7 +1731,7 @@ pub const qmediaplayer = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1747,7 +1747,7 @@ pub const qmediaplayer = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1769,7 +1769,7 @@ pub const qmediaplayer = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1789,7 +1789,7 @@ pub const qmediaplayer = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1811,7 +1811,7 @@ pub const qmediaplayer = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1908,7 +1908,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1956,7 +1956,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QMediaPlayer_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2008,7 +2008,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QMediaPlayer_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2056,7 +2056,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaPlayer_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2104,7 +2104,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaPlayer_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2152,7 +2152,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaPlayer_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2200,7 +2200,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaPlayer_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2248,7 +2248,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaPlayer_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2292,7 +2292,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QMediaPlayer_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2336,7 +2336,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QMediaPlayer_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2386,7 +2386,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QMediaPlayer_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2434,7 +2434,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QMediaPlayer_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMediaPlayer_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2450,7 +2450,7 @@ pub const qmediaplayer = struct {
     /// ` callback: *const fn (self: QtC.QMediaPlayer, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#dtor.QMediaPlayer)

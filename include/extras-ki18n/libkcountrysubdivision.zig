@@ -182,7 +182,7 @@ pub const kcountrysubdivision = struct {
     /// ` longitude: f32 `
     ///
     pub fn FromLocation(latitude: f32, longitude: f32) QtC.KCountrySubdivision {
-        return qtc.KCountrySubdivision_FromLocation(@floatCast(latitude), @floatCast(longitude));
+        return qtc.KCountrySubdivision_FromLocation(@bitCast(latitude), @bitCast(longitude));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountrysubdivision.html#dtor.KCountrySubdivision)

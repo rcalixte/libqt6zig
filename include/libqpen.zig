@@ -18,7 +18,7 @@ pub const qpen = struct {
     /// ` param1: qnamespace_enums.PenStyle `
     ///
     pub fn New2(param1: i32) QtC.QPen {
-        return qtc.QPen_new2(@intCast(param1));
+        return qtc.QPen_new2(@bitCast(param1));
     }
 
     /// New3 constructs a new QPen object.
@@ -40,7 +40,7 @@ pub const qpen = struct {
     /// ` width: f64 `
     ///
     pub fn New4(brush: ?*anyopaque, width: f64) QtC.QPen {
-        return qtc.QPen_new4(@ptrCast(brush), @floatCast(width));
+        return qtc.QPen_new4(@ptrCast(brush), @bitCast(width));
     }
 
     /// New5 constructs a new QPen object.
@@ -64,7 +64,7 @@ pub const qpen = struct {
     /// ` s: qnamespace_enums.PenStyle `
     ///
     pub fn New6(brush: ?*anyopaque, width: f64, s: i32) QtC.QPen {
-        return qtc.QPen_new6(@ptrCast(brush), @floatCast(width), @intCast(s));
+        return qtc.QPen_new6(@ptrCast(brush), @bitCast(width), @bitCast(s));
     }
 
     /// New7 constructs a new QPen object.
@@ -80,7 +80,7 @@ pub const qpen = struct {
     /// ` c: qnamespace_enums.PenCapStyle `
     ///
     pub fn New7(brush: ?*anyopaque, width: f64, s: i32, c: i32) QtC.QPen {
-        return qtc.QPen_new7(@ptrCast(brush), @floatCast(width), @intCast(s), @intCast(c));
+        return qtc.QPen_new7(@ptrCast(brush), @bitCast(width), @bitCast(s), @bitCast(c));
     }
 
     /// New8 constructs a new QPen object.
@@ -98,7 +98,7 @@ pub const qpen = struct {
     /// ` j: qnamespace_enums.PenJoinStyle `
     ///
     pub fn New8(brush: ?*anyopaque, width: f64, s: i32, c: i32, j: i32) QtC.QPen {
-        return qtc.QPen_new8(@ptrCast(brush), @floatCast(width), @intCast(s), @intCast(c), @intCast(j));
+        return qtc.QPen_new8(@ptrCast(brush), @bitCast(width), @bitCast(s), @bitCast(c), @bitCast(j));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpen.html#operator-eq)
@@ -148,7 +148,7 @@ pub const qpen = struct {
     /// ` style: qnamespace_enums.PenStyle `
     ///
     pub fn SetStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QPen_SetStyle(@ptrCast(self), @intCast(style));
+        qtc.QPen_SetStyle(@ptrCast(self), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpen.html#dashPattern)
@@ -203,7 +203,7 @@ pub const qpen = struct {
     /// ` doffset: f64 `
     ///
     pub fn SetDashOffset(self: ?*anyopaque, doffset: f64) void {
-        qtc.QPen_SetDashOffset(@ptrCast(self), @floatCast(doffset));
+        qtc.QPen_SetDashOffset(@ptrCast(self), @bitCast(doffset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpen.html#miterLimit)
@@ -225,7 +225,7 @@ pub const qpen = struct {
     /// ` limit: f64 `
     ///
     pub fn SetMiterLimit(self: ?*anyopaque, limit: f64) void {
-        qtc.QPen_SetMiterLimit(@ptrCast(self), @floatCast(limit));
+        qtc.QPen_SetMiterLimit(@ptrCast(self), @bitCast(limit));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpen.html#widthF)
@@ -247,7 +247,7 @@ pub const qpen = struct {
     /// ` width: f64 `
     ///
     pub fn SetWidthF(self: ?*anyopaque, width: f64) void {
-        qtc.QPen_SetWidthF(@ptrCast(self), @floatCast(width));
+        qtc.QPen_SetWidthF(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpen.html#width)
@@ -269,7 +269,7 @@ pub const qpen = struct {
     /// ` width: i32 `
     ///
     pub fn SetWidth(self: ?*anyopaque, width: i32) void {
-        qtc.QPen_SetWidth(@ptrCast(self), @intCast(width));
+        qtc.QPen_SetWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpen.html#color)
@@ -349,7 +349,7 @@ pub const qpen = struct {
     /// ` pcs: qnamespace_enums.PenCapStyle `
     ///
     pub fn SetCapStyle(self: ?*anyopaque, pcs: i32) void {
-        qtc.QPen_SetCapStyle(@ptrCast(self), @intCast(pcs));
+        qtc.QPen_SetCapStyle(@ptrCast(self), @bitCast(pcs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpen.html#joinStyle)
@@ -375,7 +375,7 @@ pub const qpen = struct {
     /// ` pcs: qnamespace_enums.PenJoinStyle `
     ///
     pub fn SetJoinStyle(self: ?*anyopaque, pcs: i32) void {
-        qtc.QPen_SetJoinStyle(@ptrCast(self), @intCast(pcs));
+        qtc.QPen_SetJoinStyle(@ptrCast(self), @bitCast(pcs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpen.html#isCosmetic)

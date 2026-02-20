@@ -27,7 +27,7 @@ pub const qrawfont = struct {
             .data = fileName.ptr,
         };
 
-        return qtc.QRawFont_new2(fileName_str, @floatCast(pixelSize));
+        return qtc.QRawFont_new2(fileName_str, @bitCast(pixelSize));
     }
 
     /// New3 constructs a new QRawFont object.
@@ -44,7 +44,7 @@ pub const qrawfont = struct {
             .data = fontData.ptr,
         };
 
-        return qtc.QRawFont_new3(fontData_str, @floatCast(pixelSize));
+        return qtc.QRawFont_new3(fontData_str, @bitCast(pixelSize));
     }
 
     /// New4 constructs a new QRawFont object.
@@ -73,7 +73,7 @@ pub const qrawfont = struct {
             .data = fileName.ptr,
         };
 
-        return qtc.QRawFont_new5(fileName_str, @floatCast(pixelSize), @intCast(hintingPreference));
+        return qtc.QRawFont_new5(fileName_str, @bitCast(pixelSize), @bitCast(hintingPreference));
     }
 
     /// New6 constructs a new QRawFont object.
@@ -92,7 +92,7 @@ pub const qrawfont = struct {
             .data = fontData.ptr,
         };
 
-        return qtc.QRawFont_new6(fontData_str, @floatCast(pixelSize), @intCast(hintingPreference));
+        return qtc.QRawFont_new6(fontData_str, @bitCast(pixelSize), @bitCast(hintingPreference));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#operator-eq)
@@ -272,7 +272,7 @@ pub const qrawfont = struct {
             .len = glyphIndexes.len,
             .data = glyphIndexes.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QRawFont_AdvancesForGlyphIndexes2(@ptrCast(self), glyphIndexes_list, @intCast(layoutFlags));
+        const _arr: qtc.libqt_list = qtc.QRawFont_AdvancesForGlyphIndexes2(@ptrCast(self), glyphIndexes_list, @bitCast(layoutFlags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QPointF, _arr.len) catch @panic("qrawfont.AdvancesForGlyphIndexes2: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
@@ -295,7 +295,7 @@ pub const qrawfont = struct {
     /// ` numGlyphs: *i32 `
     ///
     pub fn GlyphIndexesForChars(self: ?*anyopaque, chars: ?*anyopaque, numChars: i32, glyphIndexes: *u32, numGlyphs: *i32) bool {
-        return qtc.QRawFont_GlyphIndexesForChars(@ptrCast(self), @ptrCast(chars), @intCast(numChars), @ptrCast(glyphIndexes), @ptrCast(numGlyphs));
+        return qtc.QRawFont_GlyphIndexesForChars(@ptrCast(self), @ptrCast(chars), @bitCast(numChars), @ptrCast(glyphIndexes), @ptrCast(numGlyphs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
@@ -311,7 +311,7 @@ pub const qrawfont = struct {
     /// ` numGlyphs: i32 `
     ///
     pub fn AdvancesForGlyphIndexes3(self: ?*anyopaque, glyphIndexes: *const u32, advances: ?*anyopaque, numGlyphs: i32) bool {
-        return qtc.QRawFont_AdvancesForGlyphIndexes3(@ptrCast(self), @ptrCast(glyphIndexes), @ptrCast(advances), @intCast(numGlyphs));
+        return qtc.QRawFont_AdvancesForGlyphIndexes3(@ptrCast(self), @ptrCast(glyphIndexes), @ptrCast(advances), @bitCast(numGlyphs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
@@ -329,7 +329,7 @@ pub const qrawfont = struct {
     /// ` layoutFlags: flag of qrawfont_enums.LayoutFlag `
     ///
     pub fn AdvancesForGlyphIndexes4(self: ?*anyopaque, glyphIndexes: *const u32, advances: ?*anyopaque, numGlyphs: i32, layoutFlags: i32) bool {
-        return qtc.QRawFont_AdvancesForGlyphIndexes4(@ptrCast(self), @ptrCast(glyphIndexes), @ptrCast(advances), @intCast(numGlyphs), @intCast(layoutFlags));
+        return qtc.QRawFont_AdvancesForGlyphIndexes4(@ptrCast(self), @ptrCast(glyphIndexes), @ptrCast(advances), @bitCast(numGlyphs), @bitCast(layoutFlags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#alphaMapForGlyph)
@@ -341,7 +341,7 @@ pub const qrawfont = struct {
     /// ` glyphIndex: u32 `
     ///
     pub fn AlphaMapForGlyph(self: ?*anyopaque, glyphIndex: u32) QtC.QImage {
-        return qtc.QRawFont_AlphaMapForGlyph(@ptrCast(self), @intCast(glyphIndex));
+        return qtc.QRawFont_AlphaMapForGlyph(@ptrCast(self), @bitCast(glyphIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#pathForGlyph)
@@ -353,7 +353,7 @@ pub const qrawfont = struct {
     /// ` glyphIndex: u32 `
     ///
     pub fn PathForGlyph(self: ?*anyopaque, glyphIndex: u32) QtC.QPainterPath {
-        return qtc.QRawFont_PathForGlyph(@ptrCast(self), @intCast(glyphIndex));
+        return qtc.QRawFont_PathForGlyph(@ptrCast(self), @bitCast(glyphIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#boundingRect)
@@ -365,7 +365,7 @@ pub const qrawfont = struct {
     /// ` glyphIndex: u32 `
     ///
     pub fn BoundingRect(self: ?*anyopaque, glyphIndex: u32) QtC.QRectF {
-        return qtc.QRawFont_BoundingRect(@ptrCast(self), @intCast(glyphIndex));
+        return qtc.QRawFont_BoundingRect(@ptrCast(self), @bitCast(glyphIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#setPixelSize)
@@ -377,7 +377,7 @@ pub const qrawfont = struct {
     /// ` pixelSize: f64 `
     ///
     pub fn SetPixelSize(self: ?*anyopaque, pixelSize: f64) void {
-        qtc.QRawFont_SetPixelSize(@ptrCast(self), @floatCast(pixelSize));
+        qtc.QRawFont_SetPixelSize(@ptrCast(self), @bitCast(pixelSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#pixelSize)
@@ -521,7 +521,7 @@ pub const qrawfont = struct {
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.QRawFont_LoadFromFile(@ptrCast(self), fileName_str, @floatCast(pixelSize), @intCast(hintingPreference));
+        qtc.QRawFont_LoadFromFile(@ptrCast(self), fileName_str, @bitCast(pixelSize), @bitCast(hintingPreference));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#loadFromData)
@@ -541,7 +541,7 @@ pub const qrawfont = struct {
             .len = fontData.len,
             .data = fontData.ptr,
         };
-        qtc.QRawFont_LoadFromData(@ptrCast(self), fontData_str, @floatCast(pixelSize), @intCast(hintingPreference));
+        qtc.QRawFont_LoadFromData(@ptrCast(self), fontData_str, @bitCast(pixelSize), @bitCast(hintingPreference));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#supportsCharacter)
@@ -553,7 +553,7 @@ pub const qrawfont = struct {
     /// ` ucs4: u32 `
     ///
     pub fn SupportsCharacter(self: ?*anyopaque, ucs4: u32) bool {
-        return qtc.QRawFont_SupportsCharacter(@ptrCast(self), @intCast(ucs4));
+        return qtc.QRawFont_SupportsCharacter(@ptrCast(self), @bitCast(ucs4));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#supportsCharacter)
@@ -647,7 +647,7 @@ pub const qrawfont = struct {
     /// ` antialiasingType: qrawfont_enums.AntialiasingType `
     ///
     pub fn AlphaMapForGlyph2(self: ?*anyopaque, glyphIndex: u32, antialiasingType: i32) QtC.QImage {
-        return qtc.QRawFont_AlphaMapForGlyph2(@ptrCast(self), @intCast(glyphIndex), @intCast(antialiasingType));
+        return qtc.QRawFont_AlphaMapForGlyph2(@ptrCast(self), @bitCast(glyphIndex), @bitCast(antialiasingType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#alphaMapForGlyph)
@@ -663,7 +663,7 @@ pub const qrawfont = struct {
     /// ` transform: QtC.QTransform `
     ///
     pub fn AlphaMapForGlyph3(self: ?*anyopaque, glyphIndex: u32, antialiasingType: i32, transform: ?*anyopaque) QtC.QImage {
-        return qtc.QRawFont_AlphaMapForGlyph3(@ptrCast(self), @intCast(glyphIndex), @intCast(antialiasingType), @ptrCast(transform));
+        return qtc.QRawFont_AlphaMapForGlyph3(@ptrCast(self), @bitCast(glyphIndex), @bitCast(antialiasingType), @ptrCast(transform));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#fromFont)
@@ -675,7 +675,7 @@ pub const qrawfont = struct {
     /// ` writingSystem: qfontdatabase_enums.WritingSystem `
     ///
     pub fn FromFont2(font: ?*anyopaque, writingSystem: i32) QtC.QRawFont {
-        return qtc.QRawFont_FromFont2(@ptrCast(font), @intCast(writingSystem));
+        return qtc.QRawFont_FromFont2(@ptrCast(font), @bitCast(writingSystem));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#dtor.QRawFont)

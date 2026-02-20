@@ -73,7 +73,7 @@ pub const qbytearraymatcher = struct {
     pub fn New6(pattern: [:0]const u8, length: i64) QtC.QByteArrayMatcher {
         const pattern_Cstring = pattern.ptr;
 
-        return qtc.QByteArrayMatcher_new6(pattern_Cstring, @intCast(length));
+        return qtc.QByteArrayMatcher_new6(pattern_Cstring, @bitCast(length));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearraymatcher.html#operator-eq)
@@ -116,7 +116,7 @@ pub const qbytearraymatcher = struct {
     ///
     pub fn IndexIn(self: ?*anyopaque, str: [:0]const u8, lenVal: i64) i64 {
         const str_Cstring = str.ptr;
-        return qtc.QByteArrayMatcher_IndexIn(@ptrCast(self), str_Cstring, @intCast(lenVal));
+        return qtc.QByteArrayMatcher_IndexIn(@ptrCast(self), str_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearraymatcher.html#indexIn)
@@ -165,7 +165,7 @@ pub const qbytearraymatcher = struct {
     ///
     pub fn IndexIn3(self: ?*anyopaque, str: [:0]const u8, lenVal: i64, from: i64) i64 {
         const str_Cstring = str.ptr;
-        return qtc.QByteArrayMatcher_IndexIn3(@ptrCast(self), str_Cstring, @intCast(lenVal), @intCast(from));
+        return qtc.QByteArrayMatcher_IndexIn3(@ptrCast(self), str_Cstring, @bitCast(lenVal), @bitCast(from));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearraymatcher.html#indexIn)
@@ -183,7 +183,7 @@ pub const qbytearraymatcher = struct {
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QByteArrayMatcher_IndexIn22(@ptrCast(self), data_str, @intCast(from));
+        return qtc.QByteArrayMatcher_IndexIn22(@ptrCast(self), data_str, @bitCast(from));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearraymatcher.html#dtor.QByteArrayMatcher)

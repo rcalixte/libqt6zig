@@ -114,7 +114,7 @@ pub const qtermwidgetinterface = struct {
     /// ` level: f64 `
     ///
     pub fn SetTerminalOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QTermWidgetInterface_SetTerminalOpacity(@ptrCast(self), @floatCast(level));
+        qtc.QTermWidgetInterface_SetTerminalOpacity(@ptrCast(self), @bitCast(level));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -142,7 +142,7 @@ pub const qtermwidgetinterface = struct {
     /// ` mode: i32 `
     ///
     pub fn SetTerminalBackgroundMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QTermWidgetInterface_SetTerminalBackgroundMode(@ptrCast(self), @intCast(mode));
+        qtc.QTermWidgetInterface_SetTerminalBackgroundMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -297,7 +297,7 @@ pub const qtermwidgetinterface = struct {
     /// ` lines: i32 `
     ///
     pub fn SetHistorySize(self: ?*anyopaque, lines: i32) void {
-        qtc.QTermWidgetInterface_SetHistorySize(@ptrCast(self), @intCast(lines));
+        qtc.QTermWidgetInterface_SetHistorySize(@ptrCast(self), @bitCast(lines));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -319,7 +319,7 @@ pub const qtermwidgetinterface = struct {
     /// ` scrollBarPosition: qtermwidget_interface_enums.ScrollBarPosition `
     ///
     pub fn SetScrollBarPosition(self: ?*anyopaque, scrollBarPosition: i32) void {
-        qtc.QTermWidgetInterface_SetScrollBarPosition(@ptrCast(self), @intCast(scrollBarPosition));
+        qtc.QTermWidgetInterface_SetScrollBarPosition(@ptrCast(self), @bitCast(scrollBarPosition));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -419,7 +419,7 @@ pub const qtermwidgetinterface = struct {
     /// ` motionAfterPasting: i32 `
     ///
     pub fn SetMotionAfterPasting(self: ?*anyopaque, motionAfterPasting: i32) void {
-        qtc.QTermWidgetInterface_SetMotionAfterPasting(@ptrCast(self), @intCast(motionAfterPasting));
+        qtc.QTermWidgetInterface_SetMotionAfterPasting(@ptrCast(self), @bitCast(motionAfterPasting));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -463,7 +463,7 @@ pub const qtermwidgetinterface = struct {
     /// ` column: i32 `
     ///
     pub fn SetSelectionStart(self: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QTermWidgetInterface_SetSelectionStart(@ptrCast(self), @intCast(row), @intCast(column));
+        qtc.QTermWidgetInterface_SetSelectionStart(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -477,7 +477,7 @@ pub const qtermwidgetinterface = struct {
     /// ` column: i32 `
     ///
     pub fn SetSelectionEnd(self: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QTermWidgetInterface_SetSelectionEnd(@ptrCast(self), @intCast(row), @intCast(column));
+        qtc.QTermWidgetInterface_SetSelectionEnd(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -559,7 +559,7 @@ pub const qtermwidgetinterface = struct {
     /// ` seconds: i32 `
     ///
     pub fn SetSilenceTimeout(self: ?*anyopaque, seconds: i32) void {
-        qtc.QTermWidgetInterface_SetSilenceTimeout(@ptrCast(self), @intCast(seconds));
+        qtc.QTermWidgetInterface_SetSilenceTimeout(@ptrCast(self), @bitCast(seconds));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -726,7 +726,7 @@ pub const qtermwidgetinterface = struct {
     /// ` margin: i32 `
     ///
     pub fn SetMargin(self: ?*anyopaque, margin: i32) void {
-        qtc.QTermWidgetInterface_SetMargin(@ptrCast(self), @intCast(margin));
+        qtc.QTermWidgetInterface_SetMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -828,7 +828,7 @@ pub const qtermwidgetinterface = struct {
     /// ` startnow: i32 `
     ///
     pub fn CreateWidget(self: ?*anyopaque, startnow: i32) QtC.QTermWidgetInterface {
-        return qtc.QTermWidgetInterface_CreateWidget(@ptrCast(self), @intCast(startnow));
+        return qtc.QTermWidgetInterface_CreateWidget(@ptrCast(self), @bitCast(startnow));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)

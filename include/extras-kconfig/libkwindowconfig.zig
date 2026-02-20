@@ -15,7 +15,7 @@ pub const kwindowconfig = struct {
     /// ` param3: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     pub fn SaveWindowSize(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) void {
-        qtc.KWindowConfig_SaveWindowSize(@ptrCast(param1), @ptrCast(param2), @intCast(param3));
+        qtc.KWindowConfig_SaveWindowSize(@ptrCast(param1), @ptrCast(param2), @bitCast(param3));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#hasSavedWindowSize)
@@ -51,7 +51,7 @@ pub const kwindowconfig = struct {
     /// ` param3: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     pub fn SaveWindowPosition(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) void {
-        qtc.KWindowConfig_SaveWindowPosition(@ptrCast(param1), @ptrCast(param2), @intCast(param3));
+        qtc.KWindowConfig_SaveWindowPosition(@ptrCast(param1), @ptrCast(param2), @bitCast(param3));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#hasSavedWindowPosition)

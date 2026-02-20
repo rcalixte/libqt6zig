@@ -44,7 +44,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QBoxPlotSeries_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -79,7 +79,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QBoxPlotSeries_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -106,7 +106,7 @@ pub const qboxplotseries = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QBoxPlotSeries_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QBoxPlotSeries_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -118,7 +118,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QBoxPlotSeries_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -134,7 +134,7 @@ pub const qboxplotseries = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QBoxPlotSeries_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QBoxPlotSeries_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -217,7 +217,7 @@ pub const qboxplotseries = struct {
     /// ` box: QtC.QBoxSet `
     ///
     pub fn Insert(self: ?*anyopaque, index: i32, box: ?*anyopaque) bool {
-        return qtc.QBoxPlotSeries_Insert(@ptrCast(self), @intCast(index), @ptrCast(box));
+        return qtc.QBoxPlotSeries_Insert(@ptrCast(self), @bitCast(index), @ptrCast(box));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#count)
@@ -282,7 +282,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QBoxPlotSeries_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#type)
@@ -332,7 +332,7 @@ pub const qboxplotseries = struct {
     /// ` width: f64 `
     ///
     pub fn SetBoxWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QBoxPlotSeries_SetBoxWidth(@ptrCast(self), @floatCast(width));
+        qtc.QBoxPlotSeries_SetBoxWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxWidth)
@@ -410,7 +410,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, boxset: QtC.QBoxSet) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_Connect_Clicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#hovered)
@@ -436,7 +436,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, status: bool, boxset: QtC.QBoxSet) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_Connect_Hovered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#pressed)
@@ -460,7 +460,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, boxset: QtC.QBoxSet) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_Connect_Pressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#released)
@@ -484,7 +484,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, boxset: QtC.QBoxSet) callconv(.c) void `
     ///
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_Connect_Released(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#doubleClicked)
@@ -508,7 +508,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, boxset: QtC.QBoxSet) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_Connect_DoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#countChanged)
@@ -530,7 +530,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void `
     ///
     pub fn OnCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_CountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_Connect_CountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#penChanged)
@@ -552,7 +552,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void `
     ///
     pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_PenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_Connect_PenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#brushChanged)
@@ -574,7 +574,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void `
     ///
     pub fn OnBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_BrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_Connect_BrushChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxOutlineVisibilityChanged)
@@ -596,7 +596,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void `
     ///
     pub fn OnBoxOutlineVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_BoxOutlineVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_Connect_BoxOutlineVisibilityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxWidthChanged)
@@ -618,7 +618,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void `
     ///
     pub fn OnBoxWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_BoxWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_Connect_BoxWidthChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxsetsAdded)
@@ -646,7 +646,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, sets: qtc.libqt_list ([]QtC.QBoxSet)) callconv(.c) void `
     ///
     pub fn OnBoxsetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_BoxsetsAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_Connect_BoxsetsAdded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxsetsRemoved)
@@ -674,7 +674,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, sets: qtc.libqt_list ([]QtC.QBoxSet)) callconv(.c) void `
     ///
     pub fn OnBoxsetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_BoxsetsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_Connect_BoxsetsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -712,7 +712,7 @@ pub const qboxplotseries = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qboxplotseries.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -802,7 +802,7 @@ pub const qboxplotseries = struct {
     /// ` opacity: f64 `
     ///
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QAbstractSeries_SetOpacity(@ptrCast(self), @floatCast(opacity));
+        qtc.QAbstractSeries_SetOpacity(@ptrCast(self), @bitCast(opacity));
     }
 
     /// Inherited from QAbstractSeries
@@ -935,7 +935,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void `
     ///
     pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -961,7 +961,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -987,7 +987,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void `
     ///
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -1013,7 +1013,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void `
     ///
     pub fn OnUseOpenGLChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -1175,7 +1175,7 @@ pub const qboxplotseries = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1189,7 +1189,7 @@ pub const qboxplotseries = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1203,7 +1203,7 @@ pub const qboxplotseries = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1217,7 +1217,7 @@ pub const qboxplotseries = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1547,7 +1547,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1602,7 +1602,7 @@ pub const qboxplotseries = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1618,7 +1618,7 @@ pub const qboxplotseries = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1640,7 +1640,7 @@ pub const qboxplotseries = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1660,7 +1660,7 @@ pub const qboxplotseries = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1682,7 +1682,7 @@ pub const qboxplotseries = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1779,7 +1779,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1827,7 +1827,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBoxPlotSeries_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1879,7 +1879,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBoxPlotSeries_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1927,7 +1927,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1975,7 +1975,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2023,7 +2023,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2071,7 +2071,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2119,7 +2119,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2163,7 +2163,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QBoxPlotSeries_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2207,7 +2207,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QBoxPlotSeries_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2257,7 +2257,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QBoxPlotSeries_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2305,7 +2305,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBoxPlotSeries_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QBoxPlotSeries_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2321,7 +2321,7 @@ pub const qboxplotseries = struct {
     /// ` callback: *const fn (self: QtC.QBoxPlotSeries, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#dtor.QBoxPlotSeries)

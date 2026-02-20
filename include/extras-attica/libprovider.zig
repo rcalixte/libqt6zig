@@ -529,7 +529,7 @@ pub const attica__provider = struct {
     /// ` longitude: f64 `
     ///
     pub fn PostLocation(self: ?*anyopaque, latitude: f64, longitude: f64) QtC.Attica__PostJob {
-        return qtc.Attica__Provider_PostLocation(@ptrCast(self), @floatCast(latitude), @floatCast(longitude));
+        return qtc.Attica__Provider_PostLocation(@ptrCast(self), @bitCast(latitude), @bitCast(longitude));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#setPrivateData)
@@ -911,7 +911,7 @@ pub const attica__provider = struct {
             .len = contentId.len,
             .data = contentId.ptr,
         };
-        return qtc.Attica__Provider_VoteForContent(@ptrCast(self), contentId_str, @intCast(rating));
+        return qtc.Attica__Provider_VoteForContent(@ptrCast(self), contentId_str, @bitCast(rating));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#deleteContent)
@@ -1069,7 +1069,7 @@ pub const attica__provider = struct {
             .len = id.len,
             .data = id.ptr,
         };
-        return qtc.Attica__Provider_VoteForComment(@ptrCast(self), id_str, @intCast(rating));
+        return qtc.Attica__Provider_VoteForComment(@ptrCast(self), id_str, @bitCast(rating));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#becomeFan)
@@ -1149,7 +1149,7 @@ pub const attica__provider = struct {
             .len = city.len,
             .data = city.ptr,
         };
-        return qtc.Attica__Provider_PostLocation3(@ptrCast(self), @floatCast(latitude), @floatCast(longitude), city_str);
+        return qtc.Attica__Provider_PostLocation3(@ptrCast(self), @bitCast(latitude), @bitCast(longitude), city_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#postLocation)
@@ -1175,7 +1175,7 @@ pub const attica__provider = struct {
             .len = country.len,
             .data = country.ptr,
         };
-        return qtc.Attica__Provider_PostLocation4(@ptrCast(self), @floatCast(latitude), @floatCast(longitude), city_str, country_str);
+        return qtc.Attica__Provider_PostLocation4(@ptrCast(self), @bitCast(latitude), @bitCast(longitude), city_str, country_str);
     }
 
     /// Delete this object from C++ memory.

@@ -31,7 +31,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerPropertySheetExtension_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#count)
@@ -73,7 +73,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, name: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnIndexOf(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerPropertySheetExtension_OnIndexOf(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnIndexOf(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#indexOf)
@@ -105,7 +105,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PropertyName(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerPropertySheetExtension_PropertyName(@ptrCast(self), @intCast(index));
+        var _str = qtc.QDesignerPropertySheetExtension_PropertyName(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerpropertysheetextension.PropertyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -125,7 +125,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnPropertyName(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerPropertySheetExtension_OnPropertyName(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnPropertyName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#propertyName)
@@ -141,7 +141,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBasePropertyName(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerPropertySheetExtension_QBasePropertyName(@ptrCast(self), @intCast(index));
+        var _str = qtc.QDesignerPropertySheetExtension_QBasePropertyName(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerpropertysheetextension.PropertyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -159,7 +159,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PropertyGroup(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerPropertySheetExtension_PropertyGroup(@ptrCast(self), @intCast(index));
+        var _str = qtc.QDesignerPropertySheetExtension_PropertyGroup(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerpropertysheetextension.PropertyGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -179,7 +179,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnPropertyGroup(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerPropertySheetExtension_OnPropertyGroup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnPropertyGroup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#propertyGroup)
@@ -195,7 +195,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBasePropertyGroup(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerPropertySheetExtension_QBasePropertyGroup(@ptrCast(self), @intCast(index));
+        var _str = qtc.QDesignerPropertySheetExtension_QBasePropertyGroup(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerpropertysheetextension.PropertyGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -217,7 +217,7 @@ pub const qdesignerpropertysheetextension = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        qtc.QDesignerPropertySheetExtension_SetPropertyGroup(@ptrCast(self), @intCast(index), group_str);
+        qtc.QDesignerPropertySheetExtension_SetPropertyGroup(@ptrCast(self), @bitCast(index), group_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setPropertyGroup)
@@ -231,7 +231,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32, group: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetPropertyGroup(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerPropertySheetExtension_OnSetPropertyGroup(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnSetPropertyGroup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setPropertyGroup)
@@ -251,7 +251,7 @@ pub const qdesignerpropertysheetextension = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        qtc.QDesignerPropertySheetExtension_QBaseSetPropertyGroup(@ptrCast(self), @intCast(index), group_str);
+        qtc.QDesignerPropertySheetExtension_QBaseSetPropertyGroup(@ptrCast(self), @bitCast(index), group_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#hasReset)
@@ -263,7 +263,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn HasReset(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerPropertySheetExtension_HasReset(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerPropertySheetExtension_HasReset(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#hasReset)
@@ -277,7 +277,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
     ///
     pub fn OnHasReset(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QDesignerPropertySheetExtension_OnHasReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnHasReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#hasReset)
@@ -291,7 +291,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseHasReset(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerPropertySheetExtension_QBaseHasReset(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerPropertySheetExtension_QBaseHasReset(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#reset)
@@ -303,7 +303,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn Reset(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerPropertySheetExtension_Reset(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerPropertySheetExtension_Reset(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#reset)
@@ -317,7 +317,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
     ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QDesignerPropertySheetExtension_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#reset)
@@ -331,7 +331,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseReset(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerPropertySheetExtension_QBaseReset(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerPropertySheetExtension_QBaseReset(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isVisible)
@@ -343,7 +343,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn IsVisible(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerPropertySheetExtension_IsVisible(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerPropertySheetExtension_IsVisible(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isVisible)
@@ -357,7 +357,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
     ///
     pub fn OnIsVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QDesignerPropertySheetExtension_OnIsVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnIsVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isVisible)
@@ -371,7 +371,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseIsVisible(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerPropertySheetExtension_QBaseIsVisible(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerPropertySheetExtension_QBaseIsVisible(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setVisible)
@@ -385,7 +385,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` b: bool `
     ///
     pub fn SetVisible(self: ?*anyopaque, index: i32, b: bool) void {
-        qtc.QDesignerPropertySheetExtension_SetVisible(@ptrCast(self), @intCast(index), b);
+        qtc.QDesignerPropertySheetExtension_SetVisible(@ptrCast(self), @bitCast(index), b);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setVisible)
@@ -399,7 +399,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32, b: bool) callconv(.c) void `
     ///
     pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.QDesignerPropertySheetExtension_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setVisible)
@@ -415,7 +415,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` b: bool `
     ///
     pub fn QBaseSetVisible(self: ?*anyopaque, index: i32, b: bool) void {
-        qtc.QDesignerPropertySheetExtension_QBaseSetVisible(@ptrCast(self), @intCast(index), b);
+        qtc.QDesignerPropertySheetExtension_QBaseSetVisible(@ptrCast(self), @bitCast(index), b);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isAttribute)
@@ -427,7 +427,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn IsAttribute(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerPropertySheetExtension_IsAttribute(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerPropertySheetExtension_IsAttribute(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isAttribute)
@@ -441,7 +441,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
     ///
     pub fn OnIsAttribute(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QDesignerPropertySheetExtension_OnIsAttribute(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnIsAttribute(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isAttribute)
@@ -455,7 +455,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseIsAttribute(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerPropertySheetExtension_QBaseIsAttribute(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerPropertySheetExtension_QBaseIsAttribute(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setAttribute)
@@ -469,7 +469,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` b: bool `
     ///
     pub fn SetAttribute(self: ?*anyopaque, index: i32, b: bool) void {
-        qtc.QDesignerPropertySheetExtension_SetAttribute(@ptrCast(self), @intCast(index), b);
+        qtc.QDesignerPropertySheetExtension_SetAttribute(@ptrCast(self), @bitCast(index), b);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setAttribute)
@@ -483,7 +483,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32, b: bool) callconv(.c) void `
     ///
     pub fn OnSetAttribute(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.QDesignerPropertySheetExtension_OnSetAttribute(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnSetAttribute(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setAttribute)
@@ -499,7 +499,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` b: bool `
     ///
     pub fn QBaseSetAttribute(self: ?*anyopaque, index: i32, b: bool) void {
-        qtc.QDesignerPropertySheetExtension_QBaseSetAttribute(@ptrCast(self), @intCast(index), b);
+        qtc.QDesignerPropertySheetExtension_QBaseSetAttribute(@ptrCast(self), @bitCast(index), b);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#property)
@@ -511,7 +511,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn Property(self: ?*anyopaque, index: i32) QtC.QVariant {
-        return qtc.QDesignerPropertySheetExtension_Property(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerPropertySheetExtension_Property(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#property)
@@ -525,7 +525,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) QtC.QVariant `
     ///
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QDesignerPropertySheetExtension_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#property)
@@ -539,7 +539,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseProperty(self: ?*anyopaque, index: i32) QtC.QVariant {
-        return qtc.QDesignerPropertySheetExtension_QBaseProperty(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerPropertySheetExtension_QBaseProperty(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setProperty)
@@ -553,7 +553,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetProperty(self: ?*anyopaque, index: i32, value: ?*anyopaque) void {
-        qtc.QDesignerPropertySheetExtension_SetProperty(@ptrCast(self), @intCast(index), @ptrCast(value));
+        qtc.QDesignerPropertySheetExtension_SetProperty(@ptrCast(self), @bitCast(index), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setProperty)
@@ -567,7 +567,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32, value: QtC.QVariant) callconv(.c) void `
     ///
     pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerPropertySheetExtension_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setProperty)
@@ -583,7 +583,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn QBaseSetProperty(self: ?*anyopaque, index: i32, value: ?*anyopaque) void {
-        qtc.QDesignerPropertySheetExtension_QBaseSetProperty(@ptrCast(self), @intCast(index), @ptrCast(value));
+        qtc.QDesignerPropertySheetExtension_QBaseSetProperty(@ptrCast(self), @bitCast(index), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isChanged)
@@ -595,7 +595,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn IsChanged(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerPropertySheetExtension_IsChanged(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerPropertySheetExtension_IsChanged(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isChanged)
@@ -609,7 +609,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
     ///
     pub fn OnIsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QDesignerPropertySheetExtension_OnIsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnIsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isChanged)
@@ -623,7 +623,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseIsChanged(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerPropertySheetExtension_QBaseIsChanged(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerPropertySheetExtension_QBaseIsChanged(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setChanged)
@@ -637,7 +637,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` changed: bool `
     ///
     pub fn SetChanged(self: ?*anyopaque, index: i32, changed: bool) void {
-        qtc.QDesignerPropertySheetExtension_SetChanged(@ptrCast(self), @intCast(index), changed);
+        qtc.QDesignerPropertySheetExtension_SetChanged(@ptrCast(self), @bitCast(index), changed);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setChanged)
@@ -651,7 +651,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32, changed: bool) callconv(.c) void `
     ///
     pub fn OnSetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.QDesignerPropertySheetExtension_OnSetChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnSetChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setChanged)
@@ -667,7 +667,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` changed: bool `
     ///
     pub fn QBaseSetChanged(self: ?*anyopaque, index: i32, changed: bool) void {
-        qtc.QDesignerPropertySheetExtension_QBaseSetChanged(@ptrCast(self), @intCast(index), changed);
+        qtc.QDesignerPropertySheetExtension_QBaseSetChanged(@ptrCast(self), @bitCast(index), changed);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isEnabled)
@@ -679,7 +679,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn IsEnabled(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerPropertySheetExtension_IsEnabled(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerPropertySheetExtension_IsEnabled(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isEnabled)
@@ -693,7 +693,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` callback: *const fn (self: QtC.QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
     ///
     pub fn OnIsEnabled(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QDesignerPropertySheetExtension_OnIsEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDesignerPropertySheetExtension_OnIsEnabled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isEnabled)
@@ -707,7 +707,7 @@ pub const qdesignerpropertysheetextension = struct {
     /// ` index: i32 `
     ///
     pub fn QBaseIsEnabled(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerPropertySheetExtension_QBaseIsEnabled(@ptrCast(self), @intCast(index));
+        return qtc.QDesignerPropertySheetExtension_QBaseIsEnabled(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#dtor.QDesignerPropertySheetExtension)

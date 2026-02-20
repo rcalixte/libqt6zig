@@ -66,7 +66,7 @@ pub const qdirlisting = struct {
             .data = path.ptr,
         };
 
-        return qtc.QDirListing_new3(path_str, @intCast(flags));
+        return qtc.QDirListing_new3(path_str, @bitCast(flags));
     }
 
     /// New4 constructs a new QDirListing object.
@@ -99,7 +99,7 @@ pub const qdirlisting = struct {
             .data = nameFilters_arr.ptr,
         };
 
-        return qtc.QDirListing_new4(path_str, nameFilters_list, @intCast(flags));
+        return qtc.QDirListing_new4(path_str, nameFilters_list, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdirlisting.html#swap)
@@ -625,7 +625,7 @@ pub const qdirlisting__direntry = struct {
     /// ` tz: QtC.QTimeZone `
     ///
     pub fn FileTime(self: ?*anyopaque, typeVal: i32, tz: ?*anyopaque) QtC.QDateTime {
-        return qtc.QDirListing__DirEntry_FileTime(@ptrCast(self), @intCast(typeVal), @ptrCast(tz));
+        return qtc.QDirListing__DirEntry_FileTime(@ptrCast(self), @bitCast(typeVal), @ptrCast(tz));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdirlisting-direntry.html#operator-eq)
@@ -777,7 +777,7 @@ pub const qdirlisting__const_iterator = struct {
     /// ` param1: i32 `
     ///
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) void {
-        qtc.QDirListing__const_iterator_OperatorPlusPlus2(@ptrCast(self), @intCast(param1));
+        qtc.QDirListing__const_iterator_OperatorPlusPlus2(@ptrCast(self), @bitCast(param1));
     }
 
     /// Delete this object from C++ memory.

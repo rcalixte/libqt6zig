@@ -102,7 +102,7 @@ pub const qstatictext = struct {
     /// ` textFormat: qnamespace_enums.TextFormat `
     ///
     pub fn SetTextFormat(self: ?*anyopaque, textFormat: i32) void {
-        qtc.QStaticText_SetTextFormat(@ptrCast(self), @intCast(textFormat));
+        qtc.QStaticText_SetTextFormat(@ptrCast(self), @bitCast(textFormat));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#textFormat)
@@ -128,7 +128,7 @@ pub const qstatictext = struct {
     /// ` textWidth: f64 `
     ///
     pub fn SetTextWidth(self: ?*anyopaque, textWidth: f64) void {
-        qtc.QStaticText_SetTextWidth(@ptrCast(self), @floatCast(textWidth));
+        qtc.QStaticText_SetTextWidth(@ptrCast(self), @bitCast(textWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#textWidth)
@@ -192,7 +192,7 @@ pub const qstatictext = struct {
     /// ` performanceHint: qstatictext_enums.PerformanceHint `
     ///
     pub fn SetPerformanceHint(self: ?*anyopaque, performanceHint: i32) void {
-        qtc.QStaticText_SetPerformanceHint(@ptrCast(self), @intCast(performanceHint));
+        qtc.QStaticText_SetPerformanceHint(@ptrCast(self), @bitCast(performanceHint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#performanceHint)

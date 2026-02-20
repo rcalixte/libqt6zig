@@ -138,7 +138,7 @@ pub const kurlmimedata = struct {
             .keys = @ptrCast(param3_keys.ptr),
             .values = @ptrCast(param3_values.ptr),
         };
-        const _arr: qtc.libqt_list = qtc.KUrlMimeData_UrlsFromMimeData(@ptrCast(param1), @intCast(param2), &param3_map);
+        const _arr: qtc.libqt_list = qtc.KUrlMimeData_UrlsFromMimeData(@ptrCast(param1), @bitCast(param2), &param3_map);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));

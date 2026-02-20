@@ -21,7 +21,7 @@ pub const qinputevent = struct {
     /// ` m_dev: QtC.QInputDevice `
     ///
     pub fn New(typeVal: i32, m_dev: ?*anyopaque) QtC.QInputEvent {
-        return qtc.QInputEvent_new(@intCast(typeVal), @ptrCast(m_dev));
+        return qtc.QInputEvent_new(@bitCast(typeVal), @ptrCast(m_dev));
     }
 
     /// New2 constructs a new QInputEvent object.
@@ -35,7 +35,7 @@ pub const qinputevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn New2(typeVal: i32, m_dev: ?*anyopaque, modifiers: i32) QtC.QInputEvent {
-        return qtc.QInputEvent_new2(@intCast(typeVal), @ptrCast(m_dev), @intCast(modifiers));
+        return qtc.QInputEvent_new2(@bitCast(typeVal), @ptrCast(m_dev), @bitCast(modifiers));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputevent.html#clone)
@@ -59,7 +59,7 @@ pub const qinputevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QInputEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QInputEvent) void {
-        qtc.QInputEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QInputEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputevent.html#clone)
@@ -121,7 +121,7 @@ pub const qinputevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
-        qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QInputEvent_SetModifiers(@ptrCast(self), @bitCast(modifiers));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputevent.html#timestamp)
@@ -143,7 +143,7 @@ pub const qinputevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn SetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QInputEvent_SetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QInputEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputevent.html#setTimestamp)
@@ -157,7 +157,7 @@ pub const qinputevent = struct {
     /// ` callback: *const fn (self: QtC.QInputEvent, timestamp: u64) callconv(.c) void `
     ///
     pub fn OnSetTimestamp(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.QInputEvent_OnSetTimestamp(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QInputEvent_OnSetTimestamp(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputevent.html#setTimestamp)
@@ -171,7 +171,7 @@ pub const qinputevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QInputEvent_QBaseSetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QInputEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QEvent
@@ -291,7 +291,7 @@ pub const qinputevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -339,7 +339,7 @@ pub const qinputevent = struct {
     /// ` callback: *const fn (self: QtC.QInputEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QInputEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QInputEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputevent.html#dtor.QInputEvent)
@@ -366,7 +366,7 @@ pub const qpointerevent = struct {
     /// ` dev: QtC.QPointingDevice `
     ///
     pub fn New(typeVal: i32, dev: ?*anyopaque) QtC.QPointerEvent {
-        return qtc.QPointerEvent_new(@intCast(typeVal), @ptrCast(dev));
+        return qtc.QPointerEvent_new(@bitCast(typeVal), @ptrCast(dev));
     }
 
     /// New2 constructs a new QPointerEvent object.
@@ -380,7 +380,7 @@ pub const qpointerevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn New2(typeVal: i32, dev: ?*anyopaque, modifiers: i32) QtC.QPointerEvent {
-        return qtc.QPointerEvent_new2(@intCast(typeVal), @ptrCast(dev), @intCast(modifiers));
+        return qtc.QPointerEvent_new2(@bitCast(typeVal), @ptrCast(dev), @bitCast(modifiers));
     }
 
     /// New3 constructs a new QPointerEvent object.
@@ -401,7 +401,7 @@ pub const qpointerevent = struct {
             .data = @ptrCast(points.ptr),
         };
 
-        return qtc.QPointerEvent_new3(@intCast(typeVal), @ptrCast(dev), @intCast(modifiers), points_list);
+        return qtc.QPointerEvent_new3(@bitCast(typeVal), @ptrCast(dev), @bitCast(modifiers), points_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#clone)
@@ -425,7 +425,7 @@ pub const qpointerevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPointerEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPointerEvent) void {
-        qtc.QPointerEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPointerEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#clone)
@@ -473,7 +473,7 @@ pub const qpointerevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn SetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QPointerEvent_SetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QPointerEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setTimestamp)
@@ -487,7 +487,7 @@ pub const qpointerevent = struct {
     /// ` callback: *const fn (self: QtC.QPointerEvent, timestamp: u64) callconv(.c) void `
     ///
     pub fn OnSetTimestamp(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.QPointerEvent_OnSetTimestamp(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPointerEvent_OnSetTimestamp(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setTimestamp)
@@ -501,7 +501,7 @@ pub const qpointerevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QPointerEvent_QBaseSetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QPointerEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#pointCount)
@@ -523,7 +523,7 @@ pub const qpointerevent = struct {
     /// ` i: i64 `
     ///
     pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
-        return qtc.QPointerEvent_Point(@ptrCast(self), @intCast(i));
+        return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#points)
@@ -552,7 +552,7 @@ pub const qpointerevent = struct {
     /// ` id: i32 `
     ///
     pub fn PointById(self: ?*anyopaque, id: i32) QtC.QEventPoint {
-        return qtc.QPointerEvent_PointById(@ptrCast(self), @intCast(id));
+        return qtc.QPointerEvent_PointById(@ptrCast(self), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#allPointsGrabbed)
@@ -586,7 +586,7 @@ pub const qpointerevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsBeginEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QPointerEvent_OnIsBeginEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPointerEvent_OnIsBeginEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#isBeginEvent)
@@ -622,7 +622,7 @@ pub const qpointerevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsUpdateEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QPointerEvent_OnIsUpdateEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPointerEvent_OnIsUpdateEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#isUpdateEvent)
@@ -658,7 +658,7 @@ pub const qpointerevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEndEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QPointerEvent_OnIsEndEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPointerEvent_OnIsEndEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#isEndEvent)
@@ -706,7 +706,7 @@ pub const qpointerevent = struct {
     /// ` callback: *const fn (self: QtC.QPointerEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QPointerEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPointerEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setAccepted)
@@ -844,7 +844,7 @@ pub const qpointerevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
-        qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QInputEvent_SetModifiers(@ptrCast(self), @bitCast(modifiers));
     }
 
     /// Inherited from QInputEvent
@@ -976,7 +976,7 @@ pub const qpointerevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#dtor.QPointerEvent)
@@ -1153,7 +1153,7 @@ pub const qsinglepointevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn SetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QPointerEvent_SetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QPointerEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -1179,7 +1179,7 @@ pub const qsinglepointevent = struct {
     /// ` i: i64 `
     ///
     pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
-        return qtc.QPointerEvent_Point(@ptrCast(self), @intCast(i));
+        return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
     /// Inherited from QPointerEvent
@@ -1212,7 +1212,7 @@ pub const qsinglepointevent = struct {
     /// ` id: i32 `
     ///
     pub fn PointById(self: ?*anyopaque, id: i32) QtC.QEventPoint {
-        return qtc.QPointerEvent_PointById(@ptrCast(self), @intCast(id));
+        return qtc.QPointerEvent_PointById(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QPointerEvent
@@ -1384,7 +1384,7 @@ pub const qsinglepointevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
-        qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QInputEvent_SetModifiers(@ptrCast(self), @bitCast(modifiers));
     }
 
     /// Inherited from QInputEvent
@@ -1516,7 +1516,7 @@ pub const qsinglepointevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#dtor.QSinglePointEvent)
@@ -1585,7 +1585,7 @@ pub const qenterevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QEnterEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEnterEvent) void {
-        qtc.QEnterEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QEnterEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qenterevent.html#clone)
@@ -1835,7 +1835,7 @@ pub const qenterevent = struct {
     /// ` i: i64 `
     ///
     pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
-        return qtc.QPointerEvent_Point(@ptrCast(self), @intCast(i));
+        return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
     /// Inherited from QPointerEvent
@@ -1868,7 +1868,7 @@ pub const qenterevent = struct {
     /// ` id: i32 `
     ///
     pub fn PointById(self: ?*anyopaque, id: i32) QtC.QEventPoint {
-        return qtc.QPointerEvent_PointById(@ptrCast(self), @intCast(id));
+        return qtc.QPointerEvent_PointById(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QPointerEvent
@@ -2026,7 +2026,7 @@ pub const qenterevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
-        qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QInputEvent_SetModifiers(@ptrCast(self), @bitCast(modifiers));
     }
 
     /// Inherited from QInputEvent
@@ -2158,7 +2158,7 @@ pub const qenterevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QSinglePointEvent
@@ -2202,7 +2202,7 @@ pub const qenterevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsBeginEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QEnterEvent_OnIsBeginEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QEnterEvent_OnIsBeginEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSinglePointEvent
@@ -2246,7 +2246,7 @@ pub const qenterevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsUpdateEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QEnterEvent_OnIsUpdateEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QEnterEvent_OnIsUpdateEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSinglePointEvent
@@ -2290,7 +2290,7 @@ pub const qenterevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEndEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QEnterEvent_OnIsEndEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QEnterEvent_OnIsEndEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPointerEvent
@@ -2306,7 +2306,7 @@ pub const qenterevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn SetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QEnterEvent_SetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QEnterEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -2322,7 +2322,7 @@ pub const qenterevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QEnterEvent_QBaseSetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QEnterEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -2338,7 +2338,7 @@ pub const qenterevent = struct {
     /// ` callback: *const fn (self: QtC.QEnterEvent, timestamp: u64) callconv(.c) void `
     ///
     pub fn OnSetTimestamp(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.QEnterEvent_OnSetTimestamp(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QEnterEvent_OnSetTimestamp(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPointerEvent
@@ -2386,7 +2386,7 @@ pub const qenterevent = struct {
     /// ` callback: *const fn (self: QtC.QEnterEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QEnterEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QEnterEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qenterevent.html#dtor.QEnterEvent)
@@ -2419,7 +2419,7 @@ pub const qmouseevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn New(typeVal: i32, localPos: ?*anyopaque, button: i32, buttons: i32, modifiers: i32) QtC.QMouseEvent {
-        return qtc.QMouseEvent_new(@intCast(typeVal), @ptrCast(localPos), @intCast(button), @intCast(buttons), @intCast(modifiers));
+        return qtc.QMouseEvent_new(@bitCast(typeVal), @ptrCast(localPos), @bitCast(button), @bitCast(buttons), @bitCast(modifiers));
     }
 
     /// New2 constructs a new QMouseEvent object.
@@ -2439,7 +2439,7 @@ pub const qmouseevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn New2(typeVal: i32, localPos: ?*anyopaque, globalPos: ?*anyopaque, button: i32, buttons: i32, modifiers: i32) QtC.QMouseEvent {
-        return qtc.QMouseEvent_new2(@intCast(typeVal), @ptrCast(localPos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers));
+        return qtc.QMouseEvent_new2(@bitCast(typeVal), @ptrCast(localPos), @ptrCast(globalPos), @bitCast(button), @bitCast(buttons), @bitCast(modifiers));
     }
 
     /// New3 constructs a new QMouseEvent object.
@@ -2461,7 +2461,7 @@ pub const qmouseevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn New3(typeVal: i32, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i32, buttons: i32, modifiers: i32) QtC.QMouseEvent {
-        return qtc.QMouseEvent_new3(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers));
+        return qtc.QMouseEvent_new3(@bitCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @bitCast(button), @bitCast(buttons), @bitCast(modifiers));
     }
 
     /// New4 constructs a new QMouseEvent object.
@@ -2485,7 +2485,7 @@ pub const qmouseevent = struct {
     /// ` source: qnamespace_enums.MouseEventSource `
     ///
     pub fn New4(typeVal: i32, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i32, buttons: i32, modifiers: i32, source: i32) QtC.QMouseEvent {
-        return qtc.QMouseEvent_new4(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @intCast(source));
+        return qtc.QMouseEvent_new4(@bitCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @bitCast(button), @bitCast(buttons), @bitCast(modifiers), @bitCast(source));
     }
 
     /// New5 constructs a new QMouseEvent object.
@@ -2505,7 +2505,7 @@ pub const qmouseevent = struct {
     /// ` device: QtC.QPointingDevice `
     ///
     pub fn New5(typeVal: i32, localPos: ?*anyopaque, button: i32, buttons: i32, modifiers: i32, device: ?*anyopaque) QtC.QMouseEvent {
-        return qtc.QMouseEvent_new5(@intCast(typeVal), @ptrCast(localPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @ptrCast(device));
+        return qtc.QMouseEvent_new5(@bitCast(typeVal), @ptrCast(localPos), @bitCast(button), @bitCast(buttons), @bitCast(modifiers), @ptrCast(device));
     }
 
     /// New6 constructs a new QMouseEvent object.
@@ -2527,7 +2527,7 @@ pub const qmouseevent = struct {
     /// ` device: QtC.QPointingDevice `
     ///
     pub fn New6(typeVal: i32, localPos: ?*anyopaque, globalPos: ?*anyopaque, button: i32, buttons: i32, modifiers: i32, device: ?*anyopaque) QtC.QMouseEvent {
-        return qtc.QMouseEvent_new6(@intCast(typeVal), @ptrCast(localPos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @ptrCast(device));
+        return qtc.QMouseEvent_new6(@bitCast(typeVal), @ptrCast(localPos), @ptrCast(globalPos), @bitCast(button), @bitCast(buttons), @bitCast(modifiers), @ptrCast(device));
     }
 
     /// New7 constructs a new QMouseEvent object.
@@ -2551,7 +2551,7 @@ pub const qmouseevent = struct {
     /// ` device: QtC.QPointingDevice `
     ///
     pub fn New7(typeVal: i32, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i32, buttons: i32, modifiers: i32, device: ?*anyopaque) QtC.QMouseEvent {
-        return qtc.QMouseEvent_new7(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @ptrCast(device));
+        return qtc.QMouseEvent_new7(@bitCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @bitCast(button), @bitCast(buttons), @bitCast(modifiers), @ptrCast(device));
     }
 
     /// New8 constructs a new QMouseEvent object.
@@ -2577,7 +2577,7 @@ pub const qmouseevent = struct {
     /// ` device: QtC.QPointingDevice `
     ///
     pub fn New8(typeVal: i32, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i32, buttons: i32, modifiers: i32, source: i32, device: ?*anyopaque) QtC.QMouseEvent {
-        return qtc.QMouseEvent_new8(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @intCast(source), @ptrCast(device));
+        return qtc.QMouseEvent_new8(@bitCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @bitCast(button), @bitCast(buttons), @bitCast(modifiers), @bitCast(source), @ptrCast(device));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmouseevent.html#clone)
@@ -2601,7 +2601,7 @@ pub const qmouseevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMouseEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMouseEvent) void {
-        qtc.QMouseEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMouseEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmouseevent.html#clone)
@@ -2879,7 +2879,7 @@ pub const qmouseevent = struct {
     /// ` i: i64 `
     ///
     pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
-        return qtc.QPointerEvent_Point(@ptrCast(self), @intCast(i));
+        return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
     /// Inherited from QPointerEvent
@@ -2912,7 +2912,7 @@ pub const qmouseevent = struct {
     /// ` id: i32 `
     ///
     pub fn PointById(self: ?*anyopaque, id: i32) QtC.QEventPoint {
-        return qtc.QPointerEvent_PointById(@ptrCast(self), @intCast(id));
+        return qtc.QPointerEvent_PointById(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QPointerEvent
@@ -3070,7 +3070,7 @@ pub const qmouseevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
-        qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QInputEvent_SetModifiers(@ptrCast(self), @bitCast(modifiers));
     }
 
     /// Inherited from QInputEvent
@@ -3202,7 +3202,7 @@ pub const qmouseevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QSinglePointEvent
@@ -3246,7 +3246,7 @@ pub const qmouseevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsBeginEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QMouseEvent_OnIsBeginEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMouseEvent_OnIsBeginEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSinglePointEvent
@@ -3290,7 +3290,7 @@ pub const qmouseevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsUpdateEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QMouseEvent_OnIsUpdateEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMouseEvent_OnIsUpdateEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSinglePointEvent
@@ -3334,7 +3334,7 @@ pub const qmouseevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEndEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QMouseEvent_OnIsEndEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMouseEvent_OnIsEndEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPointerEvent
@@ -3350,7 +3350,7 @@ pub const qmouseevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn SetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QMouseEvent_SetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QMouseEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -3366,7 +3366,7 @@ pub const qmouseevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QMouseEvent_QBaseSetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QMouseEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -3382,7 +3382,7 @@ pub const qmouseevent = struct {
     /// ` callback: *const fn (self: QtC.QMouseEvent, timestamp: u64) callconv(.c) void `
     ///
     pub fn OnSetTimestamp(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.QMouseEvent_OnSetTimestamp(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMouseEvent_OnSetTimestamp(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPointerEvent
@@ -3430,7 +3430,7 @@ pub const qmouseevent = struct {
     /// ` callback: *const fn (self: QtC.QMouseEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QMouseEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMouseEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmouseevent.html#dtor.QMouseEvent)
@@ -3461,7 +3461,7 @@ pub const qhoverevent = struct {
     /// ` oldPos: QtC.QPointF `
     ///
     pub fn New(typeVal: i32, scenePos: ?*anyopaque, globalPos: ?*anyopaque, oldPos: ?*anyopaque) QtC.QHoverEvent {
-        return qtc.QHoverEvent_new(@intCast(typeVal), @ptrCast(scenePos), @ptrCast(globalPos), @ptrCast(oldPos));
+        return qtc.QHoverEvent_new(@bitCast(typeVal), @ptrCast(scenePos), @ptrCast(globalPos), @ptrCast(oldPos));
     }
 
     /// New2 constructs a new QHoverEvent object.
@@ -3475,7 +3475,7 @@ pub const qhoverevent = struct {
     /// ` oldPos: QtC.QPointF `
     ///
     pub fn New2(typeVal: i32, pos: ?*anyopaque, oldPos: ?*anyopaque) QtC.QHoverEvent {
-        return qtc.QHoverEvent_new2(@intCast(typeVal), @ptrCast(pos), @ptrCast(oldPos));
+        return qtc.QHoverEvent_new2(@bitCast(typeVal), @ptrCast(pos), @ptrCast(oldPos));
     }
 
     /// New3 constructs a new QHoverEvent object.
@@ -3493,7 +3493,7 @@ pub const qhoverevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn New3(typeVal: i32, scenePos: ?*anyopaque, globalPos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i32) QtC.QHoverEvent {
-        return qtc.QHoverEvent_new3(@intCast(typeVal), @ptrCast(scenePos), @ptrCast(globalPos), @ptrCast(oldPos), @intCast(modifiers));
+        return qtc.QHoverEvent_new3(@bitCast(typeVal), @ptrCast(scenePos), @ptrCast(globalPos), @ptrCast(oldPos), @bitCast(modifiers));
     }
 
     /// New4 constructs a new QHoverEvent object.
@@ -3513,7 +3513,7 @@ pub const qhoverevent = struct {
     /// ` device: QtC.QPointingDevice `
     ///
     pub fn New4(typeVal: i32, scenePos: ?*anyopaque, globalPos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i32, device: ?*anyopaque) QtC.QHoverEvent {
-        return qtc.QHoverEvent_new4(@intCast(typeVal), @ptrCast(scenePos), @ptrCast(globalPos), @ptrCast(oldPos), @intCast(modifiers), @ptrCast(device));
+        return qtc.QHoverEvent_new4(@bitCast(typeVal), @ptrCast(scenePos), @ptrCast(globalPos), @ptrCast(oldPos), @bitCast(modifiers), @ptrCast(device));
     }
 
     /// New5 constructs a new QHoverEvent object.
@@ -3529,7 +3529,7 @@ pub const qhoverevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn New5(typeVal: i32, pos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i32) QtC.QHoverEvent {
-        return qtc.QHoverEvent_new5(@intCast(typeVal), @ptrCast(pos), @ptrCast(oldPos), @intCast(modifiers));
+        return qtc.QHoverEvent_new5(@bitCast(typeVal), @ptrCast(pos), @ptrCast(oldPos), @bitCast(modifiers));
     }
 
     /// New6 constructs a new QHoverEvent object.
@@ -3547,7 +3547,7 @@ pub const qhoverevent = struct {
     /// ` device: QtC.QPointingDevice `
     ///
     pub fn New6(typeVal: i32, pos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i32, device: ?*anyopaque) QtC.QHoverEvent {
-        return qtc.QHoverEvent_new6(@intCast(typeVal), @ptrCast(pos), @ptrCast(oldPos), @intCast(modifiers), @ptrCast(device));
+        return qtc.QHoverEvent_new6(@bitCast(typeVal), @ptrCast(pos), @ptrCast(oldPos), @bitCast(modifiers), @ptrCast(device));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhoverevent.html#clone)
@@ -3571,7 +3571,7 @@ pub const qhoverevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QHoverEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QHoverEvent) void {
-        qtc.QHoverEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHoverEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhoverevent.html#clone)
@@ -3627,7 +3627,7 @@ pub const qhoverevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsUpdateEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QHoverEvent_OnIsUpdateEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHoverEvent_OnIsUpdateEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhoverevent.html#isUpdateEvent)
@@ -3807,7 +3807,7 @@ pub const qhoverevent = struct {
     /// ` i: i64 `
     ///
     pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
-        return qtc.QPointerEvent_Point(@ptrCast(self), @intCast(i));
+        return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
     /// Inherited from QPointerEvent
@@ -3840,7 +3840,7 @@ pub const qhoverevent = struct {
     /// ` id: i32 `
     ///
     pub fn PointById(self: ?*anyopaque, id: i32) QtC.QEventPoint {
-        return qtc.QPointerEvent_PointById(@ptrCast(self), @intCast(id));
+        return qtc.QPointerEvent_PointById(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QPointerEvent
@@ -3998,7 +3998,7 @@ pub const qhoverevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
-        qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QInputEvent_SetModifiers(@ptrCast(self), @bitCast(modifiers));
     }
 
     /// Inherited from QInputEvent
@@ -4130,7 +4130,7 @@ pub const qhoverevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QSinglePointEvent
@@ -4174,7 +4174,7 @@ pub const qhoverevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsBeginEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QHoverEvent_OnIsBeginEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHoverEvent_OnIsBeginEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSinglePointEvent
@@ -4218,7 +4218,7 @@ pub const qhoverevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEndEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QHoverEvent_OnIsEndEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHoverEvent_OnIsEndEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPointerEvent
@@ -4234,7 +4234,7 @@ pub const qhoverevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn SetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QHoverEvent_SetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QHoverEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -4250,7 +4250,7 @@ pub const qhoverevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QHoverEvent_QBaseSetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QHoverEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -4266,7 +4266,7 @@ pub const qhoverevent = struct {
     /// ` callback: *const fn (self: QtC.QHoverEvent, timestamp: u64) callconv(.c) void `
     ///
     pub fn OnSetTimestamp(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.QHoverEvent_OnSetTimestamp(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHoverEvent_OnSetTimestamp(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPointerEvent
@@ -4314,7 +4314,7 @@ pub const qhoverevent = struct {
     /// ` callback: *const fn (self: QtC.QHoverEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QHoverEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHoverEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhoverevent.html#dtor.QHoverEvent)
@@ -4353,7 +4353,7 @@ pub const qwheelevent = struct {
     /// ` inverted: bool `
     ///
     pub fn New(pos: ?*anyopaque, globalPos: ?*anyopaque, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i32, modifiers: i32, phase: i32, inverted: bool) QtC.QWheelEvent {
-        return qtc.QWheelEvent_new(@ptrCast(pos), @ptrCast(globalPos), @ptrCast(pixelDelta), @ptrCast(angleDelta), @intCast(buttons), @intCast(modifiers), @intCast(phase), inverted);
+        return qtc.QWheelEvent_new(@ptrCast(pos), @ptrCast(globalPos), @ptrCast(pixelDelta), @ptrCast(angleDelta), @bitCast(buttons), @bitCast(modifiers), @bitCast(phase), inverted);
     }
 
     /// New2 constructs a new QWheelEvent object.
@@ -4379,7 +4379,7 @@ pub const qwheelevent = struct {
     /// ` source: qnamespace_enums.MouseEventSource `
     ///
     pub fn New2(pos: ?*anyopaque, globalPos: ?*anyopaque, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i32, modifiers: i32, phase: i32, inverted: bool, source: i32) QtC.QWheelEvent {
-        return qtc.QWheelEvent_new2(@ptrCast(pos), @ptrCast(globalPos), @ptrCast(pixelDelta), @ptrCast(angleDelta), @intCast(buttons), @intCast(modifiers), @intCast(phase), inverted, @intCast(source));
+        return qtc.QWheelEvent_new2(@ptrCast(pos), @ptrCast(globalPos), @ptrCast(pixelDelta), @ptrCast(angleDelta), @bitCast(buttons), @bitCast(modifiers), @bitCast(phase), inverted, @bitCast(source));
     }
 
     /// New3 constructs a new QWheelEvent object.
@@ -4407,7 +4407,7 @@ pub const qwheelevent = struct {
     /// ` device: QtC.QPointingDevice `
     ///
     pub fn New3(pos: ?*anyopaque, globalPos: ?*anyopaque, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i32, modifiers: i32, phase: i32, inverted: bool, source: i32, device: ?*anyopaque) QtC.QWheelEvent {
-        return qtc.QWheelEvent_new3(@ptrCast(pos), @ptrCast(globalPos), @ptrCast(pixelDelta), @ptrCast(angleDelta), @intCast(buttons), @intCast(modifiers), @intCast(phase), inverted, @intCast(source), @ptrCast(device));
+        return qtc.QWheelEvent_new3(@ptrCast(pos), @ptrCast(globalPos), @ptrCast(pixelDelta), @ptrCast(angleDelta), @bitCast(buttons), @bitCast(modifiers), @bitCast(phase), inverted, @bitCast(source), @ptrCast(device));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#clone)
@@ -4431,7 +4431,7 @@ pub const qwheelevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QWheelEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWheelEvent) void {
-        qtc.QWheelEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWheelEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#clone)
@@ -4531,7 +4531,7 @@ pub const qwheelevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsBeginEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWheelEvent_OnIsBeginEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWheelEvent_OnIsBeginEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#isBeginEvent)
@@ -4567,7 +4567,7 @@ pub const qwheelevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsUpdateEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWheelEvent_OnIsUpdateEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWheelEvent_OnIsUpdateEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#isUpdateEvent)
@@ -4603,7 +4603,7 @@ pub const qwheelevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEndEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWheelEvent_OnIsEndEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWheelEvent_OnIsEndEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#isEndEvent)
@@ -4777,7 +4777,7 @@ pub const qwheelevent = struct {
     /// ` i: i64 `
     ///
     pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
-        return qtc.QPointerEvent_Point(@ptrCast(self), @intCast(i));
+        return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
     /// Inherited from QPointerEvent
@@ -4810,7 +4810,7 @@ pub const qwheelevent = struct {
     /// ` id: i32 `
     ///
     pub fn PointById(self: ?*anyopaque, id: i32) QtC.QEventPoint {
-        return qtc.QPointerEvent_PointById(@ptrCast(self), @intCast(id));
+        return qtc.QPointerEvent_PointById(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QPointerEvent
@@ -4968,7 +4968,7 @@ pub const qwheelevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
-        qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QInputEvent_SetModifiers(@ptrCast(self), @bitCast(modifiers));
     }
 
     /// Inherited from QInputEvent
@@ -5100,7 +5100,7 @@ pub const qwheelevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QPointerEvent
@@ -5116,7 +5116,7 @@ pub const qwheelevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn SetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QWheelEvent_SetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QWheelEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -5132,7 +5132,7 @@ pub const qwheelevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QWheelEvent_QBaseSetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QWheelEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -5148,7 +5148,7 @@ pub const qwheelevent = struct {
     /// ` callback: *const fn (self: QtC.QWheelEvent, timestamp: u64) callconv(.c) void `
     ///
     pub fn OnSetTimestamp(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.QWheelEvent_OnSetTimestamp(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWheelEvent_OnSetTimestamp(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPointerEvent
@@ -5196,7 +5196,7 @@ pub const qwheelevent = struct {
     /// ` callback: *const fn (self: QtC.QWheelEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QWheelEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWheelEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#dtor.QWheelEvent)
@@ -5245,7 +5245,7 @@ pub const qtabletevent = struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn New(t: i32, device: ?*anyopaque, pos: ?*anyopaque, globalPos: ?*anyopaque, pressure: f64, xTilt: f32, yTilt: f32, tangentialPressure: f32, rotation: f64, z: f32, keyState: i32, button: i32, buttons: i32) QtC.QTabletEvent {
-        return qtc.QTabletEvent_new(@intCast(t), @ptrCast(device), @ptrCast(pos), @ptrCast(globalPos), @floatCast(pressure), @floatCast(xTilt), @floatCast(yTilt), @floatCast(tangentialPressure), @floatCast(rotation), @floatCast(z), @intCast(keyState), @intCast(button), @intCast(buttons));
+        return qtc.QTabletEvent_new(@bitCast(t), @ptrCast(device), @ptrCast(pos), @ptrCast(globalPos), @bitCast(pressure), @bitCast(xTilt), @bitCast(yTilt), @bitCast(tangentialPressure), @bitCast(rotation), @bitCast(z), @bitCast(keyState), @bitCast(button), @bitCast(buttons));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabletevent.html#clone)
@@ -5269,7 +5269,7 @@ pub const qtabletevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QTabletEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTabletEvent) void {
-        qtc.QTabletEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabletEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabletevent.html#clone)
@@ -5599,7 +5599,7 @@ pub const qtabletevent = struct {
     /// ` i: i64 `
     ///
     pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
-        return qtc.QPointerEvent_Point(@ptrCast(self), @intCast(i));
+        return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
     /// Inherited from QPointerEvent
@@ -5632,7 +5632,7 @@ pub const qtabletevent = struct {
     /// ` id: i32 `
     ///
     pub fn PointById(self: ?*anyopaque, id: i32) QtC.QEventPoint {
-        return qtc.QPointerEvent_PointById(@ptrCast(self), @intCast(id));
+        return qtc.QPointerEvent_PointById(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QPointerEvent
@@ -5790,7 +5790,7 @@ pub const qtabletevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
-        qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QInputEvent_SetModifiers(@ptrCast(self), @bitCast(modifiers));
     }
 
     /// Inherited from QInputEvent
@@ -5922,7 +5922,7 @@ pub const qtabletevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QSinglePointEvent
@@ -5966,7 +5966,7 @@ pub const qtabletevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsBeginEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTabletEvent_OnIsBeginEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabletEvent_OnIsBeginEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSinglePointEvent
@@ -6010,7 +6010,7 @@ pub const qtabletevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsUpdateEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTabletEvent_OnIsUpdateEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabletEvent_OnIsUpdateEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSinglePointEvent
@@ -6054,7 +6054,7 @@ pub const qtabletevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEndEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTabletEvent_OnIsEndEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabletEvent_OnIsEndEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPointerEvent
@@ -6070,7 +6070,7 @@ pub const qtabletevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn SetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QTabletEvent_SetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QTabletEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -6086,7 +6086,7 @@ pub const qtabletevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QTabletEvent_QBaseSetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QTabletEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -6102,7 +6102,7 @@ pub const qtabletevent = struct {
     /// ` callback: *const fn (self: QtC.QTabletEvent, timestamp: u64) callconv(.c) void `
     ///
     pub fn OnSetTimestamp(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.QTabletEvent_OnSetTimestamp(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabletEvent_OnSetTimestamp(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPointerEvent
@@ -6150,7 +6150,7 @@ pub const qtabletevent = struct {
     /// ` callback: *const fn (self: QtC.QTabletEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTabletEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTabletEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabletevent.html#dtor.QTabletEvent)
@@ -6189,7 +6189,7 @@ pub const qnativegestureevent = struct {
     /// ` intArgument: u64 `
     ///
     pub fn New(typeVal: i32, dev: ?*anyopaque, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, value: f64, sequenceId: u64, intArgument: u64) QtC.QNativeGestureEvent {
-        return qtc.QNativeGestureEvent_new(@intCast(typeVal), @ptrCast(dev), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @floatCast(value), @intCast(sequenceId), @intCast(intArgument));
+        return qtc.QNativeGestureEvent_new(@bitCast(typeVal), @ptrCast(dev), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @bitCast(value), @bitCast(sequenceId), @bitCast(intArgument));
     }
 
     /// New2 constructs a new QNativeGestureEvent object.
@@ -6213,7 +6213,7 @@ pub const qnativegestureevent = struct {
     /// ` delta: QtC.QPointF `
     ///
     pub fn New2(typeVal: i32, dev: ?*anyopaque, fingerCount: i32, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, value: f64, delta: ?*anyopaque) QtC.QNativeGestureEvent {
-        return qtc.QNativeGestureEvent_new2(@intCast(typeVal), @ptrCast(dev), @intCast(fingerCount), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @floatCast(value), @ptrCast(delta));
+        return qtc.QNativeGestureEvent_new2(@bitCast(typeVal), @ptrCast(dev), @bitCast(fingerCount), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @bitCast(value), @ptrCast(delta));
     }
 
     /// New3 constructs a new QNativeGestureEvent object.
@@ -6239,7 +6239,7 @@ pub const qnativegestureevent = struct {
     /// ` sequenceId: u64 `
     ///
     pub fn New3(typeVal: i32, dev: ?*anyopaque, fingerCount: i32, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, value: f64, delta: ?*anyopaque, sequenceId: u64) QtC.QNativeGestureEvent {
-        return qtc.QNativeGestureEvent_new3(@intCast(typeVal), @ptrCast(dev), @intCast(fingerCount), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @floatCast(value), @ptrCast(delta), @intCast(sequenceId));
+        return qtc.QNativeGestureEvent_new3(@bitCast(typeVal), @ptrCast(dev), @bitCast(fingerCount), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @bitCast(value), @ptrCast(delta), @bitCast(sequenceId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativegestureevent.html#clone)
@@ -6263,7 +6263,7 @@ pub const qnativegestureevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QNativeGestureEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QNativeGestureEvent) void {
-        qtc.QNativeGestureEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QNativeGestureEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativegestureevent.html#clone)
@@ -6517,7 +6517,7 @@ pub const qnativegestureevent = struct {
     /// ` i: i64 `
     ///
     pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
-        return qtc.QPointerEvent_Point(@ptrCast(self), @intCast(i));
+        return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
     /// Inherited from QPointerEvent
@@ -6550,7 +6550,7 @@ pub const qnativegestureevent = struct {
     /// ` id: i32 `
     ///
     pub fn PointById(self: ?*anyopaque, id: i32) QtC.QEventPoint {
-        return qtc.QPointerEvent_PointById(@ptrCast(self), @intCast(id));
+        return qtc.QPointerEvent_PointById(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QPointerEvent
@@ -6708,7 +6708,7 @@ pub const qnativegestureevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
-        qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QInputEvent_SetModifiers(@ptrCast(self), @bitCast(modifiers));
     }
 
     /// Inherited from QInputEvent
@@ -6840,7 +6840,7 @@ pub const qnativegestureevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QSinglePointEvent
@@ -6884,7 +6884,7 @@ pub const qnativegestureevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsBeginEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QNativeGestureEvent_OnIsBeginEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QNativeGestureEvent_OnIsBeginEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSinglePointEvent
@@ -6928,7 +6928,7 @@ pub const qnativegestureevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsUpdateEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QNativeGestureEvent_OnIsUpdateEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QNativeGestureEvent_OnIsUpdateEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSinglePointEvent
@@ -6972,7 +6972,7 @@ pub const qnativegestureevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEndEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QNativeGestureEvent_OnIsEndEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QNativeGestureEvent_OnIsEndEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPointerEvent
@@ -6988,7 +6988,7 @@ pub const qnativegestureevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn SetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QNativeGestureEvent_SetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QNativeGestureEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -7004,7 +7004,7 @@ pub const qnativegestureevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QNativeGestureEvent_QBaseSetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QNativeGestureEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -7020,7 +7020,7 @@ pub const qnativegestureevent = struct {
     /// ` callback: *const fn (self: QtC.QNativeGestureEvent, timestamp: u64) callconv(.c) void `
     ///
     pub fn OnSetTimestamp(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.QNativeGestureEvent_OnSetTimestamp(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QNativeGestureEvent_OnSetTimestamp(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPointerEvent
@@ -7068,7 +7068,7 @@ pub const qnativegestureevent = struct {
     /// ` callback: *const fn (self: QtC.QNativeGestureEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QNativeGestureEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QNativeGestureEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativegestureevent.html#dtor.QNativeGestureEvent)
@@ -7097,7 +7097,7 @@ pub const qkeyevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn New(typeVal: i32, key: i32, modifiers: i32) QtC.QKeyEvent {
-        return qtc.QKeyEvent_new(@intCast(typeVal), @intCast(key), @intCast(modifiers));
+        return qtc.QKeyEvent_new(@bitCast(typeVal), @bitCast(key), @bitCast(modifiers));
     }
 
     /// New2 constructs a new QKeyEvent object.
@@ -7117,7 +7117,7 @@ pub const qkeyevent = struct {
     /// ` nativeModifiers: u32 `
     ///
     pub fn New2(typeVal: i32, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32) QtC.QKeyEvent {
-        return qtc.QKeyEvent_new2(@intCast(typeVal), @intCast(key), @intCast(modifiers), @intCast(nativeScanCode), @intCast(nativeVirtualKey), @intCast(nativeModifiers));
+        return qtc.QKeyEvent_new2(@bitCast(typeVal), @bitCast(key), @bitCast(modifiers), @bitCast(nativeScanCode), @bitCast(nativeVirtualKey), @bitCast(nativeModifiers));
     }
 
     /// New3 constructs a new QKeyEvent object.
@@ -7138,7 +7138,7 @@ pub const qkeyevent = struct {
             .data = text.ptr,
         };
 
-        return qtc.QKeyEvent_new3(@intCast(typeVal), @intCast(key), @intCast(modifiers), text_str);
+        return qtc.QKeyEvent_new3(@bitCast(typeVal), @bitCast(key), @bitCast(modifiers), text_str);
     }
 
     /// New4 constructs a new QKeyEvent object.
@@ -7161,7 +7161,7 @@ pub const qkeyevent = struct {
             .data = text.ptr,
         };
 
-        return qtc.QKeyEvent_new4(@intCast(typeVal), @intCast(key), @intCast(modifiers), text_str, autorep);
+        return qtc.QKeyEvent_new4(@bitCast(typeVal), @bitCast(key), @bitCast(modifiers), text_str, autorep);
     }
 
     /// New5 constructs a new QKeyEvent object.
@@ -7186,7 +7186,7 @@ pub const qkeyevent = struct {
             .data = text.ptr,
         };
 
-        return qtc.QKeyEvent_new5(@intCast(typeVal), @intCast(key), @intCast(modifiers), text_str, autorep, @intCast(count));
+        return qtc.QKeyEvent_new5(@bitCast(typeVal), @bitCast(key), @bitCast(modifiers), text_str, autorep, @bitCast(count));
     }
 
     /// New6 constructs a new QKeyEvent object.
@@ -7213,7 +7213,7 @@ pub const qkeyevent = struct {
             .data = text.ptr,
         };
 
-        return qtc.QKeyEvent_new6(@intCast(typeVal), @intCast(key), @intCast(modifiers), @intCast(nativeScanCode), @intCast(nativeVirtualKey), @intCast(nativeModifiers), text_str);
+        return qtc.QKeyEvent_new6(@bitCast(typeVal), @bitCast(key), @bitCast(modifiers), @bitCast(nativeScanCode), @bitCast(nativeVirtualKey), @bitCast(nativeModifiers), text_str);
     }
 
     /// New7 constructs a new QKeyEvent object.
@@ -7242,7 +7242,7 @@ pub const qkeyevent = struct {
             .data = text.ptr,
         };
 
-        return qtc.QKeyEvent_new7(@intCast(typeVal), @intCast(key), @intCast(modifiers), @intCast(nativeScanCode), @intCast(nativeVirtualKey), @intCast(nativeModifiers), text_str, autorep);
+        return qtc.QKeyEvent_new7(@bitCast(typeVal), @bitCast(key), @bitCast(modifiers), @bitCast(nativeScanCode), @bitCast(nativeVirtualKey), @bitCast(nativeModifiers), text_str, autorep);
     }
 
     /// New8 constructs a new QKeyEvent object.
@@ -7273,7 +7273,7 @@ pub const qkeyevent = struct {
             .data = text.ptr,
         };
 
-        return qtc.QKeyEvent_new8(@intCast(typeVal), @intCast(key), @intCast(modifiers), @intCast(nativeScanCode), @intCast(nativeVirtualKey), @intCast(nativeModifiers), text_str, autorep, @intCast(count));
+        return qtc.QKeyEvent_new8(@bitCast(typeVal), @bitCast(key), @bitCast(modifiers), @bitCast(nativeScanCode), @bitCast(nativeVirtualKey), @bitCast(nativeModifiers), text_str, autorep, @bitCast(count));
     }
 
     /// New9 constructs a new QKeyEvent object.
@@ -7306,7 +7306,7 @@ pub const qkeyevent = struct {
             .data = text.ptr,
         };
 
-        return qtc.QKeyEvent_new9(@intCast(typeVal), @intCast(key), @intCast(modifiers), @intCast(nativeScanCode), @intCast(nativeVirtualKey), @intCast(nativeModifiers), text_str, autorep, @intCast(count), @ptrCast(device));
+        return qtc.QKeyEvent_new9(@bitCast(typeVal), @bitCast(key), @bitCast(modifiers), @bitCast(nativeScanCode), @bitCast(nativeVirtualKey), @bitCast(nativeModifiers), text_str, autorep, @bitCast(count), @ptrCast(device));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyevent.html#clone)
@@ -7330,7 +7330,7 @@ pub const qkeyevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QKeyEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QKeyEvent) void {
-        qtc.QKeyEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QKeyEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyevent.html#clone)
@@ -7364,7 +7364,7 @@ pub const qkeyevent = struct {
     /// ` key: qkeysequence_enums.StandardKey `
     ///
     pub fn Matches(self: ?*anyopaque, key: i32) bool {
-        return qtc.QKeyEvent_Matches(@ptrCast(self), @intCast(key));
+        return qtc.QKeyEvent_Matches(@ptrCast(self), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyevent.html#modifiers)
@@ -7496,7 +7496,7 @@ pub const qkeyevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
-        qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QInputEvent_SetModifiers(@ptrCast(self), @bitCast(modifiers));
     }
 
     /// Inherited from QInputEvent
@@ -7628,7 +7628,7 @@ pub const qkeyevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QInputEvent
@@ -7644,7 +7644,7 @@ pub const qkeyevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn SetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QKeyEvent_SetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QKeyEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QInputEvent
@@ -7660,7 +7660,7 @@ pub const qkeyevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QKeyEvent_QBaseSetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QKeyEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QInputEvent
@@ -7676,7 +7676,7 @@ pub const qkeyevent = struct {
     /// ` callback: *const fn (self: QtC.QKeyEvent, timestamp: u64) callconv(.c) void `
     ///
     pub fn OnSetTimestamp(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.QKeyEvent_OnSetTimestamp(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QKeyEvent_OnSetTimestamp(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -7724,7 +7724,7 @@ pub const qkeyevent = struct {
     /// ` callback: *const fn (self: QtC.QKeyEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QKeyEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QKeyEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyevent.html#dtor.QKeyEvent)
@@ -7749,7 +7749,7 @@ pub const qfocusevent = struct {
     /// ` typeVal: qcoreevent_enums.Type `
     ///
     pub fn New(typeVal: i32) QtC.QFocusEvent {
-        return qtc.QFocusEvent_new(@intCast(typeVal));
+        return qtc.QFocusEvent_new(@bitCast(typeVal));
     }
 
     /// New2 constructs a new QFocusEvent object.
@@ -7761,7 +7761,7 @@ pub const qfocusevent = struct {
     /// ` reason: qnamespace_enums.FocusReason `
     ///
     pub fn New2(typeVal: i32, reason: i32) QtC.QFocusEvent {
-        return qtc.QFocusEvent_new2(@intCast(typeVal), @intCast(reason));
+        return qtc.QFocusEvent_new2(@bitCast(typeVal), @bitCast(reason));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusevent.html#clone)
@@ -7785,7 +7785,7 @@ pub const qfocusevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QFocusEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QFocusEvent) void {
-        qtc.QFocusEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFocusEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusevent.html#clone)
@@ -7951,7 +7951,7 @@ pub const qfocusevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -7999,7 +7999,7 @@ pub const qfocusevent = struct {
     /// ` callback: *const fn (self: QtC.QFocusEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QFocusEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFocusEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusevent.html#dtor.QFocusEvent)
@@ -8058,7 +8058,7 @@ pub const qpaintevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPaintEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEvent) void {
-        qtc.QPaintEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPaintEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintevent.html#clone)
@@ -8210,7 +8210,7 @@ pub const qpaintevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -8258,7 +8258,7 @@ pub const qpaintevent = struct {
     /// ` callback: *const fn (self: QtC.QPaintEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QPaintEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPaintEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintevent.html#dtor.QPaintEvent)
@@ -8309,7 +8309,7 @@ pub const qmoveevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMoveEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMoveEvent) void {
-        qtc.QMoveEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMoveEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmoveevent.html#clone)
@@ -8461,7 +8461,7 @@ pub const qmoveevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -8509,7 +8509,7 @@ pub const qmoveevent = struct {
     /// ` callback: *const fn (self: QtC.QMoveEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QMoveEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QMoveEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmoveevent.html#dtor.QMoveEvent)
@@ -8558,7 +8558,7 @@ pub const qexposeevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QExposeEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QExposeEvent) void {
-        qtc.QExposeEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QExposeEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qexposeevent.html#clone)
@@ -8700,7 +8700,7 @@ pub const qexposeevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -8748,7 +8748,7 @@ pub const qexposeevent = struct {
     /// ` callback: *const fn (self: QtC.QExposeEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QExposeEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QExposeEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qexposeevent.html#dtor.QExposeEvent)
@@ -8773,7 +8773,7 @@ pub const qplatformsurfaceevent = struct {
     /// ` surfaceEventType: qevent_enums.SurfaceEventType `
     ///
     pub fn New(surfaceEventType: i32) QtC.QPlatformSurfaceEvent {
-        return qtc.QPlatformSurfaceEvent_new(@intCast(surfaceEventType));
+        return qtc.QPlatformSurfaceEvent_new(@bitCast(surfaceEventType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplatformsurfaceevent.html#clone)
@@ -8797,7 +8797,7 @@ pub const qplatformsurfaceevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPlatformSurfaceEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPlatformSurfaceEvent) void {
-        qtc.QPlatformSurfaceEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlatformSurfaceEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplatformsurfaceevent.html#clone)
@@ -8943,7 +8943,7 @@ pub const qplatformsurfaceevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -8991,7 +8991,7 @@ pub const qplatformsurfaceevent = struct {
     /// ` callback: *const fn (self: QtC.QPlatformSurfaceEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QPlatformSurfaceEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QPlatformSurfaceEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplatformsurfaceevent.html#dtor.QPlatformSurfaceEvent)
@@ -9042,7 +9042,7 @@ pub const qresizeevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QResizeEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QResizeEvent) void {
-        qtc.QResizeEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QResizeEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresizeevent.html#clone)
@@ -9194,7 +9194,7 @@ pub const qresizeevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -9242,7 +9242,7 @@ pub const qresizeevent = struct {
     /// ` callback: *const fn (self: QtC.QResizeEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QResizeEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QResizeEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresizeevent.html#dtor.QResizeEvent)
@@ -9287,7 +9287,7 @@ pub const qcloseevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QCloseEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QCloseEvent) void {
-        qtc.QCloseEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCloseEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcloseevent.html#clone)
@@ -9419,7 +9419,7 @@ pub const qcloseevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -9467,7 +9467,7 @@ pub const qcloseevent = struct {
     /// ` callback: *const fn (self: QtC.QCloseEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QCloseEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QCloseEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcloseevent.html#dtor.QCloseEvent)
@@ -9512,7 +9512,7 @@ pub const qicondragevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QIconDragEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QIconDragEvent) void {
-        qtc.QIconDragEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIconDragEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicondragevent.html#clone)
@@ -9644,7 +9644,7 @@ pub const qicondragevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -9692,7 +9692,7 @@ pub const qicondragevent = struct {
     /// ` callback: *const fn (self: QtC.QIconDragEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QIconDragEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QIconDragEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicondragevent.html#dtor.QIconDragEvent)
@@ -9737,7 +9737,7 @@ pub const qshowevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QShowEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QShowEvent) void {
-        qtc.QShowEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QShowEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qshowevent.html#clone)
@@ -9869,7 +9869,7 @@ pub const qshowevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -9917,7 +9917,7 @@ pub const qshowevent = struct {
     /// ` callback: *const fn (self: QtC.QShowEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QShowEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QShowEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qshowevent.html#dtor.QShowEvent)
@@ -9962,7 +9962,7 @@ pub const qhideevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QHideEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QHideEvent) void {
-        qtc.QHideEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHideEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhideevent.html#clone)
@@ -10094,7 +10094,7 @@ pub const qhideevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -10142,7 +10142,7 @@ pub const qhideevent = struct {
     /// ` callback: *const fn (self: QtC.QHideEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QHideEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHideEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhideevent.html#dtor.QHideEvent)
@@ -10171,7 +10171,7 @@ pub const qcontextmenuevent = struct {
     /// ` globalPos: QtC.QPoint `
     ///
     pub fn New(reason: i32, pos: ?*anyopaque, globalPos: ?*anyopaque) QtC.QContextMenuEvent {
-        return qtc.QContextMenuEvent_new(@intCast(reason), @ptrCast(pos), @ptrCast(globalPos));
+        return qtc.QContextMenuEvent_new(@bitCast(reason), @ptrCast(pos), @ptrCast(globalPos));
     }
 
     /// New2 constructs a new QContextMenuEvent object.
@@ -10183,7 +10183,7 @@ pub const qcontextmenuevent = struct {
     /// ` pos: QtC.QPoint `
     ///
     pub fn New2(reason: i32, pos: ?*anyopaque) QtC.QContextMenuEvent {
-        return qtc.QContextMenuEvent_new2(@intCast(reason), @ptrCast(pos));
+        return qtc.QContextMenuEvent_new2(@bitCast(reason), @ptrCast(pos));
     }
 
     /// New3 constructs a new QContextMenuEvent object.
@@ -10199,7 +10199,7 @@ pub const qcontextmenuevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn New3(reason: i32, pos: ?*anyopaque, globalPos: ?*anyopaque, modifiers: i32) QtC.QContextMenuEvent {
-        return qtc.QContextMenuEvent_new3(@intCast(reason), @ptrCast(pos), @ptrCast(globalPos), @intCast(modifiers));
+        return qtc.QContextMenuEvent_new3(@bitCast(reason), @ptrCast(pos), @ptrCast(globalPos), @bitCast(modifiers));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontextmenuevent.html#clone)
@@ -10223,7 +10223,7 @@ pub const qcontextmenuevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QContextMenuEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QContextMenuEvent) void {
-        qtc.QContextMenuEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QContextMenuEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontextmenuevent.html#clone)
@@ -10367,7 +10367,7 @@ pub const qcontextmenuevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
-        qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QInputEvent_SetModifiers(@ptrCast(self), @bitCast(modifiers));
     }
 
     /// Inherited from QInputEvent
@@ -10499,7 +10499,7 @@ pub const qcontextmenuevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QInputEvent
@@ -10515,7 +10515,7 @@ pub const qcontextmenuevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn SetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QContextMenuEvent_SetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QContextMenuEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QInputEvent
@@ -10531,7 +10531,7 @@ pub const qcontextmenuevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QContextMenuEvent_QBaseSetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QContextMenuEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QInputEvent
@@ -10547,7 +10547,7 @@ pub const qcontextmenuevent = struct {
     /// ` callback: *const fn (self: QtC.QContextMenuEvent, timestamp: u64) callconv(.c) void `
     ///
     pub fn OnSetTimestamp(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.QContextMenuEvent_OnSetTimestamp(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QContextMenuEvent_OnSetTimestamp(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -10595,7 +10595,7 @@ pub const qcontextmenuevent = struct {
     /// ` callback: *const fn (self: QtC.QContextMenuEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QContextMenuEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QContextMenuEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontextmenuevent.html#dtor.QContextMenuEvent)
@@ -10661,7 +10661,7 @@ pub const qinputmethodevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QInputMethodEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QInputMethodEvent) void {
-        qtc.QInputMethodEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QInputMethodEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodevent.html#clone)
@@ -10776,7 +10776,7 @@ pub const qinputmethodevent = struct {
             .len = commitString.len,
             .data = commitString.ptr,
         };
-        qtc.QInputMethodEvent_SetCommitString2(@ptrCast(self), commitString_str, @intCast(replaceFrom));
+        qtc.QInputMethodEvent_SetCommitString2(@ptrCast(self), commitString_str, @bitCast(replaceFrom));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodevent.html#setCommitString)
@@ -10796,7 +10796,7 @@ pub const qinputmethodevent = struct {
             .len = commitString.len,
             .data = commitString.ptr,
         };
-        qtc.QInputMethodEvent_SetCommitString3(@ptrCast(self), commitString_str, @intCast(replaceFrom), @intCast(replaceLength));
+        qtc.QInputMethodEvent_SetCommitString3(@ptrCast(self), commitString_str, @bitCast(replaceFrom), @bitCast(replaceLength));
     }
 
     /// Inherited from QEvent
@@ -10916,7 +10916,7 @@ pub const qinputmethodevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -10964,7 +10964,7 @@ pub const qinputmethodevent = struct {
     /// ` callback: *const fn (self: QtC.QInputMethodEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QInputMethodEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QInputMethodEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodevent.html#dtor.QInputMethodEvent)
@@ -10989,7 +10989,7 @@ pub const qinputmethodqueryevent = struct {
     /// ` queries: flag of qnamespace_enums.InputMethodQuery `
     ///
     pub fn New(queries: i32) QtC.QInputMethodQueryEvent {
-        return qtc.QInputMethodQueryEvent_new(@intCast(queries));
+        return qtc.QInputMethodQueryEvent_new(@bitCast(queries));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodqueryevent.html#clone)
@@ -11013,7 +11013,7 @@ pub const qinputmethodqueryevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QInputMethodQueryEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QInputMethodQueryEvent) void {
-        qtc.QInputMethodQueryEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QInputMethodQueryEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodqueryevent.html#clone)
@@ -11053,7 +11053,7 @@ pub const qinputmethodqueryevent = struct {
     /// ` value: QtC.QVariant `
     ///
     pub fn SetValue(self: ?*anyopaque, query: i32, value: ?*anyopaque) void {
-        qtc.QInputMethodQueryEvent_SetValue(@ptrCast(self), @intCast(query), @ptrCast(value));
+        qtc.QInputMethodQueryEvent_SetValue(@ptrCast(self), @bitCast(query), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodqueryevent.html#value)
@@ -11065,7 +11065,7 @@ pub const qinputmethodqueryevent = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn Value(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QInputMethodQueryEvent_Value(@ptrCast(self), @intCast(query));
+        return qtc.QInputMethodQueryEvent_Value(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QEvent
@@ -11185,7 +11185,7 @@ pub const qinputmethodqueryevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -11233,7 +11233,7 @@ pub const qinputmethodqueryevent = struct {
     /// ` callback: *const fn (self: QtC.QInputMethodQueryEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QInputMethodQueryEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QInputMethodQueryEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodqueryevent.html#dtor.QInputMethodQueryEvent)
@@ -11266,7 +11266,7 @@ pub const qdropevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn New(pos: ?*anyopaque, actions: i32, data: ?*anyopaque, buttons: i32, modifiers: i32) QtC.QDropEvent {
-        return qtc.QDropEvent_new(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers));
+        return qtc.QDropEvent_new(@ptrCast(pos), @bitCast(actions), @ptrCast(data), @bitCast(buttons), @bitCast(modifiers));
     }
 
     /// New2 constructs a new QDropEvent object.
@@ -11286,7 +11286,7 @@ pub const qdropevent = struct {
     /// ` typeVal: qcoreevent_enums.Type `
     ///
     pub fn New2(pos: ?*anyopaque, actions: i32, data: ?*anyopaque, buttons: i32, modifiers: i32, typeVal: i32) QtC.QDropEvent {
-        return qtc.QDropEvent_new2(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers), @intCast(typeVal));
+        return qtc.QDropEvent_new2(@ptrCast(pos), @bitCast(actions), @ptrCast(data), @bitCast(buttons), @bitCast(modifiers), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdropevent.html#clone)
@@ -11310,7 +11310,7 @@ pub const qdropevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QDropEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDropEvent) void {
-        qtc.QDropEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDropEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdropevent.html#clone)
@@ -11472,7 +11472,7 @@ pub const qdropevent = struct {
     /// ` action: qnamespace_enums.DropAction `
     ///
     pub fn SetDropAction(self: ?*anyopaque, action: i32) void {
-        qtc.QDropEvent_SetDropAction(@ptrCast(self), @intCast(action));
+        qtc.QDropEvent_SetDropAction(@ptrCast(self), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdropevent.html#source)
@@ -11612,7 +11612,7 @@ pub const qdropevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -11660,7 +11660,7 @@ pub const qdropevent = struct {
     /// ` callback: *const fn (self: QtC.QDropEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDropEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDropEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdropevent.html#dtor.QDropEvent)
@@ -11693,7 +11693,7 @@ pub const qdragmoveevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn New(pos: ?*anyopaque, actions: i32, data: ?*anyopaque, buttons: i32, modifiers: i32) QtC.QDragMoveEvent {
-        return qtc.QDragMoveEvent_new(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers));
+        return qtc.QDragMoveEvent_new(@ptrCast(pos), @bitCast(actions), @ptrCast(data), @bitCast(buttons), @bitCast(modifiers));
     }
 
     /// New2 constructs a new QDragMoveEvent object.
@@ -11713,7 +11713,7 @@ pub const qdragmoveevent = struct {
     /// ` typeVal: qcoreevent_enums.Type `
     ///
     pub fn New2(pos: ?*anyopaque, actions: i32, data: ?*anyopaque, buttons: i32, modifiers: i32, typeVal: i32) QtC.QDragMoveEvent {
-        return qtc.QDragMoveEvent_new2(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers), @intCast(typeVal));
+        return qtc.QDragMoveEvent_new2(@ptrCast(pos), @bitCast(actions), @ptrCast(data), @bitCast(buttons), @bitCast(modifiers), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragmoveevent.html#clone)
@@ -11737,7 +11737,7 @@ pub const qdragmoveevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QDragMoveEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDragMoveEvent) void {
-        qtc.QDragMoveEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDragMoveEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragmoveevent.html#clone)
@@ -11977,7 +11977,7 @@ pub const qdragmoveevent = struct {
     /// ` action: qnamespace_enums.DropAction `
     ///
     pub fn SetDropAction(self: ?*anyopaque, action: i32) void {
-        qtc.QDropEvent_SetDropAction(@ptrCast(self), @intCast(action));
+        qtc.QDropEvent_SetDropAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QDropEvent
@@ -12097,7 +12097,7 @@ pub const qdragmoveevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -12145,7 +12145,7 @@ pub const qdragmoveevent = struct {
     /// ` callback: *const fn (self: QtC.QDragMoveEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDragMoveEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDragMoveEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragmoveevent.html#dtor.QDragMoveEvent)
@@ -12178,7 +12178,7 @@ pub const qdragenterevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn New(pos: ?*anyopaque, actions: i32, data: ?*anyopaque, buttons: i32, modifiers: i32) QtC.QDragEnterEvent {
-        return qtc.QDragEnterEvent_new(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers));
+        return qtc.QDragEnterEvent_new(@ptrCast(pos), @bitCast(actions), @ptrCast(data), @bitCast(buttons), @bitCast(modifiers));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragenterevent.html#clone)
@@ -12202,7 +12202,7 @@ pub const qdragenterevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QDragEnterEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDragEnterEvent) void {
-        qtc.QDragEnterEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDragEnterEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragenterevent.html#clone)
@@ -12452,7 +12452,7 @@ pub const qdragenterevent = struct {
     /// ` action: qnamespace_enums.DropAction `
     ///
     pub fn SetDropAction(self: ?*anyopaque, action: i32) void {
-        qtc.QDropEvent_SetDropAction(@ptrCast(self), @intCast(action));
+        qtc.QDropEvent_SetDropAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QDropEvent
@@ -12572,7 +12572,7 @@ pub const qdragenterevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -12620,7 +12620,7 @@ pub const qdragenterevent = struct {
     /// ` callback: *const fn (self: QtC.QDragEnterEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDragEnterEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDragEnterEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragenterevent.html#dtor.QDragEnterEvent)
@@ -12665,7 +12665,7 @@ pub const qdragleaveevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QDragLeaveEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDragLeaveEvent) void {
-        qtc.QDragLeaveEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDragLeaveEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragleaveevent.html#clone)
@@ -12797,7 +12797,7 @@ pub const qdragleaveevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -12845,7 +12845,7 @@ pub const qdragleaveevent = struct {
     /// ` callback: *const fn (self: QtC.QDragLeaveEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDragLeaveEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QDragLeaveEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragleaveevent.html#dtor.QDragLeaveEvent)
@@ -12874,7 +12874,7 @@ pub const qhelpevent = struct {
     /// ` globalPos: QtC.QPoint `
     ///
     pub fn New(typeVal: i32, pos: ?*anyopaque, globalPos: ?*anyopaque) QtC.QHelpEvent {
-        return qtc.QHelpEvent_new(@intCast(typeVal), @ptrCast(pos), @ptrCast(globalPos));
+        return qtc.QHelpEvent_new(@bitCast(typeVal), @ptrCast(pos), @ptrCast(globalPos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhelpevent.html#clone)
@@ -12898,7 +12898,7 @@ pub const qhelpevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QHelpEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QHelpEvent) void {
-        qtc.QHelpEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHelpEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhelpevent.html#clone)
@@ -13090,7 +13090,7 @@ pub const qhelpevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -13138,7 +13138,7 @@ pub const qhelpevent = struct {
     /// ` callback: *const fn (self: QtC.QHelpEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QHelpEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHelpEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhelpevent.html#dtor.QHelpEvent)
@@ -13192,7 +13192,7 @@ pub const qstatustipevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QStatusTipEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QStatusTipEvent) void {
-        qtc.QStatusTipEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStatusTipEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatustipevent.html#clone)
@@ -13340,7 +13340,7 @@ pub const qstatustipevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -13388,7 +13388,7 @@ pub const qstatustipevent = struct {
     /// ` callback: *const fn (self: QtC.QStatusTipEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QStatusTipEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QStatusTipEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatustipevent.html#dtor.QStatusTipEvent)
@@ -13442,7 +13442,7 @@ pub const qwhatsthisclickedevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QWhatsThisClickedEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWhatsThisClickedEvent) void {
-        qtc.QWhatsThisClickedEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWhatsThisClickedEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthisclickedevent.html#clone)
@@ -13590,7 +13590,7 @@ pub const qwhatsthisclickedevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -13638,7 +13638,7 @@ pub const qwhatsthisclickedevent = struct {
     /// ` callback: *const fn (self: QtC.QWhatsThisClickedEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QWhatsThisClickedEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWhatsThisClickedEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthisclickedevent.html#dtor.QWhatsThisClickedEvent)
@@ -13665,7 +13665,7 @@ pub const qactionevent = struct {
     /// ` action: QtC.QAction `
     ///
     pub fn New(typeVal: i32, action: ?*anyopaque) QtC.QActionEvent {
-        return qtc.QActionEvent_new(@intCast(typeVal), @ptrCast(action));
+        return qtc.QActionEvent_new(@bitCast(typeVal), @ptrCast(action));
     }
 
     /// New2 constructs a new QActionEvent object.
@@ -13679,7 +13679,7 @@ pub const qactionevent = struct {
     /// ` before: QtC.QAction `
     ///
     pub fn New2(typeVal: i32, action: ?*anyopaque, before: ?*anyopaque) QtC.QActionEvent {
-        return qtc.QActionEvent_new2(@intCast(typeVal), @ptrCast(action), @ptrCast(before));
+        return qtc.QActionEvent_new2(@bitCast(typeVal), @ptrCast(action), @ptrCast(before));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qactionevent.html#clone)
@@ -13703,7 +13703,7 @@ pub const qactionevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QActionEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QActionEvent) void {
-        qtc.QActionEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QActionEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qactionevent.html#clone)
@@ -13855,7 +13855,7 @@ pub const qactionevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -13903,7 +13903,7 @@ pub const qactionevent = struct {
     /// ` callback: *const fn (self: QtC.QActionEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QActionEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QActionEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qactionevent.html#dtor.QActionEvent)
@@ -13967,7 +13967,7 @@ pub const qfileopenevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QFileOpenEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QFileOpenEvent) void {
-        qtc.QFileOpenEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileOpenEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileopenevent.html#clone)
@@ -14019,7 +14019,7 @@ pub const qfileopenevent = struct {
     /// ` flags: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn OpenFile(self: ?*anyopaque, file: ?*anyopaque, flags: i32) bool {
-        return qtc.QFileOpenEvent_OpenFile(@ptrCast(self), @ptrCast(file), @intCast(flags));
+        return qtc.QFileOpenEvent_OpenFile(@ptrCast(self), @ptrCast(file), @bitCast(flags));
     }
 
     /// Inherited from QEvent
@@ -14139,7 +14139,7 @@ pub const qfileopenevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -14187,7 +14187,7 @@ pub const qfileopenevent = struct {
     /// ` callback: *const fn (self: QtC.QFileOpenEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QFileOpenEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QFileOpenEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileopenevent.html#dtor.QFileOpenEvent)
@@ -14236,7 +14236,7 @@ pub const qtoolbarchangeevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QToolBarChangeEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QToolBarChangeEvent) void {
-        qtc.QToolBarChangeEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QToolBarChangeEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbarchangeevent.html#clone)
@@ -14378,7 +14378,7 @@ pub const qtoolbarchangeevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -14426,7 +14426,7 @@ pub const qtoolbarchangeevent = struct {
     /// ` callback: *const fn (self: QtC.QToolBarChangeEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QToolBarChangeEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QToolBarChangeEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbarchangeevent.html#dtor.QToolBarChangeEvent)
@@ -14453,7 +14453,7 @@ pub const qshortcutevent = struct {
     /// ` id: i32 `
     ///
     pub fn New(key: ?*anyopaque, id: i32) QtC.QShortcutEvent {
-        return qtc.QShortcutEvent_new(@ptrCast(key), @intCast(id));
+        return qtc.QShortcutEvent_new(@ptrCast(key), @bitCast(id));
     }
 
     /// New2 constructs a new QShortcutEvent object.
@@ -14477,7 +14477,7 @@ pub const qshortcutevent = struct {
     /// ` ambiguous: bool `
     ///
     pub fn New3(key: ?*anyopaque, id: i32, ambiguous: bool) QtC.QShortcutEvent {
-        return qtc.QShortcutEvent_new3(@ptrCast(key), @intCast(id), ambiguous);
+        return qtc.QShortcutEvent_new3(@ptrCast(key), @bitCast(id), ambiguous);
     }
 
     /// New4 constructs a new QShortcutEvent object.
@@ -14527,7 +14527,7 @@ pub const qshortcutevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QShortcutEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QShortcutEvent) void {
-        qtc.QShortcutEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QShortcutEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qshortcutevent.html#clone)
@@ -14689,7 +14689,7 @@ pub const qshortcutevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -14737,7 +14737,7 @@ pub const qshortcutevent = struct {
     /// ` callback: *const fn (self: QtC.QShortcutEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QShortcutEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QShortcutEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qshortcutevent.html#dtor.QShortcutEvent)
@@ -14762,7 +14762,7 @@ pub const qwindowstatechangeevent = struct {
     /// ` oldState: flag of qnamespace_enums.WindowState `
     ///
     pub fn New(oldState: i32) QtC.QWindowStateChangeEvent {
-        return qtc.QWindowStateChangeEvent_new(@intCast(oldState));
+        return qtc.QWindowStateChangeEvent_new(@bitCast(oldState));
     }
 
     /// New2 constructs a new QWindowStateChangeEvent object.
@@ -14774,7 +14774,7 @@ pub const qwindowstatechangeevent = struct {
     /// ` isOverride: bool `
     ///
     pub fn New2(oldState: i32, isOverride: bool) QtC.QWindowStateChangeEvent {
-        return qtc.QWindowStateChangeEvent_new2(@intCast(oldState), isOverride);
+        return qtc.QWindowStateChangeEvent_new2(@bitCast(oldState), isOverride);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowstatechangeevent.html#clone)
@@ -14798,7 +14798,7 @@ pub const qwindowstatechangeevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QWindowStateChangeEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWindowStateChangeEvent) void {
-        qtc.QWindowStateChangeEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWindowStateChangeEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowstatechangeevent.html#clone)
@@ -14954,7 +14954,7 @@ pub const qwindowstatechangeevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -15002,7 +15002,7 @@ pub const qwindowstatechangeevent = struct {
     /// ` callback: *const fn (self: QtC.QWindowStateChangeEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QWindowStateChangeEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWindowStateChangeEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowstatechangeevent.html#dtor.QWindowStateChangeEvent)
@@ -15027,7 +15027,7 @@ pub const qtouchevent = struct {
     /// ` eventType: qcoreevent_enums.Type `
     ///
     pub fn New(eventType: i32) QtC.QTouchEvent {
-        return qtc.QTouchEvent_new(@intCast(eventType));
+        return qtc.QTouchEvent_new(@bitCast(eventType));
     }
 
     /// New2 constructs a new QTouchEvent object.
@@ -15043,7 +15043,7 @@ pub const qtouchevent = struct {
     /// ` touchPointStates: flag of qeventpoint_enums.State `
     ///
     pub fn New2(eventType: i32, device: ?*anyopaque, modifiers: i32, touchPointStates: u8) QtC.QTouchEvent {
-        return qtc.QTouchEvent_new2(@intCast(eventType), @ptrCast(device), @intCast(modifiers), @intCast(touchPointStates));
+        return qtc.QTouchEvent_new2(@bitCast(eventType), @ptrCast(device), @bitCast(modifiers), @bitCast(touchPointStates));
     }
 
     /// New3 constructs a new QTouchEvent object.
@@ -15055,7 +15055,7 @@ pub const qtouchevent = struct {
     /// ` device: QtC.QPointingDevice `
     ///
     pub fn New3(eventType: i32, device: ?*anyopaque) QtC.QTouchEvent {
-        return qtc.QTouchEvent_new3(@intCast(eventType), @ptrCast(device));
+        return qtc.QTouchEvent_new3(@bitCast(eventType), @ptrCast(device));
     }
 
     /// New4 constructs a new QTouchEvent object.
@@ -15069,7 +15069,7 @@ pub const qtouchevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn New4(eventType: i32, device: ?*anyopaque, modifiers: i32) QtC.QTouchEvent {
-        return qtc.QTouchEvent_new4(@intCast(eventType), @ptrCast(device), @intCast(modifiers));
+        return qtc.QTouchEvent_new4(@bitCast(eventType), @ptrCast(device), @bitCast(modifiers));
     }
 
     /// New5 constructs a new QTouchEvent object.
@@ -15090,7 +15090,7 @@ pub const qtouchevent = struct {
             .data = @ptrCast(touchPoints.ptr),
         };
 
-        return qtc.QTouchEvent_new5(@intCast(eventType), @ptrCast(device), @intCast(modifiers), touchPoints_list);
+        return qtc.QTouchEvent_new5(@bitCast(eventType), @ptrCast(device), @bitCast(modifiers), touchPoints_list);
     }
 
     /// New6 constructs a new QTouchEvent object.
@@ -15113,7 +15113,7 @@ pub const qtouchevent = struct {
             .data = @ptrCast(touchPoints.ptr),
         };
 
-        return qtc.QTouchEvent_new6(@intCast(eventType), @ptrCast(device), @intCast(modifiers), @intCast(touchPointStates), touchPoints_list);
+        return qtc.QTouchEvent_new6(@bitCast(eventType), @ptrCast(device), @bitCast(modifiers), @bitCast(touchPointStates), touchPoints_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtouchevent.html#clone)
@@ -15137,7 +15137,7 @@ pub const qtouchevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QTouchEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTouchEvent) void {
-        qtc.QTouchEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTouchEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtouchevent.html#clone)
@@ -15214,7 +15214,7 @@ pub const qtouchevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsBeginEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTouchEvent_OnIsBeginEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTouchEvent_OnIsBeginEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtouchevent.html#isBeginEvent)
@@ -15250,7 +15250,7 @@ pub const qtouchevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsUpdateEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTouchEvent_OnIsUpdateEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTouchEvent_OnIsUpdateEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtouchevent.html#isUpdateEvent)
@@ -15286,7 +15286,7 @@ pub const qtouchevent = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsEndEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTouchEvent_OnIsEndEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTouchEvent_OnIsEndEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtouchevent.html#isEndEvent)
@@ -15352,7 +15352,7 @@ pub const qtouchevent = struct {
     /// ` i: i64 `
     ///
     pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
-        return qtc.QPointerEvent_Point(@ptrCast(self), @intCast(i));
+        return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
     /// Inherited from QPointerEvent
@@ -15385,7 +15385,7 @@ pub const qtouchevent = struct {
     /// ` id: i32 `
     ///
     pub fn PointById(self: ?*anyopaque, id: i32) QtC.QEventPoint {
-        return qtc.QPointerEvent_PointById(@ptrCast(self), @intCast(id));
+        return qtc.QPointerEvent_PointById(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QPointerEvent
@@ -15543,7 +15543,7 @@ pub const qtouchevent = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i32) void {
-        qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
+        qtc.QInputEvent_SetModifiers(@ptrCast(self), @bitCast(modifiers));
     }
 
     /// Inherited from QInputEvent
@@ -15675,7 +15675,7 @@ pub const qtouchevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QPointerEvent
@@ -15691,7 +15691,7 @@ pub const qtouchevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn SetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QTouchEvent_SetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QTouchEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -15707,7 +15707,7 @@ pub const qtouchevent = struct {
     /// ` timestamp: u64 `
     ///
     pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QTouchEvent_QBaseSetTimestamp(@ptrCast(self), @intCast(timestamp));
+        qtc.QTouchEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -15723,7 +15723,7 @@ pub const qtouchevent = struct {
     /// ` callback: *const fn (self: QtC.QTouchEvent, timestamp: u64) callconv(.c) void `
     ///
     pub fn OnSetTimestamp(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.QTouchEvent_OnSetTimestamp(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTouchEvent_OnSetTimestamp(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPointerEvent
@@ -15771,7 +15771,7 @@ pub const qtouchevent = struct {
     /// ` callback: *const fn (self: QtC.QTouchEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTouchEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QTouchEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtouchevent.html#dtor.QTouchEvent)
@@ -15820,7 +15820,7 @@ pub const qscrollprepareevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QScrollPrepareEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QScrollPrepareEvent) void {
-        qtc.QScrollPrepareEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QScrollPrepareEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollprepareevent.html#clone)
@@ -16028,7 +16028,7 @@ pub const qscrollprepareevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -16076,7 +16076,7 @@ pub const qscrollprepareevent = struct {
     /// ` callback: *const fn (self: QtC.QScrollPrepareEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QScrollPrepareEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QScrollPrepareEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollprepareevent.html#dtor.QScrollPrepareEvent)
@@ -16105,7 +16105,7 @@ pub const qscrollevent = struct {
     /// ` scrollState: qevent_enums.ScrollState `
     ///
     pub fn New(contentPos: ?*anyopaque, overshoot: ?*anyopaque, scrollState: i32) QtC.QScrollEvent {
-        return qtc.QScrollEvent_new(@ptrCast(contentPos), @ptrCast(overshoot), @intCast(scrollState));
+        return qtc.QScrollEvent_new(@ptrCast(contentPos), @ptrCast(overshoot), @bitCast(scrollState));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollevent.html#clone)
@@ -16129,7 +16129,7 @@ pub const qscrollevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QScrollEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QScrollEvent) void {
-        qtc.QScrollEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QScrollEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollevent.html#clone)
@@ -16295,7 +16295,7 @@ pub const qscrollevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -16343,7 +16343,7 @@ pub const qscrollevent = struct {
     /// ` callback: *const fn (self: QtC.QScrollEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QScrollEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QScrollEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollevent.html#dtor.QScrollEvent)
@@ -16370,7 +16370,7 @@ pub const qscreenorientationchangeevent = struct {
     /// ` orientation: qnamespace_enums.ScreenOrientation `
     ///
     pub fn New(screen: ?*anyopaque, orientation: i32) QtC.QScreenOrientationChangeEvent {
-        return qtc.QScreenOrientationChangeEvent_new(@ptrCast(screen), @intCast(orientation));
+        return qtc.QScreenOrientationChangeEvent_new(@ptrCast(screen), @bitCast(orientation));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscreenorientationchangeevent.html#clone)
@@ -16394,7 +16394,7 @@ pub const qscreenorientationchangeevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QScreenOrientationChangeEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QScreenOrientationChangeEvent) void {
-        qtc.QScreenOrientationChangeEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QScreenOrientationChangeEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscreenorientationchangeevent.html#clone)
@@ -16550,7 +16550,7 @@ pub const qscreenorientationchangeevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -16598,7 +16598,7 @@ pub const qscreenorientationchangeevent = struct {
     /// ` callback: *const fn (self: QtC.QScreenOrientationChangeEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QScreenOrientationChangeEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QScreenOrientationChangeEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscreenorientationchangeevent.html#dtor.QScreenOrientationChangeEvent)
@@ -16623,7 +16623,7 @@ pub const qapplicationstatechangeevent = struct {
     /// ` state: qnamespace_enums.ApplicationState `
     ///
     pub fn New(state: i32) QtC.QApplicationStateChangeEvent {
-        return qtc.QApplicationStateChangeEvent_new(@intCast(state));
+        return qtc.QApplicationStateChangeEvent_new(@bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplicationstatechangeevent.html#clone)
@@ -16647,7 +16647,7 @@ pub const qapplicationstatechangeevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QApplicationStateChangeEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QApplicationStateChangeEvent) void {
-        qtc.QApplicationStateChangeEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QApplicationStateChangeEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplicationstatechangeevent.html#clone)
@@ -16793,7 +16793,7 @@ pub const qapplicationstatechangeevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -16841,7 +16841,7 @@ pub const qapplicationstatechangeevent = struct {
     /// ` callback: *const fn (self: QtC.QApplicationStateChangeEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QApplicationStateChangeEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QApplicationStateChangeEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplicationstatechangeevent.html#dtor.QApplicationStateChangeEvent)
@@ -16868,7 +16868,7 @@ pub const qchildwindowevent = struct {
     /// ` childWindow: QtC.QWindow `
     ///
     pub fn New(typeVal: i32, childWindow: ?*anyopaque) QtC.QChildWindowEvent {
-        return qtc.QChildWindowEvent_new(@intCast(typeVal), @ptrCast(childWindow));
+        return qtc.QChildWindowEvent_new(@bitCast(typeVal), @ptrCast(childWindow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildwindowevent.html#clone)
@@ -16892,7 +16892,7 @@ pub const qchildwindowevent = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QChildWindowEvent `
     ///
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QChildWindowEvent) void {
-        qtc.QChildWindowEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QChildWindowEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildwindowevent.html#clone)
@@ -17034,7 +17034,7 @@ pub const qchildwindowevent = struct {
     /// ` hint: i32 `
     ///
     pub fn RegisterEventType1(hint: i32) i32 {
-        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+        return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
     /// Inherited from QEvent
@@ -17082,7 +17082,7 @@ pub const qchildwindowevent = struct {
     /// ` callback: *const fn (self: QtC.QChildWindowEvent, accepted: bool) callconv(.c) void `
     ///
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QChildWindowEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QChildWindowEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildwindowevent.html#dtor.QChildWindowEvent)
@@ -17113,7 +17113,7 @@ pub const qinputmethodevent__attribute = struct {
     /// ` val: QtC.QVariant `
     ///
     pub fn New(typ: i32, s: i32, l: i32, val: QtC.QVariant) QtC.QInputMethodEvent__Attribute {
-        return qtc.QInputMethodEvent__Attribute_new(@intCast(typ), @intCast(s), @intCast(l), @ptrCast(val));
+        return qtc.QInputMethodEvent__Attribute_new(@bitCast(typ), @bitCast(s), @bitCast(l), @ptrCast(val));
     }
 
     /// New2 constructs a new QInputMethodEvent::Attribute object.
@@ -17127,7 +17127,7 @@ pub const qinputmethodevent__attribute = struct {
     /// ` l: i32 `
     ///
     pub fn New2(typ: i32, s: i32, l: i32) QtC.QInputMethodEvent__Attribute {
-        return qtc.QInputMethodEvent__Attribute_new2(@intCast(typ), @intCast(s), @intCast(l));
+        return qtc.QInputMethodEvent__Attribute_new2(@bitCast(typ), @bitCast(s), @bitCast(l));
     }
 
     /// New3 constructs a new QInputMethodEvent::Attribute object.
@@ -17163,7 +17163,7 @@ pub const qinputmethodevent__attribute = struct {
     /// ` type: qevent_enums.AttributeType `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.QInputMethodEvent__Attribute_SetType(@ptrCast(self), @intCast(_type));
+        qtc.QInputMethodEvent__Attribute_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodevent-attribute.html#start-var)
@@ -17185,7 +17185,7 @@ pub const qinputmethodevent__attribute = struct {
     /// ` start: i32 `
     ///
     pub fn SetStart(self: ?*anyopaque, start: i32) void {
-        qtc.QInputMethodEvent__Attribute_SetStart(@ptrCast(self), @intCast(start));
+        qtc.QInputMethodEvent__Attribute_SetStart(@ptrCast(self), @bitCast(start));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodevent-attribute.html#length-var)
@@ -17207,7 +17207,7 @@ pub const qinputmethodevent__attribute = struct {
     /// ` length: i32 `
     ///
     pub fn SetLength(self: ?*anyopaque, length: i32) void {
-        qtc.QInputMethodEvent__Attribute_SetLength(@ptrCast(self), @intCast(length));
+        qtc.QInputMethodEvent__Attribute_SetLength(@ptrCast(self), @bitCast(length));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodevent-attribute.html#value-var)

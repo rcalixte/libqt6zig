@@ -23,7 +23,7 @@ pub const qheaderview = struct {
     /// ` orientation: qnamespace_enums.Orientation `
     ///
     pub fn New(orientation: i32) QtC.QHeaderView {
-        return qtc.QHeaderView_new(@intCast(orientation));
+        return qtc.QHeaderView_new(@bitCast(orientation));
     }
 
     /// New2 constructs a new QHeaderView object.
@@ -35,7 +35,7 @@ pub const qheaderview = struct {
     /// ` parent: QtC.QWidget `
     ///
     pub fn New2(orientation: i32, parent: ?*anyopaque) QtC.QHeaderView {
-        return qtc.QHeaderView_new2(@intCast(orientation), @ptrCast(parent));
+        return qtc.QHeaderView_new2(@bitCast(orientation), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -59,7 +59,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QHeaderView_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -94,7 +94,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QHeaderView_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -121,7 +121,7 @@ pub const qheaderview = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QHeaderView_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QHeaderView_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -133,7 +133,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QHeaderView_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -149,7 +149,7 @@ pub const qheaderview = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QHeaderView_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QHeaderView_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -192,7 +192,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, model: QtC.QAbstractItemModel) callconv(.c) void `
     ///
     pub fn OnSetModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnSetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setModel)
@@ -264,7 +264,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QHeaderView_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sizeHint)
@@ -302,7 +302,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, v: bool) callconv(.c) void `
     ///
     pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QHeaderView_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setVisible)
@@ -328,7 +328,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn SectionSizeHint(self: ?*anyopaque, logicalIndex: i32) i32 {
-        return qtc.QHeaderView_SectionSizeHint(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_SectionSizeHint(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualIndexAt)
@@ -340,7 +340,7 @@ pub const qheaderview = struct {
     /// ` position: i32 `
     ///
     pub fn VisualIndexAt(self: ?*anyopaque, position: i32) i32 {
-        return qtc.QHeaderView_VisualIndexAt(@ptrCast(self), @intCast(position));
+        return qtc.QHeaderView_VisualIndexAt(@ptrCast(self), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
@@ -352,7 +352,7 @@ pub const qheaderview = struct {
     /// ` position: i32 `
     ///
     pub fn LogicalIndexAt(self: ?*anyopaque, position: i32) i32 {
-        return qtc.QHeaderView_LogicalIndexAt(@ptrCast(self), @intCast(position));
+        return qtc.QHeaderView_LogicalIndexAt(@ptrCast(self), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
@@ -366,7 +366,7 @@ pub const qheaderview = struct {
     /// ` y: i32 `
     ///
     pub fn LogicalIndexAt2(self: ?*anyopaque, x: i32, y: i32) i32 {
-        return qtc.QHeaderView_LogicalIndexAt2(@ptrCast(self), @intCast(x), @intCast(y));
+        return qtc.QHeaderView_LogicalIndexAt2(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
@@ -390,7 +390,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn SectionSize(self: ?*anyopaque, logicalIndex: i32) i32 {
-        return qtc.QHeaderView_SectionSize(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_SectionSize(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionPosition)
@@ -402,7 +402,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn SectionPosition(self: ?*anyopaque, logicalIndex: i32) i32 {
-        return qtc.QHeaderView_SectionPosition(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_SectionPosition(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionViewportPosition)
@@ -414,7 +414,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn SectionViewportPosition(self: ?*anyopaque, logicalIndex: i32) i32 {
-        return qtc.QHeaderView_SectionViewportPosition(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_SectionViewportPosition(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#moveSection)
@@ -428,7 +428,7 @@ pub const qheaderview = struct {
     /// ` to: i32 `
     ///
     pub fn MoveSection(self: ?*anyopaque, from: i32, to: i32) void {
-        qtc.QHeaderView_MoveSection(@ptrCast(self), @intCast(from), @intCast(to));
+        qtc.QHeaderView_MoveSection(@ptrCast(self), @bitCast(from), @bitCast(to));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#swapSections)
@@ -442,7 +442,7 @@ pub const qheaderview = struct {
     /// ` second: i32 `
     ///
     pub fn SwapSections(self: ?*anyopaque, first: i32, second: i32) void {
-        qtc.QHeaderView_SwapSections(@ptrCast(self), @intCast(first), @intCast(second));
+        qtc.QHeaderView_SwapSections(@ptrCast(self), @bitCast(first), @bitCast(second));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSection)
@@ -456,7 +456,7 @@ pub const qheaderview = struct {
     /// ` size: i32 `
     ///
     pub fn ResizeSection(self: ?*anyopaque, logicalIndex: i32, size: i32) void {
-        qtc.QHeaderView_ResizeSection(@ptrCast(self), @intCast(logicalIndex), @intCast(size));
+        qtc.QHeaderView_ResizeSection(@ptrCast(self), @bitCast(logicalIndex), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
@@ -468,7 +468,7 @@ pub const qheaderview = struct {
     /// ` mode: qheaderview_enums.ResizeMode `
     ///
     pub fn ResizeSections(self: ?*anyopaque, mode: i32) void {
-        qtc.QHeaderView_ResizeSections(@ptrCast(self), @intCast(mode));
+        qtc.QHeaderView_ResizeSections(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isSectionHidden)
@@ -480,7 +480,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn IsSectionHidden(self: ?*anyopaque, logicalIndex: i32) bool {
-        return qtc.QHeaderView_IsSectionHidden(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_IsSectionHidden(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSectionHidden)
@@ -494,7 +494,7 @@ pub const qheaderview = struct {
     /// ` hide: bool `
     ///
     pub fn SetSectionHidden(self: ?*anyopaque, logicalIndex: i32, hide: bool) void {
-        qtc.QHeaderView_SetSectionHidden(@ptrCast(self), @intCast(logicalIndex), hide);
+        qtc.QHeaderView_SetSectionHidden(@ptrCast(self), @bitCast(logicalIndex), hide);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#hiddenSectionCount)
@@ -516,7 +516,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn HideSection(self: ?*anyopaque, logicalIndex: i32) void {
-        qtc.QHeaderView_HideSection(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_HideSection(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#showSection)
@@ -528,7 +528,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn ShowSection(self: ?*anyopaque, logicalIndex: i32) void {
-        qtc.QHeaderView_ShowSection(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_ShowSection(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#count)
@@ -550,7 +550,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn VisualIndex(self: ?*anyopaque, logicalIndex: i32) i32 {
-        return qtc.QHeaderView_VisualIndex(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_VisualIndex(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#logicalIndex)
@@ -562,7 +562,7 @@ pub const qheaderview = struct {
     /// ` visualIndex: i32 `
     ///
     pub fn LogicalIndex(self: ?*anyopaque, visualIndex: i32) i32 {
-        return qtc.QHeaderView_LogicalIndex(@ptrCast(self), @intCast(visualIndex));
+        return qtc.QHeaderView_LogicalIndex(@ptrCast(self), @bitCast(visualIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSectionsMovable)
@@ -666,7 +666,7 @@ pub const qheaderview = struct {
     /// ` qheaderview_enums.ResizeMode `
     ///
     pub fn SectionResizeMode(self: ?*anyopaque, logicalIndex: i32) i32 {
-        return qtc.QHeaderView_SectionResizeMode(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_SectionResizeMode(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSectionResizeMode)
@@ -678,7 +678,7 @@ pub const qheaderview = struct {
     /// ` mode: qheaderview_enums.ResizeMode `
     ///
     pub fn SetSectionResizeMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QHeaderView_SetSectionResizeMode(@ptrCast(self), @intCast(mode));
+        qtc.QHeaderView_SetSectionResizeMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSectionResizeMode)
@@ -692,7 +692,7 @@ pub const qheaderview = struct {
     /// ` mode: qheaderview_enums.ResizeMode `
     ///
     pub fn SetSectionResizeMode2(self: ?*anyopaque, logicalIndex: i32, mode: i32) void {
-        qtc.QHeaderView_SetSectionResizeMode2(@ptrCast(self), @intCast(logicalIndex), @intCast(mode));
+        qtc.QHeaderView_SetSectionResizeMode2(@ptrCast(self), @bitCast(logicalIndex), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setResizeContentsPrecision)
@@ -704,7 +704,7 @@ pub const qheaderview = struct {
     /// ` precision: i32 `
     ///
     pub fn SetResizeContentsPrecision(self: ?*anyopaque, precision: i32) void {
-        qtc.QHeaderView_SetResizeContentsPrecision(@ptrCast(self), @intCast(precision));
+        qtc.QHeaderView_SetResizeContentsPrecision(@ptrCast(self), @bitCast(precision));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeContentsPrecision)
@@ -760,7 +760,7 @@ pub const qheaderview = struct {
     /// ` order: qnamespace_enums.SortOrder `
     ///
     pub fn SetSortIndicator(self: ?*anyopaque, logicalIndex: i32, order: i32) void {
-        qtc.QHeaderView_SetSortIndicator(@ptrCast(self), @intCast(logicalIndex), @intCast(order));
+        qtc.QHeaderView_SetSortIndicator(@ptrCast(self), @bitCast(logicalIndex), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorSection)
@@ -872,7 +872,7 @@ pub const qheaderview = struct {
     /// ` size: i32 `
     ///
     pub fn SetDefaultSectionSize(self: ?*anyopaque, size: i32) void {
-        qtc.QHeaderView_SetDefaultSectionSize(@ptrCast(self), @intCast(size));
+        qtc.QHeaderView_SetDefaultSectionSize(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resetDefaultSectionSize)
@@ -904,7 +904,7 @@ pub const qheaderview = struct {
     /// ` size: i32 `
     ///
     pub fn SetMinimumSectionSize(self: ?*anyopaque, size: i32) void {
-        qtc.QHeaderView_SetMinimumSectionSize(@ptrCast(self), @intCast(size));
+        qtc.QHeaderView_SetMinimumSectionSize(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#maximumSectionSize)
@@ -926,7 +926,7 @@ pub const qheaderview = struct {
     /// ` size: i32 `
     ///
     pub fn SetMaximumSectionSize(self: ?*anyopaque, size: i32) void {
-        qtc.QHeaderView_SetMaximumSectionSize(@ptrCast(self), @intCast(size));
+        qtc.QHeaderView_SetMaximumSectionSize(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#defaultAlignment)
@@ -952,7 +952,7 @@ pub const qheaderview = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetDefaultAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QHeaderView_SetDefaultAlignment(@ptrCast(self), @intCast(alignment));
+        qtc.QHeaderView_SetDefaultAlignment(@ptrCast(self), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout)
@@ -976,7 +976,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnDoItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnDoItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnDoItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout)
@@ -1064,7 +1064,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#reset)
@@ -1088,7 +1088,7 @@ pub const qheaderview = struct {
     /// ` offset: i32 `
     ///
     pub fn SetOffset(self: ?*anyopaque, offset: i32) void {
-        qtc.QHeaderView_SetOffset(@ptrCast(self), @intCast(offset));
+        qtc.QHeaderView_SetOffset(@ptrCast(self), @bitCast(offset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setOffsetToSectionPosition)
@@ -1100,7 +1100,7 @@ pub const qheaderview = struct {
     /// ` visualIndex: i32 `
     ///
     pub fn SetOffsetToSectionPosition(self: ?*anyopaque, visualIndex: i32) void {
-        qtc.QHeaderView_SetOffsetToSectionPosition(@ptrCast(self), @intCast(visualIndex));
+        qtc.QHeaderView_SetOffsetToSectionPosition(@ptrCast(self), @bitCast(visualIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setOffsetToLastSection)
@@ -1126,7 +1126,7 @@ pub const qheaderview = struct {
     /// ` logicalLast: i32 `
     ///
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, logicalFirst: i32, logicalLast: i32) void {
-        qtc.QHeaderView_HeaderDataChanged(@ptrCast(self), @intCast(orientation), @intCast(logicalFirst), @intCast(logicalLast));
+        qtc.QHeaderView_HeaderDataChanged(@ptrCast(self), @bitCast(orientation), @bitCast(logicalFirst), @bitCast(logicalLast));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionMoved)
@@ -1142,7 +1142,7 @@ pub const qheaderview = struct {
     /// ` newVisualIndex: i32 `
     ///
     pub fn SectionMoved(self: ?*anyopaque, logicalIndex: i32, oldVisualIndex: i32, newVisualIndex: i32) void {
-        qtc.QHeaderView_SectionMoved(@ptrCast(self), @intCast(logicalIndex), @intCast(oldVisualIndex), @intCast(newVisualIndex));
+        qtc.QHeaderView_SectionMoved(@ptrCast(self), @bitCast(logicalIndex), @bitCast(oldVisualIndex), @bitCast(newVisualIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionMoved)
@@ -1154,7 +1154,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32, oldVisualIndex: i32, newVisualIndex: i32) callconv(.c) void `
     ///
     pub fn OnSectionMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_Connect_SectionMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_Connect_SectionMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionResized)
@@ -1170,7 +1170,7 @@ pub const qheaderview = struct {
     /// ` newSize: i32 `
     ///
     pub fn SectionResized(self: ?*anyopaque, logicalIndex: i32, oldSize: i32, newSize: i32) void {
-        qtc.QHeaderView_SectionResized(@ptrCast(self), @intCast(logicalIndex), @intCast(oldSize), @intCast(newSize));
+        qtc.QHeaderView_SectionResized(@ptrCast(self), @bitCast(logicalIndex), @bitCast(oldSize), @bitCast(newSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionResized)
@@ -1182,7 +1182,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32, oldSize: i32, newSize: i32) callconv(.c) void `
     ///
     pub fn OnSectionResized(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_Connect_SectionResized(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_Connect_SectionResized(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionPressed)
@@ -1194,7 +1194,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn SectionPressed(self: ?*anyopaque, logicalIndex: i32) void {
-        qtc.QHeaderView_SectionPressed(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_SectionPressed(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionPressed)
@@ -1206,7 +1206,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
     pub fn OnSectionPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_Connect_SectionPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_Connect_SectionPressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionClicked)
@@ -1218,7 +1218,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn SectionClicked(self: ?*anyopaque, logicalIndex: i32) void {
-        qtc.QHeaderView_SectionClicked(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_SectionClicked(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionClicked)
@@ -1230,7 +1230,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
     pub fn OnSectionClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_Connect_SectionClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_Connect_SectionClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionEntered)
@@ -1242,7 +1242,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn SectionEntered(self: ?*anyopaque, logicalIndex: i32) void {
-        qtc.QHeaderView_SectionEntered(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_SectionEntered(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionEntered)
@@ -1254,7 +1254,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
     pub fn OnSectionEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_Connect_SectionEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_Connect_SectionEntered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionDoubleClicked)
@@ -1266,7 +1266,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn SectionDoubleClicked(self: ?*anyopaque, logicalIndex: i32) void {
-        qtc.QHeaderView_SectionDoubleClicked(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_SectionDoubleClicked(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionDoubleClicked)
@@ -1278,7 +1278,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
     pub fn OnSectionDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_Connect_SectionDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_Connect_SectionDoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionCountChanged)
@@ -1292,7 +1292,7 @@ pub const qheaderview = struct {
     /// ` newCount: i32 `
     ///
     pub fn SectionCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
-        qtc.QHeaderView_SectionCountChanged(@ptrCast(self), @intCast(oldCount), @intCast(newCount));
+        qtc.QHeaderView_SectionCountChanged(@ptrCast(self), @bitCast(oldCount), @bitCast(newCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionCountChanged)
@@ -1304,7 +1304,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, oldCount: i32, newCount: i32) callconv(.c) void `
     ///
     pub fn OnSectionCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_Connect_SectionCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_Connect_SectionCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionHandleDoubleClicked)
@@ -1316,7 +1316,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn SectionHandleDoubleClicked(self: ?*anyopaque, logicalIndex: i32) void {
-        qtc.QHeaderView_SectionHandleDoubleClicked(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_SectionHandleDoubleClicked(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionHandleDoubleClicked)
@@ -1328,7 +1328,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
     pub fn OnSectionHandleDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_Connect_SectionHandleDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_Connect_SectionHandleDoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#geometriesChanged)
@@ -1350,7 +1350,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView) callconv(.c) void `
     ///
     pub fn OnGeometriesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_Connect_GeometriesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_Connect_GeometriesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorChanged)
@@ -1364,7 +1364,7 @@ pub const qheaderview = struct {
     /// ` order: qnamespace_enums.SortOrder `
     ///
     pub fn SortIndicatorChanged(self: ?*anyopaque, logicalIndex: i32, order: i32) void {
-        qtc.QHeaderView_SortIndicatorChanged(@ptrCast(self), @intCast(logicalIndex), @intCast(order));
+        qtc.QHeaderView_SortIndicatorChanged(@ptrCast(self), @bitCast(logicalIndex), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorChanged)
@@ -1376,7 +1376,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
     pub fn OnSortIndicatorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_Connect_SortIndicatorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_Connect_SortIndicatorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorClearableChanged)
@@ -1400,7 +1400,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, clearable: bool) callconv(.c) void `
     ///
     pub fn OnSortIndicatorClearableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QHeaderView_Connect_SortIndicatorClearableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_Connect_SortIndicatorClearableChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
@@ -1412,7 +1412,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn UpdateSection(self: ?*anyopaque, logicalIndex: i32) void {
-        qtc.QHeaderView_UpdateSection(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_UpdateSection(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
@@ -1426,7 +1426,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
     pub fn OnUpdateSection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnUpdateSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnUpdateSection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
@@ -1440,7 +1440,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn QBaseUpdateSection(self: ?*anyopaque, logicalIndex: i32) void {
-        qtc.QHeaderView_QBaseUpdateSection(@ptrCast(self), @intCast(logicalIndex));
+        qtc.QHeaderView_QBaseUpdateSection(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
@@ -1464,7 +1464,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnResizeSections2(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnResizeSections2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnResizeSections2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
@@ -1492,7 +1492,7 @@ pub const qheaderview = struct {
     /// ` logicalLast: i32 `
     ///
     pub fn SectionsInserted(self: ?*anyopaque, parent: ?*anyopaque, logicalFirst: i32, logicalLast: i32) void {
-        qtc.QHeaderView_SectionsInserted(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
+        qtc.QHeaderView_SectionsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(logicalFirst), @bitCast(logicalLast));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
@@ -1506,7 +1506,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, parent: QtC.QModelIndex, logicalFirst: i32, logicalLast: i32) callconv(.c) void `
     ///
     pub fn OnSectionsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnSectionsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSectionsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
@@ -1524,7 +1524,7 @@ pub const qheaderview = struct {
     /// ` logicalLast: i32 `
     ///
     pub fn QBaseSectionsInserted(self: ?*anyopaque, parent: ?*anyopaque, logicalFirst: i32, logicalLast: i32) void {
-        qtc.QHeaderView_QBaseSectionsInserted(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
+        qtc.QHeaderView_QBaseSectionsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(logicalFirst), @bitCast(logicalLast));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
@@ -1540,7 +1540,7 @@ pub const qheaderview = struct {
     /// ` logicalLast: i32 `
     ///
     pub fn SectionsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, logicalFirst: i32, logicalLast: i32) void {
-        qtc.QHeaderView_SectionsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
+        qtc.QHeaderView_SectionsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(logicalFirst), @bitCast(logicalLast));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
@@ -1554,7 +1554,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, parent: QtC.QModelIndex, logicalFirst: i32, logicalLast: i32) callconv(.c) void `
     ///
     pub fn OnSectionsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnSectionsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSectionsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
@@ -1572,7 +1572,7 @@ pub const qheaderview = struct {
     /// ` logicalLast: i32 `
     ///
     pub fn QBaseSectionsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, logicalFirst: i32, logicalLast: i32) void {
-        qtc.QHeaderView_QBaseSectionsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(logicalFirst), @intCast(logicalLast));
+        qtc.QHeaderView_QBaseSectionsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(logicalFirst), @bitCast(logicalLast));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initialize)
@@ -1596,7 +1596,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnInitialize(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnInitialize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnInitialize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initialize)
@@ -1632,7 +1632,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnInitializeSections(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnInitializeSections(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnInitializeSections(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
@@ -1658,7 +1658,7 @@ pub const qheaderview = struct {
     /// ` end: i32 `
     ///
     pub fn InitializeSections2(self: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QHeaderView_InitializeSections2(@ptrCast(self), @intCast(start), @intCast(end));
+        qtc.QHeaderView_InitializeSections2(@ptrCast(self), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
@@ -1672,7 +1672,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, start: i32, end: i32) callconv(.c) void `
     ///
     pub fn OnInitializeSections2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnInitializeSections2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnInitializeSections2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
@@ -1688,7 +1688,7 @@ pub const qheaderview = struct {
     /// ` end: i32 `
     ///
     pub fn QBaseInitializeSections2(self: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QHeaderView_QBaseInitializeSections2(@ptrCast(self), @intCast(start), @intCast(end));
+        qtc.QHeaderView_QBaseInitializeSections2(@ptrCast(self), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#currentChanged)
@@ -1716,7 +1716,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, current: QtC.QModelIndex, old: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnCurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnCurrentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#currentChanged)
@@ -1758,7 +1758,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, e: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QHeaderView_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#event)
@@ -1798,7 +1798,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, e: QtC.QPaintEvent) callconv(.c) void `
     ///
     pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintEvent)
@@ -1838,7 +1838,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, e: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mousePressEvent)
@@ -1878,7 +1878,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, e: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseMoveEvent)
@@ -1918,7 +1918,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, e: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseReleaseEvent)
@@ -1958,7 +1958,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, e: QtC.QMouseEvent) callconv(.c) void `
     ///
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseDoubleClickEvent)
@@ -1998,7 +1998,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, e: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnViewportEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QHeaderView_OnViewportEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnViewportEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#viewportEvent)
@@ -2028,7 +2028,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn PaintSection(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, logicalIndex: i32) void {
-        qtc.QHeaderView_PaintSection(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(logicalIndex));
+        qtc.QHeaderView_PaintSection(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintSection)
@@ -2042,7 +2042,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, painter: QtC.QPainter, rect: QtC.QRect, logicalIndex: i32) callconv(.c) void `
     ///
     pub fn OnPaintSection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnPaintSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnPaintSection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintSection)
@@ -2060,7 +2060,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn QBasePaintSection(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, logicalIndex: i32) void {
-        qtc.QHeaderView_QBasePaintSection(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(logicalIndex));
+        qtc.QHeaderView_QBasePaintSection(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
@@ -2072,7 +2072,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn SectionSizeFromContents(self: ?*anyopaque, logicalIndex: i32) QtC.QSize {
-        return qtc.QHeaderView_SectionSizeFromContents(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_SectionSizeFromContents(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
@@ -2086,7 +2086,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, logicalIndex: i32) callconv(.c) QtC.QSize `
     ///
     pub fn OnSectionSizeFromContents(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QSize) void {
-        qtc.QHeaderView_OnSectionSizeFromContents(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSectionSizeFromContents(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
@@ -2100,7 +2100,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn QBaseSectionSizeFromContents(self: ?*anyopaque, logicalIndex: i32) QtC.QSize {
-        return qtc.QHeaderView_QBaseSectionSizeFromContents(@ptrCast(self), @intCast(logicalIndex));
+        return qtc.QHeaderView_QBaseSectionSizeFromContents(@ptrCast(self), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset)
@@ -2124,7 +2124,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnHorizontalOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHeaderView_OnHorizontalOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnHorizontalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset)
@@ -2160,7 +2160,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnVerticalOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHeaderView_OnVerticalOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnVerticalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#verticalOffset)
@@ -2196,7 +2196,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateGeometries(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnUpdateGeometries(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnUpdateGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateGeometries)
@@ -2222,7 +2222,7 @@ pub const qheaderview = struct {
     /// ` dy: i32 `
     ///
     pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QHeaderView_ScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QHeaderView_ScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy)
@@ -2236,7 +2236,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, dx: i32, dy: i32) callconv(.c) void `
     ///
     pub fn OnScrollContentsBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnScrollContentsBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnScrollContentsBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy)
@@ -2252,7 +2252,7 @@ pub const qheaderview = struct {
     /// ` dy: i32 `
     ///
     pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QHeaderView_QBaseScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QHeaderView_QBaseScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#dataChanged)
@@ -2286,7 +2286,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QHeaderView_OnDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#dataChanged)
@@ -2324,7 +2324,7 @@ pub const qheaderview = struct {
     /// ` end: i32 `
     ///
     pub fn RowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QHeaderView_RowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.QHeaderView_RowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#rowsInserted)
@@ -2338,7 +2338,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
     pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnRowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnRowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#rowsInserted)
@@ -2356,7 +2356,7 @@ pub const qheaderview = struct {
     /// ` end: i32 `
     ///
     pub fn QBaseRowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QHeaderView_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.QHeaderView_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRect)
@@ -2382,7 +2382,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) QtC.QRect `
     ///
     pub fn OnVisualRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QHeaderView_OnVisualRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnVisualRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRect)
@@ -2410,7 +2410,7 @@ pub const qheaderview = struct {
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
     pub fn ScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.QHeaderView_ScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
+        qtc.QHeaderView_ScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollTo)
@@ -2424,7 +2424,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void `
     ///
     pub fn OnScrollTo(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnScrollTo(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnScrollTo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollTo)
@@ -2440,7 +2440,7 @@ pub const qheaderview = struct {
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
     pub fn QBaseScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.QHeaderView_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
+        qtc.QHeaderView_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#indexAt)
@@ -2466,7 +2466,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, p: QtC.QPoint) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnIndexAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QHeaderView_OnIndexAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnIndexAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#indexAt)
@@ -2506,7 +2506,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) bool `
     ///
     pub fn OnIsIndexHidden(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QHeaderView_OnIsIndexHidden(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnIsIndexHidden(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isIndexHidden)
@@ -2534,7 +2534,7 @@ pub const qheaderview = struct {
     /// ` param2: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn MoveCursor(self: ?*anyopaque, param1: i32, param2: i32) QtC.QModelIndex {
-        return qtc.QHeaderView_MoveCursor(@ptrCast(self), @intCast(param1), @intCast(param2));
+        return qtc.QHeaderView_MoveCursor(@ptrCast(self), @bitCast(param1), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#moveCursor)
@@ -2548,7 +2548,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, param1: qabstractitemview_enums.CursorAction, param2: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QtC.QModelIndex `
     ///
     pub fn OnMoveCursor(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.QHeaderView_OnMoveCursor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnMoveCursor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#moveCursor)
@@ -2564,7 +2564,7 @@ pub const qheaderview = struct {
     /// ` param2: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn QBaseMoveCursor(self: ?*anyopaque, param1: i32, param2: i32) QtC.QModelIndex {
-        return qtc.QHeaderView_QBaseMoveCursor(@ptrCast(self), @intCast(param1), @intCast(param2));
+        return qtc.QHeaderView_QBaseMoveCursor(@ptrCast(self), @bitCast(param1), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
@@ -2578,7 +2578,7 @@ pub const qheaderview = struct {
     /// ` flags: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, flags: i32) void {
-        qtc.QHeaderView_SetSelection(@ptrCast(self), @ptrCast(rect), @intCast(flags));
+        qtc.QHeaderView_SetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
@@ -2592,7 +2592,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, rect: QtC.QRect, flags: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
     pub fn OnSetSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnSetSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSetSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
@@ -2608,7 +2608,7 @@ pub const qheaderview = struct {
     /// ` flags: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
     pub fn QBaseSetSelection(self: ?*anyopaque, rect: ?*anyopaque, flags: i32) void {
-        qtc.QHeaderView_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @intCast(flags));
+        qtc.QHeaderView_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection)
@@ -2634,7 +2634,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, selection: QtC.QItemSelection) callconv(.c) QtC.QRegion `
     ///
     pub fn OnVisualRegionForSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRegion) void {
-        qtc.QHeaderView_OnVisualRegionForSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnVisualRegionForSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection)
@@ -2662,7 +2662,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn InitStyleOptionForIndex(self: ?*anyopaque, option: ?*anyopaque, logicalIndex: i32) void {
-        qtc.QHeaderView_InitStyleOptionForIndex(@ptrCast(self), @ptrCast(option), @intCast(logicalIndex));
+        qtc.QHeaderView_InitStyleOptionForIndex(@ptrCast(self), @ptrCast(option), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex)
@@ -2676,7 +2676,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, option: QtC.QStyleOptionHeader, logicalIndex: i32) callconv(.c) void `
     ///
     pub fn OnInitStyleOptionForIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnInitStyleOptionForIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnInitStyleOptionForIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex)
@@ -2692,7 +2692,7 @@ pub const qheaderview = struct {
     /// ` logicalIndex: i32 `
     ///
     pub fn QBaseInitStyleOptionForIndex(self: ?*anyopaque, option: ?*anyopaque, logicalIndex: i32) void {
-        qtc.QHeaderView_QBaseInitStyleOptionForIndex(@ptrCast(self), @ptrCast(option), @intCast(logicalIndex));
+        qtc.QHeaderView_QBaseInitStyleOptionForIndex(@ptrCast(self), @ptrCast(option), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOption)
@@ -2718,7 +2718,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, option: QtC.QStyleOptionHeader) callconv(.c) void `
     ///
     pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOption)
@@ -2770,7 +2770,7 @@ pub const qheaderview = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qheaderview.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2838,7 +2838,7 @@ pub const qheaderview = struct {
     /// ` mode: qabstractitemview_enums.SelectionMode `
     ///
     pub fn SetSelectionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -2868,7 +2868,7 @@ pub const qheaderview = struct {
     /// ` behavior: qabstractitemview_enums.SelectionBehavior `
     ///
     pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i32) void {
-        qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self), @intCast(behavior));
+        qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self), @bitCast(behavior));
     }
 
     /// Inherited from QAbstractItemView
@@ -2922,7 +2922,7 @@ pub const qheaderview = struct {
     /// ` triggers: flag of qabstractitemview_enums.EditTrigger `
     ///
     pub fn SetEditTriggers(self: ?*anyopaque, triggers: i32) void {
-        qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self), @intCast(triggers));
+        qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self), @bitCast(triggers));
     }
 
     /// Inherited from QAbstractItemView
@@ -2952,7 +2952,7 @@ pub const qheaderview = struct {
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
     pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -2994,7 +2994,7 @@ pub const qheaderview = struct {
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
     pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -3062,7 +3062,7 @@ pub const qheaderview = struct {
     /// ` margin: i32 `
     ///
     pub fn SetAutoScrollMargin(self: ?*anyopaque, margin: i32) void {
-        qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self), @intCast(margin));
+        qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// Inherited from QAbstractItemView
@@ -3192,7 +3192,7 @@ pub const qheaderview = struct {
     /// ` behavior: qabstractitemview_enums.DragDropMode `
     ///
     pub fn SetDragDropMode(self: ?*anyopaque, behavior: i32) void {
-        qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self), @intCast(behavior));
+        qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self), @bitCast(behavior));
     }
 
     /// Inherited from QAbstractItemView
@@ -3222,7 +3222,7 @@ pub const qheaderview = struct {
     /// ` dropAction: qnamespace_enums.DropAction `
     ///
     pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i32) void {
-        qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self), @intCast(dropAction));
+        qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self), @bitCast(dropAction));
     }
 
     /// Inherited from QAbstractItemView
@@ -3304,7 +3304,7 @@ pub const qheaderview = struct {
     /// ` mode: qnamespace_enums.TextElideMode `
     ///
     pub fn SetTextElideMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self), @intCast(mode));
+        qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -3422,7 +3422,7 @@ pub const qheaderview = struct {
     /// ` delegate: QtC.QAbstractItemDelegate `
     ///
     pub fn SetItemDelegateForRow(self: ?*anyopaque, row: i32, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self), @intCast(row), @ptrCast(delegate));
+        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self), @bitCast(row), @ptrCast(delegate));
     }
 
     /// Inherited from QAbstractItemView
@@ -3436,7 +3436,7 @@ pub const qheaderview = struct {
     /// ` row: i32 `
     ///
     pub fn ItemDelegateForRow(self: ?*anyopaque, row: i32) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self), @intCast(row));
+        return qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemView
@@ -3452,7 +3452,7 @@ pub const qheaderview = struct {
     /// ` delegate: QtC.QAbstractItemDelegate `
     ///
     pub fn SetItemDelegateForColumn(self: ?*anyopaque, column: i32, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self), @intCast(column), @ptrCast(delegate));
+        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self), @bitCast(column), @ptrCast(delegate));
     }
 
     /// Inherited from QAbstractItemView
@@ -3466,7 +3466,7 @@ pub const qheaderview = struct {
     /// ` column: i32 `
     ///
     pub fn ItemDelegateForColumn(self: ?*anyopaque, column: i32) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self), @intCast(column));
+        return qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemView
@@ -3586,7 +3586,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -3614,7 +3614,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -3642,7 +3642,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -3670,7 +3670,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -3698,7 +3698,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -3724,7 +3724,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView) callconv(.c) void `
     ///
     pub fn OnViewportEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -3752,7 +3752,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, size: QtC.QSize) callconv(.c) void `
     ///
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -3782,7 +3782,7 @@ pub const qheaderview = struct {
     /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @intCast(verticalScrollBarPolicy));
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @bitCast(verticalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -3838,7 +3838,7 @@ pub const qheaderview = struct {
     /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @intCast(horizontalScrollBarPolicy));
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @bitCast(horizontalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -3906,7 +3906,7 @@ pub const qheaderview = struct {
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
-        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
+        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @bitCast(alignment));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -3922,7 +3922,7 @@ pub const qheaderview = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qheaderview.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
@@ -3995,7 +3995,7 @@ pub const qheaderview = struct {
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QFrame
@@ -4021,7 +4021,7 @@ pub const qheaderview = struct {
     /// ` frameStyle: i32 `
     ///
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self), @intCast(frameStyle));
+        qtc.QFrame_SetFrameStyle(@ptrCast(self), @bitCast(frameStyle));
     }
 
     /// Inherited from QFrame
@@ -4063,7 +4063,7 @@ pub const qheaderview = struct {
     /// ` frameShape: qframe_enums.Shape `
     ///
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self), @intCast(frameShape));
+        qtc.QFrame_SetFrameShape(@ptrCast(self), @bitCast(frameShape));
     }
 
     /// Inherited from QFrame
@@ -4093,7 +4093,7 @@ pub const qheaderview = struct {
     /// ` frameShadow: qframe_enums.Shadow `
     ///
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self), @intCast(frameShadow));
+        qtc.QFrame_SetFrameShadow(@ptrCast(self), @bitCast(frameShadow));
     }
 
     /// Inherited from QFrame
@@ -4119,7 +4119,7 @@ pub const qheaderview = struct {
     /// ` lineWidth: i32 `
     ///
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self), @intCast(lineWidth));
+        qtc.QFrame_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
     }
 
     /// Inherited from QFrame
@@ -4145,7 +4145,7 @@ pub const qheaderview = struct {
     /// ` midLineWidth: i32 `
     ///
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @intCast(midLineWidth));
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
     }
 
     /// Inherited from QFrame
@@ -4311,7 +4311,7 @@ pub const qheaderview = struct {
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
+        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -4637,7 +4637,7 @@ pub const qheaderview = struct {
     /// ` minh: i32 `
     ///
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @intCast(minw), @intCast(minh));
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -4667,7 +4667,7 @@ pub const qheaderview = struct {
     /// ` maxh: i32 `
     ///
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @intCast(maxw), @intCast(maxh));
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -4681,7 +4681,7 @@ pub const qheaderview = struct {
     /// ` minw: i32 `
     ///
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @intCast(minw));
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -4695,7 +4695,7 @@ pub const qheaderview = struct {
     /// ` minh: i32 `
     ///
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @intCast(minh));
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -4709,7 +4709,7 @@ pub const qheaderview = struct {
     /// ` maxw: i32 `
     ///
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @intCast(maxw));
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -4723,7 +4723,7 @@ pub const qheaderview = struct {
     /// ` maxh: i32 `
     ///
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @intCast(maxh));
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -4765,7 +4765,7 @@ pub const qheaderview = struct {
     /// ` h: i32 `
     ///
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4807,7 +4807,7 @@ pub const qheaderview = struct {
     /// ` baseh: i32 `
     ///
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @intCast(basew), @intCast(baseh));
+        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -4837,7 +4837,7 @@ pub const qheaderview = struct {
     /// ` h: i32 `
     ///
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4851,7 +4851,7 @@ pub const qheaderview = struct {
     /// ` w: i32 `
     ///
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @intCast(w));
+        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -4865,7 +4865,7 @@ pub const qheaderview = struct {
     /// ` h: i32 `
     ///
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @intCast(h));
+        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5117,7 +5117,7 @@ pub const qheaderview = struct {
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -5147,7 +5147,7 @@ pub const qheaderview = struct {
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
+        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -5447,7 +5447,7 @@ pub const qheaderview = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5461,7 +5461,7 @@ pub const qheaderview = struct {
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5681,7 +5681,7 @@ pub const qheaderview = struct {
     /// ` level: f64 `
     ///
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @floatCast(level));
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -5755,7 +5755,7 @@ pub const qheaderview = struct {
     /// ` msec: i32 `
     ///
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @intCast(msec));
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -5925,7 +5925,7 @@ pub const qheaderview = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -6077,7 +6077,7 @@ pub const qheaderview = struct {
     /// ` reason: qnamespace_enums.FocusReason `
     ///
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
+        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -6107,7 +6107,7 @@ pub const qheaderview = struct {
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -6189,7 +6189,7 @@ pub const qheaderview = struct {
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -6279,7 +6279,7 @@ pub const qheaderview = struct {
     /// ` id: i32 `
     ///
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @intCast(id));
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -6293,7 +6293,7 @@ pub const qheaderview = struct {
     /// ` id: i32 `
     ///
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -6307,7 +6307,7 @@ pub const qheaderview = struct {
     /// ` id: i32 `
     ///
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @intCast(id));
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -6393,7 +6393,7 @@ pub const qheaderview = struct {
     /// ` h: i32 `
     ///
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -6441,7 +6441,7 @@ pub const qheaderview = struct {
     /// ` h: i32 `
     ///
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -6621,7 +6621,7 @@ pub const qheaderview = struct {
     /// ` y: i32 `
     ///
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @intCast(x), @intCast(y));
+        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -6651,7 +6651,7 @@ pub const qheaderview = struct {
     /// ` h: i32 `
     ///
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @intCast(w), @intCast(h));
+        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -6685,7 +6685,7 @@ pub const qheaderview = struct {
     /// ` h: i32 `
     ///
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -6851,7 +6851,7 @@ pub const qheaderview = struct {
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -6865,7 +6865,7 @@ pub const qheaderview = struct {
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
+        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -6907,7 +6907,7 @@ pub const qheaderview = struct {
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -6939,7 +6939,7 @@ pub const qheaderview = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -7045,7 +7045,7 @@ pub const qheaderview = struct {
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
+        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -7061,7 +7061,7 @@ pub const qheaderview = struct {
     /// ` dy: i32 `
     ///
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -7079,7 +7079,7 @@ pub const qheaderview = struct {
     /// ` param3: QtC.QRect `
     ///
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @intCast(dx), @intCast(dy), @ptrCast(param3));
+        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
     }
 
     /// Inherited from QWidget
@@ -7348,7 +7348,7 @@ pub const qheaderview = struct {
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -7378,7 +7378,7 @@ pub const qheaderview = struct {
     /// ` param1: qnamespace_enums.WindowType `
     ///
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7392,7 +7392,7 @@ pub const qheaderview = struct {
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -7420,7 +7420,7 @@ pub const qheaderview = struct {
     /// ` param1: u64 `
     ///
     pub fn Find(param1: u64) QtC.QWidget {
-        return qtc.QWidget_Find(@intCast(param1));
+        return qtc.QWidget_Find(@bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7436,7 +7436,7 @@ pub const qheaderview = struct {
     /// ` y: i32 `
     ///
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @intCast(x), @intCast(y));
+        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -7478,7 +7478,7 @@ pub const qheaderview = struct {
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
+        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7492,7 +7492,7 @@ pub const qheaderview = struct {
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
+        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7638,7 +7638,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, title: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7666,7 +7666,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, icon: QtC.QIcon) callconv(.c) void `
     ///
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7698,7 +7698,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, iconText: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7726,7 +7726,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, pos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7756,7 +7756,7 @@ pub const qheaderview = struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -7810,7 +7810,7 @@ pub const qheaderview = struct {
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -7864,7 +7864,7 @@ pub const qheaderview = struct {
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
+        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -7894,7 +7894,7 @@ pub const qheaderview = struct {
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
+        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -7910,7 +7910,7 @@ pub const qheaderview = struct {
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -7926,7 +7926,7 @@ pub const qheaderview = struct {
     /// ` enable: bool `
     ///
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -7942,7 +7942,7 @@ pub const qheaderview = struct {
     /// ` enable: bool `
     ///
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @intCast(id), enable);
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -7958,7 +7958,7 @@ pub const qheaderview = struct {
     /// ` on: bool `
     ///
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -7974,7 +7974,7 @@ pub const qheaderview = struct {
     /// ` on: bool `
     ///
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
+        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -8004,7 +8004,7 @@ pub const qheaderview = struct {
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
+        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
     }
 
     /// Inherited from QObject
@@ -8138,7 +8138,7 @@ pub const qheaderview = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -8152,7 +8152,7 @@ pub const qheaderview = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -8166,7 +8166,7 @@ pub const qheaderview = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -8180,7 +8180,7 @@ pub const qheaderview = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -8496,7 +8496,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8551,7 +8551,7 @@ pub const qheaderview = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -8567,7 +8567,7 @@ pub const qheaderview = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -8589,7 +8589,7 @@ pub const qheaderview = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -8609,7 +8609,7 @@ pub const qheaderview = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -8631,7 +8631,7 @@ pub const qheaderview = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -8728,7 +8728,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -8882,7 +8882,7 @@ pub const qheaderview = struct {
     /// ` value: f64 `
     ///
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -8930,7 +8930,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, selectionModel: QtC.QItemSelectionModel) callconv(.c) void `
     ///
     pub fn OnSetSelectionModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnSetSelectionModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSetSelectionModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8986,7 +8986,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, search: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnKeyboardSearch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QHeaderView_OnKeyboardSearch(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnKeyboardSearch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9002,7 +9002,7 @@ pub const qheaderview = struct {
     /// ` row: i32 `
     ///
     pub fn SizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QHeaderView_SizeHintForRow(@ptrCast(self), @intCast(row));
+        return qtc.QHeaderView_SizeHintForRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemView
@@ -9018,7 +9018,7 @@ pub const qheaderview = struct {
     /// ` row: i32 `
     ///
     pub fn QBaseSizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QHeaderView_QBaseSizeHintForRow(@ptrCast(self), @intCast(row));
+        return qtc.QHeaderView_QBaseSizeHintForRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemView
@@ -9034,7 +9034,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, row: i32) callconv(.c) i32 `
     ///
     pub fn OnSizeHintForRow(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QHeaderView_OnSizeHintForRow(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSizeHintForRow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9050,7 +9050,7 @@ pub const qheaderview = struct {
     /// ` column: i32 `
     ///
     pub fn SizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QHeaderView_SizeHintForColumn(@ptrCast(self), @intCast(column));
+        return qtc.QHeaderView_SizeHintForColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemView
@@ -9066,7 +9066,7 @@ pub const qheaderview = struct {
     /// ` column: i32 `
     ///
     pub fn QBaseSizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QHeaderView_QBaseSizeHintForColumn(@ptrCast(self), @intCast(column));
+        return qtc.QHeaderView_QBaseSizeHintForColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemView
@@ -9082,7 +9082,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, column: i32) callconv(.c) i32 `
     ///
     pub fn OnSizeHintForColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QHeaderView_OnSizeHintForColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSizeHintForColumn(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9130,7 +9130,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) QtC.QAbstractItemDelegate `
     ///
     pub fn OnItemDelegateForIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAbstractItemDelegate) void {
-        qtc.QHeaderView_OnItemDelegateForIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnItemDelegateForIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9146,7 +9146,7 @@ pub const qheaderview = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QHeaderView_InputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QHeaderView_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QAbstractItemView
@@ -9162,7 +9162,7 @@ pub const qheaderview = struct {
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
     pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QHeaderView_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+        return qtc.QHeaderView_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QAbstractItemView
@@ -9178,7 +9178,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
     pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QHeaderView_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9226,7 +9226,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex) callconv(.c) void `
     ///
     pub fn OnSetRootIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnSetRootIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSetRootIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9270,7 +9270,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnSelectAll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnSelectAll(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSelectAll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9290,7 +9290,7 @@ pub const qheaderview = struct {
     /// ` end: i32 `
     ///
     pub fn RowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QHeaderView_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.QHeaderView_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QAbstractItemView
@@ -9310,7 +9310,7 @@ pub const qheaderview = struct {
     /// ` end: i32 `
     ///
     pub fn QBaseRowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QHeaderView_QBaseRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
+        qtc.QHeaderView_QBaseRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QAbstractItemView
@@ -9326,7 +9326,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
     pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnRowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnRowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9378,7 +9378,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, selected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void `
     ///
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnSelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9422,7 +9422,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateEditorData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnUpdateEditorData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnUpdateEditorData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9466,7 +9466,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateEditorGeometries(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnUpdateEditorGeometries(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnUpdateEditorGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9482,7 +9482,7 @@ pub const qheaderview = struct {
     /// ` action: i32 `
     ///
     pub fn VerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QHeaderView_VerticalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.QHeaderView_VerticalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QAbstractItemView
@@ -9498,7 +9498,7 @@ pub const qheaderview = struct {
     /// ` action: i32 `
     ///
     pub fn QBaseVerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QHeaderView_QBaseVerticalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.QHeaderView_QBaseVerticalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QAbstractItemView
@@ -9514,7 +9514,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, action: i32) callconv(.c) void `
     ///
     pub fn OnVerticalScrollbarAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnVerticalScrollbarAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnVerticalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9530,7 +9530,7 @@ pub const qheaderview = struct {
     /// ` action: i32 `
     ///
     pub fn HorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QHeaderView_HorizontalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.QHeaderView_HorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QAbstractItemView
@@ -9546,7 +9546,7 @@ pub const qheaderview = struct {
     /// ` action: i32 `
     ///
     pub fn QBaseHorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QHeaderView_QBaseHorizontalScrollbarAction(@ptrCast(self), @intCast(action));
+        qtc.QHeaderView_QBaseHorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QAbstractItemView
@@ -9562,7 +9562,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, action: i32) callconv(.c) void `
     ///
     pub fn OnHorizontalScrollbarAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnHorizontalScrollbarAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnHorizontalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9578,7 +9578,7 @@ pub const qheaderview = struct {
     /// ` value: i32 `
     ///
     pub fn VerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QHeaderView_VerticalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.QHeaderView_VerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -9594,7 +9594,7 @@ pub const qheaderview = struct {
     /// ` value: i32 `
     ///
     pub fn QBaseVerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QHeaderView_QBaseVerticalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.QHeaderView_QBaseVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -9610,7 +9610,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, value: i32) callconv(.c) void `
     ///
     pub fn OnVerticalScrollbarValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnVerticalScrollbarValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9626,7 +9626,7 @@ pub const qheaderview = struct {
     /// ` value: i32 `
     ///
     pub fn HorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QHeaderView_HorizontalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.QHeaderView_HorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -9642,7 +9642,7 @@ pub const qheaderview = struct {
     /// ` value: i32 `
     ///
     pub fn QBaseHorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QHeaderView_QBaseHorizontalScrollbarValueChanged(@ptrCast(self), @intCast(value));
+        qtc.QHeaderView_QBaseHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -9658,7 +9658,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, value: i32) callconv(.c) void `
     ///
     pub fn OnHorizontalScrollbarValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnHorizontalScrollbarValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9676,7 +9676,7 @@ pub const qheaderview = struct {
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
     pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.QHeaderView_CloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
+        qtc.QHeaderView_CloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemView
@@ -9694,7 +9694,7 @@ pub const qheaderview = struct {
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
     pub fn QBaseCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.QHeaderView_QBaseCloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
+        qtc.QHeaderView_QBaseCloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemView
@@ -9710,7 +9710,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
     pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnCloseEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnCloseEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9758,7 +9758,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, editor: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnCommitData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnCommitData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9806,7 +9806,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, editor: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnEditorDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnEditorDestroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnEditorDestroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9870,7 +9870,7 @@ pub const qheaderview = struct {
     /// ` C ABI representation of []QtC.QModelIndex `
     ///
     pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QHeaderView_OnSelectedIndexes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSelectedIndexes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9890,7 +9890,7 @@ pub const qheaderview = struct {
     /// ` event: QtC.QEvent `
     ///
     pub fn Edit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.QHeaderView_Edit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
+        return qtc.QHeaderView_Edit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9910,7 +9910,7 @@ pub const qheaderview = struct {
     /// ` event: QtC.QEvent `
     ///
     pub fn QBaseEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.QHeaderView_QBaseEdit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
+        return qtc.QHeaderView_QBaseEdit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9926,7 +9926,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEdit2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QHeaderView_OnEdit2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnEdit2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9986,7 +9986,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, index: QtC.QModelIndex, event: QtC.QEvent) callconv(.c) i32 `
     ///
     pub fn OnSelectionCommand(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QHeaderView_OnSelectionCommand(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSelectionCommand(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10002,7 +10002,7 @@ pub const qheaderview = struct {
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
     pub fn StartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.QHeaderView_StartDrag(@ptrCast(self), @intCast(supportedActions));
+        qtc.QHeaderView_StartDrag(@ptrCast(self), @bitCast(supportedActions));
     }
 
     /// Inherited from QAbstractItemView
@@ -10018,7 +10018,7 @@ pub const qheaderview = struct {
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
     pub fn QBaseStartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.QHeaderView_QBaseStartDrag(@ptrCast(self), @intCast(supportedActions));
+        qtc.QHeaderView_QBaseStartDrag(@ptrCast(self), @bitCast(supportedActions));
     }
 
     /// Inherited from QAbstractItemView
@@ -10034,7 +10034,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void `
     ///
     pub fn OnStartDrag(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnStartDrag(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnStartDrag(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10082,7 +10082,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, option: QtC.QStyleOptionViewItem) callconv(.c) void `
     ///
     pub fn OnInitViewItemOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnInitViewItemOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnInitViewItemOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10130,7 +10130,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, next: bool) callconv(.c) bool `
     ///
     pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QHeaderView_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10178,7 +10178,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QDragEnterEvent) callconv(.c) void `
     ///
     pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10226,7 +10226,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QDragMoveEvent) callconv(.c) void `
     ///
     pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10274,7 +10274,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QDragLeaveEvent) callconv(.c) void `
     ///
     pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10322,7 +10322,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QDropEvent) callconv(.c) void `
     ///
     pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10370,7 +10370,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10418,7 +10418,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QFocusEvent) callconv(.c) void `
     ///
     pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10466,7 +10466,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10514,7 +10514,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QResizeEvent) callconv(.c) void `
     ///
     pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10562,7 +10562,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10610,7 +10610,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QInputMethodEvent) callconv(.c) void `
     ///
     pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10662,7 +10662,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, object: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QHeaderView_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10706,7 +10706,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnViewportSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QHeaderView_OnViewportSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnViewportSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10750,7 +10750,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QSize `
     ///
     pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QHeaderView_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10798,7 +10798,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, viewport: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnSetupViewport(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnSetupViewport(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSetupViewport(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10846,7 +10846,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, param1: QtC.QWheelEvent) callconv(.c) void `
     ///
     pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10894,7 +10894,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, param1: QtC.QContextMenuEvent) callconv(.c) void `
     ///
     pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -10942,7 +10942,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, param1: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10986,7 +10986,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHeaderView_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11002,7 +11002,7 @@ pub const qheaderview = struct {
     /// ` param1: i32 `
     ///
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QHeaderView_HeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QHeaderView_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -11018,7 +11018,7 @@ pub const qheaderview = struct {
     /// ` param1: i32 `
     ///
     pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QHeaderView_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
+        return qtc.QHeaderView_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -11034,7 +11034,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, param1: i32) callconv(.c) i32 `
     ///
     pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QHeaderView_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11078,7 +11078,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QHeaderView_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11122,7 +11122,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
     ///
     pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QHeaderView_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11170,7 +11170,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QKeyEvent) callconv(.c) void `
     ///
     pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11218,7 +11218,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QEnterEvent) callconv(.c) void `
     ///
     pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11266,7 +11266,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11314,7 +11314,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QMoveEvent) callconv(.c) void `
     ///
     pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11362,7 +11362,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QCloseEvent) callconv(.c) void `
     ///
     pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11410,7 +11410,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QTabletEvent) callconv(.c) void `
     ///
     pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11458,7 +11458,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QActionEvent) callconv(.c) void `
     ///
     pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11506,7 +11506,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QShowEvent) callconv(.c) void `
     ///
     pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11554,7 +11554,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QHideEvent) callconv(.c) void `
     ///
     pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11618,7 +11618,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QHeaderView_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11634,7 +11634,7 @@ pub const qheaderview = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QHeaderView_Metric(@ptrCast(self), @intCast(param1));
+        return qtc.QHeaderView_Metric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -11650,7 +11650,7 @@ pub const qheaderview = struct {
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QHeaderView_QBaseMetric(@ptrCast(self), @intCast(param1));
+        return qtc.QHeaderView_QBaseMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -11666,7 +11666,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
     pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QHeaderView_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11714,7 +11714,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, painter: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11762,7 +11762,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
     ///
     pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QHeaderView_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11806,7 +11806,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPainter `
     ///
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QHeaderView_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11854,7 +11854,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11902,7 +11902,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11950,7 +11950,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11998,7 +11998,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12050,7 +12050,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnState(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHeaderView_OnState(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12066,7 +12066,7 @@ pub const qheaderview = struct {
     /// ` state: qabstractitemview_enums.State `
     ///
     pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QHeaderView_SetState(@ptrCast(self), @intCast(state));
+        qtc.QHeaderView_SetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QAbstractItemView
@@ -12082,7 +12082,7 @@ pub const qheaderview = struct {
     /// ` state: qabstractitemview_enums.State `
     ///
     pub fn QBaseSetState(self: ?*anyopaque, state: i32) void {
-        qtc.QHeaderView_QBaseSetState(@ptrCast(self), @intCast(state));
+        qtc.QHeaderView_QBaseSetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QAbstractItemView
@@ -12098,7 +12098,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, state: qabstractitemview_enums.State) callconv(.c) void `
     ///
     pub fn OnSetState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnSetState(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSetState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12142,7 +12142,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnScheduleDelayedItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnScheduleDelayedItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnScheduleDelayedItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12186,7 +12186,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnExecuteDelayedItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnExecuteDelayedItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnExecuteDelayedItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12234,7 +12234,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, region: QtC.QRegion) callconv(.c) void `
     ///
     pub fn OnSetDirtyRegion(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnSetDirtyRegion(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSetDirtyRegion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12252,7 +12252,7 @@ pub const qheaderview = struct {
     /// ` dy: i32 `
     ///
     pub fn ScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QHeaderView_ScrollDirtyRegion(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QHeaderView_ScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QAbstractItemView
@@ -12270,7 +12270,7 @@ pub const qheaderview = struct {
     /// ` dy: i32 `
     ///
     pub fn QBaseScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QHeaderView_QBaseScrollDirtyRegion(@ptrCast(self), @intCast(dx), @intCast(dy));
+        qtc.QHeaderView_QBaseScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QAbstractItemView
@@ -12286,7 +12286,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, dx: i32, dy: i32) callconv(.c) void `
     ///
     pub fn OnScrollDirtyRegion(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnScrollDirtyRegion(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnScrollDirtyRegion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12330,7 +12330,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QPoint `
     ///
     pub fn OnDirtyRegionOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPoint) void {
-        qtc.QHeaderView_OnDirtyRegionOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnDirtyRegionOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12374,7 +12374,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnStartAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnStartAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnStartAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12418,7 +12418,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnStopAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnStopAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnStopAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12462,7 +12462,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnDoAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnDoAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnDoAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12514,7 +12514,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnDropIndicatorPosition(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHeaderView_OnDropIndicatorPosition(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnDropIndicatorPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12536,7 +12536,7 @@ pub const qheaderview = struct {
     /// ` bottom: i32 `
     ///
     pub fn SetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QHeaderView_SetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QHeaderView_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12558,7 +12558,7 @@ pub const qheaderview = struct {
     /// ` bottom: i32 `
     ///
     pub fn QBaseSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QHeaderView_QBaseSetViewportMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+        qtc.QHeaderView_QBaseSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12574,7 +12574,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
     pub fn OnSetViewportMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnSetViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSetViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12618,7 +12618,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMargins `
     ///
     pub fn OnViewportMargins(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMargins) void {
-        qtc.QHeaderView_OnViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -12666,7 +12666,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, param1: QtC.QPainter) callconv(.c) void `
     ///
     pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHeaderView_OnDrawFrame(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnDrawFrame(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12710,7 +12710,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12754,7 +12754,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12798,7 +12798,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12842,7 +12842,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QHeaderView_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12886,7 +12886,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QHeaderView_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12930,7 +12930,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QHeaderView_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12974,7 +12974,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHeaderView_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13024,7 +13024,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QHeaderView_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13072,7 +13072,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QHeaderView_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -13090,7 +13090,7 @@ pub const qheaderview = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QHeaderView_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QHeaderView_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -13108,7 +13108,7 @@ pub const qheaderview = struct {
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
     pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QHeaderView_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+        return qtc.QHeaderView_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -13124,7 +13124,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QHeaderView_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QHeaderView_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13140,7 +13140,7 @@ pub const qheaderview = struct {
     /// ` callback: *const fn (self: QtC.QHeaderView, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#dtor.QHeaderView)

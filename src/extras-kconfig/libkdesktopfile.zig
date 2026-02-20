@@ -22,7 +22,7 @@ pub const kdesktopfile = struct {
             .data = fileName.ptr,
         };
 
-        return qtc.KDesktopFile_new(@intCast(resourceType), fileName_str);
+        return qtc.KDesktopFile_new(@bitCast(resourceType), fileName_str);
     }
 
     /// New2 constructs a new KDesktopFile object.
@@ -899,7 +899,7 @@ pub const kdesktopfile = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        qtc.KConfigBase_DeleteGroup2(@ptrCast(self), group_str, @intCast(flags));
+        qtc.KConfigBase_DeleteGroup2(@ptrCast(self), group_str, @bitCast(flags));
     }
 
     /// Inherited from KConfig
@@ -943,7 +943,7 @@ pub const kdesktopfile = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnSync(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KDesktopFile_OnSync(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KDesktopFile_OnSync(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KConfig
@@ -987,7 +987,7 @@ pub const kdesktopfile = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnMarkAsClean(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KDesktopFile_OnMarkAsClean(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KDesktopFile_OnMarkAsClean(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KConfig
@@ -1039,7 +1039,7 @@ pub const kdesktopfile = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnAccessMode(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KDesktopFile_OnAccessMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KDesktopFile_OnAccessMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KConfig
@@ -1083,7 +1083,7 @@ pub const kdesktopfile = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnIsImmutable(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KDesktopFile_OnIsImmutable(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KDesktopFile_OnIsImmutable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KConfig
@@ -1163,7 +1163,7 @@ pub const kdesktopfile = struct {
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
     pub fn OnGroupList(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.KDesktopFile_OnGroupList(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KDesktopFile_OnGroupList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KConfig
@@ -1219,7 +1219,7 @@ pub const kdesktopfile = struct {
     /// ` callback: *const fn (self: QtC.KDesktopFile, groupName: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnHasGroupImpl(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.KDesktopFile_OnHasGroupImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KDesktopFile_OnHasGroupImpl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KConfig
@@ -1275,7 +1275,7 @@ pub const kdesktopfile = struct {
     /// ` callback: *const fn (self: QtC.KDesktopFile, groupName: [*:0]const u8) callconv(.c) QtC.KConfigGroup `
     ///
     pub fn OnGroupImpl(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.KConfigGroup) void {
-        qtc.KDesktopFile_OnGroupImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KDesktopFile_OnGroupImpl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KConfig
@@ -1297,7 +1297,7 @@ pub const kdesktopfile = struct {
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        qtc.KDesktopFile_DeleteGroupImpl(@ptrCast(self), groupName_str, @intCast(flags));
+        qtc.KDesktopFile_DeleteGroupImpl(@ptrCast(self), groupName_str, @bitCast(flags));
     }
 
     /// Inherited from KConfig
@@ -1319,7 +1319,7 @@ pub const kdesktopfile = struct {
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        qtc.KDesktopFile_QBaseDeleteGroupImpl(@ptrCast(self), groupName_str, @intCast(flags));
+        qtc.KDesktopFile_QBaseDeleteGroupImpl(@ptrCast(self), groupName_str, @bitCast(flags));
     }
 
     /// Inherited from KConfig
@@ -1335,7 +1335,7 @@ pub const kdesktopfile = struct {
     /// ` callback: *const fn (self: QtC.KDesktopFile, groupName: [*:0]const u8, flags: flag of kconfigbase_enums.WriteConfigFlag) callconv(.c) void `
     ///
     pub fn OnDeleteGroupImpl(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.KDesktopFile_OnDeleteGroupImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KDesktopFile_OnDeleteGroupImpl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KConfig
@@ -1391,7 +1391,7 @@ pub const kdesktopfile = struct {
     /// ` callback: *const fn (self: QtC.KDesktopFile, groupName: [*:0]const u8) callconv(.c) bool `
     ///
     pub fn OnIsGroupImmutableImpl(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.KDesktopFile_OnIsGroupImmutableImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KDesktopFile_OnIsGroupImmutableImpl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KConfig
@@ -1409,7 +1409,7 @@ pub const kdesktopfile = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KDesktopFile_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KDesktopFile_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from KConfig
@@ -1427,7 +1427,7 @@ pub const kdesktopfile = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KDesktopFile_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KDesktopFile_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from KConfig
@@ -1443,7 +1443,7 @@ pub const kdesktopfile = struct {
     /// ` callback: *const fn (self: QtC.KDesktopFile, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDesktopFile_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KDesktopFile_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#dtor.KDesktopFile)

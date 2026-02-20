@@ -33,7 +33,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KTextEditor__InlineNoteProvider_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -68,7 +68,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KTextEditor__InlineNoteProvider_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -95,7 +95,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KTextEditor__InlineNoteProvider_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KTextEditor__InlineNoteProvider_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -107,7 +107,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KTextEditor__InlineNoteProvider_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -123,7 +123,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KTextEditor__InlineNoteProvider_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KTextEditor__InlineNoteProvider_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -154,7 +154,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn InlineNotes(self: ?*anyopaque, line: i32, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.KTextEditor__InlineNoteProvider_InlineNotes(@ptrCast(self), @intCast(line));
+        const _arr: qtc.libqt_list = qtc.KTextEditor__InlineNoteProvider_InlineNotes(@ptrCast(self), @bitCast(line));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("ktexteditor__inlinenoteprovider.InlineNotes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -179,7 +179,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` C ABI representation of []i32 `
     ///
     pub fn OnInlineNotes(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.KTextEditor__InlineNoteProvider_OnInlineNotes(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnInlineNotes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotes)
@@ -195,7 +195,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseInlineNotes(self: ?*anyopaque, line: i32, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.KTextEditor__InlineNoteProvider_QBaseInlineNotes(@ptrCast(self), @intCast(line));
+        const _arr: qtc.libqt_list = qtc.KTextEditor__InlineNoteProvider_QBaseInlineNotes(@ptrCast(self), @bitCast(line));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("ktexteditor__inlinenoteprovider.InlineNotes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -226,7 +226,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, note: QtC.KTextEditor__InlineNote) callconv(.c) QtC.QSize `
     ///
     pub fn OnInlineNoteSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.KTextEditor__InlineNoteProvider_OnInlineNoteSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnInlineNoteSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteSize)
@@ -256,7 +256,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn PaintInlineNote(self: ?*anyopaque, note: ?*anyopaque, painter: ?*anyopaque, direction: i32) void {
-        qtc.KTextEditor__InlineNoteProvider_PaintInlineNote(@ptrCast(self), @ptrCast(note), @ptrCast(painter), @intCast(direction));
+        qtc.KTextEditor__InlineNoteProvider_PaintInlineNote(@ptrCast(self), @ptrCast(note), @ptrCast(painter), @bitCast(direction));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#paintInlineNote)
@@ -270,7 +270,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, note: QtC.KTextEditor__InlineNote, painter: QtC.QPainter, direction: qnamespace_enums.LayoutDirection) callconv(.c) void `
     ///
     pub fn OnPaintInlineNote(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KTextEditor__InlineNoteProvider_OnPaintInlineNote(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnPaintInlineNote(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#paintInlineNote)
@@ -288,7 +288,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn QBasePaintInlineNote(self: ?*anyopaque, note: ?*anyopaque, painter: ?*anyopaque, direction: i32) void {
-        qtc.KTextEditor__InlineNoteProvider_QBasePaintInlineNote(@ptrCast(self), @ptrCast(note), @ptrCast(painter), @intCast(direction));
+        qtc.KTextEditor__InlineNoteProvider_QBasePaintInlineNote(@ptrCast(self), @ptrCast(note), @ptrCast(painter), @bitCast(direction));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteActivated)
@@ -304,7 +304,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` globalPos: QtC.QPoint `
     ///
     pub fn InlineNoteActivated(self: ?*anyopaque, note: ?*anyopaque, buttons: i32, globalPos: ?*anyopaque) void {
-        qtc.KTextEditor__InlineNoteProvider_InlineNoteActivated(@ptrCast(self), @ptrCast(note), @intCast(buttons), @ptrCast(globalPos));
+        qtc.KTextEditor__InlineNoteProvider_InlineNoteActivated(@ptrCast(self), @ptrCast(note), @bitCast(buttons), @ptrCast(globalPos));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteActivated)
@@ -318,7 +318,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, note: QtC.KTextEditor__InlineNote, buttons: flag of qnamespace_enums.MouseButton, globalPos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnInlineNoteActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__InlineNoteProvider_OnInlineNoteActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnInlineNoteActivated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteActivated)
@@ -336,7 +336,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` globalPos: QtC.QPoint `
     ///
     pub fn QBaseInlineNoteActivated(self: ?*anyopaque, note: ?*anyopaque, buttons: i32, globalPos: ?*anyopaque) void {
-        qtc.KTextEditor__InlineNoteProvider_QBaseInlineNoteActivated(@ptrCast(self), @ptrCast(note), @intCast(buttons), @ptrCast(globalPos));
+        qtc.KTextEditor__InlineNoteProvider_QBaseInlineNoteActivated(@ptrCast(self), @ptrCast(note), @bitCast(buttons), @ptrCast(globalPos));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusInEvent)
@@ -364,7 +364,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, note: QtC.KTextEditor__InlineNote, globalPos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnInlineNoteFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__InlineNoteProvider_OnInlineNoteFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnInlineNoteFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusInEvent)
@@ -406,7 +406,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, note: QtC.KTextEditor__InlineNote) callconv(.c) void `
     ///
     pub fn OnInlineNoteFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__InlineNoteProvider_OnInlineNoteFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnInlineNoteFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusOutEvent)
@@ -448,7 +448,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, note: QtC.KTextEditor__InlineNote, globalPos: QtC.QPoint) callconv(.c) void `
     ///
     pub fn OnInlineNoteMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__InlineNoteProvider_OnInlineNoteMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnInlineNoteMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteMouseMoveEvent)
@@ -486,7 +486,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider) callconv(.c) void `
     ///
     pub fn OnInlineNotesReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__InlineNoteProvider_Connect_InlineNotesReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_Connect_InlineNotesReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotesChanged)
@@ -498,7 +498,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` line: i32 `
     ///
     pub fn InlineNotesChanged(self: ?*anyopaque, line: i32) void {
-        qtc.KTextEditor__InlineNoteProvider_InlineNotesChanged(@ptrCast(self), @intCast(line));
+        qtc.KTextEditor__InlineNoteProvider_InlineNotesChanged(@ptrCast(self), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotesChanged)
@@ -510,7 +510,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, line: i32) callconv(.c) void `
     ///
     pub fn OnInlineNotesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KTextEditor__InlineNoteProvider_Connect_InlineNotesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_Connect_InlineNotesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -548,7 +548,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__inlinenoteprovider.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -686,7 +686,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -700,7 +700,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -714,7 +714,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -728,7 +728,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1058,7 +1058,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1113,7 +1113,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1129,7 +1129,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1151,7 +1151,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1171,7 +1171,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1193,7 +1193,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1290,7 +1290,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1338,7 +1338,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__InlineNoteProvider_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1390,7 +1390,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__InlineNoteProvider_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1438,7 +1438,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__InlineNoteProvider_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1486,7 +1486,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__InlineNoteProvider_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1534,7 +1534,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__InlineNoteProvider_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1582,7 +1582,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__InlineNoteProvider_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1630,7 +1630,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__InlineNoteProvider_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1674,7 +1674,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KTextEditor__InlineNoteProvider_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1718,7 +1718,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KTextEditor__InlineNoteProvider_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1768,7 +1768,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KTextEditor__InlineNoteProvider_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1816,7 +1816,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__InlineNoteProvider_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTextEditor__InlineNoteProvider_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1832,7 +1832,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

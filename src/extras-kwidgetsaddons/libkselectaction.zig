@@ -77,7 +77,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KSelectAction_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -112,7 +112,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KSelectAction_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -139,7 +139,7 @@ pub const kselectaction = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KSelectAction_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KSelectAction_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -151,7 +151,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KSelectAction_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -167,7 +167,7 @@ pub const kselectaction = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KSelectAction_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.KSelectAction_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -210,7 +210,7 @@ pub const kselectaction = struct {
     /// ` mode: kselectaction_enums.ToolBarMode `
     ///
     pub fn SetToolBarMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KSelectAction_SetToolBarMode(@ptrCast(self), @intCast(mode));
+        qtc.KSelectAction_SetToolBarMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#toolButtonPopupMode)
@@ -236,7 +236,7 @@ pub const kselectaction = struct {
     /// ` mode: qtoolbutton_enums.ToolButtonPopupMode `
     ///
     pub fn SetToolButtonPopupMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KSelectAction_SetToolButtonPopupMode(@ptrCast(self), @intCast(mode));
+        qtc.KSelectAction_SetToolButtonPopupMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#selectableActionGroup)
@@ -311,7 +311,7 @@ pub const kselectaction = struct {
     /// ` index: i32 `
     ///
     pub fn Action(self: ?*anyopaque, index: i32) QtC.QAction {
-        return qtc.KSelectAction_Action(@ptrCast(self), @intCast(index));
+        return qtc.KSelectAction_Action(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#action)
@@ -351,7 +351,7 @@ pub const kselectaction = struct {
     /// ` index: i32 `
     ///
     pub fn SetCurrentItem(self: ?*anyopaque, index: i32) bool {
-        return qtc.KSelectAction_SetCurrentItem(@ptrCast(self), @intCast(index));
+        return qtc.KSelectAction_SetCurrentItem(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentAction)
@@ -439,7 +439,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, action: QtC.QAction) callconv(.c) QtC.QAction `
     ///
     pub fn OnRemoveAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
-        qtc.KSelectAction_OnRemoveAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnRemoveAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#removeAction)
@@ -481,7 +481,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, before: QtC.QAction, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnInsertAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSelectAction_OnInsertAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnInsertAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
@@ -594,7 +594,7 @@ pub const kselectaction = struct {
     /// ` width: i32 `
     ///
     pub fn SetComboWidth(self: ?*anyopaque, width: i32) void {
-        qtc.KSelectAction_SetComboWidth(@ptrCast(self), @intCast(width));
+        qtc.KSelectAction_SetComboWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#setMaxComboViewCount)
@@ -606,7 +606,7 @@ pub const kselectaction = struct {
     /// ` n: i32 `
     ///
     pub fn SetMaxComboViewCount(self: ?*anyopaque, n: i32) void {
-        qtc.KSelectAction_SetMaxComboViewCount(@ptrCast(self), @intCast(n));
+        qtc.KSelectAction_SetMaxComboViewCount(@ptrCast(self), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#clear)
@@ -666,7 +666,7 @@ pub const kselectaction = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.KSelectAction_ChangeItem(@ptrCast(self), @intCast(index), text_str);
+        qtc.KSelectAction_ChangeItem(@ptrCast(self), @bitCast(index), text_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#actionTriggered)
@@ -690,7 +690,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSelectAction_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_Connect_ActionTriggered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#indexTriggered)
@@ -702,7 +702,7 @@ pub const kselectaction = struct {
     /// ` index: i32 `
     ///
     pub fn IndexTriggered(self: ?*anyopaque, index: i32) void {
-        qtc.KSelectAction_IndexTriggered(@ptrCast(self), @intCast(index));
+        qtc.KSelectAction_IndexTriggered(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#indexTriggered)
@@ -714,7 +714,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, index: i32) callconv(.c) void `
     ///
     pub fn OnIndexTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KSelectAction_Connect_IndexTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_Connect_IndexTriggered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#textTriggered)
@@ -742,7 +742,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, text: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTextTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KSelectAction_Connect_TextTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_Connect_TextTriggered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
@@ -768,7 +768,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, action: QtC.QAction) callconv(.c) void `
     ///
     pub fn OnSlotActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSelectAction_OnSlotActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnSlotActionTriggered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
@@ -808,7 +808,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, param1: bool) callconv(.c) void `
     ///
     pub fn OnSlotToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KSelectAction_OnSlotToggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnSlotToggled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
@@ -848,7 +848,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, parent: QtC.QWidget) callconv(.c) QtC.QWidget `
     ///
     pub fn OnCreateWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.KSelectAction_OnCreateWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnCreateWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#createWidget)
@@ -888,7 +888,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, widget: QtC.QWidget) callconv(.c) void `
     ///
     pub fn OnDeleteWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSelectAction_OnDeleteWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnDeleteWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
@@ -928,7 +928,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KSelectAction_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#event)
@@ -970,7 +970,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KSelectAction_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
@@ -1024,7 +1024,7 @@ pub const kselectaction = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kselectaction.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1046,7 +1046,7 @@ pub const kselectaction = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KSelectAction_Action22(@ptrCast(self), text_str, @intCast(cs));
+        return qtc.KSelectAction_Action22(@ptrCast(self), text_str, @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentAction)
@@ -1064,7 +1064,7 @@ pub const kselectaction = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KSelectAction_SetCurrentAction22(@ptrCast(self), text_str, @intCast(cs));
+        return qtc.KSelectAction_SetCurrentAction22(@ptrCast(self), text_str, @bitCast(cs));
     }
 
     /// Inherited from QWidgetAction
@@ -1383,7 +1383,7 @@ pub const kselectaction = struct {
     /// ` priority: qaction_enums.Priority `
     ///
     pub fn SetPriority(self: ?*anyopaque, priority: i32) void {
-        qtc.QAction_SetPriority(@ptrCast(self), @intCast(priority));
+        qtc.QAction_SetPriority(@ptrCast(self), @bitCast(priority));
     }
 
     /// Inherited from QAction
@@ -1483,7 +1483,7 @@ pub const kselectaction = struct {
     /// ` shortcuts: qkeysequence_enums.StandardKey `
     ///
     pub fn SetShortcuts2(self: ?*anyopaque, shortcuts: i32) void {
-        qtc.QAction_SetShortcuts2(@ptrCast(self), @intCast(shortcuts));
+        qtc.QAction_SetShortcuts2(@ptrCast(self), @bitCast(shortcuts));
     }
 
     /// Inherited from QAction
@@ -1516,7 +1516,7 @@ pub const kselectaction = struct {
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
     pub fn SetShortcutContext(self: ?*anyopaque, context: i32) void {
-        qtc.QAction_SetShortcutContext(@ptrCast(self), @intCast(context));
+        qtc.QAction_SetShortcutContext(@ptrCast(self), @bitCast(context));
     }
 
     /// Inherited from QAction
@@ -1686,7 +1686,7 @@ pub const kselectaction = struct {
     /// ` event: qaction_enums.ActionEvent `
     ///
     pub fn Activate(self: ?*anyopaque, event: i32) void {
-        qtc.QAction_Activate(@ptrCast(self), @intCast(event));
+        qtc.QAction_Activate(@ptrCast(self), @bitCast(event));
     }
 
     /// Inherited from QAction
@@ -1700,7 +1700,7 @@ pub const kselectaction = struct {
     /// ` menuRole: qaction_enums.MenuRole `
     ///
     pub fn SetMenuRole(self: ?*anyopaque, menuRole: i32) void {
-        qtc.QAction_SetMenuRole(@ptrCast(self), @intCast(menuRole));
+        qtc.QAction_SetMenuRole(@ptrCast(self), @bitCast(menuRole));
     }
 
     /// Inherited from QAction
@@ -1910,7 +1910,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction) callconv(.c) void `
     ///
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAction_Connect_Changed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1938,7 +1938,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, enabled: bool) callconv(.c) void `
     ///
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1966,7 +1966,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, checkable: bool) callconv(.c) void `
     ///
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1992,7 +1992,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction) callconv(.c) void `
     ///
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAction_Connect_VisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -2018,7 +2018,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction) callconv(.c) void `
     ///
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Triggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAction_Connect_Triggered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -2044,7 +2044,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction) callconv(.c) void `
     ///
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAction_Connect_Hovered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -2072,7 +2072,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, param1: bool) callconv(.c) void `
     ///
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAction_Connect_Toggled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -2114,7 +2114,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, checked: bool) callconv(.c) void `
     ///
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_Triggered1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QAction_Connect_Triggered1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2248,7 +2248,7 @@ pub const kselectaction = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2262,7 +2262,7 @@ pub const kselectaction = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2276,7 +2276,7 @@ pub const kselectaction = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2290,7 +2290,7 @@ pub const kselectaction = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2620,7 +2620,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2675,7 +2675,7 @@ pub const kselectaction = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2691,7 +2691,7 @@ pub const kselectaction = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2713,7 +2713,7 @@ pub const kselectaction = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -2733,7 +2733,7 @@ pub const kselectaction = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2755,7 +2755,7 @@ pub const kselectaction = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2852,7 +2852,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2900,7 +2900,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSelectAction_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2948,7 +2948,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSelectAction_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2996,7 +2996,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSelectAction_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3044,7 +3044,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSelectAction_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3092,7 +3092,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSelectAction_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetAction
@@ -3156,7 +3156,7 @@ pub const kselectaction = struct {
     /// ` C ABI representation of []QtC.QWidget `
     ///
     pub fn OnCreatedWidgets(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KSelectAction_OnCreatedWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnCreatedWidgets(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3200,7 +3200,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KSelectAction_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3244,7 +3244,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KSelectAction_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3294,7 +3294,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KSelectAction_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3342,7 +3342,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KSelectAction_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KSelectAction_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3358,7 +3358,7 @@ pub const kselectaction = struct {
     /// ` callback: *const fn (self: QtC.KSelectAction, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#dtor.KSelectAction)

@@ -92,7 +92,7 @@ pub const qnetworkaddressentry = struct {
     /// ` status: qnetworkinterface_enums.DnsEligibilityStatus `
     ///
     pub fn SetDnsEligibility(self: ?*anyopaque, status: i8) void {
-        qtc.QNetworkAddressEntry_SetDnsEligibility(@ptrCast(self), @intCast(status));
+        qtc.QNetworkAddressEntry_SetDnsEligibility(@ptrCast(self), @bitCast(status));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#ip)
@@ -158,7 +158,7 @@ pub const qnetworkaddressentry = struct {
     /// ` length: i32 `
     ///
     pub fn SetPrefixLength(self: ?*anyopaque, length: i32) void {
-        qtc.QNetworkAddressEntry_SetPrefixLength(@ptrCast(self), @intCast(length));
+        qtc.QNetworkAddressEntry_SetPrefixLength(@ptrCast(self), @bitCast(length));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#broadcast)
@@ -470,7 +470,7 @@ pub const qnetworkinterface = struct {
     /// ` index: i32 `
     ///
     pub fn InterfaceFromIndex(index: i32) QtC.QNetworkInterface {
-        return qtc.QNetworkInterface_InterfaceFromIndex(@intCast(index));
+        return qtc.QNetworkInterface_InterfaceFromIndex(@bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html#interfaceNameFromIndex)
@@ -482,7 +482,7 @@ pub const qnetworkinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn InterfaceNameFromIndex(index: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QNetworkInterface_InterfaceNameFromIndex(@intCast(index));
+        var _str = qtc.QNetworkInterface_InterfaceNameFromIndex(@bitCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkinterface.InterfaceNameFromIndex: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

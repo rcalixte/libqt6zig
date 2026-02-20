@@ -37,7 +37,7 @@ pub const qkeycombination = struct {
     /// ` modifiers: flag of qnamespace_enums.Modifier `
     ///
     pub fn New4(modifiers: i32) QtC.QKeyCombination {
-        return qtc.QKeyCombination_new4(@intCast(modifiers));
+        return qtc.QKeyCombination_new4(@bitCast(modifiers));
     }
 
     /// New5 constructs a new QKeyCombination object.
@@ -47,7 +47,7 @@ pub const qkeycombination = struct {
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
     pub fn New5(modifiers: i32) QtC.QKeyCombination {
-        return qtc.QKeyCombination_new5(@intCast(modifiers));
+        return qtc.QKeyCombination_new5(@bitCast(modifiers));
     }
 
     /// New6 constructs a new QKeyCombination object.
@@ -67,7 +67,7 @@ pub const qkeycombination = struct {
     /// ` key: qnamespace_enums.Key `
     ///
     pub fn New7(key: i32) QtC.QKeyCombination {
-        return qtc.QKeyCombination_new7(@intCast(key));
+        return qtc.QKeyCombination_new7(@bitCast(key));
     }
 
     /// New8 constructs a new QKeyCombination object.
@@ -79,7 +79,7 @@ pub const qkeycombination = struct {
     /// ` key: qnamespace_enums.Key `
     ///
     pub fn New8(modifiers: i32, key: i32) QtC.QKeyCombination {
-        return qtc.QKeyCombination_new8(@intCast(modifiers), @intCast(key));
+        return qtc.QKeyCombination_new8(@bitCast(modifiers), @bitCast(key));
     }
 
     /// New9 constructs a new QKeyCombination object.
@@ -91,7 +91,7 @@ pub const qkeycombination = struct {
     /// ` key: qnamespace_enums.Key `
     ///
     pub fn New9(modifiers: i32, key: i32) QtC.QKeyCombination {
-        return qtc.QKeyCombination_new9(@intCast(modifiers), @intCast(key));
+        return qtc.QKeyCombination_new9(@bitCast(modifiers), @bitCast(key));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -153,7 +153,7 @@ pub const qkeycombination = struct {
     /// ` combined: i32 `
     ///
     pub fn FromCombined(combined: i32) QtC.QKeyCombination {
-        return qtc.QKeyCombination_FromCombined(@intCast(combined));
+        return qtc.QKeyCombination_FromCombined(@bitCast(combined));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#toCombined)

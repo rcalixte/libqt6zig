@@ -147,7 +147,7 @@ pub const ktar = struct {
     /// ` callback: *const fn (self: QtC.KTar, name: [*:0]const u8, target: [*:0]const u8, user: [*:0]const u8, group: [*:0]const u8, perm: u32, atime: QtC.QDateTime, mtime: QtC.QDateTime, ctime: QtC.QDateTime) callconv(.c) bool `
     ///
     pub fn OnDoWriteSymLink(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, u32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTar_OnDoWriteSymLink(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnDoWriteSymLink(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#doWriteSymLink)
@@ -241,7 +241,7 @@ pub const ktar = struct {
     /// ` callback: *const fn (self: QtC.KTar, name: [*:0]const u8, user: [*:0]const u8, group: [*:0]const u8, perm: u32, atime: QtC.QDateTime, mtime: QtC.QDateTime, ctime: QtC.QDateTime) callconv(.c) bool `
     ///
     pub fn OnDoWriteDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, u32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTar_OnDoWriteDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnDoWriteDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#doWriteDir)
@@ -317,7 +317,7 @@ pub const ktar = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KTar_DoPrepareWriting(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
+        return qtc.KTar_DoPrepareWriting(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#doPrepareWriting)
@@ -331,7 +331,7 @@ pub const ktar = struct {
     /// ` callback: *const fn (self: QtC.KTar, name: [*:0]const u8, user: [*:0]const u8, group: [*:0]const u8, size: i64, perm: u32, atime: QtC.QDateTime, mtime: QtC.QDateTime, ctime: QtC.QDateTime) callconv(.c) bool `
     ///
     pub fn OnDoPrepareWriting(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, i64, u32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTar_OnDoPrepareWriting(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnDoPrepareWriting(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#doPrepareWriting)
@@ -371,7 +371,7 @@ pub const ktar = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KTar_QBaseDoPrepareWriting(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
+        return qtc.KTar_QBaseDoPrepareWriting(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#doFinishWriting)
@@ -383,7 +383,7 @@ pub const ktar = struct {
     /// ` size: i64 `
     ///
     pub fn DoFinishWriting(self: ?*anyopaque, size: i64) bool {
-        return qtc.KTar_DoFinishWriting(@ptrCast(self), @intCast(size));
+        return qtc.KTar_DoFinishWriting(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#doFinishWriting)
@@ -397,7 +397,7 @@ pub const ktar = struct {
     /// ` callback: *const fn (self: QtC.KTar, size: i64) callconv(.c) bool `
     ///
     pub fn OnDoFinishWriting(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.KTar_OnDoFinishWriting(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnDoFinishWriting(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#doFinishWriting)
@@ -411,7 +411,7 @@ pub const ktar = struct {
     /// ` size: i64 `
     ///
     pub fn QBaseDoFinishWriting(self: ?*anyopaque, size: i64) bool {
-        return qtc.KTar_QBaseDoFinishWriting(@ptrCast(self), @intCast(size));
+        return qtc.KTar_QBaseDoFinishWriting(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#openArchive)
@@ -423,7 +423,7 @@ pub const ktar = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn OpenArchive(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KTar_OpenArchive(@ptrCast(self), @intCast(mode));
+        return qtc.KTar_OpenArchive(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#openArchive)
@@ -437,7 +437,7 @@ pub const ktar = struct {
     /// ` callback: *const fn (self: QtC.KTar, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
     pub fn OnOpenArchive(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KTar_OnOpenArchive(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnOpenArchive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#openArchive)
@@ -451,7 +451,7 @@ pub const ktar = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn QBaseOpenArchive(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KTar_QBaseOpenArchive(@ptrCast(self), @intCast(mode));
+        return qtc.KTar_QBaseOpenArchive(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#closeArchive)
@@ -475,7 +475,7 @@ pub const ktar = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnCloseArchive(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTar_OnCloseArchive(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnCloseArchive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#closeArchive)
@@ -499,7 +499,7 @@ pub const ktar = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn CreateDevice(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KTar_CreateDevice(@ptrCast(self), @intCast(mode));
+        return qtc.KTar_CreateDevice(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#createDevice)
@@ -513,7 +513,7 @@ pub const ktar = struct {
     /// ` callback: *const fn (self: QtC.KTar, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
     pub fn OnCreateDevice(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KTar_OnCreateDevice(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnCreateDevice(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#createDevice)
@@ -527,7 +527,7 @@ pub const ktar = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn QBaseCreateDevice(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KTar_QBaseCreateDevice(@ptrCast(self), @intCast(mode));
+        return qtc.KTar_QBaseCreateDevice(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#virtual_hook)
@@ -541,7 +541,7 @@ pub const ktar = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KTar_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KTar_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#virtual_hook)
@@ -555,7 +555,7 @@ pub const ktar = struct {
     /// ` callback: *const fn (self: QtC.KTar, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTar_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#virtual_hook)
@@ -571,7 +571,7 @@ pub const ktar = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KTar_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KTar_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -609,7 +609,7 @@ pub const ktar = struct {
     pub fn Tr3(sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
-        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktar.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -847,7 +847,7 @@ pub const ktar = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting(@ptrCast(self), name_str, user_str, group_str, @intCast(size));
+        return qtc.KArchive_PrepareWriting(@ptrCast(self), name_str, user_str, group_str, @bitCast(size));
     }
 
     /// Inherited from KArchive
@@ -864,7 +864,7 @@ pub const ktar = struct {
     ///
     pub fn WriteData(self: ?*anyopaque, data: [:0]const u8, size: i64) bool {
         const data_Cstring = data.ptr;
-        return qtc.KArchive_WriteData(@ptrCast(self), data_Cstring, @intCast(size));
+        return qtc.KArchive_WriteData(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
     /// Inherited from KArchive
@@ -896,7 +896,7 @@ pub const ktar = struct {
     /// ` size: i64 `
     ///
     pub fn FinishWriting(self: ?*anyopaque, size: i64) bool {
-        return qtc.KArchive_FinishWriting(@ptrCast(self), @intCast(size));
+        return qtc.KArchive_FinishWriting(@ptrCast(self), @bitCast(size));
     }
 
     /// Inherited from KArchive
@@ -1576,7 +1576,7 @@ pub const ktar = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting5(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm);
+        return qtc.KArchive_PrepareWriting5(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm);
     }
 
     /// Inherited from KArchive
@@ -1612,7 +1612,7 @@ pub const ktar = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting6(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm, @ptrCast(atime));
+        return qtc.KArchive_PrepareWriting6(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime));
     }
 
     /// Inherited from KArchive
@@ -1650,7 +1650,7 @@ pub const ktar = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting7(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm, @ptrCast(atime), @ptrCast(mtime));
+        return qtc.KArchive_PrepareWriting7(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime));
     }
 
     /// Inherited from KArchive
@@ -1690,7 +1690,7 @@ pub const ktar = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KArchive_PrepareWriting8(@ptrCast(self), name_str, user_str, group_str, @intCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
+        return qtc.KArchive_PrepareWriting8(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
     }
 
     /// Inherited from KArchive
@@ -1706,7 +1706,7 @@ pub const ktar = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn Open(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KTar_Open(@ptrCast(self), @intCast(mode));
+        return qtc.KTar_Open(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KArchive
@@ -1722,7 +1722,7 @@ pub const ktar = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn QBaseOpen(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KTar_QBaseOpen(@ptrCast(self), @intCast(mode));
+        return qtc.KTar_QBaseOpen(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KArchive
@@ -1738,7 +1738,7 @@ pub const ktar = struct {
     /// ` callback: *const fn (self: QtC.KTar, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
     pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KTar_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchive
@@ -1782,7 +1782,7 @@ pub const ktar = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTar_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchive
@@ -1826,7 +1826,7 @@ pub const ktar = struct {
     /// ` callback: *const fn () callconv(.c) QtC.KArchiveDirectory `
     ///
     pub fn OnRootDir(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KArchiveDirectory) void {
-        qtc.KTar_OnRootDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnRootDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchive
@@ -1845,7 +1845,7 @@ pub const ktar = struct {
     ///
     pub fn DoWriteData(self: ?*anyopaque, data: [:0]const u8, size: i64) bool {
         const data_Cstring = data.ptr;
-        return qtc.KTar_DoWriteData(@ptrCast(self), data_Cstring, @intCast(size));
+        return qtc.KTar_DoWriteData(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
     /// Inherited from KArchive
@@ -1864,7 +1864,7 @@ pub const ktar = struct {
     ///
     pub fn QBaseDoWriteData(self: ?*anyopaque, data: [:0]const u8, size: i64) bool {
         const data_Cstring = data.ptr;
-        return qtc.KTar_QBaseDoWriteData(@ptrCast(self), data_Cstring, @intCast(size));
+        return qtc.KTar_QBaseDoWriteData(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
     /// Inherited from KArchive
@@ -1880,7 +1880,7 @@ pub const ktar = struct {
     /// ` callback: *const fn (self: QtC.KTar, data: [*:0]const u8, size: i64) callconv(.c) bool `
     ///
     pub fn OnDoWriteData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) bool) void {
-        qtc.KTar_OnDoWriteData(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnDoWriteData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchive
@@ -1936,7 +1936,7 @@ pub const ktar = struct {
     /// ` callback: *const fn (self: QtC.KTar, errorStr: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KTar_OnSetErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnSetErrorString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchive
@@ -1992,7 +1992,7 @@ pub const ktar = struct {
     /// ` callback: *const fn (self: QtC.KTar, path: [*:0]const u8) callconv(.c) QtC.KArchiveDirectory `
     ///
     pub fn OnFindOrCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.KArchiveDirectory) void {
-        qtc.KTar_OnFindOrCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnFindOrCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchive
@@ -2040,7 +2040,7 @@ pub const ktar = struct {
     /// ` callback: *const fn (self: QtC.KTar, dev: QtC.QIODevice) callconv(.c) void `
     ///
     pub fn OnSetDevice(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTar_OnSetDevice(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnSetDevice(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchive
@@ -2088,7 +2088,7 @@ pub const ktar = struct {
     /// ` callback: *const fn (self: QtC.KTar, rootDir: QtC.KArchiveDirectory) callconv(.c) void `
     ///
     pub fn OnSetRootDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTar_OnSetRootDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KTar_OnSetRootDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktar.html#dtor.KTar)

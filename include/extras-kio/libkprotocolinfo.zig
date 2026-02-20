@@ -428,7 +428,7 @@ pub const kprotocolinfo__extrafield = struct {
             .data = _name.ptr,
         };
 
-        return qtc.KProtocolInfo__ExtraField_new2(_name_str, @intCast(_type));
+        return qtc.KProtocolInfo__ExtraField_new2(_name_str, @bitCast(_type));
     }
 
     /// New3 constructs a new KProtocolInfo::ExtraField object.
@@ -496,7 +496,7 @@ pub const kprotocolinfo__extrafield = struct {
     /// ` type: kprotocolinfo_enums.Type `
     ///
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.KProtocolInfo__ExtraField_SetType(@ptrCast(self), @intCast(_type));
+        qtc.KProtocolInfo__ExtraField_SetType(@ptrCast(self), @bitCast(_type));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#operator-eq)

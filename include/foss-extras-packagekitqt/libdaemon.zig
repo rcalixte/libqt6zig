@@ -40,7 +40,7 @@ pub const packagekit__daemon = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.PackageKit__Daemon_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.PackageKit__Daemon_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -376,7 +376,7 @@ pub const packagekit__daemon = struct {
     ///
     pub fn EnumToString(metaObject: ?*anyopaque, value: i32, enumName: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const enumName_Cstring = enumName.ptr;
-        var _str = qtc.PackageKit__Daemon_EnumToString(@ptrCast(metaObject), @intCast(value), enumName_Cstring);
+        var _str = qtc.PackageKit__Daemon_EnumToString(@ptrCast(metaObject), @bitCast(value), enumName_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__daemon.EnumToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -657,7 +657,7 @@ pub const packagekit__daemon = struct {
     /// ` number: u32 `
     ///
     pub fn GetOldTransactions(number: u32) QtC.PackageKit__Transaction {
-        return qtc.PackageKit__Daemon_GetOldTransactions(@intCast(number));
+        return qtc.PackageKit__Daemon_GetOldTransactions(@bitCast(number));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -773,7 +773,7 @@ pub const packagekit__daemon = struct {
             .len = distroId.len,
             .data = distroId.ptr,
         };
-        return qtc.PackageKit__Daemon_UpgradeSystem(distroId_str, @intCast(kind));
+        return qtc.PackageKit__Daemon_UpgradeSystem(distroId_str, @bitCast(kind));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -871,7 +871,7 @@ pub const packagekit__daemon = struct {
             .len = packageID.len,
             .data = packageID.ptr,
         };
-        return qtc.PackageKit__Daemon_InstallSignature(@intCast(typeVal), keyID_str, packageID_str);
+        return qtc.PackageKit__Daemon_InstallSignature(@bitCast(typeVal), keyID_str, packageID_str);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1143,7 +1143,7 @@ pub const packagekit__daemon = struct {
     /// ` group: transaction_enums.Group `
     ///
     pub fn SearchGroup2(group: i32) QtC.PackageKit__Transaction {
-        return qtc.PackageKit__Daemon_SearchGroup2(@intCast(group));
+        return qtc.PackageKit__Daemon_SearchGroup2(@bitCast(group));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1289,7 +1289,7 @@ pub const packagekit__daemon = struct {
     /// ` callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void `
     ///
     pub fn OnIsRunningChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Daemon_Connect_IsRunningChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.PackageKit__Daemon_Connect_IsRunningChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1311,7 +1311,7 @@ pub const packagekit__daemon = struct {
     /// ` callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void `
     ///
     pub fn OnNetworkStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Daemon_Connect_NetworkStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.PackageKit__Daemon_Connect_NetworkStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1333,7 +1333,7 @@ pub const packagekit__daemon = struct {
     /// ` callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void `
     ///
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Daemon_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.PackageKit__Daemon_Connect_Changed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1355,7 +1355,7 @@ pub const packagekit__daemon = struct {
     /// ` callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void `
     ///
     pub fn OnRepoListChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Daemon_Connect_RepoListChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.PackageKit__Daemon_Connect_RepoListChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1377,7 +1377,7 @@ pub const packagekit__daemon = struct {
     /// ` callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void `
     ///
     pub fn OnRestartScheduled(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Daemon_Connect_RestartScheduled(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.PackageKit__Daemon_Connect_RestartScheduled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1415,7 +1415,7 @@ pub const packagekit__daemon = struct {
     /// ` callback: *const fn (self: QtC.PackageKit__Daemon, tids: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
     pub fn OnTransactionListChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.PackageKit__Daemon_Connect_TransactionListChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.PackageKit__Daemon_Connect_TransactionListChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1437,7 +1437,7 @@ pub const packagekit__daemon = struct {
     /// ` callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void `
     ///
     pub fn OnUpdatesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Daemon_Connect_UpdatesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.PackageKit__Daemon_Connect_UpdatesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1459,7 +1459,7 @@ pub const packagekit__daemon = struct {
     /// ` callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void `
     ///
     pub fn OnDaemonQuit(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Daemon_Connect_DaemonQuit(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.PackageKit__Daemon_Connect_DaemonQuit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1497,7 +1497,7 @@ pub const packagekit__daemon = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__daemon.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1569,7 +1569,7 @@ pub const packagekit__daemon = struct {
             .len = packageIDs.len,
             .data = packageIDs_arr.ptr,
         };
-        return qtc.PackageKit__Daemon_DependsOn22(packageIDs_list, @intCast(filters));
+        return qtc.PackageKit__Daemon_DependsOn22(packageIDs_list, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1597,7 +1597,7 @@ pub const packagekit__daemon = struct {
             .len = packageIDs.len,
             .data = packageIDs_arr.ptr,
         };
-        return qtc.PackageKit__Daemon_DependsOn3(packageIDs_list, @intCast(filters), recursive);
+        return qtc.PackageKit__Daemon_DependsOn3(packageIDs_list, @bitCast(filters), recursive);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1613,7 +1613,7 @@ pub const packagekit__daemon = struct {
             .len = packageID.len,
             .data = packageID.ptr,
         };
-        return qtc.PackageKit__Daemon_DependsOn23(packageID_str, @intCast(filters));
+        return qtc.PackageKit__Daemon_DependsOn23(packageID_str, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1631,7 +1631,7 @@ pub const packagekit__daemon = struct {
             .len = packageID.len,
             .data = packageID.ptr,
         };
-        return qtc.PackageKit__Daemon_DependsOn32(packageID_str, @intCast(filters), recursive);
+        return qtc.PackageKit__Daemon_DependsOn32(packageID_str, @bitCast(filters), recursive);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1641,7 +1641,7 @@ pub const packagekit__daemon = struct {
     /// ` filters: flag of transaction_enums.Filter `
     ///
     pub fn GetPackages1(filters: i32) QtC.PackageKit__Transaction {
-        return qtc.PackageKit__Daemon_GetPackages1(@intCast(filters));
+        return qtc.PackageKit__Daemon_GetPackages1(@bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1651,7 +1651,7 @@ pub const packagekit__daemon = struct {
     /// ` filters: flag of transaction_enums.Filter `
     ///
     pub fn GetRepoList1(filters: i32) QtC.PackageKit__Transaction {
-        return qtc.PackageKit__Daemon_GetRepoList1(@intCast(filters));
+        return qtc.PackageKit__Daemon_GetRepoList1(@bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1677,7 +1677,7 @@ pub const packagekit__daemon = struct {
             .len = packageIDs.len,
             .data = packageIDs_arr.ptr,
         };
-        return qtc.PackageKit__Daemon_RequiredBy22(packageIDs_list, @intCast(filters));
+        return qtc.PackageKit__Daemon_RequiredBy22(packageIDs_list, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1705,7 +1705,7 @@ pub const packagekit__daemon = struct {
             .len = packageIDs.len,
             .data = packageIDs_arr.ptr,
         };
-        return qtc.PackageKit__Daemon_RequiredBy3(packageIDs_list, @intCast(filters), recursive);
+        return qtc.PackageKit__Daemon_RequiredBy3(packageIDs_list, @bitCast(filters), recursive);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1721,7 +1721,7 @@ pub const packagekit__daemon = struct {
             .len = packageID.len,
             .data = packageID.ptr,
         };
-        return qtc.PackageKit__Daemon_RequiredBy23(packageID_str, @intCast(filters));
+        return qtc.PackageKit__Daemon_RequiredBy23(packageID_str, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1739,7 +1739,7 @@ pub const packagekit__daemon = struct {
             .len = packageID.len,
             .data = packageID.ptr,
         };
-        return qtc.PackageKit__Daemon_RequiredBy32(packageID_str, @intCast(filters), recursive);
+        return qtc.PackageKit__Daemon_RequiredBy32(packageID_str, @bitCast(filters), recursive);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1749,7 +1749,7 @@ pub const packagekit__daemon = struct {
     /// ` filters: flag of transaction_enums.Filter `
     ///
     pub fn GetUpdates1(filters: i32) QtC.PackageKit__Transaction {
-        return qtc.PackageKit__Daemon_GetUpdates1(@intCast(filters));
+        return qtc.PackageKit__Daemon_GetUpdates1(@bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1767,7 +1767,7 @@ pub const packagekit__daemon = struct {
             .len = distroId.len,
             .data = distroId.ptr,
         };
-        return qtc.PackageKit__Daemon_UpgradeSystem3(distroId_str, @intCast(kind), @intCast(flags));
+        return qtc.PackageKit__Daemon_UpgradeSystem3(distroId_str, @bitCast(kind), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1793,7 +1793,7 @@ pub const packagekit__daemon = struct {
             .len = files.len,
             .data = files_arr.ptr,
         };
-        return qtc.PackageKit__Daemon_InstallFiles2(files_list, @intCast(flags));
+        return qtc.PackageKit__Daemon_InstallFiles2(files_list, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1809,7 +1809,7 @@ pub const packagekit__daemon = struct {
             .len = file.len,
             .data = file.ptr,
         };
-        return qtc.PackageKit__Daemon_InstallFile2(file_str, @intCast(flags));
+        return qtc.PackageKit__Daemon_InstallFile2(file_str, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1835,7 +1835,7 @@ pub const packagekit__daemon = struct {
             .len = packageIDs.len,
             .data = packageIDs_arr.ptr,
         };
-        return qtc.PackageKit__Daemon_InstallPackages2(packageIDs_list, @intCast(flags));
+        return qtc.PackageKit__Daemon_InstallPackages2(packageIDs_list, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1851,7 +1851,7 @@ pub const packagekit__daemon = struct {
             .len = packageID.len,
             .data = packageID.ptr,
         };
-        return qtc.PackageKit__Daemon_InstallPackage2(packageID_str, @intCast(flags));
+        return qtc.PackageKit__Daemon_InstallPackage2(packageID_str, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1935,7 +1935,7 @@ pub const packagekit__daemon = struct {
             .len = packageIDs.len,
             .data = packageIDs_arr.ptr,
         };
-        return qtc.PackageKit__Daemon_RemovePackages4(packageIDs_list, allowDeps, autoRemove, @intCast(flags));
+        return qtc.PackageKit__Daemon_RemovePackages4(packageIDs_list, allowDeps, autoRemove, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1989,7 +1989,7 @@ pub const packagekit__daemon = struct {
             .len = packageID.len,
             .data = packageID.ptr,
         };
-        return qtc.PackageKit__Daemon_RemovePackage4(packageID_str, allowDeps, autoRemove, @intCast(flags));
+        return qtc.PackageKit__Daemon_RemovePackage4(packageID_str, allowDeps, autoRemove, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1999,7 +1999,7 @@ pub const packagekit__daemon = struct {
     /// ` flags: flag of transaction_enums.TransactionFlag `
     ///
     pub fn RepairSystem1(flags: i32) QtC.PackageKit__Transaction {
-        return qtc.PackageKit__Daemon_RepairSystem1(@intCast(flags));
+        return qtc.PackageKit__Daemon_RepairSystem1(@bitCast(flags));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2033,7 +2033,7 @@ pub const packagekit__daemon = struct {
             .len = repoId.len,
             .data = repoId.ptr,
         };
-        return qtc.PackageKit__Daemon_RepoRemove3(repoId_str, autoremove, @intCast(flags));
+        return qtc.PackageKit__Daemon_RepoRemove3(repoId_str, autoremove, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2059,7 +2059,7 @@ pub const packagekit__daemon = struct {
             .len = packageNames.len,
             .data = packageNames_arr.ptr,
         };
-        return qtc.PackageKit__Daemon_Resolve22(packageNames_list, @intCast(filters));
+        return qtc.PackageKit__Daemon_Resolve22(packageNames_list, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2075,7 +2075,7 @@ pub const packagekit__daemon = struct {
             .len = packageName.len,
             .data = packageName.ptr,
         };
-        return qtc.PackageKit__Daemon_Resolve23(packageName_str, @intCast(filters));
+        return qtc.PackageKit__Daemon_Resolve23(packageName_str, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2101,7 +2101,7 @@ pub const packagekit__daemon = struct {
             .len = search.len,
             .data = search_arr.ptr,
         };
-        return qtc.PackageKit__Daemon_SearchFiles22(search_list, @intCast(filters));
+        return qtc.PackageKit__Daemon_SearchFiles22(search_list, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2117,7 +2117,7 @@ pub const packagekit__daemon = struct {
             .len = search.len,
             .data = search.ptr,
         };
-        return qtc.PackageKit__Daemon_SearchFiles23(search_str, @intCast(filters));
+        return qtc.PackageKit__Daemon_SearchFiles23(search_str, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2143,7 +2143,7 @@ pub const packagekit__daemon = struct {
             .len = search.len,
             .data = search_arr.ptr,
         };
-        return qtc.PackageKit__Daemon_SearchDetails22(search_list, @intCast(filters));
+        return qtc.PackageKit__Daemon_SearchDetails22(search_list, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2159,7 +2159,7 @@ pub const packagekit__daemon = struct {
             .len = search.len,
             .data = search.ptr,
         };
-        return qtc.PackageKit__Daemon_SearchDetails23(search_str, @intCast(filters));
+        return qtc.PackageKit__Daemon_SearchDetails23(search_str, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2185,7 +2185,7 @@ pub const packagekit__daemon = struct {
             .len = groups.len,
             .data = groups_arr.ptr,
         };
-        return qtc.PackageKit__Daemon_SearchGroups22(groups_list, @intCast(filters));
+        return qtc.PackageKit__Daemon_SearchGroups22(groups_list, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2201,7 +2201,7 @@ pub const packagekit__daemon = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.PackageKit__Daemon_SearchGroup22(group_str, @intCast(filters));
+        return qtc.PackageKit__Daemon_SearchGroup22(group_str, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2213,7 +2213,7 @@ pub const packagekit__daemon = struct {
     /// ` filters: flag of transaction_enums.Filter `
     ///
     pub fn SearchGroup23(group: i32, filters: i32) QtC.PackageKit__Transaction {
-        return qtc.PackageKit__Daemon_SearchGroup23(@intCast(group), @intCast(filters));
+        return qtc.PackageKit__Daemon_SearchGroup23(@bitCast(group), @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2225,7 +2225,7 @@ pub const packagekit__daemon = struct {
     /// ` filters: flag of transaction_enums.Filter `
     ///
     pub fn SearchGroups23(group: QtC.PackageKit__Bitfield, filters: i32) QtC.PackageKit__Transaction {
-        return qtc.PackageKit__Daemon_SearchGroups23(@ptrCast(group), @intCast(filters));
+        return qtc.PackageKit__Daemon_SearchGroups23(@ptrCast(group), @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2251,7 +2251,7 @@ pub const packagekit__daemon = struct {
             .len = search.len,
             .data = search_arr.ptr,
         };
-        return qtc.PackageKit__Daemon_SearchNames22(search_list, @intCast(filters));
+        return qtc.PackageKit__Daemon_SearchNames22(search_list, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2267,7 +2267,7 @@ pub const packagekit__daemon = struct {
             .len = search.len,
             .data = search.ptr,
         };
-        return qtc.PackageKit__Daemon_SearchNames23(search_str, @intCast(filters));
+        return qtc.PackageKit__Daemon_SearchNames23(search_str, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2293,7 +2293,7 @@ pub const packagekit__daemon = struct {
             .len = packageIDs.len,
             .data = packageIDs_arr.ptr,
         };
-        return qtc.PackageKit__Daemon_UpdatePackages2(packageIDs_list, @intCast(flags));
+        return qtc.PackageKit__Daemon_UpdatePackages2(packageIDs_list, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2309,7 +2309,7 @@ pub const packagekit__daemon = struct {
             .len = packageID.len,
             .data = packageID.ptr,
         };
-        return qtc.PackageKit__Daemon_UpdatePackage2(packageID_str, @intCast(flags));
+        return qtc.PackageKit__Daemon_UpdatePackage2(packageID_str, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2335,7 +2335,7 @@ pub const packagekit__daemon = struct {
             .len = search.len,
             .data = search_arr.ptr,
         };
-        return qtc.PackageKit__Daemon_WhatProvides22(search_list, @intCast(filters));
+        return qtc.PackageKit__Daemon_WhatProvides22(search_list, @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -2351,7 +2351,7 @@ pub const packagekit__daemon = struct {
             .len = search.len,
             .data = search.ptr,
         };
-        return qtc.PackageKit__Daemon_WhatProvides23(search_str, @intCast(filters));
+        return qtc.PackageKit__Daemon_WhatProvides23(search_str, @bitCast(filters));
     }
 
     /// Inherited from QObject
@@ -2515,7 +2515,7 @@ pub const packagekit__daemon = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2529,7 +2529,7 @@ pub const packagekit__daemon = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2543,7 +2543,7 @@ pub const packagekit__daemon = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2557,7 +2557,7 @@ pub const packagekit__daemon = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2887,7 +2887,7 @@ pub const packagekit__daemon = struct {
     /// ` callback: *const fn (self: QtC.PackageKit__Daemon) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2942,7 +2942,7 @@ pub const packagekit__daemon = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2958,7 +2958,7 @@ pub const packagekit__daemon = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2980,7 +2980,7 @@ pub const packagekit__daemon = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -3000,7 +3000,7 @@ pub const packagekit__daemon = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -3022,7 +3022,7 @@ pub const packagekit__daemon = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -3119,7 +3119,7 @@ pub const packagekit__daemon = struct {
     /// ` callback: *const fn (self: QtC.PackageKit__Daemon, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3135,7 +3135,7 @@ pub const packagekit__daemon = struct {
     /// ` callback: *const fn (self: QtC.PackageKit__Daemon, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)

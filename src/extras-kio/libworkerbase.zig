@@ -86,7 +86,7 @@ pub const kio__workerresult = struct {
     /// ` _error: i32 `
     ///
     pub fn Fail1(_error: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerResult_Fail1(@intCast(_error));
+        return qtc.KIO__WorkerResult_Fail1(@bitCast(_error));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerresult.html#fail)
@@ -102,7 +102,7 @@ pub const kio__workerresult = struct {
             .len = _errorString.len,
             .data = _errorString.ptr,
         };
-        return qtc.KIO__WorkerResult_Fail2(@intCast(_error), _errorString_str);
+        return qtc.KIO__WorkerResult_Fail2(@bitCast(_error), _errorString_str);
     }
 
     /// Delete this object from C++ memory.
@@ -246,7 +246,7 @@ pub const kio__workerbase = struct {
     /// ` offset: u64 `
     ///
     pub fn CanResume(self: ?*anyopaque, offset: u64) bool {
-        return qtc.KIO__WorkerBase_CanResume(@ptrCast(self), @intCast(offset));
+        return qtc.KIO__WorkerBase_CanResume(@ptrCast(self), @bitCast(offset));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#canResume)
@@ -268,7 +268,7 @@ pub const kio__workerbase = struct {
     /// ` _bytes: u64 `
     ///
     pub fn TotalSize(self: ?*anyopaque, _bytes: u64) void {
-        qtc.KIO__WorkerBase_TotalSize(@ptrCast(self), @intCast(_bytes));
+        qtc.KIO__WorkerBase_TotalSize(@ptrCast(self), @bitCast(_bytes));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#processedSize)
@@ -280,7 +280,7 @@ pub const kio__workerbase = struct {
     /// ` _bytes: u64 `
     ///
     pub fn ProcessedSize(self: ?*anyopaque, _bytes: u64) void {
-        qtc.KIO__WorkerBase_ProcessedSize(@ptrCast(self), @intCast(_bytes));
+        qtc.KIO__WorkerBase_ProcessedSize(@ptrCast(self), @bitCast(_bytes));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#position)
@@ -292,7 +292,7 @@ pub const kio__workerbase = struct {
     /// ` _pos: u64 `
     ///
     pub fn Position(self: ?*anyopaque, _pos: u64) void {
-        qtc.KIO__WorkerBase_Position(@ptrCast(self), @intCast(_pos));
+        qtc.KIO__WorkerBase_Position(@ptrCast(self), @bitCast(_pos));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#written)
@@ -304,7 +304,7 @@ pub const kio__workerbase = struct {
     /// ` _bytes: u64 `
     ///
     pub fn Written(self: ?*anyopaque, _bytes: u64) void {
-        qtc.KIO__WorkerBase_Written(@ptrCast(self), @intCast(_bytes));
+        qtc.KIO__WorkerBase_Written(@ptrCast(self), @bitCast(_bytes));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#truncated)
@@ -316,7 +316,7 @@ pub const kio__workerbase = struct {
     /// ` _length: u64 `
     ///
     pub fn Truncated(self: ?*anyopaque, _length: u64) void {
-        qtc.KIO__WorkerBase_Truncated(@ptrCast(self), @intCast(_length));
+        qtc.KIO__WorkerBase_Truncated(@ptrCast(self), @bitCast(_length));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#speed)
@@ -328,7 +328,7 @@ pub const kio__workerbase = struct {
     /// ` _bytes_per_second: u64 `
     ///
     pub fn Speed(self: ?*anyopaque, _bytes_per_second: u64) void {
-        qtc.KIO__WorkerBase_Speed(@ptrCast(self), @intCast(_bytes_per_second));
+        qtc.KIO__WorkerBase_Speed(@ptrCast(self), @bitCast(_bytes_per_second));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#redirection)
@@ -416,7 +416,7 @@ pub const kio__workerbase = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KIO__WorkerBase_MessageBox(@ptrCast(self), @intCast(typeVal), text_str);
+        return qtc.KIO__WorkerBase_MessageBox(@ptrCast(self), @bitCast(typeVal), text_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
@@ -434,7 +434,7 @@ pub const kio__workerbase = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KIO__WorkerBase_MessageBox2(@ptrCast(self), text_str, @intCast(typeVal));
+        return qtc.KIO__WorkerBase_MessageBox2(@ptrCast(self), text_str, @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#sslError)
@@ -606,7 +606,7 @@ pub const kio__workerbase = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.KIO__WorkerBase_ConfigValue2(@ptrCast(self), key_str, @intCast(defaultValue));
+        return qtc.KIO__WorkerBase_ConfigValue2(@ptrCast(self), key_str, @bitCast(defaultValue));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#configValue)
@@ -672,7 +672,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnAppConnectionMade(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__WorkerBase_OnAppConnectionMade(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnAppConnectionMade(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#appConnectionMade)
@@ -714,7 +714,7 @@ pub const kio__workerbase = struct {
             .len = pass.len,
             .data = pass.ptr,
         };
-        qtc.KIO__WorkerBase_SetHost(@ptrCast(self), host_str, @intCast(port), user_str, pass_str);
+        qtc.KIO__WorkerBase_SetHost(@ptrCast(self), host_str, @bitCast(port), user_str, pass_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#setHost)
@@ -728,7 +728,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, host: [*:0]const u8, port: u16, user: [*:0]const u8, pass: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnSetHost(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, u16, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__WorkerBase_OnSetHost(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnSetHost(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#setHost)
@@ -760,7 +760,7 @@ pub const kio__workerbase = struct {
             .len = pass.len,
             .data = pass.ptr,
         };
-        qtc.KIO__WorkerBase_QBaseSetHost(@ptrCast(self), host_str, @intCast(port), user_str, pass_str);
+        qtc.KIO__WorkerBase_QBaseSetHost(@ptrCast(self), host_str, @bitCast(port), user_str, pass_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#openConnection)
@@ -784,7 +784,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn () callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnOpenConnection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnOpenConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnOpenConnection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#openConnection)
@@ -820,7 +820,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnCloseConnection(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__WorkerBase_OnCloseConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnCloseConnection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#closeConnection)
@@ -858,7 +858,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnGet(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnGet(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnGet(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#get)
@@ -886,7 +886,7 @@ pub const kio__workerbase = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn Open(self: ?*anyopaque, url: ?*anyopaque, mode: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_Open(@ptrCast(self), @ptrCast(url), @intCast(mode));
+        return qtc.KIO__WorkerBase_Open(@ptrCast(self), @ptrCast(url), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#open)
@@ -900,7 +900,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#open)
@@ -916,7 +916,7 @@ pub const kio__workerbase = struct {
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     pub fn QBaseOpen(self: ?*anyopaque, url: ?*anyopaque, mode: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseOpen(@ptrCast(self), @ptrCast(url), @intCast(mode));
+        return qtc.KIO__WorkerBase_QBaseOpen(@ptrCast(self), @ptrCast(url), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#read)
@@ -928,7 +928,7 @@ pub const kio__workerbase = struct {
     /// ` size: u64 `
     ///
     pub fn Read(self: ?*anyopaque, size: u64) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_Read(@ptrCast(self), @intCast(size));
+        return qtc.KIO__WorkerBase_Read(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#read)
@@ -942,7 +942,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, size: u64) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#read)
@@ -956,7 +956,7 @@ pub const kio__workerbase = struct {
     /// ` size: u64 `
     ///
     pub fn QBaseRead(self: ?*anyopaque, size: u64) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseRead(@ptrCast(self), @intCast(size));
+        return qtc.KIO__WorkerBase_QBaseRead(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#write)
@@ -986,7 +986,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, data: qtc.libqt_string) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#write)
@@ -1016,7 +1016,7 @@ pub const kio__workerbase = struct {
     /// ` offset: u64 `
     ///
     pub fn Seek(self: ?*anyopaque, offset: u64) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_Seek(@ptrCast(self), @intCast(offset));
+        return qtc.KIO__WorkerBase_Seek(@ptrCast(self), @bitCast(offset));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#seek)
@@ -1030,7 +1030,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, offset: u64) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnSeek(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnSeek(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#seek)
@@ -1044,7 +1044,7 @@ pub const kio__workerbase = struct {
     /// ` offset: u64 `
     ///
     pub fn QBaseSeek(self: ?*anyopaque, offset: u64) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseSeek(@ptrCast(self), @intCast(offset));
+        return qtc.KIO__WorkerBase_QBaseSeek(@ptrCast(self), @bitCast(offset));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#truncate)
@@ -1056,7 +1056,7 @@ pub const kio__workerbase = struct {
     /// ` size: u64 `
     ///
     pub fn Truncate(self: ?*anyopaque, size: u64) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_Truncate(@ptrCast(self), @intCast(size));
+        return qtc.KIO__WorkerBase_Truncate(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#truncate)
@@ -1070,7 +1070,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, size: u64) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnTruncate(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnTruncate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnTruncate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#truncate)
@@ -1084,7 +1084,7 @@ pub const kio__workerbase = struct {
     /// ` size: u64 `
     ///
     pub fn QBaseTruncate(self: ?*anyopaque, size: u64) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseTruncate(@ptrCast(self), @intCast(size));
+        return qtc.KIO__WorkerBase_QBaseTruncate(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#close)
@@ -1108,7 +1108,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn () callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#close)
@@ -1136,7 +1136,7 @@ pub const kio__workerbase = struct {
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
     pub fn Put(self: ?*anyopaque, url: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_Put(@ptrCast(self), @ptrCast(url), @intCast(permissions), @intCast(flags));
+        return qtc.KIO__WorkerBase_Put(@ptrCast(self), @ptrCast(url), @bitCast(permissions), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#put)
@@ -1150,7 +1150,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnPut(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnPut(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnPut(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#put)
@@ -1168,7 +1168,7 @@ pub const kio__workerbase = struct {
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
     pub fn QBasePut(self: ?*anyopaque, url: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBasePut(@ptrCast(self), @ptrCast(url), @intCast(permissions), @intCast(flags));
+        return qtc.KIO__WorkerBase_QBasePut(@ptrCast(self), @ptrCast(url), @bitCast(permissions), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#stat)
@@ -1194,7 +1194,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnStat(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnStat(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnStat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#stat)
@@ -1234,7 +1234,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnMimetype(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnMimetype(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnMimetype(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#mimetype)
@@ -1274,7 +1274,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnListDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnListDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnListDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#listDir)
@@ -1302,7 +1302,7 @@ pub const kio__workerbase = struct {
     /// ` permissions: i32 `
     ///
     pub fn Mkdir(self: ?*anyopaque, url: ?*anyopaque, permissions: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_Mkdir(@ptrCast(self), @ptrCast(url), @intCast(permissions));
+        return qtc.KIO__WorkerBase_Mkdir(@ptrCast(self), @ptrCast(url), @bitCast(permissions));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#mkdir)
@@ -1316,7 +1316,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnMkdir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnMkdir(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnMkdir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#mkdir)
@@ -1332,7 +1332,7 @@ pub const kio__workerbase = struct {
     /// ` permissions: i32 `
     ///
     pub fn QBaseMkdir(self: ?*anyopaque, url: ?*anyopaque, permissions: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseMkdir(@ptrCast(self), @ptrCast(url), @intCast(permissions));
+        return qtc.KIO__WorkerBase_QBaseMkdir(@ptrCast(self), @ptrCast(url), @bitCast(permissions));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#rename)
@@ -1348,7 +1348,7 @@ pub const kio__workerbase = struct {
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
     pub fn Rename(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_Rename(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(flags));
+        return qtc.KIO__WorkerBase_Rename(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#rename)
@@ -1362,7 +1362,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnRename(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnRename(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnRename(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#rename)
@@ -1380,7 +1380,7 @@ pub const kio__workerbase = struct {
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
     pub fn QBaseRename(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseRename(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(flags));
+        return qtc.KIO__WorkerBase_QBaseRename(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#symlink)
@@ -1400,7 +1400,7 @@ pub const kio__workerbase = struct {
             .len = target.len,
             .data = target.ptr,
         };
-        return qtc.KIO__WorkerBase_Symlink(@ptrCast(self), target_str, @ptrCast(dest), @intCast(flags));
+        return qtc.KIO__WorkerBase_Symlink(@ptrCast(self), target_str, @ptrCast(dest), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#symlink)
@@ -1414,7 +1414,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, target: [*:0]const u8, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnSymlink(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnSymlink(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnSymlink(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#symlink)
@@ -1436,7 +1436,7 @@ pub const kio__workerbase = struct {
             .len = target.len,
             .data = target.ptr,
         };
-        return qtc.KIO__WorkerBase_QBaseSymlink(@ptrCast(self), target_str, @ptrCast(dest), @intCast(flags));
+        return qtc.KIO__WorkerBase_QBaseSymlink(@ptrCast(self), target_str, @ptrCast(dest), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#chmod)
@@ -1450,7 +1450,7 @@ pub const kio__workerbase = struct {
     /// ` permissions: i32 `
     ///
     pub fn Chmod(self: ?*anyopaque, url: ?*anyopaque, permissions: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_Chmod(@ptrCast(self), @ptrCast(url), @intCast(permissions));
+        return qtc.KIO__WorkerBase_Chmod(@ptrCast(self), @ptrCast(url), @bitCast(permissions));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#chmod)
@@ -1464,7 +1464,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnChmod(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnChmod(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnChmod(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#chmod)
@@ -1480,7 +1480,7 @@ pub const kio__workerbase = struct {
     /// ` permissions: i32 `
     ///
     pub fn QBaseChmod(self: ?*anyopaque, url: ?*anyopaque, permissions: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseChmod(@ptrCast(self), @ptrCast(url), @intCast(permissions));
+        return qtc.KIO__WorkerBase_QBaseChmod(@ptrCast(self), @ptrCast(url), @bitCast(permissions));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#chown)
@@ -1518,7 +1518,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, owner: [*:0]const u8, group: [*:0]const u8) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnChown(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnChown(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnChown(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#chown)
@@ -1572,7 +1572,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, mtime: QtC.QDateTime) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnSetModificationTime(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnSetModificationTime(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnSetModificationTime(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#setModificationTime)
@@ -1606,7 +1606,7 @@ pub const kio__workerbase = struct {
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
     pub fn Copy(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_Copy(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(permissions), @intCast(flags));
+        return qtc.KIO__WorkerBase_Copy(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @bitCast(permissions), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#copy)
@@ -1620,7 +1620,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnCopy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnCopy(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnCopy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#copy)
@@ -1640,7 +1640,7 @@ pub const kio__workerbase = struct {
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
     pub fn QBaseCopy(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseCopy(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(permissions), @intCast(flags));
+        return qtc.KIO__WorkerBase_QBaseCopy(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @bitCast(permissions), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#del)
@@ -1668,7 +1668,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, isfile: bool) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnDel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnDel(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnDel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#del)
@@ -1714,7 +1714,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, data: qtc.libqt_string) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnSpecial(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnSpecial(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnSpecial(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#special)
@@ -1758,7 +1758,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult `
     ///
     pub fn OnFileSystemFreeSpace(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnFileSystemFreeSpace(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnFileSystemFreeSpace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#fileSystemFreeSpace)
@@ -1796,7 +1796,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnWorkerStatus2(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__WorkerBase_OnWorkerStatus2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnWorkerStatus2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#worker_status)
@@ -1832,7 +1832,7 @@ pub const kio__workerbase = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnReparseConfiguration(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__WorkerBase_OnReparseConfiguration(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KIO__WorkerBase_OnReparseConfiguration(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#reparseConfiguration)
@@ -1896,7 +1896,7 @@ pub const kio__workerbase = struct {
     /// ` timeout: i32 `
     ///
     pub fn SetTimeoutSpecialCommand(self: ?*anyopaque, timeout: i32) void {
-        qtc.KIO__WorkerBase_SetTimeoutSpecialCommand(@ptrCast(self), @intCast(timeout));
+        qtc.KIO__WorkerBase_SetTimeoutSpecialCommand(@ptrCast(self), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#readData)
@@ -2006,7 +2006,7 @@ pub const kio__workerbase = struct {
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.KIO__WorkerBase_WaitForAnswer(@ptrCast(self), @intCast(expected1), @intCast(expected2), data_str);
+        return qtc.KIO__WorkerBase_WaitForAnswer(@ptrCast(self), @bitCast(expected1), @bitCast(expected2), data_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#sendMetaData)
@@ -2136,7 +2136,7 @@ pub const kio__workerbase = struct {
             .len = title.len,
             .data = title.ptr,
         };
-        return qtc.KIO__WorkerBase_MessageBox3(@ptrCast(self), @intCast(typeVal), text_str, title_str);
+        return qtc.KIO__WorkerBase_MessageBox3(@ptrCast(self), @bitCast(typeVal), text_str, title_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
@@ -2166,7 +2166,7 @@ pub const kio__workerbase = struct {
             .len = primaryActionText.len,
             .data = primaryActionText.ptr,
         };
-        return qtc.KIO__WorkerBase_MessageBox4(@ptrCast(self), @intCast(typeVal), text_str, title_str, primaryActionText_str);
+        return qtc.KIO__WorkerBase_MessageBox4(@ptrCast(self), @bitCast(typeVal), text_str, title_str, primaryActionText_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
@@ -2202,7 +2202,7 @@ pub const kio__workerbase = struct {
             .len = secondaryActionText.len,
             .data = secondaryActionText.ptr,
         };
-        return qtc.KIO__WorkerBase_MessageBox5(@ptrCast(self), @intCast(typeVal), text_str, title_str, primaryActionText_str, secondaryActionText_str);
+        return qtc.KIO__WorkerBase_MessageBox5(@ptrCast(self), @bitCast(typeVal), text_str, title_str, primaryActionText_str, secondaryActionText_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
@@ -2226,7 +2226,7 @@ pub const kio__workerbase = struct {
             .len = title.len,
             .data = title.ptr,
         };
-        return qtc.KIO__WorkerBase_MessageBox32(@ptrCast(self), text_str, @intCast(typeVal), title_str);
+        return qtc.KIO__WorkerBase_MessageBox32(@ptrCast(self), text_str, @bitCast(typeVal), title_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
@@ -2256,7 +2256,7 @@ pub const kio__workerbase = struct {
             .len = primaryActionText.len,
             .data = primaryActionText.ptr,
         };
-        return qtc.KIO__WorkerBase_MessageBox42(@ptrCast(self), text_str, @intCast(typeVal), title_str, primaryActionText_str);
+        return qtc.KIO__WorkerBase_MessageBox42(@ptrCast(self), text_str, @bitCast(typeVal), title_str, primaryActionText_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
@@ -2292,7 +2292,7 @@ pub const kio__workerbase = struct {
             .len = secondaryActionText.len,
             .data = secondaryActionText.ptr,
         };
-        return qtc.KIO__WorkerBase_MessageBox52(@ptrCast(self), text_str, @intCast(typeVal), title_str, primaryActionText_str, secondaryActionText_str);
+        return qtc.KIO__WorkerBase_MessageBox52(@ptrCast(self), text_str, @bitCast(typeVal), title_str, primaryActionText_str, secondaryActionText_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
@@ -2334,7 +2334,7 @@ pub const kio__workerbase = struct {
             .len = dontAskAgainName.len,
             .data = dontAskAgainName.ptr,
         };
-        return qtc.KIO__WorkerBase_MessageBox6(@ptrCast(self), text_str, @intCast(typeVal), title_str, primaryActionText_str, secondaryActionText_str, dontAskAgainName_str);
+        return qtc.KIO__WorkerBase_MessageBox6(@ptrCast(self), text_str, @bitCast(typeVal), title_str, primaryActionText_str, secondaryActionText_str, dontAskAgainName_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#configValue)
@@ -2380,7 +2380,7 @@ pub const kio__workerbase = struct {
             .len = data.len,
             .data = data.ptr,
         };
-        qtc.KIO__WorkerBase_SetTimeoutSpecialCommand2(@ptrCast(self), @intCast(timeout), data_str);
+        qtc.KIO__WorkerBase_SetTimeoutSpecialCommand2(@ptrCast(self), @bitCast(timeout), data_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#openPasswordDialog)
@@ -2420,7 +2420,7 @@ pub const kio__workerbase = struct {
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.KIO__WorkerBase_WaitForAnswer4(@ptrCast(self), @intCast(expected1), @intCast(expected2), data_str, @ptrCast(pCmd));
+        return qtc.KIO__WorkerBase_WaitForAnswer4(@ptrCast(self), @bitCast(expected1), @bitCast(expected2), data_str, @ptrCast(pCmd));
     }
 
     /// Delete this object from C++ memory.
@@ -2451,7 +2451,7 @@ pub const kio = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        var _str = qtc.KIO_UnsupportedActionErrorString(param1_str, @intCast(param2));
+        var _str = qtc.KIO_UnsupportedActionErrorString(param1_str, @bitCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.UnsupportedActionErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

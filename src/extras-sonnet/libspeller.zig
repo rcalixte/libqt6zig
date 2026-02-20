@@ -488,7 +488,7 @@ pub const sonnet__speller = struct {
     /// ` attr: speller_enums.Attribute `
     ///
     pub fn SetAttribute(self: ?*anyopaque, attr: i32) void {
-        qtc.Sonnet__Speller_SetAttribute(@ptrCast(self), @intCast(attr));
+        qtc.Sonnet__Speller_SetAttribute(@ptrCast(self), @bitCast(attr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#testAttribute)
@@ -500,7 +500,7 @@ pub const sonnet__speller = struct {
     /// ` attr: speller_enums.Attribute `
     ///
     pub fn TestAttribute(self: ?*anyopaque, attr: i32) bool {
-        return qtc.Sonnet__Speller_TestAttribute(@ptrCast(self), @intCast(attr));
+        return qtc.Sonnet__Speller_TestAttribute(@ptrCast(self), @bitCast(attr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#setAttribute)
@@ -514,7 +514,7 @@ pub const sonnet__speller = struct {
     /// ` b: bool `
     ///
     pub fn SetAttribute2(self: ?*anyopaque, attr: i32, b: bool) void {
-        qtc.Sonnet__Speller_SetAttribute2(@ptrCast(self), @intCast(attr), b);
+        qtc.Sonnet__Speller_SetAttribute2(@ptrCast(self), @bitCast(attr), b);
     }
 
     /// Delete this object from C++ memory.

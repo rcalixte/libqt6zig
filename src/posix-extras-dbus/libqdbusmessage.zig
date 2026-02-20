@@ -179,7 +179,7 @@ pub const qdbusmessage = struct {
             .len = msg.len,
             .data = msg.ptr,
         };
-        return qtc.QDBusMessage_CreateError3(@intCast(typeVal), msg_str);
+        return qtc.QDBusMessage_CreateError3(@bitCast(typeVal), msg_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#createReply)
@@ -253,7 +253,7 @@ pub const qdbusmessage = struct {
             .len = msg.len,
             .data = msg.ptr,
         };
-        return qtc.QDBusMessage_CreateErrorReply3(@ptrCast(self), @intCast(typeVal), msg_str);
+        return qtc.QDBusMessage_CreateErrorReply3(@ptrCast(self), @bitCast(typeVal), msg_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#service)

@@ -104,7 +104,7 @@ pub const signon__identityinfo = struct {
     /// ` id: u32 `
     ///
     pub fn SetId(self: ?*anyopaque, id: u32) void {
-        qtc.SignOn__IdentityInfo_SetId(@ptrCast(self), @intCast(id));
+        qtc.SignOn__IdentityInfo_SetId(@ptrCast(self), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
@@ -463,7 +463,7 @@ pub const signon__identityinfo = struct {
     /// ` typeVal: identityinfo_enums.CredentialsType `
     ///
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.SignOn__IdentityInfo_SetType(@ptrCast(self), @intCast(typeVal));
+        qtc.SignOn__IdentityInfo_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
@@ -549,7 +549,7 @@ pub const signon__identityinfo = struct {
     /// ` refCount: i32 `
     ///
     pub fn SetRefCount(self: ?*anyopaque, refCount: i32) void {
-        qtc.SignOn__IdentityInfo_SetRefCount(@ptrCast(self), @intCast(refCount));
+        qtc.SignOn__IdentityInfo_SetRefCount(@ptrCast(self), @bitCast(refCount));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)

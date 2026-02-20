@@ -179,7 +179,7 @@ pub const qtooltip = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QToolTip_ShowText5(@ptrCast(pos), text_str, @ptrCast(w), @ptrCast(rect), @intCast(msecShowTime));
+        qtc.QToolTip_ShowText5(@ptrCast(pos), text_str, @ptrCast(w), @ptrCast(rect), @bitCast(msecShowTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtooltip.html#dtor.QToolTip)

@@ -179,7 +179,7 @@ pub const qsqlindex = struct {
     /// ` i: i32 `
     ///
     pub fn IsDescending(self: ?*anyopaque, i: i32) bool {
-        return qtc.QSqlIndex_IsDescending(@ptrCast(self), @intCast(i));
+        return qtc.QSqlIndex_IsDescending(@ptrCast(self), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#setDescending)
@@ -193,7 +193,7 @@ pub const qsqlindex = struct {
     /// ` desc: bool `
     ///
     pub fn SetDescending(self: ?*anyopaque, i: i32, desc: bool) void {
-        qtc.QSqlIndex_SetDescending(@ptrCast(self), @intCast(i), desc);
+        qtc.QSqlIndex_SetDescending(@ptrCast(self), @bitCast(i), desc);
     }
 
     /// Inherited from QSqlRecord
@@ -235,7 +235,7 @@ pub const qsqlindex = struct {
     /// ` i: i32 `
     ///
     pub fn Value(self: ?*anyopaque, i: i32) QtC.QVariant {
-        return qtc.QSqlRecord_Value(@ptrCast(self), @intCast(i));
+        return qtc.QSqlRecord_Value(@ptrCast(self), @bitCast(i));
     }
 
     /// Inherited from QSqlRecord
@@ -265,7 +265,7 @@ pub const qsqlindex = struct {
     /// ` val: QtC.QVariant `
     ///
     pub fn SetValue(self: ?*anyopaque, i: i32, val: ?*anyopaque) void {
-        qtc.QSqlRecord_SetValue(@ptrCast(self), @intCast(i), @ptrCast(val));
+        qtc.QSqlRecord_SetValue(@ptrCast(self), @bitCast(i), @ptrCast(val));
     }
 
     /// Inherited from QSqlRecord
@@ -295,7 +295,7 @@ pub const qsqlindex = struct {
     /// ` i: i32 `
     ///
     pub fn SetNull(self: ?*anyopaque, i: i32) void {
-        qtc.QSqlRecord_SetNull(@ptrCast(self), @intCast(i));
+        qtc.QSqlRecord_SetNull(@ptrCast(self), @bitCast(i));
     }
 
     /// Inherited from QSqlRecord
@@ -323,7 +323,7 @@ pub const qsqlindex = struct {
     /// ` i: i32 `
     ///
     pub fn IsNull(self: ?*anyopaque, i: i32) bool {
-        return qtc.QSqlRecord_IsNull(@ptrCast(self), @intCast(i));
+        return qtc.QSqlRecord_IsNull(@ptrCast(self), @bitCast(i));
     }
 
     /// Inherited from QSqlRecord
@@ -367,7 +367,7 @@ pub const qsqlindex = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FieldName(self: ?*anyopaque, i: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QSqlRecord_FieldName(@ptrCast(self), @intCast(i));
+        var _str = qtc.QSqlRecord_FieldName(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlindex.FieldName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -385,7 +385,7 @@ pub const qsqlindex = struct {
     /// ` i: i32 `
     ///
     pub fn Field(self: ?*anyopaque, i: i32) QtC.QSqlField {
-        return qtc.QSqlRecord_Field(@ptrCast(self), @intCast(i));
+        return qtc.QSqlRecord_Field(@ptrCast(self), @bitCast(i));
     }
 
     /// Inherited from QSqlRecord
@@ -413,7 +413,7 @@ pub const qsqlindex = struct {
     /// ` i: i32 `
     ///
     pub fn IsGenerated(self: ?*anyopaque, i: i32) bool {
-        return qtc.QSqlRecord_IsGenerated(@ptrCast(self), @intCast(i));
+        return qtc.QSqlRecord_IsGenerated(@ptrCast(self), @bitCast(i));
     }
 
     /// Inherited from QSqlRecord
@@ -459,7 +459,7 @@ pub const qsqlindex = struct {
     /// ` generated: bool `
     ///
     pub fn SetGenerated2(self: ?*anyopaque, i: i32, generated: bool) void {
-        qtc.QSqlRecord_SetGenerated2(@ptrCast(self), @intCast(i), generated);
+        qtc.QSqlRecord_SetGenerated2(@ptrCast(self), @bitCast(i), generated);
     }
 
     /// Inherited from QSqlRecord
@@ -475,7 +475,7 @@ pub const qsqlindex = struct {
     /// ` field: QtC.QSqlField `
     ///
     pub fn Replace(self: ?*anyopaque, pos: i32, field: ?*anyopaque) void {
-        qtc.QSqlRecord_Replace(@ptrCast(self), @intCast(pos), @ptrCast(field));
+        qtc.QSqlRecord_Replace(@ptrCast(self), @bitCast(pos), @ptrCast(field));
     }
 
     /// Inherited from QSqlRecord
@@ -491,7 +491,7 @@ pub const qsqlindex = struct {
     /// ` field: QtC.QSqlField `
     ///
     pub fn Insert(self: ?*anyopaque, pos: i32, field: ?*anyopaque) void {
-        qtc.QSqlRecord_Insert(@ptrCast(self), @intCast(pos), @ptrCast(field));
+        qtc.QSqlRecord_Insert(@ptrCast(self), @bitCast(pos), @ptrCast(field));
     }
 
     /// Inherited from QSqlRecord
@@ -505,7 +505,7 @@ pub const qsqlindex = struct {
     /// ` pos: i32 `
     ///
     pub fn Remove(self: ?*anyopaque, pos: i32) void {
-        qtc.QSqlRecord_Remove(@ptrCast(self), @intCast(pos));
+        qtc.QSqlRecord_Remove(@ptrCast(self), @bitCast(pos));
     }
 
     /// Inherited from QSqlRecord

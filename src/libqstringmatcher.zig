@@ -35,7 +35,7 @@ pub const qstringmatcher = struct {
     /// ` lenVal: i64 `
     ///
     pub fn New3(uc: ?*anyopaque, lenVal: i64) QtC.QStringMatcher {
-        return qtc.QStringMatcher_new3(@ptrCast(uc), @intCast(lenVal));
+        return qtc.QStringMatcher_new3(@ptrCast(uc), @bitCast(lenVal));
     }
 
     /// New4 constructs a new QStringMatcher object.
@@ -62,7 +62,7 @@ pub const qstringmatcher = struct {
             .data = pattern.ptr,
         };
 
-        return qtc.QStringMatcher_new5(pattern_str, @intCast(cs));
+        return qtc.QStringMatcher_new5(pattern_str, @bitCast(cs));
     }
 
     /// New6 constructs a new QStringMatcher object.
@@ -76,7 +76,7 @@ pub const qstringmatcher = struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn New6(uc: ?*anyopaque, lenVal: i64, cs: i32) QtC.QStringMatcher {
-        return qtc.QStringMatcher_new6(@ptrCast(uc), @intCast(lenVal), @intCast(cs));
+        return qtc.QStringMatcher_new6(@ptrCast(uc), @bitCast(lenVal), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#operator-eq)
@@ -116,7 +116,7 @@ pub const qstringmatcher = struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn SetCaseSensitivity(self: ?*anyopaque, cs: i32) void {
-        qtc.QStringMatcher_SetCaseSensitivity(@ptrCast(self), @intCast(cs));
+        qtc.QStringMatcher_SetCaseSensitivity(@ptrCast(self), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#indexIn)
@@ -146,7 +146,7 @@ pub const qstringmatcher = struct {
     /// ` length: i64 `
     ///
     pub fn IndexIn2(self: ?*anyopaque, str: ?*anyopaque, length: i64) i64 {
-        return qtc.QStringMatcher_IndexIn2(@ptrCast(self), @ptrCast(str), @intCast(length));
+        return qtc.QStringMatcher_IndexIn2(@ptrCast(self), @ptrCast(str), @bitCast(length));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#pattern)
@@ -194,7 +194,7 @@ pub const qstringmatcher = struct {
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.QStringMatcher_IndexIn22(@ptrCast(self), str_str, @intCast(from));
+        return qtc.QStringMatcher_IndexIn22(@ptrCast(self), str_str, @bitCast(from));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#indexIn)
@@ -210,7 +210,7 @@ pub const qstringmatcher = struct {
     /// ` from: i64 `
     ///
     pub fn IndexIn32(self: ?*anyopaque, str: ?*anyopaque, length: i64, from: i64) i64 {
-        return qtc.QStringMatcher_IndexIn32(@ptrCast(self), @ptrCast(str), @intCast(length), @intCast(from));
+        return qtc.QStringMatcher_IndexIn32(@ptrCast(self), @ptrCast(str), @bitCast(length), @bitCast(from));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#dtor.QStringMatcher)

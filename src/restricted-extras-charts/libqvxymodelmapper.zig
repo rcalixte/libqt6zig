@@ -43,7 +43,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
     ///
     pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QVXYModelMapper_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -78,7 +78,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QVXYModelMapper_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -105,7 +105,7 @@ pub const qvxymodelmapper = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QVXYModelMapper_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QVXYModelMapper_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
@@ -117,7 +117,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -133,7 +133,7 @@ pub const qvxymodelmapper = struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QVXYModelMapper_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
+        return qtc.QVXYModelMapper_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -216,7 +216,7 @@ pub const qvxymodelmapper = struct {
     /// ` xColumn: i32 `
     ///
     pub fn SetXColumn(self: ?*anyopaque, xColumn: i32) void {
-        qtc.QVXYModelMapper_SetXColumn(@ptrCast(self), @intCast(xColumn));
+        qtc.QVXYModelMapper_SetXColumn(@ptrCast(self), @bitCast(xColumn));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#yColumn)
@@ -238,7 +238,7 @@ pub const qvxymodelmapper = struct {
     /// ` yColumn: i32 `
     ///
     pub fn SetYColumn(self: ?*anyopaque, yColumn: i32) void {
-        qtc.QVXYModelMapper_SetYColumn(@ptrCast(self), @intCast(yColumn));
+        qtc.QVXYModelMapper_SetYColumn(@ptrCast(self), @bitCast(yColumn));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#firstRow)
@@ -260,7 +260,7 @@ pub const qvxymodelmapper = struct {
     /// ` firstRow: i32 `
     ///
     pub fn SetFirstRow(self: ?*anyopaque, firstRow: i32) void {
-        qtc.QVXYModelMapper_SetFirstRow(@ptrCast(self), @intCast(firstRow));
+        qtc.QVXYModelMapper_SetFirstRow(@ptrCast(self), @bitCast(firstRow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#rowCount)
@@ -282,7 +282,7 @@ pub const qvxymodelmapper = struct {
     /// ` rowCount: i32 `
     ///
     pub fn SetRowCount(self: ?*anyopaque, rowCount: i32) void {
-        qtc.QVXYModelMapper_SetRowCount(@ptrCast(self), @intCast(rowCount));
+        qtc.QVXYModelMapper_SetRowCount(@ptrCast(self), @bitCast(rowCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#seriesReplaced)
@@ -304,7 +304,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper) callconv(.c) void `
     ///
     pub fn OnSeriesReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVXYModelMapper_Connect_SeriesReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_Connect_SeriesReplaced(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#modelReplaced)
@@ -326,7 +326,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper) callconv(.c) void `
     ///
     pub fn OnModelReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVXYModelMapper_Connect_ModelReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_Connect_ModelReplaced(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#xColumnChanged)
@@ -348,7 +348,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper) callconv(.c) void `
     ///
     pub fn OnXColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVXYModelMapper_Connect_XColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_Connect_XColumnChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#yColumnChanged)
@@ -370,7 +370,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper) callconv(.c) void `
     ///
     pub fn OnYColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVXYModelMapper_Connect_YColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_Connect_YColumnChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#firstRowChanged)
@@ -392,7 +392,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper) callconv(.c) void `
     ///
     pub fn OnFirstRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVXYModelMapper_Connect_FirstRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_Connect_FirstRowChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#rowCountChanged)
@@ -414,7 +414,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper) callconv(.c) void `
     ///
     pub fn OnRowCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVXYModelMapper_Connect_RowCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_Connect_RowCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -452,7 +452,7 @@ pub const qvxymodelmapper = struct {
     pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvxymodelmapper.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -590,7 +590,7 @@ pub const qvxymodelmapper = struct {
     /// ` interval: i32 `
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -604,7 +604,7 @@ pub const qvxymodelmapper = struct {
     /// ` time: i64 of nanoseconds `
     ///
     pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -618,7 +618,7 @@ pub const qvxymodelmapper = struct {
     /// ` id: i32 `
     ///
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -632,7 +632,7 @@ pub const qvxymodelmapper = struct {
     /// ` id: qnamespace_enums.TimerId `
     ///
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
+        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -962,7 +962,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper) callconv(.c) void `
     ///
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1017,7 +1017,7 @@ pub const qvxymodelmapper = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1033,7 +1033,7 @@ pub const qvxymodelmapper = struct {
     /// ` timerType: qnamespace_enums.TimerType `
     ///
     pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
+        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1055,7 +1055,7 @@ pub const qvxymodelmapper = struct {
     pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
     }
 
     /// Inherited from QObject
@@ -1075,7 +1075,7 @@ pub const qvxymodelmapper = struct {
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
     pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1097,7 +1097,7 @@ pub const qvxymodelmapper = struct {
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -1194,7 +1194,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, param1: QtC.QObject) callconv(.c) void `
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1242,7 +1242,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVXYModelMapper_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1294,7 +1294,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVXYModelMapper_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1342,7 +1342,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, event: QtC.QTimerEvent) callconv(.c) void `
     ///
     pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1390,7 +1390,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, event: QtC.QChildEvent) callconv(.c) void `
     ///
     pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1438,7 +1438,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, event: QtC.QEvent) callconv(.c) void `
     ///
     pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1486,7 +1486,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1534,7 +1534,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, signal: QtC.QMetaMethod) callconv(.c) void `
     ///
     pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
@@ -1578,7 +1578,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnFirst(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnFirst(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnFirst(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
@@ -1594,7 +1594,7 @@ pub const qvxymodelmapper = struct {
     /// ` first: i32 `
     ///
     pub fn SetFirst(self: ?*anyopaque, first: i32) void {
-        qtc.QVXYModelMapper_SetFirst(@ptrCast(self), @intCast(first));
+        qtc.QVXYModelMapper_SetFirst(@ptrCast(self), @bitCast(first));
     }
 
     /// Inherited from QXYModelMapper
@@ -1610,7 +1610,7 @@ pub const qvxymodelmapper = struct {
     /// ` first: i32 `
     ///
     pub fn QBaseSetFirst(self: ?*anyopaque, first: i32) void {
-        qtc.QVXYModelMapper_QBaseSetFirst(@ptrCast(self), @intCast(first));
+        qtc.QVXYModelMapper_QBaseSetFirst(@ptrCast(self), @bitCast(first));
     }
 
     /// Inherited from QXYModelMapper
@@ -1626,7 +1626,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, first: i32) callconv(.c) void `
     ///
     pub fn OnSetFirst(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnSetFirst(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnSetFirst(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
@@ -1670,7 +1670,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
@@ -1686,7 +1686,7 @@ pub const qvxymodelmapper = struct {
     /// ` count: i32 `
     ///
     pub fn SetCount(self: ?*anyopaque, count: i32) void {
-        qtc.QVXYModelMapper_SetCount(@ptrCast(self), @intCast(count));
+        qtc.QVXYModelMapper_SetCount(@ptrCast(self), @bitCast(count));
     }
 
     /// Inherited from QXYModelMapper
@@ -1702,7 +1702,7 @@ pub const qvxymodelmapper = struct {
     /// ` count: i32 `
     ///
     pub fn QBaseSetCount(self: ?*anyopaque, count: i32) void {
-        qtc.QVXYModelMapper_QBaseSetCount(@ptrCast(self), @intCast(count));
+        qtc.QVXYModelMapper_QBaseSetCount(@ptrCast(self), @bitCast(count));
     }
 
     /// Inherited from QXYModelMapper
@@ -1718,7 +1718,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, count: i32) callconv(.c) void `
     ///
     pub fn OnSetCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnSetCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnSetCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
@@ -1770,7 +1770,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnOrientation(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnOrientation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
@@ -1786,7 +1786,7 @@ pub const qvxymodelmapper = struct {
     /// ` orientation: qnamespace_enums.Orientation `
     ///
     pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QVXYModelMapper_SetOrientation(@ptrCast(self), @intCast(orientation));
+        qtc.QVXYModelMapper_SetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QXYModelMapper
@@ -1802,7 +1802,7 @@ pub const qvxymodelmapper = struct {
     /// ` orientation: qnamespace_enums.Orientation `
     ///
     pub fn QBaseSetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QVXYModelMapper_QBaseSetOrientation(@ptrCast(self), @intCast(orientation));
+        qtc.QVXYModelMapper_QBaseSetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QXYModelMapper
@@ -1818,7 +1818,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, orientation: qnamespace_enums.Orientation) callconv(.c) void `
     ///
     pub fn OnSetOrientation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnSetOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnSetOrientation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
@@ -1862,7 +1862,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnXSection(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnXSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnXSection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
@@ -1878,7 +1878,7 @@ pub const qvxymodelmapper = struct {
     /// ` xSection: i32 `
     ///
     pub fn SetXSection(self: ?*anyopaque, xSection: i32) void {
-        qtc.QVXYModelMapper_SetXSection(@ptrCast(self), @intCast(xSection));
+        qtc.QVXYModelMapper_SetXSection(@ptrCast(self), @bitCast(xSection));
     }
 
     /// Inherited from QXYModelMapper
@@ -1894,7 +1894,7 @@ pub const qvxymodelmapper = struct {
     /// ` xSection: i32 `
     ///
     pub fn QBaseSetXSection(self: ?*anyopaque, xSection: i32) void {
-        qtc.QVXYModelMapper_QBaseSetXSection(@ptrCast(self), @intCast(xSection));
+        qtc.QVXYModelMapper_QBaseSetXSection(@ptrCast(self), @bitCast(xSection));
     }
 
     /// Inherited from QXYModelMapper
@@ -1910,7 +1910,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, xSection: i32) callconv(.c) void `
     ///
     pub fn OnSetXSection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnSetXSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnSetXSection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
@@ -1954,7 +1954,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnYSection(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnYSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnYSection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QXYModelMapper
@@ -1970,7 +1970,7 @@ pub const qvxymodelmapper = struct {
     /// ` ySection: i32 `
     ///
     pub fn SetYSection(self: ?*anyopaque, ySection: i32) void {
-        qtc.QVXYModelMapper_SetYSection(@ptrCast(self), @intCast(ySection));
+        qtc.QVXYModelMapper_SetYSection(@ptrCast(self), @bitCast(ySection));
     }
 
     /// Inherited from QXYModelMapper
@@ -1986,7 +1986,7 @@ pub const qvxymodelmapper = struct {
     /// ` ySection: i32 `
     ///
     pub fn QBaseSetYSection(self: ?*anyopaque, ySection: i32) void {
-        qtc.QVXYModelMapper_QBaseSetYSection(@ptrCast(self), @intCast(ySection));
+        qtc.QVXYModelMapper_QBaseSetYSection(@ptrCast(self), @bitCast(ySection));
     }
 
     /// Inherited from QXYModelMapper
@@ -2002,7 +2002,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, ySection: i32) callconv(.c) void `
     ///
     pub fn OnSetYSection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnSetYSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnSetYSection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2046,7 +2046,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) QtC.QObject `
     ///
     pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QVXYModelMapper_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2090,7 +2090,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2140,7 +2140,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, signal: [*:0]const u8) callconv(.c) i32 `
     ///
     pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2188,7 +2188,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, signal: QtC.QMetaMethod) callconv(.c) bool `
     ///
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVXYModelMapper_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QVXYModelMapper_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2204,7 +2204,7 @@ pub const qvxymodelmapper = struct {
     /// ` callback: *const fn (self: QtC.QVXYModelMapper, objectName: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#dtor.QVXYModelMapper)

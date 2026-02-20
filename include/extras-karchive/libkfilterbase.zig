@@ -41,7 +41,7 @@ pub const kfilterbase = struct {
     /// ` mode: i32 `
     ///
     pub fn Init(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KFilterBase_Init(@ptrCast(self), @intCast(mode));
+        return qtc.KFilterBase_Init(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#init)
@@ -55,7 +55,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn (self: QtC.KFilterBase, mode: i32) callconv(.c) bool `
     ///
     pub fn OnInit(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KFilterBase_OnInit(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnInit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#init)
@@ -69,7 +69,7 @@ pub const kfilterbase = struct {
     /// ` mode: i32 `
     ///
     pub fn QBaseInit(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KFilterBase_QBaseInit(@ptrCast(self), @intCast(mode));
+        return qtc.KFilterBase_QBaseInit(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#mode)
@@ -93,7 +93,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnMode(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFilterBase_OnMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#mode)
@@ -129,7 +129,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnTerminate(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KFilterBase_OnTerminate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnTerminate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#terminate)
@@ -165,7 +165,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn () callconv(.c) void `
     ///
     pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilterBase_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#reset)
@@ -201,7 +201,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnReadHeader(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KFilterBase_OnReadHeader(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnReadHeader(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#readHeader)
@@ -243,7 +243,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn (self: QtC.KFilterBase, filename: qtc.libqt_string) callconv(.c) bool `
     ///
     pub fn OnWriteHeader(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string) callconv(.c) bool) void {
-        qtc.KFilterBase_OnWriteHeader(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnWriteHeader(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#writeHeader)
@@ -276,7 +276,7 @@ pub const kfilterbase = struct {
     ///
     pub fn SetOutBuffer(self: ?*anyopaque, data: [:0]u8, maxlen: u32) void {
         const data_Cstring = data.ptr;
-        qtc.KFilterBase_SetOutBuffer(@ptrCast(self), data_Cstring, @intCast(maxlen));
+        qtc.KFilterBase_SetOutBuffer(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#setOutBuffer)
@@ -290,7 +290,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn (self: QtC.KFilterBase, data: qtc.libqt_string, maxlen: u32) callconv(.c) void `
     ///
     pub fn OnSetOutBuffer(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, u32) callconv(.c) void) void {
-        qtc.KFilterBase_OnSetOutBuffer(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnSetOutBuffer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#setOutBuffer)
@@ -307,7 +307,7 @@ pub const kfilterbase = struct {
     ///
     pub fn QBaseSetOutBuffer(self: ?*anyopaque, data: [:0]u8, maxlen: u32) void {
         const data_Cstring = data.ptr;
-        qtc.KFilterBase_QBaseSetOutBuffer(@ptrCast(self), data_Cstring, @intCast(maxlen));
+        qtc.KFilterBase_QBaseSetOutBuffer(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#setInBuffer)
@@ -322,7 +322,7 @@ pub const kfilterbase = struct {
     ///
     pub fn SetInBuffer(self: ?*anyopaque, data: [:0]const u8, size: u32) void {
         const data_Cstring = data.ptr;
-        qtc.KFilterBase_SetInBuffer(@ptrCast(self), data_Cstring, @intCast(size));
+        qtc.KFilterBase_SetInBuffer(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#setInBuffer)
@@ -336,7 +336,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn (self: QtC.KFilterBase, data: [*:0]const u8, size: u32) callconv(.c) void `
     ///
     pub fn OnSetInBuffer(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, u32) callconv(.c) void) void {
-        qtc.KFilterBase_OnSetInBuffer(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnSetInBuffer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#setInBuffer)
@@ -353,7 +353,7 @@ pub const kfilterbase = struct {
     ///
     pub fn QBaseSetInBuffer(self: ?*anyopaque, data: [:0]const u8, size: u32) void {
         const data_Cstring = data.ptr;
-        qtc.KFilterBase_QBaseSetInBuffer(@ptrCast(self), data_Cstring, @intCast(size));
+        qtc.KFilterBase_QBaseSetInBuffer(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#inBufferEmpty)
@@ -377,7 +377,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnInBufferEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KFilterBase_OnInBufferEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnInBufferEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#inBufferEmpty)
@@ -413,7 +413,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnInBufferAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFilterBase_OnInBufferAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnInBufferAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#inBufferAvailable)
@@ -449,7 +449,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn () callconv(.c) bool `
     ///
     pub fn OnOutBufferFull(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KFilterBase_OnOutBufferFull(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnOutBufferFull(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#outBufferFull)
@@ -485,7 +485,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnOutBufferAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFilterBase_OnOutBufferAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnOutBufferAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#outBufferAvailable)
@@ -525,7 +525,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
     pub fn OnUncompress(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFilterBase_OnUncompress(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnUncompress(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#uncompress)
@@ -571,7 +571,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn (self: QtC.KFilterBase, finish: bool) callconv(.c) i32 `
     ///
     pub fn OnCompress(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) i32) void {
-        qtc.KFilterBase_OnCompress(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnCompress(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#compress)
@@ -601,7 +601,7 @@ pub const kfilterbase = struct {
     /// ` flags: kfilterbase_enums.FilterFlags `
     ///
     pub fn SetFilterFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.KFilterBase_SetFilterFlags(@ptrCast(self), @intCast(flags));
+        qtc.KFilterBase_SetFilterFlags(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#filterFlags)
@@ -629,7 +629,7 @@ pub const kfilterbase = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KFilterBase_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KFilterBase_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#virtual_hook)
@@ -643,7 +643,7 @@ pub const kfilterbase = struct {
     /// ` callback: *const fn (self: QtC.KFilterBase, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFilterBase_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
+        qtc.KFilterBase_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#virtual_hook)
@@ -659,7 +659,7 @@ pub const kfilterbase = struct {
     /// ` data: ?*anyopaque `
     ///
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KFilterBase_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
+        qtc.KFilterBase_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#setDevice)

@@ -250,7 +250,7 @@ pub const kcountry = struct {
     /// ` longitude: f32 `
     ///
     pub fn FromLocation(latitude: f32, longitude: f32) QtC.KCountry {
-        return qtc.KCountry_FromLocation(@floatCast(latitude), @floatCast(longitude));
+        return qtc.KCountry_FromLocation(@bitCast(latitude), @bitCast(longitude));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountry.html#fromQLocale)
@@ -260,7 +260,7 @@ pub const kcountry = struct {
     /// ` country: qlocale_enums.Country `
     ///
     pub fn FromQLocale(country: u16) QtC.KCountry {
-        return qtc.KCountry_FromQLocale(@intCast(country));
+        return qtc.KCountry_FromQLocale(@bitCast(country));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountry.html#allCountries)

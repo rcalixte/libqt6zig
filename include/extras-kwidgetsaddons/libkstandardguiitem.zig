@@ -13,7 +13,7 @@ pub const kstandardguiitem = struct {
     /// ` param1: kstandardguiitem_enums.StandardItem `
     ///
     pub fn GuiItem(param1: i32) QtC.KGuiItem {
-        return qtc.KStandardGuiItem_GuiItem(@intCast(param1));
+        return qtc.KStandardGuiItem_GuiItem(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#standardItem)
@@ -25,7 +25,7 @@ pub const kstandardguiitem = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StandardItem(param1: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KStandardGuiItem_StandardItem(@intCast(param1));
+        var _str = qtc.KStandardGuiItem_StandardItem(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardguiitem.StandardItem: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -171,7 +171,7 @@ pub const kstandardguiitem = struct {
     /// ` param1: kstandardguiitem_enums.BidiMode `
     ///
     pub fn Back(param1: i32) QtC.KGuiItem {
-        return qtc.KStandardGuiItem_Back(@intCast(param1));
+        return qtc.KStandardGuiItem_Back(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#forward)
@@ -181,7 +181,7 @@ pub const kstandardguiitem = struct {
     /// ` param1: kstandardguiitem_enums.BidiMode `
     ///
     pub fn Forward(param1: i32) QtC.KGuiItem {
-        return qtc.KStandardGuiItem_Forward(@intCast(param1));
+        return qtc.KStandardGuiItem_Forward(@bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#configure)
@@ -242,7 +242,7 @@ pub const kstandardguiitem = struct {
     /// ` param2: kstandardguiitem_enums.StandardItem `
     ///
     pub fn Assign(param1: ?*anyopaque, param2: i32) void {
-        qtc.KStandardGuiItem_Assign(@ptrCast(param1), @intCast(param2));
+        qtc.KStandardGuiItem_Assign(@ptrCast(param1), @bitCast(param2));
     }
 };
 

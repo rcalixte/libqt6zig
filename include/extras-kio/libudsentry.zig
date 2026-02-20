@@ -43,7 +43,7 @@ pub const kio__udsentry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn StringValue(self: ?*anyopaque, field: u32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIO__UDSEntry_StringValue(@ptrCast(self), @intCast(field));
+        var _str = qtc.KIO__UDSEntry_StringValue(@ptrCast(self), @bitCast(field));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__udsentry.StringValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -59,7 +59,7 @@ pub const kio__udsentry = struct {
     /// ` field: u32 `
     ///
     pub fn NumberValue(self: ?*anyopaque, field: u32) i64 {
-        return qtc.KIO__UDSEntry_NumberValue(@ptrCast(self), @intCast(field));
+        return qtc.KIO__UDSEntry_NumberValue(@ptrCast(self), @bitCast(field));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-udsentry.html#isDir)
@@ -91,7 +91,7 @@ pub const kio__udsentry = struct {
     /// ` size: i32 `
     ///
     pub fn Reserve(self: ?*anyopaque, size: i32) void {
-        qtc.KIO__UDSEntry_Reserve(@ptrCast(self), @intCast(size));
+        qtc.KIO__UDSEntry_Reserve(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-udsentry.html#fastInsert)
@@ -109,7 +109,7 @@ pub const kio__udsentry = struct {
             .len = value.len,
             .data = value.ptr,
         };
-        qtc.KIO__UDSEntry_FastInsert(@ptrCast(self), @intCast(field), value_str);
+        qtc.KIO__UDSEntry_FastInsert(@ptrCast(self), @bitCast(field), value_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-udsentry.html#fastInsert)
@@ -123,7 +123,7 @@ pub const kio__udsentry = struct {
     /// ` l: i64 `
     ///
     pub fn FastInsert2(self: ?*anyopaque, field: u32, l: i64) void {
-        qtc.KIO__UDSEntry_FastInsert2(@ptrCast(self), @intCast(field), @intCast(l));
+        qtc.KIO__UDSEntry_FastInsert2(@ptrCast(self), @bitCast(field), @bitCast(l));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-udsentry.html#count)
@@ -145,7 +145,7 @@ pub const kio__udsentry = struct {
     /// ` field: u32 `
     ///
     pub fn Contains(self: ?*anyopaque, field: u32) bool {
-        return qtc.KIO__UDSEntry_Contains(@ptrCast(self), @intCast(field));
+        return qtc.KIO__UDSEntry_Contains(@ptrCast(self), @bitCast(field));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-udsentry.html#fields)
@@ -190,7 +190,7 @@ pub const kio__udsentry = struct {
             .len = value.len,
             .data = value.ptr,
         };
-        qtc.KIO__UDSEntry_Replace(@ptrCast(self), @intCast(field), value_str);
+        qtc.KIO__UDSEntry_Replace(@ptrCast(self), @bitCast(field), value_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-udsentry.html#replace)
@@ -204,7 +204,7 @@ pub const kio__udsentry = struct {
     /// ` l: i64 `
     ///
     pub fn Replace2(self: ?*anyopaque, field: u32, l: i64) void {
-        qtc.KIO__UDSEntry_Replace2(@ptrCast(self), @intCast(field), @intCast(l));
+        qtc.KIO__UDSEntry_Replace2(@ptrCast(self), @bitCast(field), @bitCast(l));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-udsentry.html#numberValue)
@@ -218,7 +218,7 @@ pub const kio__udsentry = struct {
     /// ` defaultValue: i64 `
     ///
     pub fn NumberValue2(self: ?*anyopaque, field: u32, defaultValue: i64) i64 {
-        return qtc.KIO__UDSEntry_NumberValue2(@ptrCast(self), @intCast(field), @intCast(defaultValue));
+        return qtc.KIO__UDSEntry_NumberValue2(@ptrCast(self), @bitCast(field), @bitCast(defaultValue));
     }
 
     /// Delete this object from C++ memory.

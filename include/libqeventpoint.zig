@@ -23,7 +23,7 @@ pub const qeventpoint = struct {
     /// ` globalPosition: QtC.QPointF `
     ///
     pub fn New2(pointId: i32, state: u8, scenePosition: ?*anyopaque, globalPosition: ?*anyopaque) QtC.QEventPoint {
-        return qtc.QEventPoint_new2(@intCast(pointId), @intCast(state), @ptrCast(scenePosition), @ptrCast(globalPosition));
+        return qtc.QEventPoint_new2(@bitCast(pointId), @bitCast(state), @ptrCast(scenePosition), @ptrCast(globalPosition));
     }
 
     /// New3 constructs a new QEventPoint object.
@@ -43,7 +43,7 @@ pub const qeventpoint = struct {
     /// ` id: i32 `
     ///
     pub fn New4(id: i32) QtC.QEventPoint {
-        return qtc.QEventPoint_new4(@intCast(id));
+        return qtc.QEventPoint_new4(@bitCast(id));
     }
 
     /// New5 constructs a new QEventPoint object.
@@ -55,7 +55,7 @@ pub const qeventpoint = struct {
     /// ` device: QtC.QPointingDevice `
     ///
     pub fn New5(id: i32, device: ?*anyopaque) QtC.QEventPoint {
-        return qtc.QEventPoint_new5(@intCast(id), @ptrCast(device));
+        return qtc.QEventPoint_new5(@bitCast(id), @ptrCast(device));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#operator-eq)

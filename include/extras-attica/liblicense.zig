@@ -51,7 +51,7 @@ pub const attica__license = struct {
     /// ` id: u32 `
     ///
     pub fn SetId(self: ?*anyopaque, id: u32) void {
-        qtc.Attica__License_SetId(@ptrCast(self), @intCast(id));
+        qtc.Attica__License_SetId(@ptrCast(self), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-license.html#name)

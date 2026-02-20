@@ -23,7 +23,7 @@ pub const qcborstreamreader = struct {
     pub fn New2(data: [:0]const u8, lenVal: i64) QtC.QCborStreamReader {
         const data_Cstring = data.ptr;
 
-        return qtc.QCborStreamReader_new2(data_Cstring, @intCast(lenVal));
+        return qtc.QCborStreamReader_new2(data_Cstring, @bitCast(lenVal));
     }
 
     /// New3 constructs a new QCborStreamReader object.
@@ -35,7 +35,7 @@ pub const qcborstreamreader = struct {
     /// ` lenVal: i64 `
     ///
     pub fn New3(data: *const u8, lenVal: i64) QtC.QCborStreamReader {
-        return qtc.QCborStreamReader_new3(@ptrCast(data), @intCast(lenVal));
+        return qtc.QCborStreamReader_new3(@ptrCast(data), @bitCast(lenVal));
     }
 
     /// New4 constructs a new QCborStreamReader object.
@@ -113,7 +113,7 @@ pub const qcborstreamreader = struct {
     ///
     pub fn AddData2(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) void {
         const data_Cstring = data.ptr;
-        qtc.QCborStreamReader_AddData2(@ptrCast(self), data_Cstring, @intCast(lenVal));
+        qtc.QCborStreamReader_AddData2(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#addData)
@@ -127,7 +127,7 @@ pub const qcborstreamreader = struct {
     /// ` lenVal: i64 `
     ///
     pub fn AddData3(self: ?*anyopaque, data: *const u8, lenVal: i64) void {
-        qtc.QCborStreamReader_AddData3(@ptrCast(self), @ptrCast(data), @intCast(lenVal));
+        qtc.QCborStreamReader_AddData3(@ptrCast(self), @ptrCast(data), @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#reparse)
@@ -387,7 +387,7 @@ pub const qcborstreamreader = struct {
     /// ` st: qcborcommon_enums.QCborSimpleType `
     ///
     pub fn IsSimpleType2(self: ?*anyopaque, st: u8) bool {
-        return qtc.QCborStreamReader_IsSimpleType2(@ptrCast(self), @intCast(st));
+        return qtc.QCborStreamReader_IsSimpleType2(@ptrCast(self), @bitCast(st));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isFalse)
@@ -697,7 +697,7 @@ pub const qcborstreamreader = struct {
     /// ` maxRecursion: i32 `
     ///
     pub fn Next1(self: ?*anyopaque, maxRecursion: i32) bool {
-        return qtc.QCborStreamReader_Next1(@ptrCast(self), @intCast(maxRecursion));
+        return qtc.QCborStreamReader_Next1(@ptrCast(self), @bitCast(maxRecursion));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#dtor.QCborStreamReader)

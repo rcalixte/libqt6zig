@@ -107,7 +107,7 @@ pub const kratingpainter = struct {
     /// ` max: i32 `
     ///
     pub fn SetMaxRating(self: ?*anyopaque, max: i32) void {
-        qtc.KRatingPainter_SetMaxRating(@ptrCast(self), @intCast(max));
+        qtc.KRatingPainter_SetMaxRating(@ptrCast(self), @bitCast(max));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#setHalfStepsEnabled)
@@ -131,7 +131,7 @@ pub const kratingpainter = struct {
     /// ` alignVal: flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn SetAlignment(self: ?*anyopaque, alignVal: i32) void {
-        qtc.KRatingPainter_SetAlignment(@ptrCast(self), @intCast(alignVal));
+        qtc.KRatingPainter_SetAlignment(@ptrCast(self), @bitCast(alignVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#setLayoutDirection)
@@ -143,7 +143,7 @@ pub const kratingpainter = struct {
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.KRatingPainter_SetLayoutDirection(@ptrCast(self), @intCast(direction));
+        qtc.KRatingPainter_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#setIcon)
@@ -191,7 +191,7 @@ pub const kratingpainter = struct {
     /// ` spacing: i32 `
     ///
     pub fn SetSpacing(self: ?*anyopaque, spacing: i32) void {
-        qtc.KRatingPainter_SetSpacing(@ptrCast(self), @intCast(spacing));
+        qtc.KRatingPainter_SetSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#paint)
@@ -207,7 +207,7 @@ pub const kratingpainter = struct {
     /// ` rating: i32 `
     ///
     pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, rating: i32) void {
-        qtc.KRatingPainter_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(rating));
+        qtc.KRatingPainter_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(rating));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#ratingFromPosition)
@@ -237,7 +237,7 @@ pub const kratingpainter = struct {
     /// ` rating: i32 `
     ///
     pub fn PaintRating(p: ?*anyopaque, rect: ?*anyopaque, alignVal: i32, rating: i32) void {
-        qtc.KRatingPainter_PaintRating(@ptrCast(p), @ptrCast(rect), @intCast(alignVal), @intCast(rating));
+        qtc.KRatingPainter_PaintRating(@ptrCast(p), @ptrCast(rect), @bitCast(alignVal), @bitCast(rating));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#getRatingFromPosition)
@@ -253,7 +253,7 @@ pub const kratingpainter = struct {
     /// ` pos: QtC.QPoint `
     ///
     pub fn GetRatingFromPosition(rect: ?*anyopaque, alignVal: i32, direction: i32, pos: ?*anyopaque) i32 {
-        return qtc.KRatingPainter_GetRatingFromPosition(@ptrCast(rect), @intCast(alignVal), @intCast(direction), @ptrCast(pos));
+        return qtc.KRatingPainter_GetRatingFromPosition(@ptrCast(rect), @bitCast(alignVal), @bitCast(direction), @ptrCast(pos));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#paint)
@@ -271,7 +271,7 @@ pub const kratingpainter = struct {
     /// ` hoverRating: i32 `
     ///
     pub fn Paint4(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, rating: i32, hoverRating: i32) void {
-        qtc.KRatingPainter_Paint4(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(rating), @intCast(hoverRating));
+        qtc.KRatingPainter_Paint4(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(rating), @bitCast(hoverRating));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#paintRating)
@@ -289,7 +289,7 @@ pub const kratingpainter = struct {
     /// ` hoverRating: i32 `
     ///
     pub fn PaintRating5(p: ?*anyopaque, rect: ?*anyopaque, alignVal: i32, rating: i32, hoverRating: i32) void {
-        qtc.KRatingPainter_PaintRating5(@ptrCast(p), @ptrCast(rect), @intCast(alignVal), @intCast(rating), @intCast(hoverRating));
+        qtc.KRatingPainter_PaintRating5(@ptrCast(p), @ptrCast(rect), @bitCast(alignVal), @bitCast(rating), @bitCast(hoverRating));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#dtor.KRatingPainter)

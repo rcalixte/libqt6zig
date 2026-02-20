@@ -121,7 +121,7 @@ pub const qgeopositioninfo = struct {
     /// ` value: f64 `
     ///
     pub fn SetAttribute(self: ?*anyopaque, attribute: i32, value: f64) void {
-        qtc.QGeoPositionInfo_SetAttribute(@ptrCast(self), @intCast(attribute), @floatCast(value));
+        qtc.QGeoPositionInfo_SetAttribute(@ptrCast(self), @bitCast(attribute), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#attribute)
@@ -133,7 +133,7 @@ pub const qgeopositioninfo = struct {
     /// ` attribute: qgeopositioninfo_enums.Attribute `
     ///
     pub fn Attribute(self: ?*anyopaque, attribute: i32) f64 {
-        return qtc.QGeoPositionInfo_Attribute(@ptrCast(self), @intCast(attribute));
+        return qtc.QGeoPositionInfo_Attribute(@ptrCast(self), @bitCast(attribute));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#removeAttribute)
@@ -145,7 +145,7 @@ pub const qgeopositioninfo = struct {
     /// ` attribute: qgeopositioninfo_enums.Attribute `
     ///
     pub fn RemoveAttribute(self: ?*anyopaque, attribute: i32) void {
-        qtc.QGeoPositionInfo_RemoveAttribute(@ptrCast(self), @intCast(attribute));
+        qtc.QGeoPositionInfo_RemoveAttribute(@ptrCast(self), @bitCast(attribute));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#hasAttribute)
@@ -157,7 +157,7 @@ pub const qgeopositioninfo = struct {
     /// ` attribute: qgeopositioninfo_enums.Attribute `
     ///
     pub fn HasAttribute(self: ?*anyopaque, attribute: i32) bool {
-        return qtc.QGeoPositionInfo_HasAttribute(@ptrCast(self), @intCast(attribute));
+        return qtc.QGeoPositionInfo_HasAttribute(@ptrCast(self), @bitCast(attribute));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#detach)

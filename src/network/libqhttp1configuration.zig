@@ -40,7 +40,7 @@ pub const qhttp1configuration = struct {
     /// ` amount: i64 `
     ///
     pub fn SetNumberOfConnectionsPerHost(self: ?*anyopaque, amount: i64) void {
-        qtc.QHttp1Configuration_SetNumberOfConnectionsPerHost(@ptrCast(self), @intCast(amount));
+        qtc.QHttp1Configuration_SetNumberOfConnectionsPerHost(@ptrCast(self), @bitCast(amount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttp1configuration.html#numberOfConnectionsPerHost)
