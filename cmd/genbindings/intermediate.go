@@ -16,6 +16,7 @@ type CppParameter struct {
 	PointerCount  int
 	ByRef         bool
 	Optional      bool
+	UniquePtr     bool
 
 	QtCppOriginalType     *CppParameter // If we rewrote QStringList->QList<String>, this field contains the original QStringList. Otherwise, it's blank
 	BecomesConstInVersion *string       // "6,9"
@@ -237,6 +238,21 @@ func (p CppParameter) QSetOf() (CppParameter, bool) {
 	if strings.HasPrefix(p.ParameterType, "QSet<") {
 		ret := parseSingleTypeString(p.ParameterType[5:len(p.ParameterType)-1], "")
 		ret.ParameterName = p.ParameterName + "_sv"
+		return ret, true
+	}
+
+	return CppParameter{}, false
+}
+
+func (p CppParameter) UniquePtrOf() (CppParameter, bool) {
+	if strings.HasPrefix(p.ParameterType, "std::unique_ptr<") {
+		uType := strings.Split(p.ParameterType[16:len(p.ParameterType)-1], ",")
+		if len(uType) > 1 {
+			return CppParameter{}, false
+		}
+		ret := parseSingleTypeString(uType[0], "")
+		ret.ParameterName = p.ParameterName + "_up"
+		ret.UniquePtr = true
 		return ret, true
 	}
 
