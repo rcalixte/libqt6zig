@@ -190,9 +190,12 @@ func AllowClass(className string) bool {
 		return false
 	}
 
-	if strings.HasPrefix(className, "std::") &&
-		!(strings.HasPrefix(className, "std::pair<") ||
-			(strings.HasPrefix(className, "std::chrono::") && strings.HasSuffix(className, "seconds"))) {
+	if strings.HasPrefix(className, "std::pair<") || strings.HasPrefix(className, "std::unique_ptr<") ||
+		(strings.HasPrefix(className, "std::chrono::") && strings.HasSuffix(className, "seconds")) {
+		// supported std:: types
+		return true
+	}
+	if strings.HasPrefix(className, "std::") {
 		return false // Scintilla bindings find some of these
 	}
 
@@ -593,8 +596,14 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return ErrTooComplex // e.g. Qt 6 kpluginfactory.h . Template type
 	}
 
-	if strings.HasPrefix(p.ParameterType, "std::") &&
-		!(strings.HasPrefix(p.ParameterType, "std::pair<") || p.IsChronoSeconds()) {
+	if t, ok := p.UniquePtrOf(); ok {
+		return AllowType(t, isReturnType)
+	}
+	if strings.HasPrefix(p.ParameterType, "std::pair<") || p.IsChronoSeconds() {
+		// supported std:: types
+		return nil
+	}
+	if strings.HasPrefix(p.ParameterType, "std::") {
 		// std::initializer           e.g. qcborarray.h
 		// std::string                QByteArray->toStdString(). There are QString overloads already
 		// std::nullptr_t             Qcborstreamwriter
@@ -842,6 +851,7 @@ func AllowInnerClassDef(className string) bool {
 		"KIO::MetaData",                      // Qt 6 KIO, metadata.h
 		"KIO::SimpleJob",                     // Qt 6 KIO, listjob.h
 		"KIO::UDSEntry",                      // Qt 6 KIO, listjob.h
+		"KIO::WorkerBase",                    // Qt 6 KIO, workerbase.h
 		"KNSCore::EngineBase",                // Qt 6 KNewStuff, enginebase.h
 		"KNSCore::Entry",                     // Qt 6 KNewStuff, question.h
 		"KNSCore::ErrorCode",                 // Qt 6 KNewStuff, errorcode.h
