@@ -84,8 +84,9 @@ func operatorToUrl(cmdUrl string) string {
 }
 
 const (
-	preUrl  = "\n/// ### [Upstream resources]("
-	postUrl = ")"
+	preUrl           = "\n/// ### [Upstream resources]("
+	postUrl          = ")"
+	uniquePtrWarning = " (WARNING: The library takes ownership of this parameter's memory and attempting to access it will lead to a crash.)"
 )
 
 func (zfs *zigFileState) getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
@@ -773,6 +774,10 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 				paramType += " of " + secType
 			}
 
+			if p.UniquePtr {
+				paramType += uniquePtrWarning
+			}
+
 			tmp = append(tmp, p.ParameterName+": "+paramType)
 		}
 	}
@@ -1230,10 +1235,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			preamble += "    .data = " + nameprefix + "_key.ptr,\n"
 			preamble += "};\n"
 		} else {
-			castType := ifv(kType.IntType(), "int", "ptr")
-			if kTypeZig[0] == 'f' {
-				castType = "float"
-			}
+			castType := ifv(kType.IntType(), "bit", "ptr")
 
 			preamble += nameprefix + "_keys[i] = @" + castType + "Cast(" + nameprefix + "_key);\n"
 		}
@@ -1382,12 +1384,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		if p.Pointer || p.ByRef {
 			rvalue = "@ptrCast(" + p.ParameterName + ")"
 		} else {
-			castType := "int"
-			zigType := p.RenderTypeZig(zfs, false, false)
-			if len(zigType) > 0 && zigType[0] == 'f' {
-				castType = "float"
-			}
-			rvalue = "@" + castType + "Cast(" + p.ParameterName + ")"
+			rvalue = "@bitCast(" + p.ParameterName + ")"
 		}
 
 	} else if p.ParameterType == "bool" {
@@ -1917,7 +1914,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 	} else if reflect.TypeOf(rt.ParameterType).Kind() == reflect.String {
 		// Single type conversion from C ABI State to Zig State type
-		return shouldReturn + "@intCast(" + rvalue + ");"
+		return shouldReturn + "@bitCast(" + rvalue + ");"
 
 	} else {
 		panic(fmt.Sprintf("emitzig::emitCabiToZig missing type handler for parameter %+v", rt))
@@ -2425,7 +2422,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 						zigStructName + maybeComma + zfs.emitCommentParametersZig(m.Parameters, true) + ") callconv(.c) void `\n///\n" +
 						"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (?*anyopaque" +
 						maybeComma + zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) void) void {\n" +
-						"qtc." + cmdStructName + "_Connect_" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
+						"qtc." + cmdStructName + "_Connect_" + cSafeMethodName + "(@ptrCast(self), @bitCast(@intFromPtr(callback)));\n}\n")
 				}
 			}
 
@@ -2466,7 +2463,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 					") callconv(.c) " + retType + " `\n///\n" + maybeReturnString +
 					"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (" + maybeAnyopaque + maybeComma +
 					paramsZig + ") callconv(.c) " + retType + ") void {\n" +
-					"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
+					"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self), @bitCast(@intFromPtr(callback)));\n}\n")
 
 				maybeSelf := ifv(m.IsStatic && !m.IsProtected, "", "self: ?*anyopaque")
 				qbaseDocComment := maybeNewLine + "/// Base class method implementation\n///\n" + maybeParamsLine
@@ -2619,7 +2616,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (" + maybeAnyopaque + commaParams +
 				paramsZig + ") callconv(.c) " +
 				retType + ") void {\n" +
-				"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
+				"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self), @bitCast(@intFromPtr(callback)));\n}\n")
 		}
 
 		for _, m := range privateSignals {
@@ -2670,7 +2667,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				zigStructName + maybeComma + zfs.emitCommentParametersZig(m.Parameters, true) + ") callconv(.c) void `\n///\n" +
 				"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (?*anyopaque" +
 				maybeComma + zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) void) void {\n" +
-				"qtc." + cmdStructName + "_Connect_" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
+				"qtc." + cmdStructName + "_Connect_" + cSafeMethodName + "(@ptrCast(self), @bitCast(@intFromPtr(callback)));\n}\n")
 		}
 
 		if c.CanDelete && (len(c.Methods) > 0 || len(c.VirtualMethods()) > 0 || len(c.Ctors) > 0) {
