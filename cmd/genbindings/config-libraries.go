@@ -406,7 +406,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 				"/usr/include/KF6/KI18n",
 				"/usr/include/KF6/KI18nLocaleData",
 			},
-			allowHeader: AllowAllHeaders,
+			allowHeader: ExceptHeaders("klocalizedqmlcontext.h"),
 			cflags:      "--std=c++17 -I/usr/include/KF6/KI18n -I/usr/include/KF6/KI18nLocaleData " + pkgConfigCflags("Qt6Core"),
 		},
 
