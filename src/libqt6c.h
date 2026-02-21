@@ -826,7 +826,6 @@
 #include "extras-kguiaddons/libkwordwrap.h"
 #include "extras-ki18n/libklazylocalizedstring.h"
 #include "extras-ki18n/libklocalizedcontext.h"
-#include "extras-ki18n/libklocalizedqmlcontext.h"
 #include "extras-ki18n/libklocalizedstring.h"
 #include "extras-ki18n/libklocalizedtranslator.h"
 #include "extras-ki18n/libkuitsetup.h"
