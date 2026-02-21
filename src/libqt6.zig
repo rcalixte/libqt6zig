@@ -586,7 +586,6 @@ pub const klistopenfilesjob_enums = @import("extras-kcoreaddons/libklistopenfile
 pub const klistwidgetsearchline = @import("extras-kitemviews/libklistwidgetsearchline.zig").klistwidgetsearchline;
 pub const klocalimagecacheimplementation = @import("extras-kguiaddons/libklocalimagecacheimpl.zig").klocalimagecacheimplementation;
 pub const klocalizedcontext = @import("extras-ki18n/libklocalizedcontext.zig").klocalizedcontext;
-pub const klocalizedqmlcontext = @import("extras-ki18n/libklocalizedqmlcontext.zig").klocalizedqmlcontext;
 pub const klocalizedstring = @import("extras-ki18n/libklocalizedstring.zig").klocalizedstring;
 pub const klocalizedtranslator = @import("extras-ki18n/libklocalizedtranslator.zig").klocalizedtranslator;
 pub const kmacroexpander = @import("extras-kcoreaddons/libkmacroexpander.zig").kmacroexpander;
