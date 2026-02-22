@@ -21,9 +21,9 @@ class VirtualKMainWindow final : public KMainWindow {
     using KMainWindow_Metacast_Callback = void* (*)(KMainWindow*, const char*);
     using KMainWindow_Metacall_Callback = int (*)(KMainWindow*, int, int, void**);
     using KMainWindow_ApplyMainWindowSettings_Callback = void (*)(KMainWindow*, KConfigGroup*);
-    using KMainWindow_SetCaption_Callback = void (*)(KMainWindow*, libqt_string);
-    using KMainWindow_SetCaption2_Callback = void (*)(KMainWindow*, libqt_string, bool);
-    using KMainWindow_SetPlainCaption_Callback = void (*)(KMainWindow*, libqt_string);
+    using KMainWindow_SetCaption_Callback = void (*)(KMainWindow*, const char*);
+    using KMainWindow_SetCaption2_Callback = void (*)(KMainWindow*, const char*, bool);
+    using KMainWindow_SetPlainCaption_Callback = void (*)(KMainWindow*, const char*);
     using KMainWindow_Event_Callback = bool (*)(KMainWindow*, QEvent*);
     using KMainWindow_KeyPressEvent_Callback = void (*)(KMainWindow*, QKeyEvent*);
     using KMainWindow_CloseEvent_Callback = void (*)(KMainWindow*, QCloseEvent*);
@@ -547,16 +547,16 @@ class VirtualKMainWindow final : public KMainWindow {
             KMainWindow::setCaption(caption);
         } else if (kmainwindow_setcaption_callback != nullptr) {
             const QString caption_ret = caption;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
-            libqt_string caption_str;
-            caption_str.len = caption_b.length();
-            caption_str.data = static_cast<const char*>(malloc(caption_str.len + 1));
-            memcpy((void*)caption_str.data, caption_b.data(), caption_str.len);
-            ((char*)caption_str.data)[caption_str.len] = '\0';
-            libqt_string cbval1 = caption_str;
+            auto caption_str_len = caption_b.length();
+            const char* caption_str = static_cast<const char*>(malloc(caption_str_len + 1));
+            memcpy((void*)caption_str, caption_b.data(), caption_str_len);
+            ((char*)caption_str)[caption_str_len] = '\0';
+            const char* cbval1 = caption_str;
 
             kmainwindow_setcaption_callback(this, cbval1);
+            libqt_free(caption_str);
         } else {
             KMainWindow::setCaption(caption);
         }
@@ -569,17 +569,17 @@ class VirtualKMainWindow final : public KMainWindow {
             KMainWindow::setCaption(caption, modified);
         } else if (kmainwindow_setcaption2_callback != nullptr) {
             const QString caption_ret = caption;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
-            libqt_string caption_str;
-            caption_str.len = caption_b.length();
-            caption_str.data = static_cast<const char*>(malloc(caption_str.len + 1));
-            memcpy((void*)caption_str.data, caption_b.data(), caption_str.len);
-            ((char*)caption_str.data)[caption_str.len] = '\0';
-            libqt_string cbval1 = caption_str;
+            auto caption_str_len = caption_b.length();
+            const char* caption_str = static_cast<const char*>(malloc(caption_str_len + 1));
+            memcpy((void*)caption_str, caption_b.data(), caption_str_len);
+            ((char*)caption_str)[caption_str_len] = '\0';
+            const char* cbval1 = caption_str;
             bool cbval2 = modified;
 
             kmainwindow_setcaption2_callback(this, cbval1, cbval2);
+            libqt_free(caption_str);
         } else {
             KMainWindow::setCaption(caption, modified);
         }
@@ -592,16 +592,16 @@ class VirtualKMainWindow final : public KMainWindow {
             KMainWindow::setPlainCaption(caption);
         } else if (kmainwindow_setplaincaption_callback != nullptr) {
             const QString caption_ret = caption;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
-            libqt_string caption_str;
-            caption_str.len = caption_b.length();
-            caption_str.data = static_cast<const char*>(malloc(caption_str.len + 1));
-            memcpy((void*)caption_str.data, caption_b.data(), caption_str.len);
-            ((char*)caption_str.data)[caption_str.len] = '\0';
-            libqt_string cbval1 = caption_str;
+            auto caption_str_len = caption_b.length();
+            const char* caption_str = static_cast<const char*>(malloc(caption_str_len + 1));
+            memcpy((void*)caption_str, caption_b.data(), caption_str_len);
+            ((char*)caption_str)[caption_str_len] = '\0';
+            const char* cbval1 = caption_str;
 
             kmainwindow_setplaincaption_callback(this, cbval1);
+            libqt_free(caption_str);
         } else {
             KMainWindow::setPlainCaption(caption);
         }
@@ -1155,6 +1155,7 @@ class VirtualKMainWindow final : public KMainWindow {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kmainwindow_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KMainWindow::nativeEvent(eventType, message, result);

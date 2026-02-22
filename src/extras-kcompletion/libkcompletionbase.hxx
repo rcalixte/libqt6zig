@@ -20,8 +20,8 @@ class VirtualKCompletionBase : public KCompletionBase {
     using KCompletionBase_SetCompletionObject_Callback = void (*)(KCompletionBase*, KCompletion*, bool);
     using KCompletionBase_SetHandleSignals_Callback = void (*)(KCompletionBase*, bool);
     using KCompletionBase_SetCompletionMode_Callback = void (*)(KCompletionBase*, int);
-    using KCompletionBase_SetCompletedText_Callback = void (*)(KCompletionBase*, libqt_string);
-    using KCompletionBase_SetCompletedItems_Callback = void (*)(KCompletionBase*, libqt_list /* of libqt_string */, bool);
+    using KCompletionBase_SetCompletedText_Callback = void (*)(KCompletionBase*, const char*);
+    using KCompletionBase_SetCompletedItems_Callback = void (*)(KCompletionBase*, const char**, bool);
     using KCompletionBase_VirtualHook_Callback = void (*)(KCompletionBase*, int, void*);
     using KCompletionBase_KeyBindingMap_Callback = libqt_map /* of int to libqt_list of QKeySequence* */ (*)();
     using KCompletionBase_SetKeyBindingMap_Callback = void (*)(KCompletionBase*, libqt_map /* of int to libqt_list of QKeySequence* */);
@@ -140,16 +140,16 @@ class VirtualKCompletionBase : public KCompletionBase {
     virtual void setCompletedText(const QString& text) override {
         if (kcompletionbase_setcompletedtext_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             kcompletionbase_setcompletedtext_callback(this, cbval1);
+            libqt_free(text_str);
         }
     }
 
@@ -157,26 +157,23 @@ class VirtualKCompletionBase : public KCompletionBase {
     virtual void setCompletedItems(const QList<QString>& items, bool autoSuggest) override {
         if (kcompletionbase_setcompleteditems_callback != nullptr) {
             const QList<QString>& items_ret = items;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* items_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (items_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** items_arr = static_cast<const char**>(malloc(sizeof(const char*) * (items_ret.size() + 1)));
             for (qsizetype i = 0; i < items_ret.size(); ++i) {
-                QString items_lv_ret = items_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray items_lv_b = items_lv_ret.toUtf8();
-                libqt_string items_lv_str;
-                items_lv_str.len = items_lv_b.length();
-                items_lv_str.data = static_cast<const char*>(malloc(items_lv_str.len + 1));
-                memcpy((void*)items_lv_str.data, items_lv_b.data(), items_lv_str.len);
-                ((char*)items_lv_str.data)[items_lv_str.len] = '\0';
-                items_arr[i] = items_lv_str;
+                QByteArray items_b = items_ret[i].toUtf8();
+                auto items_str_len = items_b.length();
+                char* items_str = static_cast<char*>(malloc(items_str_len + 1));
+                memcpy(items_str, items_b.data(), items_str_len);
+                items_str[items_str_len] = '\0';
+                items_arr[i] = items_str;
             }
-            libqt_list items_out;
-            items_out.len = items_ret.size();
-            items_out.data = static_cast<void*>(items_arr);
-            libqt_list /* of libqt_string */ cbval1 = items_out;
+            // Append sentinel null terminator to the list
+            items_arr[items_ret.size()] = nullptr;
+            const char** cbval1 = items_arr;
             bool cbval2 = autoSuggest;
 
             kcompletionbase_setcompleteditems_callback(this, cbval1, cbval2);
+            libqt_free(items_arr);
         }
     }
 

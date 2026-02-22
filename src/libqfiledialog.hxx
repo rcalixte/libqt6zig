@@ -1034,6 +1034,7 @@ class VirtualQFileDialog final : public QFileDialog {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qfiledialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QFileDialog::nativeEvent(eventType, message, result);

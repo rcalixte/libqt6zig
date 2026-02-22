@@ -265,7 +265,7 @@ void QLocalSocket_Connect_StateChanged(QLocalSocket* self, intptr_t slot) {
 long long QLocalSocket_ReadData(QLocalSocket* self, char* param1, long long param2) {
     auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
     if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
-        return static_cast<long long>(vqlocalsocket->readData(param1, static_cast<long long>(param2)));
+        return static_cast<long long>(vqlocalsocket->readData(param1, static_cast<qint64>(param2)));
     }
     return {};
 }
@@ -289,7 +289,7 @@ long long QLocalSocket_SkipData(QLocalSocket* self, long long maxSize) {
 long long QLocalSocket_WriteData(QLocalSocket* self, const char* param1, long long param2) {
     auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
     if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
-        return static_cast<long long>(vqlocalsocket->writeData(param1, static_cast<long long>(param2)));
+        return static_cast<long long>(vqlocalsocket->writeData(param1, static_cast<qint64>(param2)));
     }
     return {};
 }
@@ -533,9 +533,9 @@ long long QLocalSocket_QBaseReadData(QLocalSocket* self, char* param1, long long
     auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
     if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_ReadData_IsBase(true);
-        return static_cast<long long>(vqlocalsocket->readData(param1, static_cast<long long>(param2)));
+        return static_cast<long long>(vqlocalsocket->readData(param1, static_cast<qint64>(param2)));
     } else {
-        return static_cast<long long>(((VirtualQLocalSocket*)self)->readData(param1, static_cast<long long>(param2)));
+        return static_cast<long long>(((VirtualQLocalSocket*)self)->readData(param1, static_cast<qint64>(param2)));
     }
 }
 
@@ -590,9 +590,9 @@ long long QLocalSocket_QBaseWriteData(QLocalSocket* self, const char* param1, lo
     auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
     if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_WriteData_IsBase(true);
-        return static_cast<long long>(vqlocalsocket->writeData(param1, static_cast<long long>(param2)));
+        return static_cast<long long>(vqlocalsocket->writeData(param1, static_cast<qint64>(param2)));
     } else {
-        return static_cast<long long>(((VirtualQLocalSocket*)self)->writeData(param1, static_cast<long long>(param2)));
+        return static_cast<long long>(((VirtualQLocalSocket*)self)->writeData(param1, static_cast<qint64>(param2)));
     }
 }
 

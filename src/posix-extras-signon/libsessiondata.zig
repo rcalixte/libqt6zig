@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
 pub const signon__sessiondata = struct {
@@ -25,11 +25,11 @@ pub const signon__sessiondata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: map_constu8_qtcqvariant `
+    /// ` data: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New3(data: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.SignOn__SessionData {
+    pub fn New3(data: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.SignOn__SessionData {
         const data_count = data.count();
         const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("signon__sessiondata.New3: Memory allocation failed");
         defer allocator.free(data_keys);
@@ -156,9 +156,9 @@ pub const signon__sessiondata = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
+    pub fn ToMap(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_constu8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.SignOn__SessionData_ToMap(@ptrCast(self));
-        var _ret: map_constu8_qtcqvariant = .empty;
+        var _ret: arraymap_constu8_qtcqvariant = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {

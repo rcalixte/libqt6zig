@@ -20,12 +20,12 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
     using QAbstractFormBuilder_Load_Callback = QWidget* (*)(QAbstractFormBuilder*, QIODevice*, QWidget*);
     using QAbstractFormBuilder_Save_Callback = void (*)(QAbstractFormBuilder*, QIODevice*, QWidget*);
     using QAbstractFormBuilder_AddMenuAction_Callback = void (*)(QAbstractFormBuilder*, QAction*);
-    using QAbstractFormBuilder_CreateWidget_Callback = QWidget* (*)(QAbstractFormBuilder*, libqt_string, QWidget*, libqt_string);
-    using QAbstractFormBuilder_CreateLayout_Callback = QLayout* (*)(QAbstractFormBuilder*, libqt_string, QObject*, libqt_string);
-    using QAbstractFormBuilder_CreateAction_Callback = QAction* (*)(QAbstractFormBuilder*, QObject*, libqt_string);
-    using QAbstractFormBuilder_CreateActionGroup_Callback = QActionGroup* (*)(QAbstractFormBuilder*, QObject*, libqt_string);
-    using QAbstractFormBuilder_CheckProperty_Callback = bool (*)(const QAbstractFormBuilder*, QObject*, libqt_string);
-    using QAbstractFormBuilder_ApplyPropertyInternally_Callback = bool (*)(QAbstractFormBuilder*, QObject*, libqt_string, QVariant*);
+    using QAbstractFormBuilder_CreateWidget_Callback = QWidget* (*)(QAbstractFormBuilder*, const char*, QWidget*, const char*);
+    using QAbstractFormBuilder_CreateLayout_Callback = QLayout* (*)(QAbstractFormBuilder*, const char*, QObject*, const char*);
+    using QAbstractFormBuilder_CreateAction_Callback = QAction* (*)(QAbstractFormBuilder*, QObject*, const char*);
+    using QAbstractFormBuilder_CreateActionGroup_Callback = QActionGroup* (*)(QAbstractFormBuilder*, QObject*, const char*);
+    using QAbstractFormBuilder_CheckProperty_Callback = bool (*)(const QAbstractFormBuilder*, QObject*, const char*);
+    using QAbstractFormBuilder_ApplyPropertyInternally_Callback = bool (*)(QAbstractFormBuilder*, QObject*, const char*, QVariant*);
     using QAbstractFormBuilder_Reset_Callback = void (*)();
     using QAbstractFormBuilder_ToolBarAreaMetaEnum_Callback = QMetaEnum* (*)();
 
@@ -151,26 +151,26 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             return QAbstractFormBuilder::createWidget(widgetName, parentWidget, name);
         } else if (qabstractformbuilder_createwidget_callback != nullptr) {
             const QString widgetName_ret = widgetName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray widgetName_b = widgetName_ret.toUtf8();
-            libqt_string widgetName_str;
-            widgetName_str.len = widgetName_b.length();
-            widgetName_str.data = static_cast<const char*>(malloc(widgetName_str.len + 1));
-            memcpy((void*)widgetName_str.data, widgetName_b.data(), widgetName_str.len);
-            ((char*)widgetName_str.data)[widgetName_str.len] = '\0';
-            libqt_string cbval1 = widgetName_str;
+            auto widgetName_str_len = widgetName_b.length();
+            const char* widgetName_str = static_cast<const char*>(malloc(widgetName_str_len + 1));
+            memcpy((void*)widgetName_str, widgetName_b.data(), widgetName_str_len);
+            ((char*)widgetName_str)[widgetName_str_len] = '\0';
+            const char* cbval1 = widgetName_str;
             QWidget* cbval2 = parentWidget;
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval3 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval3 = name_str;
 
             QWidget* callback_ret = qabstractformbuilder_createwidget_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(widgetName_str);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QAbstractFormBuilder::createWidget(widgetName, parentWidget, name);
@@ -184,26 +184,26 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             return QAbstractFormBuilder::createLayout(layoutName, parent, name);
         } else if (qabstractformbuilder_createlayout_callback != nullptr) {
             const QString layoutName_ret = layoutName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray layoutName_b = layoutName_ret.toUtf8();
-            libqt_string layoutName_str;
-            layoutName_str.len = layoutName_b.length();
-            layoutName_str.data = static_cast<const char*>(malloc(layoutName_str.len + 1));
-            memcpy((void*)layoutName_str.data, layoutName_b.data(), layoutName_str.len);
-            ((char*)layoutName_str.data)[layoutName_str.len] = '\0';
-            libqt_string cbval1 = layoutName_str;
+            auto layoutName_str_len = layoutName_b.length();
+            const char* layoutName_str = static_cast<const char*>(malloc(layoutName_str_len + 1));
+            memcpy((void*)layoutName_str, layoutName_b.data(), layoutName_str_len);
+            ((char*)layoutName_str)[layoutName_str_len] = '\0';
+            const char* cbval1 = layoutName_str;
             QObject* cbval2 = parent;
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval3 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval3 = name_str;
 
             QLayout* callback_ret = qabstractformbuilder_createlayout_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(layoutName_str);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QAbstractFormBuilder::createLayout(layoutName, parent, name);
@@ -218,16 +218,16 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
         } else if (qabstractformbuilder_createaction_callback != nullptr) {
             QObject* cbval1 = parent;
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval2 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval2 = name_str;
 
             QAction* callback_ret = qabstractformbuilder_createaction_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QAbstractFormBuilder::createAction(parent, name);
@@ -242,16 +242,16 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
         } else if (qabstractformbuilder_createactiongroup_callback != nullptr) {
             QObject* cbval1 = parent;
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval2 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval2 = name_str;
 
             QActionGroup* callback_ret = qabstractformbuilder_createactiongroup_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QAbstractFormBuilder::createActionGroup(parent, name);
@@ -266,16 +266,16 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
         } else if (qabstractformbuilder_checkproperty_callback != nullptr) {
             QObject* cbval1 = obj;
             const QString prop_ret = prop;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prop_b = prop_ret.toUtf8();
-            libqt_string prop_str;
-            prop_str.len = prop_b.length();
-            prop_str.data = static_cast<const char*>(malloc(prop_str.len + 1));
-            memcpy((void*)prop_str.data, prop_b.data(), prop_str.len);
-            ((char*)prop_str.data)[prop_str.len] = '\0';
-            libqt_string cbval2 = prop_str;
+            auto prop_str_len = prop_b.length();
+            const char* prop_str = static_cast<const char*>(malloc(prop_str_len + 1));
+            memcpy((void*)prop_str, prop_b.data(), prop_str_len);
+            ((char*)prop_str)[prop_str_len] = '\0';
+            const char* cbval2 = prop_str;
 
             bool callback_ret = qabstractformbuilder_checkproperty_callback(this, cbval1, cbval2);
+            libqt_free(prop_str);
             return callback_ret;
         } else {
             return QAbstractFormBuilder::checkProperty(obj, prop);
@@ -290,19 +290,19 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
         } else if (qabstractformbuilder_applypropertyinternally_callback != nullptr) {
             QObject* cbval1 = o;
             const QString propertyName_ret = propertyName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray propertyName_b = propertyName_ret.toUtf8();
-            libqt_string propertyName_str;
-            propertyName_str.len = propertyName_b.length();
-            propertyName_str.data = static_cast<const char*>(malloc(propertyName_str.len + 1));
-            memcpy((void*)propertyName_str.data, propertyName_b.data(), propertyName_str.len);
-            ((char*)propertyName_str.data)[propertyName_str.len] = '\0';
-            libqt_string cbval2 = propertyName_str;
+            auto propertyName_str_len = propertyName_b.length();
+            const char* propertyName_str = static_cast<const char*>(malloc(propertyName_str_len + 1));
+            memcpy((void*)propertyName_str, propertyName_b.data(), propertyName_str_len);
+            ((char*)propertyName_str)[propertyName_str_len] = '\0';
+            const char* cbval2 = propertyName_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
 
             bool callback_ret = qabstractformbuilder_applypropertyinternally_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(propertyName_str);
             return callback_ret;
         } else {
             return QAbstractFormBuilder::applyPropertyInternally(o, propertyName, value);

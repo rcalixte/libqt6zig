@@ -1043,6 +1043,7 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kadjustingscrollarea_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KAdjustingScrollArea::nativeEvent(eventType, message, result);

@@ -18,10 +18,10 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
 
     // Virtual class public types (including callbacks)
     using KUriFilterSearchProvider_IconName_Callback = const char* (*)();
-    using KUriFilterSearchProvider_SetDesktopEntryName_Callback = void (*)(KUriFilterSearchProvider*, libqt_string);
-    using KUriFilterSearchProvider_SetIconName_Callback = void (*)(KUriFilterSearchProvider*, libqt_string);
-    using KUriFilterSearchProvider_SetKeys_Callback = void (*)(KUriFilterSearchProvider*, libqt_list /* of libqt_string */);
-    using KUriFilterSearchProvider_SetName_Callback = void (*)(KUriFilterSearchProvider*, libqt_string);
+    using KUriFilterSearchProvider_SetDesktopEntryName_Callback = void (*)(KUriFilterSearchProvider*, const char*);
+    using KUriFilterSearchProvider_SetIconName_Callback = void (*)(KUriFilterSearchProvider*, const char*);
+    using KUriFilterSearchProvider_SetKeys_Callback = void (*)(KUriFilterSearchProvider*, const char**);
+    using KUriFilterSearchProvider_SetName_Callback = void (*)(KUriFilterSearchProvider*, const char*);
 
   protected:
     // Instance callback storage
@@ -85,16 +85,16 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
             KUriFilterSearchProvider::setDesktopEntryName(desktopEntryName);
         } else if (kurifiltersearchprovider_setdesktopentryname_callback != nullptr) {
             const QString desktopEntryName_ret = desktopEntryName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray desktopEntryName_b = desktopEntryName_ret.toUtf8();
-            libqt_string desktopEntryName_str;
-            desktopEntryName_str.len = desktopEntryName_b.length();
-            desktopEntryName_str.data = static_cast<const char*>(malloc(desktopEntryName_str.len + 1));
-            memcpy((void*)desktopEntryName_str.data, desktopEntryName_b.data(), desktopEntryName_str.len);
-            ((char*)desktopEntryName_str.data)[desktopEntryName_str.len] = '\0';
-            libqt_string cbval1 = desktopEntryName_str;
+            auto desktopEntryName_str_len = desktopEntryName_b.length();
+            const char* desktopEntryName_str = static_cast<const char*>(malloc(desktopEntryName_str_len + 1));
+            memcpy((void*)desktopEntryName_str, desktopEntryName_b.data(), desktopEntryName_str_len);
+            ((char*)desktopEntryName_str)[desktopEntryName_str_len] = '\0';
+            const char* cbval1 = desktopEntryName_str;
 
             kurifiltersearchprovider_setdesktopentryname_callback(this, cbval1);
+            libqt_free(desktopEntryName_str);
         } else {
             KUriFilterSearchProvider::setDesktopEntryName(desktopEntryName);
         }
@@ -107,16 +107,16 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
             KUriFilterSearchProvider::setIconName(iconName);
         } else if (kurifiltersearchprovider_seticonname_callback != nullptr) {
             const QString iconName_ret = iconName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray iconName_b = iconName_ret.toUtf8();
-            libqt_string iconName_str;
-            iconName_str.len = iconName_b.length();
-            iconName_str.data = static_cast<const char*>(malloc(iconName_str.len + 1));
-            memcpy((void*)iconName_str.data, iconName_b.data(), iconName_str.len);
-            ((char*)iconName_str.data)[iconName_str.len] = '\0';
-            libqt_string cbval1 = iconName_str;
+            auto iconName_str_len = iconName_b.length();
+            const char* iconName_str = static_cast<const char*>(malloc(iconName_str_len + 1));
+            memcpy((void*)iconName_str, iconName_b.data(), iconName_str_len);
+            ((char*)iconName_str)[iconName_str_len] = '\0';
+            const char* cbval1 = iconName_str;
 
             kurifiltersearchprovider_seticonname_callback(this, cbval1);
+            libqt_free(iconName_str);
         } else {
             KUriFilterSearchProvider::setIconName(iconName);
         }
@@ -129,25 +129,22 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
             KUriFilterSearchProvider::setKeys(keys);
         } else if (kurifiltersearchprovider_setkeys_callback != nullptr) {
             const QList<QString>& keys_ret = keys;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* keys_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (keys_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** keys_arr = static_cast<const char**>(malloc(sizeof(const char*) * (keys_ret.size() + 1)));
             for (qsizetype i = 0; i < keys_ret.size(); ++i) {
-                QString keys_lv_ret = keys_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray keys_lv_b = keys_lv_ret.toUtf8();
-                libqt_string keys_lv_str;
-                keys_lv_str.len = keys_lv_b.length();
-                keys_lv_str.data = static_cast<const char*>(malloc(keys_lv_str.len + 1));
-                memcpy((void*)keys_lv_str.data, keys_lv_b.data(), keys_lv_str.len);
-                ((char*)keys_lv_str.data)[keys_lv_str.len] = '\0';
-                keys_arr[i] = keys_lv_str;
+                QByteArray keys_b = keys_ret[i].toUtf8();
+                auto keys_str_len = keys_b.length();
+                char* keys_str = static_cast<char*>(malloc(keys_str_len + 1));
+                memcpy(keys_str, keys_b.data(), keys_str_len);
+                keys_str[keys_str_len] = '\0';
+                keys_arr[i] = keys_str;
             }
-            libqt_list keys_out;
-            keys_out.len = keys_ret.size();
-            keys_out.data = static_cast<void*>(keys_arr);
-            libqt_list /* of libqt_string */ cbval1 = keys_out;
+            // Append sentinel null terminator to the list
+            keys_arr[keys_ret.size()] = nullptr;
+            const char** cbval1 = keys_arr;
 
             kurifiltersearchprovider_setkeys_callback(this, cbval1);
+            libqt_free(keys_arr);
         } else {
             KUriFilterSearchProvider::setKeys(keys);
         }
@@ -160,16 +157,16 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
             KUriFilterSearchProvider::setName(name);
         } else if (kurifiltersearchprovider_setname_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             kurifiltersearchprovider_setname_callback(this, cbval1);
+            libqt_free(name_str);
         } else {
             KUriFilterSearchProvider::setName(name);
         }

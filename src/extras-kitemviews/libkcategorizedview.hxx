@@ -62,7 +62,7 @@ class VirtualKCategorizedView final : public KCategorizedView {
     using KCategorizedView_SelectionChanged_Callback = void (*)(KCategorizedView*, QItemSelection*, QItemSelection*);
     using KCategorizedView_ViewportSizeHint_Callback = QSize* (*)();
     using KCategorizedView_SetSelectionModel_Callback = void (*)(KCategorizedView*, QItemSelectionModel*);
-    using KCategorizedView_KeyboardSearch_Callback = void (*)(KCategorizedView*, libqt_string);
+    using KCategorizedView_KeyboardSearch_Callback = void (*)(KCategorizedView*, const char*);
     using KCategorizedView_SizeHintForRow_Callback = int (*)(const KCategorizedView*, int);
     using KCategorizedView_SizeHintForColumn_Callback = int (*)(const KCategorizedView*, int);
     using KCategorizedView_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const KCategorizedView*, QModelIndex*);
@@ -1140,6 +1140,7 @@ class VirtualKCategorizedView final : public KCategorizedView {
             libqt_list /* of int */ cbval3 = roles_out;
 
             kcategorizedview_datachanged_callback(this, cbval1, cbval2, cbval3);
+            free(roles_arr);
         } else {
             KCategorizedView::dataChanged(topLeft, bottomRight, roles);
         }
@@ -1425,16 +1426,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
             KCategorizedView::keyboardSearch(search);
         } else if (kcategorizedview_keyboardsearch_callback != nullptr) {
             const QString search_ret = search;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
-            libqt_string search_str;
-            search_str.len = search_b.length();
-            search_str.data = static_cast<const char*>(malloc(search_str.len + 1));
-            memcpy((void*)search_str.data, search_b.data(), search_str.len);
-            ((char*)search_str.data)[search_str.len] = '\0';
-            libqt_string cbval1 = search_str;
+            auto search_str_len = search_b.length();
+            const char* search_str = static_cast<const char*>(malloc(search_str_len + 1));
+            memcpy((void*)search_str, search_b.data(), search_str_len);
+            ((char*)search_str)[search_str_len] = '\0';
+            const char* cbval1 = search_str;
 
             kcategorizedview_keyboardsearch_callback(this, cbval1);
+            libqt_free(search_str);
         } else {
             KCategorizedView::keyboardSearch(search);
         }
@@ -2069,6 +2070,7 @@ class VirtualKCategorizedView final : public KCategorizedView {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kcategorizedview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KCategorizedView::nativeEvent(eventType, message, result);

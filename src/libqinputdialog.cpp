@@ -399,9 +399,10 @@ void QInputDialog_Connect_TextValueChanged(QInputDialog* self, intptr_t slot) {
         const QString text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
-        const char* text_str = static_cast<const char*>(malloc(text_b.length() + 1));
-        memcpy((void*)text_str, text_b.data(), text_b.length());
-        ((char*)text_str)[text_b.length()] = '\0';
+        auto text_str_len = text_b.length();
+        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+        memcpy((void*)text_str, text_b.data(), text_str_len);
+        ((char*)text_str)[text_str_len] = '\0';
         const char* sigval1 = text_str;
         slotFunc(self, sigval1);
         libqt_free(text_str);
@@ -419,9 +420,10 @@ void QInputDialog_Connect_TextValueSelected(QInputDialog* self, intptr_t slot) {
         const QString text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
-        const char* text_str = static_cast<const char*>(malloc(text_b.length() + 1));
-        memcpy((void*)text_str, text_b.data(), text_b.length());
-        ((char*)text_str)[text_b.length()] = '\0';
+        auto text_str_len = text_b.length();
+        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+        memcpy((void*)text_str, text_b.data(), text_str_len);
+        ((char*)text_str)[text_str_len] = '\0';
         const char* sigval1 = text_str;
         slotFunc(self, sigval1);
         libqt_free(text_str);

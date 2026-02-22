@@ -564,6 +564,7 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
             bool cbval2 = rectangular;
 
             QMimeData* callback_ret = qsciscintillabase_tomimedata_callback(this, cbval1, cbval2);
+            libqt_free(text_str.data);
             return callback_ret;
         } else {
             return QsciScintillaBase::toMimeData(text, rectangular);
@@ -1177,6 +1178,7 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qsciscintillabase_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QsciScintillaBase::nativeEvent(eventType, message, result);

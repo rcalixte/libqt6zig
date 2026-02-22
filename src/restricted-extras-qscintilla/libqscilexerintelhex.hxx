@@ -52,8 +52,8 @@ class VirtualQsciLexerIntelHex final : public QsciLexerIntelHex {
     using QsciLexerIntelHex_SetEolFill_Callback = void (*)(QsciLexerIntelHex*, bool, int);
     using QsciLexerIntelHex_SetFont_Callback = void (*)(QsciLexerIntelHex*, QFont*, int);
     using QsciLexerIntelHex_SetPaper_Callback = void (*)(QsciLexerIntelHex*, QColor*, int);
-    using QsciLexerIntelHex_ReadProperties_Callback = bool (*)(QsciLexerIntelHex*, QSettings*, libqt_string);
-    using QsciLexerIntelHex_WriteProperties_Callback = bool (*)(const QsciLexerIntelHex*, QSettings*, libqt_string);
+    using QsciLexerIntelHex_ReadProperties_Callback = bool (*)(QsciLexerIntelHex*, QSettings*, const char*);
+    using QsciLexerIntelHex_WriteProperties_Callback = bool (*)(const QsciLexerIntelHex*, QSettings*, const char*);
     using QsciLexerIntelHex_Event_Callback = bool (*)(QsciLexerIntelHex*, QEvent*);
     using QsciLexerIntelHex_EventFilter_Callback = bool (*)(QsciLexerIntelHex*, QObject*, QEvent*);
     using QsciLexerIntelHex_TimerEvent_Callback = void (*)(QsciLexerIntelHex*, QTimerEvent*);
@@ -61,7 +61,7 @@ class VirtualQsciLexerIntelHex final : public QsciLexerIntelHex {
     using QsciLexerIntelHex_CustomEvent_Callback = void (*)(QsciLexerIntelHex*, QEvent*);
     using QsciLexerIntelHex_ConnectNotify_Callback = void (*)(QsciLexerIntelHex*, QMetaMethod*);
     using QsciLexerIntelHex_DisconnectNotify_Callback = void (*)(QsciLexerIntelHex*, QMetaMethod*);
-    using QsciLexerIntelHex_TextAsBytes_Callback = libqt_string (*)(const QsciLexerIntelHex*, libqt_string);
+    using QsciLexerIntelHex_TextAsBytes_Callback = libqt_string (*)(const QsciLexerIntelHex*, const char*);
     using QsciLexerIntelHex_BytesAsText_Callback = const char* (*)(const QsciLexerIntelHex*, const char*, int);
     using QsciLexerIntelHex_Sender_Callback = QObject* (*)();
     using QsciLexerIntelHex_SenderSignalIndex_Callback = int (*)();
@@ -850,16 +850,16 @@ class VirtualQsciLexerIntelHex final : public QsciLexerIntelHex {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerintelhex_readproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerIntelHex::readProperties(qs, prefix);
@@ -876,16 +876,16 @@ class VirtualQsciLexerIntelHex final : public QsciLexerIntelHex {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerintelhex_writeproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerIntelHex::writeProperties(qs, prefix);
@@ -1004,17 +1004,17 @@ class VirtualQsciLexerIntelHex final : public QsciLexerIntelHex {
             return QsciLexerIntelHex::textAsBytes(text);
         } else if (qscilexerintelhex_textasbytes_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             libqt_string callback_ret = qscilexerintelhex_textasbytes_callback(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            libqt_free(text_str);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerIntelHex::textAsBytes(text);

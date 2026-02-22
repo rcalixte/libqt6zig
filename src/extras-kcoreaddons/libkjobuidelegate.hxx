@@ -22,7 +22,7 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
     using KJobUiDelegate_Metacall_Callback = int (*)(KJobUiDelegate*, int, int, void**);
     using KJobUiDelegate_SetJob_Callback = bool (*)(KJobUiDelegate*, KJob*);
     using KJobUiDelegate_ShowErrorMessage_Callback = void (*)();
-    using KJobUiDelegate_SlotWarning_Callback = void (*)(KJobUiDelegate*, KJob*, libqt_string);
+    using KJobUiDelegate_SlotWarning_Callback = void (*)(KJobUiDelegate*, KJob*, const char*);
     using KJobUiDelegate_Event_Callback = bool (*)(KJobUiDelegate*, QEvent*);
     using KJobUiDelegate_EventFilter_Callback = bool (*)(KJobUiDelegate*, QObject*, QEvent*);
     using KJobUiDelegate_TimerEvent_Callback = void (*)(KJobUiDelegate*, QTimerEvent*);
@@ -222,16 +222,16 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         } else if (kjobuidelegate_slotwarning_callback != nullptr) {
             KJob* cbval1 = job;
             const QString message_ret = message;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray message_b = message_ret.toUtf8();
-            libqt_string message_str;
-            message_str.len = message_b.length();
-            message_str.data = static_cast<const char*>(malloc(message_str.len + 1));
-            memcpy((void*)message_str.data, message_b.data(), message_str.len);
-            ((char*)message_str.data)[message_str.len] = '\0';
-            libqt_string cbval2 = message_str;
+            auto message_str_len = message_b.length();
+            const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+            memcpy((void*)message_str, message_b.data(), message_str_len);
+            ((char*)message_str)[message_str_len] = '\0';
+            const char* cbval2 = message_str;
 
             kjobuidelegate_slotwarning_callback(this, cbval1, cbval2);
+            libqt_free(message_str);
         } else {
             KJobUiDelegate::slotWarning(job, message);
         }

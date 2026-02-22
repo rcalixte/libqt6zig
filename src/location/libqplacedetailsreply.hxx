@@ -31,7 +31,7 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
     using QPlaceDetailsReply_DisconnectNotify_Callback = void (*)(QPlaceDetailsReply*, QMetaMethod*);
     using QPlaceDetailsReply_SetPlace_Callback = void (*)(QPlaceDetailsReply*, QPlace*);
     using QPlaceDetailsReply_SetFinished_Callback = void (*)(QPlaceDetailsReply*, bool);
-    using QPlaceDetailsReply_SetError_Callback = void (*)(QPlaceDetailsReply*, int, libqt_string);
+    using QPlaceDetailsReply_SetError_Callback = void (*)(QPlaceDetailsReply*, int, const char*);
     using QPlaceDetailsReply_Sender_Callback = QObject* (*)();
     using QPlaceDetailsReply_SenderSignalIndex_Callback = int (*)();
     using QPlaceDetailsReply_Receivers_Callback = int (*)(const QPlaceDetailsReply*, const char*);
@@ -361,16 +361,16 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
         } else if (qplacedetailsreply_seterror_callback != nullptr) {
             int cbval1 = static_cast<int>(errorVal);
             const QString errorString_ret = errorString;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
-            libqt_string errorString_str;
-            errorString_str.len = errorString_b.length();
-            errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
-            memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
-            ((char*)errorString_str.data)[errorString_str.len] = '\0';
-            libqt_string cbval2 = errorString_str;
+            auto errorString_str_len = errorString_b.length();
+            const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+            memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+            ((char*)errorString_str)[errorString_str_len] = '\0';
+            const char* cbval2 = errorString_str;
 
             qplacedetailsreply_seterror_callback(this, cbval1, cbval2);
+            libqt_free(errorString_str);
         } else {
             QPlaceDetailsReply::setError(errorVal, errorString);
         }

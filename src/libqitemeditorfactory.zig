@@ -141,15 +141,13 @@ pub const qitemeditorfactory = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QItemEditorFactory `
     ///
-    /// ` callback: *const fn (self: QtC.QItemEditorFactory, userType: i32) callconv(.c) [*:0]u8 `
+    /// ` callback: *const fn (self: QtC.QItemEditorFactory, userType: i32) callconv(.c) qtc.libqt_string `
     ///
-    pub fn OnValuePropertyName(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:0]u8) void {
+    pub fn OnValuePropertyName(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) qtc.libqt_string) void {
         qtc.QItemEditorFactory_OnValuePropertyName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 

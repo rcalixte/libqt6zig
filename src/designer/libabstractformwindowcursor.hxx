@@ -27,9 +27,9 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
     using QDesignerFormWindowCursorInterface_HasSelection_Callback = bool (*)();
     using QDesignerFormWindowCursorInterface_SelectedWidgetCount_Callback = int (*)();
     using QDesignerFormWindowCursorInterface_SelectedWidget_Callback = QWidget* (*)(const QDesignerFormWindowCursorInterface*, int);
-    using QDesignerFormWindowCursorInterface_SetProperty_Callback = void (*)(QDesignerFormWindowCursorInterface*, libqt_string, QVariant*);
-    using QDesignerFormWindowCursorInterface_SetWidgetProperty_Callback = void (*)(QDesignerFormWindowCursorInterface*, QWidget*, libqt_string, QVariant*);
-    using QDesignerFormWindowCursorInterface_ResetWidgetProperty_Callback = void (*)(QDesignerFormWindowCursorInterface*, QWidget*, libqt_string);
+    using QDesignerFormWindowCursorInterface_SetProperty_Callback = void (*)(QDesignerFormWindowCursorInterface*, const char*, QVariant*);
+    using QDesignerFormWindowCursorInterface_SetWidgetProperty_Callback = void (*)(QDesignerFormWindowCursorInterface*, QWidget*, const char*, QVariant*);
+    using QDesignerFormWindowCursorInterface_ResetWidgetProperty_Callback = void (*)(QDesignerFormWindowCursorInterface*, QWidget*, const char*);
 
   protected:
     // Instance callback storage
@@ -222,19 +222,19 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
     virtual void setProperty(const QString& name, const QVariant& value) override {
         if (qdesignerformwindowcursorinterface_setproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             qdesignerformwindowcursorinterface_setproperty_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
         }
     }
 
@@ -243,19 +243,19 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
         if (qdesignerformwindowcursorinterface_setwidgetproperty_callback != nullptr) {
             QWidget* cbval1 = widget;
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval2 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval2 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
 
             qdesignerformwindowcursorinterface_setwidgetproperty_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(name_str);
         }
     }
 
@@ -264,16 +264,16 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
         if (qdesignerformwindowcursorinterface_resetwidgetproperty_callback != nullptr) {
             QWidget* cbval1 = widget;
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval2 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval2 = name_str;
 
             qdesignerformwindowcursorinterface_resetwidgetproperty_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
         }
     }
 };

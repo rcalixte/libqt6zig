@@ -18,7 +18,7 @@ class VirtualQDesignerMetaDataBaseItemInterface : public QDesignerMetaDataBaseIt
 
     // Virtual class public types (including callbacks)
     using QDesignerMetaDataBaseItemInterface_Name_Callback = const char* (*)();
-    using QDesignerMetaDataBaseItemInterface_SetName_Callback = void (*)(QDesignerMetaDataBaseItemInterface*, libqt_string);
+    using QDesignerMetaDataBaseItemInterface_SetName_Callback = void (*)(QDesignerMetaDataBaseItemInterface*, const char*);
     using QDesignerMetaDataBaseItemInterface_TabOrder_Callback = libqt_list /* of QWidget* */ (*)();
     using QDesignerMetaDataBaseItemInterface_SetTabOrder_Callback = void (*)(QDesignerMetaDataBaseItemInterface*, libqt_list /* of QWidget* */);
     using QDesignerMetaDataBaseItemInterface_Enabled_Callback = bool (*)();
@@ -84,16 +84,16 @@ class VirtualQDesignerMetaDataBaseItemInterface : public QDesignerMetaDataBaseIt
     virtual void setName(const QString& name) override {
         if (qdesignermetadatabaseiteminterface_setname_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             qdesignermetadatabaseiteminterface_setname_callback(this, cbval1);
+            libqt_free(name_str);
         }
     }
 
@@ -129,6 +129,7 @@ class VirtualQDesignerMetaDataBaseItemInterface : public QDesignerMetaDataBaseIt
             libqt_list /* of QWidget* */ cbval1 = tabOrder_out;
 
             qdesignermetadatabaseiteminterface_settaborder_callback(this, cbval1);
+            free(tabOrder_arr);
         }
     }
 

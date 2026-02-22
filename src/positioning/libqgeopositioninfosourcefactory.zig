@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosourcefactory.html)
 pub const qgeopositioninfosourcefactory = struct {
@@ -13,11 +13,11 @@ pub const qgeopositioninfosourcefactory = struct {
     ///
     /// ` parent: QtC.QObject `
     ///
-    /// ` parameters: map_constu8_qtcqvariant `
+    /// ` parameters: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PositionInfoSource(self: ?*anyopaque, parent: ?*anyopaque, parameters: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QGeoPositionInfoSource {
+    pub fn PositionInfoSource(self: ?*anyopaque, parent: ?*anyopaque, parameters: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QGeoPositionInfoSource {
         const parameters_count = parameters.count();
         const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeopositioninfosourcefactory.PositionInfoSource: Memory allocation failed");
         defer allocator.free(parameters_keys);
@@ -49,11 +49,11 @@ pub const qgeopositioninfosourcefactory = struct {
     ///
     /// ` parent: QtC.QObject `
     ///
-    /// ` parameters: map_constu8_qtcqvariant `
+    /// ` parameters: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SatelliteInfoSource(self: ?*anyopaque, parent: ?*anyopaque, parameters: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QGeoSatelliteInfoSource {
+    pub fn SatelliteInfoSource(self: ?*anyopaque, parent: ?*anyopaque, parameters: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QGeoSatelliteInfoSource {
         const parameters_count = parameters.count();
         const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeopositioninfosourcefactory.SatelliteInfoSource: Memory allocation failed");
         defer allocator.free(parameters_keys);
@@ -85,11 +85,11 @@ pub const qgeopositioninfosourcefactory = struct {
     ///
     /// ` parent: QtC.QObject `
     ///
-    /// ` parameters: map_constu8_qtcqvariant `
+    /// ` parameters: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AreaMonitor(self: ?*anyopaque, parent: ?*anyopaque, parameters: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QGeoAreaMonitorSource {
+    pub fn AreaMonitor(self: ?*anyopaque, parent: ?*anyopaque, parameters: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QGeoAreaMonitorSource {
         const parameters_count = parameters.count();
         const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeopositioninfosourcefactory.AreaMonitor: Memory allocation failed");
         defer allocator.free(parameters_keys);

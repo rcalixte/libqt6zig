@@ -18,15 +18,15 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
 
     // Virtual class public types (including callbacks)
     using QDesignerWidgetDataBaseItemInterface_Name_Callback = const char* (*)();
-    using QDesignerWidgetDataBaseItemInterface_SetName_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, libqt_string);
+    using QDesignerWidgetDataBaseItemInterface_SetName_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, const char*);
     using QDesignerWidgetDataBaseItemInterface_Group_Callback = const char* (*)();
-    using QDesignerWidgetDataBaseItemInterface_SetGroup_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, libqt_string);
+    using QDesignerWidgetDataBaseItemInterface_SetGroup_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, const char*);
     using QDesignerWidgetDataBaseItemInterface_ToolTip_Callback = const char* (*)();
-    using QDesignerWidgetDataBaseItemInterface_SetToolTip_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, libqt_string);
+    using QDesignerWidgetDataBaseItemInterface_SetToolTip_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, const char*);
     using QDesignerWidgetDataBaseItemInterface_WhatsThis_Callback = const char* (*)();
-    using QDesignerWidgetDataBaseItemInterface_SetWhatsThis_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, libqt_string);
+    using QDesignerWidgetDataBaseItemInterface_SetWhatsThis_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, const char*);
     using QDesignerWidgetDataBaseItemInterface_IncludeFile_Callback = const char* (*)();
-    using QDesignerWidgetDataBaseItemInterface_SetIncludeFile_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, libqt_string);
+    using QDesignerWidgetDataBaseItemInterface_SetIncludeFile_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, const char*);
     using QDesignerWidgetDataBaseItemInterface_Icon_Callback = QIcon* (*)();
     using QDesignerWidgetDataBaseItemInterface_SetIcon_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, QIcon*);
     using QDesignerWidgetDataBaseItemInterface_IsCompat_Callback = bool (*)();
@@ -36,11 +36,11 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     using QDesignerWidgetDataBaseItemInterface_IsCustom_Callback = bool (*)();
     using QDesignerWidgetDataBaseItemInterface_SetCustom_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, bool);
     using QDesignerWidgetDataBaseItemInterface_PluginPath_Callback = const char* (*)();
-    using QDesignerWidgetDataBaseItemInterface_SetPluginPath_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, libqt_string);
+    using QDesignerWidgetDataBaseItemInterface_SetPluginPath_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, const char*);
     using QDesignerWidgetDataBaseItemInterface_IsPromoted_Callback = bool (*)();
     using QDesignerWidgetDataBaseItemInterface_SetPromoted_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, bool);
     using QDesignerWidgetDataBaseItemInterface_Extends_Callback = const char* (*)();
-    using QDesignerWidgetDataBaseItemInterface_SetExtends_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, libqt_string);
+    using QDesignerWidgetDataBaseItemInterface_SetExtends_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, const char*);
     using QDesignerWidgetDataBaseItemInterface_SetDefaultPropertyValues_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, libqt_list /* of QVariant* */);
     using QDesignerWidgetDataBaseItemInterface_DefaultPropertyValues_Callback = libqt_list /* of QVariant* */ (*)();
 
@@ -204,16 +204,16 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     virtual void setName(const QString& name) override {
         if (qdesignerwidgetdatabaseiteminterface_setname_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             qdesignerwidgetdatabaseiteminterface_setname_callback(this, cbval1);
+            libqt_free(name_str);
         }
     }
 
@@ -232,16 +232,16 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     virtual void setGroup(const QString& group) override {
         if (qdesignerwidgetdatabaseiteminterface_setgroup_callback != nullptr) {
             const QString group_ret = group;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
-            libqt_string group_str;
-            group_str.len = group_b.length();
-            group_str.data = static_cast<const char*>(malloc(group_str.len + 1));
-            memcpy((void*)group_str.data, group_b.data(), group_str.len);
-            ((char*)group_str.data)[group_str.len] = '\0';
-            libqt_string cbval1 = group_str;
+            auto group_str_len = group_b.length();
+            const char* group_str = static_cast<const char*>(malloc(group_str_len + 1));
+            memcpy((void*)group_str, group_b.data(), group_str_len);
+            ((char*)group_str)[group_str_len] = '\0';
+            const char* cbval1 = group_str;
 
             qdesignerwidgetdatabaseiteminterface_setgroup_callback(this, cbval1);
+            libqt_free(group_str);
         }
     }
 
@@ -260,16 +260,16 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     virtual void setToolTip(const QString& toolTip) override {
         if (qdesignerwidgetdatabaseiteminterface_settooltip_callback != nullptr) {
             const QString toolTip_ret = toolTip;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray toolTip_b = toolTip_ret.toUtf8();
-            libqt_string toolTip_str;
-            toolTip_str.len = toolTip_b.length();
-            toolTip_str.data = static_cast<const char*>(malloc(toolTip_str.len + 1));
-            memcpy((void*)toolTip_str.data, toolTip_b.data(), toolTip_str.len);
-            ((char*)toolTip_str.data)[toolTip_str.len] = '\0';
-            libqt_string cbval1 = toolTip_str;
+            auto toolTip_str_len = toolTip_b.length();
+            const char* toolTip_str = static_cast<const char*>(malloc(toolTip_str_len + 1));
+            memcpy((void*)toolTip_str, toolTip_b.data(), toolTip_str_len);
+            ((char*)toolTip_str)[toolTip_str_len] = '\0';
+            const char* cbval1 = toolTip_str;
 
             qdesignerwidgetdatabaseiteminterface_settooltip_callback(this, cbval1);
+            libqt_free(toolTip_str);
         }
     }
 
@@ -288,16 +288,16 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     virtual void setWhatsThis(const QString& whatsThis) override {
         if (qdesignerwidgetdatabaseiteminterface_setwhatsthis_callback != nullptr) {
             const QString whatsThis_ret = whatsThis;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray whatsThis_b = whatsThis_ret.toUtf8();
-            libqt_string whatsThis_str;
-            whatsThis_str.len = whatsThis_b.length();
-            whatsThis_str.data = static_cast<const char*>(malloc(whatsThis_str.len + 1));
-            memcpy((void*)whatsThis_str.data, whatsThis_b.data(), whatsThis_str.len);
-            ((char*)whatsThis_str.data)[whatsThis_str.len] = '\0';
-            libqt_string cbval1 = whatsThis_str;
+            auto whatsThis_str_len = whatsThis_b.length();
+            const char* whatsThis_str = static_cast<const char*>(malloc(whatsThis_str_len + 1));
+            memcpy((void*)whatsThis_str, whatsThis_b.data(), whatsThis_str_len);
+            ((char*)whatsThis_str)[whatsThis_str_len] = '\0';
+            const char* cbval1 = whatsThis_str;
 
             qdesignerwidgetdatabaseiteminterface_setwhatsthis_callback(this, cbval1);
+            libqt_free(whatsThis_str);
         }
     }
 
@@ -316,16 +316,16 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     virtual void setIncludeFile(const QString& includeFile) override {
         if (qdesignerwidgetdatabaseiteminterface_setincludefile_callback != nullptr) {
             const QString includeFile_ret = includeFile;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray includeFile_b = includeFile_ret.toUtf8();
-            libqt_string includeFile_str;
-            includeFile_str.len = includeFile_b.length();
-            includeFile_str.data = static_cast<const char*>(malloc(includeFile_str.len + 1));
-            memcpy((void*)includeFile_str.data, includeFile_b.data(), includeFile_str.len);
-            ((char*)includeFile_str.data)[includeFile_str.len] = '\0';
-            libqt_string cbval1 = includeFile_str;
+            auto includeFile_str_len = includeFile_b.length();
+            const char* includeFile_str = static_cast<const char*>(malloc(includeFile_str_len + 1));
+            memcpy((void*)includeFile_str, includeFile_b.data(), includeFile_str_len);
+            ((char*)includeFile_str)[includeFile_str_len] = '\0';
+            const char* cbval1 = includeFile_str;
 
             qdesignerwidgetdatabaseiteminterface_setincludefile_callback(this, cbval1);
+            libqt_free(includeFile_str);
         }
     }
 
@@ -422,16 +422,16 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     virtual void setPluginPath(const QString& path) override {
         if (qdesignerwidgetdatabaseiteminterface_setpluginpath_callback != nullptr) {
             const QString path_ret = path;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
-            libqt_string path_str;
-            path_str.len = path_b.length();
-            path_str.data = static_cast<const char*>(malloc(path_str.len + 1));
-            memcpy((void*)path_str.data, path_b.data(), path_str.len);
-            ((char*)path_str.data)[path_str.len] = '\0';
-            libqt_string cbval1 = path_str;
+            auto path_str_len = path_b.length();
+            const char* path_str = static_cast<const char*>(malloc(path_str_len + 1));
+            memcpy((void*)path_str, path_b.data(), path_str_len);
+            ((char*)path_str)[path_str_len] = '\0';
+            const char* cbval1 = path_str;
 
             qdesignerwidgetdatabaseiteminterface_setpluginpath_callback(this, cbval1);
+            libqt_free(path_str);
         }
     }
 
@@ -469,16 +469,16 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     virtual void setExtends(const QString& s) override {
         if (qdesignerwidgetdatabaseiteminterface_setextends_callback != nullptr) {
             const QString s_ret = s;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray s_b = s_ret.toUtf8();
-            libqt_string s_str;
-            s_str.len = s_b.length();
-            s_str.data = static_cast<const char*>(malloc(s_str.len + 1));
-            memcpy((void*)s_str.data, s_b.data(), s_str.len);
-            ((char*)s_str.data)[s_str.len] = '\0';
-            libqt_string cbval1 = s_str;
+            auto s_str_len = s_b.length();
+            const char* s_str = static_cast<const char*>(malloc(s_str_len + 1));
+            memcpy((void*)s_str, s_b.data(), s_str_len);
+            ((char*)s_str)[s_str_len] = '\0';
+            const char* cbval1 = s_str;
 
             qdesignerwidgetdatabaseiteminterface_setextends_callback(this, cbval1);
+            libqt_free(s_str);
         }
     }
 
@@ -497,6 +497,7 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
             libqt_list /* of QVariant* */ cbval1 = list_out;
 
             qdesignerwidgetdatabaseiteminterface_setdefaultpropertyvalues_callback(this, cbval1);
+            free(list_arr);
         }
     }
 
@@ -535,7 +536,7 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
     using QDesignerWidgetDataBaseInterface_Insert_Callback = void (*)(QDesignerWidgetDataBaseInterface*, int, QDesignerWidgetDataBaseItemInterface*);
     using QDesignerWidgetDataBaseInterface_Append_Callback = void (*)(QDesignerWidgetDataBaseInterface*, QDesignerWidgetDataBaseItemInterface*);
     using QDesignerWidgetDataBaseInterface_IndexOfObject_Callback = int (*)(const QDesignerWidgetDataBaseInterface*, QObject*, bool);
-    using QDesignerWidgetDataBaseInterface_IndexOfClassName_Callback = int (*)(const QDesignerWidgetDataBaseInterface*, libqt_string, bool);
+    using QDesignerWidgetDataBaseInterface_IndexOfClassName_Callback = int (*)(const QDesignerWidgetDataBaseInterface*, const char*, bool);
     using QDesignerWidgetDataBaseInterface_Core_Callback = QDesignerFormEditorInterface* (*)();
     using QDesignerWidgetDataBaseInterface_Event_Callback = bool (*)(QDesignerWidgetDataBaseInterface*, QEvent*);
     using QDesignerWidgetDataBaseInterface_EventFilter_Callback = bool (*)(QDesignerWidgetDataBaseInterface*, QObject*, QEvent*);
@@ -815,17 +816,17 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
             return QDesignerWidgetDataBaseInterface::indexOfClassName(className, resolveName);
         } else if (qdesignerwidgetdatabaseinterface_indexofclassname_callback != nullptr) {
             const QString className_ret = className;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray className_b = className_ret.toUtf8();
-            libqt_string className_str;
-            className_str.len = className_b.length();
-            className_str.data = static_cast<const char*>(malloc(className_str.len + 1));
-            memcpy((void*)className_str.data, className_b.data(), className_str.len);
-            ((char*)className_str.data)[className_str.len] = '\0';
-            libqt_string cbval1 = className_str;
+            auto className_str_len = className_b.length();
+            const char* className_str = static_cast<const char*>(malloc(className_str_len + 1));
+            memcpy((void*)className_str, className_b.data(), className_str_len);
+            ((char*)className_str)[className_str_len] = '\0';
+            const char* cbval1 = className_str;
             bool cbval2 = resolveName;
 
             int callback_ret = qdesignerwidgetdatabaseinterface_indexofclassname_callback(this, cbval1, cbval2);
+            libqt_free(className_str);
             return static_cast<int>(callback_ret);
         } else {
             return QDesignerWidgetDataBaseInterface::indexOfClassName(className, resolveName);

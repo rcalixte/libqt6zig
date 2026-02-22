@@ -21,15 +21,15 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
     using KParts__MainWindow_Metacast_Callback = void* (*)(KParts__MainWindow*, const char*);
     using KParts__MainWindow_Metacall_Callback = int (*)(KParts__MainWindow*, int, int, void**);
     using KParts__MainWindow_ConfigureToolbars_Callback = void (*)();
-    using KParts__MainWindow_SlotSetStatusBarText_Callback = void (*)(KParts__MainWindow*, libqt_string);
+    using KParts__MainWindow_SlotSetStatusBarText_Callback = void (*)(KParts__MainWindow*, const char*);
     using KParts__MainWindow_SaveNewToolbarConfig_Callback = void (*)();
     using KParts__MainWindow_CreateShellGUI_Callback = void (*)(KParts__MainWindow*, bool);
     using KParts__MainWindow_GuiFactory_Callback = KXMLGUIFactory* (*)();
     using KParts__MainWindow_ApplyMainWindowSettings_Callback = void (*)(KParts__MainWindow*, KConfigGroup*);
-    using KParts__MainWindow_SlotStateChanged_Callback = void (*)(KParts__MainWindow*, libqt_string);
+    using KParts__MainWindow_SlotStateChanged_Callback = void (*)(KParts__MainWindow*, const char*);
     using KParts__MainWindow_Event_Callback = bool (*)(KParts__MainWindow*, QEvent*);
-    using KParts__MainWindow_SetCaption_Callback = void (*)(KParts__MainWindow*, libqt_string);
-    using KParts__MainWindow_SetPlainCaption_Callback = void (*)(KParts__MainWindow*, libqt_string);
+    using KParts__MainWindow_SetCaption_Callback = void (*)(KParts__MainWindow*, const char*);
+    using KParts__MainWindow_SetPlainCaption_Callback = void (*)(KParts__MainWindow*, const char*);
     using KParts__MainWindow_KeyPressEvent_Callback = void (*)(KParts__MainWindow*, QKeyEvent*);
     using KParts__MainWindow_CloseEvent_Callback = void (*)(KParts__MainWindow*, QCloseEvent*);
     using KParts__MainWindow_QueryClose_Callback = bool (*)();
@@ -94,12 +94,12 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
     using KParts__MainWindow_DomDocument_Callback = QDomDocument* (*)();
     using KParts__MainWindow_XmlFile_Callback = const char* (*)();
     using KParts__MainWindow_LocalXMLFile_Callback = const char* (*)();
-    using KParts__MainWindow_SetComponentName_Callback = void (*)(KParts__MainWindow*, libqt_string, libqt_string);
-    using KParts__MainWindow_SetXMLFile_Callback = void (*)(KParts__MainWindow*, libqt_string, bool, bool);
-    using KParts__MainWindow_SetLocalXMLFile_Callback = void (*)(KParts__MainWindow*, libqt_string);
-    using KParts__MainWindow_SetXML_Callback = void (*)(KParts__MainWindow*, libqt_string, bool);
+    using KParts__MainWindow_SetComponentName_Callback = void (*)(KParts__MainWindow*, const char*, const char*);
+    using KParts__MainWindow_SetXMLFile_Callback = void (*)(KParts__MainWindow*, const char*, bool, bool);
+    using KParts__MainWindow_SetLocalXMLFile_Callback = void (*)(KParts__MainWindow*, const char*);
+    using KParts__MainWindow_SetXML_Callback = void (*)(KParts__MainWindow*, const char*, bool);
     using KParts__MainWindow_SetDOMDocument_Callback = void (*)(KParts__MainWindow*, QDomDocument*, bool);
-    using KParts__MainWindow_StateChanged_Callback = void (*)(KParts__MainWindow*, libqt_string, int);
+    using KParts__MainWindow_StateChanged_Callback = void (*)(KParts__MainWindow*, const char*, int);
     using KParts__MainWindow_CreateGUI_Callback = void (*)(KParts__MainWindow*, KParts__Part*);
     using KParts__MainWindow_SetWindowTitleHandling_Callback = void (*)(KParts__MainWindow*, bool);
     using KParts__MainWindow_CheckAmbiguousShortcuts_Callback = void (*)();
@@ -711,16 +711,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             KParts__MainWindow::slotSetStatusBarText(param1);
         } else if (kparts__mainwindow_slotsetstatusbartext_callback != nullptr) {
             const QString param1_ret = param1;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
-            libqt_string param1_str;
-            param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-            ((char*)param1_str.data)[param1_str.len] = '\0';
-            libqt_string cbval1 = param1_str;
+            auto param1_str_len = param1_b.length();
+            const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+            memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+            ((char*)param1_str)[param1_str_len] = '\0';
+            const char* cbval1 = param1_str;
 
             kparts__mainwindow_slotsetstatusbartext_callback(this, cbval1);
+            libqt_free(param1_str);
         } else {
             KParts__MainWindow::slotSetStatusBarText(param1);
         }
@@ -788,16 +788,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             KParts__MainWindow::slotStateChanged(newstate);
         } else if (kparts__mainwindow_slotstatechanged_callback != nullptr) {
             const QString newstate_ret = newstate;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
-            libqt_string newstate_str;
-            newstate_str.len = newstate_b.length();
-            newstate_str.data = static_cast<const char*>(malloc(newstate_str.len + 1));
-            memcpy((void*)newstate_str.data, newstate_b.data(), newstate_str.len);
-            ((char*)newstate_str.data)[newstate_str.len] = '\0';
-            libqt_string cbval1 = newstate_str;
+            auto newstate_str_len = newstate_b.length();
+            const char* newstate_str = static_cast<const char*>(malloc(newstate_str_len + 1));
+            memcpy((void*)newstate_str, newstate_b.data(), newstate_str_len);
+            ((char*)newstate_str)[newstate_str_len] = '\0';
+            const char* cbval1 = newstate_str;
 
             kparts__mainwindow_slotstatechanged_callback(this, cbval1);
+            libqt_free(newstate_str);
         } else {
             KParts__MainWindow::slotStateChanged(newstate);
         }
@@ -825,16 +825,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             KParts__MainWindow::setCaption(caption);
         } else if (kparts__mainwindow_setcaption_callback != nullptr) {
             const QString caption_ret = caption;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
-            libqt_string caption_str;
-            caption_str.len = caption_b.length();
-            caption_str.data = static_cast<const char*>(malloc(caption_str.len + 1));
-            memcpy((void*)caption_str.data, caption_b.data(), caption_str.len);
-            ((char*)caption_str.data)[caption_str.len] = '\0';
-            libqt_string cbval1 = caption_str;
+            auto caption_str_len = caption_b.length();
+            const char* caption_str = static_cast<const char*>(malloc(caption_str_len + 1));
+            memcpy((void*)caption_str, caption_b.data(), caption_str_len);
+            ((char*)caption_str)[caption_str_len] = '\0';
+            const char* cbval1 = caption_str;
 
             kparts__mainwindow_setcaption_callback(this, cbval1);
+            libqt_free(caption_str);
         } else {
             KParts__MainWindow::setCaption(caption);
         }
@@ -847,16 +847,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             KParts__MainWindow::setPlainCaption(caption);
         } else if (kparts__mainwindow_setplaincaption_callback != nullptr) {
             const QString caption_ret = caption;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
-            libqt_string caption_str;
-            caption_str.len = caption_b.length();
-            caption_str.data = static_cast<const char*>(malloc(caption_str.len + 1));
-            memcpy((void*)caption_str.data, caption_b.data(), caption_str.len);
-            ((char*)caption_str.data)[caption_str.len] = '\0';
-            libqt_string cbval1 = caption_str;
+            auto caption_str_len = caption_b.length();
+            const char* caption_str = static_cast<const char*>(malloc(caption_str_len + 1));
+            memcpy((void*)caption_str, caption_b.data(), caption_str_len);
+            ((char*)caption_str)[caption_str_len] = '\0';
+            const char* cbval1 = caption_str;
 
             kparts__mainwindow_setplaincaption_callback(this, cbval1);
+            libqt_free(caption_str);
         } else {
             KParts__MainWindow::setPlainCaption(caption);
         }
@@ -1395,6 +1395,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kparts__mainwindow_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KParts__MainWindow::nativeEvent(eventType, message, result);
@@ -1816,25 +1817,25 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             KParts__MainWindow::setComponentName(componentName, componentDisplayName);
         } else if (kparts__mainwindow_setcomponentname_callback != nullptr) {
             const QString componentName_ret = componentName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentName_b = componentName_ret.toUtf8();
-            libqt_string componentName_str;
-            componentName_str.len = componentName_b.length();
-            componentName_str.data = static_cast<const char*>(malloc(componentName_str.len + 1));
-            memcpy((void*)componentName_str.data, componentName_b.data(), componentName_str.len);
-            ((char*)componentName_str.data)[componentName_str.len] = '\0';
-            libqt_string cbval1 = componentName_str;
+            auto componentName_str_len = componentName_b.length();
+            const char* componentName_str = static_cast<const char*>(malloc(componentName_str_len + 1));
+            memcpy((void*)componentName_str, componentName_b.data(), componentName_str_len);
+            ((char*)componentName_str)[componentName_str_len] = '\0';
+            const char* cbval1 = componentName_str;
             const QString componentDisplayName_ret = componentDisplayName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentDisplayName_b = componentDisplayName_ret.toUtf8();
-            libqt_string componentDisplayName_str;
-            componentDisplayName_str.len = componentDisplayName_b.length();
-            componentDisplayName_str.data = static_cast<const char*>(malloc(componentDisplayName_str.len + 1));
-            memcpy((void*)componentDisplayName_str.data, componentDisplayName_b.data(), componentDisplayName_str.len);
-            ((char*)componentDisplayName_str.data)[componentDisplayName_str.len] = '\0';
-            libqt_string cbval2 = componentDisplayName_str;
+            auto componentDisplayName_str_len = componentDisplayName_b.length();
+            const char* componentDisplayName_str = static_cast<const char*>(malloc(componentDisplayName_str_len + 1));
+            memcpy((void*)componentDisplayName_str, componentDisplayName_b.data(), componentDisplayName_str_len);
+            ((char*)componentDisplayName_str)[componentDisplayName_str_len] = '\0';
+            const char* cbval2 = componentDisplayName_str;
 
             kparts__mainwindow_setcomponentname_callback(this, cbval1, cbval2);
+            libqt_free(componentName_str);
+            libqt_free(componentDisplayName_str);
         } else {
             KParts__MainWindow::setComponentName(componentName, componentDisplayName);
         }
@@ -1847,18 +1848,18 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             KParts__MainWindow::setXMLFile(file, merge, setXMLDoc);
         } else if (kparts__mainwindow_setxmlfile_callback != nullptr) {
             const QString file_ret = file;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
-            libqt_string file_str;
-            file_str.len = file_b.length();
-            file_str.data = static_cast<const char*>(malloc(file_str.len + 1));
-            memcpy((void*)file_str.data, file_b.data(), file_str.len);
-            ((char*)file_str.data)[file_str.len] = '\0';
-            libqt_string cbval1 = file_str;
+            auto file_str_len = file_b.length();
+            const char* file_str = static_cast<const char*>(malloc(file_str_len + 1));
+            memcpy((void*)file_str, file_b.data(), file_str_len);
+            ((char*)file_str)[file_str_len] = '\0';
+            const char* cbval1 = file_str;
             bool cbval2 = merge;
             bool cbval3 = setXMLDoc;
 
             kparts__mainwindow_setxmlfile_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(file_str);
         } else {
             KParts__MainWindow::setXMLFile(file, merge, setXMLDoc);
         }
@@ -1871,16 +1872,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             KParts__MainWindow::setLocalXMLFile(file);
         } else if (kparts__mainwindow_setlocalxmlfile_callback != nullptr) {
             const QString file_ret = file;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
-            libqt_string file_str;
-            file_str.len = file_b.length();
-            file_str.data = static_cast<const char*>(malloc(file_str.len + 1));
-            memcpy((void*)file_str.data, file_b.data(), file_str.len);
-            ((char*)file_str.data)[file_str.len] = '\0';
-            libqt_string cbval1 = file_str;
+            auto file_str_len = file_b.length();
+            const char* file_str = static_cast<const char*>(malloc(file_str_len + 1));
+            memcpy((void*)file_str, file_b.data(), file_str_len);
+            ((char*)file_str)[file_str_len] = '\0';
+            const char* cbval1 = file_str;
 
             kparts__mainwindow_setlocalxmlfile_callback(this, cbval1);
+            libqt_free(file_str);
         } else {
             KParts__MainWindow::setLocalXMLFile(file);
         }
@@ -1893,17 +1894,17 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             KParts__MainWindow::setXML(document, merge);
         } else if (kparts__mainwindow_setxml_callback != nullptr) {
             const QString document_ret = document;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray document_b = document_ret.toUtf8();
-            libqt_string document_str;
-            document_str.len = document_b.length();
-            document_str.data = static_cast<const char*>(malloc(document_str.len + 1));
-            memcpy((void*)document_str.data, document_b.data(), document_str.len);
-            ((char*)document_str.data)[document_str.len] = '\0';
-            libqt_string cbval1 = document_str;
+            auto document_str_len = document_b.length();
+            const char* document_str = static_cast<const char*>(malloc(document_str_len + 1));
+            memcpy((void*)document_str, document_b.data(), document_str_len);
+            ((char*)document_str)[document_str_len] = '\0';
+            const char* cbval1 = document_str;
             bool cbval2 = merge;
 
             kparts__mainwindow_setxml_callback(this, cbval1, cbval2);
+            libqt_free(document_str);
         } else {
             KParts__MainWindow::setXML(document, merge);
         }
@@ -1933,17 +1934,17 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             KParts__MainWindow::stateChanged(newstate, reverse);
         } else if (kparts__mainwindow_statechanged_callback != nullptr) {
             const QString newstate_ret = newstate;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
-            libqt_string newstate_str;
-            newstate_str.len = newstate_b.length();
-            newstate_str.data = static_cast<const char*>(malloc(newstate_str.len + 1));
-            memcpy((void*)newstate_str.data, newstate_b.data(), newstate_str.len);
-            ((char*)newstate_str.data)[newstate_str.len] = '\0';
-            libqt_string cbval1 = newstate_str;
+            auto newstate_str_len = newstate_b.length();
+            const char* newstate_str = static_cast<const char*>(malloc(newstate_str_len + 1));
+            memcpy((void*)newstate_str, newstate_b.data(), newstate_str_len);
+            ((char*)newstate_str)[newstate_str_len] = '\0';
+            const char* cbval1 = newstate_str;
             int cbval2 = static_cast<int>(reverse);
 
             kparts__mainwindow_statechanged_callback(this, cbval1, cbval2);
+            libqt_free(newstate_str);
         } else {
             KParts__MainWindow::stateChanged(newstate, reverse);
         }

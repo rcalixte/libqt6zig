@@ -492,7 +492,7 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void setAlignment(QFlags<Qt::AlignmentFlag> alignment) override {
+    virtual void setAlignment(Qt::Alignment alignment) override {
         if (ksqueezedtextlabel_setalignment_isbase) {
             ksqueezedtextlabel_setalignment_isbase = false;
             KSqueezedTextLabel::setAlignment(alignment);
@@ -984,6 +984,7 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = ksqueezedtextlabel_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KSqueezedTextLabel::nativeEvent(eventType, message, result);

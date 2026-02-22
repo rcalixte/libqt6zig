@@ -363,9 +363,10 @@ void QWebSocketServer_Connect_AlertSent(QWebSocketServer* self, intptr_t slot) {
         const QString description_ret = description;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray description_b = description_ret.toUtf8();
-        const char* description_str = static_cast<const char*>(malloc(description_b.length() + 1));
-        memcpy((void*)description_str, description_b.data(), description_b.length());
-        ((char*)description_str)[description_b.length()] = '\0';
+        auto description_str_len = description_b.length();
+        const char* description_str = static_cast<const char*>(malloc(description_str_len + 1));
+        memcpy((void*)description_str, description_b.data(), description_str_len);
+        ((char*)description_str)[description_str_len] = '\0';
         const char* sigval3 = description_str;
         slotFunc(self, sigval1, sigval2, sigval3);
         libqt_free(description_str);
@@ -385,9 +386,10 @@ void QWebSocketServer_Connect_AlertReceived(QWebSocketServer* self, intptr_t slo
         const QString description_ret = description;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray description_b = description_ret.toUtf8();
-        const char* description_str = static_cast<const char*>(malloc(description_b.length() + 1));
-        memcpy((void*)description_str, description_b.data(), description_b.length());
-        ((char*)description_str)[description_b.length()] = '\0';
+        auto description_str_len = description_b.length();
+        const char* description_str = static_cast<const char*>(malloc(description_str_len + 1));
+        memcpy((void*)description_str, description_b.data(), description_str_len);
+        ((char*)description_str)[description_str_len] = '\0';
         const char* sigval3 = description_str;
         slotFunc(self, sigval1, sigval2, sigval3);
         libqt_free(description_str);

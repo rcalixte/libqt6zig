@@ -23,7 +23,7 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
     using QDesignerIntegrationInterface_ContainerWindow_Callback = QWidget* (*)(const QDesignerIntegrationInterface*, QWidget*);
     using QDesignerIntegrationInterface_CreateResourceBrowser_Callback = QDesignerResourceBrowserInterface* (*)(QDesignerIntegrationInterface*, QWidget*);
     using QDesignerIntegrationInterface_HeaderSuffix_Callback = const char* (*)();
-    using QDesignerIntegrationInterface_SetHeaderSuffix_Callback = void (*)(QDesignerIntegrationInterface*, libqt_string);
+    using QDesignerIntegrationInterface_SetHeaderSuffix_Callback = void (*)(QDesignerIntegrationInterface*, const char*);
     using QDesignerIntegrationInterface_IsHeaderLowercase_Callback = bool (*)();
     using QDesignerIntegrationInterface_SetHeaderLowercase_Callback = void (*)(QDesignerIntegrationInterface*, bool);
     using QDesignerIntegrationInterface_Features_Callback = int (*)();
@@ -31,11 +31,11 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
     using QDesignerIntegrationInterface_SetResourceFileWatcherBehaviour_Callback = void (*)(QDesignerIntegrationInterface*, int);
     using QDesignerIntegrationInterface_ContextHelpId_Callback = const char* (*)();
     using QDesignerIntegrationInterface_SetFeatures_Callback = void (*)(QDesignerIntegrationInterface*, int);
-    using QDesignerIntegrationInterface_UpdateProperty_Callback = void (*)(QDesignerIntegrationInterface*, libqt_string, QVariant*, bool);
-    using QDesignerIntegrationInterface_UpdateProperty2_Callback = void (*)(QDesignerIntegrationInterface*, libqt_string, QVariant*);
-    using QDesignerIntegrationInterface_ResetProperty_Callback = void (*)(QDesignerIntegrationInterface*, libqt_string);
-    using QDesignerIntegrationInterface_AddDynamicProperty_Callback = void (*)(QDesignerIntegrationInterface*, libqt_string, QVariant*);
-    using QDesignerIntegrationInterface_RemoveDynamicProperty_Callback = void (*)(QDesignerIntegrationInterface*, libqt_string);
+    using QDesignerIntegrationInterface_UpdateProperty_Callback = void (*)(QDesignerIntegrationInterface*, const char*, QVariant*, bool);
+    using QDesignerIntegrationInterface_UpdateProperty2_Callback = void (*)(QDesignerIntegrationInterface*, const char*, QVariant*);
+    using QDesignerIntegrationInterface_ResetProperty_Callback = void (*)(QDesignerIntegrationInterface*, const char*);
+    using QDesignerIntegrationInterface_AddDynamicProperty_Callback = void (*)(QDesignerIntegrationInterface*, const char*, QVariant*);
+    using QDesignerIntegrationInterface_RemoveDynamicProperty_Callback = void (*)(QDesignerIntegrationInterface*, const char*);
     using QDesignerIntegrationInterface_UpdateActiveFormWindow_Callback = void (*)(QDesignerIntegrationInterface*, QDesignerFormWindowInterface*);
     using QDesignerIntegrationInterface_SetupFormWindow_Callback = void (*)(QDesignerIntegrationInterface*, QDesignerFormWindowInterface*);
     using QDesignerIntegrationInterface_UpdateSelection_Callback = void (*)();
@@ -322,16 +322,16 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
     virtual void setHeaderSuffix(const QString& headerSuffix) override {
         if (qdesignerintegrationinterface_setheadersuffix_callback != nullptr) {
             const QString headerSuffix_ret = headerSuffix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray headerSuffix_b = headerSuffix_ret.toUtf8();
-            libqt_string headerSuffix_str;
-            headerSuffix_str.len = headerSuffix_b.length();
-            headerSuffix_str.data = static_cast<const char*>(malloc(headerSuffix_str.len + 1));
-            memcpy((void*)headerSuffix_str.data, headerSuffix_b.data(), headerSuffix_str.len);
-            ((char*)headerSuffix_str.data)[headerSuffix_str.len] = '\0';
-            libqt_string cbval1 = headerSuffix_str;
+            auto headerSuffix_str_len = headerSuffix_b.length();
+            const char* headerSuffix_str = static_cast<const char*>(malloc(headerSuffix_str_len + 1));
+            memcpy((void*)headerSuffix_str, headerSuffix_b.data(), headerSuffix_str_len);
+            ((char*)headerSuffix_str)[headerSuffix_str_len] = '\0';
+            const char* cbval1 = headerSuffix_str;
 
             qdesignerintegrationinterface_setheadersuffix_callback(this, cbval1);
+            libqt_free(headerSuffix_str);
         }
     }
 
@@ -407,20 +407,20 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
     virtual void updateProperty(const QString& name, const QVariant& value, bool enableSubPropertyHandling) override {
         if (qdesignerintegrationinterface_updateproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             bool cbval3 = enableSubPropertyHandling;
 
             qdesignerintegrationinterface_updateproperty_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(name_str);
         }
     }
 
@@ -428,19 +428,19 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
     virtual void updateProperty(const QString& name, const QVariant& value) override {
         if (qdesignerintegrationinterface_updateproperty2_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             qdesignerintegrationinterface_updateproperty2_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
         }
     }
 
@@ -448,16 +448,16 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
     virtual void resetProperty(const QString& name) override {
         if (qdesignerintegrationinterface_resetproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             qdesignerintegrationinterface_resetproperty_callback(this, cbval1);
+            libqt_free(name_str);
         }
     }
 
@@ -465,19 +465,19 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
     virtual void addDynamicProperty(const QString& name, const QVariant& value) override {
         if (qdesignerintegrationinterface_adddynamicproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             qdesignerintegrationinterface_adddynamicproperty_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
         }
     }
 
@@ -485,16 +485,16 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
     virtual void removeDynamicProperty(const QString& name) override {
         if (qdesignerintegrationinterface_removedynamicproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             qdesignerintegrationinterface_removedynamicproperty_callback(this, cbval1);
+            libqt_free(name_str);
         }
     }
 
@@ -726,7 +726,7 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
     using QDesignerIntegration_Metacast_Callback = void* (*)(QDesignerIntegration*, const char*);
     using QDesignerIntegration_Metacall_Callback = int (*)(QDesignerIntegration*, int, int, void**);
     using QDesignerIntegration_HeaderSuffix_Callback = const char* (*)();
-    using QDesignerIntegration_SetHeaderSuffix_Callback = void (*)(QDesignerIntegration*, libqt_string);
+    using QDesignerIntegration_SetHeaderSuffix_Callback = void (*)(QDesignerIntegration*, const char*);
     using QDesignerIntegration_IsHeaderLowercase_Callback = bool (*)();
     using QDesignerIntegration_SetHeaderLowercase_Callback = void (*)(QDesignerIntegration*, bool);
     using QDesignerIntegration_Features_Callback = int (*)();
@@ -736,11 +736,11 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
     using QDesignerIntegration_ContainerWindow_Callback = QWidget* (*)(const QDesignerIntegration*, QWidget*);
     using QDesignerIntegration_CreateResourceBrowser_Callback = QDesignerResourceBrowserInterface* (*)(QDesignerIntegration*, QWidget*);
     using QDesignerIntegration_ContextHelpId_Callback = const char* (*)();
-    using QDesignerIntegration_UpdateProperty_Callback = void (*)(QDesignerIntegration*, libqt_string, QVariant*, bool);
-    using QDesignerIntegration_UpdateProperty2_Callback = void (*)(QDesignerIntegration*, libqt_string, QVariant*);
-    using QDesignerIntegration_ResetProperty_Callback = void (*)(QDesignerIntegration*, libqt_string);
-    using QDesignerIntegration_AddDynamicProperty_Callback = void (*)(QDesignerIntegration*, libqt_string, QVariant*);
-    using QDesignerIntegration_RemoveDynamicProperty_Callback = void (*)(QDesignerIntegration*, libqt_string);
+    using QDesignerIntegration_UpdateProperty_Callback = void (*)(QDesignerIntegration*, const char*, QVariant*, bool);
+    using QDesignerIntegration_UpdateProperty2_Callback = void (*)(QDesignerIntegration*, const char*, QVariant*);
+    using QDesignerIntegration_ResetProperty_Callback = void (*)(QDesignerIntegration*, const char*);
+    using QDesignerIntegration_AddDynamicProperty_Callback = void (*)(QDesignerIntegration*, const char*, QVariant*);
+    using QDesignerIntegration_RemoveDynamicProperty_Callback = void (*)(QDesignerIntegration*, const char*);
     using QDesignerIntegration_UpdateActiveFormWindow_Callback = void (*)(QDesignerIntegration*, QDesignerFormWindowInterface*);
     using QDesignerIntegration_SetupFormWindow_Callback = void (*)(QDesignerIntegration*, QDesignerFormWindowInterface*);
     using QDesignerIntegration_UpdateSelection_Callback = void (*)();
@@ -1009,16 +1009,16 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             QDesignerIntegration::setHeaderSuffix(headerSuffix);
         } else if (qdesignerintegration_setheadersuffix_callback != nullptr) {
             const QString headerSuffix_ret = headerSuffix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray headerSuffix_b = headerSuffix_ret.toUtf8();
-            libqt_string headerSuffix_str;
-            headerSuffix_str.len = headerSuffix_b.length();
-            headerSuffix_str.data = static_cast<const char*>(malloc(headerSuffix_str.len + 1));
-            memcpy((void*)headerSuffix_str.data, headerSuffix_b.data(), headerSuffix_str.len);
-            ((char*)headerSuffix_str.data)[headerSuffix_str.len] = '\0';
-            libqt_string cbval1 = headerSuffix_str;
+            auto headerSuffix_str_len = headerSuffix_b.length();
+            const char* headerSuffix_str = static_cast<const char*>(malloc(headerSuffix_str_len + 1));
+            memcpy((void*)headerSuffix_str, headerSuffix_b.data(), headerSuffix_str_len);
+            ((char*)headerSuffix_str)[headerSuffix_str_len] = '\0';
+            const char* cbval1 = headerSuffix_str;
 
             qdesignerintegration_setheadersuffix_callback(this, cbval1);
+            libqt_free(headerSuffix_str);
         } else {
             QDesignerIntegration::setHeaderSuffix(headerSuffix);
         }
@@ -1156,20 +1156,20 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             QDesignerIntegration::updateProperty(name, value, enableSubPropertyHandling);
         } else if (qdesignerintegration_updateproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             bool cbval3 = enableSubPropertyHandling;
 
             qdesignerintegration_updateproperty_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(name_str);
         } else {
             QDesignerIntegration::updateProperty(name, value, enableSubPropertyHandling);
         }
@@ -1182,19 +1182,19 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             QDesignerIntegration::updateProperty(name, value);
         } else if (qdesignerintegration_updateproperty2_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             qdesignerintegration_updateproperty2_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
         } else {
             QDesignerIntegration::updateProperty(name, value);
         }
@@ -1207,16 +1207,16 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             QDesignerIntegration::resetProperty(name);
         } else if (qdesignerintegration_resetproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             qdesignerintegration_resetproperty_callback(this, cbval1);
+            libqt_free(name_str);
         } else {
             QDesignerIntegration::resetProperty(name);
         }
@@ -1229,19 +1229,19 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             QDesignerIntegration::addDynamicProperty(name, value);
         } else if (qdesignerintegration_adddynamicproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             qdesignerintegration_adddynamicproperty_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
         } else {
             QDesignerIntegration::addDynamicProperty(name, value);
         }
@@ -1254,16 +1254,16 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             QDesignerIntegration::removeDynamicProperty(name);
         } else if (qdesignerintegration_removedynamicproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             qdesignerintegration_removedynamicproperty_callback(this, cbval1);
+            libqt_free(name_str);
         } else {
             QDesignerIntegration::removeDynamicProperty(name);
         }

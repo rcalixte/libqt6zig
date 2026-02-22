@@ -21,8 +21,8 @@ class VirtualKFontRequester final : public KFontRequester {
     using KFontRequester_Metacast_Callback = void* (*)(KFontRequester*, const char*);
     using KFontRequester_Metacall_Callback = int (*)(KFontRequester*, int, int, void**);
     using KFontRequester_SetFont_Callback = void (*)(KFontRequester*, QFont*, bool);
-    using KFontRequester_SetSampleText_Callback = void (*)(KFontRequester*, libqt_string);
-    using KFontRequester_SetTitle_Callback = void (*)(KFontRequester*, libqt_string);
+    using KFontRequester_SetSampleText_Callback = void (*)(KFontRequester*, const char*);
+    using KFontRequester_SetTitle_Callback = void (*)(KFontRequester*, const char*);
     using KFontRequester_EventFilter_Callback = bool (*)(KFontRequester*, QObject*, QEvent*);
     using KFontRequester_DevType_Callback = int (*)();
     using KFontRequester_SetVisible_Callback = void (*)(KFontRequester*, bool);
@@ -482,16 +482,16 @@ class VirtualKFontRequester final : public KFontRequester {
             KFontRequester::setSampleText(text);
         } else if (kfontrequester_setsampletext_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             kfontrequester_setsampletext_callback(this, cbval1);
+            libqt_free(text_str);
         } else {
             KFontRequester::setSampleText(text);
         }
@@ -504,16 +504,16 @@ class VirtualKFontRequester final : public KFontRequester {
             KFontRequester::setTitle(title);
         } else if (kfontrequester_settitle_callback != nullptr) {
             const QString title_ret = title;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray title_b = title_ret.toUtf8();
-            libqt_string title_str;
-            title_str.len = title_b.length();
-            title_str.data = static_cast<const char*>(malloc(title_str.len + 1));
-            memcpy((void*)title_str.data, title_b.data(), title_str.len);
-            ((char*)title_str.data)[title_str.len] = '\0';
-            libqt_string cbval1 = title_str;
+            auto title_str_len = title_b.length();
+            const char* title_str = static_cast<const char*>(malloc(title_str_len + 1));
+            memcpy((void*)title_str, title_b.data(), title_str_len);
+            ((char*)title_str)[title_str_len] = '\0';
+            const char* cbval1 = title_str;
 
             kfontrequester_settitle_callback(this, cbval1);
+            libqt_free(title_str);
         } else {
             KFontRequester::setTitle(title);
         }
@@ -997,6 +997,7 @@ class VirtualKFontRequester final : public KFontRequester {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kfontrequester_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KFontRequester::nativeEvent(eventType, message, result);

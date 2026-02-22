@@ -45,7 +45,7 @@ class VirtualQLocalSocket final : public QLocalSocket {
     using QLocalSocket_ConnectNotify_Callback = void (*)(QLocalSocket*, QMetaMethod*);
     using QLocalSocket_DisconnectNotify_Callback = void (*)(QLocalSocket*, QMetaMethod*);
     using QLocalSocket_SetOpenMode_Callback = void (*)(QLocalSocket*, int);
-    using QLocalSocket_SetErrorString_Callback = void (*)(QLocalSocket*, libqt_string);
+    using QLocalSocket_SetErrorString_Callback = void (*)(QLocalSocket*, const char*);
     using QLocalSocket_Sender_Callback = QObject* (*)();
     using QLocalSocket_SenderSignalIndex_Callback = int (*)();
     using QLocalSocket_Receivers_Callback = int (*)(const QLocalSocket*, const char*);
@@ -387,13 +387,13 @@ class VirtualQLocalSocket final : public QLocalSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual qint64 readData(char* param1, long long param2) override {
+    virtual qint64 readData(char* param1, qint64 param2) override {
         if (qlocalsocket_readdata_isbase) {
             qlocalsocket_readdata_isbase = false;
             return QLocalSocket::readData(param1, param2);
         } else if (qlocalsocket_readdata_callback != nullptr) {
             char* cbval1 = param1;
-            long long cbval2 = param2;
+            long long cbval2 = static_cast<long long>(param2);
 
             long long callback_ret = qlocalsocket_readdata_callback(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
@@ -434,13 +434,13 @@ class VirtualQLocalSocket final : public QLocalSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual qint64 writeData(const char* param1, long long param2) override {
+    virtual qint64 writeData(const char* param1, qint64 param2) override {
         if (qlocalsocket_writedata_isbase) {
             qlocalsocket_writedata_isbase = false;
             return QLocalSocket::writeData(param1, param2);
         } else if (qlocalsocket_writedata_callback != nullptr) {
             const char* cbval1 = (const char*)param1;
-            long long cbval2 = param2;
+            long long cbval2 = static_cast<long long>(param2);
 
             long long callback_ret = qlocalsocket_writedata_callback(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
@@ -642,16 +642,16 @@ class VirtualQLocalSocket final : public QLocalSocket {
             QLocalSocket::setErrorString(errorString);
         } else if (qlocalsocket_seterrorstring_callback != nullptr) {
             const QString errorString_ret = errorString;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
-            libqt_string errorString_str;
-            errorString_str.len = errorString_b.length();
-            errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
-            memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
-            ((char*)errorString_str.data)[errorString_str.len] = '\0';
-            libqt_string cbval1 = errorString_str;
+            auto errorString_str_len = errorString_b.length();
+            const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+            memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+            ((char*)errorString_str)[errorString_str_len] = '\0';
+            const char* cbval1 = errorString_str;
 
             qlocalsocket_seterrorstring_callback(this, cbval1);
+            libqt_free(errorString_str);
         } else {
             QLocalSocket::setErrorString(errorString);
         }

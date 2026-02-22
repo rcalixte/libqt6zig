@@ -93,16 +93,17 @@ void SignOn__AuthSession_Connect_MechanismsAvailable(SignOn__AuthSession* self, 
         const char** mechanisms_arr = static_cast<const char**>(malloc(sizeof(const char*) * (mechanisms_ret.size() + 1)));
         for (qsizetype i = 0; i < mechanisms_ret.size(); ++i) {
             QByteArray mechanisms_b = mechanisms_ret[i].toUtf8();
-            char* mechanisms_str = static_cast<char*>(malloc(mechanisms_b.length() + 1));
-            memcpy(mechanisms_str, mechanisms_b.data(), mechanisms_b.length());
-            mechanisms_str[mechanisms_b.length()] = '\0';
+            auto mechanisms_str_len = mechanisms_b.length();
+            char* mechanisms_str = static_cast<char*>(malloc(mechanisms_str_len + 1));
+            memcpy(mechanisms_str, mechanisms_b.data(), mechanisms_str_len);
+            mechanisms_str[mechanisms_str_len] = '\0';
             mechanisms_arr[i] = mechanisms_str;
         }
         // Append sentinel null terminator to the list
         mechanisms_arr[mechanisms_ret.size()] = nullptr;
         const char** sigval1 = mechanisms_arr;
         slotFunc(self, sigval1);
-        free(mechanisms_arr);
+        libqt_free(mechanisms_arr);
     });
 }
 
@@ -132,9 +133,10 @@ void SignOn__AuthSession_Connect_StateChanged(SignOn__AuthSession* self, intptr_
         const QString message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
-        const char* message_str = static_cast<const char*>(malloc(message_b.length() + 1));
-        memcpy((void*)message_str, message_b.data(), message_b.length());
-        ((char*)message_str)[message_b.length()] = '\0';
+        auto message_str_len = message_b.length();
+        const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+        memcpy((void*)message_str, message_b.data(), message_str_len);
+        ((char*)message_str)[message_str_len] = '\0';
         const char* sigval2 = message_str;
         slotFunc(self, sigval1, sigval2);
         libqt_free(message_str);

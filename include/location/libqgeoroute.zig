@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qgeorouterequest_enums = @import("libqgeorouterequest.zig").enums;
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroute.html)
 pub const qgeoroute = struct {
@@ -313,11 +313,11 @@ pub const qgeoroute = struct {
     ///
     /// ` self: QtC.QGeoRoute `
     ///
-    /// ` extendedAttributes: map_constu8_qtcqvariant `
+    /// ` extendedAttributes: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetExtendedAttributes(self: ?*anyopaque, extendedAttributes: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
+    pub fn SetExtendedAttributes(self: ?*anyopaque, extendedAttributes: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
         const extendedAttributes_count = extendedAttributes.count();
         const extendedAttributes_keys = allocator.alloc(qtc.libqt_string, extendedAttributes_count) catch @panic("qgeoroute.SetExtendedAttributes: Memory allocation failed");
         defer allocator.free(extendedAttributes_keys);
@@ -349,9 +349,9 @@ pub const qgeoroute = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtendedAttributes(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
+    pub fn ExtendedAttributes(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_constu8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QGeoRoute_ExtendedAttributes(@ptrCast(self));
-        var _ret: map_constu8_qtcqvariant = .empty;
+        var _ret: arraymap_constu8_qtcqvariant = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {

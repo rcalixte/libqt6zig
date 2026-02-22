@@ -29,7 +29,7 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
     using KFileMetaData__ExtractorPlugin_CustomEvent_Callback = void (*)(KFileMetaData__ExtractorPlugin*, QEvent*);
     using KFileMetaData__ExtractorPlugin_ConnectNotify_Callback = void (*)(KFileMetaData__ExtractorPlugin*, QMetaMethod*);
     using KFileMetaData__ExtractorPlugin_DisconnectNotify_Callback = void (*)(KFileMetaData__ExtractorPlugin*, QMetaMethod*);
-    using KFileMetaData__ExtractorPlugin_GetSupportedMimeType_Callback = const char* (*)(const KFileMetaData__ExtractorPlugin*, libqt_string);
+    using KFileMetaData__ExtractorPlugin_GetSupportedMimeType_Callback = const char* (*)(const KFileMetaData__ExtractorPlugin*, const char*);
     using KFileMetaData__ExtractorPlugin_Sender_Callback = QObject* (*)();
     using KFileMetaData__ExtractorPlugin_SenderSignalIndex_Callback = int (*)();
     using KFileMetaData__ExtractorPlugin_Receivers_Callback = int (*)(const KFileMetaData__ExtractorPlugin*, const char*);
@@ -320,17 +320,17 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
             return KFileMetaData__ExtractorPlugin::getSupportedMimeType(mimetype);
         } else if (kfilemetadata__extractorplugin_getsupportedmimetype_callback != nullptr) {
             const QString mimetype_ret = mimetype;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray mimetype_b = mimetype_ret.toUtf8();
-            libqt_string mimetype_str;
-            mimetype_str.len = mimetype_b.length();
-            mimetype_str.data = static_cast<const char*>(malloc(mimetype_str.len + 1));
-            memcpy((void*)mimetype_str.data, mimetype_b.data(), mimetype_str.len);
-            ((char*)mimetype_str.data)[mimetype_str.len] = '\0';
-            libqt_string cbval1 = mimetype_str;
+            auto mimetype_str_len = mimetype_b.length();
+            const char* mimetype_str = static_cast<const char*>(malloc(mimetype_str_len + 1));
+            memcpy((void*)mimetype_str, mimetype_b.data(), mimetype_str_len);
+            ((char*)mimetype_str)[mimetype_str_len] = '\0';
+            const char* cbval1 = mimetype_str;
 
             const char* callback_ret = kfilemetadata__extractorplugin_getsupportedmimetype_callback(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
+            libqt_free(mimetype_str);
             return callback_ret_QString;
         } else {
             return KFileMetaData__ExtractorPlugin::getSupportedMimeType(mimetype);

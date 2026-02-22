@@ -772,6 +772,7 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = qfilesystemmodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return QFileSystemModel::mimeData(indexes);
@@ -1341,6 +1342,7 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             QDataStream* cbval2 = &stream_ret;
 
             qfilesystemmodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             QFileSystemModel::encodeData(indexes, stream);
         }
@@ -1629,6 +1631,8 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             qfilesystemmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             QFileSystemModel::changePersistentIndexList(from, to);
         }

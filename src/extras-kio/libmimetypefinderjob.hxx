@@ -25,7 +25,7 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
     using KIO__MimeTypeFinderJob_SlotResult_Callback = void (*)(KIO__MimeTypeFinderJob*, KJob*);
     using KIO__MimeTypeFinderJob_AddSubjob_Callback = bool (*)(KIO__MimeTypeFinderJob*, KJob*);
     using KIO__MimeTypeFinderJob_RemoveSubjob_Callback = bool (*)(KIO__MimeTypeFinderJob*, KJob*);
-    using KIO__MimeTypeFinderJob_SlotInfoMessage_Callback = void (*)(KIO__MimeTypeFinderJob*, KJob*, libqt_string);
+    using KIO__MimeTypeFinderJob_SlotInfoMessage_Callback = void (*)(KIO__MimeTypeFinderJob*, KJob*, const char*);
     using KIO__MimeTypeFinderJob_DoSuspend_Callback = bool (*)();
     using KIO__MimeTypeFinderJob_DoResume_Callback = bool (*)();
     using KIO__MimeTypeFinderJob_ErrorString_Callback = const char* (*)();
@@ -42,7 +42,7 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
     using KIO__MimeTypeFinderJob_SetCapabilities_Callback = void (*)(KIO__MimeTypeFinderJob*, int);
     using KIO__MimeTypeFinderJob_IsFinished_Callback = bool (*)();
     using KIO__MimeTypeFinderJob_SetError_Callback = void (*)(KIO__MimeTypeFinderJob*, int);
-    using KIO__MimeTypeFinderJob_SetErrorText_Callback = void (*)(KIO__MimeTypeFinderJob*, libqt_string);
+    using KIO__MimeTypeFinderJob_SetErrorText_Callback = void (*)(KIO__MimeTypeFinderJob*, const char*);
     using KIO__MimeTypeFinderJob_SetProcessedAmount_Callback = void (*)(KIO__MimeTypeFinderJob*, int, unsigned long long);
     using KIO__MimeTypeFinderJob_SetTotalAmount_Callback = void (*)(KIO__MimeTypeFinderJob*, int, unsigned long long);
     using KIO__MimeTypeFinderJob_SetProgressUnit_Callback = void (*)(KIO__MimeTypeFinderJob*, int);
@@ -384,16 +384,16 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         } else if (kio__mimetypefinderjob_slotinfomessage_callback != nullptr) {
             KJob* cbval1 = job;
             const QString message_ret = message;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray message_b = message_ret.toUtf8();
-            libqt_string message_str;
-            message_str.len = message_b.length();
-            message_str.data = static_cast<const char*>(malloc(message_str.len + 1));
-            memcpy((void*)message_str.data, message_b.data(), message_str.len);
-            ((char*)message_str.data)[message_str.len] = '\0';
-            libqt_string cbval2 = message_str;
+            auto message_str_len = message_b.length();
+            const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+            memcpy((void*)message_str, message_b.data(), message_str_len);
+            ((char*)message_str)[message_str_len] = '\0';
+            const char* cbval2 = message_str;
 
             kio__mimetypefinderjob_slotinfomessage_callback(this, cbval1, cbval2);
+            libqt_free(message_str);
         } else {
             KIO__MimeTypeFinderJob::slotInfoMessage(job, message);
         }
@@ -637,16 +637,16 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
             KIO__MimeTypeFinderJob::setErrorText(errorText);
         } else if (kio__mimetypefinderjob_seterrortext_callback != nullptr) {
             const QString errorText_ret = errorText;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
-            libqt_string errorText_str;
-            errorText_str.len = errorText_b.length();
-            errorText_str.data = static_cast<const char*>(malloc(errorText_str.len + 1));
-            memcpy((void*)errorText_str.data, errorText_b.data(), errorText_str.len);
-            ((char*)errorText_str.data)[errorText_str.len] = '\0';
-            libqt_string cbval1 = errorText_str;
+            auto errorText_str_len = errorText_b.length();
+            const char* errorText_str = static_cast<const char*>(malloc(errorText_str_len + 1));
+            memcpy((void*)errorText_str, errorText_b.data(), errorText_str_len);
+            ((char*)errorText_str)[errorText_str_len] = '\0';
+            const char* cbval1 = errorText_str;
 
             kio__mimetypefinderjob_seterrortext_callback(this, cbval1);
+            libqt_free(errorText_str);
         } else {
             KIO__MimeTypeFinderJob::setErrorText(errorText);
         }

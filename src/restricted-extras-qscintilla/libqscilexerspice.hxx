@@ -52,8 +52,8 @@ class VirtualQsciLexerSpice final : public QsciLexerSpice {
     using QsciLexerSpice_SetEolFill_Callback = void (*)(QsciLexerSpice*, bool, int);
     using QsciLexerSpice_SetFont_Callback = void (*)(QsciLexerSpice*, QFont*, int);
     using QsciLexerSpice_SetPaper_Callback = void (*)(QsciLexerSpice*, QColor*, int);
-    using QsciLexerSpice_ReadProperties_Callback = bool (*)(QsciLexerSpice*, QSettings*, libqt_string);
-    using QsciLexerSpice_WriteProperties_Callback = bool (*)(const QsciLexerSpice*, QSettings*, libqt_string);
+    using QsciLexerSpice_ReadProperties_Callback = bool (*)(QsciLexerSpice*, QSettings*, const char*);
+    using QsciLexerSpice_WriteProperties_Callback = bool (*)(const QsciLexerSpice*, QSettings*, const char*);
     using QsciLexerSpice_Event_Callback = bool (*)(QsciLexerSpice*, QEvent*);
     using QsciLexerSpice_EventFilter_Callback = bool (*)(QsciLexerSpice*, QObject*, QEvent*);
     using QsciLexerSpice_TimerEvent_Callback = void (*)(QsciLexerSpice*, QTimerEvent*);
@@ -61,7 +61,7 @@ class VirtualQsciLexerSpice final : public QsciLexerSpice {
     using QsciLexerSpice_CustomEvent_Callback = void (*)(QsciLexerSpice*, QEvent*);
     using QsciLexerSpice_ConnectNotify_Callback = void (*)(QsciLexerSpice*, QMetaMethod*);
     using QsciLexerSpice_DisconnectNotify_Callback = void (*)(QsciLexerSpice*, QMetaMethod*);
-    using QsciLexerSpice_TextAsBytes_Callback = libqt_string (*)(const QsciLexerSpice*, libqt_string);
+    using QsciLexerSpice_TextAsBytes_Callback = libqt_string (*)(const QsciLexerSpice*, const char*);
     using QsciLexerSpice_BytesAsText_Callback = const char* (*)(const QsciLexerSpice*, const char*, int);
     using QsciLexerSpice_Sender_Callback = QObject* (*)();
     using QsciLexerSpice_SenderSignalIndex_Callback = int (*)();
@@ -850,16 +850,16 @@ class VirtualQsciLexerSpice final : public QsciLexerSpice {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerspice_readproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerSpice::readProperties(qs, prefix);
@@ -876,16 +876,16 @@ class VirtualQsciLexerSpice final : public QsciLexerSpice {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerspice_writeproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerSpice::writeProperties(qs, prefix);
@@ -1004,17 +1004,17 @@ class VirtualQsciLexerSpice final : public QsciLexerSpice {
             return QsciLexerSpice::textAsBytes(text);
         } else if (qscilexerspice_textasbytes_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             libqt_string callback_ret = qscilexerspice_textasbytes_callback(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            libqt_free(text_str);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerSpice::textAsBytes(text);

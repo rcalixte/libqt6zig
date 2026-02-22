@@ -469,6 +469,7 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
             libqt_string cbval2 = format_str;
 
             int callback_ret = qimageioplugin_capabilities_callback(this, cbval1, cbval2);
+            libqt_free(format_str.data);
             return static_cast<QImageIOPlugin::Capabilities>(callback_ret);
         } else {
             return {};
@@ -487,6 +488,7 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
             libqt_string cbval2 = format_str;
 
             QImageIOHandler* callback_ret = qimageioplugin_create_callback(this, cbval1, cbval2);
+            libqt_free(format_str.data);
             return callback_ret;
         } else {
             return {};

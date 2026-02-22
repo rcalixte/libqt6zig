@@ -4,7 +4,7 @@ const qcryptographichash_enums = @import("../libqcryptographichash.zig").enums;
 const qssl_enums = @import("libqssl.zig").enums;
 const qsslcertificate_enums = enums;
 const std = @import("std");
-const map_i32_sliceconstconstu8 = std.AutoHashMapUnmanaged(i32, []const []const u8);
+const arraymap_i32_sliceconstconstu8 = std.AutoArrayHashMapUnmanaged(i32, []const []const u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html)
 pub const qsslcertificate = struct {
@@ -434,11 +434,11 @@ pub const qsslcertificate = struct {
     ///
     /// ## Returns:
     ///
-    /// ` map_i32_sliceconstconstu8 (key: qssl_enums.AlternativeNameEntryType) `
+    /// ` arraymap_i32_sliceconstconstu8 (key: qssl_enums.AlternativeNameEntryType) `
     ///
-    pub fn SubjectAlternativeNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_sliceconstconstu8 {
+    pub fn SubjectAlternativeNames(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_sliceconstconstu8 {
         const _map: qtc.libqt_map = qtc.QSslCertificate_SubjectAlternativeNames(@ptrCast(self));
-        var _ret: map_i32_sliceconstconstu8 = .empty;
+        var _ret: arraymap_i32_sliceconstconstu8 = .empty;
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {

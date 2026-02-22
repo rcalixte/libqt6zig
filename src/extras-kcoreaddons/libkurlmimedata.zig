@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const kurlmimedata_enums = enums;
 const std = @import("std");
-const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
+const arraymap_constu8_constu8 = std.StringArrayHashMapUnmanaged([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html)
 pub const kurlmimedata = struct {
@@ -42,13 +42,13 @@ pub const kurlmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: map_constu8_constu8 `
+    /// ` param1: arraymap_constu8_constu8 `
     ///
     /// ` param2: QtC.QMimeData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetMetaData(param1: map_constu8_constu8, param2: ?*anyopaque, allocator: std.mem.Allocator) void {
+    pub fn SetMetaData(param1: arraymap_constu8_constu8, param2: ?*anyopaque, allocator: std.mem.Allocator) void {
         const param1_count = param1.count();
         const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kurlmimedata.SetMetaData: Memory allocation failed");
         defer allocator.free(param1_keys);
@@ -109,11 +109,11 @@ pub const kurlmimedata = struct {
     ///
     /// ` param2: flag of kurlmimedata_enums.DecodeOption `
     ///
-    /// ` param3: map_constu8_constu8 `
+    /// ` param3: arraymap_constu8_constu8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UrlsFromMimeData(param1: ?*anyopaque, param2: i32, param3: map_constu8_constu8, allocator: std.mem.Allocator) []QtC.QUrl {
+    pub fn UrlsFromMimeData(param1: ?*anyopaque, param2: i32, param3: arraymap_constu8_constu8, allocator: std.mem.Allocator) []QtC.QUrl {
         const param3_count = param3.count();
         const param3_keys = allocator.alloc(qtc.libqt_string, param3_count) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
         defer allocator.free(param3_keys);

@@ -10,7 +10,7 @@ const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
-const map_i32_sliceqtcqkeysequence = std.AutoHashMapUnmanaged(i32, []QtC.QKeySequence);
+const arraymap_i32_sliceqtcqkeysequence = std.AutoArrayHashMapUnmanaged(i32, []QtC.QKeySequence);
 
 /// ### [Upstream resources](https://api.kde.org/khistorycombobox.html)
 pub const khistorycombobox = struct {
@@ -10528,11 +10528,11 @@ pub const khistorycombobox = struct {
     ///
     /// ## Returns:
     ///
-    /// ` map_i32_sliceqtcqkeysequence (key: kcompletionbase_enums.KeyBindingType) `
+    /// ` arraymap_i32_sliceqtcqkeysequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
-    pub fn KeyBindingMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_sliceqtcqkeysequence {
+    pub fn KeyBindingMap(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_sliceqtcqkeysequence {
         const _map: qtc.libqt_map = qtc.KHistoryComboBox_KeyBindingMap(@ptrCast(self));
-        var _ret: map_i32_sliceqtcqkeysequence = .empty;
+        var _ret: arraymap_i32_sliceqtcqkeysequence = .empty;
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -10569,11 +10569,11 @@ pub const khistorycombobox = struct {
     ///
     /// ## Returns:
     ///
-    /// ` map_i32_sliceqtcqkeysequence (key: kcompletionbase_enums.KeyBindingType) `
+    /// ` arraymap_i32_sliceqtcqkeysequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
-    pub fn QBaseKeyBindingMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_sliceqtcqkeysequence {
+    pub fn QBaseKeyBindingMap(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_sliceqtcqkeysequence {
         const _map: qtc.libqt_map = qtc.KHistoryComboBox_QBaseKeyBindingMap(@ptrCast(self));
-        var _ret: map_i32_sliceqtcqkeysequence = .empty;
+        var _ret: arraymap_i32_sliceqtcqkeysequence = .empty;
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -10610,7 +10610,7 @@ pub const khistorycombobox = struct {
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of map_i32_sliceqtcqkeysequence `
+    /// ` C ABI representation of arraymap_i32_sliceqtcqkeysequence `
     ///
     pub fn OnKeyBindingMap(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
         qtc.KHistoryComboBox_OnKeyBindingMap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
@@ -10626,11 +10626,11 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` keyBindingMap: map_i32_sliceqtcqkeysequence (key: kcompletionbase_enums.KeyBindingType) `
+    /// ` keyBindingMap: arraymap_i32_sliceqtcqkeysequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetKeyBindingMap(self: ?*anyopaque, keyBindingMap: map_i32_sliceqtcqkeysequence, allocator: std.mem.Allocator) void {
+    pub fn SetKeyBindingMap(self: ?*anyopaque, keyBindingMap: arraymap_i32_sliceqtcqkeysequence, allocator: std.mem.Allocator) void {
         const keyBindingMap_count = keyBindingMap.count();
         const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("khistorycombobox.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
@@ -10665,11 +10665,11 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` keyBindingMap: map_i32_sliceqtcqkeysequence (key: kcompletionbase_enums.KeyBindingType) `
+    /// ` keyBindingMap: arraymap_i32_sliceqtcqkeysequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetKeyBindingMap(self: ?*anyopaque, keyBindingMap: map_i32_sliceqtcqkeysequence, allocator: std.mem.Allocator) void {
+    pub fn QBaseSetKeyBindingMap(self: ?*anyopaque, keyBindingMap: arraymap_i32_sliceqtcqkeysequence, allocator: std.mem.Allocator) void {
         const keyBindingMap_count = keyBindingMap.count();
         const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("khistorycombobox.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
@@ -10704,7 +10704,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox`
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBox, keyBindingMap: qtc.libqt_map (map_i32_sliceqtcqkeysequence)) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, keyBindingMap: qtc.libqt_map (arraymap_i32_sliceqtcqkeysequence)) callconv(.c) void `
     ///
     pub fn OnSetKeyBindingMap(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_map) callconv(.c) void) void {
         qtc.KHistoryComboBox_OnSetKeyBindingMap(@ptrCast(self), @bitCast(@intFromPtr(callback)));

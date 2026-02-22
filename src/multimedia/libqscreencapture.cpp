@@ -140,9 +140,10 @@ void QScreenCapture_Connect_ErrorOccurred(QScreenCapture* self, intptr_t slot) {
         const QString errorString_ret = errorString;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errorString_b = errorString_ret.toUtf8();
-        const char* errorString_str = static_cast<const char*>(malloc(errorString_b.length() + 1));
-        memcpy((void*)errorString_str, errorString_b.data(), errorString_b.length());
-        ((char*)errorString_str)[errorString_b.length()] = '\0';
+        auto errorString_str_len = errorString_b.length();
+        const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+        memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+        ((char*)errorString_str)[errorString_str_len] = '\0';
         const char* sigval2 = errorString_str;
         slotFunc(self, sigval1, sigval2);
         libqt_free(errorString_str);

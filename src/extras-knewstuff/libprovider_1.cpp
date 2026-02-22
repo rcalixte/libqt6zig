@@ -268,9 +268,9 @@ bool KNSCore__Provider_UserCanVote(KNSCore__Provider* self) {
 void KNSCore__Provider_Vote(KNSCore__Provider* self, const KNSCore__Entry* param1, unsigned int param2) {
     auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        self->vote(*param1, static_cast<unsigned int>(param2));
+        self->vote(*param1, static_cast<uint>(param2));
     } else {
-        ((VirtualKNSCoreProvider*)self)->vote(*param1, static_cast<unsigned int>(param2));
+        ((VirtualKNSCoreProvider*)self)->vote(*param1, static_cast<uint>(param2));
     }
 }
 
@@ -491,9 +491,10 @@ void KNSCore__Provider_Connect_SignalInformation(KNSCore__Provider* self, intptr
         const QString param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
-        const char* param1_str = static_cast<const char*>(malloc(param1_b.length() + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_b.length());
-        ((char*)param1_str)[param1_b.length()] = '\0';
+        auto param1_str_len = param1_b.length();
+        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+        ((char*)param1_str)[param1_str_len] = '\0';
         const char* sigval1 = param1_str;
         slotFunc(self, sigval1);
         libqt_free(param1_str);
@@ -511,9 +512,10 @@ void KNSCore__Provider_Connect_SignalError(KNSCore__Provider* self, intptr_t slo
         const QString param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
-        const char* param1_str = static_cast<const char*>(malloc(param1_b.length() + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_b.length());
-        ((char*)param1_str)[param1_b.length()] = '\0';
+        auto param1_str_len = param1_b.length();
+        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+        ((char*)param1_str)[param1_str_len] = '\0';
         const char* sigval1 = param1_str;
         slotFunc(self, sigval1);
         libqt_free(param1_str);
@@ -532,9 +534,10 @@ void KNSCore__Provider_Connect_SignalErrorCode(KNSCore__Provider* self, intptr_t
         const QString message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
-        const char* message_str = static_cast<const char*>(malloc(message_b.length() + 1));
-        memcpy((void*)message_str, message_b.data(), message_b.length());
-        ((char*)message_str)[message_b.length()] = '\0';
+        auto message_str_len = message_b.length();
+        const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+        memcpy((void*)message_str, message_b.data(), message_str_len);
+        ((char*)message_str)[message_str_len] = '\0';
         const char* sigval2 = message_str;
         const QVariant& metadata_ret = metadata;
         // Cast returned reference into pointer
@@ -942,9 +945,9 @@ void KNSCore__Provider_QBaseVote(KNSCore__Provider* self, const KNSCore__Entry* 
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_Vote_IsBase(true);
-        vknscoreprovider->vote(*param1, static_cast<unsigned int>(param2));
+        vknscoreprovider->vote(*param1, static_cast<uint>(param2));
     } else {
-        self->KNSCore::Provider::vote(*param1, static_cast<unsigned int>(param2));
+        self->KNSCore::Provider::vote(*param1, static_cast<uint>(param2));
     }
 }
 

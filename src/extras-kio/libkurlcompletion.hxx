@@ -20,7 +20,7 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     using KUrlCompletion_MetaObject_Callback = QMetaObject* (*)();
     using KUrlCompletion_Metacast_Callback = void* (*)(KUrlCompletion*, const char*);
     using KUrlCompletion_Metacall_Callback = int (*)(KUrlCompletion*, int, int, void**);
-    using KUrlCompletion_MakeCompletion_Callback = const char* (*)(KUrlCompletion*, libqt_string);
+    using KUrlCompletion_MakeCompletion_Callback = const char* (*)(KUrlCompletion*, const char*);
     using KUrlCompletion_SetDir_Callback = void (*)(KUrlCompletion*, QUrl*);
     using KUrlCompletion_Dir_Callback = QUrl* (*)();
     using KUrlCompletion_IsRunning_Callback = bool (*)();
@@ -31,14 +31,14 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     using KUrlCompletion_SetReplaceEnv_Callback = void (*)(KUrlCompletion*, bool);
     using KUrlCompletion_ReplaceHome_Callback = bool (*)();
     using KUrlCompletion_SetReplaceHome_Callback = void (*)(KUrlCompletion*, bool);
-    using KUrlCompletion_PostProcessMatches_Callback = void (*)(const KUrlCompletion*, libqt_list /* of libqt_string */);
+    using KUrlCompletion_PostProcessMatches_Callback = void (*)(const KUrlCompletion*, const char**);
     using KUrlCompletion_PostProcessMatches2_Callback = void (*)(const KUrlCompletion*, KCompletionMatches*);
     using KUrlCompletion_LastMatch_Callback = const char* (*)();
     using KUrlCompletion_SetCompletionMode_Callback = void (*)(KUrlCompletion*, int);
     using KUrlCompletion_SetOrder_Callback = void (*)(KUrlCompletion*, int);
     using KUrlCompletion_SetIgnoreCase_Callback = void (*)(KUrlCompletion*, bool);
     using KUrlCompletion_SetSoundsEnabled_Callback = void (*)(KUrlCompletion*, bool);
-    using KUrlCompletion_SetItems_Callback = void (*)(KUrlCompletion*, libqt_list /* of libqt_string */);
+    using KUrlCompletion_SetItems_Callback = void (*)(KUrlCompletion*, const char**);
     using KUrlCompletion_Clear_Callback = void (*)();
     using KUrlCompletion_Event_Callback = bool (*)(KUrlCompletion*, QEvent*);
     using KUrlCompletion_EventFilter_Callback = bool (*)(KUrlCompletion*, QObject*, QEvent*);
@@ -296,17 +296,17 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             return KUrlCompletion::makeCompletion(text);
         } else if (kurlcompletion_makecompletion_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             const char* callback_ret = kurlcompletion_makecompletion_callback(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
+            libqt_free(text_str);
             return callback_ret_QString;
         } else {
             return KUrlCompletion::makeCompletion(text);
@@ -455,25 +455,22 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             KUrlCompletion::postProcessMatches(matches);
         } else if (kurlcompletion_postprocessmatches_callback != nullptr) {
             QList<QString>* matches_ret = matches;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* matches_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (matches_ret->size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** matches_arr = static_cast<const char**>(malloc(sizeof(const char*) * (matches_ret->size() + 1)));
             for (qsizetype i = 0; i < matches_ret->size(); ++i) {
-                QString matches_lv_ret = (*matches_ret)[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray matches_lv_b = matches_lv_ret.toUtf8();
-                libqt_string matches_lv_str;
-                matches_lv_str.len = matches_lv_b.length();
-                matches_lv_str.data = static_cast<const char*>(malloc(matches_lv_str.len + 1));
-                memcpy((void*)matches_lv_str.data, matches_lv_b.data(), matches_lv_str.len);
-                ((char*)matches_lv_str.data)[matches_lv_str.len] = '\0';
-                matches_arr[i] = matches_lv_str;
+                QByteArray matches_b = (*matches_ret)[i].toUtf8();
+                auto matches_str_len = matches_b.length();
+                char* matches_str = static_cast<char*>(malloc(matches_str_len + 1));
+                memcpy(matches_str, matches_b.data(), matches_str_len);
+                matches_str[matches_str_len] = '\0';
+                matches_arr[i] = matches_str;
             }
-            libqt_list matches_out;
-            matches_out.len = matches_ret->size();
-            matches_out.data = static_cast<void*>(matches_arr);
-            libqt_list /* of libqt_string */ cbval1 = matches_out;
+            // Append sentinel null terminator to the list
+            matches_arr[matches_ret->size()] = nullptr;
+            const char** cbval1 = matches_arr;
 
             kurlcompletion_postprocessmatches_callback(this, cbval1);
+            libqt_free(matches_arr);
         } else {
             KUrlCompletion::postProcessMatches(matches);
         }
@@ -570,25 +567,22 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             KUrlCompletion::setItems(itemList);
         } else if (kurlcompletion_setitems_callback != nullptr) {
             const QList<QString>& itemList_ret = itemList;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* itemList_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (itemList_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** itemList_arr = static_cast<const char**>(malloc(sizeof(const char*) * (itemList_ret.size() + 1)));
             for (qsizetype i = 0; i < itemList_ret.size(); ++i) {
-                QString itemList_lv_ret = itemList_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray itemList_lv_b = itemList_lv_ret.toUtf8();
-                libqt_string itemList_lv_str;
-                itemList_lv_str.len = itemList_lv_b.length();
-                itemList_lv_str.data = static_cast<const char*>(malloc(itemList_lv_str.len + 1));
-                memcpy((void*)itemList_lv_str.data, itemList_lv_b.data(), itemList_lv_str.len);
-                ((char*)itemList_lv_str.data)[itemList_lv_str.len] = '\0';
-                itemList_arr[i] = itemList_lv_str;
+                QByteArray itemList_b = itemList_ret[i].toUtf8();
+                auto itemList_str_len = itemList_b.length();
+                char* itemList_str = static_cast<char*>(malloc(itemList_str_len + 1));
+                memcpy(itemList_str, itemList_b.data(), itemList_str_len);
+                itemList_str[itemList_str_len] = '\0';
+                itemList_arr[i] = itemList_str;
             }
-            libqt_list itemList_out;
-            itemList_out.len = itemList_ret.size();
-            itemList_out.data = static_cast<void*>(itemList_arr);
-            libqt_list /* of libqt_string */ cbval1 = itemList_out;
+            // Append sentinel null terminator to the list
+            itemList_arr[itemList_ret.size()] = nullptr;
+            const char** cbval1 = itemList_arr;
 
             kurlcompletion_setitems_callback(this, cbval1);
+            libqt_free(itemList_arr);
         } else {
             KUrlCompletion::setItems(itemList);
         }

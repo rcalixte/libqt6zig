@@ -117,9 +117,10 @@ void KParts__Part_Connect_SetWindowCaption(KParts__Part* self, intptr_t slot) {
         const QString caption_ret = caption;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray caption_b = caption_ret.toUtf8();
-        const char* caption_str = static_cast<const char*>(malloc(caption_b.length() + 1));
-        memcpy((void*)caption_str, caption_b.data(), caption_b.length());
-        ((char*)caption_str)[caption_b.length()] = '\0';
+        auto caption_str_len = caption_b.length();
+        const char* caption_str = static_cast<const char*>(malloc(caption_str_len + 1));
+        memcpy((void*)caption_str, caption_b.data(), caption_str_len);
+        ((char*)caption_str)[caption_str_len] = '\0';
         const char* sigval1 = caption_str;
         slotFunc(self, sigval1);
         libqt_free(caption_str);
@@ -137,9 +138,10 @@ void KParts__Part_Connect_SetStatusBarText(KParts__Part* self, intptr_t slot) {
         const QString text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
-        const char* text_str = static_cast<const char*>(malloc(text_b.length() + 1));
-        memcpy((void*)text_str, text_b.data(), text_b.length());
-        ((char*)text_str)[text_b.length()] = '\0';
+        auto text_str_len = text_b.length();
+        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+        memcpy((void*)text_str, text_b.data(), text_str_len);
+        ((char*)text_str)[text_str_len] = '\0';
         const char* sigval1 = text_str;
         slotFunc(self, sigval1);
         libqt_free(text_str);

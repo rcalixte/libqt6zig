@@ -98,7 +98,7 @@ libqt_string Attica__Person_Country(const Attica__Person* self) {
 }
 
 void Attica__Person_SetLatitude(Attica__Person* self, double latitude) {
-    self->setLatitude(static_cast<double>(latitude));
+    self->setLatitude(static_cast<qreal>(latitude));
 }
 
 double Attica__Person_Latitude(const Attica__Person* self) {
@@ -106,7 +106,7 @@ double Attica__Person_Latitude(const Attica__Person* self) {
 }
 
 void Attica__Person_SetLongitude(Attica__Person* self, double longitude) {
-    self->setLongitude(static_cast<double>(longitude));
+    self->setLongitude(static_cast<qreal>(longitude));
 }
 
 double Attica__Person_Longitude(const Attica__Person* self) {

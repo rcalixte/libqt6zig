@@ -1078,6 +1078,7 @@ class VirtualQMdiArea final : public QMdiArea {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qmdiarea_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QMdiArea::nativeEvent(eventType, message, result);

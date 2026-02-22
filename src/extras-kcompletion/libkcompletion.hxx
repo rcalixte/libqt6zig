@@ -25,10 +25,10 @@ class VirtualKCompletion final : public KCompletion {
     using KCompletion_SetOrder_Callback = void (*)(KCompletion*, int);
     using KCompletion_SetIgnoreCase_Callback = void (*)(KCompletion*, bool);
     using KCompletion_SetSoundsEnabled_Callback = void (*)(KCompletion*, bool);
-    using KCompletion_MakeCompletion_Callback = const char* (*)(KCompletion*, libqt_string);
-    using KCompletion_SetItems_Callback = void (*)(KCompletion*, libqt_list /* of libqt_string */);
+    using KCompletion_MakeCompletion_Callback = const char* (*)(KCompletion*, const char*);
+    using KCompletion_SetItems_Callback = void (*)(KCompletion*, const char**);
     using KCompletion_Clear_Callback = void (*)();
-    using KCompletion_PostProcessMatches_Callback = void (*)(const KCompletion*, libqt_list /* of libqt_string */);
+    using KCompletion_PostProcessMatches_Callback = void (*)(const KCompletion*, const char**);
     using KCompletion_PostProcessMatches2_Callback = void (*)(const KCompletion*, KCompletionMatches*);
     using KCompletion_Event_Callback = bool (*)(KCompletion*, QEvent*);
     using KCompletion_EventFilter_Callback = bool (*)(KCompletion*, QObject*, QEvent*);
@@ -305,17 +305,17 @@ class VirtualKCompletion final : public KCompletion {
             return KCompletion::makeCompletion(stringVal);
         } else if (kcompletion_makecompletion_callback != nullptr) {
             const QString stringVal_ret = stringVal;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray stringVal_b = stringVal_ret.toUtf8();
-            libqt_string stringVal_str;
-            stringVal_str.len = stringVal_b.length();
-            stringVal_str.data = static_cast<const char*>(malloc(stringVal_str.len + 1));
-            memcpy((void*)stringVal_str.data, stringVal_b.data(), stringVal_str.len);
-            ((char*)stringVal_str.data)[stringVal_str.len] = '\0';
-            libqt_string cbval1 = stringVal_str;
+            auto stringVal_str_len = stringVal_b.length();
+            const char* stringVal_str = static_cast<const char*>(malloc(stringVal_str_len + 1));
+            memcpy((void*)stringVal_str, stringVal_b.data(), stringVal_str_len);
+            ((char*)stringVal_str)[stringVal_str_len] = '\0';
+            const char* cbval1 = stringVal_str;
 
             const char* callback_ret = kcompletion_makecompletion_callback(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
+            libqt_free(stringVal_str);
             return callback_ret_QString;
         } else {
             return KCompletion::makeCompletion(stringVal);
@@ -329,25 +329,22 @@ class VirtualKCompletion final : public KCompletion {
             KCompletion::setItems(itemList);
         } else if (kcompletion_setitems_callback != nullptr) {
             const QList<QString>& itemList_ret = itemList;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* itemList_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (itemList_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** itemList_arr = static_cast<const char**>(malloc(sizeof(const char*) * (itemList_ret.size() + 1)));
             for (qsizetype i = 0; i < itemList_ret.size(); ++i) {
-                QString itemList_lv_ret = itemList_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray itemList_lv_b = itemList_lv_ret.toUtf8();
-                libqt_string itemList_lv_str;
-                itemList_lv_str.len = itemList_lv_b.length();
-                itemList_lv_str.data = static_cast<const char*>(malloc(itemList_lv_str.len + 1));
-                memcpy((void*)itemList_lv_str.data, itemList_lv_b.data(), itemList_lv_str.len);
-                ((char*)itemList_lv_str.data)[itemList_lv_str.len] = '\0';
-                itemList_arr[i] = itemList_lv_str;
+                QByteArray itemList_b = itemList_ret[i].toUtf8();
+                auto itemList_str_len = itemList_b.length();
+                char* itemList_str = static_cast<char*>(malloc(itemList_str_len + 1));
+                memcpy(itemList_str, itemList_b.data(), itemList_str_len);
+                itemList_str[itemList_str_len] = '\0';
+                itemList_arr[i] = itemList_str;
             }
-            libqt_list itemList_out;
-            itemList_out.len = itemList_ret.size();
-            itemList_out.data = static_cast<void*>(itemList_arr);
-            libqt_list /* of libqt_string */ cbval1 = itemList_out;
+            // Append sentinel null terminator to the list
+            itemList_arr[itemList_ret.size()] = nullptr;
+            const char** cbval1 = itemList_arr;
 
             kcompletion_setitems_callback(this, cbval1);
+            libqt_free(itemList_arr);
         } else {
             KCompletion::setItems(itemList);
         }
@@ -372,25 +369,22 @@ class VirtualKCompletion final : public KCompletion {
             KCompletion::postProcessMatches(matchList);
         } else if (kcompletion_postprocessmatches_callback != nullptr) {
             QList<QString>* matchList_ret = matchList;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* matchList_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (matchList_ret->size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** matchList_arr = static_cast<const char**>(malloc(sizeof(const char*) * (matchList_ret->size() + 1)));
             for (qsizetype i = 0; i < matchList_ret->size(); ++i) {
-                QString matchList_lv_ret = (*matchList_ret)[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray matchList_lv_b = matchList_lv_ret.toUtf8();
-                libqt_string matchList_lv_str;
-                matchList_lv_str.len = matchList_lv_b.length();
-                matchList_lv_str.data = static_cast<const char*>(malloc(matchList_lv_str.len + 1));
-                memcpy((void*)matchList_lv_str.data, matchList_lv_b.data(), matchList_lv_str.len);
-                ((char*)matchList_lv_str.data)[matchList_lv_str.len] = '\0';
-                matchList_arr[i] = matchList_lv_str;
+                QByteArray matchList_b = (*matchList_ret)[i].toUtf8();
+                auto matchList_str_len = matchList_b.length();
+                char* matchList_str = static_cast<char*>(malloc(matchList_str_len + 1));
+                memcpy(matchList_str, matchList_b.data(), matchList_str_len);
+                matchList_str[matchList_str_len] = '\0';
+                matchList_arr[i] = matchList_str;
             }
-            libqt_list matchList_out;
-            matchList_out.len = matchList_ret->size();
-            matchList_out.data = static_cast<void*>(matchList_arr);
-            libqt_list /* of libqt_string */ cbval1 = matchList_out;
+            // Append sentinel null terminator to the list
+            matchList_arr[matchList_ret->size()] = nullptr;
+            const char** cbval1 = matchList_arr;
 
             kcompletion_postprocessmatches_callback(this, cbval1);
+            libqt_free(matchList_arr);
         } else {
             KCompletion::postProcessMatches(matchList);
         }

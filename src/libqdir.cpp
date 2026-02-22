@@ -272,7 +272,7 @@ bool QDir_IsEmpty(const QDir* self) {
 }
 
 libqt_string QDir_OperatorSubscript(const QDir* self, long long param1) {
-    QString _ret = self->operator[](static_cast<long long>(param1));
+    QString _ret = self->operator[]((qsizetype)(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -948,6 +948,7 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = qsqlquerymodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return QSqlQueryModel::mimeData(indexes);
@@ -1520,6 +1521,7 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             QDataStream* cbval2 = &stream_ret;
 
             qsqlquerymodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             QSqlQueryModel::encodeData(indexes, stream);
         }
@@ -1664,6 +1666,8 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             qsqlquerymodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             QSqlQueryModel::changePersistentIndexList(from, to);
         }

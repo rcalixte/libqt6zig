@@ -20,7 +20,7 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
     using QDBusVirtualObject_MetaObject_Callback = QMetaObject* (*)();
     using QDBusVirtualObject_Metacast_Callback = void* (*)(QDBusVirtualObject*, const char*);
     using QDBusVirtualObject_Metacall_Callback = int (*)(QDBusVirtualObject*, int, int, void**);
-    using QDBusVirtualObject_Introspect_Callback = const char* (*)(const QDBusVirtualObject*, libqt_string);
+    using QDBusVirtualObject_Introspect_Callback = const char* (*)(const QDBusVirtualObject*, const char*);
     using QDBusVirtualObject_HandleMessage_Callback = bool (*)(QDBusVirtualObject*, QDBusMessage*, QDBusConnection*);
     using QDBusVirtualObject_Event_Callback = bool (*)(QDBusVirtualObject*, QEvent*);
     using QDBusVirtualObject_EventFilter_Callback = bool (*)(QDBusVirtualObject*, QObject*, QEvent*);
@@ -179,17 +179,17 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
     virtual QString introspect(const QString& path) const override {
         if (qdbusvirtualobject_introspect_callback != nullptr) {
             const QString path_ret = path;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
-            libqt_string path_str;
-            path_str.len = path_b.length();
-            path_str.data = static_cast<const char*>(malloc(path_str.len + 1));
-            memcpy((void*)path_str.data, path_b.data(), path_str.len);
-            ((char*)path_str.data)[path_str.len] = '\0';
-            libqt_string cbval1 = path_str;
+            auto path_str_len = path_b.length();
+            const char* path_str = static_cast<const char*>(malloc(path_str_len + 1));
+            memcpy((void*)path_str, path_b.data(), path_str_len);
+            ((char*)path_str)[path_str_len] = '\0';
+            const char* cbval1 = path_str;
 
             const char* callback_ret = qdbusvirtualobject_introspect_callback(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
+            libqt_free(path_str);
             return callback_ret_QString;
         } else {
             return {};

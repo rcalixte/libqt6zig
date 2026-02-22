@@ -8,7 +8,7 @@ const qpalette_enums = @import("libqpalette.zig").enums;
 const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
 const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
-const map_qtcqdate_qtcqtextcharformat = std.AutoHashMapUnmanaged(QtC.QDate, QtC.QTextCharFormat);
+const arraymap_qtcqdate_qtcqtextcharformat = std.AutoArrayHashMapUnmanaged(QtC.QDate, QtC.QTextCharFormat);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html)
 pub const qcalendarwidget = struct {
@@ -527,9 +527,9 @@ pub const qcalendarwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DateTextFormat(self: ?*anyopaque, allocator: std.mem.Allocator) map_qtcqdate_qtcqtextcharformat {
+    pub fn DateTextFormat(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_qtcqdate_qtcqtextcharformat {
         const _map: qtc.libqt_map = qtc.QCalendarWidget_DateTextFormat(@ptrCast(self));
-        var _ret: map_qtcqdate_qtcqtextcharformat = .empty;
+        var _ret: arraymap_qtcqdate_qtcqtextcharformat = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);

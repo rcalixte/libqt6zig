@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qlocation_enums = @import("libqlocation.zig").enums;
 const qplacecontent_enums = @import("libqplacecontent.zig").enums;
 const std = @import("std");
-const map_i32_qtcqplacecontent = std.AutoHashMapUnmanaged(i32, QtC.QPlaceContent);
+const arraymap_i32_qtcqplacecontent = std.AutoArrayHashMapUnmanaged(i32, QtC.QPlaceContent);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html)
 pub const qplace = struct {
@@ -222,9 +222,9 @@ pub const qplace = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Content(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) map_i32_qtcqplacecontent {
+    pub fn Content(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) arraymap_i32_qtcqplacecontent {
         const _map: qtc.libqt_map = qtc.QPlace_Content(@ptrCast(self), @bitCast(typeVal));
-        var _ret: map_i32_qtcqplacecontent = .empty;
+        var _ret: arraymap_i32_qtcqplacecontent = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -248,11 +248,11 @@ pub const qplace = struct {
     ///
     /// ` typeVal: qplacecontent_enums.Type `
     ///
-    /// ` content: map_i32_qtcqplacecontent `
+    /// ` content: arraymap_i32_qtcqplacecontent `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetContent(self: ?*anyopaque, typeVal: i32, content: map_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
+    pub fn SetContent(self: ?*anyopaque, typeVal: i32, content: arraymap_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
         const content_count = content.count();
         const content_keys = allocator.alloc(i32, content_count) catch @panic("qplace.SetContent: Memory allocation failed");
         defer allocator.free(content_keys);
@@ -281,11 +281,11 @@ pub const qplace = struct {
     ///
     /// ` typeVal: qplacecontent_enums.Type `
     ///
-    /// ` content: map_i32_qtcqplacecontent `
+    /// ` content: arraymap_i32_qtcqplacecontent `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertContent(self: ?*anyopaque, typeVal: i32, content: map_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
+    pub fn InsertContent(self: ?*anyopaque, typeVal: i32, content: arraymap_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
         const content_count = content.count();
         const content_keys = allocator.alloc(i32, content_count) catch @panic("qplace.InsertContent: Memory allocation failed");
         defer allocator.free(content_keys);

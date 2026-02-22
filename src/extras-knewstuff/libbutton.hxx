@@ -1008,6 +1008,7 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = knswidgets__button_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KNSWidgets__Button::nativeEvent(eventType, message, result);

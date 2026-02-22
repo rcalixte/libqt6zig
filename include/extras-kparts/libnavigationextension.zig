@@ -4,8 +4,8 @@ const navigationextension_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const map_constu8_sliceqtcqaction = std.StringHashMapUnmanaged([]QtC.QAction);
-const map_u8_u8 = std.StringHashMapUnmanaged([]u8);
+const arraymap_constu8_sliceqtcqaction = std.StringArrayHashMapUnmanaged([]QtC.QAction);
+const arraymap_u8_u8 = std.StringArrayHashMapUnmanaged([]u8);
 
 /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html)
 pub const kparts__navigationextension = struct {
@@ -362,9 +362,9 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActionSlotMap(allocator: std.mem.Allocator) map_u8_u8 {
+    pub fn ActionSlotMap(allocator: std.mem.Allocator) arraymap_u8_u8 {
         const _map: qtc.libqt_map = qtc.KParts__NavigationExtension_ActionSlotMap().?.*;
-        var _ret: map_u8_u8 = .empty;
+        var _ret: arraymap_u8_u8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -798,11 +798,11 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` flags: flag of navigationextension_enums.PopupFlag `
     ///
-    /// ` actionGroups: map_constu8_sliceqtcqaction `
+    /// ` actionGroups: arraymap_constu8_sliceqtcqaction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PopupMenu5(self: ?*anyopaque, global: ?*anyopaque, items: ?*anyopaque, arguments: ?*anyopaque, flags: i32, actionGroups: map_constu8_sliceqtcqaction, allocator: std.mem.Allocator) void {
+    pub fn PopupMenu5(self: ?*anyopaque, global: ?*anyopaque, items: ?*anyopaque, arguments: ?*anyopaque, flags: i32, actionGroups: arraymap_constu8_sliceqtcqaction, allocator: std.mem.Allocator) void {
         const actionGroups_count = actionGroups.count();
         const actionGroups_keys = allocator.alloc(qtc.libqt_string, actionGroups_count) catch @panic("kparts__navigationextension.PopupMenu5: Memory allocation failed");
         defer allocator.free(actionGroups_keys);
@@ -900,11 +900,11 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` flags: flag of navigationextension_enums.PopupFlag `
     ///
-    /// ` actionGroups: map_constu8_sliceqtcqaction `
+    /// ` actionGroups: arraymap_constu8_sliceqtcqaction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PopupMenu6(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u32, arguments: ?*anyopaque, flags: i32, actionGroups: map_constu8_sliceqtcqaction, allocator: std.mem.Allocator) void {
+    pub fn PopupMenu6(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u32, arguments: ?*anyopaque, flags: i32, actionGroups: arraymap_constu8_sliceqtcqaction, allocator: std.mem.Allocator) void {
         const actionGroups_count = actionGroups.count();
         const actionGroups_keys = allocator.alloc(qtc.libqt_string, actionGroups_count) catch @panic("kparts__navigationextension.PopupMenu6: Memory allocation failed");
         defer allocator.free(actionGroups_keys);

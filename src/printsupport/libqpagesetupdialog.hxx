@@ -1018,6 +1018,7 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qpagesetupdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QPageSetupDialog::nativeEvent(eventType, message, result);

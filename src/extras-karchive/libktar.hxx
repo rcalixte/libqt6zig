@@ -17,9 +17,9 @@ class VirtualKTar final : public KTar {
     bool isVirtualKTar = true;
 
     // Virtual class public types (including callbacks)
-    using KTar_DoWriteSymLink_Callback = bool (*)(KTar*, libqt_string, libqt_string, libqt_string, libqt_string, mode_t, QDateTime*, QDateTime*, QDateTime*);
-    using KTar_DoWriteDir_Callback = bool (*)(KTar*, libqt_string, libqt_string, libqt_string, mode_t, QDateTime*, QDateTime*, QDateTime*);
-    using KTar_DoPrepareWriting_Callback = bool (*)(KTar*, libqt_string, libqt_string, libqt_string, long long, mode_t, QDateTime*, QDateTime*, QDateTime*);
+    using KTar_DoWriteSymLink_Callback = bool (*)(KTar*, const char*, const char*, const char*, const char*, mode_t, QDateTime*, QDateTime*, QDateTime*);
+    using KTar_DoWriteDir_Callback = bool (*)(KTar*, const char*, const char*, const char*, mode_t, QDateTime*, QDateTime*, QDateTime*);
+    using KTar_DoPrepareWriting_Callback = bool (*)(KTar*, const char*, const char*, const char*, long long, mode_t, QDateTime*, QDateTime*, QDateTime*);
     using KTar_DoFinishWriting_Callback = bool (*)(KTar*, long long);
     using KTar_OpenArchive_Callback = bool (*)(KTar*, int);
     using KTar_CloseArchive_Callback = bool (*)();
@@ -29,8 +29,8 @@ class VirtualKTar final : public KTar {
     using KTar_Close_Callback = bool (*)();
     using KTar_RootDir_Callback = KArchiveDirectory* (*)();
     using KTar_DoWriteData_Callback = bool (*)(KTar*, const char*, long long);
-    using KTar_SetErrorString_Callback = void (*)(KTar*, libqt_string);
-    using KTar_FindOrCreate_Callback = KArchiveDirectory* (*)(KTar*, libqt_string);
+    using KTar_SetErrorString_Callback = void (*)(KTar*, const char*);
+    using KTar_FindOrCreate_Callback = KArchiveDirectory* (*)(KTar*, const char*);
     using KTar_SetDevice_Callback = void (*)(KTar*, QIODevice*);
     using KTar_SetRootDir_Callback = void (*)(KTar*, KArchiveDirectory*);
 
@@ -139,41 +139,37 @@ class VirtualKTar final : public KTar {
             return KTar::doWriteSymLink(name, target, user, group, perm, atime, mtime, ctime);
         } else if (ktar_dowritesymlink_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QString target_ret = target;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray target_b = target_ret.toUtf8();
-            libqt_string target_str;
-            target_str.len = target_b.length();
-            target_str.data = static_cast<const char*>(malloc(target_str.len + 1));
-            memcpy((void*)target_str.data, target_b.data(), target_str.len);
-            ((char*)target_str.data)[target_str.len] = '\0';
-            libqt_string cbval2 = target_str;
+            auto target_str_len = target_b.length();
+            const char* target_str = static_cast<const char*>(malloc(target_str_len + 1));
+            memcpy((void*)target_str, target_b.data(), target_str_len);
+            ((char*)target_str)[target_str_len] = '\0';
+            const char* cbval2 = target_str;
             const QString user_ret = user;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray user_b = user_ret.toUtf8();
-            libqt_string user_str;
-            user_str.len = user_b.length();
-            user_str.data = static_cast<const char*>(malloc(user_str.len + 1));
-            memcpy((void*)user_str.data, user_b.data(), user_str.len);
-            ((char*)user_str.data)[user_str.len] = '\0';
-            libqt_string cbval3 = user_str;
+            auto user_str_len = user_b.length();
+            const char* user_str = static_cast<const char*>(malloc(user_str_len + 1));
+            memcpy((void*)user_str, user_b.data(), user_str_len);
+            ((char*)user_str)[user_str_len] = '\0';
+            const char* cbval3 = user_str;
             const QString group_ret = group;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
-            libqt_string group_str;
-            group_str.len = group_b.length();
-            group_str.data = static_cast<const char*>(malloc(group_str.len + 1));
-            memcpy((void*)group_str.data, group_b.data(), group_str.len);
-            ((char*)group_str.data)[group_str.len] = '\0';
-            libqt_string cbval4 = group_str;
+            auto group_str_len = group_b.length();
+            const char* group_str = static_cast<const char*>(malloc(group_str_len + 1));
+            memcpy((void*)group_str, group_b.data(), group_str_len);
+            ((char*)group_str)[group_str_len] = '\0';
+            const char* cbval4 = group_str;
             mode_t cbval5 = perm;
             const QDateTime& atime_ret = atime;
             // Cast returned reference into pointer
@@ -186,6 +182,10 @@ class VirtualKTar final : public KTar {
             QDateTime* cbval8 = const_cast<QDateTime*>(&ctime_ret);
 
             bool callback_ret = ktar_dowritesymlink_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
+            libqt_free(name_str);
+            libqt_free(target_str);
+            libqt_free(user_str);
+            libqt_free(group_str);
             return callback_ret;
         } else {
             return KTar::doWriteSymLink(name, target, user, group, perm, atime, mtime, ctime);
@@ -199,32 +199,29 @@ class VirtualKTar final : public KTar {
             return KTar::doWriteDir(name, user, group, perm, atime, mtime, ctime);
         } else if (ktar_dowritedir_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QString user_ret = user;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray user_b = user_ret.toUtf8();
-            libqt_string user_str;
-            user_str.len = user_b.length();
-            user_str.data = static_cast<const char*>(malloc(user_str.len + 1));
-            memcpy((void*)user_str.data, user_b.data(), user_str.len);
-            ((char*)user_str.data)[user_str.len] = '\0';
-            libqt_string cbval2 = user_str;
+            auto user_str_len = user_b.length();
+            const char* user_str = static_cast<const char*>(malloc(user_str_len + 1));
+            memcpy((void*)user_str, user_b.data(), user_str_len);
+            ((char*)user_str)[user_str_len] = '\0';
+            const char* cbval2 = user_str;
             const QString group_ret = group;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
-            libqt_string group_str;
-            group_str.len = group_b.length();
-            group_str.data = static_cast<const char*>(malloc(group_str.len + 1));
-            memcpy((void*)group_str.data, group_b.data(), group_str.len);
-            ((char*)group_str.data)[group_str.len] = '\0';
-            libqt_string cbval3 = group_str;
+            auto group_str_len = group_b.length();
+            const char* group_str = static_cast<const char*>(malloc(group_str_len + 1));
+            memcpy((void*)group_str, group_b.data(), group_str_len);
+            ((char*)group_str)[group_str_len] = '\0';
+            const char* cbval3 = group_str;
             mode_t cbval4 = perm;
             const QDateTime& atime_ret = atime;
             // Cast returned reference into pointer
@@ -237,6 +234,9 @@ class VirtualKTar final : public KTar {
             QDateTime* cbval7 = const_cast<QDateTime*>(&ctime_ret);
 
             bool callback_ret = ktar_dowritedir_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            libqt_free(name_str);
+            libqt_free(user_str);
+            libqt_free(group_str);
             return callback_ret;
         } else {
             return KTar::doWriteDir(name, user, group, perm, atime, mtime, ctime);
@@ -250,32 +250,29 @@ class VirtualKTar final : public KTar {
             return KTar::doPrepareWriting(name, user, group, size, perm, atime, mtime, ctime);
         } else if (ktar_dopreparewriting_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QString user_ret = user;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray user_b = user_ret.toUtf8();
-            libqt_string user_str;
-            user_str.len = user_b.length();
-            user_str.data = static_cast<const char*>(malloc(user_str.len + 1));
-            memcpy((void*)user_str.data, user_b.data(), user_str.len);
-            ((char*)user_str.data)[user_str.len] = '\0';
-            libqt_string cbval2 = user_str;
+            auto user_str_len = user_b.length();
+            const char* user_str = static_cast<const char*>(malloc(user_str_len + 1));
+            memcpy((void*)user_str, user_b.data(), user_str_len);
+            ((char*)user_str)[user_str_len] = '\0';
+            const char* cbval2 = user_str;
             const QString group_ret = group;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
-            libqt_string group_str;
-            group_str.len = group_b.length();
-            group_str.data = static_cast<const char*>(malloc(group_str.len + 1));
-            memcpy((void*)group_str.data, group_b.data(), group_str.len);
-            ((char*)group_str.data)[group_str.len] = '\0';
-            libqt_string cbval3 = group_str;
+            auto group_str_len = group_b.length();
+            const char* group_str = static_cast<const char*>(malloc(group_str_len + 1));
+            memcpy((void*)group_str, group_b.data(), group_str_len);
+            ((char*)group_str)[group_str_len] = '\0';
+            const char* cbval3 = group_str;
             long long cbval4 = static_cast<long long>(size);
             mode_t cbval5 = perm;
             const QDateTime& atime_ret = atime;
@@ -289,6 +286,9 @@ class VirtualKTar final : public KTar {
             QDateTime* cbval8 = const_cast<QDateTime*>(&ctime_ret);
 
             bool callback_ret = ktar_dopreparewriting_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
+            libqt_free(name_str);
+            libqt_free(user_str);
+            libqt_free(group_str);
             return callback_ret;
         } else {
             return KTar::doPrepareWriting(name, user, group, size, perm, atime, mtime, ctime);
@@ -432,16 +432,16 @@ class VirtualKTar final : public KTar {
             KTar::setErrorString(errorStr);
         } else if (ktar_seterrorstring_callback != nullptr) {
             const QString errorStr_ret = errorStr;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorStr_b = errorStr_ret.toUtf8();
-            libqt_string errorStr_str;
-            errorStr_str.len = errorStr_b.length();
-            errorStr_str.data = static_cast<const char*>(malloc(errorStr_str.len + 1));
-            memcpy((void*)errorStr_str.data, errorStr_b.data(), errorStr_str.len);
-            ((char*)errorStr_str.data)[errorStr_str.len] = '\0';
-            libqt_string cbval1 = errorStr_str;
+            auto errorStr_str_len = errorStr_b.length();
+            const char* errorStr_str = static_cast<const char*>(malloc(errorStr_str_len + 1));
+            memcpy((void*)errorStr_str, errorStr_b.data(), errorStr_str_len);
+            ((char*)errorStr_str)[errorStr_str_len] = '\0';
+            const char* cbval1 = errorStr_str;
 
             ktar_seterrorstring_callback(this, cbval1);
+            libqt_free(errorStr_str);
         } else {
             KTar::setErrorString(errorStr);
         }
@@ -454,16 +454,16 @@ class VirtualKTar final : public KTar {
             return KTar::findOrCreate(path);
         } else if (ktar_findorcreate_callback != nullptr) {
             const QString path_ret = path;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
-            libqt_string path_str;
-            path_str.len = path_b.length();
-            path_str.data = static_cast<const char*>(malloc(path_str.len + 1));
-            memcpy((void*)path_str.data, path_b.data(), path_str.len);
-            ((char*)path_str.data)[path_str.len] = '\0';
-            libqt_string cbval1 = path_str;
+            auto path_str_len = path_b.length();
+            const char* path_str = static_cast<const char*>(malloc(path_str_len + 1));
+            memcpy((void*)path_str, path_b.data(), path_str_len);
+            ((char*)path_str)[path_str_len] = '\0';
+            const char* cbval1 = path_str;
 
             KArchiveDirectory* callback_ret = ktar_findorcreate_callback(this, cbval1);
+            libqt_free(path_str);
             return callback_ret;
         } else {
             return KTar::findOrCreate(path);

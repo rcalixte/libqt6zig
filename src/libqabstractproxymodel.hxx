@@ -943,6 +943,7 @@ class VirtualQAbstractProxyModel : public QAbstractProxyModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = qabstractproxymodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return QAbstractProxyModel::mimeData(indexes);
@@ -1458,6 +1459,7 @@ class VirtualQAbstractProxyModel : public QAbstractProxyModel {
             QDataStream* cbval2 = &stream_ret;
 
             qabstractproxymodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             QAbstractProxyModel::encodeData(indexes, stream);
         }
@@ -1746,6 +1748,8 @@ class VirtualQAbstractProxyModel : public QAbstractProxyModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             qabstractproxymodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             QAbstractProxyModel::changePersistentIndexList(from, to);
         }

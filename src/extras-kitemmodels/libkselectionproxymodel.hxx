@@ -717,6 +717,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = kselectionproxymodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return KSelectionProxyModel::mimeData(indexes);
@@ -1503,6 +1504,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
             QDataStream* cbval2 = &stream_ret;
 
             kselectionproxymodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             KSelectionProxyModel::encodeData(indexes, stream);
         }
@@ -1791,6 +1793,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             kselectionproxymodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             KSelectionProxyModel::changePersistentIndexList(from, to);
         }

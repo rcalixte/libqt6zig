@@ -20,7 +20,7 @@ class VirtualQAccessibleObject : public QAccessibleObject {
     using QAccessibleObject_IsValid_Callback = bool (*)();
     using QAccessibleObject_Object_Callback = QObject* (*)();
     using QAccessibleObject_Rect_Callback = QRect* (*)();
-    using QAccessibleObject_SetText_Callback = void (*)(QAccessibleObject*, int, libqt_string);
+    using QAccessibleObject_SetText_Callback = void (*)(QAccessibleObject*, int, const char*);
     using QAccessibleObject_ChildAt_Callback = QAccessibleInterface* (*)(const QAccessibleObject*, int, int);
     using QAccessibleObject_Window_Callback = QWindow* (*)();
     using QAccessibleObject_Relations_Callback = libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ (*)(const QAccessibleObject*, int);
@@ -196,16 +196,16 @@ class VirtualQAccessibleObject : public QAccessibleObject {
         } else if (qaccessibleobject_settext_callback != nullptr) {
             int cbval1 = static_cast<int>(t);
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval2 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval2 = text_str;
 
             qaccessibleobject_settext_callback(this, cbval1, cbval2);
+            libqt_free(text_str);
         } else {
             QAccessibleObject::setText(t, text);
         }
@@ -432,7 +432,7 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
     using QAccessibleApplication_IsValid_Callback = bool (*)();
     using QAccessibleApplication_Object_Callback = QObject* (*)();
     using QAccessibleApplication_Rect_Callback = QRect* (*)();
-    using QAccessibleApplication_SetText_Callback = void (*)(QAccessibleApplication*, int, libqt_string);
+    using QAccessibleApplication_SetText_Callback = void (*)(QAccessibleApplication*, int, const char*);
     using QAccessibleApplication_ChildAt_Callback = QAccessibleInterface* (*)(const QAccessibleApplication*, int, int);
     using QAccessibleApplication_Relations_Callback = libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ (*)(const QAccessibleApplication*, int);
     using QAccessibleApplication_ForegroundColor_Callback = QColor* (*)();
@@ -721,16 +721,16 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         } else if (qaccessibleapplication_settext_callback != nullptr) {
             int cbval1 = static_cast<int>(t);
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval2 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval2 = text_str;
 
             qaccessibleapplication_settext_callback(this, cbval1, cbval2);
+            libqt_free(text_str);
         } else {
             QAccessibleApplication::setText(t, text);
         }

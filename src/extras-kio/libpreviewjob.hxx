@@ -28,7 +28,7 @@ class VirtualKIOPreviewJob final : public KIO::PreviewJob {
     using KIO__PreviewJob_ErrorString_Callback = const char* (*)();
     using KIO__PreviewJob_AddSubjob_Callback = bool (*)(KIO__PreviewJob*, KJob*);
     using KIO__PreviewJob_RemoveSubjob_Callback = bool (*)(KIO__PreviewJob*, KJob*);
-    using KIO__PreviewJob_SlotInfoMessage_Callback = void (*)(KIO__PreviewJob*, KJob*, libqt_string);
+    using KIO__PreviewJob_SlotInfoMessage_Callback = void (*)(KIO__PreviewJob*, KJob*, const char*);
     using KIO__PreviewJob_Event_Callback = bool (*)(KIO__PreviewJob*, QEvent*);
     using KIO__PreviewJob_EventFilter_Callback = bool (*)(KIO__PreviewJob*, QObject*, QEvent*);
     using KIO__PreviewJob_TimerEvent_Callback = void (*)(KIO__PreviewJob*, QTimerEvent*);
@@ -42,7 +42,7 @@ class VirtualKIOPreviewJob final : public KIO::PreviewJob {
     using KIO__PreviewJob_SetCapabilities_Callback = void (*)(KIO__PreviewJob*, int);
     using KIO__PreviewJob_IsFinished_Callback = bool (*)();
     using KIO__PreviewJob_SetError_Callback = void (*)(KIO__PreviewJob*, int);
-    using KIO__PreviewJob_SetErrorText_Callback = void (*)(KIO__PreviewJob*, libqt_string);
+    using KIO__PreviewJob_SetErrorText_Callback = void (*)(KIO__PreviewJob*, const char*);
     using KIO__PreviewJob_SetProcessedAmount_Callback = void (*)(KIO__PreviewJob*, int, unsigned long long);
     using KIO__PreviewJob_SetTotalAmount_Callback = void (*)(KIO__PreviewJob*, int, unsigned long long);
     using KIO__PreviewJob_SetProgressUnit_Callback = void (*)(KIO__PreviewJob*, int);
@@ -424,16 +424,16 @@ class VirtualKIOPreviewJob final : public KIO::PreviewJob {
         } else if (kio__previewjob_slotinfomessage_callback != nullptr) {
             KJob* cbval1 = job;
             const QString message_ret = message;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray message_b = message_ret.toUtf8();
-            libqt_string message_str;
-            message_str.len = message_b.length();
-            message_str.data = static_cast<const char*>(malloc(message_str.len + 1));
-            memcpy((void*)message_str.data, message_b.data(), message_str.len);
-            ((char*)message_str.data)[message_str.len] = '\0';
-            libqt_string cbval2 = message_str;
+            auto message_str_len = message_b.length();
+            const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+            memcpy((void*)message_str, message_b.data(), message_str_len);
+            ((char*)message_str)[message_str_len] = '\0';
+            const char* cbval2 = message_str;
 
             kio__previewjob_slotinfomessage_callback(this, cbval1, cbval2);
+            libqt_free(message_str);
         } else {
             KIO__PreviewJob::slotInfoMessage(job, message);
         }
@@ -637,16 +637,16 @@ class VirtualKIOPreviewJob final : public KIO::PreviewJob {
             KIO__PreviewJob::setErrorText(errorText);
         } else if (kio__previewjob_seterrortext_callback != nullptr) {
             const QString errorText_ret = errorText;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
-            libqt_string errorText_str;
-            errorText_str.len = errorText_b.length();
-            errorText_str.data = static_cast<const char*>(malloc(errorText_str.len + 1));
-            memcpy((void*)errorText_str.data, errorText_b.data(), errorText_str.len);
-            ((char*)errorText_str.data)[errorText_str.len] = '\0';
-            libqt_string cbval1 = errorText_str;
+            auto errorText_str_len = errorText_b.length();
+            const char* errorText_str = static_cast<const char*>(malloc(errorText_str_len + 1));
+            memcpy((void*)errorText_str, errorText_b.data(), errorText_str_len);
+            ((char*)errorText_str)[errorText_str_len] = '\0';
+            const char* cbval1 = errorText_str;
 
             kio__previewjob_seterrortext_callback(this, cbval1);
+            libqt_free(errorText_str);
         } else {
             KIO__PreviewJob::setErrorText(errorText);
         }

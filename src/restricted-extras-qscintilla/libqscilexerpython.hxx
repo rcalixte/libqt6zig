@@ -55,8 +55,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     using QsciLexerPython_SetEolFill_Callback = void (*)(QsciLexerPython*, bool, int);
     using QsciLexerPython_SetFont_Callback = void (*)(QsciLexerPython*, QFont*, int);
     using QsciLexerPython_SetPaper_Callback = void (*)(QsciLexerPython*, QColor*, int);
-    using QsciLexerPython_ReadProperties_Callback = bool (*)(QsciLexerPython*, QSettings*, libqt_string);
-    using QsciLexerPython_WriteProperties_Callback = bool (*)(const QsciLexerPython*, QSettings*, libqt_string);
+    using QsciLexerPython_ReadProperties_Callback = bool (*)(QsciLexerPython*, QSettings*, const char*);
+    using QsciLexerPython_WriteProperties_Callback = bool (*)(const QsciLexerPython*, QSettings*, const char*);
     using QsciLexerPython_Event_Callback = bool (*)(QsciLexerPython*, QEvent*);
     using QsciLexerPython_EventFilter_Callback = bool (*)(QsciLexerPython*, QObject*, QEvent*);
     using QsciLexerPython_TimerEvent_Callback = void (*)(QsciLexerPython*, QTimerEvent*);
@@ -64,7 +64,7 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     using QsciLexerPython_CustomEvent_Callback = void (*)(QsciLexerPython*, QEvent*);
     using QsciLexerPython_ConnectNotify_Callback = void (*)(QsciLexerPython*, QMetaMethod*);
     using QsciLexerPython_DisconnectNotify_Callback = void (*)(QsciLexerPython*, QMetaMethod*);
-    using QsciLexerPython_TextAsBytes_Callback = libqt_string (*)(const QsciLexerPython*, libqt_string);
+    using QsciLexerPython_TextAsBytes_Callback = libqt_string (*)(const QsciLexerPython*, const char*);
     using QsciLexerPython_BytesAsText_Callback = const char* (*)(const QsciLexerPython*, const char*, int);
     using QsciLexerPython_Sender_Callback = QObject* (*)();
     using QsciLexerPython_SenderSignalIndex_Callback = int (*)();
@@ -910,16 +910,16 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerpython_readproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerPython::readProperties(qs, prefix);
@@ -936,16 +936,16 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerpython_writeproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerPython::writeProperties(qs, prefix);
@@ -1064,17 +1064,17 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
             return QsciLexerPython::textAsBytes(text);
         } else if (qscilexerpython_textasbytes_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             libqt_string callback_ret = qscilexerpython_textasbytes_callback(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            libqt_free(text_str);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerPython::textAsBytes(text);

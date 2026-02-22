@@ -693,7 +693,7 @@ bool QHeaderView_IsIndexHidden(const QHeaderView* self, const QModelIndex* index
 QModelIndex* QHeaderView_MoveCursor(QHeaderView* self, int param1, int param2) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return new QModelIndex(vqheaderview->moveCursor(static_cast<VirtualQHeaderView::CursorAction>(param1), static_cast<QFlags<Qt::KeyboardModifier>>(param2)));
+        return new QModelIndex(vqheaderview->moveCursor(static_cast<VirtualQHeaderView::CursorAction>(param1), static_cast<Qt::KeyboardModifiers>(param2)));
     }
     return {};
 }
@@ -1267,7 +1267,7 @@ QModelIndex* QHeaderView_QBaseMoveCursor(QHeaderView* self, int param1, int para
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_MoveCursor_IsBase(true);
-        return new QModelIndex(vqheaderview->moveCursor(static_cast<VirtualQHeaderView::CursorAction>(param1), static_cast<QFlags<Qt::KeyboardModifier>>(param2)));
+        return new QModelIndex(vqheaderview->moveCursor(static_cast<VirtualQHeaderView::CursorAction>(param1), static_cast<Qt::KeyboardModifiers>(param2)));
     }
     return {};
 }

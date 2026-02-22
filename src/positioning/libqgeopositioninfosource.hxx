@@ -25,8 +25,8 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
     using QGeoPositionInfoSource_LastKnownPosition_Callback = QGeoPositionInfo* (*)(const QGeoPositionInfoSource*, bool);
     using QGeoPositionInfoSource_SupportedPositioningMethods_Callback = int (*)();
     using QGeoPositionInfoSource_MinimumUpdateInterval_Callback = int (*)();
-    using QGeoPositionInfoSource_SetBackendProperty_Callback = bool (*)(QGeoPositionInfoSource*, libqt_string, QVariant*);
-    using QGeoPositionInfoSource_BackendProperty_Callback = QVariant* (*)(const QGeoPositionInfoSource*, libqt_string);
+    using QGeoPositionInfoSource_SetBackendProperty_Callback = bool (*)(QGeoPositionInfoSource*, const char*, QVariant*);
+    using QGeoPositionInfoSource_BackendProperty_Callback = QVariant* (*)(const QGeoPositionInfoSource*, const char*);
     using QGeoPositionInfoSource_Error_Callback = int (*)();
     using QGeoPositionInfoSource_StartUpdates_Callback = void (*)();
     using QGeoPositionInfoSource_StopUpdates_Callback = void (*)();
@@ -295,19 +295,19 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
             return QGeoPositionInfoSource::setBackendProperty(name, value);
         } else if (qgeopositioninfosource_setbackendproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             bool callback_ret = qgeopositioninfosource_setbackendproperty_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QGeoPositionInfoSource::setBackendProperty(name, value);
@@ -321,16 +321,16 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
             return QGeoPositionInfoSource::backendProperty(name);
         } else if (qgeopositioninfosource_backendproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QVariant* callback_ret = qgeopositioninfosource_backendproperty_callback(this, cbval1);
+            libqt_free(name_str);
             return *callback_ret;
         } else {
             return QGeoPositionInfoSource::backendProperty(name);

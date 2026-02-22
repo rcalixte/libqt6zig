@@ -789,6 +789,7 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = kcolumnheadersmodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return KColumnHeadersModel::mimeData(indexes);
@@ -1272,6 +1273,7 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             QDataStream* cbval2 = &stream_ret;
 
             kcolumnheadersmodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             KColumnHeadersModel::encodeData(indexes, stream);
         }
@@ -1560,6 +1562,8 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             kcolumnheadersmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             KColumnHeadersModel::changePersistentIndexList(from, to);
         }

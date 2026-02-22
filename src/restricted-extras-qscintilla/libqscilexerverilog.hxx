@@ -52,8 +52,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     using QsciLexerVerilog_SetEolFill_Callback = void (*)(QsciLexerVerilog*, bool, int);
     using QsciLexerVerilog_SetFont_Callback = void (*)(QsciLexerVerilog*, QFont*, int);
     using QsciLexerVerilog_SetPaper_Callback = void (*)(QsciLexerVerilog*, QColor*, int);
-    using QsciLexerVerilog_ReadProperties_Callback = bool (*)(QsciLexerVerilog*, QSettings*, libqt_string);
-    using QsciLexerVerilog_WriteProperties_Callback = bool (*)(const QsciLexerVerilog*, QSettings*, libqt_string);
+    using QsciLexerVerilog_ReadProperties_Callback = bool (*)(QsciLexerVerilog*, QSettings*, const char*);
+    using QsciLexerVerilog_WriteProperties_Callback = bool (*)(const QsciLexerVerilog*, QSettings*, const char*);
     using QsciLexerVerilog_Event_Callback = bool (*)(QsciLexerVerilog*, QEvent*);
     using QsciLexerVerilog_EventFilter_Callback = bool (*)(QsciLexerVerilog*, QObject*, QEvent*);
     using QsciLexerVerilog_TimerEvent_Callback = void (*)(QsciLexerVerilog*, QTimerEvent*);
@@ -61,7 +61,7 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     using QsciLexerVerilog_CustomEvent_Callback = void (*)(QsciLexerVerilog*, QEvent*);
     using QsciLexerVerilog_ConnectNotify_Callback = void (*)(QsciLexerVerilog*, QMetaMethod*);
     using QsciLexerVerilog_DisconnectNotify_Callback = void (*)(QsciLexerVerilog*, QMetaMethod*);
-    using QsciLexerVerilog_TextAsBytes_Callback = libqt_string (*)(const QsciLexerVerilog*, libqt_string);
+    using QsciLexerVerilog_TextAsBytes_Callback = libqt_string (*)(const QsciLexerVerilog*, const char*);
     using QsciLexerVerilog_BytesAsText_Callback = const char* (*)(const QsciLexerVerilog*, const char*, int);
     using QsciLexerVerilog_Sender_Callback = QObject* (*)();
     using QsciLexerVerilog_SenderSignalIndex_Callback = int (*)();
@@ -850,16 +850,16 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerverilog_readproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerVerilog::readProperties(qs, prefix);
@@ -876,16 +876,16 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerverilog_writeproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerVerilog::writeProperties(qs, prefix);
@@ -1004,17 +1004,17 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
             return QsciLexerVerilog::textAsBytes(text);
         } else if (qscilexerverilog_textasbytes_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             libqt_string callback_ret = qscilexerverilog_textasbytes_callback(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            libqt_free(text_str);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerVerilog::textAsBytes(text);

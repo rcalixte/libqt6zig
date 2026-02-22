@@ -27,7 +27,7 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
     using PackageKit__Transaction_TimerEvent_Callback = void (*)(PackageKit__Transaction*, QTimerEvent*);
     using PackageKit__Transaction_ChildEvent_Callback = void (*)(PackageKit__Transaction*, QChildEvent*);
     using PackageKit__Transaction_CustomEvent_Callback = void (*)(PackageKit__Transaction*, QEvent*);
-    using PackageKit__Transaction_ParseError_Callback = int (*)(PackageKit__Transaction*, libqt_string);
+    using PackageKit__Transaction_ParseError_Callback = int (*)(PackageKit__Transaction*, const char*);
     using PackageKit__Transaction_Sender_Callback = QObject* (*)();
     using PackageKit__Transaction_SenderSignalIndex_Callback = int (*)();
     using PackageKit__Transaction_Receivers_Callback = int (*)(const PackageKit__Transaction*, const char*);
@@ -280,16 +280,16 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
             return PackageKit__Transaction::parseError(errorName);
         } else if (packagekit__transaction_parseerror_callback != nullptr) {
             const QString errorName_ret = errorName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorName_b = errorName_ret.toUtf8();
-            libqt_string errorName_str;
-            errorName_str.len = errorName_b.length();
-            errorName_str.data = static_cast<const char*>(malloc(errorName_str.len + 1));
-            memcpy((void*)errorName_str.data, errorName_b.data(), errorName_str.len);
-            ((char*)errorName_str.data)[errorName_str.len] = '\0';
-            libqt_string cbval1 = errorName_str;
+            auto errorName_str_len = errorName_b.length();
+            const char* errorName_str = static_cast<const char*>(malloc(errorName_str_len + 1));
+            memcpy((void*)errorName_str, errorName_b.data(), errorName_str_len);
+            ((char*)errorName_str)[errorName_str_len] = '\0';
+            const char* cbval1 = errorName_str;
 
             int callback_ret = packagekit__transaction_parseerror_callback(this, cbval1);
+            libqt_free(errorName_str);
             return static_cast<PackageKit::Transaction::InternalError>(callback_ret);
         } else {
             return PackageKit__Transaction::parseError(errorName);

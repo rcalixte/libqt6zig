@@ -108,9 +108,10 @@ void KNSCore__ItemsModel_Connect_JobStarted(KNSCore__ItemsModel* self, intptr_t 
         const QString label_ret = label;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray label_b = label_ret.toUtf8();
-        const char* label_str = static_cast<const char*>(malloc(label_b.length() + 1));
-        memcpy((void*)label_str, label_b.data(), label_b.length());
-        ((char*)label_str)[label_b.length()] = '\0';
+        auto label_str_len = label_b.length();
+        const char* label_str = static_cast<const char*>(malloc(label_str_len + 1));
+        memcpy((void*)label_str, label_b.data(), label_str_len);
+        ((char*)label_str)[label_str_len] = '\0';
         const char* sigval2 = label_str;
         slotFunc(self, sigval1, sigval2);
         libqt_free(label_str);

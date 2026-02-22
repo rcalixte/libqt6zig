@@ -91,9 +91,9 @@ void KCompressionDevice_SetSkipHeaders(KCompressionDevice* self) {
 bool KCompressionDevice_Seek(KCompressionDevice* self, long long param1) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
-        return self->seek(static_cast<long long>(param1));
+        return self->seek(static_cast<qint64>(param1));
     } else {
-        return ((VirtualKCompressionDevice*)self)->seek(static_cast<long long>(param1));
+        return ((VirtualKCompressionDevice*)self)->seek(static_cast<qint64>(param1));
     }
 }
 
@@ -235,9 +235,9 @@ bool KCompressionDevice_QBaseSeek(KCompressionDevice* self, long long param1) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_Seek_IsBase(true);
-        return vkcompressiondevice->seek(static_cast<long long>(param1));
+        return vkcompressiondevice->seek(static_cast<qint64>(param1));
     } else {
-        return self->KCompressionDevice::seek(static_cast<long long>(param1));
+        return self->KCompressionDevice::seek(static_cast<qint64>(param1));
     }
 }
 

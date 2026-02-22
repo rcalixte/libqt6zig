@@ -35,7 +35,7 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
     using KEMailClientLauncherJob_SetCapabilities_Callback = void (*)(KEMailClientLauncherJob*, int);
     using KEMailClientLauncherJob_IsFinished_Callback = bool (*)();
     using KEMailClientLauncherJob_SetError_Callback = void (*)(KEMailClientLauncherJob*, int);
-    using KEMailClientLauncherJob_SetErrorText_Callback = void (*)(KEMailClientLauncherJob*, libqt_string);
+    using KEMailClientLauncherJob_SetErrorText_Callback = void (*)(KEMailClientLauncherJob*, const char*);
     using KEMailClientLauncherJob_SetProcessedAmount_Callback = void (*)(KEMailClientLauncherJob*, int, unsigned long long);
     using KEMailClientLauncherJob_SetTotalAmount_Callback = void (*)(KEMailClientLauncherJob*, int, unsigned long long);
     using KEMailClientLauncherJob_SetProgressUnit_Callback = void (*)(KEMailClientLauncherJob*, int);
@@ -483,16 +483,16 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
             KEMailClientLauncherJob::setErrorText(errorText);
         } else if (kemailclientlauncherjob_seterrortext_callback != nullptr) {
             const QString errorText_ret = errorText;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
-            libqt_string errorText_str;
-            errorText_str.len = errorText_b.length();
-            errorText_str.data = static_cast<const char*>(malloc(errorText_str.len + 1));
-            memcpy((void*)errorText_str.data, errorText_b.data(), errorText_str.len);
-            ((char*)errorText_str.data)[errorText_str.len] = '\0';
-            libqt_string cbval1 = errorText_str;
+            auto errorText_str_len = errorText_b.length();
+            const char* errorText_str = static_cast<const char*>(malloc(errorText_str_len + 1));
+            memcpy((void*)errorText_str, errorText_b.data(), errorText_str_len);
+            ((char*)errorText_str)[errorText_str_len] = '\0';
+            const char* cbval1 = errorText_str;
 
             kemailclientlauncherjob_seterrortext_callback(this, cbval1);
+            libqt_free(errorText_str);
         } else {
             KEMailClientLauncherJob::setErrorText(errorText);
         }

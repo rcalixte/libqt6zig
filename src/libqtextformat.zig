@@ -4,7 +4,7 @@ const qfont_enums = @import("libqfont.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qtextformat_enums = enums;
 const std = @import("std");
-const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
+const arraymap_i32_qtcqvariant = std.AutoArrayHashMapUnmanaged(i32, QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlength.html)
 pub const qtextlength = struct {
@@ -476,9 +476,9 @@ pub const qtextformat = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2011,9 +2011,9 @@ pub const qtextcharformat = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -3076,9 +3076,9 @@ pub const qtextblockformat = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -3940,9 +3940,9 @@ pub const qtextlistformat = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -5797,9 +5797,9 @@ pub const qtextimageformat = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -6849,9 +6849,9 @@ pub const qtextframeformat = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -8136,9 +8136,9 @@ pub const qtexttableformat = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -10279,9 +10279,9 @@ pub const qtexttablecellformat = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);

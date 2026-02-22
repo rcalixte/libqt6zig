@@ -1012,6 +1012,7 @@ class VirtualQPushButton final : public QPushButton {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qpushbutton_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QPushButton::nativeEvent(eventType, message, result);

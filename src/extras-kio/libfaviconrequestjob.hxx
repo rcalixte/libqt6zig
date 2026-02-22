@@ -23,7 +23,7 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
     using KIO__FavIconRequestJob_Start_Callback = void (*)();
     using KIO__FavIconRequestJob_AddSubjob_Callback = bool (*)(KIO__FavIconRequestJob*, KJob*);
     using KIO__FavIconRequestJob_RemoveSubjob_Callback = bool (*)(KIO__FavIconRequestJob*, KJob*);
-    using KIO__FavIconRequestJob_SlotInfoMessage_Callback = void (*)(KIO__FavIconRequestJob*, KJob*, libqt_string);
+    using KIO__FavIconRequestJob_SlotInfoMessage_Callback = void (*)(KIO__FavIconRequestJob*, KJob*, const char*);
     using KIO__FavIconRequestJob_DoKill_Callback = bool (*)();
     using KIO__FavIconRequestJob_DoSuspend_Callback = bool (*)();
     using KIO__FavIconRequestJob_DoResume_Callback = bool (*)();
@@ -41,7 +41,7 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
     using KIO__FavIconRequestJob_SetCapabilities_Callback = void (*)(KIO__FavIconRequestJob*, int);
     using KIO__FavIconRequestJob_IsFinished_Callback = bool (*)();
     using KIO__FavIconRequestJob_SetError_Callback = void (*)(KIO__FavIconRequestJob*, int);
-    using KIO__FavIconRequestJob_SetErrorText_Callback = void (*)(KIO__FavIconRequestJob*, libqt_string);
+    using KIO__FavIconRequestJob_SetErrorText_Callback = void (*)(KIO__FavIconRequestJob*, const char*);
     using KIO__FavIconRequestJob_SetProcessedAmount_Callback = void (*)(KIO__FavIconRequestJob*, int, unsigned long long);
     using KIO__FavIconRequestJob_SetTotalAmount_Callback = void (*)(KIO__FavIconRequestJob*, int, unsigned long long);
     using KIO__FavIconRequestJob_SetProgressUnit_Callback = void (*)(KIO__FavIconRequestJob*, int);
@@ -352,16 +352,16 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         } else if (kio__faviconrequestjob_slotinfomessage_callback != nullptr) {
             KJob* cbval1 = job;
             const QString message_ret = message;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray message_b = message_ret.toUtf8();
-            libqt_string message_str;
-            message_str.len = message_b.length();
-            message_str.data = static_cast<const char*>(malloc(message_str.len + 1));
-            memcpy((void*)message_str.data, message_b.data(), message_str.len);
-            ((char*)message_str.data)[message_str.len] = '\0';
-            libqt_string cbval2 = message_str;
+            auto message_str_len = message_b.length();
+            const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+            memcpy((void*)message_str, message_b.data(), message_str_len);
+            ((char*)message_str)[message_str_len] = '\0';
+            const char* cbval2 = message_str;
 
             kio__faviconrequestjob_slotinfomessage_callback(this, cbval1, cbval2);
+            libqt_free(message_str);
         } else {
             KIO__FavIconRequestJob::slotInfoMessage(job, message);
         }
@@ -618,16 +618,16 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
             KIO__FavIconRequestJob::setErrorText(errorText);
         } else if (kio__faviconrequestjob_seterrortext_callback != nullptr) {
             const QString errorText_ret = errorText;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
-            libqt_string errorText_str;
-            errorText_str.len = errorText_b.length();
-            errorText_str.data = static_cast<const char*>(malloc(errorText_str.len + 1));
-            memcpy((void*)errorText_str.data, errorText_b.data(), errorText_str.len);
-            ((char*)errorText_str.data)[errorText_str.len] = '\0';
-            libqt_string cbval1 = errorText_str;
+            auto errorText_str_len = errorText_b.length();
+            const char* errorText_str = static_cast<const char*>(malloc(errorText_str_len + 1));
+            memcpy((void*)errorText_str, errorText_b.data(), errorText_str_len);
+            ((char*)errorText_str)[errorText_str_len] = '\0';
+            const char* cbval1 = errorText_str;
 
             kio__faviconrequestjob_seterrortext_callback(this, cbval1);
+            libqt_free(errorText_str);
         } else {
             KIO__FavIconRequestJob::setErrorText(errorText);
         }

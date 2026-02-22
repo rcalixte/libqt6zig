@@ -768,6 +768,7 @@ class VirtualKNSCoreItemsModel final : public KNSCore::ItemsModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = knscore__itemsmodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return KNSCore__ItemsModel::mimeData(indexes);
@@ -1272,6 +1273,7 @@ class VirtualKNSCoreItemsModel final : public KNSCore::ItemsModel {
             QDataStream* cbval2 = &stream_ret;
 
             knscore__itemsmodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             KNSCore__ItemsModel::encodeData(indexes, stream);
         }
@@ -1560,6 +1562,8 @@ class VirtualKNSCoreItemsModel final : public KNSCore::ItemsModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             knscore__itemsmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             KNSCore__ItemsModel::changePersistentIndexList(from, to);
         }

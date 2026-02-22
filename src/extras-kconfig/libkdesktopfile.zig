@@ -4,7 +4,7 @@ const kconfig_enums = @import("libkconfig.zig").enums;
 const kconfigbase_enums = @import("libkconfigbase.zig").enums;
 const qstandardpaths_enums = @import("../libqstandardpaths.zig").enums;
 const std = @import("std");
-const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
+const arraymap_constu8_constu8 = std.StringArrayHashMapUnmanaged([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html)
 pub const kdesktopfile = struct {
@@ -668,9 +668,9 @@ pub const kdesktopfile = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EntryMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_constu8 {
+    pub fn EntryMap(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KConfig_EntryMap(@ptrCast(self));
-        var _ret: map_constu8_constu8 = .empty;
+        var _ret: arraymap_constu8_constu8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -760,13 +760,13 @@ pub const kdesktopfile = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EntryMap1(self: ?*anyopaque, aGroup: []const u8, allocator: std.mem.Allocator) map_constu8_constu8 {
+    pub fn EntryMap1(self: ?*anyopaque, aGroup: []const u8, allocator: std.mem.Allocator) arraymap_constu8_constu8 {
         const aGroup_str = qtc.libqt_string{
             .len = aGroup.len,
             .data = aGroup.ptr,
         };
         const _map: qtc.libqt_map = qtc.KConfig_EntryMap1(@ptrCast(self), aGroup_str);
-        var _ret: map_constu8_constu8 = .empty;
+        var _ret: arraymap_constu8_constu8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));

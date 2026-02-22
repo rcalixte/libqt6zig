@@ -21,7 +21,7 @@ class VirtualQCompleter final : public QCompleter {
     using QCompleter_Metacast_Callback = void* (*)(QCompleter*, const char*);
     using QCompleter_Metacall_Callback = int (*)(QCompleter*, int, int, void**);
     using QCompleter_PathFromIndex_Callback = const char* (*)(const QCompleter*, QModelIndex*);
-    using QCompleter_SplitPath_Callback = const char** (*)(const QCompleter*, libqt_string);
+    using QCompleter_SplitPath_Callback = const char** (*)(const QCompleter*, const char*);
     using QCompleter_EventFilter_Callback = bool (*)(QCompleter*, QObject*, QEvent*);
     using QCompleter_Event_Callback = bool (*)(QCompleter*, QEvent*);
     using QCompleter_TimerEvent_Callback = void (*)(QCompleter*, QTimerEvent*);
@@ -204,14 +204,13 @@ class VirtualQCompleter final : public QCompleter {
             return QCompleter::splitPath(path);
         } else if (qcompleter_splitpath_callback != nullptr) {
             const QString path_ret = path;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
-            libqt_string path_str;
-            path_str.len = path_b.length();
-            path_str.data = static_cast<const char*>(malloc(path_str.len + 1));
-            memcpy((void*)path_str.data, path_b.data(), path_str.len);
-            ((char*)path_str.data)[path_str.len] = '\0';
-            libqt_string cbval1 = path_str;
+            auto path_str_len = path_b.length();
+            const char* path_str = static_cast<const char*>(malloc(path_str_len + 1));
+            memcpy((void*)path_str, path_b.data(), path_str_len);
+            ((char*)path_str)[path_str_len] = '\0';
+            const char* cbval1 = path_str;
 
             const char** callback_ret = qcompleter_splitpath_callback(this, cbval1);
             QList<QString> callback_ret_QList;
@@ -223,6 +222,7 @@ class VirtualQCompleter final : public QCompleter {
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             libqt_free(callback_ret);
+            libqt_free(path_str);
             return callback_ret_QList;
         } else {
             return QCompleter::splitPath(path);

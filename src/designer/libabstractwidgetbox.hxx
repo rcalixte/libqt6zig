@@ -29,7 +29,7 @@ class VirtualQDesignerWidgetBoxInterface : public QDesignerWidgetBoxInterface {
     using QDesignerWidgetBoxInterface_AddWidget_Callback = void (*)(QDesignerWidgetBoxInterface*, int, QDesignerWidgetBoxInterface__Widget*);
     using QDesignerWidgetBoxInterface_RemoveWidget_Callback = void (*)(QDesignerWidgetBoxInterface*, int, int);
     using QDesignerWidgetBoxInterface_DropWidgets_Callback = void (*)(QDesignerWidgetBoxInterface*, libqt_list /* of QDesignerDnDItemInterface* */, QPoint*);
-    using QDesignerWidgetBoxInterface_SetFileName_Callback = void (*)(QDesignerWidgetBoxInterface*, libqt_string);
+    using QDesignerWidgetBoxInterface_SetFileName_Callback = void (*)(QDesignerWidgetBoxInterface*, const char*);
     using QDesignerWidgetBoxInterface_FileName_Callback = const char* (*)();
     using QDesignerWidgetBoxInterface_Load_Callback = bool (*)();
     using QDesignerWidgetBoxInterface_Save_Callback = bool (*)();
@@ -625,6 +625,7 @@ class VirtualQDesignerWidgetBoxInterface : public QDesignerWidgetBoxInterface {
             QPoint* cbval2 = const_cast<QPoint*>(&global_mouse_pos_ret);
 
             qdesignerwidgetboxinterface_dropwidgets_callback(this, cbval1, cbval2);
+            free(item_list_arr);
         }
     }
 
@@ -632,16 +633,16 @@ class VirtualQDesignerWidgetBoxInterface : public QDesignerWidgetBoxInterface {
     virtual void setFileName(const QString& file_name) override {
         if (qdesignerwidgetboxinterface_setfilename_callback != nullptr) {
             const QString file_name_ret = file_name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_name_b = file_name_ret.toUtf8();
-            libqt_string file_name_str;
-            file_name_str.len = file_name_b.length();
-            file_name_str.data = static_cast<const char*>(malloc(file_name_str.len + 1));
-            memcpy((void*)file_name_str.data, file_name_b.data(), file_name_str.len);
-            ((char*)file_name_str.data)[file_name_str.len] = '\0';
-            libqt_string cbval1 = file_name_str;
+            auto file_name_str_len = file_name_b.length();
+            const char* file_name_str = static_cast<const char*>(malloc(file_name_str_len + 1));
+            memcpy((void*)file_name_str, file_name_b.data(), file_name_str_len);
+            ((char*)file_name_str)[file_name_str_len] = '\0';
+            const char* cbval1 = file_name_str;
 
             qdesignerwidgetboxinterface_setfilename_callback(this, cbval1);
+            libqt_free(file_name_str);
         }
     }
 
@@ -1138,6 +1139,7 @@ class VirtualQDesignerWidgetBoxInterface : public QDesignerWidgetBoxInterface {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qdesignerwidgetboxinterface_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QDesignerWidgetBoxInterface::nativeEvent(eventType, message, result);

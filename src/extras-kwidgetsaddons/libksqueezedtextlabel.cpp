@@ -117,9 +117,9 @@ void KSqueezedTextLabel_SetMargin(KSqueezedTextLabel* self, int margin) {
 void KSqueezedTextLabel_SetAlignment(KSqueezedTextLabel* self, int alignment) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        self->setAlignment(static_cast<QFlags<Qt::AlignmentFlag>>(alignment));
+        self->setAlignment(static_cast<Qt::Alignment>(alignment));
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->setAlignment(static_cast<QFlags<Qt::AlignmentFlag>>(alignment));
+        ((VirtualKSqueezedTextLabel*)self)->setAlignment(static_cast<Qt::Alignment>(alignment));
     }
 }
 
@@ -281,9 +281,9 @@ void KSqueezedTextLabel_QBaseSetAlignment(KSqueezedTextLabel* self, int alignmen
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_SetAlignment_IsBase(true);
-        vksqueezedtextlabel->setAlignment(static_cast<QFlags<Qt::AlignmentFlag>>(alignment));
+        vksqueezedtextlabel->setAlignment(static_cast<Qt::Alignment>(alignment));
     } else {
-        self->KSqueezedTextLabel::setAlignment(static_cast<QFlags<Qt::AlignmentFlag>>(alignment));
+        self->KSqueezedTextLabel::setAlignment(static_cast<Qt::Alignment>(alignment));
     }
 }
 

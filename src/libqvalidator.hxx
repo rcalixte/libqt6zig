@@ -20,8 +20,8 @@ class VirtualQValidator : public QValidator {
     using QValidator_MetaObject_Callback = QMetaObject* (*)();
     using QValidator_Metacast_Callback = void* (*)(QValidator*, const char*);
     using QValidator_Metacall_Callback = int (*)(QValidator*, int, int, void**);
-    using QValidator_Validate_Callback = int (*)(const QValidator*, libqt_string, int*);
-    using QValidator_Fixup_Callback = void (*)(const QValidator*, libqt_string);
+    using QValidator_Validate_Callback = int (*)(const QValidator*, const char*, int*);
+    using QValidator_Fixup_Callback = void (*)(const QValidator*, const char*);
     using QValidator_Event_Callback = bool (*)(QValidator*, QEvent*);
     using QValidator_EventFilter_Callback = bool (*)(QValidator*, QObject*, QEvent*);
     using QValidator_TimerEvent_Callback = void (*)(QValidator*, QTimerEvent*);
@@ -179,17 +179,17 @@ class VirtualQValidator : public QValidator {
     virtual QValidator::State validate(QString& param1, int& param2) const override {
         if (qvalidator_validate_callback != nullptr) {
             QString param1_ret = param1;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
-            libqt_string param1_str;
-            param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-            ((char*)param1_str.data)[param1_str.len] = '\0';
-            libqt_string cbval1 = param1_str;
+            auto param1_str_len = param1_b.length();
+            const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+            memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+            ((char*)param1_str)[param1_str_len] = '\0';
+            const char* cbval1 = param1_str;
             int* cbval2 = &param2;
 
             int callback_ret = qvalidator_validate_callback(this, cbval1, cbval2);
+            libqt_free(param1_str);
             return static_cast<QValidator::State>(callback_ret);
         } else {
             return {};
@@ -203,16 +203,16 @@ class VirtualQValidator : public QValidator {
             QValidator::fixup(param1);
         } else if (qvalidator_fixup_callback != nullptr) {
             QString param1_ret = param1;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
-            libqt_string param1_str;
-            param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-            ((char*)param1_str.data)[param1_str.len] = '\0';
-            libqt_string cbval1 = param1_str;
+            auto param1_str_len = param1_b.length();
+            const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+            memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+            ((char*)param1_str)[param1_str_len] = '\0';
+            const char* cbval1 = param1_str;
 
             qvalidator_fixup_callback(this, cbval1);
+            libqt_free(param1_str);
         } else {
             QValidator::fixup(param1);
         }
@@ -413,8 +413,8 @@ class VirtualQIntValidator final : public QIntValidator {
     using QIntValidator_MetaObject_Callback = QMetaObject* (*)();
     using QIntValidator_Metacast_Callback = void* (*)(QIntValidator*, const char*);
     using QIntValidator_Metacall_Callback = int (*)(QIntValidator*, int, int, void**);
-    using QIntValidator_Validate_Callback = int (*)(const QIntValidator*, libqt_string, int*);
-    using QIntValidator_Fixup_Callback = void (*)(const QIntValidator*, libqt_string);
+    using QIntValidator_Validate_Callback = int (*)(const QIntValidator*, const char*, int*);
+    using QIntValidator_Fixup_Callback = void (*)(const QIntValidator*, const char*);
     using QIntValidator_Event_Callback = bool (*)(QIntValidator*, QEvent*);
     using QIntValidator_EventFilter_Callback = bool (*)(QIntValidator*, QObject*, QEvent*);
     using QIntValidator_TimerEvent_Callback = void (*)(QIntValidator*, QTimerEvent*);
@@ -577,17 +577,17 @@ class VirtualQIntValidator final : public QIntValidator {
             return QIntValidator::validate(param1, param2);
         } else if (qintvalidator_validate_callback != nullptr) {
             QString param1_ret = param1;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
-            libqt_string param1_str;
-            param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-            ((char*)param1_str.data)[param1_str.len] = '\0';
-            libqt_string cbval1 = param1_str;
+            auto param1_str_len = param1_b.length();
+            const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+            memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+            ((char*)param1_str)[param1_str_len] = '\0';
+            const char* cbval1 = param1_str;
             int* cbval2 = &param2;
 
             int callback_ret = qintvalidator_validate_callback(this, cbval1, cbval2);
+            libqt_free(param1_str);
             return static_cast<QValidator::State>(callback_ret);
         } else {
             return QIntValidator::validate(param1, param2);
@@ -601,16 +601,16 @@ class VirtualQIntValidator final : public QIntValidator {
             QIntValidator::fixup(input);
         } else if (qintvalidator_fixup_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
 
             qintvalidator_fixup_callback(this, cbval1);
+            libqt_free(input_str);
         } else {
             QIntValidator::fixup(input);
         }
@@ -811,8 +811,8 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
     using QDoubleValidator_MetaObject_Callback = QMetaObject* (*)();
     using QDoubleValidator_Metacast_Callback = void* (*)(QDoubleValidator*, const char*);
     using QDoubleValidator_Metacall_Callback = int (*)(QDoubleValidator*, int, int, void**);
-    using QDoubleValidator_Validate_Callback = int (*)(const QDoubleValidator*, libqt_string, int*);
-    using QDoubleValidator_Fixup_Callback = void (*)(const QDoubleValidator*, libqt_string);
+    using QDoubleValidator_Validate_Callback = int (*)(const QDoubleValidator*, const char*, int*);
+    using QDoubleValidator_Fixup_Callback = void (*)(const QDoubleValidator*, const char*);
     using QDoubleValidator_Event_Callback = bool (*)(QDoubleValidator*, QEvent*);
     using QDoubleValidator_EventFilter_Callback = bool (*)(QDoubleValidator*, QObject*, QEvent*);
     using QDoubleValidator_TimerEvent_Callback = void (*)(QDoubleValidator*, QTimerEvent*);
@@ -975,17 +975,17 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
             return QDoubleValidator::validate(param1, param2);
         } else if (qdoublevalidator_validate_callback != nullptr) {
             QString param1_ret = param1;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
-            libqt_string param1_str;
-            param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-            ((char*)param1_str.data)[param1_str.len] = '\0';
-            libqt_string cbval1 = param1_str;
+            auto param1_str_len = param1_b.length();
+            const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+            memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+            ((char*)param1_str)[param1_str_len] = '\0';
+            const char* cbval1 = param1_str;
             int* cbval2 = &param2;
 
             int callback_ret = qdoublevalidator_validate_callback(this, cbval1, cbval2);
+            libqt_free(param1_str);
             return static_cast<QValidator::State>(callback_ret);
         } else {
             return QDoubleValidator::validate(param1, param2);
@@ -999,16 +999,16 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
             QDoubleValidator::fixup(input);
         } else if (qdoublevalidator_fixup_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
 
             qdoublevalidator_fixup_callback(this, cbval1);
+            libqt_free(input_str);
         } else {
             QDoubleValidator::fixup(input);
         }
@@ -1209,8 +1209,8 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
     using QRegularExpressionValidator_MetaObject_Callback = QMetaObject* (*)();
     using QRegularExpressionValidator_Metacast_Callback = void* (*)(QRegularExpressionValidator*, const char*);
     using QRegularExpressionValidator_Metacall_Callback = int (*)(QRegularExpressionValidator*, int, int, void**);
-    using QRegularExpressionValidator_Validate_Callback = int (*)(const QRegularExpressionValidator*, libqt_string, int*);
-    using QRegularExpressionValidator_Fixup_Callback = void (*)(const QRegularExpressionValidator*, libqt_string);
+    using QRegularExpressionValidator_Validate_Callback = int (*)(const QRegularExpressionValidator*, const char*, int*);
+    using QRegularExpressionValidator_Fixup_Callback = void (*)(const QRegularExpressionValidator*, const char*);
     using QRegularExpressionValidator_Event_Callback = bool (*)(QRegularExpressionValidator*, QEvent*);
     using QRegularExpressionValidator_EventFilter_Callback = bool (*)(QRegularExpressionValidator*, QObject*, QEvent*);
     using QRegularExpressionValidator_TimerEvent_Callback = void (*)(QRegularExpressionValidator*, QTimerEvent*);
@@ -1373,17 +1373,17 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
             return QRegularExpressionValidator::validate(input, pos);
         } else if (qregularexpressionvalidator_validate_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
             int* cbval2 = &pos;
 
             int callback_ret = qregularexpressionvalidator_validate_callback(this, cbval1, cbval2);
+            libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
         } else {
             return QRegularExpressionValidator::validate(input, pos);
@@ -1397,16 +1397,16 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
             QRegularExpressionValidator::fixup(param1);
         } else if (qregularexpressionvalidator_fixup_callback != nullptr) {
             QString param1_ret = param1;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
-            libqt_string param1_str;
-            param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-            ((char*)param1_str.data)[param1_str.len] = '\0';
-            libqt_string cbval1 = param1_str;
+            auto param1_str_len = param1_b.length();
+            const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+            memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+            ((char*)param1_str)[param1_str_len] = '\0';
+            const char* cbval1 = param1_str;
 
             qregularexpressionvalidator_fixup_callback(this, cbval1);
+            libqt_free(param1_str);
         } else {
             QRegularExpressionValidator::fixup(param1);
         }

@@ -25,9 +25,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
     using KHistoryComboBox_SetAutoCompletion_Callback = void (*)(KHistoryComboBox*, bool);
     using KHistoryComboBox_SetLineEdit_Callback = void (*)(KHistoryComboBox*, QLineEdit*);
     using KHistoryComboBox_MinimumSizeHint_Callback = QSize* (*)();
-    using KHistoryComboBox_SetCompletedText_Callback = void (*)(KHistoryComboBox*, libqt_string);
-    using KHistoryComboBox_SetCompletedItems_Callback = void (*)(KHistoryComboBox*, libqt_list /* of libqt_string */, bool);
-    using KHistoryComboBox_MakeCompletion_Callback = void (*)(KHistoryComboBox*, libqt_string);
+    using KHistoryComboBox_SetCompletedText_Callback = void (*)(KHistoryComboBox*, const char*);
+    using KHistoryComboBox_SetCompletedItems_Callback = void (*)(KHistoryComboBox*, const char**, bool);
+    using KHistoryComboBox_MakeCompletion_Callback = void (*)(KHistoryComboBox*, const char*);
     using KHistoryComboBox_SetModel_Callback = void (*)(KHistoryComboBox*, QAbstractItemModel*);
     using KHistoryComboBox_SizeHint_Callback = QSize* (*)();
     using KHistoryComboBox_ShowPopup_Callback = void (*)();
@@ -80,7 +80,7 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
     using KHistoryComboBox_SetHandleSignals_Callback = void (*)(KHistoryComboBox*, bool);
     using KHistoryComboBox_SetCompletionMode_Callback = void (*)(KHistoryComboBox*, int);
     using KHistoryComboBox_VirtualHook_Callback = void (*)(KHistoryComboBox*, int, void*);
-    using KHistoryComboBox_InsertItems_Callback = void (*)(KHistoryComboBox*, libqt_list /* of libqt_string */);
+    using KHistoryComboBox_InsertItems_Callback = void (*)(KHistoryComboBox*, const char**);
     using KHistoryComboBox_UseCompletion_Callback = bool (*)();
     using KHistoryComboBox_UpdateMicroFocus_Callback = void (*)();
     using KHistoryComboBox_Create_Callback = void (*)();
@@ -631,16 +631,16 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
             KHistoryComboBox::setCompletedText(completedText);
         } else if (khistorycombobox_setcompletedtext_callback != nullptr) {
             const QString completedText_ret = completedText;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray completedText_b = completedText_ret.toUtf8();
-            libqt_string completedText_str;
-            completedText_str.len = completedText_b.length();
-            completedText_str.data = static_cast<const char*>(malloc(completedText_str.len + 1));
-            memcpy((void*)completedText_str.data, completedText_b.data(), completedText_str.len);
-            ((char*)completedText_str.data)[completedText_str.len] = '\0';
-            libqt_string cbval1 = completedText_str;
+            auto completedText_str_len = completedText_b.length();
+            const char* completedText_str = static_cast<const char*>(malloc(completedText_str_len + 1));
+            memcpy((void*)completedText_str, completedText_b.data(), completedText_str_len);
+            ((char*)completedText_str)[completedText_str_len] = '\0';
+            const char* cbval1 = completedText_str;
 
             khistorycombobox_setcompletedtext_callback(this, cbval1);
+            libqt_free(completedText_str);
         } else {
             KHistoryComboBox::setCompletedText(completedText);
         }
@@ -653,26 +653,23 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
             KHistoryComboBox::setCompletedItems(items, autoSuggest);
         } else if (khistorycombobox_setcompleteditems_callback != nullptr) {
             const QList<QString>& items_ret = items;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* items_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (items_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** items_arr = static_cast<const char**>(malloc(sizeof(const char*) * (items_ret.size() + 1)));
             for (qsizetype i = 0; i < items_ret.size(); ++i) {
-                QString items_lv_ret = items_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray items_lv_b = items_lv_ret.toUtf8();
-                libqt_string items_lv_str;
-                items_lv_str.len = items_lv_b.length();
-                items_lv_str.data = static_cast<const char*>(malloc(items_lv_str.len + 1));
-                memcpy((void*)items_lv_str.data, items_lv_b.data(), items_lv_str.len);
-                ((char*)items_lv_str.data)[items_lv_str.len] = '\0';
-                items_arr[i] = items_lv_str;
+                QByteArray items_b = items_ret[i].toUtf8();
+                auto items_str_len = items_b.length();
+                char* items_str = static_cast<char*>(malloc(items_str_len + 1));
+                memcpy(items_str, items_b.data(), items_str_len);
+                items_str[items_str_len] = '\0';
+                items_arr[i] = items_str;
             }
-            libqt_list items_out;
-            items_out.len = items_ret.size();
-            items_out.data = static_cast<void*>(items_arr);
-            libqt_list /* of libqt_string */ cbval1 = items_out;
+            // Append sentinel null terminator to the list
+            items_arr[items_ret.size()] = nullptr;
+            const char** cbval1 = items_arr;
             bool cbval2 = autoSuggest;
 
             khistorycombobox_setcompleteditems_callback(this, cbval1, cbval2);
+            libqt_free(items_arr);
         } else {
             KHistoryComboBox::setCompletedItems(items, autoSuggest);
         }
@@ -685,16 +682,16 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
             KHistoryComboBox::makeCompletion(param1);
         } else if (khistorycombobox_makecompletion_callback != nullptr) {
             const QString param1_ret = param1;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
-            libqt_string param1_str;
-            param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-            ((char*)param1_str.data)[param1_str.len] = '\0';
-            libqt_string cbval1 = param1_str;
+            auto param1_str_len = param1_b.length();
+            const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+            memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+            ((char*)param1_str)[param1_str_len] = '\0';
+            const char* cbval1 = param1_str;
 
             khistorycombobox_makecompletion_callback(this, cbval1);
+            libqt_free(param1_str);
         } else {
             KHistoryComboBox::makeCompletion(param1);
         }
@@ -1216,6 +1213,7 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = khistorycombobox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KHistoryComboBox::nativeEvent(eventType, message, result);
@@ -1449,25 +1447,22 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
             KHistoryComboBox::insertItems(items);
         } else if (khistorycombobox_insertitems_callback != nullptr) {
             const QList<QString>& items_ret = items;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* items_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (items_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** items_arr = static_cast<const char**>(malloc(sizeof(const char*) * (items_ret.size() + 1)));
             for (qsizetype i = 0; i < items_ret.size(); ++i) {
-                QString items_lv_ret = items_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray items_lv_b = items_lv_ret.toUtf8();
-                libqt_string items_lv_str;
-                items_lv_str.len = items_lv_b.length();
-                items_lv_str.data = static_cast<const char*>(malloc(items_lv_str.len + 1));
-                memcpy((void*)items_lv_str.data, items_lv_b.data(), items_lv_str.len);
-                ((char*)items_lv_str.data)[items_lv_str.len] = '\0';
-                items_arr[i] = items_lv_str;
+                QByteArray items_b = items_ret[i].toUtf8();
+                auto items_str_len = items_b.length();
+                char* items_str = static_cast<char*>(malloc(items_str_len + 1));
+                memcpy(items_str, items_b.data(), items_str_len);
+                items_str[items_str_len] = '\0';
+                items_arr[i] = items_str;
             }
-            libqt_list items_out;
-            items_out.len = items_ret.size();
-            items_out.data = static_cast<void*>(items_arr);
-            libqt_list /* of libqt_string */ cbval1 = items_out;
+            // Append sentinel null terminator to the list
+            items_arr[items_ret.size()] = nullptr;
+            const char** cbval1 = items_arr;
 
             khistorycombobox_insertitems_callback(this, cbval1);
+            libqt_free(items_arr);
         } else {
             KHistoryComboBox::insertItems(items);
         }

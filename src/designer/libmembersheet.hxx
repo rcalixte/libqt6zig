@@ -18,10 +18,10 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
 
     // Virtual class public types (including callbacks)
     using QDesignerMemberSheetExtension_Count_Callback = int (*)();
-    using QDesignerMemberSheetExtension_IndexOf_Callback = int (*)(const QDesignerMemberSheetExtension*, libqt_string);
+    using QDesignerMemberSheetExtension_IndexOf_Callback = int (*)(const QDesignerMemberSheetExtension*, const char*);
     using QDesignerMemberSheetExtension_MemberName_Callback = const char* (*)(const QDesignerMemberSheetExtension*, int);
     using QDesignerMemberSheetExtension_MemberGroup_Callback = const char* (*)(const QDesignerMemberSheetExtension*, int);
-    using QDesignerMemberSheetExtension_SetMemberGroup_Callback = void (*)(QDesignerMemberSheetExtension*, int, libqt_string);
+    using QDesignerMemberSheetExtension_SetMemberGroup_Callback = void (*)(QDesignerMemberSheetExtension*, int, const char*);
     using QDesignerMemberSheetExtension_IsVisible_Callback = bool (*)(const QDesignerMemberSheetExtension*, int);
     using QDesignerMemberSheetExtension_SetVisible_Callback = void (*)(QDesignerMemberSheetExtension*, int, bool);
     using QDesignerMemberSheetExtension_IsSignal_Callback = bool (*)(const QDesignerMemberSheetExtension*, int);
@@ -131,16 +131,16 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
     virtual int indexOf(const QString& name) const override {
         if (qdesignermembersheetextension_indexof_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             int callback_ret = qdesignermembersheetextension_indexof_callback(this, cbval1);
+            libqt_free(name_str);
             return static_cast<int>(callback_ret);
         } else {
             return {};
@@ -178,16 +178,16 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
         if (qdesignermembersheetextension_setmembergroup_callback != nullptr) {
             int cbval1 = index;
             const QString group_ret = group;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
-            libqt_string group_str;
-            group_str.len = group_b.length();
-            group_str.data = static_cast<const char*>(malloc(group_str.len + 1));
-            memcpy((void*)group_str.data, group_b.data(), group_str.len);
-            ((char*)group_str.data)[group_str.len] = '\0';
-            libqt_string cbval2 = group_str;
+            auto group_str_len = group_b.length();
+            const char* group_str = static_cast<const char*>(malloc(group_str_len + 1));
+            memcpy((void*)group_str, group_b.data(), group_str_len);
+            ((char*)group_str)[group_str_len] = '\0';
+            const char* cbval2 = group_str;
 
             qdesignermembersheetextension_setmembergroup_callback(this, cbval1, cbval2);
+            libqt_free(group_str);
         }
     }
 

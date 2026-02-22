@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html)
 pub const qgeoareamonitorinfo = struct {
@@ -192,9 +192,9 @@ pub const qgeoareamonitorinfo = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NotificationParameters(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
+    pub fn NotificationParameters(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_constu8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QGeoAreaMonitorInfo_NotificationParameters(@ptrCast(self));
-        var _ret: map_constu8_qtcqvariant = .empty;
+        var _ret: arraymap_constu8_qtcqvariant = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -222,11 +222,11 @@ pub const qgeoareamonitorinfo = struct {
     ///
     /// ` self: QtC.QGeoAreaMonitorInfo `
     ///
-    /// ` parameters: map_constu8_qtcqvariant `
+    /// ` parameters: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetNotificationParameters(self: ?*anyopaque, parameters: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
+    pub fn SetNotificationParameters(self: ?*anyopaque, parameters: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
         const parameters_count = parameters.count();
         const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeoareamonitorinfo.SetNotificationParameters: Memory allocation failed");
         defer allocator.free(parameters_keys);

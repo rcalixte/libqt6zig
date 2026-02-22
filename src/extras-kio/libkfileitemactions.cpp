@@ -97,9 +97,10 @@ void KFileItemActions_Connect_Error(KFileItemActions* self, intptr_t slot) {
         const QString errorMessage_ret = errorMessage;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errorMessage_b = errorMessage_ret.toUtf8();
-        const char* errorMessage_str = static_cast<const char*>(malloc(errorMessage_b.length() + 1));
-        memcpy((void*)errorMessage_str, errorMessage_b.data(), errorMessage_b.length());
-        ((char*)errorMessage_str)[errorMessage_b.length()] = '\0';
+        auto errorMessage_str_len = errorMessage_b.length();
+        const char* errorMessage_str = static_cast<const char*>(malloc(errorMessage_str_len + 1));
+        memcpy((void*)errorMessage_str, errorMessage_b.data(), errorMessage_str_len);
+        ((char*)errorMessage_str)[errorMessage_str_len] = '\0';
         const char* sigval1 = errorMessage_str;
         slotFunc(self, sigval1);
         libqt_free(errorMessage_str);

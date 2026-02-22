@@ -18,10 +18,10 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
 
     // Virtual class public types (including callbacks)
     using QDesignerPropertySheetExtension_Count_Callback = int (*)();
-    using QDesignerPropertySheetExtension_IndexOf_Callback = int (*)(const QDesignerPropertySheetExtension*, libqt_string);
+    using QDesignerPropertySheetExtension_IndexOf_Callback = int (*)(const QDesignerPropertySheetExtension*, const char*);
     using QDesignerPropertySheetExtension_PropertyName_Callback = const char* (*)(const QDesignerPropertySheetExtension*, int);
     using QDesignerPropertySheetExtension_PropertyGroup_Callback = const char* (*)(const QDesignerPropertySheetExtension*, int);
-    using QDesignerPropertySheetExtension_SetPropertyGroup_Callback = void (*)(QDesignerPropertySheetExtension*, int, libqt_string);
+    using QDesignerPropertySheetExtension_SetPropertyGroup_Callback = void (*)(QDesignerPropertySheetExtension*, int, const char*);
     using QDesignerPropertySheetExtension_HasReset_Callback = bool (*)(const QDesignerPropertySheetExtension*, int);
     using QDesignerPropertySheetExtension_Reset_Callback = bool (*)(QDesignerPropertySheetExtension*, int);
     using QDesignerPropertySheetExtension_IsVisible_Callback = bool (*)(const QDesignerPropertySheetExtension*, int);
@@ -143,16 +143,16 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
     virtual int indexOf(const QString& name) const override {
         if (qdesignerpropertysheetextension_indexof_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             int callback_ret = qdesignerpropertysheetextension_indexof_callback(this, cbval1);
+            libqt_free(name_str);
             return static_cast<int>(callback_ret);
         } else {
             return {};
@@ -190,16 +190,16 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
         if (qdesignerpropertysheetextension_setpropertygroup_callback != nullptr) {
             int cbval1 = index;
             const QString group_ret = group;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
-            libqt_string group_str;
-            group_str.len = group_b.length();
-            group_str.data = static_cast<const char*>(malloc(group_str.len + 1));
-            memcpy((void*)group_str.data, group_b.data(), group_str.len);
-            ((char*)group_str.data)[group_str.len] = '\0';
-            libqt_string cbval2 = group_str;
+            auto group_str_len = group_b.length();
+            const char* group_str = static_cast<const char*>(malloc(group_str_len + 1));
+            memcpy((void*)group_str, group_b.data(), group_str_len);
+            ((char*)group_str)[group_str_len] = '\0';
+            const char* cbval2 = group_str;
 
             qdesignerpropertysheetextension_setpropertygroup_callback(this, cbval1, cbval2);
+            libqt_free(group_str);
         }
     }
 

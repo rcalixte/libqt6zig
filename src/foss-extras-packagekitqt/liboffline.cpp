@@ -94,16 +94,17 @@ void PackageKit__Offline_Connect_PreparedUpdates(PackageKit__Offline* self, intp
         const char** updates_arr = static_cast<const char**>(malloc(sizeof(const char*) * (updates_ret.size() + 1)));
         for (qsizetype i = 0; i < updates_ret.size(); ++i) {
             QByteArray updates_b = updates_ret[i].toUtf8();
-            char* updates_str = static_cast<char*>(malloc(updates_b.length() + 1));
-            memcpy(updates_str, updates_b.data(), updates_b.length());
-            updates_str[updates_b.length()] = '\0';
+            auto updates_str_len = updates_b.length();
+            char* updates_str = static_cast<char*>(malloc(updates_str_len + 1));
+            memcpy(updates_str, updates_b.data(), updates_str_len);
+            updates_str[updates_str_len] = '\0';
             updates_arr[i] = updates_str;
         }
         // Append sentinel null terminator to the list
         updates_arr[updates_ret.size()] = nullptr;
         const char** sigval1 = updates_arr;
         slotFunc(self, sigval1);
-        free(updates_arr);
+        libqt_free(updates_arr);
     });
 }
 

@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qplacereply_enums = @import("libqplacereply.zig").enums;
 const std = @import("std");
-const map_i32_qtcqplacecontent = std.AutoHashMapUnmanaged(i32, QtC.QPlaceContent);
+const arraymap_i32_qtcqplacecontent = std.AutoArrayHashMapUnmanaged(i32, QtC.QPlaceContent);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html)
 pub const qplacecontentreply = struct {
@@ -207,9 +207,9 @@ pub const qplacecontentreply = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Content(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqplacecontent {
+    pub fn Content(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqplacecontent {
         const _map: qtc.libqt_map = qtc.QPlaceContentReply_Content(@ptrCast(self));
-        var _ret: map_i32_qtcqplacecontent = .empty;
+        var _ret: arraymap_i32_qtcqplacecontent = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -271,11 +271,11 @@ pub const qplacecontentreply = struct {
     ///
     /// ` self: QtC.QPlaceContentReply `
     ///
-    /// ` content: map_i32_qtcqplacecontent `
+    /// ` content: arraymap_i32_qtcqplacecontent `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetContent(self: ?*anyopaque, content: map_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
+    pub fn SetContent(self: ?*anyopaque, content: arraymap_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
         const content_count = content.count();
         const content_keys = allocator.alloc(i32, content_count) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
         defer allocator.free(content_keys);
@@ -304,7 +304,7 @@ pub const qplacecontentreply = struct {
     ///
     /// ` self: QtC.QPlaceContentReply `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceContentReply, content: qtc.libqt_map (map_i32_qtcqplacecontent)) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPlaceContentReply, content: qtc.libqt_map (arraymap_i32_qtcqplacecontent)) callconv(.c) void `
     ///
     pub fn OnSetContent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_map) callconv(.c) void) void {
         qtc.QPlaceContentReply_OnSetContent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
@@ -318,11 +318,11 @@ pub const qplacecontentreply = struct {
     ///
     /// ` self: QtC.QPlaceContentReply `
     ///
-    /// ` content: map_i32_qtcqplacecontent `
+    /// ` content: arraymap_i32_qtcqplacecontent `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetContent(self: ?*anyopaque, content: map_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
+    pub fn QBaseSetContent(self: ?*anyopaque, content: arraymap_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
         const content_count = content.count();
         const content_keys = allocator.alloc(i32, content_count) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
         defer allocator.free(content_keys);

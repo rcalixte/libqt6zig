@@ -684,6 +684,7 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = kfileplacesmodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return KFilePlacesModel::mimeData(indexes);
@@ -1341,6 +1342,7 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             QDataStream* cbval2 = &stream_ret;
 
             kfileplacesmodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             KFilePlacesModel::encodeData(indexes, stream);
         }
@@ -1629,6 +1631,8 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             kfileplacesmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             KFilePlacesModel::changePersistentIndexList(from, to);
         }

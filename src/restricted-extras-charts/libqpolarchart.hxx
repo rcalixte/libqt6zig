@@ -32,7 +32,7 @@ class VirtualQPolarChart final : public QPolarChart {
     using QPolarChart_SizeHint_Callback = QSizeF* (*)(const QPolarChart*, int, QSizeF*);
     using QPolarChart_UpdateGeometry_Callback = void (*)();
     using QPolarChart_ItemChange_Callback = QVariant* (*)(QPolarChart*, int, QVariant*);
-    using QPolarChart_PropertyChange_Callback = QVariant* (*)(QPolarChart*, libqt_string, QVariant*);
+    using QPolarChart_PropertyChange_Callback = QVariant* (*)(QPolarChart*, const char*, QVariant*);
     using QPolarChart_SceneEvent_Callback = bool (*)(QPolarChart*, QEvent*);
     using QPolarChart_WindowFrameEvent_Callback = bool (*)(QPolarChart*, QEvent*);
     using QPolarChart_WindowFrameSectionAt_Callback = int (*)(const QPolarChart*, QPointF*);
@@ -716,19 +716,19 @@ class VirtualQPolarChart final : public QPolarChart {
             return QPolarChart::propertyChange(propertyName, value);
         } else if (qpolarchart_propertychange_callback != nullptr) {
             const QString propertyName_ret = propertyName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray propertyName_b = propertyName_ret.toUtf8();
-            libqt_string propertyName_str;
-            propertyName_str.len = propertyName_b.length();
-            propertyName_str.data = static_cast<const char*>(malloc(propertyName_str.len + 1));
-            memcpy((void*)propertyName_str.data, propertyName_b.data(), propertyName_str.len);
-            ((char*)propertyName_str.data)[propertyName_str.len] = '\0';
-            libqt_string cbval1 = propertyName_str;
+            auto propertyName_str_len = propertyName_b.length();
+            const char* propertyName_str = static_cast<const char*>(malloc(propertyName_str_len + 1));
+            memcpy((void*)propertyName_str, propertyName_b.data(), propertyName_str_len);
+            ((char*)propertyName_str)[propertyName_str_len] = '\0';
+            const char* cbval1 = propertyName_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             QVariant* callback_ret = qpolarchart_propertychange_callback(this, cbval1, cbval2);
+            libqt_free(propertyName_str);
             return *callback_ret;
         } else {
             return QPolarChart::propertyChange(propertyName, value);

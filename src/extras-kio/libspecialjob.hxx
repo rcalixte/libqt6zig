@@ -25,18 +25,18 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
     using KIO__SpecialJob_SlotFinished_Callback = void (*)();
     using KIO__SpecialJob_SlotData_Callback = void (*)(KIO__SpecialJob*, libqt_string);
     using KIO__SpecialJob_SlotDataReq_Callback = void (*)();
-    using KIO__SpecialJob_SlotMimetype_Callback = void (*)(KIO__SpecialJob*, libqt_string);
+    using KIO__SpecialJob_SlotMimetype_Callback = void (*)(KIO__SpecialJob*, const char*);
     using KIO__SpecialJob_DoSuspend_Callback = bool (*)();
     using KIO__SpecialJob_DoKill_Callback = bool (*)();
     using KIO__SpecialJob_PutOnHold_Callback = void (*)();
-    using KIO__SpecialJob_SlotWarning_Callback = void (*)(KIO__SpecialJob*, libqt_string);
+    using KIO__SpecialJob_SlotWarning_Callback = void (*)(KIO__SpecialJob*, const char*);
     using KIO__SpecialJob_SlotMetaData_Callback = void (*)(KIO__SpecialJob*, KIO__MetaData*);
     using KIO__SpecialJob_Start_Callback = void (*)();
     using KIO__SpecialJob_ErrorString_Callback = const char* (*)();
     using KIO__SpecialJob_AddSubjob_Callback = bool (*)(KIO__SpecialJob*, KJob*);
     using KIO__SpecialJob_RemoveSubjob_Callback = bool (*)(KIO__SpecialJob*, KJob*);
     using KIO__SpecialJob_SlotResult_Callback = void (*)(KIO__SpecialJob*, KJob*);
-    using KIO__SpecialJob_SlotInfoMessage_Callback = void (*)(KIO__SpecialJob*, KJob*, libqt_string);
+    using KIO__SpecialJob_SlotInfoMessage_Callback = void (*)(KIO__SpecialJob*, KJob*, const char*);
     using KIO__SpecialJob_Event_Callback = bool (*)(KIO__SpecialJob*, QEvent*);
     using KIO__SpecialJob_EventFilter_Callback = bool (*)(KIO__SpecialJob*, QObject*, QEvent*);
     using KIO__SpecialJob_TimerEvent_Callback = void (*)(KIO__SpecialJob*, QTimerEvent*);
@@ -50,7 +50,7 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
     using KIO__SpecialJob_SetCapabilities_Callback = void (*)(KIO__SpecialJob*, int);
     using KIO__SpecialJob_IsFinished_Callback = bool (*)();
     using KIO__SpecialJob_SetError_Callback = void (*)(KIO__SpecialJob*, int);
-    using KIO__SpecialJob_SetErrorText_Callback = void (*)(KIO__SpecialJob*, libqt_string);
+    using KIO__SpecialJob_SetErrorText_Callback = void (*)(KIO__SpecialJob*, const char*);
     using KIO__SpecialJob_SetProcessedAmount_Callback = void (*)(KIO__SpecialJob*, int, unsigned long long);
     using KIO__SpecialJob_SetTotalAmount_Callback = void (*)(KIO__SpecialJob*, int, unsigned long long);
     using KIO__SpecialJob_SetProgressUnit_Callback = void (*)(KIO__SpecialJob*, int);
@@ -410,6 +410,7 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             libqt_string cbval1 = data_str;
 
             kio__specialjob_slotdata_callback(this, cbval1);
+            libqt_free(data_str.data);
         } else {
             KIO__SpecialJob::slotData(data);
         }
@@ -434,16 +435,16 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             KIO__SpecialJob::slotMimetype(mimetype);
         } else if (kio__specialjob_slotmimetype_callback != nullptr) {
             const QString mimetype_ret = mimetype;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray mimetype_b = mimetype_ret.toUtf8();
-            libqt_string mimetype_str;
-            mimetype_str.len = mimetype_b.length();
-            mimetype_str.data = static_cast<const char*>(malloc(mimetype_str.len + 1));
-            memcpy((void*)mimetype_str.data, mimetype_b.data(), mimetype_str.len);
-            ((char*)mimetype_str.data)[mimetype_str.len] = '\0';
-            libqt_string cbval1 = mimetype_str;
+            auto mimetype_str_len = mimetype_b.length();
+            const char* mimetype_str = static_cast<const char*>(malloc(mimetype_str_len + 1));
+            memcpy((void*)mimetype_str, mimetype_b.data(), mimetype_str_len);
+            ((char*)mimetype_str)[mimetype_str_len] = '\0';
+            const char* cbval1 = mimetype_str;
 
             kio__specialjob_slotmimetype_callback(this, cbval1);
+            libqt_free(mimetype_str);
         } else {
             KIO__SpecialJob::slotMimetype(mimetype);
         }
@@ -494,16 +495,16 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             KIO__SpecialJob::slotWarning(param1);
         } else if (kio__specialjob_slotwarning_callback != nullptr) {
             const QString param1_ret = param1;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
-            libqt_string param1_str;
-            param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-            ((char*)param1_str.data)[param1_str.len] = '\0';
-            libqt_string cbval1 = param1_str;
+            auto param1_str_len = param1_b.length();
+            const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+            memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+            ((char*)param1_str)[param1_str_len] = '\0';
+            const char* cbval1 = param1_str;
 
             kio__specialjob_slotwarning_callback(this, cbval1);
+            libqt_free(param1_str);
         } else {
             KIO__SpecialJob::slotWarning(param1);
         }
@@ -603,16 +604,16 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         } else if (kio__specialjob_slotinfomessage_callback != nullptr) {
             KJob* cbval1 = job;
             const QString message_ret = message;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray message_b = message_ret.toUtf8();
-            libqt_string message_str;
-            message_str.len = message_b.length();
-            message_str.data = static_cast<const char*>(malloc(message_str.len + 1));
-            memcpy((void*)message_str.data, message_b.data(), message_str.len);
-            ((char*)message_str.data)[message_str.len] = '\0';
-            libqt_string cbval2 = message_str;
+            auto message_str_len = message_b.length();
+            const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+            memcpy((void*)message_str, message_b.data(), message_str_len);
+            ((char*)message_str)[message_str_len] = '\0';
+            const char* cbval2 = message_str;
 
             kio__specialjob_slotinfomessage_callback(this, cbval1, cbval2);
+            libqt_free(message_str);
         } else {
             KIO__SpecialJob::slotInfoMessage(job, message);
         }
@@ -816,16 +817,16 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             KIO__SpecialJob::setErrorText(errorText);
         } else if (kio__specialjob_seterrortext_callback != nullptr) {
             const QString errorText_ret = errorText;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
-            libqt_string errorText_str;
-            errorText_str.len = errorText_b.length();
-            errorText_str.data = static_cast<const char*>(malloc(errorText_str.len + 1));
-            memcpy((void*)errorText_str.data, errorText_b.data(), errorText_str.len);
-            ((char*)errorText_str.data)[errorText_str.len] = '\0';
-            libqt_string cbval1 = errorText_str;
+            auto errorText_str_len = errorText_b.length();
+            const char* errorText_str = static_cast<const char*>(malloc(errorText_str_len + 1));
+            memcpy((void*)errorText_str, errorText_b.data(), errorText_str_len);
+            ((char*)errorText_str)[errorText_str_len] = '\0';
+            const char* cbval1 = errorText_str;
 
             kio__specialjob_seterrortext_callback(this, cbval1);
+            libqt_free(errorText_str);
         } else {
             KIO__SpecialJob::setErrorText(errorText);
         }

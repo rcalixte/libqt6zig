@@ -17,11 +17,11 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
     bool isVirtualKTextEditorCodeCompletionModelControllerInterface = true;
 
     // Virtual class public types (including callbacks)
-    using KTextEditor__CodeCompletionModelControllerInterface_ShouldStartCompletion_Callback = bool (*)(KTextEditor__CodeCompletionModelControllerInterface*, KTextEditor__View*, libqt_string, bool, KTextEditor__Cursor*);
+    using KTextEditor__CodeCompletionModelControllerInterface_ShouldStartCompletion_Callback = bool (*)(KTextEditor__CodeCompletionModelControllerInterface*, KTextEditor__View*, const char*, bool, KTextEditor__Cursor*);
     using KTextEditor__CodeCompletionModelControllerInterface_CompletionRange_Callback = KTextEditor__Range* (*)(KTextEditor__CodeCompletionModelControllerInterface*, KTextEditor__View*, KTextEditor__Cursor*);
     using KTextEditor__CodeCompletionModelControllerInterface_UpdateCompletionRange_Callback = KTextEditor__Range* (*)(KTextEditor__CodeCompletionModelControllerInterface*, KTextEditor__View*, KTextEditor__Range*);
     using KTextEditor__CodeCompletionModelControllerInterface_FilterString_Callback = const char* (*)(KTextEditor__CodeCompletionModelControllerInterface*, KTextEditor__View*, KTextEditor__Range*, KTextEditor__Cursor*);
-    using KTextEditor__CodeCompletionModelControllerInterface_ShouldAbortCompletion_Callback = bool (*)(KTextEditor__CodeCompletionModelControllerInterface*, KTextEditor__View*, KTextEditor__Range*, libqt_string);
+    using KTextEditor__CodeCompletionModelControllerInterface_ShouldAbortCompletion_Callback = bool (*)(KTextEditor__CodeCompletionModelControllerInterface*, KTextEditor__View*, KTextEditor__Range*, const char*);
     using KTextEditor__CodeCompletionModelControllerInterface_ShouldExecute_Callback = bool (*)(KTextEditor__CodeCompletionModelControllerInterface*, QModelIndex*, QChar*);
     using KTextEditor__CodeCompletionModelControllerInterface_Aborted_Callback = void (*)(KTextEditor__CodeCompletionModelControllerInterface*, KTextEditor__View*);
     using KTextEditor__CodeCompletionModelControllerInterface_MatchingItem_Callback = int (*)(KTextEditor__CodeCompletionModelControllerInterface*, QModelIndex*);
@@ -95,20 +95,20 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
         } else if (ktexteditor__codecompletionmodelcontrollerinterface_shouldstartcompletion_callback != nullptr) {
             KTextEditor__View* cbval1 = view;
             const QString insertedText_ret = insertedText;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray insertedText_b = insertedText_ret.toUtf8();
-            libqt_string insertedText_str;
-            insertedText_str.len = insertedText_b.length();
-            insertedText_str.data = static_cast<const char*>(malloc(insertedText_str.len + 1));
-            memcpy((void*)insertedText_str.data, insertedText_b.data(), insertedText_str.len);
-            ((char*)insertedText_str.data)[insertedText_str.len] = '\0';
-            libqt_string cbval2 = insertedText_str;
+            auto insertedText_str_len = insertedText_b.length();
+            const char* insertedText_str = static_cast<const char*>(malloc(insertedText_str_len + 1));
+            memcpy((void*)insertedText_str, insertedText_b.data(), insertedText_str_len);
+            ((char*)insertedText_str)[insertedText_str_len] = '\0';
+            const char* cbval2 = insertedText_str;
             bool cbval3 = userInsertion;
             const KTextEditor::Cursor& position_ret = position;
             // Cast returned reference into pointer
             KTextEditor__Cursor* cbval4 = const_cast<KTextEditor::Cursor*>(&position_ret);
 
             bool callback_ret = ktexteditor__codecompletionmodelcontrollerinterface_shouldstartcompletion_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_free(insertedText_str);
             return callback_ret;
         } else {
             return KTextEditor__CodeCompletionModelControllerInterface::shouldStartCompletion(view, insertedText, userInsertion, position);
@@ -184,16 +184,16 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
             // Cast returned reference into pointer
             KTextEditor__Range* cbval2 = const_cast<KTextEditor::Range*>(&range_ret);
             const QString currentCompletion_ret = currentCompletion;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray currentCompletion_b = currentCompletion_ret.toUtf8();
-            libqt_string currentCompletion_str;
-            currentCompletion_str.len = currentCompletion_b.length();
-            currentCompletion_str.data = static_cast<const char*>(malloc(currentCompletion_str.len + 1));
-            memcpy((void*)currentCompletion_str.data, currentCompletion_b.data(), currentCompletion_str.len);
-            ((char*)currentCompletion_str.data)[currentCompletion_str.len] = '\0';
-            libqt_string cbval3 = currentCompletion_str;
+            auto currentCompletion_str_len = currentCompletion_b.length();
+            const char* currentCompletion_str = static_cast<const char*>(malloc(currentCompletion_str_len + 1));
+            memcpy((void*)currentCompletion_str, currentCompletion_b.data(), currentCompletion_str_len);
+            ((char*)currentCompletion_str)[currentCompletion_str_len] = '\0';
+            const char* cbval3 = currentCompletion_str;
 
             bool callback_ret = ktexteditor__codecompletionmodelcontrollerinterface_shouldabortcompletion_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(currentCompletion_str);
             return callback_ret;
         } else {
             return KTextEditor__CodeCompletionModelControllerInterface::shouldAbortCompletion(view, range, currentCompletion);

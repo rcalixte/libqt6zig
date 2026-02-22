@@ -20,7 +20,7 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
     using QIconEnginePlugin_MetaObject_Callback = QMetaObject* (*)();
     using QIconEnginePlugin_Metacast_Callback = void* (*)(QIconEnginePlugin*, const char*);
     using QIconEnginePlugin_Metacall_Callback = int (*)(QIconEnginePlugin*, int, int, void**);
-    using QIconEnginePlugin_Create_Callback = QIconEngine* (*)(QIconEnginePlugin*, libqt_string);
+    using QIconEnginePlugin_Create_Callback = QIconEngine* (*)(QIconEnginePlugin*, const char*);
     using QIconEnginePlugin_Event_Callback = bool (*)(QIconEnginePlugin*, QEvent*);
     using QIconEnginePlugin_EventFilter_Callback = bool (*)(QIconEnginePlugin*, QObject*, QEvent*);
     using QIconEnginePlugin_TimerEvent_Callback = void (*)(QIconEnginePlugin*, QTimerEvent*);
@@ -173,16 +173,16 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
     virtual QIconEngine* create(const QString& filename) override {
         if (qiconengineplugin_create_callback != nullptr) {
             const QString filename_ret = filename;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray filename_b = filename_ret.toUtf8();
-            libqt_string filename_str;
-            filename_str.len = filename_b.length();
-            filename_str.data = static_cast<const char*>(malloc(filename_str.len + 1));
-            memcpy((void*)filename_str.data, filename_b.data(), filename_str.len);
-            ((char*)filename_str.data)[filename_str.len] = '\0';
-            libqt_string cbval1 = filename_str;
+            auto filename_str_len = filename_b.length();
+            const char* filename_str = static_cast<const char*>(malloc(filename_str_len + 1));
+            memcpy((void*)filename_str, filename_b.data(), filename_str_len);
+            ((char*)filename_str)[filename_str_len] = '\0';
+            const char* cbval1 = filename_str;
 
             QIconEngine* callback_ret = qiconengineplugin_create_callback(this, cbval1);
+            libqt_free(filename_str);
             return callback_ret;
         } else {
             return {};

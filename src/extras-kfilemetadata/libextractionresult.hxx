@@ -17,7 +17,7 @@ class VirtualKFileMetaDataExtractionResult : public KFileMetaData::ExtractionRes
     bool isVirtualKFileMetaDataExtractionResult = true;
 
     // Virtual class public types (including callbacks)
-    using KFileMetaData__ExtractionResult_Append_Callback = void (*)(KFileMetaData__ExtractionResult*, libqt_string);
+    using KFileMetaData__ExtractionResult_Append_Callback = void (*)(KFileMetaData__ExtractionResult*, const char*);
     using KFileMetaData__ExtractionResult_Add_Callback = void (*)(KFileMetaData__ExtractionResult*, int, QVariant*);
     using KFileMetaData__ExtractionResult_AddType_Callback = void (*)(KFileMetaData__ExtractionResult*, int);
 
@@ -58,16 +58,16 @@ class VirtualKFileMetaDataExtractionResult : public KFileMetaData::ExtractionRes
     virtual void append(const QString& text) override {
         if (kfilemetadata__extractionresult_append_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             kfilemetadata__extractionresult_append_callback(this, cbval1);
+            libqt_free(text_str);
         }
     }
 

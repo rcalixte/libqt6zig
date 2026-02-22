@@ -17,12 +17,12 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
     bool isVirtualKMessageBoxDontAskAgainInterface = true;
 
     // Virtual class public types (including callbacks)
-    using KMessageBoxDontAskAgainInterface_ShouldBeShownTwoActions_Callback = bool (*)(KMessageBoxDontAskAgainInterface*, libqt_string, int*);
-    using KMessageBoxDontAskAgainInterface_ShouldBeShownContinue_Callback = bool (*)(KMessageBoxDontAskAgainInterface*, libqt_string);
-    using KMessageBoxDontAskAgainInterface_SaveDontShowAgainTwoActions_Callback = void (*)(KMessageBoxDontAskAgainInterface*, libqt_string, int);
-    using KMessageBoxDontAskAgainInterface_SaveDontShowAgainContinue_Callback = void (*)(KMessageBoxDontAskAgainInterface*, libqt_string);
+    using KMessageBoxDontAskAgainInterface_ShouldBeShownTwoActions_Callback = bool (*)(KMessageBoxDontAskAgainInterface*, const char*, int*);
+    using KMessageBoxDontAskAgainInterface_ShouldBeShownContinue_Callback = bool (*)(KMessageBoxDontAskAgainInterface*, const char*);
+    using KMessageBoxDontAskAgainInterface_SaveDontShowAgainTwoActions_Callback = void (*)(KMessageBoxDontAskAgainInterface*, const char*, int);
+    using KMessageBoxDontAskAgainInterface_SaveDontShowAgainContinue_Callback = void (*)(KMessageBoxDontAskAgainInterface*, const char*);
     using KMessageBoxDontAskAgainInterface_EnableAllMessages_Callback = void (*)();
-    using KMessageBoxDontAskAgainInterface_EnableMessage_Callback = void (*)(KMessageBoxDontAskAgainInterface*, libqt_string);
+    using KMessageBoxDontAskAgainInterface_EnableMessage_Callback = void (*)(KMessageBoxDontAskAgainInterface*, const char*);
     using KMessageBoxDontAskAgainInterface_SetConfig_Callback = void (*)(KMessageBoxDontAskAgainInterface*, KConfig*);
 
   protected:
@@ -79,18 +79,18 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
     virtual bool shouldBeShownTwoActions(const QString& dontShowAgainName, KMessageBox::ButtonCode& result) override {
         if (kmessageboxdontaskagaininterface_shouldbeshowntwoactions_callback != nullptr) {
             const QString dontShowAgainName_ret = dontShowAgainName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dontShowAgainName_b = dontShowAgainName_ret.toUtf8();
-            libqt_string dontShowAgainName_str;
-            dontShowAgainName_str.len = dontShowAgainName_b.length();
-            dontShowAgainName_str.data = static_cast<const char*>(malloc(dontShowAgainName_str.len + 1));
-            memcpy((void*)dontShowAgainName_str.data, dontShowAgainName_b.data(), dontShowAgainName_str.len);
-            ((char*)dontShowAgainName_str.data)[dontShowAgainName_str.len] = '\0';
-            libqt_string cbval1 = dontShowAgainName_str;
+            auto dontShowAgainName_str_len = dontShowAgainName_b.length();
+            const char* dontShowAgainName_str = static_cast<const char*>(malloc(dontShowAgainName_str_len + 1));
+            memcpy((void*)dontShowAgainName_str, dontShowAgainName_b.data(), dontShowAgainName_str_len);
+            ((char*)dontShowAgainName_str)[dontShowAgainName_str_len] = '\0';
+            const char* cbval1 = dontShowAgainName_str;
             KMessageBox::ButtonCode& result_ret = result;
             int* cbval2 = reinterpret_cast<int*>(&result);
 
             bool callback_ret = kmessageboxdontaskagaininterface_shouldbeshowntwoactions_callback(this, cbval1, cbval2);
+            libqt_free(dontShowAgainName_str);
             return callback_ret;
         } else {
             return {};
@@ -101,16 +101,16 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
     virtual bool shouldBeShownContinue(const QString& dontShowAgainName) override {
         if (kmessageboxdontaskagaininterface_shouldbeshowncontinue_callback != nullptr) {
             const QString dontShowAgainName_ret = dontShowAgainName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dontShowAgainName_b = dontShowAgainName_ret.toUtf8();
-            libqt_string dontShowAgainName_str;
-            dontShowAgainName_str.len = dontShowAgainName_b.length();
-            dontShowAgainName_str.data = static_cast<const char*>(malloc(dontShowAgainName_str.len + 1));
-            memcpy((void*)dontShowAgainName_str.data, dontShowAgainName_b.data(), dontShowAgainName_str.len);
-            ((char*)dontShowAgainName_str.data)[dontShowAgainName_str.len] = '\0';
-            libqt_string cbval1 = dontShowAgainName_str;
+            auto dontShowAgainName_str_len = dontShowAgainName_b.length();
+            const char* dontShowAgainName_str = static_cast<const char*>(malloc(dontShowAgainName_str_len + 1));
+            memcpy((void*)dontShowAgainName_str, dontShowAgainName_b.data(), dontShowAgainName_str_len);
+            ((char*)dontShowAgainName_str)[dontShowAgainName_str_len] = '\0';
+            const char* cbval1 = dontShowAgainName_str;
 
             bool callback_ret = kmessageboxdontaskagaininterface_shouldbeshowncontinue_callback(this, cbval1);
+            libqt_free(dontShowAgainName_str);
             return callback_ret;
         } else {
             return {};
@@ -121,17 +121,17 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
     virtual void saveDontShowAgainTwoActions(const QString& dontShowAgainName, KMessageBox::ButtonCode result) override {
         if (kmessageboxdontaskagaininterface_savedontshowagaintwoactions_callback != nullptr) {
             const QString dontShowAgainName_ret = dontShowAgainName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dontShowAgainName_b = dontShowAgainName_ret.toUtf8();
-            libqt_string dontShowAgainName_str;
-            dontShowAgainName_str.len = dontShowAgainName_b.length();
-            dontShowAgainName_str.data = static_cast<const char*>(malloc(dontShowAgainName_str.len + 1));
-            memcpy((void*)dontShowAgainName_str.data, dontShowAgainName_b.data(), dontShowAgainName_str.len);
-            ((char*)dontShowAgainName_str.data)[dontShowAgainName_str.len] = '\0';
-            libqt_string cbval1 = dontShowAgainName_str;
+            auto dontShowAgainName_str_len = dontShowAgainName_b.length();
+            const char* dontShowAgainName_str = static_cast<const char*>(malloc(dontShowAgainName_str_len + 1));
+            memcpy((void*)dontShowAgainName_str, dontShowAgainName_b.data(), dontShowAgainName_str_len);
+            ((char*)dontShowAgainName_str)[dontShowAgainName_str_len] = '\0';
+            const char* cbval1 = dontShowAgainName_str;
             int cbval2 = static_cast<int>(result);
 
             kmessageboxdontaskagaininterface_savedontshowagaintwoactions_callback(this, cbval1, cbval2);
+            libqt_free(dontShowAgainName_str);
         }
     }
 
@@ -139,16 +139,16 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
     virtual void saveDontShowAgainContinue(const QString& dontShowAgainName) override {
         if (kmessageboxdontaskagaininterface_savedontshowagaincontinue_callback != nullptr) {
             const QString dontShowAgainName_ret = dontShowAgainName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dontShowAgainName_b = dontShowAgainName_ret.toUtf8();
-            libqt_string dontShowAgainName_str;
-            dontShowAgainName_str.len = dontShowAgainName_b.length();
-            dontShowAgainName_str.data = static_cast<const char*>(malloc(dontShowAgainName_str.len + 1));
-            memcpy((void*)dontShowAgainName_str.data, dontShowAgainName_b.data(), dontShowAgainName_str.len);
-            ((char*)dontShowAgainName_str.data)[dontShowAgainName_str.len] = '\0';
-            libqt_string cbval1 = dontShowAgainName_str;
+            auto dontShowAgainName_str_len = dontShowAgainName_b.length();
+            const char* dontShowAgainName_str = static_cast<const char*>(malloc(dontShowAgainName_str_len + 1));
+            memcpy((void*)dontShowAgainName_str, dontShowAgainName_b.data(), dontShowAgainName_str_len);
+            ((char*)dontShowAgainName_str)[dontShowAgainName_str_len] = '\0';
+            const char* cbval1 = dontShowAgainName_str;
 
             kmessageboxdontaskagaininterface_savedontshowagaincontinue_callback(this, cbval1);
+            libqt_free(dontShowAgainName_str);
         }
     }
 
@@ -163,16 +163,16 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
     virtual void enableMessage(const QString& dontShowAgainName) override {
         if (kmessageboxdontaskagaininterface_enablemessage_callback != nullptr) {
             const QString dontShowAgainName_ret = dontShowAgainName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dontShowAgainName_b = dontShowAgainName_ret.toUtf8();
-            libqt_string dontShowAgainName_str;
-            dontShowAgainName_str.len = dontShowAgainName_b.length();
-            dontShowAgainName_str.data = static_cast<const char*>(malloc(dontShowAgainName_str.len + 1));
-            memcpy((void*)dontShowAgainName_str.data, dontShowAgainName_b.data(), dontShowAgainName_str.len);
-            ((char*)dontShowAgainName_str.data)[dontShowAgainName_str.len] = '\0';
-            libqt_string cbval1 = dontShowAgainName_str;
+            auto dontShowAgainName_str_len = dontShowAgainName_b.length();
+            const char* dontShowAgainName_str = static_cast<const char*>(malloc(dontShowAgainName_str_len + 1));
+            memcpy((void*)dontShowAgainName_str, dontShowAgainName_b.data(), dontShowAgainName_str_len);
+            ((char*)dontShowAgainName_str)[dontShowAgainName_str_len] = '\0';
+            const char* cbval1 = dontShowAgainName_str;
 
             kmessageboxdontaskagaininterface_enablemessage_callback(this, cbval1);
+            libqt_free(dontShowAgainName_str);
         }
     }
 

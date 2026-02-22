@@ -52,8 +52,8 @@ class VirtualQsciLexerJSON final : public QsciLexerJSON {
     using QsciLexerJSON_SetEolFill_Callback = void (*)(QsciLexerJSON*, bool, int);
     using QsciLexerJSON_SetFont_Callback = void (*)(QsciLexerJSON*, QFont*, int);
     using QsciLexerJSON_SetPaper_Callback = void (*)(QsciLexerJSON*, QColor*, int);
-    using QsciLexerJSON_ReadProperties_Callback = bool (*)(QsciLexerJSON*, QSettings*, libqt_string);
-    using QsciLexerJSON_WriteProperties_Callback = bool (*)(const QsciLexerJSON*, QSettings*, libqt_string);
+    using QsciLexerJSON_ReadProperties_Callback = bool (*)(QsciLexerJSON*, QSettings*, const char*);
+    using QsciLexerJSON_WriteProperties_Callback = bool (*)(const QsciLexerJSON*, QSettings*, const char*);
     using QsciLexerJSON_Event_Callback = bool (*)(QsciLexerJSON*, QEvent*);
     using QsciLexerJSON_EventFilter_Callback = bool (*)(QsciLexerJSON*, QObject*, QEvent*);
     using QsciLexerJSON_TimerEvent_Callback = void (*)(QsciLexerJSON*, QTimerEvent*);
@@ -61,7 +61,7 @@ class VirtualQsciLexerJSON final : public QsciLexerJSON {
     using QsciLexerJSON_CustomEvent_Callback = void (*)(QsciLexerJSON*, QEvent*);
     using QsciLexerJSON_ConnectNotify_Callback = void (*)(QsciLexerJSON*, QMetaMethod*);
     using QsciLexerJSON_DisconnectNotify_Callback = void (*)(QsciLexerJSON*, QMetaMethod*);
-    using QsciLexerJSON_TextAsBytes_Callback = libqt_string (*)(const QsciLexerJSON*, libqt_string);
+    using QsciLexerJSON_TextAsBytes_Callback = libqt_string (*)(const QsciLexerJSON*, const char*);
     using QsciLexerJSON_BytesAsText_Callback = const char* (*)(const QsciLexerJSON*, const char*, int);
     using QsciLexerJSON_Sender_Callback = QObject* (*)();
     using QsciLexerJSON_SenderSignalIndex_Callback = int (*)();
@@ -850,16 +850,16 @@ class VirtualQsciLexerJSON final : public QsciLexerJSON {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerjson_readproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerJSON::readProperties(qs, prefix);
@@ -876,16 +876,16 @@ class VirtualQsciLexerJSON final : public QsciLexerJSON {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerjson_writeproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerJSON::writeProperties(qs, prefix);
@@ -1004,17 +1004,17 @@ class VirtualQsciLexerJSON final : public QsciLexerJSON {
             return QsciLexerJSON::textAsBytes(text);
         } else if (qscilexerjson_textasbytes_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             libqt_string callback_ret = qscilexerjson_textasbytes_callback(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            libqt_free(text_str);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerJSON::textAsBytes(text);

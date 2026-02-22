@@ -8,7 +8,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 const workerbase_enums = @import("libworkerbase.zig").enums;
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html)
 pub const kio__forwardingworkerbase = struct {
@@ -1994,11 +1994,11 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase `
     ///
-    /// ` sslData: map_constu8_qtcqvariant `
+    /// ` sslData: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SslError(self: ?*anyopaque, sslData: map_constu8_qtcqvariant, allocator: std.mem.Allocator) i32 {
+    pub fn SslError(self: ?*anyopaque, sslData: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) i32 {
         const sslData_count = sslData.count();
         const sslData_keys = allocator.alloc(qtc.libqt_string, sslData_count) catch @panic("kio__forwardingworkerbase.SslError: Memory allocation failed");
         defer allocator.free(sslData_keys);
@@ -2110,9 +2110,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MapConfig(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
+    pub fn MapConfig(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_constu8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.KIO__WorkerBase_MapConfig(@ptrCast(self));
-        var _ret: map_constu8_qtcqvariant = .empty;
+        var _ret: arraymap_constu8_qtcqvariant = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {

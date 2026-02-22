@@ -24,8 +24,8 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
     using QAbstractSpinBox_MinimumSizeHint_Callback = QSize* (*)();
     using QAbstractSpinBox_Event_Callback = bool (*)(QAbstractSpinBox*, QEvent*);
     using QAbstractSpinBox_InputMethodQuery_Callback = QVariant* (*)(const QAbstractSpinBox*, int);
-    using QAbstractSpinBox_Validate_Callback = int (*)(const QAbstractSpinBox*, libqt_string, int*);
-    using QAbstractSpinBox_Fixup_Callback = void (*)(const QAbstractSpinBox*, libqt_string);
+    using QAbstractSpinBox_Validate_Callback = int (*)(const QAbstractSpinBox*, const char*, int*);
+    using QAbstractSpinBox_Fixup_Callback = void (*)(const QAbstractSpinBox*, const char*);
     using QAbstractSpinBox_StepBy_Callback = void (*)(QAbstractSpinBox*, int);
     using QAbstractSpinBox_Clear_Callback = void (*)();
     using QAbstractSpinBox_ResizeEvent_Callback = void (*)(QAbstractSpinBox*, QResizeEvent*);
@@ -550,17 +550,17 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
             return QAbstractSpinBox::validate(input, pos);
         } else if (qabstractspinbox_validate_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
             int* cbval2 = &pos;
 
             int callback_ret = qabstractspinbox_validate_callback(this, cbval1, cbval2);
+            libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
         } else {
             return QAbstractSpinBox::validate(input, pos);
@@ -574,16 +574,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
             QAbstractSpinBox::fixup(input);
         } else if (qabstractspinbox_fixup_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
 
             qabstractspinbox_fixup_callback(this, cbval1);
+            libqt_free(input_str);
         } else {
             QAbstractSpinBox::fixup(input);
         }
@@ -1091,6 +1091,7 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qabstractspinbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QAbstractSpinBox::nativeEvent(eventType, message, result);

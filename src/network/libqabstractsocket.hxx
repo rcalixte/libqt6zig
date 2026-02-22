@@ -22,7 +22,7 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
     using QAbstractSocket_Metacall_Callback = int (*)(QAbstractSocket*, int, int, void**);
     using QAbstractSocket_Resume_Callback = void (*)();
     using QAbstractSocket_Bind_Callback = bool (*)(QAbstractSocket*, QHostAddress*, uint16_t, int);
-    using QAbstractSocket_ConnectToHost_Callback = void (*)(QAbstractSocket*, libqt_string, uint16_t, int, int);
+    using QAbstractSocket_ConnectToHost_Callback = void (*)(QAbstractSocket*, const char*, uint16_t, int, int);
     using QAbstractSocket_DisconnectFromHost_Callback = void (*)();
     using QAbstractSocket_BytesAvailable_Callback = long long (*)();
     using QAbstractSocket_BytesToWrite_Callback = long long (*)();
@@ -61,9 +61,9 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
     using QAbstractSocket_SetLocalAddress_Callback = void (*)(QAbstractSocket*, QHostAddress*);
     using QAbstractSocket_SetPeerPort_Callback = void (*)(QAbstractSocket*, uint16_t);
     using QAbstractSocket_SetPeerAddress_Callback = void (*)(QAbstractSocket*, QHostAddress*);
-    using QAbstractSocket_SetPeerName_Callback = void (*)(QAbstractSocket*, libqt_string);
+    using QAbstractSocket_SetPeerName_Callback = void (*)(QAbstractSocket*, const char*);
     using QAbstractSocket_SetOpenMode_Callback = void (*)(QAbstractSocket*, int);
-    using QAbstractSocket_SetErrorString_Callback = void (*)(QAbstractSocket*, libqt_string);
+    using QAbstractSocket_SetErrorString_Callback = void (*)(QAbstractSocket*, const char*);
     using QAbstractSocket_Sender_Callback = QObject* (*)();
     using QAbstractSocket_SenderSignalIndex_Callback = int (*)();
     using QAbstractSocket_Receivers_Callback = int (*)(const QAbstractSocket*, const char*);
@@ -422,19 +422,19 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
             QAbstractSocket::connectToHost(hostName, port, mode, protocol);
         } else if (qabstractsocket_connecttohost_callback != nullptr) {
             const QString hostName_ret = hostName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray hostName_b = hostName_ret.toUtf8();
-            libqt_string hostName_str;
-            hostName_str.len = hostName_b.length();
-            hostName_str.data = static_cast<const char*>(malloc(hostName_str.len + 1));
-            memcpy((void*)hostName_str.data, hostName_b.data(), hostName_str.len);
-            ((char*)hostName_str.data)[hostName_str.len] = '\0';
-            libqt_string cbval1 = hostName_str;
+            auto hostName_str_len = hostName_b.length();
+            const char* hostName_str = static_cast<const char*>(malloc(hostName_str_len + 1));
+            memcpy((void*)hostName_str, hostName_b.data(), hostName_str_len);
+            ((char*)hostName_str)[hostName_str_len] = '\0';
+            const char* cbval1 = hostName_str;
             uint16_t cbval2 = static_cast<uint16_t>(port);
             int cbval3 = static_cast<int>(mode);
             int cbval4 = static_cast<int>(protocol);
 
             qabstractsocket_connecttohost_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_free(hostName_str);
         } else {
             QAbstractSocket::connectToHost(hostName, port, mode, protocol);
         }
@@ -998,16 +998,16 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
             QAbstractSocket::setPeerName(name);
         } else if (qabstractsocket_setpeername_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             qabstractsocket_setpeername_callback(this, cbval1);
+            libqt_free(name_str);
         } else {
             QAbstractSocket::setPeerName(name);
         }
@@ -1034,16 +1034,16 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
             QAbstractSocket::setErrorString(errorString);
         } else if (qabstractsocket_seterrorstring_callback != nullptr) {
             const QString errorString_ret = errorString;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
-            libqt_string errorString_str;
-            errorString_str.len = errorString_b.length();
-            errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
-            memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
-            ((char*)errorString_str.data)[errorString_str.len] = '\0';
-            libqt_string cbval1 = errorString_str;
+            auto errorString_str_len = errorString_b.length();
+            const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+            memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+            ((char*)errorString_str)[errorString_str_len] = '\0';
+            const char* cbval1 = errorString_str;
 
             qabstractsocket_seterrorstring_callback(this, cbval1);
+            libqt_free(errorString_str);
         } else {
             QAbstractSocket::setErrorString(errorString);
         }

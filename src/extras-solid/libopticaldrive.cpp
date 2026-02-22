@@ -69,9 +69,10 @@ void Solid__OpticalDrive_Connect_EjectPressed(Solid__OpticalDrive* self, intptr_
         const QString udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
-        const char* udi_str = static_cast<const char*>(malloc(udi_b.length() + 1));
-        memcpy((void*)udi_str, udi_b.data(), udi_b.length());
-        ((char*)udi_str)[udi_b.length()] = '\0';
+        auto udi_str_len = udi_b.length();
+        const char* udi_str = static_cast<const char*>(malloc(udi_str_len + 1));
+        memcpy((void*)udi_str, udi_b.data(), udi_str_len);
+        ((char*)udi_str)[udi_str_len] = '\0';
         const char* sigval1 = udi_str;
         slotFunc(self, sigval1);
         libqt_free(udi_str);
@@ -91,9 +92,10 @@ void Solid__OpticalDrive_Connect_EjectDone(Solid__OpticalDrive* self, intptr_t s
         const QString udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
-        const char* udi_str = static_cast<const char*>(malloc(udi_b.length() + 1));
-        memcpy((void*)udi_str, udi_b.data(), udi_b.length());
-        ((char*)udi_str)[udi_b.length()] = '\0';
+        auto udi_str_len = udi_b.length();
+        const char* udi_str = static_cast<const char*>(malloc(udi_str_len + 1));
+        memcpy((void*)udi_str, udi_b.data(), udi_str_len);
+        ((char*)udi_str)[udi_str_len] = '\0';
         const char* sigval3 = udi_str;
         slotFunc(self, sigval1, sigval2, sigval3);
         libqt_free(udi_str);
@@ -111,9 +113,10 @@ void Solid__OpticalDrive_Connect_EjectRequested(Solid__OpticalDrive* self, intpt
         const QString udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
-        const char* udi_str = static_cast<const char*>(malloc(udi_b.length() + 1));
-        memcpy((void*)udi_str, udi_b.data(), udi_b.length());
-        ((char*)udi_str)[udi_b.length()] = '\0';
+        auto udi_str_len = udi_b.length();
+        const char* udi_str = static_cast<const char*>(malloc(udi_str_len + 1));
+        memcpy((void*)udi_str, udi_b.data(), udi_str_len);
+        ((char*)udi_str)[udi_str_len] = '\0';
         const char* sigval1 = udi_str;
         slotFunc(self, sigval1);
         libqt_free(udi_str);

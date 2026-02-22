@@ -903,6 +903,7 @@ class VirtualKCharSelect final : public KCharSelect {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kcharselect_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KCharSelect::nativeEvent(eventType, message, result);

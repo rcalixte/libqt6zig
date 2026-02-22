@@ -20,8 +20,8 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
     using KTreeWidgetSearchLine_MetaObject_Callback = QMetaObject* (*)();
     using KTreeWidgetSearchLine_Metacast_Callback = void* (*)(KTreeWidgetSearchLine*, const char*);
     using KTreeWidgetSearchLine_Metacall_Callback = int (*)(KTreeWidgetSearchLine*, int, int, void**);
-    using KTreeWidgetSearchLine_UpdateSearch_Callback = void (*)(KTreeWidgetSearchLine*, libqt_string);
-    using KTreeWidgetSearchLine_ItemMatches_Callback = bool (*)(const KTreeWidgetSearchLine*, QTreeWidgetItem*, libqt_string);
+    using KTreeWidgetSearchLine_UpdateSearch_Callback = void (*)(KTreeWidgetSearchLine*, const char*);
+    using KTreeWidgetSearchLine_ItemMatches_Callback = bool (*)(const KTreeWidgetSearchLine*, QTreeWidgetItem*, const char*);
     using KTreeWidgetSearchLine_ContextMenuEvent_Callback = void (*)(KTreeWidgetSearchLine*, QContextMenuEvent*);
     using KTreeWidgetSearchLine_UpdateSearch2_Callback = void (*)(KTreeWidgetSearchLine*, QTreeWidget*);
     using KTreeWidgetSearchLine_ConnectTreeWidget_Callback = void (*)(KTreeWidgetSearchLine*, QTreeWidget*);
@@ -496,16 +496,16 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
             KTreeWidgetSearchLine::updateSearch(pattern);
         } else if (ktreewidgetsearchline_updatesearch_callback != nullptr) {
             const QString pattern_ret = pattern;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray pattern_b = pattern_ret.toUtf8();
-            libqt_string pattern_str;
-            pattern_str.len = pattern_b.length();
-            pattern_str.data = static_cast<const char*>(malloc(pattern_str.len + 1));
-            memcpy((void*)pattern_str.data, pattern_b.data(), pattern_str.len);
-            ((char*)pattern_str.data)[pattern_str.len] = '\0';
-            libqt_string cbval1 = pattern_str;
+            auto pattern_str_len = pattern_b.length();
+            const char* pattern_str = static_cast<const char*>(malloc(pattern_str_len + 1));
+            memcpy((void*)pattern_str, pattern_b.data(), pattern_str_len);
+            ((char*)pattern_str)[pattern_str_len] = '\0';
+            const char* cbval1 = pattern_str;
 
             ktreewidgetsearchline_updatesearch_callback(this, cbval1);
+            libqt_free(pattern_str);
         } else {
             KTreeWidgetSearchLine::updateSearch(pattern);
         }
@@ -519,16 +519,16 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
         } else if (ktreewidgetsearchline_itemmatches_callback != nullptr) {
             QTreeWidgetItem* cbval1 = (QTreeWidgetItem*)item;
             const QString pattern_ret = pattern;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray pattern_b = pattern_ret.toUtf8();
-            libqt_string pattern_str;
-            pattern_str.len = pattern_b.length();
-            pattern_str.data = static_cast<const char*>(malloc(pattern_str.len + 1));
-            memcpy((void*)pattern_str.data, pattern_b.data(), pattern_str.len);
-            ((char*)pattern_str.data)[pattern_str.len] = '\0';
-            libqt_string cbval2 = pattern_str;
+            auto pattern_str_len = pattern_b.length();
+            const char* pattern_str = static_cast<const char*>(malloc(pattern_str_len + 1));
+            memcpy((void*)pattern_str, pattern_b.data(), pattern_str_len);
+            ((char*)pattern_str)[pattern_str_len] = '\0';
+            const char* cbval2 = pattern_str;
 
             bool callback_ret = ktreewidgetsearchline_itemmatches_callback(this, cbval1, cbval2);
+            libqt_free(pattern_str);
             return callback_ret;
         } else {
             return KTreeWidgetSearchLine::itemMatches(item, pattern);
@@ -1123,6 +1123,7 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = ktreewidgetsearchline_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KTreeWidgetSearchLine::nativeEvent(eventType, message, result);

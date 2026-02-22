@@ -20,7 +20,7 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
     using KNSCore__EngineBase_MetaObject_Callback = QMetaObject* (*)();
     using KNSCore__EngineBase_Metacast_Callback = void* (*)(KNSCore__EngineBase*, const char*);
     using KNSCore__EngineBase_Metacall_Callback = int (*)(KNSCore__EngineBase*, int, int, void**);
-    using KNSCore__EngineBase_Init_Callback = bool (*)(KNSCore__EngineBase*, libqt_string);
+    using KNSCore__EngineBase_Init_Callback = bool (*)(KNSCore__EngineBase*, const char*);
     using KNSCore__EngineBase_UpdateStatus_Callback = void (*)();
     using KNSCore__EngineBase_Event_Callback = bool (*)(KNSCore__EngineBase*, QEvent*);
     using KNSCore__EngineBase_EventFilter_Callback = bool (*)(KNSCore__EngineBase*, QObject*, QEvent*);
@@ -182,16 +182,16 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
             return KNSCore__EngineBase::init(configfile);
         } else if (knscore__enginebase_init_callback != nullptr) {
             const QString configfile_ret = configfile;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray configfile_b = configfile_ret.toUtf8();
-            libqt_string configfile_str;
-            configfile_str.len = configfile_b.length();
-            configfile_str.data = static_cast<const char*>(malloc(configfile_str.len + 1));
-            memcpy((void*)configfile_str.data, configfile_b.data(), configfile_str.len);
-            ((char*)configfile_str.data)[configfile_str.len] = '\0';
-            libqt_string cbval1 = configfile_str;
+            auto configfile_str_len = configfile_b.length();
+            const char* configfile_str = static_cast<const char*>(malloc(configfile_str_len + 1));
+            memcpy((void*)configfile_str, configfile_b.data(), configfile_str_len);
+            ((char*)configfile_str)[configfile_str_len] = '\0';
+            const char* cbval1 = configfile_str;
 
             bool callback_ret = knscore__enginebase_init_callback(this, cbval1);
+            libqt_free(configfile_str);
             return callback_ret;
         } else {
             return KNSCore__EngineBase::init(configfile);

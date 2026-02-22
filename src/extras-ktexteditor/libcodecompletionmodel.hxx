@@ -851,6 +851,7 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = ktexteditor__codecompletionmodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return KTextEditor__CodeCompletionModel::mimeData(indexes);
@@ -1407,6 +1408,7 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
             QDataStream* cbval2 = &stream_ret;
 
             ktexteditor__codecompletionmodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             KTextEditor__CodeCompletionModel::encodeData(indexes, stream);
         }
@@ -1695,6 +1697,8 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             ktexteditor__codecompletionmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             KTextEditor__CodeCompletionModel::changePersistentIndexList(from, to);
         }

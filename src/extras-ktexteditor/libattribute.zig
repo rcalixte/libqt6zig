@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qtextformat_enums = @import("../libqtextformat.zig").enums;
 const std = @import("std");
 const theme_enums = @import("../extras-ksyntaxhighlighting/libtheme.zig").enums;
-const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
+const arraymap_i32_qtcqvariant = std.AutoArrayHashMapUnmanaged(i32, QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/ktexteditor-attribute.html)
 pub const ktexteditor__attribute = struct {
@@ -1600,9 +1600,9 @@ pub const ktexteditor__attribute = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);

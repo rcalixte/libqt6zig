@@ -20,7 +20,7 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
     using Sonnet__Highlighter_MetaObject_Callback = QMetaObject* (*)();
     using Sonnet__Highlighter_Metacast_Callback = void* (*)(Sonnet__Highlighter*, const char*);
     using Sonnet__Highlighter_Metacall_Callback = int (*)(Sonnet__Highlighter*, int, int, void**);
-    using Sonnet__Highlighter_HighlightBlock_Callback = void (*)(Sonnet__Highlighter*, libqt_string);
+    using Sonnet__Highlighter_HighlightBlock_Callback = void (*)(Sonnet__Highlighter*, const char*);
     using Sonnet__Highlighter_SetMisspelled_Callback = void (*)(Sonnet__Highlighter*, int, int);
     using Sonnet__Highlighter_UnsetMisspelled_Callback = void (*)(Sonnet__Highlighter*, int, int);
     using Sonnet__Highlighter_EventFilter_Callback = bool (*)(Sonnet__Highlighter*, QObject*, QEvent*);
@@ -250,16 +250,16 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
             Sonnet__Highlighter::highlightBlock(text);
         } else if (sonnet__highlighter_highlightblock_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             sonnet__highlighter_highlightblock_callback(this, cbval1);
+            libqt_free(text_str);
         } else {
             Sonnet__Highlighter::highlightBlock(text);
         }

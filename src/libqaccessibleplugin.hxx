@@ -20,7 +20,7 @@ class VirtualQAccessiblePlugin : public QAccessiblePlugin {
     using QAccessiblePlugin_MetaObject_Callback = QMetaObject* (*)();
     using QAccessiblePlugin_Metacast_Callback = void* (*)(QAccessiblePlugin*, const char*);
     using QAccessiblePlugin_Metacall_Callback = int (*)(QAccessiblePlugin*, int, int, void**);
-    using QAccessiblePlugin_Create_Callback = QAccessibleInterface* (*)(QAccessiblePlugin*, libqt_string, QObject*);
+    using QAccessiblePlugin_Create_Callback = QAccessibleInterface* (*)(QAccessiblePlugin*, const char*, QObject*);
     using QAccessiblePlugin_Event_Callback = bool (*)(QAccessiblePlugin*, QEvent*);
     using QAccessiblePlugin_EventFilter_Callback = bool (*)(QAccessiblePlugin*, QObject*, QEvent*);
     using QAccessiblePlugin_TimerEvent_Callback = void (*)(QAccessiblePlugin*, QTimerEvent*);
@@ -173,17 +173,17 @@ class VirtualQAccessiblePlugin : public QAccessiblePlugin {
     virtual QAccessibleInterface* create(const QString& key, QObject* object) override {
         if (qaccessibleplugin_create_callback != nullptr) {
             const QString key_ret = key;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
-            libqt_string key_str;
-            key_str.len = key_b.length();
-            key_str.data = static_cast<const char*>(malloc(key_str.len + 1));
-            memcpy((void*)key_str.data, key_b.data(), key_str.len);
-            ((char*)key_str.data)[key_str.len] = '\0';
-            libqt_string cbval1 = key_str;
+            auto key_str_len = key_b.length();
+            const char* key_str = static_cast<const char*>(malloc(key_str_len + 1));
+            memcpy((void*)key_str, key_b.data(), key_str_len);
+            ((char*)key_str)[key_str_len] = '\0';
+            const char* cbval1 = key_str;
             QObject* cbval2 = object;
 
             QAccessibleInterface* callback_ret = qaccessibleplugin_create_callback(this, cbval1, cbval2);
+            libqt_free(key_str);
             return callback_ret;
         } else {
             return {};

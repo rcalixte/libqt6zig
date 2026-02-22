@@ -22,7 +22,7 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
     using KSyntaxHighlighting__SyntaxHighlighter_Metacall_Callback = int (*)(KSyntaxHighlighting__SyntaxHighlighter*, int, int, void**);
     using KSyntaxHighlighting__SyntaxHighlighter_SetDefinition_Callback = void (*)(KSyntaxHighlighting__SyntaxHighlighter*, KSyntaxHighlighting__Definition*);
     using KSyntaxHighlighting__SyntaxHighlighter_SetTheme_Callback = void (*)(KSyntaxHighlighting__SyntaxHighlighter*, KSyntaxHighlighting__Theme*);
-    using KSyntaxHighlighting__SyntaxHighlighter_HighlightBlock_Callback = void (*)(KSyntaxHighlighting__SyntaxHighlighter*, libqt_string);
+    using KSyntaxHighlighting__SyntaxHighlighter_HighlightBlock_Callback = void (*)(KSyntaxHighlighting__SyntaxHighlighter*, const char*);
     using KSyntaxHighlighting__SyntaxHighlighter_ApplyFormat_Callback = void (*)(KSyntaxHighlighting__SyntaxHighlighter*, int, int, KSyntaxHighlighting__Format*);
     using KSyntaxHighlighting__SyntaxHighlighter_ApplyFolding_Callback = void (*)(KSyntaxHighlighting__SyntaxHighlighter*, int, int, KSyntaxHighlighting__FoldingRegion*);
     using KSyntaxHighlighting__SyntaxHighlighter_Event_Callback = bool (*)(KSyntaxHighlighting__SyntaxHighlighter*, QEvent*);
@@ -281,16 +281,16 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
             KSyntaxHighlighting__SyntaxHighlighter::highlightBlock(text);
         } else if (ksyntaxhighlighting__syntaxhighlighter_highlightblock_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             ksyntaxhighlighting__syntaxhighlighter_highlightblock_callback(this, cbval1);
+            libqt_free(text_str);
         } else {
             KSyntaxHighlighting__SyntaxHighlighter::highlightBlock(text);
         }

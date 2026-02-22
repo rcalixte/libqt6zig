@@ -658,6 +658,7 @@ class VirtualKDirModel final : public KDirModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = kdirmodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return KDirModel::mimeData(indexes);
@@ -1241,6 +1242,7 @@ class VirtualKDirModel final : public KDirModel {
             QDataStream* cbval2 = &stream_ret;
 
             kdirmodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             KDirModel::encodeData(indexes, stream);
         }
@@ -1529,6 +1531,8 @@ class VirtualKDirModel final : public KDirModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             kdirmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             KDirModel::changePersistentIndexList(from, to);
         }

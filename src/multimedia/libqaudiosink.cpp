@@ -127,7 +127,7 @@ int QAudioSink_State(const QAudioSink* self) {
 }
 
 void QAudioSink_SetVolume(QAudioSink* self, double volume) {
-    self->setVolume(static_cast<double>(volume));
+    self->setVolume(static_cast<qreal>(volume));
 }
 
 double QAudioSink_Volume(const QAudioSink* self) {

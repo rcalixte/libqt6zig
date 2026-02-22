@@ -3,8 +3,8 @@ const qtc = @import("qt6c");
 const embeddedimagedata_enums = @import("libembeddedimagedata.zig").enums;
 const properties_enums = @import("libproperties.zig").enums;
 const std = @import("std");
-const map_i32_sliceqtcqvariant = std.AutoHashMapUnmanaged(i32, []QtC.QVariant);
-const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
+const arraymap_i32_sliceqtcqvariant = std.AutoArrayHashMapUnmanaged(i32, []QtC.QVariant);
+const arraymap_i32_u8 = std.AutoArrayHashMapUnmanaged(i32, []u8);
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writedata.html)
 pub const kfilemetadata__writedata = struct {
@@ -115,11 +115,11 @@ pub const kfilemetadata__writedata = struct {
     ///
     /// ` self: QtC.KFileMetaData__WriteData `
     ///
-    /// ` images: map_i32_u8 (key: embeddedimagedata_enums.ImageType) `
+    /// ` images: arraymap_i32_u8 (key: embeddedimagedata_enums.ImageType) `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddImageData(self: ?*anyopaque, images: map_i32_u8, allocator: std.mem.Allocator) void {
+    pub fn AddImageData(self: ?*anyopaque, images: arraymap_i32_u8, allocator: std.mem.Allocator) void {
         const images_count = images.count();
         const images_keys = allocator.alloc(i32, images_count) catch @panic("kfilemetadata__writedata.AddImageData: Memory allocation failed");
         defer allocator.free(images_keys);
@@ -154,11 +154,11 @@ pub const kfilemetadata__writedata = struct {
     ///
     /// ## Returns:
     ///
-    /// ` map_i32_sliceqtcqvariant (key: properties_enums.Property) `
+    /// ` arraymap_i32_sliceqtcqvariant (key: properties_enums.Property) `
     ///
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_sliceqtcqvariant {
+    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_sliceqtcqvariant {
         const _map: qtc.libqt_map = qtc.KFileMetaData__WriteData_Properties(@ptrCast(self));
-        var _ret: map_i32_sliceqtcqvariant = .empty;
+        var _ret: arraymap_i32_sliceqtcqvariant = .empty;
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -191,11 +191,11 @@ pub const kfilemetadata__writedata = struct {
     ///
     /// ## Returns:
     ///
-    /// ` map_i32_u8 (key: embeddedimagedata_enums.ImageType) `
+    /// ` arraymap_i32_u8 (key: embeddedimagedata_enums.ImageType) `
     ///
-    pub fn ImageData(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
+    pub fn ImageData(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_u8 {
         const _map: qtc.libqt_map = qtc.KFileMetaData__WriteData_ImageData(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
+        var _ret: arraymap_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {

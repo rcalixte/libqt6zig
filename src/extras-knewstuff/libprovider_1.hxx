@@ -30,7 +30,7 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
     using KNSCore__Provider_LoadEntryDetails_Callback = void (*)(KNSCore__Provider*, KNSCore__Entry*);
     using KNSCore__Provider_LoadPayloadLink_Callback = void (*)(KNSCore__Provider*, KNSCore__Entry*, int);
     using KNSCore__Provider_LoadComments_Callback = void (*)(KNSCore__Provider*, KNSCore__Entry*, int, int);
-    using KNSCore__Provider_LoadPerson_Callback = void (*)(KNSCore__Provider*, libqt_string);
+    using KNSCore__Provider_LoadPerson_Callback = void (*)(KNSCore__Provider*, const char*);
     using KNSCore__Provider_LoadBasics_Callback = void (*)();
     using KNSCore__Provider_UserCanVote_Callback = bool (*)();
     using KNSCore__Provider_Vote_Callback = void (*)(KNSCore__Provider*, KNSCore__Entry*, unsigned int);
@@ -43,7 +43,7 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
     using KNSCore__Provider_CustomEvent_Callback = void (*)(KNSCore__Provider*, QEvent*);
     using KNSCore__Provider_ConnectNotify_Callback = void (*)(KNSCore__Provider*, QMetaMethod*);
     using KNSCore__Provider_DisconnectNotify_Callback = void (*)(KNSCore__Provider*, QMetaMethod*);
-    using KNSCore__Provider_SetName_Callback = void (*)(KNSCore__Provider*, libqt_string);
+    using KNSCore__Provider_SetName_Callback = void (*)(KNSCore__Provider*, const char*);
     using KNSCore__Provider_SetIcon_Callback = void (*)(KNSCore__Provider*, QUrl*);
     using KNSCore__Provider_Sender_Callback = QObject* (*)();
     using KNSCore__Provider_SenderSignalIndex_Callback = int (*)();
@@ -320,6 +320,7 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             libqt_list /* of KNSCore__Entry* */ cbval1 = cachedEntries_out;
 
             knscore__provider_setcachedentries_callback(this, cbval1);
+            free(cachedEntries_arr);
         }
     }
 
@@ -414,16 +415,16 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             KNSCore__Provider::loadPerson(param1);
         } else if (knscore__provider_loadperson_callback != nullptr) {
             const QString param1_ret = param1;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
-            libqt_string param1_str;
-            param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-            ((char*)param1_str.data)[param1_str.len] = '\0';
-            libqt_string cbval1 = param1_str;
+            auto param1_str_len = param1_b.length();
+            const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+            memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+            ((char*)param1_str)[param1_str_len] = '\0';
+            const char* cbval1 = param1_str;
 
             knscore__provider_loadperson_callback(this, cbval1);
+            libqt_free(param1_str);
         } else {
             KNSCore__Provider::loadPerson(param1);
         }
@@ -455,7 +456,7 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void vote(const KNSCore::Entry& param1, unsigned int param2) override {
+    virtual void vote(const KNSCore::Entry& param1, uint param2) override {
         if (knscore__provider_vote_isbase) {
             knscore__provider_vote_isbase = false;
             KNSCore__Provider::vote(param1, param2);
@@ -463,7 +464,7 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             const KNSCore::Entry& param1_ret = param1;
             // Cast returned reference into pointer
             KNSCore__Entry* cbval1 = const_cast<KNSCore::Entry*>(&param1_ret);
-            unsigned int cbval2 = param2;
+            unsigned int cbval2 = static_cast<unsigned int>(param2);
 
             knscore__provider_vote_callback(this, cbval1, cbval2);
         } else {
@@ -612,16 +613,16 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             KNSCore__Provider::setName(name);
         } else if (knscore__provider_setname_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             knscore__provider_setname_callback(this, cbval1);
+            libqt_free(name_str);
         } else {
             KNSCore__Provider::setName(name);
         }

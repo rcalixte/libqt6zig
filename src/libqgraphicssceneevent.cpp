@@ -216,7 +216,7 @@ int QGraphicsSceneMouseEvent_Flags(const QGraphicsSceneMouseEvent* self) {
 }
 
 void QGraphicsSceneMouseEvent_SetFlags(QGraphicsSceneMouseEvent* self, int flags) {
-    self->setFlags(static_cast<QFlags<Qt::MouseEventFlag>>(flags));
+    self->setFlags(static_cast<Qt::MouseEventFlags>(flags));
 }
 
 // Derived class handler implementation

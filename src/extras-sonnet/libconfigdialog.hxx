@@ -1051,6 +1051,7 @@ class VirtualSonnetConfigDialog final : public Sonnet::ConfigDialog {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = sonnet__configdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return Sonnet__ConfigDialog::nativeEvent(eventType, message, result);

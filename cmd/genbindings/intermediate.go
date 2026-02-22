@@ -160,39 +160,46 @@ func IsKnownTypeDef(className string) bool {
 }
 
 func (p CppParameter) QListOf() (CppParameter, string, bool) {
-	if strings.HasPrefix(p.ParameterType, "QList<") && strings.HasSuffix(p.ParameterType, ">") {
-		ret := parseSingleTypeString(p.ParameterType[6:len(p.ParameterType)-1], "")
-		ret.ParameterName = p.ParameterName + "_lv"
-		return ret, "QList", true
-	}
-
-	if strings.HasPrefix(p.ParameterType, "QVector<") && strings.HasSuffix(p.ParameterType, ">") {
-		ret := parseSingleTypeString(p.ParameterType[8:len(p.ParameterType)-1], "")
-		ret.ParameterName = p.ParameterName + "_vv"
-		return ret, "QVector", true
-	}
-
-	if strings.HasPrefix(p.ParameterType, "QSpan<") && strings.HasSuffix(p.ParameterType, ">") {
-		ret := parseSingleTypeString(p.ParameterType[6:len(p.ParameterType)-1], "")
-		ret.ParameterName = p.ParameterName + "_sv"
-		return ret, "QSpan", true
+	for _, qtListType := range qtListTypes {
+		if strings.HasPrefix(p.ParameterType, qtListType+"<") && strings.HasSuffix(p.ParameterType, ">") {
+			ret := parseSingleTypeString(p.ParameterType[len(qtListType)+1:len(p.ParameterType)-1], "")
+			prefix := strings.ToLower(qtListType[1:2])
+			ret.ParameterName = p.ParameterName + "_" + prefix + "v"
+			return ret, qtListType, true
+		}
 	}
 
 	return CppParameter{}, "", false
 }
 
 var (
+	qtListTypes = []string{
+		"QList",
+		"QQueue",
+		"QSpan",
+		"QStack",
+		"QVector",
+	}
+
 	qtMapTypes = []string{
 		"QHash",
 		"QMap",
 		"QMultiHash",
 		"QMultiMap",
+		"std::map",
+		"std::multimap",
+		"std::unordered_map",
+		"std::unordered_multimap",
+	}
+
+	qtPairTypes = []string{
+		"QPair",
+		"std::pair",
 	}
 )
 
 func (p CppParameter) QMapOf() (CppParameter, CppParameter, string, bool) {
 	// n.b. Need to block QMap<k,v>::const_iterator
-
 	for _, qtMapType := range qtMapTypes {
 		if strings.HasPrefix(p.ParameterType, qtMapType+"<") && strings.HasSuffix(p.ParameterType, ">") {
 			interior := tokenizeMultipleParameters(p.ParameterType[len(qtMapType)+1 : len(p.ParameterType)-1])
@@ -213,22 +220,20 @@ func (p CppParameter) QMapOf() (CppParameter, CppParameter, string, bool) {
 }
 
 func (p CppParameter) QPairOf() (CppParameter, CppParameter, bool) {
-	if (strings.HasPrefix(p.ParameterType, "QPair<") || strings.HasPrefix(p.ParameterType, "std::pair<")) &&
-		strings.HasSuffix(p.ParameterType, ">") {
-		index := 6 // QPair<
-		if strings.HasPrefix(p.ParameterType, "std::pair<") {
-			index = 10 // std::pair<
-		}
-		interior := tokenizeMultipleParameters(p.ParameterType[index : len(p.ParameterType)-1])
-		if len(interior) != 2 {
-			panic("QPair<> has unexpected number of template arguments")
-		}
+	for _, qtPairType := range qtPairTypes {
+		if strings.HasPrefix(p.ParameterType, qtPairType+"<") && strings.HasSuffix(p.ParameterType, ">") {
+			index := len(qtPairType) + 1
+			interior := tokenizeMultipleParameters(p.ParameterType[index : len(p.ParameterType)-1])
+			if len(interior) != 2 {
+				panic(qtPairType + "<> has unexpected number of template arguments")
+			}
 
-		first := parseSingleTypeString(interior[0], "")
-		first.ParameterName = p.ParameterName + "_first"
-		second := parseSingleTypeString(interior[1], "")
-		second.ParameterName = p.ParameterName + "_second"
-		return first, second, true
+			first := parseSingleTypeString(interior[0], "")
+			first.ParameterName = p.ParameterName + "_first"
+			second := parseSingleTypeString(interior[1], "")
+			second.ParameterName = p.ParameterName + "_second"
+			return first, second, true
+		}
 	}
 
 	return CppParameter{}, CppParameter{}, false
@@ -306,6 +311,34 @@ func (p CppParameter) GlIntType() bool {
 
 func (p CppParameter) IsChronoSeconds() bool {
 	return strings.HasPrefix(p.ParameterType, "std::chrono::") && strings.HasSuffix(p.ParameterType, "seconds")
+}
+
+func IsMultiHashMap(containerType string) bool {
+	switch containerType {
+	case "QMultiHash", "QMultiMap",
+		"std::multimap", "std::unordered_multimap":
+		return true
+	default:
+		return false
+	}
+}
+
+func IsOrderedMap(containerType string) bool {
+	switch containerType {
+	case "QMap", "QMultiMap",
+		"std::map", "std::multimap":
+		return true
+	default:
+		return false
+	}
+}
+
+func (p CppParameter) StdHashMapType() bool {
+	if slices.Contains(qtMapTypes, p.ParameterType) && strings.HasPrefix(p.ParameterType, "std::") {
+		return true
+	}
+
+	return false
 }
 
 func (p CppParameter) Void() bool {

@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qwebengineloadinginfo_enums = enums;
 const std = @import("std");
-const map_u8_sliceu8 = std.StringHashMapUnmanaged([][]u8);
+const arraymap_u8_sliceu8 = std.StringArrayHashMapUnmanaged([][]u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html)
 pub const qwebengineloadinginfo = struct {
@@ -110,9 +110,9 @@ pub const qwebengineloadinginfo = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ResponseHeaders(self: ?*anyopaque, allocator: std.mem.Allocator) map_u8_sliceu8 {
+    pub fn ResponseHeaders(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_u8_sliceu8 {
         const _map: qtc.libqt_map = qtc.QWebEngineLoadingInfo_ResponseHeaders(@ptrCast(self));
-        var _ret: map_u8_sliceu8 = .empty;
+        var _ret: arraymap_u8_sliceu8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));

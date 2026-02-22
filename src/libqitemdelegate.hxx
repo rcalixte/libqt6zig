@@ -26,7 +26,7 @@ class VirtualQItemDelegate final : public QItemDelegate {
     using QItemDelegate_SetEditorData_Callback = void (*)(const QItemDelegate*, QWidget*, QModelIndex*);
     using QItemDelegate_SetModelData_Callback = void (*)(const QItemDelegate*, QWidget*, QAbstractItemModel*, QModelIndex*);
     using QItemDelegate_UpdateEditorGeometry_Callback = void (*)(const QItemDelegate*, QWidget*, QStyleOptionViewItem*, QModelIndex*);
-    using QItemDelegate_DrawDisplay_Callback = void (*)(const QItemDelegate*, QPainter*, QStyleOptionViewItem*, QRect*, libqt_string);
+    using QItemDelegate_DrawDisplay_Callback = void (*)(const QItemDelegate*, QPainter*, QStyleOptionViewItem*, QRect*, const char*);
     using QItemDelegate_DrawDecoration_Callback = void (*)(const QItemDelegate*, QPainter*, QStyleOptionViewItem*, QRect*, QPixmap*);
     using QItemDelegate_DrawFocus_Callback = void (*)(const QItemDelegate*, QPainter*, QStyleOptionViewItem*, QRect*);
     using QItemDelegate_DrawCheck_Callback = void (*)(const QItemDelegate*, QPainter*, QStyleOptionViewItem*, QRect*, int);
@@ -47,7 +47,7 @@ class VirtualQItemDelegate final : public QItemDelegate {
     using QItemDelegate_SetOptions_Callback = QStyleOptionViewItem* (*)(const QItemDelegate*, QModelIndex*, QStyleOptionViewItem*);
     using QItemDelegate_Decoration_Callback = QPixmap* (*)(const QItemDelegate*, QStyleOptionViewItem*, QVariant*);
     using QItemDelegate_DoCheck_Callback = QRect* (*)(const QItemDelegate*, QStyleOptionViewItem*, QRect*, QVariant*);
-    using QItemDelegate_TextRectangle_Callback = QRect* (*)(const QItemDelegate*, QPainter*, QRect*, QFont*, libqt_string);
+    using QItemDelegate_TextRectangle_Callback = QRect* (*)(const QItemDelegate*, QPainter*, QRect*, QFont*, const char*);
     using QItemDelegate_Sender_Callback = QObject* (*)();
     using QItemDelegate_SenderSignalIndex_Callback = int (*)();
     using QItemDelegate_Receivers_Callback = int (*)(const QItemDelegate*, const char*);
@@ -419,16 +419,16 @@ class VirtualQItemDelegate final : public QItemDelegate {
             // Cast returned reference into pointer
             QRect* cbval3 = const_cast<QRect*>(&rect_ret);
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval4 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval4 = text_str;
 
             qitemdelegate_drawdisplay_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_free(text_str);
         } else {
             QItemDelegate::drawDisplay(painter, option, rect, text);
         }
@@ -822,16 +822,16 @@ class VirtualQItemDelegate final : public QItemDelegate {
             // Cast returned reference into pointer
             QFont* cbval3 = const_cast<QFont*>(&font_ret);
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval4 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval4 = text_str;
 
             QRect* callback_ret = qitemdelegate_textrectangle_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_free(text_str);
             return *callback_ret;
         } else {
             return QItemDelegate::textRectangle(painter, rect, font, text);

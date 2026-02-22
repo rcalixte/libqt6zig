@@ -555,7 +555,7 @@ void QUrl_SetPassword2(QUrl* self, const libqt_string password, int mode) {
 }
 
 libqt_string QUrl_Password1(const QUrl* self, unsigned int param1) {
-    QString _ret = self->password(static_cast<QFlags<QUrl::ComponentFormattingOption>>(param1));
+    QString _ret = self->password(static_cast<QUrl::ComponentFormattingOptions>(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -572,7 +572,7 @@ void QUrl_SetHost2(QUrl* self, const libqt_string host, int mode) {
 }
 
 libqt_string QUrl_Host1(const QUrl* self, unsigned int param1) {
-    QString _ret = self->host(static_cast<QFlags<QUrl::ComponentFormattingOption>>(param1));
+    QString _ret = self->host(static_cast<QUrl::ComponentFormattingOptions>(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -622,7 +622,7 @@ void QUrl_SetQuery22(QUrl* self, const libqt_string query, int mode) {
 }
 
 libqt_string QUrl_Query1(const QUrl* self, unsigned int param1) {
-    QString _ret = self->query(static_cast<QFlags<QUrl::ComponentFormattingOption>>(param1));
+    QString _ret = self->query(static_cast<QUrl::ComponentFormattingOptions>(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

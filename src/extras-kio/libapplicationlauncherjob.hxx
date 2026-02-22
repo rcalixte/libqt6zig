@@ -35,7 +35,7 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
     using KIO__ApplicationLauncherJob_SetCapabilities_Callback = void (*)(KIO__ApplicationLauncherJob*, int);
     using KIO__ApplicationLauncherJob_IsFinished_Callback = bool (*)();
     using KIO__ApplicationLauncherJob_SetError_Callback = void (*)(KIO__ApplicationLauncherJob*, int);
-    using KIO__ApplicationLauncherJob_SetErrorText_Callback = void (*)(KIO__ApplicationLauncherJob*, libqt_string);
+    using KIO__ApplicationLauncherJob_SetErrorText_Callback = void (*)(KIO__ApplicationLauncherJob*, const char*);
     using KIO__ApplicationLauncherJob_SetProcessedAmount_Callback = void (*)(KIO__ApplicationLauncherJob*, int, unsigned long long);
     using KIO__ApplicationLauncherJob_SetTotalAmount_Callback = void (*)(KIO__ApplicationLauncherJob*, int, unsigned long long);
     using KIO__ApplicationLauncherJob_SetProgressUnit_Callback = void (*)(KIO__ApplicationLauncherJob*, int);
@@ -487,16 +487,16 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
             KIO__ApplicationLauncherJob::setErrorText(errorText);
         } else if (kio__applicationlauncherjob_seterrortext_callback != nullptr) {
             const QString errorText_ret = errorText;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
-            libqt_string errorText_str;
-            errorText_str.len = errorText_b.length();
-            errorText_str.data = static_cast<const char*>(malloc(errorText_str.len + 1));
-            memcpy((void*)errorText_str.data, errorText_b.data(), errorText_str.len);
-            ((char*)errorText_str.data)[errorText_str.len] = '\0';
-            libqt_string cbval1 = errorText_str;
+            auto errorText_str_len = errorText_b.length();
+            const char* errorText_str = static_cast<const char*>(malloc(errorText_str_len + 1));
+            memcpy((void*)errorText_str, errorText_b.data(), errorText_str_len);
+            ((char*)errorText_str)[errorText_str_len] = '\0';
+            const char* cbval1 = errorText_str;
 
             kio__applicationlauncherjob_seterrortext_callback(this, cbval1);
+            libqt_free(errorText_str);
         } else {
             KIO__ApplicationLauncherJob::setErrorText(errorText);
         }

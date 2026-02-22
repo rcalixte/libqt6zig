@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 const transaction_enums = @import("libtransaction_1.zig").enums;
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
 pub const packagekit__details = struct {
@@ -16,11 +16,11 @@ pub const packagekit__details = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: map_constu8_qtcqvariant `
+    /// ` other: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New2(other: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.PackageKit__Details {
+    pub fn New2(other: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.PackageKit__Details {
         const other_count = other.count();
         const other_keys = allocator.alloc(qtc.libqt_string, other_count) catch @panic("packagekit__details.New2: Memory allocation failed");
         defer allocator.free(other_keys);

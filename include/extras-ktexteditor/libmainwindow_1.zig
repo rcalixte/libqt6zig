@@ -4,7 +4,7 @@ const mainwindow_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/ktexteditor-mainwindow.html)
 pub const ktexteditor__mainwindow = struct {
@@ -677,11 +677,11 @@ pub const ktexteditor__mainwindow = struct {
     ///
     /// ` self: QtC.KTextEditor__MainWindow `
     ///
-    /// ` message: map_constu8_qtcqvariant `
+    /// ` message: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ShowMessage(self: ?*anyopaque, message: map_constu8_qtcqvariant, allocator: std.mem.Allocator) bool {
+    pub fn ShowMessage(self: ?*anyopaque, message: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) bool {
         const message_count = message.count();
         const message_keys = allocator.alloc(qtc.libqt_string, message_count) catch @panic("ktexteditor__mainwindow.ShowMessage: Memory allocation failed");
         defer allocator.free(message_keys);

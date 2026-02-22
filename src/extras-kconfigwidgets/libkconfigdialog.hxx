@@ -80,8 +80,8 @@ class VirtualKConfigDialog final : public KConfigDialog {
     using KConfigDialog_DisconnectNotify_Callback = void (*)(KConfigDialog*, QMetaMethod*);
     using KConfigDialog_UpdateButtons_Callback = void (*)();
     using KConfigDialog_SettingsChangedSlot_Callback = void (*)();
-    using KConfigDialog_SetHelp_Callback = void (*)(KConfigDialog*, libqt_string);
-    using KConfigDialog_SetHelp2_Callback = void (*)(KConfigDialog*, libqt_string, libqt_string);
+    using KConfigDialog_SetHelp_Callback = void (*)(KConfigDialog*, const char*);
+    using KConfigDialog_SetHelp2_Callback = void (*)(KConfigDialog*, const char*, const char*);
     using KConfigDialog_PageWidget_Callback = KPageWidget* (*)();
     using KConfigDialog_SetPageWidget_Callback = void (*)(KConfigDialog*, KPageWidget*);
     using KConfigDialog_ButtonBox_Callback = QDialogButtonBox* (*)();
@@ -1173,6 +1173,7 @@ class VirtualKConfigDialog final : public KConfigDialog {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kconfigdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KConfigDialog::nativeEvent(eventType, message, result);
@@ -1399,16 +1400,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
             KConfigDialog::setHelp(anchor);
         } else if (kconfigdialog_sethelp_callback != nullptr) {
             const QString anchor_ret = anchor;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray anchor_b = anchor_ret.toUtf8();
-            libqt_string anchor_str;
-            anchor_str.len = anchor_b.length();
-            anchor_str.data = static_cast<const char*>(malloc(anchor_str.len + 1));
-            memcpy((void*)anchor_str.data, anchor_b.data(), anchor_str.len);
-            ((char*)anchor_str.data)[anchor_str.len] = '\0';
-            libqt_string cbval1 = anchor_str;
+            auto anchor_str_len = anchor_b.length();
+            const char* anchor_str = static_cast<const char*>(malloc(anchor_str_len + 1));
+            memcpy((void*)anchor_str, anchor_b.data(), anchor_str_len);
+            ((char*)anchor_str)[anchor_str_len] = '\0';
+            const char* cbval1 = anchor_str;
 
             kconfigdialog_sethelp_callback(this, cbval1);
+            libqt_free(anchor_str);
         } else {
             KConfigDialog::setHelp(anchor);
         }
@@ -1421,25 +1422,25 @@ class VirtualKConfigDialog final : public KConfigDialog {
             KConfigDialog::setHelp(anchor, appname);
         } else if (kconfigdialog_sethelp2_callback != nullptr) {
             const QString anchor_ret = anchor;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray anchor_b = anchor_ret.toUtf8();
-            libqt_string anchor_str;
-            anchor_str.len = anchor_b.length();
-            anchor_str.data = static_cast<const char*>(malloc(anchor_str.len + 1));
-            memcpy((void*)anchor_str.data, anchor_b.data(), anchor_str.len);
-            ((char*)anchor_str.data)[anchor_str.len] = '\0';
-            libqt_string cbval1 = anchor_str;
+            auto anchor_str_len = anchor_b.length();
+            const char* anchor_str = static_cast<const char*>(malloc(anchor_str_len + 1));
+            memcpy((void*)anchor_str, anchor_b.data(), anchor_str_len);
+            ((char*)anchor_str)[anchor_str_len] = '\0';
+            const char* cbval1 = anchor_str;
             const QString appname_ret = appname;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray appname_b = appname_ret.toUtf8();
-            libqt_string appname_str;
-            appname_str.len = appname_b.length();
-            appname_str.data = static_cast<const char*>(malloc(appname_str.len + 1));
-            memcpy((void*)appname_str.data, appname_b.data(), appname_str.len);
-            ((char*)appname_str.data)[appname_str.len] = '\0';
-            libqt_string cbval2 = appname_str;
+            auto appname_str_len = appname_b.length();
+            const char* appname_str = static_cast<const char*>(malloc(appname_str_len + 1));
+            memcpy((void*)appname_str, appname_b.data(), appname_str_len);
+            ((char*)appname_str)[appname_str_len] = '\0';
+            const char* cbval2 = appname_str;
 
             kconfigdialog_sethelp2_callback(this, cbval1, cbval2);
+            libqt_free(anchor_str);
+            libqt_free(appname_str);
         } else {
             KConfigDialog::setHelp(anchor, appname);
         }

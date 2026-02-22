@@ -29,9 +29,9 @@ class VirtualQPlaceSearchSuggestionReply final : public QPlaceSearchSuggestionRe
     using QPlaceSearchSuggestionReply_CustomEvent_Callback = void (*)(QPlaceSearchSuggestionReply*, QEvent*);
     using QPlaceSearchSuggestionReply_ConnectNotify_Callback = void (*)(QPlaceSearchSuggestionReply*, QMetaMethod*);
     using QPlaceSearchSuggestionReply_DisconnectNotify_Callback = void (*)(QPlaceSearchSuggestionReply*, QMetaMethod*);
-    using QPlaceSearchSuggestionReply_SetSuggestions_Callback = void (*)(QPlaceSearchSuggestionReply*, libqt_list /* of libqt_string */);
+    using QPlaceSearchSuggestionReply_SetSuggestions_Callback = void (*)(QPlaceSearchSuggestionReply*, const char**);
     using QPlaceSearchSuggestionReply_SetFinished_Callback = void (*)(QPlaceSearchSuggestionReply*, bool);
-    using QPlaceSearchSuggestionReply_SetError_Callback = void (*)(QPlaceSearchSuggestionReply*, int, libqt_string);
+    using QPlaceSearchSuggestionReply_SetError_Callback = void (*)(QPlaceSearchSuggestionReply*, int, const char*);
     using QPlaceSearchSuggestionReply_Sender_Callback = QObject* (*)();
     using QPlaceSearchSuggestionReply_SenderSignalIndex_Callback = int (*)();
     using QPlaceSearchSuggestionReply_Receivers_Callback = int (*)(const QPlaceSearchSuggestionReply*, const char*);
@@ -330,25 +330,22 @@ class VirtualQPlaceSearchSuggestionReply final : public QPlaceSearchSuggestionRe
             QPlaceSearchSuggestionReply::setSuggestions(suggestions);
         } else if (qplacesearchsuggestionreply_setsuggestions_callback != nullptr) {
             const QList<QString>& suggestions_ret = suggestions;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* suggestions_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (suggestions_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** suggestions_arr = static_cast<const char**>(malloc(sizeof(const char*) * (suggestions_ret.size() + 1)));
             for (qsizetype i = 0; i < suggestions_ret.size(); ++i) {
-                QString suggestions_lv_ret = suggestions_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray suggestions_lv_b = suggestions_lv_ret.toUtf8();
-                libqt_string suggestions_lv_str;
-                suggestions_lv_str.len = suggestions_lv_b.length();
-                suggestions_lv_str.data = static_cast<const char*>(malloc(suggestions_lv_str.len + 1));
-                memcpy((void*)suggestions_lv_str.data, suggestions_lv_b.data(), suggestions_lv_str.len);
-                ((char*)suggestions_lv_str.data)[suggestions_lv_str.len] = '\0';
-                suggestions_arr[i] = suggestions_lv_str;
+                QByteArray suggestions_b = suggestions_ret[i].toUtf8();
+                auto suggestions_str_len = suggestions_b.length();
+                char* suggestions_str = static_cast<char*>(malloc(suggestions_str_len + 1));
+                memcpy(suggestions_str, suggestions_b.data(), suggestions_str_len);
+                suggestions_str[suggestions_str_len] = '\0';
+                suggestions_arr[i] = suggestions_str;
             }
-            libqt_list suggestions_out;
-            suggestions_out.len = suggestions_ret.size();
-            suggestions_out.data = static_cast<void*>(suggestions_arr);
-            libqt_list /* of libqt_string */ cbval1 = suggestions_out;
+            // Append sentinel null terminator to the list
+            suggestions_arr[suggestions_ret.size()] = nullptr;
+            const char** cbval1 = suggestions_arr;
 
             qplacesearchsuggestionreply_setsuggestions_callback(this, cbval1);
+            libqt_free(suggestions_arr);
         } else {
             QPlaceSearchSuggestionReply::setSuggestions(suggestions);
         }
@@ -376,16 +373,16 @@ class VirtualQPlaceSearchSuggestionReply final : public QPlaceSearchSuggestionRe
         } else if (qplacesearchsuggestionreply_seterror_callback != nullptr) {
             int cbval1 = static_cast<int>(errorVal);
             const QString errorString_ret = errorString;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
-            libqt_string errorString_str;
-            errorString_str.len = errorString_b.length();
-            errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
-            memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
-            ((char*)errorString_str.data)[errorString_str.len] = '\0';
-            libqt_string cbval2 = errorString_str;
+            auto errorString_str_len = errorString_b.length();
+            const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+            memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+            ((char*)errorString_str)[errorString_str_len] = '\0';
+            const char* cbval2 = errorString_str;
 
             qplacesearchsuggestionreply_seterror_callback(this, cbval1, cbval2);
+            libqt_free(errorString_str);
         } else {
             QPlaceSearchSuggestionReply::setError(errorVal, errorString);
         }

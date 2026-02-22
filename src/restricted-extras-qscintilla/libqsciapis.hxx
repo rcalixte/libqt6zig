@@ -20,9 +20,9 @@ class VirtualQsciAPIs final : public QsciAPIs {
     using QsciAPIs_MetaObject_Callback = QMetaObject* (*)();
     using QsciAPIs_Metacast_Callback = void* (*)(QsciAPIs*, const char*);
     using QsciAPIs_Metacall_Callback = int (*)(QsciAPIs*, int, int, void**);
-    using QsciAPIs_UpdateAutoCompletionList_Callback = void (*)(QsciAPIs*, libqt_list /* of libqt_string */, libqt_list /* of libqt_string */);
-    using QsciAPIs_AutoCompletionSelected_Callback = void (*)(QsciAPIs*, libqt_string);
-    using QsciAPIs_CallTips_Callback = const char** (*)(QsciAPIs*, libqt_list /* of libqt_string */, int, int, libqt_list /* of int */);
+    using QsciAPIs_UpdateAutoCompletionList_Callback = void (*)(QsciAPIs*, const char**, const char**);
+    using QsciAPIs_AutoCompletionSelected_Callback = void (*)(QsciAPIs*, const char*);
+    using QsciAPIs_CallTips_Callback = const char** (*)(QsciAPIs*, const char**, int, int, libqt_list /* of int */);
     using QsciAPIs_Event_Callback = bool (*)(QsciAPIs*, QEvent*);
     using QsciAPIs_EventFilter_Callback = bool (*)(QsciAPIs*, QObject*, QEvent*);
     using QsciAPIs_TimerEvent_Callback = void (*)(QsciAPIs*, QTimerEvent*);
@@ -187,43 +187,37 @@ class VirtualQsciAPIs final : public QsciAPIs {
             QsciAPIs::updateAutoCompletionList(context, list);
         } else if (qsciapis_updateautocompletionlist_callback != nullptr) {
             const QList<QString>& context_ret = context;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* context_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (context_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** context_arr = static_cast<const char**>(malloc(sizeof(const char*) * (context_ret.size() + 1)));
             for (qsizetype i = 0; i < context_ret.size(); ++i) {
-                QString context_lv_ret = context_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray context_lv_b = context_lv_ret.toUtf8();
-                libqt_string context_lv_str;
-                context_lv_str.len = context_lv_b.length();
-                context_lv_str.data = static_cast<const char*>(malloc(context_lv_str.len + 1));
-                memcpy((void*)context_lv_str.data, context_lv_b.data(), context_lv_str.len);
-                ((char*)context_lv_str.data)[context_lv_str.len] = '\0';
-                context_arr[i] = context_lv_str;
+                QByteArray context_b = context_ret[i].toUtf8();
+                auto context_str_len = context_b.length();
+                char* context_str = static_cast<char*>(malloc(context_str_len + 1));
+                memcpy(context_str, context_b.data(), context_str_len);
+                context_str[context_str_len] = '\0';
+                context_arr[i] = context_str;
             }
-            libqt_list context_out;
-            context_out.len = context_ret.size();
-            context_out.data = static_cast<void*>(context_arr);
-            libqt_list /* of libqt_string */ cbval1 = context_out;
+            // Append sentinel null terminator to the list
+            context_arr[context_ret.size()] = nullptr;
+            const char** cbval1 = context_arr;
             QList<QString>& list_ret = list;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* list_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (list_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** list_arr = static_cast<const char**>(malloc(sizeof(const char*) * (list_ret.size() + 1)));
             for (qsizetype i = 0; i < list_ret.size(); ++i) {
-                QString list_lv_ret = list_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray list_lv_b = list_lv_ret.toUtf8();
-                libqt_string list_lv_str;
-                list_lv_str.len = list_lv_b.length();
-                list_lv_str.data = static_cast<const char*>(malloc(list_lv_str.len + 1));
-                memcpy((void*)list_lv_str.data, list_lv_b.data(), list_lv_str.len);
-                ((char*)list_lv_str.data)[list_lv_str.len] = '\0';
-                list_arr[i] = list_lv_str;
+                QByteArray list_b = list_ret[i].toUtf8();
+                auto list_str_len = list_b.length();
+                char* list_str = static_cast<char*>(malloc(list_str_len + 1));
+                memcpy(list_str, list_b.data(), list_str_len);
+                list_str[list_str_len] = '\0';
+                list_arr[i] = list_str;
             }
-            libqt_list list_out;
-            list_out.len = list_ret.size();
-            list_out.data = static_cast<void*>(list_arr);
-            libqt_list /* of libqt_string */ cbval2 = list_out;
+            // Append sentinel null terminator to the list
+            list_arr[list_ret.size()] = nullptr;
+            const char** cbval2 = list_arr;
 
             qsciapis_updateautocompletionlist_callback(this, cbval1, cbval2);
+            libqt_free(context_arr);
+            libqt_free(list_arr);
         } else {
             QsciAPIs::updateAutoCompletionList(context, list);
         }
@@ -236,16 +230,16 @@ class VirtualQsciAPIs final : public QsciAPIs {
             QsciAPIs::autoCompletionSelected(sel);
         } else if (qsciapis_autocompletionselected_callback != nullptr) {
             const QString sel_ret = sel;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray sel_b = sel_ret.toUtf8();
-            libqt_string sel_str;
-            sel_str.len = sel_b.length();
-            sel_str.data = static_cast<const char*>(malloc(sel_str.len + 1));
-            memcpy((void*)sel_str.data, sel_b.data(), sel_str.len);
-            ((char*)sel_str.data)[sel_str.len] = '\0';
-            libqt_string cbval1 = sel_str;
+            auto sel_str_len = sel_b.length();
+            const char* sel_str = static_cast<const char*>(malloc(sel_str_len + 1));
+            memcpy((void*)sel_str, sel_b.data(), sel_str_len);
+            ((char*)sel_str)[sel_str_len] = '\0';
+            const char* cbval1 = sel_str;
 
             qsciapis_autocompletionselected_callback(this, cbval1);
+            libqt_free(sel_str);
         } else {
             QsciAPIs::autoCompletionSelected(sel);
         }
@@ -258,23 +252,19 @@ class VirtualQsciAPIs final : public QsciAPIs {
             return QsciAPIs::callTips(context, commas, style, shifts);
         } else if (qsciapis_calltips_callback != nullptr) {
             const QList<QString>& context_ret = context;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* context_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (context_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** context_arr = static_cast<const char**>(malloc(sizeof(const char*) * (context_ret.size() + 1)));
             for (qsizetype i = 0; i < context_ret.size(); ++i) {
-                QString context_lv_ret = context_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray context_lv_b = context_lv_ret.toUtf8();
-                libqt_string context_lv_str;
-                context_lv_str.len = context_lv_b.length();
-                context_lv_str.data = static_cast<const char*>(malloc(context_lv_str.len + 1));
-                memcpy((void*)context_lv_str.data, context_lv_b.data(), context_lv_str.len);
-                ((char*)context_lv_str.data)[context_lv_str.len] = '\0';
-                context_arr[i] = context_lv_str;
+                QByteArray context_b = context_ret[i].toUtf8();
+                auto context_str_len = context_b.length();
+                char* context_str = static_cast<char*>(malloc(context_str_len + 1));
+                memcpy(context_str, context_b.data(), context_str_len);
+                context_str[context_str_len] = '\0';
+                context_arr[i] = context_str;
             }
-            libqt_list context_out;
-            context_out.len = context_ret.size();
-            context_out.data = static_cast<void*>(context_arr);
-            libqt_list /* of libqt_string */ cbval1 = context_out;
+            // Append sentinel null terminator to the list
+            context_arr[context_ret.size()] = nullptr;
+            const char** cbval1 = context_arr;
             int cbval2 = commas;
             int cbval3 = static_cast<int>(style);
             QList<int>& shifts_ret = shifts;
@@ -298,6 +288,8 @@ class VirtualQsciAPIs final : public QsciAPIs {
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             libqt_free(callback_ret);
+            libqt_free(context_arr);
+            free(shifts_arr);
             return callback_ret_QList;
         } else {
             return QsciAPIs::callTips(context, commas, style, shifts);

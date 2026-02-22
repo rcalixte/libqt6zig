@@ -128,9 +128,10 @@ void KIO__CopyJob_Connect_Linking(KIO__CopyJob* self, intptr_t slot) {
         const QString target_ret = target;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray target_b = target_ret.toUtf8();
-        const char* target_str = static_cast<const char*>(malloc(target_b.length() + 1));
-        memcpy((void*)target_str, target_b.data(), target_b.length());
-        ((char*)target_str)[target_b.length()] = '\0';
+        auto target_str_len = target_b.length();
+        const char* target_str = static_cast<const char*>(malloc(target_str_len + 1));
+        memcpy((void*)target_str, target_b.data(), target_str_len);
+        ((char*)target_str)[target_str_len] = '\0';
         const char* sigval2 = target_str;
         const QUrl& to_ret = to;
         // Cast returned reference into pointer
@@ -229,9 +230,10 @@ void KIO__CopyJob_Connect_CopyingLinkDone(KIO__CopyJob* self, intptr_t slot) {
         const QString target_ret = target;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray target_b = target_ret.toUtf8();
-        const char* target_str = static_cast<const char*>(malloc(target_b.length() + 1));
-        memcpy((void*)target_str, target_b.data(), target_b.length());
-        ((char*)target_str)[target_b.length()] = '\0';
+        auto target_str_len = target_b.length();
+        const char* target_str = static_cast<const char*>(malloc(target_str_len + 1));
+        memcpy((void*)target_str, target_b.data(), target_str_len);
+        ((char*)target_str)[target_str_len] = '\0';
         const char* sigval3 = target_str;
         const QUrl& to_ret = to;
         // Cast returned reference into pointer

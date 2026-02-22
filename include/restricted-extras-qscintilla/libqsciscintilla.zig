@@ -12750,15 +12750,13 @@ pub const qsciscintilla = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, source: QtC.QMimeData, rectangular: *bool) callconv(.c) [*:0]u8 `
+    /// ` callback: *const fn (self: QtC.QsciScintilla, source: QtC.QMimeData, rectangular: *bool) callconv(.c) qtc.libqt_string `
     ///
-    pub fn OnFromMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, *bool) callconv(.c) [*:0]u8) void {
+    pub fn OnFromMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, *bool) callconv(.c) qtc.libqt_string) void {
         qtc.QsciScintilla_OnFromMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 

@@ -20,7 +20,7 @@ class VirtualKSvgSvg final : public KSvg::Svg {
     using KSvg__Svg_MetaObject_Callback = QMetaObject* (*)();
     using KSvg__Svg_Metacast_Callback = void* (*)(KSvg__Svg*, const char*);
     using KSvg__Svg_Metacall_Callback = int (*)(KSvg__Svg*, int, int, void**);
-    using KSvg__Svg_SetImagePath_Callback = void (*)(KSvg__Svg*, libqt_string);
+    using KSvg__Svg_SetImagePath_Callback = void (*)(KSvg__Svg*, const char*);
     using KSvg__Svg_Event_Callback = bool (*)(KSvg__Svg*, QEvent*);
     using KSvg__Svg_TimerEvent_Callback = void (*)(KSvg__Svg*, QTimerEvent*);
     using KSvg__Svg_ChildEvent_Callback = void (*)(KSvg__Svg*, QChildEvent*);
@@ -170,16 +170,16 @@ class VirtualKSvgSvg final : public KSvg::Svg {
             KSvg__Svg::setImagePath(svgFilePath);
         } else if (ksvg__svg_setimagepath_callback != nullptr) {
             const QString svgFilePath_ret = svgFilePath;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray svgFilePath_b = svgFilePath_ret.toUtf8();
-            libqt_string svgFilePath_str;
-            svgFilePath_str.len = svgFilePath_b.length();
-            svgFilePath_str.data = static_cast<const char*>(malloc(svgFilePath_str.len + 1));
-            memcpy((void*)svgFilePath_str.data, svgFilePath_b.data(), svgFilePath_str.len);
-            ((char*)svgFilePath_str.data)[svgFilePath_str.len] = '\0';
-            libqt_string cbval1 = svgFilePath_str;
+            auto svgFilePath_str_len = svgFilePath_b.length();
+            const char* svgFilePath_str = static_cast<const char*>(malloc(svgFilePath_str_len + 1));
+            memcpy((void*)svgFilePath_str, svgFilePath_b.data(), svgFilePath_str_len);
+            ((char*)svgFilePath_str)[svgFilePath_str_len] = '\0';
+            const char* cbval1 = svgFilePath_str;
 
             ksvg__svg_setimagepath_callback(this, cbval1);
+            libqt_free(svgFilePath_str);
         } else {
             KSvg__Svg::setImagePath(svgFilePath);
         }

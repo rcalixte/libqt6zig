@@ -1211,7 +1211,7 @@ int QWidget_WindowType(const QWidget* self) {
 }
 
 QWidget* QWidget_Find(unsigned long long param1) {
-    return QWidget::find(static_cast<unsigned long long>(param1));
+    return QWidget::find(static_cast<WId>(param1));
 }
 
 QWidget* QWidget_ChildAt(const QWidget* self, int x, int y) {
@@ -1290,9 +1290,10 @@ void QWidget_Connect_WindowTitleChanged(QWidget* self, intptr_t slot) {
         const QString title_ret = title;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray title_b = title_ret.toUtf8();
-        const char* title_str = static_cast<const char*>(malloc(title_b.length() + 1));
-        memcpy((void*)title_str, title_b.data(), title_b.length());
-        ((char*)title_str)[title_b.length()] = '\0';
+        auto title_str_len = title_b.length();
+        const char* title_str = static_cast<const char*>(malloc(title_str_len + 1));
+        memcpy((void*)title_str, title_b.data(), title_str_len);
+        ((char*)title_str)[title_str_len] = '\0';
         const char* sigval1 = title_str;
         slotFunc(self, sigval1);
         libqt_free(title_str);
@@ -1324,9 +1325,10 @@ void QWidget_Connect_WindowIconTextChanged(QWidget* self, intptr_t slot) {
         const QString iconText_ret = iconText;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray iconText_b = iconText_ret.toUtf8();
-        const char* iconText_str = static_cast<const char*>(malloc(iconText_b.length() + 1));
-        memcpy((void*)iconText_str, iconText_b.data(), iconText_b.length());
-        ((char*)iconText_str)[iconText_b.length()] = '\0';
+        auto iconText_str_len = iconText_b.length();
+        const char* iconText_str = static_cast<const char*>(malloc(iconText_str_len + 1));
+        memcpy((void*)iconText_str, iconText_b.data(), iconText_str_len);
+        ((char*)iconText_str)[iconText_str_len] = '\0';
         const char* sigval1 = iconText_str;
         slotFunc(self, sigval1);
         libqt_free(iconText_str);
@@ -2851,9 +2853,9 @@ void QWidget_OnUpdateMicroFocus1(QWidget* self, intptr_t slot) {
 void QWidget_Create1(QWidget* self, unsigned long long param1) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->create(static_cast<unsigned long long>(param1));
+        vqwidget->create(static_cast<WId>(param1));
     } else {
-        ((VirtualQWidget*)self)->create(static_cast<unsigned long long>(param1));
+        ((VirtualQWidget*)self)->create(static_cast<WId>(param1));
     }
 }
 
@@ -2862,9 +2864,9 @@ void QWidget_QBaseCreate1(QWidget* self, unsigned long long param1) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
         vqwidget->setQWidget_Create1_IsBase(true);
-        vqwidget->create(static_cast<unsigned long long>(param1));
+        vqwidget->create(static_cast<WId>(param1));
     } else {
-        ((VirtualQWidget*)self)->create(static_cast<unsigned long long>(param1));
+        ((VirtualQWidget*)self)->create(static_cast<WId>(param1));
     }
 }
 
@@ -2880,9 +2882,9 @@ void QWidget_OnCreate1(QWidget* self, intptr_t slot) {
 void QWidget_Create2(QWidget* self, unsigned long long param1, bool initializeWindow) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->create(static_cast<unsigned long long>(param1), initializeWindow);
+        vqwidget->create(static_cast<WId>(param1), initializeWindow);
     } else {
-        ((VirtualQWidget*)self)->create(static_cast<unsigned long long>(param1), initializeWindow);
+        ((VirtualQWidget*)self)->create(static_cast<WId>(param1), initializeWindow);
     }
 }
 
@@ -2891,9 +2893,9 @@ void QWidget_QBaseCreate2(QWidget* self, unsigned long long param1, bool initial
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
         vqwidget->setQWidget_Create2_IsBase(true);
-        vqwidget->create(static_cast<unsigned long long>(param1), initializeWindow);
+        vqwidget->create(static_cast<WId>(param1), initializeWindow);
     } else {
-        ((VirtualQWidget*)self)->create(static_cast<unsigned long long>(param1), initializeWindow);
+        ((VirtualQWidget*)self)->create(static_cast<WId>(param1), initializeWindow);
     }
 }
 
@@ -2909,9 +2911,9 @@ void QWidget_OnCreate2(QWidget* self, intptr_t slot) {
 void QWidget_Create3(QWidget* self, unsigned long long param1, bool initializeWindow, bool destroyOldWindow) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->create(static_cast<unsigned long long>(param1), initializeWindow, destroyOldWindow);
+        vqwidget->create(static_cast<WId>(param1), initializeWindow, destroyOldWindow);
     } else {
-        ((VirtualQWidget*)self)->create(static_cast<unsigned long long>(param1), initializeWindow, destroyOldWindow);
+        ((VirtualQWidget*)self)->create(static_cast<WId>(param1), initializeWindow, destroyOldWindow);
     }
 }
 
@@ -2920,9 +2922,9 @@ void QWidget_QBaseCreate3(QWidget* self, unsigned long long param1, bool initial
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
         vqwidget->setQWidget_Create3_IsBase(true);
-        vqwidget->create(static_cast<unsigned long long>(param1), initializeWindow, destroyOldWindow);
+        vqwidget->create(static_cast<WId>(param1), initializeWindow, destroyOldWindow);
     } else {
-        ((VirtualQWidget*)self)->create(static_cast<unsigned long long>(param1), initializeWindow, destroyOldWindow);
+        ((VirtualQWidget*)self)->create(static_cast<WId>(param1), initializeWindow, destroyOldWindow);
     }
 }
 

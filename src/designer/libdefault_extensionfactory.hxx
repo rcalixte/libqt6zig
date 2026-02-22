@@ -20,8 +20,8 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
     using QExtensionFactory_MetaObject_Callback = QMetaObject* (*)();
     using QExtensionFactory_Metacast_Callback = void* (*)(QExtensionFactory*, const char*);
     using QExtensionFactory_Metacall_Callback = int (*)(QExtensionFactory*, int, int, void**);
-    using QExtensionFactory_Extension_Callback = QObject* (*)(const QExtensionFactory*, QObject*, libqt_string);
-    using QExtensionFactory_CreateExtension_Callback = QObject* (*)(const QExtensionFactory*, QObject*, libqt_string, QObject*);
+    using QExtensionFactory_Extension_Callback = QObject* (*)(const QExtensionFactory*, QObject*, const char*);
+    using QExtensionFactory_CreateExtension_Callback = QObject* (*)(const QExtensionFactory*, QObject*, const char*, QObject*);
     using QExtensionFactory_Event_Callback = bool (*)(QExtensionFactory*, QEvent*);
     using QExtensionFactory_EventFilter_Callback = bool (*)(QExtensionFactory*, QObject*, QEvent*);
     using QExtensionFactory_TimerEvent_Callback = void (*)(QExtensionFactory*, QTimerEvent*);
@@ -183,16 +183,16 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         } else if (qextensionfactory_extension_callback != nullptr) {
             QObject* cbval1 = object;
             const QString iid_ret = iid;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray iid_b = iid_ret.toUtf8();
-            libqt_string iid_str;
-            iid_str.len = iid_b.length();
-            iid_str.data = static_cast<const char*>(malloc(iid_str.len + 1));
-            memcpy((void*)iid_str.data, iid_b.data(), iid_str.len);
-            ((char*)iid_str.data)[iid_str.len] = '\0';
-            libqt_string cbval2 = iid_str;
+            auto iid_str_len = iid_b.length();
+            const char* iid_str = static_cast<const char*>(malloc(iid_str_len + 1));
+            memcpy((void*)iid_str, iid_b.data(), iid_str_len);
+            ((char*)iid_str)[iid_str_len] = '\0';
+            const char* cbval2 = iid_str;
 
             QObject* callback_ret = qextensionfactory_extension_callback(this, cbval1, cbval2);
+            libqt_free(iid_str);
             return callback_ret;
         } else {
             return QExtensionFactory::extension(object, iid);
@@ -207,17 +207,17 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         } else if (qextensionfactory_createextension_callback != nullptr) {
             QObject* cbval1 = object;
             const QString iid_ret = iid;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray iid_b = iid_ret.toUtf8();
-            libqt_string iid_str;
-            iid_str.len = iid_b.length();
-            iid_str.data = static_cast<const char*>(malloc(iid_str.len + 1));
-            memcpy((void*)iid_str.data, iid_b.data(), iid_str.len);
-            ((char*)iid_str.data)[iid_str.len] = '\0';
-            libqt_string cbval2 = iid_str;
+            auto iid_str_len = iid_b.length();
+            const char* iid_str = static_cast<const char*>(malloc(iid_str_len + 1));
+            memcpy((void*)iid_str, iid_b.data(), iid_str_len);
+            ((char*)iid_str)[iid_str_len] = '\0';
+            const char* cbval2 = iid_str;
             QObject* cbval3 = parent;
 
             QObject* callback_ret = qextensionfactory_createextension_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(iid_str);
             return callback_ret;
         } else {
             return QExtensionFactory::createExtension(object, iid, parent);

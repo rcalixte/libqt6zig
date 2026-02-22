@@ -5,7 +5,7 @@ const jobuidelegateextension_enums = @import("libjobuidelegateextension.zig").en
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html)
 pub const kio__askuseractioninterface = struct {
@@ -207,13 +207,13 @@ pub const kio__askuseractioninterface = struct {
     ///
     /// ` self: QtC.KIO__AskUserActionInterface `
     ///
-    /// ` sslErrorData: map_constu8_qtcqvariant `
+    /// ` sslErrorData: arraymap_constu8_qtcqvariant `
     ///
     /// ` parent: QtC.QWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AskIgnoreSslErrors(self: ?*anyopaque, sslErrorData: map_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) void {
+    pub fn AskIgnoreSslErrors(self: ?*anyopaque, sslErrorData: arraymap_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) void {
         const sslErrorData_count = sslErrorData.count();
         const sslErrorData_keys = allocator.alloc(qtc.libqt_string, sslErrorData_count) catch @panic("kio__askuseractioninterface.AskIgnoreSslErrors: Memory allocation failed");
         defer allocator.free(sslErrorData_keys);

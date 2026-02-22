@@ -6,7 +6,7 @@ const qlocale_enums = @import("../libqlocale.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html)
 pub const qgeoroutingmanagerengine = struct {
@@ -14,11 +14,11 @@ pub const qgeoroutingmanagerengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parameters: map_constu8_qtcqvariant `
+    /// ` parameters: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New(parameters: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QGeoRoutingManagerEngine {
+    pub fn New(parameters: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QGeoRoutingManagerEngine {
         const parameters_count = parameters.count();
         const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeoroutingmanagerengine.New: Memory allocation failed");
         defer allocator.free(parameters_keys);
@@ -47,13 +47,13 @@ pub const qgeoroutingmanagerengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parameters: map_constu8_qtcqvariant `
+    /// ` parameters: arraymap_constu8_qtcqvariant `
     ///
     /// ` parent: QtC.QObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New2(parameters: map_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QGeoRoutingManagerEngine {
+    pub fn New2(parameters: arraymap_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QGeoRoutingManagerEngine {
         const parameters_count = parameters.count();
         const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeoroutingmanagerengine.New2: Memory allocation failed");
         defer allocator.free(parameters_keys);

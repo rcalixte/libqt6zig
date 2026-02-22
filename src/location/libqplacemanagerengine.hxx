@@ -20,19 +20,19 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
     using QPlaceManagerEngine_MetaObject_Callback = QMetaObject* (*)();
     using QPlaceManagerEngine_Metacast_Callback = void* (*)(QPlaceManagerEngine*, const char*);
     using QPlaceManagerEngine_Metacall_Callback = int (*)(QPlaceManagerEngine*, int, int, void**);
-    using QPlaceManagerEngine_GetPlaceDetails_Callback = QPlaceDetailsReply* (*)(QPlaceManagerEngine*, libqt_string);
+    using QPlaceManagerEngine_GetPlaceDetails_Callback = QPlaceDetailsReply* (*)(QPlaceManagerEngine*, const char*);
     using QPlaceManagerEngine_GetPlaceContent_Callback = QPlaceContentReply* (*)(QPlaceManagerEngine*, QPlaceContentRequest*);
     using QPlaceManagerEngine_Search_Callback = QPlaceSearchReply* (*)(QPlaceManagerEngine*, QPlaceSearchRequest*);
     using QPlaceManagerEngine_SearchSuggestions_Callback = QPlaceSearchSuggestionReply* (*)(QPlaceManagerEngine*, QPlaceSearchRequest*);
     using QPlaceManagerEngine_SavePlace_Callback = QPlaceIdReply* (*)(QPlaceManagerEngine*, QPlace*);
-    using QPlaceManagerEngine_RemovePlace_Callback = QPlaceIdReply* (*)(QPlaceManagerEngine*, libqt_string);
-    using QPlaceManagerEngine_SaveCategory_Callback = QPlaceIdReply* (*)(QPlaceManagerEngine*, QPlaceCategory*, libqt_string);
-    using QPlaceManagerEngine_RemoveCategory_Callback = QPlaceIdReply* (*)(QPlaceManagerEngine*, libqt_string);
+    using QPlaceManagerEngine_RemovePlace_Callback = QPlaceIdReply* (*)(QPlaceManagerEngine*, const char*);
+    using QPlaceManagerEngine_SaveCategory_Callback = QPlaceIdReply* (*)(QPlaceManagerEngine*, QPlaceCategory*, const char*);
+    using QPlaceManagerEngine_RemoveCategory_Callback = QPlaceIdReply* (*)(QPlaceManagerEngine*, const char*);
     using QPlaceManagerEngine_InitializeCategories_Callback = QPlaceReply* (*)();
-    using QPlaceManagerEngine_ParentCategoryId_Callback = const char* (*)(const QPlaceManagerEngine*, libqt_string);
-    using QPlaceManagerEngine_ChildCategoryIds_Callback = const char** (*)(const QPlaceManagerEngine*, libqt_string);
-    using QPlaceManagerEngine_Category_Callback = QPlaceCategory* (*)(const QPlaceManagerEngine*, libqt_string);
-    using QPlaceManagerEngine_ChildCategories_Callback = libqt_list /* of QPlaceCategory* */ (*)(const QPlaceManagerEngine*, libqt_string);
+    using QPlaceManagerEngine_ParentCategoryId_Callback = const char* (*)(const QPlaceManagerEngine*, const char*);
+    using QPlaceManagerEngine_ChildCategoryIds_Callback = const char** (*)(const QPlaceManagerEngine*, const char*);
+    using QPlaceManagerEngine_Category_Callback = QPlaceCategory* (*)(const QPlaceManagerEngine*, const char*);
+    using QPlaceManagerEngine_ChildCategories_Callback = libqt_list /* of QPlaceCategory* */ (*)(const QPlaceManagerEngine*, const char*);
     using QPlaceManagerEngine_Locales_Callback = libqt_list /* of QLocale* */ (*)();
     using QPlaceManagerEngine_SetLocales_Callback = void (*)(QPlaceManagerEngine*, libqt_list /* of QLocale* */);
     using QPlaceManagerEngine_ConstructIconUrl_Callback = QUrl* (*)(const QPlaceManagerEngine*, QPlaceIcon*, QSize*);
@@ -284,16 +284,16 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             return QPlaceManagerEngine::getPlaceDetails(placeId);
         } else if (qplacemanagerengine_getplacedetails_callback != nullptr) {
             const QString placeId_ret = placeId;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray placeId_b = placeId_ret.toUtf8();
-            libqt_string placeId_str;
-            placeId_str.len = placeId_b.length();
-            placeId_str.data = static_cast<const char*>(malloc(placeId_str.len + 1));
-            memcpy((void*)placeId_str.data, placeId_b.data(), placeId_str.len);
-            ((char*)placeId_str.data)[placeId_str.len] = '\0';
-            libqt_string cbval1 = placeId_str;
+            auto placeId_str_len = placeId_b.length();
+            const char* placeId_str = static_cast<const char*>(malloc(placeId_str_len + 1));
+            memcpy((void*)placeId_str, placeId_b.data(), placeId_str_len);
+            ((char*)placeId_str)[placeId_str_len] = '\0';
+            const char* cbval1 = placeId_str;
 
             QPlaceDetailsReply* callback_ret = qplacemanagerengine_getplacedetails_callback(this, cbval1);
+            libqt_free(placeId_str);
             return callback_ret;
         } else {
             return QPlaceManagerEngine::getPlaceDetails(placeId);
@@ -375,16 +375,16 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             return QPlaceManagerEngine::removePlace(placeId);
         } else if (qplacemanagerengine_removeplace_callback != nullptr) {
             const QString placeId_ret = placeId;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray placeId_b = placeId_ret.toUtf8();
-            libqt_string placeId_str;
-            placeId_str.len = placeId_b.length();
-            placeId_str.data = static_cast<const char*>(malloc(placeId_str.len + 1));
-            memcpy((void*)placeId_str.data, placeId_b.data(), placeId_str.len);
-            ((char*)placeId_str.data)[placeId_str.len] = '\0';
-            libqt_string cbval1 = placeId_str;
+            auto placeId_str_len = placeId_b.length();
+            const char* placeId_str = static_cast<const char*>(malloc(placeId_str_len + 1));
+            memcpy((void*)placeId_str, placeId_b.data(), placeId_str_len);
+            ((char*)placeId_str)[placeId_str_len] = '\0';
+            const char* cbval1 = placeId_str;
 
             QPlaceIdReply* callback_ret = qplacemanagerengine_removeplace_callback(this, cbval1);
+            libqt_free(placeId_str);
             return callback_ret;
         } else {
             return QPlaceManagerEngine::removePlace(placeId);
@@ -401,16 +401,16 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             // Cast returned reference into pointer
             QPlaceCategory* cbval1 = const_cast<QPlaceCategory*>(&category_ret);
             const QString parentId_ret = parentId;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray parentId_b = parentId_ret.toUtf8();
-            libqt_string parentId_str;
-            parentId_str.len = parentId_b.length();
-            parentId_str.data = static_cast<const char*>(malloc(parentId_str.len + 1));
-            memcpy((void*)parentId_str.data, parentId_b.data(), parentId_str.len);
-            ((char*)parentId_str.data)[parentId_str.len] = '\0';
-            libqt_string cbval2 = parentId_str;
+            auto parentId_str_len = parentId_b.length();
+            const char* parentId_str = static_cast<const char*>(malloc(parentId_str_len + 1));
+            memcpy((void*)parentId_str, parentId_b.data(), parentId_str_len);
+            ((char*)parentId_str)[parentId_str_len] = '\0';
+            const char* cbval2 = parentId_str;
 
             QPlaceIdReply* callback_ret = qplacemanagerengine_savecategory_callback(this, cbval1, cbval2);
+            libqt_free(parentId_str);
             return callback_ret;
         } else {
             return QPlaceManagerEngine::saveCategory(category, parentId);
@@ -424,16 +424,16 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             return QPlaceManagerEngine::removeCategory(categoryId);
         } else if (qplacemanagerengine_removecategory_callback != nullptr) {
             const QString categoryId_ret = categoryId;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray categoryId_b = categoryId_ret.toUtf8();
-            libqt_string categoryId_str;
-            categoryId_str.len = categoryId_b.length();
-            categoryId_str.data = static_cast<const char*>(malloc(categoryId_str.len + 1));
-            memcpy((void*)categoryId_str.data, categoryId_b.data(), categoryId_str.len);
-            ((char*)categoryId_str.data)[categoryId_str.len] = '\0';
-            libqt_string cbval1 = categoryId_str;
+            auto categoryId_str_len = categoryId_b.length();
+            const char* categoryId_str = static_cast<const char*>(malloc(categoryId_str_len + 1));
+            memcpy((void*)categoryId_str, categoryId_b.data(), categoryId_str_len);
+            ((char*)categoryId_str)[categoryId_str_len] = '\0';
+            const char* cbval1 = categoryId_str;
 
             QPlaceIdReply* callback_ret = qplacemanagerengine_removecategory_callback(this, cbval1);
+            libqt_free(categoryId_str);
             return callback_ret;
         } else {
             return QPlaceManagerEngine::removeCategory(categoryId);
@@ -460,17 +460,17 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             return QPlaceManagerEngine::parentCategoryId(categoryId);
         } else if (qplacemanagerengine_parentcategoryid_callback != nullptr) {
             const QString categoryId_ret = categoryId;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray categoryId_b = categoryId_ret.toUtf8();
-            libqt_string categoryId_str;
-            categoryId_str.len = categoryId_b.length();
-            categoryId_str.data = static_cast<const char*>(malloc(categoryId_str.len + 1));
-            memcpy((void*)categoryId_str.data, categoryId_b.data(), categoryId_str.len);
-            ((char*)categoryId_str.data)[categoryId_str.len] = '\0';
-            libqt_string cbval1 = categoryId_str;
+            auto categoryId_str_len = categoryId_b.length();
+            const char* categoryId_str = static_cast<const char*>(malloc(categoryId_str_len + 1));
+            memcpy((void*)categoryId_str, categoryId_b.data(), categoryId_str_len);
+            ((char*)categoryId_str)[categoryId_str_len] = '\0';
+            const char* cbval1 = categoryId_str;
 
             const char* callback_ret = qplacemanagerengine_parentcategoryid_callback(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
+            libqt_free(categoryId_str);
             return callback_ret_QString;
         } else {
             return QPlaceManagerEngine::parentCategoryId(categoryId);
@@ -484,14 +484,13 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             return QPlaceManagerEngine::childCategoryIds(categoryId);
         } else if (qplacemanagerengine_childcategoryids_callback != nullptr) {
             const QString categoryId_ret = categoryId;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray categoryId_b = categoryId_ret.toUtf8();
-            libqt_string categoryId_str;
-            categoryId_str.len = categoryId_b.length();
-            categoryId_str.data = static_cast<const char*>(malloc(categoryId_str.len + 1));
-            memcpy((void*)categoryId_str.data, categoryId_b.data(), categoryId_str.len);
-            ((char*)categoryId_str.data)[categoryId_str.len] = '\0';
-            libqt_string cbval1 = categoryId_str;
+            auto categoryId_str_len = categoryId_b.length();
+            const char* categoryId_str = static_cast<const char*>(malloc(categoryId_str_len + 1));
+            memcpy((void*)categoryId_str, categoryId_b.data(), categoryId_str_len);
+            ((char*)categoryId_str)[categoryId_str_len] = '\0';
+            const char* cbval1 = categoryId_str;
 
             const char** callback_ret = qplacemanagerengine_childcategoryids_callback(this, cbval1);
             QList<QString> callback_ret_QList;
@@ -503,6 +502,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             libqt_free(callback_ret);
+            libqt_free(categoryId_str);
             return callback_ret_QList;
         } else {
             return QPlaceManagerEngine::childCategoryIds(categoryId);
@@ -516,16 +516,16 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             return QPlaceManagerEngine::category(categoryId);
         } else if (qplacemanagerengine_category_callback != nullptr) {
             const QString categoryId_ret = categoryId;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray categoryId_b = categoryId_ret.toUtf8();
-            libqt_string categoryId_str;
-            categoryId_str.len = categoryId_b.length();
-            categoryId_str.data = static_cast<const char*>(malloc(categoryId_str.len + 1));
-            memcpy((void*)categoryId_str.data, categoryId_b.data(), categoryId_str.len);
-            ((char*)categoryId_str.data)[categoryId_str.len] = '\0';
-            libqt_string cbval1 = categoryId_str;
+            auto categoryId_str_len = categoryId_b.length();
+            const char* categoryId_str = static_cast<const char*>(malloc(categoryId_str_len + 1));
+            memcpy((void*)categoryId_str, categoryId_b.data(), categoryId_str_len);
+            ((char*)categoryId_str)[categoryId_str_len] = '\0';
+            const char* cbval1 = categoryId_str;
 
             QPlaceCategory* callback_ret = qplacemanagerengine_category_callback(this, cbval1);
+            libqt_free(categoryId_str);
             return *callback_ret;
         } else {
             return QPlaceManagerEngine::category(categoryId);
@@ -539,14 +539,13 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             return QPlaceManagerEngine::childCategories(parentId);
         } else if (qplacemanagerengine_childcategories_callback != nullptr) {
             const QString parentId_ret = parentId;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray parentId_b = parentId_ret.toUtf8();
-            libqt_string parentId_str;
-            parentId_str.len = parentId_b.length();
-            parentId_str.data = static_cast<const char*>(malloc(parentId_str.len + 1));
-            memcpy((void*)parentId_str.data, parentId_b.data(), parentId_str.len);
-            ((char*)parentId_str.data)[parentId_str.len] = '\0';
-            libqt_string cbval1 = parentId_str;
+            auto parentId_str_len = parentId_b.length();
+            const char* parentId_str = static_cast<const char*>(malloc(parentId_str_len + 1));
+            memcpy((void*)parentId_str, parentId_b.data(), parentId_str_len);
+            ((char*)parentId_str)[parentId_str_len] = '\0';
+            const char* cbval1 = parentId_str;
 
             libqt_list /* of QPlaceCategory* */ callback_ret = qplacemanagerengine_childcategories_callback(this, cbval1);
             QList<QPlaceCategory> callback_ret_QList;
@@ -556,6 +555,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
                 callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            libqt_free(parentId_str);
             return callback_ret_QList;
         } else {
             return QPlaceManagerEngine::childCategories(parentId);
@@ -600,6 +600,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             libqt_list /* of QLocale* */ cbval1 = locales_out;
 
             qplacemanagerengine_setlocales_callback(this, cbval1);
+            free(locales_arr);
         } else {
             QPlaceManagerEngine::setLocales(locales);
         }

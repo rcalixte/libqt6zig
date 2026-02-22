@@ -23,10 +23,10 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
     using QWebEnginePage_TriggerAction_Callback = void (*)(QWebEnginePage*, int, bool);
     using QWebEnginePage_Event_Callback = bool (*)(QWebEnginePage*, QEvent*);
     using QWebEnginePage_CreateWindow_Callback = QWebEnginePage* (*)(QWebEnginePage*, int);
-    using QWebEnginePage_ChooseFiles_Callback = const char** (*)(QWebEnginePage*, int, libqt_list /* of libqt_string */, libqt_list /* of libqt_string */);
-    using QWebEnginePage_JavaScriptAlert_Callback = void (*)(QWebEnginePage*, QUrl*, libqt_string);
-    using QWebEnginePage_JavaScriptConfirm_Callback = bool (*)(QWebEnginePage*, QUrl*, libqt_string);
-    using QWebEnginePage_JavaScriptConsoleMessage_Callback = void (*)(QWebEnginePage*, int, libqt_string, int, libqt_string);
+    using QWebEnginePage_ChooseFiles_Callback = const char** (*)(QWebEnginePage*, int, const char**, const char**);
+    using QWebEnginePage_JavaScriptAlert_Callback = void (*)(QWebEnginePage*, QUrl*, const char*);
+    using QWebEnginePage_JavaScriptConfirm_Callback = bool (*)(QWebEnginePage*, QUrl*, const char*);
+    using QWebEnginePage_JavaScriptConsoleMessage_Callback = void (*)(QWebEnginePage*, int, const char*, int, const char*);
     using QWebEnginePage_AcceptNavigationRequest_Callback = bool (*)(QWebEnginePage*, QUrl*, int, bool);
     using QWebEnginePage_EventFilter_Callback = bool (*)(QWebEnginePage*, QObject*, QEvent*);
     using QWebEnginePage_TimerEvent_Callback = void (*)(QWebEnginePage*, QTimerEvent*);
@@ -260,41 +260,33 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         } else if (qwebenginepage_choosefiles_callback != nullptr) {
             int cbval1 = static_cast<int>(mode);
             const QList<QString>& oldFiles_ret = oldFiles;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* oldFiles_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (oldFiles_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** oldFiles_arr = static_cast<const char**>(malloc(sizeof(const char*) * (oldFiles_ret.size() + 1)));
             for (qsizetype i = 0; i < oldFiles_ret.size(); ++i) {
-                QString oldFiles_lv_ret = oldFiles_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray oldFiles_lv_b = oldFiles_lv_ret.toUtf8();
-                libqt_string oldFiles_lv_str;
-                oldFiles_lv_str.len = oldFiles_lv_b.length();
-                oldFiles_lv_str.data = static_cast<const char*>(malloc(oldFiles_lv_str.len + 1));
-                memcpy((void*)oldFiles_lv_str.data, oldFiles_lv_b.data(), oldFiles_lv_str.len);
-                ((char*)oldFiles_lv_str.data)[oldFiles_lv_str.len] = '\0';
-                oldFiles_arr[i] = oldFiles_lv_str;
+                QByteArray oldFiles_b = oldFiles_ret[i].toUtf8();
+                auto oldFiles_str_len = oldFiles_b.length();
+                char* oldFiles_str = static_cast<char*>(malloc(oldFiles_str_len + 1));
+                memcpy(oldFiles_str, oldFiles_b.data(), oldFiles_str_len);
+                oldFiles_str[oldFiles_str_len] = '\0';
+                oldFiles_arr[i] = oldFiles_str;
             }
-            libqt_list oldFiles_out;
-            oldFiles_out.len = oldFiles_ret.size();
-            oldFiles_out.data = static_cast<void*>(oldFiles_arr);
-            libqt_list /* of libqt_string */ cbval2 = oldFiles_out;
+            // Append sentinel null terminator to the list
+            oldFiles_arr[oldFiles_ret.size()] = nullptr;
+            const char** cbval2 = oldFiles_arr;
             const QList<QString>& acceptedMimeTypes_ret = acceptedMimeTypes;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* acceptedMimeTypes_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (acceptedMimeTypes_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** acceptedMimeTypes_arr = static_cast<const char**>(malloc(sizeof(const char*) * (acceptedMimeTypes_ret.size() + 1)));
             for (qsizetype i = 0; i < acceptedMimeTypes_ret.size(); ++i) {
-                QString acceptedMimeTypes_lv_ret = acceptedMimeTypes_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray acceptedMimeTypes_lv_b = acceptedMimeTypes_lv_ret.toUtf8();
-                libqt_string acceptedMimeTypes_lv_str;
-                acceptedMimeTypes_lv_str.len = acceptedMimeTypes_lv_b.length();
-                acceptedMimeTypes_lv_str.data = static_cast<const char*>(malloc(acceptedMimeTypes_lv_str.len + 1));
-                memcpy((void*)acceptedMimeTypes_lv_str.data, acceptedMimeTypes_lv_b.data(), acceptedMimeTypes_lv_str.len);
-                ((char*)acceptedMimeTypes_lv_str.data)[acceptedMimeTypes_lv_str.len] = '\0';
-                acceptedMimeTypes_arr[i] = acceptedMimeTypes_lv_str;
+                QByteArray acceptedMimeTypes_b = acceptedMimeTypes_ret[i].toUtf8();
+                auto acceptedMimeTypes_str_len = acceptedMimeTypes_b.length();
+                char* acceptedMimeTypes_str = static_cast<char*>(malloc(acceptedMimeTypes_str_len + 1));
+                memcpy(acceptedMimeTypes_str, acceptedMimeTypes_b.data(), acceptedMimeTypes_str_len);
+                acceptedMimeTypes_str[acceptedMimeTypes_str_len] = '\0';
+                acceptedMimeTypes_arr[i] = acceptedMimeTypes_str;
             }
-            libqt_list acceptedMimeTypes_out;
-            acceptedMimeTypes_out.len = acceptedMimeTypes_ret.size();
-            acceptedMimeTypes_out.data = static_cast<void*>(acceptedMimeTypes_arr);
-            libqt_list /* of libqt_string */ cbval3 = acceptedMimeTypes_out;
+            // Append sentinel null terminator to the list
+            acceptedMimeTypes_arr[acceptedMimeTypes_ret.size()] = nullptr;
+            const char** cbval3 = acceptedMimeTypes_arr;
 
             const char** callback_ret = qwebenginepage_choosefiles_callback(this, cbval1, cbval2, cbval3);
             QList<QString> callback_ret_QList;
@@ -306,6 +298,8 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             libqt_free(callback_ret);
+            libqt_free(oldFiles_arr);
+            libqt_free(acceptedMimeTypes_arr);
             return callback_ret_QList;
         } else {
             return QWebEnginePage::chooseFiles(mode, oldFiles, acceptedMimeTypes);
@@ -322,16 +316,16 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&securityOrigin_ret);
             const QString msg_ret = msg;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray msg_b = msg_ret.toUtf8();
-            libqt_string msg_str;
-            msg_str.len = msg_b.length();
-            msg_str.data = static_cast<const char*>(malloc(msg_str.len + 1));
-            memcpy((void*)msg_str.data, msg_b.data(), msg_str.len);
-            ((char*)msg_str.data)[msg_str.len] = '\0';
-            libqt_string cbval2 = msg_str;
+            auto msg_str_len = msg_b.length();
+            const char* msg_str = static_cast<const char*>(malloc(msg_str_len + 1));
+            memcpy((void*)msg_str, msg_b.data(), msg_str_len);
+            ((char*)msg_str)[msg_str_len] = '\0';
+            const char* cbval2 = msg_str;
 
             qwebenginepage_javascriptalert_callback(this, cbval1, cbval2);
+            libqt_free(msg_str);
         } else {
             QWebEnginePage::javaScriptAlert(securityOrigin, msg);
         }
@@ -347,16 +341,16 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&securityOrigin_ret);
             const QString msg_ret = msg;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray msg_b = msg_ret.toUtf8();
-            libqt_string msg_str;
-            msg_str.len = msg_b.length();
-            msg_str.data = static_cast<const char*>(malloc(msg_str.len + 1));
-            memcpy((void*)msg_str.data, msg_b.data(), msg_str.len);
-            ((char*)msg_str.data)[msg_str.len] = '\0';
-            libqt_string cbval2 = msg_str;
+            auto msg_str_len = msg_b.length();
+            const char* msg_str = static_cast<const char*>(malloc(msg_str_len + 1));
+            memcpy((void*)msg_str, msg_b.data(), msg_str_len);
+            ((char*)msg_str)[msg_str_len] = '\0';
+            const char* cbval2 = msg_str;
 
             bool callback_ret = qwebenginepage_javascriptconfirm_callback(this, cbval1, cbval2);
+            libqt_free(msg_str);
             return callback_ret;
         } else {
             return QWebEnginePage::javaScriptConfirm(securityOrigin, msg);
@@ -371,26 +365,26 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         } else if (qwebenginepage_javascriptconsolemessage_callback != nullptr) {
             int cbval1 = static_cast<int>(level);
             const QString message_ret = message;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray message_b = message_ret.toUtf8();
-            libqt_string message_str;
-            message_str.len = message_b.length();
-            message_str.data = static_cast<const char*>(malloc(message_str.len + 1));
-            memcpy((void*)message_str.data, message_b.data(), message_str.len);
-            ((char*)message_str.data)[message_str.len] = '\0';
-            libqt_string cbval2 = message_str;
+            auto message_str_len = message_b.length();
+            const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+            memcpy((void*)message_str, message_b.data(), message_str_len);
+            ((char*)message_str)[message_str_len] = '\0';
+            const char* cbval2 = message_str;
             int cbval3 = lineNumber;
             const QString sourceID_ret = sourceID;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray sourceID_b = sourceID_ret.toUtf8();
-            libqt_string sourceID_str;
-            sourceID_str.len = sourceID_b.length();
-            sourceID_str.data = static_cast<const char*>(malloc(sourceID_str.len + 1));
-            memcpy((void*)sourceID_str.data, sourceID_b.data(), sourceID_str.len);
-            ((char*)sourceID_str.data)[sourceID_str.len] = '\0';
-            libqt_string cbval4 = sourceID_str;
+            auto sourceID_str_len = sourceID_b.length();
+            const char* sourceID_str = static_cast<const char*>(malloc(sourceID_str_len + 1));
+            memcpy((void*)sourceID_str, sourceID_b.data(), sourceID_str_len);
+            ((char*)sourceID_str)[sourceID_str_len] = '\0';
+            const char* cbval4 = sourceID_str;
 
             qwebenginepage_javascriptconsolemessage_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_free(message_str);
+            libqt_free(sourceID_str);
         } else {
             QWebEnginePage::javaScriptConsoleMessage(level, message, lineNumber, sourceID);
         }

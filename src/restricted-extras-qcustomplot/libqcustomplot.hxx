@@ -4435,6 +4435,9 @@ class VirtualQCPLayout : public QCPLayout {
                 callback_ret_QVector.push_back(static_cast<int>(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(maxSizes_arr);
+            free(minSizes_arr);
+            free(stretchFactors_arr);
             return callback_ret_QVector;
         } else {
             return QCPLayout::getSectionSizes(maxSizes, minSizes, stretchFactors, totalSize);
@@ -5495,6 +5498,8 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             libqt_list /* of int */ cbval2 = minRowHeights_out;
 
             qcplayoutgrid_getminimumrowcolsizes_callback(this, cbval1, cbval2);
+            free(minColWidths_arr);
+            free(minRowHeights_arr);
         } else {
             QCPLayoutGrid::getMinimumRowColSizes(minColWidths, minRowHeights);
         }
@@ -5528,6 +5533,8 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             libqt_list /* of int */ cbval2 = maxRowHeights_out;
 
             qcplayoutgrid_getmaximumrowcolsizes_callback(this, cbval1, cbval2);
+            free(maxColWidths_arr);
+            free(maxRowHeights_arr);
         } else {
             QCPLayoutGrid::getMaximumRowColSizes(maxColWidths, maxRowHeights);
         }
@@ -5619,6 +5626,9 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
                 callback_ret_QVector.push_back(static_cast<int>(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(maxSizes_arr);
+            free(minSizes_arr);
+            free(stretchFactors_arr);
             return callback_ret_QVector;
         } else {
             return QCPLayoutGrid::getSectionSizes(maxSizes, minSizes, stretchFactors, totalSize);
@@ -6727,6 +6737,9 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
                 callback_ret_QVector.push_back(static_cast<int>(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(maxSizes_arr);
+            free(minSizes_arr);
+            free(stretchFactors_arr);
             return callback_ret_QVector;
         } else {
             return QCPLayoutInset::getSectionSizes(maxSizes, minSizes, stretchFactors, totalSize);
@@ -6924,7 +6937,7 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
     bool isVirtualQCPAxisTicker = true;
 
     // Virtual class public types (including callbacks)
-    using QCPAxisTicker_Generate_Callback = void (*)(QCPAxisTicker*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
+    using QCPAxisTicker_Generate_Callback = void (*)(QCPAxisTicker*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, const char**);
     using QCPAxisTicker_GetTickStep_Callback = double (*)(QCPAxisTicker*, QCPRange*);
     using QCPAxisTicker_GetSubTickCount_Callback = int (*)(QCPAxisTicker*, double);
     using QCPAxisTicker_GetTickLabel_Callback = const char* (*)(QCPAxisTicker*, double, QLocale*, QChar*, int);
@@ -7047,25 +7060,24 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             subTicks_out.data = static_cast<void*>(subTicks_arr);
             libqt_list /* of double */ cbval6 = subTicks_out;
             QVector<QString>* tickLabels_ret = tickLabels;
-            // Convert QVector<> from C++ memory to manually-managed C memory
-            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** tickLabels_arr = static_cast<const char**>(malloc(sizeof(const char*) * (tickLabels_ret->size() + 1)));
             for (qsizetype i = 0; i < tickLabels_ret->size(); ++i) {
-                QString tickLabels_vv_ret = (*tickLabels_ret)[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray tickLabels_vv_b = tickLabels_vv_ret.toUtf8();
-                libqt_string tickLabels_vv_str;
-                tickLabels_vv_str.len = tickLabels_vv_b.length();
-                tickLabels_vv_str.data = static_cast<const char*>(malloc(tickLabels_vv_str.len + 1));
-                memcpy((void*)tickLabels_vv_str.data, tickLabels_vv_b.data(), tickLabels_vv_str.len);
-                ((char*)tickLabels_vv_str.data)[tickLabels_vv_str.len] = '\0';
-                tickLabels_arr[i] = tickLabels_vv_str;
+                QByteArray tickLabels_b = (*tickLabels_ret)[i].toUtf8();
+                auto tickLabels_str_len = tickLabels_b.length();
+                char* tickLabels_str = static_cast<char*>(malloc(tickLabels_str_len + 1));
+                memcpy(tickLabels_str, tickLabels_b.data(), tickLabels_str_len);
+                tickLabels_str[tickLabels_str_len] = '\0';
+                tickLabels_arr[i] = tickLabels_str;
             }
-            libqt_list tickLabels_out;
-            tickLabels_out.len = tickLabels_ret->size();
-            tickLabels_out.data = static_cast<void*>(tickLabels_arr);
-            libqt_list /* of libqt_string */ cbval7 = tickLabels_out;
+            // Append sentinel null terminator to the list
+            tickLabels_arr[tickLabels_ret->size()] = nullptr;
+            const char** cbval7 = tickLabels_arr;
 
             qcpaxisticker_generate_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            free(ticks_arr);
+            free(subTicks_arr);
+            libqt_free(tickLabels_arr);
         } else {
             QCPAxisTicker::generate(range, locale, formatChar, precision, ticks, subTicks, tickLabels);
         }
@@ -7175,6 +7187,7 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
                 callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(ticks_arr);
             return callback_ret_QVector;
         } else {
             return QCPAxisTicker::createSubTickVector(subTickCount, ticks);
@@ -7213,6 +7226,7 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
             libqt_free(callback_ret);
+            free(ticks_arr);
             return callback_ret_QVector;
         } else {
             return QCPAxisTicker::createLabelVector(ticks, locale, formatChar, precision);
@@ -7241,6 +7255,7 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             bool cbval3 = keepOneOutlier;
 
             qcpaxisticker_trimticks_callback(this, cbval1, cbval2, cbval3);
+            free(ticks_arr);
         } else {
             QCPAxisTicker::trimTicks(range, ticks, keepOneOutlier);
         }
@@ -7265,6 +7280,7 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             libqt_list /* of double */ cbval2 = candidates_out;
 
             double callback_ret = qcpaxisticker_pickclosest_callback(this, cbval1, cbval2);
+            free(candidates_arr);
             return static_cast<double>(callback_ret);
         } else {
             return QCPAxisTicker::pickClosest(target, candidates);
@@ -7355,7 +7371,7 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
     using QCPAxisTickerDateTime_GetSubTickCount_Callback = int (*)(QCPAxisTickerDateTime*, double);
     using QCPAxisTickerDateTime_GetTickLabel_Callback = const char* (*)(QCPAxisTickerDateTime*, double, QLocale*, QChar*, int);
     using QCPAxisTickerDateTime_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerDateTime*, double, QCPRange*);
-    using QCPAxisTickerDateTime_Generate_Callback = void (*)(QCPAxisTickerDateTime*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
+    using QCPAxisTickerDateTime_Generate_Callback = void (*)(QCPAxisTickerDateTime*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, const char**);
     using QCPAxisTickerDateTime_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerDateTime*, int, libqt_list /* of double */);
     using QCPAxisTickerDateTime_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerDateTime*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTickerDateTime_TrimTicks_Callback = void (*)(const QCPAxisTickerDateTime*, QCPRange*, libqt_list /* of double */, bool);
@@ -7546,25 +7562,24 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             subTicks_out.data = static_cast<void*>(subTicks_arr);
             libqt_list /* of double */ cbval6 = subTicks_out;
             QVector<QString>* tickLabels_ret = tickLabels;
-            // Convert QVector<> from C++ memory to manually-managed C memory
-            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** tickLabels_arr = static_cast<const char**>(malloc(sizeof(const char*) * (tickLabels_ret->size() + 1)));
             for (qsizetype i = 0; i < tickLabels_ret->size(); ++i) {
-                QString tickLabels_vv_ret = (*tickLabels_ret)[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray tickLabels_vv_b = tickLabels_vv_ret.toUtf8();
-                libqt_string tickLabels_vv_str;
-                tickLabels_vv_str.len = tickLabels_vv_b.length();
-                tickLabels_vv_str.data = static_cast<const char*>(malloc(tickLabels_vv_str.len + 1));
-                memcpy((void*)tickLabels_vv_str.data, tickLabels_vv_b.data(), tickLabels_vv_str.len);
-                ((char*)tickLabels_vv_str.data)[tickLabels_vv_str.len] = '\0';
-                tickLabels_arr[i] = tickLabels_vv_str;
+                QByteArray tickLabels_b = (*tickLabels_ret)[i].toUtf8();
+                auto tickLabels_str_len = tickLabels_b.length();
+                char* tickLabels_str = static_cast<char*>(malloc(tickLabels_str_len + 1));
+                memcpy(tickLabels_str, tickLabels_b.data(), tickLabels_str_len);
+                tickLabels_str[tickLabels_str_len] = '\0';
+                tickLabels_arr[i] = tickLabels_str;
             }
-            libqt_list tickLabels_out;
-            tickLabels_out.len = tickLabels_ret->size();
-            tickLabels_out.data = static_cast<void*>(tickLabels_arr);
-            libqt_list /* of libqt_string */ cbval7 = tickLabels_out;
+            // Append sentinel null terminator to the list
+            tickLabels_arr[tickLabels_ret->size()] = nullptr;
+            const char** cbval7 = tickLabels_arr;
 
             qcpaxistickerdatetime_generate_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            free(ticks_arr);
+            free(subTicks_arr);
+            libqt_free(tickLabels_arr);
         } else {
             QCPAxisTickerDateTime::generate(range, locale, formatChar, precision, ticks, subTicks, tickLabels);
         }
@@ -7596,6 +7611,7 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
                 callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(ticks_arr);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerDateTime::createSubTickVector(subTickCount, ticks);
@@ -7634,6 +7650,7 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
             libqt_free(callback_ret);
+            free(ticks_arr);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerDateTime::createLabelVector(ticks, locale, formatChar, precision);
@@ -7662,6 +7679,7 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             bool cbval3 = keepOneOutlier;
 
             qcpaxistickerdatetime_trimticks_callback(this, cbval1, cbval2, cbval3);
+            free(ticks_arr);
         } else {
             QCPAxisTickerDateTime::trimTicks(range, ticks, keepOneOutlier);
         }
@@ -7686,6 +7704,7 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             libqt_list /* of double */ cbval2 = candidates_out;
 
             double callback_ret = qcpaxistickerdatetime_pickclosest_callback(this, cbval1, cbval2);
+            free(candidates_arr);
             return static_cast<double>(callback_ret);
         } else {
             return QCPAxisTickerDateTime::pickClosest(target, candidates);
@@ -7756,11 +7775,11 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
     using QCPAxisTickerTime_GetTickStep_Callback = double (*)(QCPAxisTickerTime*, QCPRange*);
     using QCPAxisTickerTime_GetSubTickCount_Callback = int (*)(QCPAxisTickerTime*, double);
     using QCPAxisTickerTime_GetTickLabel_Callback = const char* (*)(QCPAxisTickerTime*, double, QLocale*, QChar*, int);
-    using QCPAxisTickerTime_Generate_Callback = void (*)(QCPAxisTickerTime*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
+    using QCPAxisTickerTime_Generate_Callback = void (*)(QCPAxisTickerTime*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, const char**);
     using QCPAxisTickerTime_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerTime*, double, QCPRange*);
     using QCPAxisTickerTime_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerTime*, int, libqt_list /* of double */);
     using QCPAxisTickerTime_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerTime*, libqt_list /* of double */, QLocale*, QChar*, int);
-    using QCPAxisTickerTime_ReplaceUnit_Callback = void (*)(const QCPAxisTickerTime*, libqt_string, int, int);
+    using QCPAxisTickerTime_ReplaceUnit_Callback = void (*)(const QCPAxisTickerTime*, const char*, int, int);
     using QCPAxisTickerTime_TrimTicks_Callback = void (*)(const QCPAxisTickerTime*, QCPRange*, libqt_list /* of double */, bool);
     using QCPAxisTickerTime_PickClosest_Callback = double (*)(const QCPAxisTickerTime*, double, libqt_list /* of double */);
     using QCPAxisTickerTime_GetMantissa_Callback = double (*)(const QCPAxisTickerTime*, double);
@@ -7929,25 +7948,24 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             subTicks_out.data = static_cast<void*>(subTicks_arr);
             libqt_list /* of double */ cbval6 = subTicks_out;
             QVector<QString>* tickLabels_ret = tickLabels;
-            // Convert QVector<> from C++ memory to manually-managed C memory
-            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** tickLabels_arr = static_cast<const char**>(malloc(sizeof(const char*) * (tickLabels_ret->size() + 1)));
             for (qsizetype i = 0; i < tickLabels_ret->size(); ++i) {
-                QString tickLabels_vv_ret = (*tickLabels_ret)[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray tickLabels_vv_b = tickLabels_vv_ret.toUtf8();
-                libqt_string tickLabels_vv_str;
-                tickLabels_vv_str.len = tickLabels_vv_b.length();
-                tickLabels_vv_str.data = static_cast<const char*>(malloc(tickLabels_vv_str.len + 1));
-                memcpy((void*)tickLabels_vv_str.data, tickLabels_vv_b.data(), tickLabels_vv_str.len);
-                ((char*)tickLabels_vv_str.data)[tickLabels_vv_str.len] = '\0';
-                tickLabels_arr[i] = tickLabels_vv_str;
+                QByteArray tickLabels_b = (*tickLabels_ret)[i].toUtf8();
+                auto tickLabels_str_len = tickLabels_b.length();
+                char* tickLabels_str = static_cast<char*>(malloc(tickLabels_str_len + 1));
+                memcpy(tickLabels_str, tickLabels_b.data(), tickLabels_str_len);
+                tickLabels_str[tickLabels_str_len] = '\0';
+                tickLabels_arr[i] = tickLabels_str;
             }
-            libqt_list tickLabels_out;
-            tickLabels_out.len = tickLabels_ret->size();
-            tickLabels_out.data = static_cast<void*>(tickLabels_arr);
-            libqt_list /* of libqt_string */ cbval7 = tickLabels_out;
+            // Append sentinel null terminator to the list
+            tickLabels_arr[tickLabels_ret->size()] = nullptr;
+            const char** cbval7 = tickLabels_arr;
 
             qcpaxistickertime_generate_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            free(ticks_arr);
+            free(subTicks_arr);
+            libqt_free(tickLabels_arr);
         } else {
             QCPAxisTickerTime::generate(range, locale, formatChar, precision, ticks, subTicks, tickLabels);
         }
@@ -8004,6 +8022,7 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
                 callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(ticks_arr);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerTime::createSubTickVector(subTickCount, ticks);
@@ -8042,6 +8061,7 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
             libqt_free(callback_ret);
+            free(ticks_arr);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerTime::createLabelVector(ticks, locale, formatChar, precision);
@@ -8055,18 +8075,18 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             QCPAxisTickerTime::replaceUnit(text, unit, value);
         } else if (qcpaxistickertime_replaceunit_callback != nullptr) {
             QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
             int cbval2 = static_cast<int>(unit);
             int cbval3 = value;
 
             qcpaxistickertime_replaceunit_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(text_str);
         } else {
             QCPAxisTickerTime::replaceUnit(text, unit, value);
         }
@@ -8094,6 +8114,7 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             bool cbval3 = keepOneOutlier;
 
             qcpaxistickertime_trimticks_callback(this, cbval1, cbval2, cbval3);
+            free(ticks_arr);
         } else {
             QCPAxisTickerTime::trimTicks(range, ticks, keepOneOutlier);
         }
@@ -8118,6 +8139,7 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             libqt_list /* of double */ cbval2 = candidates_out;
 
             double callback_ret = qcpaxistickertime_pickclosest_callback(this, cbval1, cbval2);
+            free(candidates_arr);
             return static_cast<double>(callback_ret);
         } else {
             return QCPAxisTickerTime::pickClosest(target, candidates);
@@ -8188,7 +8210,7 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
 
     // Virtual class public types (including callbacks)
     using QCPAxisTickerFixed_GetTickStep_Callback = double (*)(QCPAxisTickerFixed*, QCPRange*);
-    using QCPAxisTickerFixed_Generate_Callback = void (*)(QCPAxisTickerFixed*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
+    using QCPAxisTickerFixed_Generate_Callback = void (*)(QCPAxisTickerFixed*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, const char**);
     using QCPAxisTickerFixed_GetSubTickCount_Callback = int (*)(QCPAxisTickerFixed*, double);
     using QCPAxisTickerFixed_GetTickLabel_Callback = const char* (*)(QCPAxisTickerFixed*, double, QLocale*, QChar*, int);
     using QCPAxisTickerFixed_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerFixed*, double, QCPRange*);
@@ -8321,25 +8343,24 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             subTicks_out.data = static_cast<void*>(subTicks_arr);
             libqt_list /* of double */ cbval6 = subTicks_out;
             QVector<QString>* tickLabels_ret = tickLabels;
-            // Convert QVector<> from C++ memory to manually-managed C memory
-            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** tickLabels_arr = static_cast<const char**>(malloc(sizeof(const char*) * (tickLabels_ret->size() + 1)));
             for (qsizetype i = 0; i < tickLabels_ret->size(); ++i) {
-                QString tickLabels_vv_ret = (*tickLabels_ret)[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray tickLabels_vv_b = tickLabels_vv_ret.toUtf8();
-                libqt_string tickLabels_vv_str;
-                tickLabels_vv_str.len = tickLabels_vv_b.length();
-                tickLabels_vv_str.data = static_cast<const char*>(malloc(tickLabels_vv_str.len + 1));
-                memcpy((void*)tickLabels_vv_str.data, tickLabels_vv_b.data(), tickLabels_vv_str.len);
-                ((char*)tickLabels_vv_str.data)[tickLabels_vv_str.len] = '\0';
-                tickLabels_arr[i] = tickLabels_vv_str;
+                QByteArray tickLabels_b = (*tickLabels_ret)[i].toUtf8();
+                auto tickLabels_str_len = tickLabels_b.length();
+                char* tickLabels_str = static_cast<char*>(malloc(tickLabels_str_len + 1));
+                memcpy(tickLabels_str, tickLabels_b.data(), tickLabels_str_len);
+                tickLabels_str[tickLabels_str_len] = '\0';
+                tickLabels_arr[i] = tickLabels_str;
             }
-            libqt_list tickLabels_out;
-            tickLabels_out.len = tickLabels_ret->size();
-            tickLabels_out.data = static_cast<void*>(tickLabels_arr);
-            libqt_list /* of libqt_string */ cbval7 = tickLabels_out;
+            // Append sentinel null terminator to the list
+            tickLabels_arr[tickLabels_ret->size()] = nullptr;
+            const char** cbval7 = tickLabels_arr;
 
             qcpaxistickerfixed_generate_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            free(ticks_arr);
+            free(subTicks_arr);
+            libqt_free(tickLabels_arr);
         } else {
             QCPAxisTickerFixed::generate(range, locale, formatChar, precision, ticks, subTicks, tickLabels);
         }
@@ -8432,6 +8453,7 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
                 callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(ticks_arr);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerFixed::createSubTickVector(subTickCount, ticks);
@@ -8470,6 +8492,7 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
             libqt_free(callback_ret);
+            free(ticks_arr);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerFixed::createLabelVector(ticks, locale, formatChar, precision);
@@ -8498,6 +8521,7 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             bool cbval3 = keepOneOutlier;
 
             qcpaxistickerfixed_trimticks_callback(this, cbval1, cbval2, cbval3);
+            free(ticks_arr);
         } else {
             QCPAxisTickerFixed::trimTicks(range, ticks, keepOneOutlier);
         }
@@ -8522,6 +8546,7 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             libqt_list /* of double */ cbval2 = candidates_out;
 
             double callback_ret = qcpaxistickerfixed_pickclosest_callback(this, cbval1, cbval2);
+            free(candidates_arr);
             return static_cast<double>(callback_ret);
         } else {
             return QCPAxisTickerFixed::pickClosest(target, candidates);
@@ -8593,7 +8618,7 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
     using QCPAxisTickerText_GetSubTickCount_Callback = int (*)(QCPAxisTickerText*, double);
     using QCPAxisTickerText_GetTickLabel_Callback = const char* (*)(QCPAxisTickerText*, double, QLocale*, QChar*, int);
     using QCPAxisTickerText_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerText*, double, QCPRange*);
-    using QCPAxisTickerText_Generate_Callback = void (*)(QCPAxisTickerText*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
+    using QCPAxisTickerText_Generate_Callback = void (*)(QCPAxisTickerText*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, const char**);
     using QCPAxisTickerText_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerText*, int, libqt_list /* of double */);
     using QCPAxisTickerText_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerText*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTickerText_TrimTicks_Callback = void (*)(const QCPAxisTickerText*, QCPRange*, libqt_list /* of double */, bool);
@@ -8784,25 +8809,24 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             subTicks_out.data = static_cast<void*>(subTicks_arr);
             libqt_list /* of double */ cbval6 = subTicks_out;
             QVector<QString>* tickLabels_ret = tickLabels;
-            // Convert QVector<> from C++ memory to manually-managed C memory
-            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** tickLabels_arr = static_cast<const char**>(malloc(sizeof(const char*) * (tickLabels_ret->size() + 1)));
             for (qsizetype i = 0; i < tickLabels_ret->size(); ++i) {
-                QString tickLabels_vv_ret = (*tickLabels_ret)[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray tickLabels_vv_b = tickLabels_vv_ret.toUtf8();
-                libqt_string tickLabels_vv_str;
-                tickLabels_vv_str.len = tickLabels_vv_b.length();
-                tickLabels_vv_str.data = static_cast<const char*>(malloc(tickLabels_vv_str.len + 1));
-                memcpy((void*)tickLabels_vv_str.data, tickLabels_vv_b.data(), tickLabels_vv_str.len);
-                ((char*)tickLabels_vv_str.data)[tickLabels_vv_str.len] = '\0';
-                tickLabels_arr[i] = tickLabels_vv_str;
+                QByteArray tickLabels_b = (*tickLabels_ret)[i].toUtf8();
+                auto tickLabels_str_len = tickLabels_b.length();
+                char* tickLabels_str = static_cast<char*>(malloc(tickLabels_str_len + 1));
+                memcpy(tickLabels_str, tickLabels_b.data(), tickLabels_str_len);
+                tickLabels_str[tickLabels_str_len] = '\0';
+                tickLabels_arr[i] = tickLabels_str;
             }
-            libqt_list tickLabels_out;
-            tickLabels_out.len = tickLabels_ret->size();
-            tickLabels_out.data = static_cast<void*>(tickLabels_arr);
-            libqt_list /* of libqt_string */ cbval7 = tickLabels_out;
+            // Append sentinel null terminator to the list
+            tickLabels_arr[tickLabels_ret->size()] = nullptr;
+            const char** cbval7 = tickLabels_arr;
 
             qcpaxistickertext_generate_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            free(ticks_arr);
+            free(subTicks_arr);
+            libqt_free(tickLabels_arr);
         } else {
             QCPAxisTickerText::generate(range, locale, formatChar, precision, ticks, subTicks, tickLabels);
         }
@@ -8834,6 +8858,7 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
                 callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(ticks_arr);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerText::createSubTickVector(subTickCount, ticks);
@@ -8872,6 +8897,7 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
             libqt_free(callback_ret);
+            free(ticks_arr);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerText::createLabelVector(ticks, locale, formatChar, precision);
@@ -8900,6 +8926,7 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             bool cbval3 = keepOneOutlier;
 
             qcpaxistickertext_trimticks_callback(this, cbval1, cbval2, cbval3);
+            free(ticks_arr);
         } else {
             QCPAxisTickerText::trimTicks(range, ticks, keepOneOutlier);
         }
@@ -8924,6 +8951,7 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             libqt_list /* of double */ cbval2 = candidates_out;
 
             double callback_ret = qcpaxistickertext_pickclosest_callback(this, cbval1, cbval2);
+            free(candidates_arr);
             return static_cast<double>(callback_ret);
         } else {
             return QCPAxisTickerText::pickClosest(target, candidates);
@@ -8994,7 +9022,7 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
     using QCPAxisTickerPi_GetTickStep_Callback = double (*)(QCPAxisTickerPi*, QCPRange*);
     using QCPAxisTickerPi_GetSubTickCount_Callback = int (*)(QCPAxisTickerPi*, double);
     using QCPAxisTickerPi_GetTickLabel_Callback = const char* (*)(QCPAxisTickerPi*, double, QLocale*, QChar*, int);
-    using QCPAxisTickerPi_Generate_Callback = void (*)(QCPAxisTickerPi*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
+    using QCPAxisTickerPi_Generate_Callback = void (*)(QCPAxisTickerPi*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, const char**);
     using QCPAxisTickerPi_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerPi*, double, QCPRange*);
     using QCPAxisTickerPi_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerPi*, int, libqt_list /* of double */);
     using QCPAxisTickerPi_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerPi*, libqt_list /* of double */, QLocale*, QChar*, int);
@@ -9191,25 +9219,24 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             subTicks_out.data = static_cast<void*>(subTicks_arr);
             libqt_list /* of double */ cbval6 = subTicks_out;
             QVector<QString>* tickLabels_ret = tickLabels;
-            // Convert QVector<> from C++ memory to manually-managed C memory
-            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** tickLabels_arr = static_cast<const char**>(malloc(sizeof(const char*) * (tickLabels_ret->size() + 1)));
             for (qsizetype i = 0; i < tickLabels_ret->size(); ++i) {
-                QString tickLabels_vv_ret = (*tickLabels_ret)[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray tickLabels_vv_b = tickLabels_vv_ret.toUtf8();
-                libqt_string tickLabels_vv_str;
-                tickLabels_vv_str.len = tickLabels_vv_b.length();
-                tickLabels_vv_str.data = static_cast<const char*>(malloc(tickLabels_vv_str.len + 1));
-                memcpy((void*)tickLabels_vv_str.data, tickLabels_vv_b.data(), tickLabels_vv_str.len);
-                ((char*)tickLabels_vv_str.data)[tickLabels_vv_str.len] = '\0';
-                tickLabels_arr[i] = tickLabels_vv_str;
+                QByteArray tickLabels_b = (*tickLabels_ret)[i].toUtf8();
+                auto tickLabels_str_len = tickLabels_b.length();
+                char* tickLabels_str = static_cast<char*>(malloc(tickLabels_str_len + 1));
+                memcpy(tickLabels_str, tickLabels_b.data(), tickLabels_str_len);
+                tickLabels_str[tickLabels_str_len] = '\0';
+                tickLabels_arr[i] = tickLabels_str;
             }
-            libqt_list tickLabels_out;
-            tickLabels_out.len = tickLabels_ret->size();
-            tickLabels_out.data = static_cast<void*>(tickLabels_arr);
-            libqt_list /* of libqt_string */ cbval7 = tickLabels_out;
+            // Append sentinel null terminator to the list
+            tickLabels_arr[tickLabels_ret->size()] = nullptr;
+            const char** cbval7 = tickLabels_arr;
 
             qcpaxistickerpi_generate_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            free(ticks_arr);
+            free(subTicks_arr);
+            libqt_free(tickLabels_arr);
         } else {
             QCPAxisTickerPi::generate(range, locale, formatChar, precision, ticks, subTicks, tickLabels);
         }
@@ -9266,6 +9293,7 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
                 callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(ticks_arr);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerPi::createSubTickVector(subTickCount, ticks);
@@ -9304,6 +9332,7 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
             libqt_free(callback_ret);
+            free(ticks_arr);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerPi::createLabelVector(ticks, locale, formatChar, precision);
@@ -9413,6 +9442,7 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             bool cbval3 = keepOneOutlier;
 
             qcpaxistickerpi_trimticks_callback(this, cbval1, cbval2, cbval3);
+            free(ticks_arr);
         } else {
             QCPAxisTickerPi::trimTicks(range, ticks, keepOneOutlier);
         }
@@ -9437,6 +9467,7 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             libqt_list /* of double */ cbval2 = candidates_out;
 
             double callback_ret = qcpaxistickerpi_pickclosest_callback(this, cbval1, cbval2);
+            free(candidates_arr);
             return static_cast<double>(callback_ret);
         } else {
             return QCPAxisTickerPi::pickClosest(target, candidates);
@@ -9516,7 +9547,7 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
     // Virtual class public types (including callbacks)
     using QCPAxisTickerLog_GetSubTickCount_Callback = int (*)(QCPAxisTickerLog*, double);
     using QCPAxisTickerLog_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerLog*, double, QCPRange*);
-    using QCPAxisTickerLog_Generate_Callback = void (*)(QCPAxisTickerLog*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
+    using QCPAxisTickerLog_Generate_Callback = void (*)(QCPAxisTickerLog*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, const char**);
     using QCPAxisTickerLog_GetTickStep_Callback = double (*)(QCPAxisTickerLog*, QCPRange*);
     using QCPAxisTickerLog_GetTickLabel_Callback = const char* (*)(QCPAxisTickerLog*, double, QLocale*, QChar*, int);
     using QCPAxisTickerLog_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerLog*, int, libqt_list /* of double */);
@@ -9671,25 +9702,24 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             subTicks_out.data = static_cast<void*>(subTicks_arr);
             libqt_list /* of double */ cbval6 = subTicks_out;
             QVector<QString>* tickLabels_ret = tickLabels;
-            // Convert QVector<> from C++ memory to manually-managed C memory
-            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** tickLabels_arr = static_cast<const char**>(malloc(sizeof(const char*) * (tickLabels_ret->size() + 1)));
             for (qsizetype i = 0; i < tickLabels_ret->size(); ++i) {
-                QString tickLabels_vv_ret = (*tickLabels_ret)[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray tickLabels_vv_b = tickLabels_vv_ret.toUtf8();
-                libqt_string tickLabels_vv_str;
-                tickLabels_vv_str.len = tickLabels_vv_b.length();
-                tickLabels_vv_str.data = static_cast<const char*>(malloc(tickLabels_vv_str.len + 1));
-                memcpy((void*)tickLabels_vv_str.data, tickLabels_vv_b.data(), tickLabels_vv_str.len);
-                ((char*)tickLabels_vv_str.data)[tickLabels_vv_str.len] = '\0';
-                tickLabels_arr[i] = tickLabels_vv_str;
+                QByteArray tickLabels_b = (*tickLabels_ret)[i].toUtf8();
+                auto tickLabels_str_len = tickLabels_b.length();
+                char* tickLabels_str = static_cast<char*>(malloc(tickLabels_str_len + 1));
+                memcpy(tickLabels_str, tickLabels_b.data(), tickLabels_str_len);
+                tickLabels_str[tickLabels_str_len] = '\0';
+                tickLabels_arr[i] = tickLabels_str;
             }
-            libqt_list tickLabels_out;
-            tickLabels_out.len = tickLabels_ret->size();
-            tickLabels_out.data = static_cast<void*>(tickLabels_arr);
-            libqt_list /* of libqt_string */ cbval7 = tickLabels_out;
+            // Append sentinel null terminator to the list
+            tickLabels_arr[tickLabels_ret->size()] = nullptr;
+            const char** cbval7 = tickLabels_arr;
 
             qcpaxistickerlog_generate_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            free(ticks_arr);
+            free(subTicks_arr);
+            libqt_free(tickLabels_arr);
         } else {
             QCPAxisTickerLog::generate(range, locale, formatChar, precision, ticks, subTicks, tickLabels);
         }
@@ -9759,6 +9789,7 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
                 callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(ticks_arr);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerLog::createSubTickVector(subTickCount, ticks);
@@ -9797,6 +9828,7 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
             libqt_free(callback_ret);
+            free(ticks_arr);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerLog::createLabelVector(ticks, locale, formatChar, precision);
@@ -9825,6 +9857,7 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             bool cbval3 = keepOneOutlier;
 
             qcpaxistickerlog_trimticks_callback(this, cbval1, cbval2, cbval3);
+            free(ticks_arr);
         } else {
             QCPAxisTickerLog::trimTicks(range, ticks, keepOneOutlier);
         }
@@ -9849,6 +9882,7 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             libqt_list /* of double */ cbval2 = candidates_out;
 
             double callback_ret = qcpaxistickerlog_pickclosest_callback(this, cbval1, cbval2);
+            free(candidates_arr);
             return static_cast<double>(callback_ret);
         } else {
             return QCPAxisTickerLog::pickClosest(target, candidates);
@@ -12890,8 +12924,8 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
     using QCPAbstractItem_ConnectNotify_Callback = void (*)(QCPAbstractItem*, QMetaMethod*);
     using QCPAbstractItem_DisconnectNotify_Callback = void (*)(QCPAbstractItem*, QMetaMethod*);
     using QCPAbstractItem_RectDistance_Callback = double (*)(const QCPAbstractItem*, QRectF*, QPointF*, bool);
-    using QCPAbstractItem_CreatePosition_Callback = QCPItemPosition* (*)(QCPAbstractItem*, libqt_string);
-    using QCPAbstractItem_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPAbstractItem*, libqt_string, int);
+    using QCPAbstractItem_CreatePosition_Callback = QCPItemPosition* (*)(QCPAbstractItem*, const char*);
+    using QCPAbstractItem_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPAbstractItem*, const char*, int);
     using QCPAbstractItem_InitializeParentPlot_Callback = void (*)(QCPAbstractItem*, QCustomPlot*);
     using QCPAbstractItem_SetParentLayerable_Callback = void (*)(QCPAbstractItem*, QCPLayerable*);
     using QCPAbstractItem_MoveToLayer_Callback = bool (*)(QCPAbstractItem*, QCPLayer*, bool);
@@ -13478,16 +13512,16 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             return QCPAbstractItem::createPosition(name);
         } else if (qcpabstractitem_createposition_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QCPItemPosition* callback_ret = qcpabstractitem_createposition_callback(this, cbval1);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPAbstractItem::createPosition(name);
@@ -13501,17 +13535,17 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             return QCPAbstractItem::createAnchor(name, anchorId);
         } else if (qcpabstractitem_createanchor_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             int cbval2 = anchorId;
 
             QCPItemAnchor* callback_ret = qcpabstractitem_createanchor_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPAbstractItem::createAnchor(name, anchorId);
@@ -14813,6 +14847,7 @@ class VirtualQCustomPlot final : public QCustomPlot {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qcustomplot_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QCustomPlot::nativeEvent(eventType, message, result);
@@ -15249,6 +15284,7 @@ class VirtualQCustomPlot final : public QCustomPlot {
                 callback_ret_QList.push_back(callback_ret_arr[i]);
             }
             libqt_free(callback_ret.data);
+            free(selectionDetails_arr);
             return callback_ret_QList;
         } else {
             return QCustomPlot::layerableListAt(pos, onlySelectable, selectionDetails);
@@ -19295,6 +19331,8 @@ class VirtualQCPLegend final : public QCPLegend {
             libqt_list /* of int */ cbval2 = minRowHeights_out;
 
             qcplegend_getminimumrowcolsizes_callback(this, cbval1, cbval2);
+            free(minColWidths_arr);
+            free(minRowHeights_arr);
         } else {
             QCPLegend::getMinimumRowColSizes(minColWidths, minRowHeights);
         }
@@ -19328,6 +19366,8 @@ class VirtualQCPLegend final : public QCPLegend {
             libqt_list /* of int */ cbval2 = maxRowHeights_out;
 
             qcplegend_getmaximumrowcolsizes_callback(this, cbval1, cbval2);
+            free(maxColWidths_arr);
+            free(maxRowHeights_arr);
         } else {
             QCPLegend::getMaximumRowColSizes(maxColWidths, maxRowHeights);
         }
@@ -19419,6 +19459,9 @@ class VirtualQCPLegend final : public QCPLegend {
                 callback_ret_QVector.push_back(static_cast<int>(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(maxSizes_arr);
+            free(minSizes_arr);
+            free(stretchFactors_arr);
             return callback_ret_QVector;
         } else {
             return QCPLegend::getSectionSizes(maxSizes, minSizes, stretchFactors, totalSize);
@@ -21953,6 +21996,7 @@ class VirtualQCPGraph final : public QCPGraph {
             libqt_list /* of QPointF* */ cbval2 = lines_out;
 
             qcpgraph_drawfill_callback(this, cbval1, cbval2);
+            free(lines_arr);
         } else {
             QCPGraph::drawFill(painter, lines);
         }
@@ -21980,6 +22024,7 @@ class VirtualQCPGraph final : public QCPGraph {
             QCPScatterStyle* cbval3 = const_cast<QCPScatterStyle*>(&style_ret);
 
             qcpgraph_drawscatterplot_callback(this, cbval1, cbval2, cbval3);
+            free(scatters_arr);
         } else {
             QCPGraph::drawScatterPlot(painter, scatters, style);
         }
@@ -22004,6 +22049,7 @@ class VirtualQCPGraph final : public QCPGraph {
             libqt_list /* of QPointF* */ cbval2 = lines_out;
 
             qcpgraph_drawlineplot_callback(this, cbval1, cbval2);
+            free(lines_arr);
         } else {
             QCPGraph::drawLinePlot(painter, lines);
         }
@@ -22028,6 +22074,7 @@ class VirtualQCPGraph final : public QCPGraph {
             libqt_list /* of QPointF* */ cbval2 = lines_out;
 
             qcpgraph_drawimpulseplot_callback(this, cbval1, cbval2);
+            free(lines_arr);
         } else {
             QCPGraph::drawImpulsePlot(painter, lines);
         }
@@ -22462,6 +22509,7 @@ class VirtualQCPGraph final : public QCPGraph {
             QCPDataRange* cbval2 = const_cast<QCPDataRange*>(&dataRange_ret);
 
             qcpgraph_getlines_callback(this, cbval1, cbval2);
+            free(lines_arr);
         } else {
             QCPGraph::getLines(lines, dataRange);
         }
@@ -22488,6 +22536,7 @@ class VirtualQCPGraph final : public QCPGraph {
             QCPDataRange* cbval2 = const_cast<QCPDataRange*>(&dataRange_ret);
 
             qcpgraph_getscatters_callback(this, cbval1, cbval2);
+            free(scatters_arr);
         } else {
             QCPGraph::getScatters(scatters, dataRange);
         }
@@ -22518,6 +22567,7 @@ class VirtualQCPGraph final : public QCPGraph {
                 callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(data_arr);
             return callback_ret_QVector;
         } else {
             return QCPGraph::dataToLines(data);
@@ -22549,6 +22599,7 @@ class VirtualQCPGraph final : public QCPGraph {
                 callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(data_arr);
             return callback_ret_QVector;
         } else {
             return QCPGraph::dataToStepLeftLines(data);
@@ -22580,6 +22631,7 @@ class VirtualQCPGraph final : public QCPGraph {
                 callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(data_arr);
             return callback_ret_QVector;
         } else {
             return QCPGraph::dataToStepRightLines(data);
@@ -22611,6 +22663,7 @@ class VirtualQCPGraph final : public QCPGraph {
                 callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(data_arr);
             return callback_ret_QVector;
         } else {
             return QCPGraph::dataToStepCenterLines(data);
@@ -22642,6 +22695,7 @@ class VirtualQCPGraph final : public QCPGraph {
                 callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(data_arr);
             return callback_ret_QVector;
         } else {
             return QCPGraph::dataToImpulseLines(data);
@@ -22674,6 +22728,7 @@ class VirtualQCPGraph final : public QCPGraph {
                 callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(lineData_arr);
             return callback_ret_QVector;
         } else {
             return QCPGraph::getNonNanSegments(lineData, keyOrientation);
@@ -22738,6 +22793,10 @@ class VirtualQCPGraph final : public QCPGraph {
                 callback_ret_QVector.push_back(callback_ret_arr_i_QPair);
             }
             libqt_free(callback_ret.data);
+            free(thisSegments_arr);
+            free(thisData_arr);
+            free(otherSegments_arr);
+            free(otherData_arr);
             return callback_ret_QVector;
         } else {
             return QCPGraph::getOverlappingSegments(thisSegments, thisData, otherSegments, otherData);
@@ -22797,6 +22856,7 @@ class VirtualQCPGraph final : public QCPGraph {
             double cbval2 = x;
 
             int callback_ret = qcpgraph_findindexbelowx_callback(this, cbval1, cbval2);
+            free(data_arr);
             return static_cast<int>(callback_ret);
         } else {
             return QCPGraph::findIndexBelowX(data, x);
@@ -22822,6 +22882,7 @@ class VirtualQCPGraph final : public QCPGraph {
             double cbval2 = x;
 
             int callback_ret = qcpgraph_findindexabovex_callback(this, cbval1, cbval2);
+            free(data_arr);
             return static_cast<int>(callback_ret);
         } else {
             return QCPGraph::findIndexAboveX(data, x);
@@ -22847,6 +22908,7 @@ class VirtualQCPGraph final : public QCPGraph {
             double cbval2 = y;
 
             int callback_ret = qcpgraph_findindexbelowy_callback(this, cbval1, cbval2);
+            free(data_arr);
             return static_cast<int>(callback_ret);
         } else {
             return QCPGraph::findIndexBelowY(data, y);
@@ -22872,6 +22934,7 @@ class VirtualQCPGraph final : public QCPGraph {
             double cbval2 = y;
 
             int callback_ret = qcpgraph_findindexabovey_callback(this, cbval1, cbval2);
+            free(data_arr);
             return static_cast<int>(callback_ret);
         } else {
             return QCPGraph::findIndexAboveY(data, y);
@@ -23636,6 +23699,7 @@ class VirtualQCPCurve final : public QCPCurve {
             libqt_list /* of QPointF* */ cbval2 = lines_out;
 
             qcpcurve_drawcurveline_callback(this, cbval1, cbval2);
+            free(lines_arr);
         } else {
             QCPCurve::drawCurveLine(painter, lines);
         }
@@ -23663,6 +23727,7 @@ class VirtualQCPCurve final : public QCPCurve {
             QCPScatterStyle* cbval3 = const_cast<QCPScatterStyle*>(&style_ret);
 
             qcpcurve_drawscatterplot_callback(this, cbval1, cbval2, cbval3);
+            free(points_arr);
         } else {
             QCPCurve::drawScatterPlot(painter, points, style);
         }
@@ -24098,6 +24163,7 @@ class VirtualQCPCurve final : public QCPCurve {
             double cbval3 = penWidth;
 
             qcpcurve_getcurvelines_callback(this, cbval1, cbval2, cbval3);
+            free(lines_arr);
         } else {
             QCPCurve::getCurveLines(lines, dataRange, penWidth);
         }
@@ -24125,6 +24191,7 @@ class VirtualQCPCurve final : public QCPCurve {
             double cbval3 = scatterWidth;
 
             qcpcurve_getscatters_callback(this, cbval1, cbval2, cbval3);
+            free(scatters_arr);
         } else {
             QCPCurve::getScatters(scatters, dataRange, scatterWidth);
         }
@@ -24282,6 +24349,8 @@ class VirtualQCPCurve final : public QCPCurve {
             libqt_list /* of QPointF* */ cbval8 = afterTraverse_out;
 
             qcpcurve_gettraversecornerpoints_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
+            free(beforeTraverse_arr);
+            free(afterTraverse_arr);
         } else {
             QCPCurve::getTraverseCornerPoints(prevRegion, currentRegion, keyMin, valueMax, keyMax, valueMin, beforeTraverse, afterTraverse);
         }
@@ -30027,6 +30096,8 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             libqt_list /* of QCPDataRange* */ cbval2 = unselectedSegments_out;
 
             qcperrorbars_getdatasegments_callback(this, cbval1, cbval2);
+            free(selectedSegments_arr);
+            free(unselectedSegments_arr);
         } else {
             QCPErrorBars::getDataSegments(selectedSegments, unselectedSegments);
         }
@@ -30317,8 +30388,8 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
     using QCPItemStraightLine_GetRectClippedStraightLine_Callback = QLineF* (*)(const QCPItemStraightLine*, QCPVector2D*, QCPVector2D*, QRect*);
     using QCPItemStraightLine_MainPen_Callback = QPen* (*)();
     using QCPItemStraightLine_RectDistance_Callback = double (*)(const QCPItemStraightLine*, QRectF*, QPointF*, bool);
-    using QCPItemStraightLine_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemStraightLine*, libqt_string);
-    using QCPItemStraightLine_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemStraightLine*, libqt_string, int);
+    using QCPItemStraightLine_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemStraightLine*, const char*);
+    using QCPItemStraightLine_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemStraightLine*, const char*, int);
     using QCPItemStraightLine_InitializeParentPlot_Callback = void (*)(QCPItemStraightLine*, QCustomPlot*);
     using QCPItemStraightLine_SetParentLayerable_Callback = void (*)(QCPItemStraightLine*, QCPLayerable*);
     using QCPItemStraightLine_MoveToLayer_Callback = bool (*)(QCPItemStraightLine*, QCPLayer*, bool);
@@ -30959,16 +31030,16 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             return QCPItemStraightLine::createPosition(name);
         } else if (qcpitemstraightline_createposition_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QCPItemPosition* callback_ret = qcpitemstraightline_createposition_callback(this, cbval1);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemStraightLine::createPosition(name);
@@ -30982,17 +31053,17 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             return QCPItemStraightLine::createAnchor(name, anchorId);
         } else if (qcpitemstraightline_createanchor_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             int cbval2 = anchorId;
 
             QCPItemAnchor* callback_ret = qcpitemstraightline_createanchor_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemStraightLine::createAnchor(name, anchorId);
@@ -31217,8 +31288,8 @@ class VirtualQCPItemLine final : public QCPItemLine {
     using QCPItemLine_GetRectClippedLine_Callback = QLineF* (*)(const QCPItemLine*, QCPVector2D*, QCPVector2D*, QRect*);
     using QCPItemLine_MainPen_Callback = QPen* (*)();
     using QCPItemLine_RectDistance_Callback = double (*)(const QCPItemLine*, QRectF*, QPointF*, bool);
-    using QCPItemLine_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemLine*, libqt_string);
-    using QCPItemLine_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemLine*, libqt_string, int);
+    using QCPItemLine_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemLine*, const char*);
+    using QCPItemLine_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemLine*, const char*, int);
     using QCPItemLine_InitializeParentPlot_Callback = void (*)(QCPItemLine*, QCustomPlot*);
     using QCPItemLine_SetParentLayerable_Callback = void (*)(QCPItemLine*, QCPLayerable*);
     using QCPItemLine_MoveToLayer_Callback = bool (*)(QCPItemLine*, QCPLayer*, bool);
@@ -31859,16 +31930,16 @@ class VirtualQCPItemLine final : public QCPItemLine {
             return QCPItemLine::createPosition(name);
         } else if (qcpitemline_createposition_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QCPItemPosition* callback_ret = qcpitemline_createposition_callback(this, cbval1);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemLine::createPosition(name);
@@ -31882,17 +31953,17 @@ class VirtualQCPItemLine final : public QCPItemLine {
             return QCPItemLine::createAnchor(name, anchorId);
         } else if (qcpitemline_createanchor_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             int cbval2 = anchorId;
 
             QCPItemAnchor* callback_ret = qcpitemline_createanchor_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemLine::createAnchor(name, anchorId);
@@ -32116,8 +32187,8 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
     using QCPItemCurve_DisconnectNotify_Callback = void (*)(QCPItemCurve*, QMetaMethod*);
     using QCPItemCurve_MainPen_Callback = QPen* (*)();
     using QCPItemCurve_RectDistance_Callback = double (*)(const QCPItemCurve*, QRectF*, QPointF*, bool);
-    using QCPItemCurve_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemCurve*, libqt_string);
-    using QCPItemCurve_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemCurve*, libqt_string, int);
+    using QCPItemCurve_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemCurve*, const char*);
+    using QCPItemCurve_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemCurve*, const char*, int);
     using QCPItemCurve_InitializeParentPlot_Callback = void (*)(QCPItemCurve*, QCustomPlot*);
     using QCPItemCurve_SetParentLayerable_Callback = void (*)(QCPItemCurve*, QCPLayerable*);
     using QCPItemCurve_MoveToLayer_Callback = bool (*)(QCPItemCurve*, QCPLayer*, bool);
@@ -32730,16 +32801,16 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             return QCPItemCurve::createPosition(name);
         } else if (qcpitemcurve_createposition_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QCPItemPosition* callback_ret = qcpitemcurve_createposition_callback(this, cbval1);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemCurve::createPosition(name);
@@ -32753,17 +32824,17 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             return QCPItemCurve::createAnchor(name, anchorId);
         } else if (qcpitemcurve_createanchor_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             int cbval2 = anchorId;
 
             QCPItemAnchor* callback_ret = qcpitemcurve_createanchor_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemCurve::createAnchor(name, anchorId);
@@ -32987,8 +33058,8 @@ class VirtualQCPItemRect final : public QCPItemRect {
     using QCPItemRect_MainPen_Callback = QPen* (*)();
     using QCPItemRect_MainBrush_Callback = QBrush* (*)();
     using QCPItemRect_RectDistance_Callback = double (*)(const QCPItemRect*, QRectF*, QPointF*, bool);
-    using QCPItemRect_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemRect*, libqt_string);
-    using QCPItemRect_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemRect*, libqt_string, int);
+    using QCPItemRect_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemRect*, const char*);
+    using QCPItemRect_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemRect*, const char*, int);
     using QCPItemRect_InitializeParentPlot_Callback = void (*)(QCPItemRect*, QCustomPlot*);
     using QCPItemRect_SetParentLayerable_Callback = void (*)(QCPItemRect*, QCPLayerable*);
     using QCPItemRect_MoveToLayer_Callback = bool (*)(QCPItemRect*, QCPLayer*, bool);
@@ -33619,16 +33690,16 @@ class VirtualQCPItemRect final : public QCPItemRect {
             return QCPItemRect::createPosition(name);
         } else if (qcpitemrect_createposition_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QCPItemPosition* callback_ret = qcpitemrect_createposition_callback(this, cbval1);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemRect::createPosition(name);
@@ -33642,17 +33713,17 @@ class VirtualQCPItemRect final : public QCPItemRect {
             return QCPItemRect::createAnchor(name, anchorId);
         } else if (qcpitemrect_createanchor_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             int cbval2 = anchorId;
 
             QCPItemAnchor* callback_ret = qcpitemrect_createanchor_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemRect::createAnchor(name, anchorId);
@@ -33881,8 +33952,8 @@ class VirtualQCPItemText final : public QCPItemText {
     using QCPItemText_MainPen_Callback = QPen* (*)();
     using QCPItemText_MainBrush_Callback = QBrush* (*)();
     using QCPItemText_RectDistance_Callback = double (*)(const QCPItemText*, QRectF*, QPointF*, bool);
-    using QCPItemText_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemText*, libqt_string);
-    using QCPItemText_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemText*, libqt_string, int);
+    using QCPItemText_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemText*, const char*);
+    using QCPItemText_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemText*, const char*, int);
     using QCPItemText_InitializeParentPlot_Callback = void (*)(QCPItemText*, QCustomPlot*);
     using QCPItemText_SetParentLayerable_Callback = void (*)(QCPItemText*, QCPLayerable*);
     using QCPItemText_MoveToLayer_Callback = bool (*)(QCPItemText*, QCPLayer*, bool);
@@ -34575,16 +34646,16 @@ class VirtualQCPItemText final : public QCPItemText {
             return QCPItemText::createPosition(name);
         } else if (qcpitemtext_createposition_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QCPItemPosition* callback_ret = qcpitemtext_createposition_callback(this, cbval1);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemText::createPosition(name);
@@ -34598,17 +34669,17 @@ class VirtualQCPItemText final : public QCPItemText {
             return QCPItemText::createAnchor(name, anchorId);
         } else if (qcpitemtext_createanchor_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             int cbval2 = anchorId;
 
             QCPItemAnchor* callback_ret = qcpitemtext_createanchor_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemText::createAnchor(name, anchorId);
@@ -34840,8 +34911,8 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
     using QCPItemEllipse_MainPen_Callback = QPen* (*)();
     using QCPItemEllipse_MainBrush_Callback = QBrush* (*)();
     using QCPItemEllipse_RectDistance_Callback = double (*)(const QCPItemEllipse*, QRectF*, QPointF*, bool);
-    using QCPItemEllipse_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemEllipse*, libqt_string);
-    using QCPItemEllipse_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemEllipse*, libqt_string, int);
+    using QCPItemEllipse_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemEllipse*, const char*);
+    using QCPItemEllipse_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemEllipse*, const char*, int);
     using QCPItemEllipse_InitializeParentPlot_Callback = void (*)(QCPItemEllipse*, QCustomPlot*);
     using QCPItemEllipse_SetParentLayerable_Callback = void (*)(QCPItemEllipse*, QCPLayerable*);
     using QCPItemEllipse_MoveToLayer_Callback = bool (*)(QCPItemEllipse*, QCPLayer*, bool);
@@ -35472,16 +35543,16 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             return QCPItemEllipse::createPosition(name);
         } else if (qcpitemellipse_createposition_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QCPItemPosition* callback_ret = qcpitemellipse_createposition_callback(this, cbval1);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemEllipse::createPosition(name);
@@ -35495,17 +35566,17 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             return QCPItemEllipse::createAnchor(name, anchorId);
         } else if (qcpitemellipse_createanchor_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             int cbval2 = anchorId;
 
             QCPItemAnchor* callback_ret = qcpitemellipse_createanchor_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemEllipse::createAnchor(name, anchorId);
@@ -35737,8 +35808,8 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
     using QCPItemPixmap_GetFinalRect1_Callback = QRect* (*)(const QCPItemPixmap*, bool*);
     using QCPItemPixmap_GetFinalRect2_Callback = QRect* (*)(const QCPItemPixmap*, bool*, bool*);
     using QCPItemPixmap_RectDistance_Callback = double (*)(const QCPItemPixmap*, QRectF*, QPointF*, bool);
-    using QCPItemPixmap_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemPixmap*, libqt_string);
-    using QCPItemPixmap_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemPixmap*, libqt_string, int);
+    using QCPItemPixmap_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemPixmap*, const char*);
+    using QCPItemPixmap_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemPixmap*, const char*, int);
     using QCPItemPixmap_InitializeParentPlot_Callback = void (*)(QCPItemPixmap*, QCustomPlot*);
     using QCPItemPixmap_SetParentLayerable_Callback = void (*)(QCPItemPixmap*, QCPLayerable*);
     using QCPItemPixmap_MoveToLayer_Callback = bool (*)(QCPItemPixmap*, QCPLayer*, bool);
@@ -36487,16 +36558,16 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             return QCPItemPixmap::createPosition(name);
         } else if (qcpitempixmap_createposition_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QCPItemPosition* callback_ret = qcpitempixmap_createposition_callback(this, cbval1);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemPixmap::createPosition(name);
@@ -36510,17 +36581,17 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             return QCPItemPixmap::createAnchor(name, anchorId);
         } else if (qcpitempixmap_createanchor_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             int cbval2 = anchorId;
 
             QCPItemAnchor* callback_ret = qcpitempixmap_createanchor_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemPixmap::createAnchor(name, anchorId);
@@ -36757,8 +36828,8 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
     using QCPItemTracer_MainPen_Callback = QPen* (*)();
     using QCPItemTracer_MainBrush_Callback = QBrush* (*)();
     using QCPItemTracer_RectDistance_Callback = double (*)(const QCPItemTracer*, QRectF*, QPointF*, bool);
-    using QCPItemTracer_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemTracer*, libqt_string);
-    using QCPItemTracer_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemTracer*, libqt_string, int);
+    using QCPItemTracer_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemTracer*, const char*);
+    using QCPItemTracer_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemTracer*, const char*, int);
     using QCPItemTracer_InitializeParentPlot_Callback = void (*)(QCPItemTracer*, QCustomPlot*);
     using QCPItemTracer_SetParentLayerable_Callback = void (*)(QCPItemTracer*, QCPLayerable*);
     using QCPItemTracer_MoveToLayer_Callback = bool (*)(QCPItemTracer*, QCPLayer*, bool);
@@ -37389,16 +37460,16 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             return QCPItemTracer::createPosition(name);
         } else if (qcpitemtracer_createposition_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QCPItemPosition* callback_ret = qcpitemtracer_createposition_callback(this, cbval1);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemTracer::createPosition(name);
@@ -37412,17 +37483,17 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             return QCPItemTracer::createAnchor(name, anchorId);
         } else if (qcpitemtracer_createanchor_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             int cbval2 = anchorId;
 
             QCPItemAnchor* callback_ret = qcpitemtracer_createanchor_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemTracer::createAnchor(name, anchorId);
@@ -37647,8 +37718,8 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
     using QCPItemBracket_DisconnectNotify_Callback = void (*)(QCPItemBracket*, QMetaMethod*);
     using QCPItemBracket_MainPen_Callback = QPen* (*)();
     using QCPItemBracket_RectDistance_Callback = double (*)(const QCPItemBracket*, QRectF*, QPointF*, bool);
-    using QCPItemBracket_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemBracket*, libqt_string);
-    using QCPItemBracket_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemBracket*, libqt_string, int);
+    using QCPItemBracket_CreatePosition_Callback = QCPItemPosition* (*)(QCPItemBracket*, const char*);
+    using QCPItemBracket_CreateAnchor_Callback = QCPItemAnchor* (*)(QCPItemBracket*, const char*, int);
     using QCPItemBracket_InitializeParentPlot_Callback = void (*)(QCPItemBracket*, QCustomPlot*);
     using QCPItemBracket_SetParentLayerable_Callback = void (*)(QCPItemBracket*, QCPLayerable*);
     using QCPItemBracket_MoveToLayer_Callback = bool (*)(QCPItemBracket*, QCPLayer*, bool);
@@ -38261,16 +38332,16 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             return QCPItemBracket::createPosition(name);
         } else if (qcpitembracket_createposition_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QCPItemPosition* callback_ret = qcpitembracket_createposition_callback(this, cbval1);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemBracket::createPosition(name);
@@ -38284,17 +38355,17 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             return QCPItemBracket::createAnchor(name, anchorId);
         } else if (qcpitembracket_createanchor_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             int cbval2 = anchorId;
 
             QCPItemAnchor* callback_ret = qcpitembracket_createanchor_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QCPItemBracket::createAnchor(name, anchorId);
@@ -41090,6 +41161,7 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             QPen* cbval4 = const_cast<QPen*>(&pen_ret);
 
             qcppolargrid_drawradialgrid_callback(this, cbval1, cbval2, cbval3, cbval4);
+            free(coords_arr);
         } else {
             QCPPolarGrid::drawRadialGrid(painter, center, coords, pen);
         }
@@ -41121,6 +41193,7 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             QPen* cbval5 = const_cast<QPen*>(&pen_ret);
 
             qcppolargrid_drawangulargrid_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            free(ticksCosSin_arr);
         } else {
             QCPPolarGrid::drawAngularGrid(painter, center, radius, ticksCosSin, pen);
         }
@@ -41154,6 +41227,7 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             QPen* cbval5 = const_cast<QPen*>(&zeroPen_ret);
 
             qcppolargrid_drawradialgrid5_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            free(coords_arr);
         } else {
             QCPPolarGrid::drawRadialGrid(painter, center, coords, pen, zeroPen);
         }
@@ -42767,6 +42841,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             libqt_list /* of QPointF* */ cbval2 = lines_out;
 
             qcppolargraph_drawlineplot_callback(this, cbval1, cbval2);
+            free(lines_arr);
         } else {
             QCPPolarGraph::drawLinePlot(painter, lines);
         }
@@ -42791,6 +42866,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             libqt_list /* of QPointF* */ cbval2 = lines_out;
 
             qcppolargraph_drawfill_callback(this, cbval1, cbval2);
+            free(lines_arr);
         } else {
             QCPPolarGraph::drawFill(painter, lines);
         }
@@ -42818,6 +42894,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             QCPScatterStyle* cbval3 = const_cast<QCPScatterStyle*>(&style_ret);
 
             qcppolargraph_drawscatterplot_callback(this, cbval1, cbval2, cbval3);
+            free(scatters_arr);
         } else {
             QCPPolarGraph::drawScatterPlot(painter, scatters, style);
         }
@@ -43119,6 +43196,8 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             libqt_list /* of QCPDataRange* */ cbval2 = unselectedSegments_out;
 
             qcppolargraph_getdatasegments_callback(this, cbval1, cbval2);
+            free(selectedSegments_arr);
+            free(unselectedSegments_arr);
         } else {
             QCPPolarGraph::getDataSegments(selectedSegments, unselectedSegments);
         }
@@ -43143,6 +43222,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             libqt_list /* of QPointF* */ cbval2 = lineData_out;
 
             qcppolargraph_drawpolyline_callback(this, cbval1, cbval2);
+            free(lineData_arr);
         } else {
             QCPPolarGraph::drawPolyline(painter, lineData);
         }
@@ -43169,6 +43249,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             QCPDataRange* cbval2 = const_cast<QCPDataRange*>(&dataRange_ret);
 
             qcppolargraph_getlines_callback(this, cbval1, cbval2);
+            free(lines_arr);
         } else {
             QCPPolarGraph::getLines(lines, dataRange);
         }
@@ -43195,6 +43276,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             QCPDataRange* cbval2 = const_cast<QCPDataRange*>(&dataRange_ret);
 
             qcppolargraph_getscatters_callback(this, cbval1, cbval2);
+            free(scatters_arr);
         } else {
             QCPPolarGraph::getScatters(scatters, dataRange);
         }
@@ -43225,6 +43307,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
                 callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
             libqt_free(callback_ret.data);
+            free(data_arr);
             return callback_ret_QVector;
         } else {
             return QCPPolarGraph::dataToLines(data);

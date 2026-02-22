@@ -132,9 +132,10 @@ void Sonnet__Dialog_Connect_SpellCheckDone(Sonnet__Dialog* self, intptr_t slot) 
         const QString newBuffer_ret = newBuffer;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray newBuffer_b = newBuffer_ret.toUtf8();
-        const char* newBuffer_str = static_cast<const char*>(malloc(newBuffer_b.length() + 1));
-        memcpy((void*)newBuffer_str, newBuffer_b.data(), newBuffer_b.length());
-        ((char*)newBuffer_str)[newBuffer_b.length()] = '\0';
+        auto newBuffer_str_len = newBuffer_b.length();
+        const char* newBuffer_str = static_cast<const char*>(malloc(newBuffer_str_len + 1));
+        memcpy((void*)newBuffer_str, newBuffer_b.data(), newBuffer_str_len);
+        ((char*)newBuffer_str)[newBuffer_str_len] = '\0';
         const char* sigval1 = newBuffer_str;
         slotFunc(self, sigval1);
         libqt_free(newBuffer_str);
@@ -152,9 +153,10 @@ void Sonnet__Dialog_Connect_Misspelling(Sonnet__Dialog* self, intptr_t slot) {
         const QString word_ret = word;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray word_b = word_ret.toUtf8();
-        const char* word_str = static_cast<const char*>(malloc(word_b.length() + 1));
-        memcpy((void*)word_str, word_b.data(), word_b.length());
-        ((char*)word_str)[word_b.length()] = '\0';
+        auto word_str_len = word_b.length();
+        const char* word_str = static_cast<const char*>(malloc(word_str_len + 1));
+        memcpy((void*)word_str, word_b.data(), word_str_len);
+        ((char*)word_str)[word_str_len] = '\0';
         const char* sigval1 = word_str;
         int sigval2 = start;
         slotFunc(self, sigval1, sigval2);
@@ -174,17 +176,19 @@ void Sonnet__Dialog_Connect_Replace(Sonnet__Dialog* self, intptr_t slot) {
         const QString oldWord_ret = oldWord;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray oldWord_b = oldWord_ret.toUtf8();
-        const char* oldWord_str = static_cast<const char*>(malloc(oldWord_b.length() + 1));
-        memcpy((void*)oldWord_str, oldWord_b.data(), oldWord_b.length());
-        ((char*)oldWord_str)[oldWord_b.length()] = '\0';
+        auto oldWord_str_len = oldWord_b.length();
+        const char* oldWord_str = static_cast<const char*>(malloc(oldWord_str_len + 1));
+        memcpy((void*)oldWord_str, oldWord_b.data(), oldWord_str_len);
+        ((char*)oldWord_str)[oldWord_str_len] = '\0';
         const char* sigval1 = oldWord_str;
         int sigval2 = start;
         const QString newWord_ret = newWord;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray newWord_b = newWord_ret.toUtf8();
-        const char* newWord_str = static_cast<const char*>(malloc(newWord_b.length() + 1));
-        memcpy((void*)newWord_str, newWord_b.data(), newWord_b.length());
-        ((char*)newWord_str)[newWord_b.length()] = '\0';
+        auto newWord_str_len = newWord_b.length();
+        const char* newWord_str = static_cast<const char*>(malloc(newWord_str_len + 1));
+        memcpy((void*)newWord_str, newWord_b.data(), newWord_str_len);
+        ((char*)newWord_str)[newWord_str_len] = '\0';
         const char* sigval3 = newWord_str;
         slotFunc(self, sigval1, sigval2, sigval3);
         libqt_free(oldWord_str);
@@ -226,16 +230,18 @@ void Sonnet__Dialog_Connect_AutoCorrect(Sonnet__Dialog* self, intptr_t slot) {
         const QString currentWord_ret = currentWord;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray currentWord_b = currentWord_ret.toUtf8();
-        const char* currentWord_str = static_cast<const char*>(malloc(currentWord_b.length() + 1));
-        memcpy((void*)currentWord_str, currentWord_b.data(), currentWord_b.length());
-        ((char*)currentWord_str)[currentWord_b.length()] = '\0';
+        auto currentWord_str_len = currentWord_b.length();
+        const char* currentWord_str = static_cast<const char*>(malloc(currentWord_str_len + 1));
+        memcpy((void*)currentWord_str, currentWord_b.data(), currentWord_str_len);
+        ((char*)currentWord_str)[currentWord_str_len] = '\0';
         const char* sigval1 = currentWord_str;
         const QString replaceWord_ret = replaceWord;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray replaceWord_b = replaceWord_ret.toUtf8();
-        const char* replaceWord_str = static_cast<const char*>(malloc(replaceWord_b.length() + 1));
-        memcpy((void*)replaceWord_str, replaceWord_b.data(), replaceWord_b.length());
-        ((char*)replaceWord_str)[replaceWord_b.length()] = '\0';
+        auto replaceWord_str_len = replaceWord_b.length();
+        const char* replaceWord_str = static_cast<const char*>(malloc(replaceWord_str_len + 1));
+        memcpy((void*)replaceWord_str, replaceWord_b.data(), replaceWord_str_len);
+        ((char*)replaceWord_str)[replaceWord_str_len] = '\0';
         const char* sigval2 = replaceWord_str;
         slotFunc(self, sigval1, sigval2);
         libqt_free(currentWord_str);
@@ -254,9 +260,10 @@ void Sonnet__Dialog_Connect_SpellCheckStatus(Sonnet__Dialog* self, intptr_t slot
         const QString param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
-        const char* param1_str = static_cast<const char*>(malloc(param1_b.length() + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_b.length());
-        ((char*)param1_str)[param1_b.length()] = '\0';
+        auto param1_str_len = param1_b.length();
+        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+        ((char*)param1_str)[param1_str_len] = '\0';
         const char* sigval1 = param1_str;
         slotFunc(self, sigval1);
         libqt_free(param1_str);
@@ -274,9 +281,10 @@ void Sonnet__Dialog_Connect_LanguageChanged(Sonnet__Dialog* self, intptr_t slot)
         const QString language_ret = language;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray language_b = language_ret.toUtf8();
-        const char* language_str = static_cast<const char*>(malloc(language_b.length() + 1));
-        memcpy((void*)language_str, language_b.data(), language_b.length());
-        ((char*)language_str)[language_b.length()] = '\0';
+        auto language_str_len = language_b.length();
+        const char* language_str = static_cast<const char*>(malloc(language_str_len + 1));
+        memcpy((void*)language_str, language_b.data(), language_str_len);
+        ((char*)language_str)[language_str_len] = '\0';
         const char* sigval1 = language_str;
         slotFunc(self, sigval1);
         libqt_free(language_str);

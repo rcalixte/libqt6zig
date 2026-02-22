@@ -23,8 +23,8 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
     using QGeoSatelliteInfoSource_SetUpdateInterval_Callback = void (*)(QGeoSatelliteInfoSource*, int);
     using QGeoSatelliteInfoSource_MinimumUpdateInterval_Callback = int (*)();
     using QGeoSatelliteInfoSource_Error_Callback = int (*)();
-    using QGeoSatelliteInfoSource_SetBackendProperty_Callback = bool (*)(QGeoSatelliteInfoSource*, libqt_string, QVariant*);
-    using QGeoSatelliteInfoSource_BackendProperty_Callback = QVariant* (*)(const QGeoSatelliteInfoSource*, libqt_string);
+    using QGeoSatelliteInfoSource_SetBackendProperty_Callback = bool (*)(QGeoSatelliteInfoSource*, const char*, QVariant*);
+    using QGeoSatelliteInfoSource_BackendProperty_Callback = QVariant* (*)(const QGeoSatelliteInfoSource*, const char*);
     using QGeoSatelliteInfoSource_StartUpdates_Callback = void (*)();
     using QGeoSatelliteInfoSource_StopUpdates_Callback = void (*)();
     using QGeoSatelliteInfoSource_RequestUpdate_Callback = void (*)(QGeoSatelliteInfoSource*, int);
@@ -251,19 +251,19 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
             return QGeoSatelliteInfoSource::setBackendProperty(name, value);
         } else if (qgeosatelliteinfosource_setbackendproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             bool callback_ret = qgeosatelliteinfosource_setbackendproperty_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QGeoSatelliteInfoSource::setBackendProperty(name, value);
@@ -277,16 +277,16 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
             return QGeoSatelliteInfoSource::backendProperty(name);
         } else if (qgeosatelliteinfosource_backendproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QVariant* callback_ret = qgeosatelliteinfosource_backendproperty_callback(this, cbval1);
+            libqt_free(name_str);
             return *callback_ret;
         } else {
             return QGeoSatelliteInfoSource::backendProperty(name);

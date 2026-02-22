@@ -408,15 +408,13 @@ pub const kconfigdialogmanager = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.KConfigDialogManager `
     ///
-    /// ` callback: *const fn (self: QtC.KConfigDialogManager, widget: QtC.QWidget) callconv(.c) [*:0]u8 `
+    /// ` callback: *const fn (self: QtC.KConfigDialogManager, widget: QtC.QWidget) callconv(.c) qtc.libqt_string `
     ///
-    pub fn OnGetUserProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]u8) void {
+    pub fn OnGetUserProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_string) void {
         qtc.KConfigDialogManager_OnGetUserProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -462,15 +460,13 @@ pub const kconfigdialogmanager = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.KConfigDialogManager `
     ///
-    /// ` callback: *const fn (self: QtC.KConfigDialogManager, widget: QtC.QWidget) callconv(.c) [*:0]u8 `
+    /// ` callback: *const fn (self: QtC.KConfigDialogManager, widget: QtC.QWidget) callconv(.c) qtc.libqt_string `
     ///
-    pub fn OnGetCustomProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]u8) void {
+    pub fn OnGetCustomProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_string) void {
         qtc.KConfigDialogManager_OnGetCustomProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -516,15 +512,13 @@ pub const kconfigdialogmanager = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.KConfigDialogManager `
     ///
-    /// ` callback: *const fn (self: QtC.KConfigDialogManager, widget: QtC.QWidget) callconv(.c) [*:0]u8 `
+    /// ` callback: *const fn (self: QtC.KConfigDialogManager, widget: QtC.QWidget) callconv(.c) qtc.libqt_string `
     ///
-    pub fn OnGetUserPropertyChangedSignal(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]u8) void {
+    pub fn OnGetUserPropertyChangedSignal(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_string) void {
         qtc.KConfigDialogManager_OnGetUserPropertyChangedSignal(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -570,15 +564,13 @@ pub const kconfigdialogmanager = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.KConfigDialogManager `
     ///
-    /// ` callback: *const fn (self: QtC.KConfigDialogManager, widget: QtC.QWidget) callconv(.c) [*:0]u8 `
+    /// ` callback: *const fn (self: QtC.KConfigDialogManager, widget: QtC.QWidget) callconv(.c) qtc.libqt_string `
     ///
-    pub fn OnGetCustomPropertyChangedSignal(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]u8) void {
+    pub fn OnGetCustomPropertyChangedSignal(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_string) void {
         qtc.KConfigDialogManager_OnGetCustomPropertyChangedSignal(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 

@@ -33,17 +33,17 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
     using QAccessibleWidget_BackgroundColor_Callback = QColor* (*)();
     using QAccessibleWidget_InterfaceCast_Callback = void* (*)(QAccessibleWidget*, int);
     using QAccessibleWidget_ActionNames_Callback = const char** (*)();
-    using QAccessibleWidget_DoAction_Callback = void (*)(QAccessibleWidget*, libqt_string);
-    using QAccessibleWidget_KeyBindingsForAction_Callback = const char** (*)(const QAccessibleWidget*, libqt_string);
+    using QAccessibleWidget_DoAction_Callback = void (*)(QAccessibleWidget*, const char*);
+    using QAccessibleWidget_KeyBindingsForAction_Callback = const char** (*)(const QAccessibleWidget*, const char*);
     using QAccessibleWidget_Object_Callback = QObject* (*)();
-    using QAccessibleWidget_SetText_Callback = void (*)(QAccessibleWidget*, int, libqt_string);
+    using QAccessibleWidget_SetText_Callback = void (*)(QAccessibleWidget*, int, const char*);
     using QAccessibleWidget_ChildAt_Callback = QAccessibleInterface* (*)(const QAccessibleWidget*, int, int);
     using QAccessibleWidget_VirtualHook_Callback = void (*)(QAccessibleWidget*, int, void*);
-    using QAccessibleWidget_LocalizedActionName_Callback = const char* (*)(const QAccessibleWidget*, libqt_string);
-    using QAccessibleWidget_LocalizedActionDescription_Callback = const char* (*)(const QAccessibleWidget*, libqt_string);
+    using QAccessibleWidget_LocalizedActionName_Callback = const char* (*)(const QAccessibleWidget*, const char*);
+    using QAccessibleWidget_LocalizedActionDescription_Callback = const char* (*)(const QAccessibleWidget*, const char*);
     using QAccessibleWidget_Widget_Callback = QWidget* (*)();
     using QAccessibleWidget_ParentObject_Callback = QObject* (*)();
-    using QAccessibleWidget_AddControllingSignal_Callback = void (*)(QAccessibleWidget*, libqt_string);
+    using QAccessibleWidget_AddControllingSignal_Callback = void (*)(QAccessibleWidget*, const char*);
 
   protected:
     // Instance callback storage
@@ -444,16 +444,16 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             QAccessibleWidget::doAction(actionName);
         } else if (qaccessiblewidget_doaction_callback != nullptr) {
             const QString actionName_ret = actionName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray actionName_b = actionName_ret.toUtf8();
-            libqt_string actionName_str;
-            actionName_str.len = actionName_b.length();
-            actionName_str.data = static_cast<const char*>(malloc(actionName_str.len + 1));
-            memcpy((void*)actionName_str.data, actionName_b.data(), actionName_str.len);
-            ((char*)actionName_str.data)[actionName_str.len] = '\0';
-            libqt_string cbval1 = actionName_str;
+            auto actionName_str_len = actionName_b.length();
+            const char* actionName_str = static_cast<const char*>(malloc(actionName_str_len + 1));
+            memcpy((void*)actionName_str, actionName_b.data(), actionName_str_len);
+            ((char*)actionName_str)[actionName_str_len] = '\0';
+            const char* cbval1 = actionName_str;
 
             qaccessiblewidget_doaction_callback(this, cbval1);
+            libqt_free(actionName_str);
         } else {
             QAccessibleWidget::doAction(actionName);
         }
@@ -466,14 +466,13 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             return QAccessibleWidget::keyBindingsForAction(actionName);
         } else if (qaccessiblewidget_keybindingsforaction_callback != nullptr) {
             const QString actionName_ret = actionName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray actionName_b = actionName_ret.toUtf8();
-            libqt_string actionName_str;
-            actionName_str.len = actionName_b.length();
-            actionName_str.data = static_cast<const char*>(malloc(actionName_str.len + 1));
-            memcpy((void*)actionName_str.data, actionName_b.data(), actionName_str.len);
-            ((char*)actionName_str.data)[actionName_str.len] = '\0';
-            libqt_string cbval1 = actionName_str;
+            auto actionName_str_len = actionName_b.length();
+            const char* actionName_str = static_cast<const char*>(malloc(actionName_str_len + 1));
+            memcpy((void*)actionName_str, actionName_b.data(), actionName_str_len);
+            ((char*)actionName_str)[actionName_str_len] = '\0';
+            const char* cbval1 = actionName_str;
 
             const char** callback_ret = qaccessiblewidget_keybindingsforaction_callback(this, cbval1);
             QList<QString> callback_ret_QList;
@@ -485,6 +484,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             libqt_free(callback_ret);
+            libqt_free(actionName_str);
             return callback_ret_QList;
         } else {
             return QAccessibleWidget::keyBindingsForAction(actionName);
@@ -512,16 +512,16 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
         } else if (qaccessiblewidget_settext_callback != nullptr) {
             int cbval1 = static_cast<int>(t);
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval2 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval2 = text_str;
 
             qaccessiblewidget_settext_callback(this, cbval1, cbval2);
+            libqt_free(text_str);
         } else {
             QAccessibleWidget::setText(t, text);
         }
@@ -565,17 +565,17 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             return QAccessibleWidget::localizedActionName(name);
         } else if (qaccessiblewidget_localizedactionname_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             const char* callback_ret = qaccessiblewidget_localizedactionname_callback(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
+            libqt_free(name_str);
             return callback_ret_QString;
         } else {
             return QAccessibleWidget::localizedActionName(name);
@@ -589,17 +589,17 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             return QAccessibleWidget::localizedActionDescription(name);
         } else if (qaccessiblewidget_localizedactiondescription_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             const char* callback_ret = qaccessiblewidget_localizedactiondescription_callback(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
+            libqt_free(name_str);
             return callback_ret_QString;
         } else {
             return QAccessibleWidget::localizedActionDescription(name);
@@ -639,16 +639,16 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             QAccessibleWidget::addControllingSignal(signal);
         } else if (qaccessiblewidget_addcontrollingsignal_callback != nullptr) {
             const QString signal_ret = signal;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray signal_b = signal_ret.toUtf8();
-            libqt_string signal_str;
-            signal_str.len = signal_b.length();
-            signal_str.data = static_cast<const char*>(malloc(signal_str.len + 1));
-            memcpy((void*)signal_str.data, signal_b.data(), signal_str.len);
-            ((char*)signal_str.data)[signal_str.len] = '\0';
-            libqt_string cbval1 = signal_str;
+            auto signal_str_len = signal_b.length();
+            const char* signal_str = static_cast<const char*>(malloc(signal_str_len + 1));
+            memcpy((void*)signal_str, signal_b.data(), signal_str_len);
+            ((char*)signal_str)[signal_str_len] = '\0';
+            const char* cbval1 = signal_str;
 
             qaccessiblewidget_addcontrollingsignal_callback(this, cbval1);
+            libqt_free(signal_str);
         } else {
             QAccessibleWidget::addControllingSignal(signal);
         }

@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestaccessmanager.html)
 pub const qrestaccessmanager = struct {
@@ -274,11 +274,11 @@ pub const qrestaccessmanager = struct {
     ///
     /// ` request: QtC.QNetworkRequest `
     ///
-    /// ` data: map_constu8_qtcqvariant `
+    /// ` data: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Post2(self: ?*anyopaque, request: ?*anyopaque, data: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QNetworkReply {
+    pub fn Post2(self: ?*anyopaque, request: ?*anyopaque, data: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QNetworkReply {
         const data_count = data.count();
         const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("qrestaccessmanager.Post2: Memory allocation failed");
         defer allocator.free(data_keys);
@@ -370,11 +370,11 @@ pub const qrestaccessmanager = struct {
     ///
     /// ` request: QtC.QNetworkRequest `
     ///
-    /// ` data: map_constu8_qtcqvariant `
+    /// ` data: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Put2(self: ?*anyopaque, request: ?*anyopaque, data: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QNetworkReply {
+    pub fn Put2(self: ?*anyopaque, request: ?*anyopaque, data: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QNetworkReply {
         const data_count = data.count();
         const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("qrestaccessmanager.Put2: Memory allocation failed");
         defer allocator.free(data_keys);
@@ -466,11 +466,11 @@ pub const qrestaccessmanager = struct {
     ///
     /// ` request: QtC.QNetworkRequest `
     ///
-    /// ` data: map_constu8_qtcqvariant `
+    /// ` data: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Patch2(self: ?*anyopaque, request: ?*anyopaque, data: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QNetworkReply {
+    pub fn Patch2(self: ?*anyopaque, request: ?*anyopaque, data: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QNetworkReply {
         const data_count = data.count();
         const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("qrestaccessmanager.Patch2: Memory allocation failed");
         defer allocator.free(data_keys);

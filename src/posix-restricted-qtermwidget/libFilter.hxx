@@ -1670,7 +1670,7 @@ class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
     bool isVirtualKonsoleFilterHotSpot = true;
 
     // Virtual class public types (including callbacks)
-    using Konsole__Filter__HotSpot_Activate_Callback = void (*)(Konsole__Filter__HotSpot*, libqt_string);
+    using Konsole__Filter__HotSpot_Activate_Callback = void (*)(Konsole__Filter__HotSpot*, const char*);
     using Konsole__Filter__HotSpot_Actions_Callback = libqt_list /* of QAction* */ (*)();
     using Konsole__Filter__HotSpot_SetType_Callback = void (*)(Konsole__Filter__HotSpot*, int);
 
@@ -1709,16 +1709,16 @@ class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
     virtual void activate(const QString& action) override {
         if (konsole__filter__hotspot_activate_callback != nullptr) {
             const QString action_ret = action;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray action_b = action_ret.toUtf8();
-            libqt_string action_str;
-            action_str.len = action_b.length();
-            action_str.data = static_cast<const char*>(malloc(action_str.len + 1));
-            memcpy((void*)action_str.data, action_b.data(), action_str.len);
-            ((char*)action_str.data)[action_str.len] = '\0';
-            libqt_string cbval1 = action_str;
+            auto action_str_len = action_b.length();
+            const char* action_str = static_cast<const char*>(malloc(action_str_len + 1));
+            memcpy((void*)action_str, action_b.data(), action_str_len);
+            ((char*)action_str)[action_str_len] = '\0';
+            const char* cbval1 = action_str;
 
             konsole__filter__hotspot_activate_callback(this, cbval1);
+            libqt_free(action_str);
         }
     }
 
@@ -1769,7 +1769,7 @@ class VirtualKonsoleRegExpFilterHotSpot final : public Konsole::RegExpFilter::Ho
     bool isVirtualKonsoleRegExpFilterHotSpot = true;
 
     // Virtual class public types (including callbacks)
-    using Konsole__RegExpFilter__HotSpot_Activate_Callback = void (*)(Konsole__RegExpFilter__HotSpot*, libqt_string);
+    using Konsole__RegExpFilter__HotSpot_Activate_Callback = void (*)(Konsole__RegExpFilter__HotSpot*, const char*);
     using Konsole__RegExpFilter__HotSpot_Actions_Callback = libqt_list /* of QAction* */ (*)();
     using Konsole__RegExpFilter__HotSpot_SetType_Callback = void (*)(Konsole__RegExpFilter__HotSpot*, int);
 
@@ -1811,16 +1811,16 @@ class VirtualKonsoleRegExpFilterHotSpot final : public Konsole::RegExpFilter::Ho
             Konsole__RegExpFilter__HotSpot::activate(action);
         } else if (konsole__regexpfilter__hotspot_activate_callback != nullptr) {
             const QString action_ret = action;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray action_b = action_ret.toUtf8();
-            libqt_string action_str;
-            action_str.len = action_b.length();
-            action_str.data = static_cast<const char*>(malloc(action_str.len + 1));
-            memcpy((void*)action_str.data, action_b.data(), action_str.len);
-            ((char*)action_str.data)[action_str.len] = '\0';
-            libqt_string cbval1 = action_str;
+            auto action_str_len = action_b.length();
+            const char* action_str = static_cast<const char*>(malloc(action_str_len + 1));
+            memcpy((void*)action_str, action_b.data(), action_str_len);
+            ((char*)action_str)[action_str_len] = '\0';
+            const char* cbval1 = action_str;
 
             konsole__regexpfilter__hotspot_activate_callback(this, cbval1);
+            libqt_free(action_str);
         } else {
             Konsole__RegExpFilter__HotSpot::activate(action);
         }
@@ -1874,7 +1874,7 @@ class VirtualKonsoleUrlFilterHotSpot final : public Konsole::UrlFilter::HotSpot 
 
     // Virtual class public types (including callbacks)
     using Konsole__UrlFilter__HotSpot_Actions_Callback = libqt_list /* of QAction* */ (*)();
-    using Konsole__UrlFilter__HotSpot_Activate_Callback = void (*)(Konsole__UrlFilter__HotSpot*, libqt_string);
+    using Konsole__UrlFilter__HotSpot_Activate_Callback = void (*)(Konsole__UrlFilter__HotSpot*, const char*);
     using Konsole__UrlFilter__HotSpot_SetType_Callback = void (*)(Konsole__UrlFilter__HotSpot*, int);
 
   protected:
@@ -1934,16 +1934,16 @@ class VirtualKonsoleUrlFilterHotSpot final : public Konsole::UrlFilter::HotSpot 
             Konsole__UrlFilter__HotSpot::activate(action);
         } else if (konsole__urlfilter__hotspot_activate_callback != nullptr) {
             const QString action_ret = action;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray action_b = action_ret.toUtf8();
-            libqt_string action_str;
-            action_str.len = action_b.length();
-            action_str.data = static_cast<const char*>(malloc(action_str.len + 1));
-            memcpy((void*)action_str.data, action_b.data(), action_str.len);
-            ((char*)action_str.data)[action_str.len] = '\0';
-            libqt_string cbval1 = action_str;
+            auto action_str_len = action_b.length();
+            const char* action_str = static_cast<const char*>(malloc(action_str_len + 1));
+            memcpy((void*)action_str, action_b.data(), action_str_len);
+            ((char*)action_str)[action_str_len] = '\0';
+            const char* cbval1 = action_str;
 
             konsole__urlfilter__hotspot_activate_callback(this, cbval1);
+            libqt_free(action_str);
         } else {
             Konsole__UrlFilter__HotSpot::activate(action);
         }

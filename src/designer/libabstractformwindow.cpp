@@ -440,9 +440,10 @@ void QDesignerFormWindowInterface_Connect_FileNameChanged(QDesignerFormWindowInt
         const QString fileName_ret = fileName;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray fileName_b = fileName_ret.toUtf8();
-        const char* fileName_str = static_cast<const char*>(malloc(fileName_b.length() + 1));
-        memcpy((void*)fileName_str, fileName_b.data(), fileName_b.length());
-        ((char*)fileName_str)[fileName_b.length()] = '\0';
+        auto fileName_str_len = fileName_b.length();
+        const char* fileName_str = static_cast<const char*>(malloc(fileName_str_len + 1));
+        memcpy((void*)fileName_str, fileName_b.data(), fileName_str_len);
+        ((char*)fileName_str)[fileName_str_len] = '\0';
         const char* sigval1 = fileName_str;
         slotFunc(self, sigval1);
         libqt_free(fileName_str);

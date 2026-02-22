@@ -1,8 +1,8 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
-const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_constu8 = std.StringArrayHashMapUnmanaged([]const u8);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/kio-metadata.html)
 pub const kio__metadata = struct {
@@ -16,11 +16,11 @@ pub const kio__metadata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metaData: map_constu8_constu8 `
+    /// ` metaData: arraymap_constu8_constu8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New2(metaData: map_constu8_constu8, allocator: std.mem.Allocator) QtC.KIO__MetaData {
+    pub fn New2(metaData: arraymap_constu8_constu8, allocator: std.mem.Allocator) QtC.KIO__MetaData {
         const metaData_count = metaData.count();
         const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("kio__metadata.New2: Memory allocation failed");
         defer allocator.free(metaData_keys);
@@ -53,11 +53,11 @@ pub const kio__metadata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: map_constu8_qtcqvariant `
+    /// ` param1: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New3(param1: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.KIO__MetaData {
+    pub fn New3(param1: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.KIO__MetaData {
         const param1_count = param1.count();
         const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kio__metadata.New3: Memory allocation failed");
         defer allocator.free(param1_keys);
@@ -98,11 +98,11 @@ pub const kio__metadata = struct {
     ///
     /// ` self: QtC.KIO__MetaData `
     ///
-    /// ` metaData: map_constu8_constu8 `
+    /// ` metaData: arraymap_constu8_constu8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OperatorPlusAssign(self: ?*anyopaque, metaData: map_constu8_constu8, allocator: std.mem.Allocator) QtC.KIO__MetaData {
+    pub fn OperatorPlusAssign(self: ?*anyopaque, metaData: arraymap_constu8_constu8, allocator: std.mem.Allocator) QtC.KIO__MetaData {
         const metaData_count = metaData.count();
         const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("kio__metadata.OperatorPlusAssign: Memory allocation failed");
         defer allocator.free(metaData_keys);
@@ -136,11 +136,11 @@ pub const kio__metadata = struct {
     ///
     /// ` self: QtC.KIO__MetaData `
     ///
-    /// ` metaData: map_constu8_qtcqvariant `
+    /// ` metaData: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OperatorPlusAssign2(self: ?*anyopaque, metaData: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.KIO__MetaData {
+    pub fn OperatorPlusAssign2(self: ?*anyopaque, metaData: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.KIO__MetaData {
         const metaData_count = metaData.count();
         const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("kio__metadata.OperatorPlusAssign2: Memory allocation failed");
         defer allocator.free(metaData_keys);
@@ -170,11 +170,11 @@ pub const kio__metadata = struct {
     ///
     /// ` self: QtC.KIO__MetaData `
     ///
-    /// ` metaData: map_constu8_qtcqvariant `
+    /// ` metaData: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, metaData: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
+    pub fn OperatorAssign(self: ?*anyopaque, metaData: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
         const metaData_count = metaData.count();
         const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("kio__metadata.OperatorAssign: Memory allocation failed");
         defer allocator.free(metaData_keys);

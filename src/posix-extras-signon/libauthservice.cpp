@@ -101,16 +101,17 @@ void SignOn__AuthService_Connect_MethodsAvailable(SignOn__AuthService* self, int
         const char** methods_arr = static_cast<const char**>(malloc(sizeof(const char*) * (methods_ret.size() + 1)));
         for (qsizetype i = 0; i < methods_ret.size(); ++i) {
             QByteArray methods_b = methods_ret[i].toUtf8();
-            char* methods_str = static_cast<char*>(malloc(methods_b.length() + 1));
-            memcpy(methods_str, methods_b.data(), methods_b.length());
-            methods_str[methods_b.length()] = '\0';
+            auto methods_str_len = methods_b.length();
+            char* methods_str = static_cast<char*>(malloc(methods_str_len + 1));
+            memcpy(methods_str, methods_b.data(), methods_str_len);
+            methods_str[methods_str_len] = '\0';
             methods_arr[i] = methods_str;
         }
         // Append sentinel null terminator to the list
         methods_arr[methods_ret.size()] = nullptr;
         const char** sigval1 = methods_arr;
         slotFunc(self, sigval1);
-        free(methods_arr);
+        libqt_free(methods_arr);
     });
 }
 
@@ -132,18 +133,20 @@ void SignOn__AuthService_Connect_MechanismsAvailable(SignOn__AuthService* self, 
         const QString method_ret = method;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray method_b = method_ret.toUtf8();
-        const char* method_str = static_cast<const char*>(malloc(method_b.length() + 1));
-        memcpy((void*)method_str, method_b.data(), method_b.length());
-        ((char*)method_str)[method_b.length()] = '\0';
+        auto method_str_len = method_b.length();
+        const char* method_str = static_cast<const char*>(malloc(method_str_len + 1));
+        memcpy((void*)method_str, method_b.data(), method_str_len);
+        ((char*)method_str)[method_str_len] = '\0';
         const char* sigval1 = method_str;
         const QList<QString>& mechanisms_ret = mechanisms;
         // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
         const char** mechanisms_arr = static_cast<const char**>(malloc(sizeof(const char*) * (mechanisms_ret.size() + 1)));
         for (qsizetype i = 0; i < mechanisms_ret.size(); ++i) {
             QByteArray mechanisms_b = mechanisms_ret[i].toUtf8();
-            char* mechanisms_str = static_cast<char*>(malloc(mechanisms_b.length() + 1));
-            memcpy(mechanisms_str, mechanisms_b.data(), mechanisms_b.length());
-            mechanisms_str[mechanisms_b.length()] = '\0';
+            auto mechanisms_str_len = mechanisms_b.length();
+            char* mechanisms_str = static_cast<char*>(malloc(mechanisms_str_len + 1));
+            memcpy(mechanisms_str, mechanisms_b.data(), mechanisms_str_len);
+            mechanisms_str[mechanisms_str_len] = '\0';
             mechanisms_arr[i] = mechanisms_str;
         }
         // Append sentinel null terminator to the list
@@ -151,7 +154,7 @@ void SignOn__AuthService_Connect_MechanismsAvailable(SignOn__AuthService* self, 
         const char** sigval2 = mechanisms_arr;
         slotFunc(self, sigval1, sigval2);
         libqt_free(method_str);
-        free(mechanisms_arr);
+        libqt_free(mechanisms_arr);
     });
 }
 

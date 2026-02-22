@@ -17,7 +17,7 @@ class VirtualKMessageBoxNotifyInterface : public KMessageBoxNotifyInterface {
     bool isVirtualKMessageBoxNotifyInterface = true;
 
     // Virtual class public types (including callbacks)
-    using KMessageBoxNotifyInterface_SendNotification_Callback = void (*)(KMessageBoxNotifyInterface*, int, libqt_string, QWidget*);
+    using KMessageBoxNotifyInterface_SendNotification_Callback = void (*)(KMessageBoxNotifyInterface*, int, const char*, QWidget*);
 
   protected:
     // Instance callback storage
@@ -44,17 +44,17 @@ class VirtualKMessageBoxNotifyInterface : public KMessageBoxNotifyInterface {
         if (kmessageboxnotifyinterface_sendnotification_callback != nullptr) {
             int cbval1 = static_cast<int>(notificationType);
             const QString message_ret = message;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray message_b = message_ret.toUtf8();
-            libqt_string message_str;
-            message_str.len = message_b.length();
-            message_str.data = static_cast<const char*>(malloc(message_str.len + 1));
-            memcpy((void*)message_str.data, message_b.data(), message_str.len);
-            ((char*)message_str.data)[message_str.len] = '\0';
-            libqt_string cbval2 = message_str;
+            auto message_str_len = message_b.length();
+            const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+            memcpy((void*)message_str, message_b.data(), message_str_len);
+            ((char*)message_str)[message_str_len] = '\0';
+            const char* cbval2 = message_str;
             QWidget* cbval3 = parent;
 
             kmessageboxnotifyinterface_sendnotification_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(message_str);
         }
     }
 };

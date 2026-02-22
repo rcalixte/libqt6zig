@@ -63,9 +63,10 @@ void KSyntaxHighlighting__DefinitionDownloader_Connect_InformationMessage(KSynta
         const QString msg_ret = msg;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray msg_b = msg_ret.toUtf8();
-        const char* msg_str = static_cast<const char*>(malloc(msg_b.length() + 1));
-        memcpy((void*)msg_str, msg_b.data(), msg_b.length());
-        ((char*)msg_str)[msg_b.length()] = '\0';
+        auto msg_str_len = msg_b.length();
+        const char* msg_str = static_cast<const char*>(malloc(msg_str_len + 1));
+        memcpy((void*)msg_str, msg_b.data(), msg_str_len);
+        ((char*)msg_str)[msg_str_len] = '\0';
         const char* sigval1 = msg_str;
         slotFunc(self, sigval1);
         libqt_free(msg_str);
