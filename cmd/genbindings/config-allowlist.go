@@ -191,7 +191,9 @@ func AllowClass(className string) bool {
 	}
 
 	if strings.HasPrefix(className, "std::pair<") || strings.HasPrefix(className, "std::unique_ptr<") ||
-		(strings.HasPrefix(className, "std::chrono::") && strings.HasSuffix(className, "seconds")) {
+		(strings.HasPrefix(className, "std::chrono::") && strings.HasSuffix(className, "seconds")) ||
+		strings.HasPrefix(className, "std::map") || strings.HasPrefix(className, "std::multimap") ||
+		strings.HasPrefix(className, "std::unordered_map") || strings.HasPrefix(className, "std::unordered_multimap") {
 		// supported std:: types
 		return true
 	}
@@ -599,7 +601,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 	if t, ok := p.UniquePtrOf(); ok {
 		return AllowType(t, isReturnType)
 	}
-	if strings.HasPrefix(p.ParameterType, "std::pair<") || p.IsChronoSeconds() {
+	if strings.HasPrefix(p.ParameterType, "std::pair<") || p.IsChronoSeconds() || p.StdHashMapType() {
 		// supported std:: types
 		return nil
 	}
