@@ -224,7 +224,7 @@ func (p CppParameter) RenderTypeMapZig(zfs *zigFileState, isReturnType bool) str
 }
 
 func mapParamToString(param string) string {
-	if strings.HasPrefix(param, "map_") || strings.HasPrefix(param, "struct_") {
+	if strings.HasPrefix(param, "arraymap_") || strings.HasPrefix(param, "map_") || strings.HasPrefix(param, "struct_") {
 		// e.g. QXYSeries::pointsConfigurationChanged
 		// map with a map as value
 		return param
@@ -282,21 +282,22 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 
 	if t1, t2, containerType, ok := p.QMapOf(); ok {
 		var hashMapType, k string
-		isQMulti := ifv(containerType == "QMultiHash" || containerType == "QMultiMap", true, false)
+		isQMulti := IsMultiHashMap(containerType)
+		maybeArray := ifv(IsOrderedMap(containerType), "Array", "")
 
 		switch t1.ParameterType {
 		case "QString", "SignOn::MethodName":
 			k = "constu8"
-			hashMapType = "StringHashMap,constu8,"
+			hashMapType = "String" + maybeArray + "HashMap,constu8,"
 		case "QByteArray":
 			k = "u8"
-			hashMapType = "StringHashMap,u8,"
+			hashMapType = "String" + maybeArray + "HashMap,u8,"
 		default:
 			k = t1.RenderTypeZig(zfs, true, false)
 			if e, ok := KnownEnums[t1.ParameterType]; ok {
 				k = e.EnumTypeZig
 			}
-			hashMapType = "AutoHashMap," + k + ","
+			hashMapType = "Auto" + maybeArray + "HashMap," + k + ","
 		}
 		maybeConst := ifv(t2.ParameterType == "QString", "const ", "")
 
@@ -308,7 +309,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		k = mapParamToString(k)
 		v = mapParamToString(v)
 
-		return "map_" + k + "_" + v
+		return strings.ToLower(maybeArray) + "map_" + k + "_" + v
 	}
 
 	if t1, t2, ok := p.QPairOf(); ok {
@@ -584,10 +585,9 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) (strin
 				ret = "[*:0]const u8"
 				hasWarning = true
 			case "[]u8", "[:0]u8":
-				ret = "[*:0]u8"
-				hasWarning = true
+				ret = "qtc.libqt_string"
 			default:
-				if strings.HasPrefix(ret, "map_") {
+				if strings.HasPrefix(ret, "arraymap_") || strings.HasPrefix(ret, "map_") {
 					returnStr = "\n/// ## Callback Returns:\n///\n/// ` C ABI representation of " + ret + " `\n///\n"
 					ret = "qtc.libqt_map"
 				}
@@ -714,7 +714,7 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 					case "[]u8", "[:0]u8":
 						paramType = "qtc.libqt_string"
 					default:
-						if strings.HasPrefix(paramType, "map_") {
+						if strings.HasPrefix(paramType, "arraymap_") || strings.HasPrefix(paramType, "map_") {
 							paramType = "qtc.libqt_map (" + paramType + ")"
 						}
 					}
@@ -837,7 +837,7 @@ func (zfs *zigFileState) emitParametersZig(params []CppParameter, isSlot bool) s
 					case "[]u8", "[:0]u8":
 						paramType = "qtc.libqt_string"
 					default:
-						if strings.HasPrefix(paramType, "map_") {
+						if strings.HasPrefix(paramType, "arraymap_") || strings.HasPrefix(paramType, "map_") {
 							paramType = "qtc.libqt_map"
 						}
 					}
@@ -1140,7 +1140,8 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		// QMap<K,V>
 		zfs.imports["std"] = struct{}{}
 		var hashMapType, k, valCast, valCastClose, vTypeDest string
-		isQMulti := ifv(containerType == "QMultiHash" || containerType == "QMultiMap", true, false)
+		isQMulti := IsMultiHashMap(containerType)
+		maybeArray := ifv(IsOrderedMap(containerType), "Array", "")
 
 		// TODO front-end implementation mostly works, following back-end implementation is very messy
 
@@ -1148,17 +1149,17 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 		switch kType.ParameterType {
 		case "QString", "SignOn::MethodName":
-			hashMapType = "StringHashMap,constu8,"
+			hashMapType = "String" + maybeArray + "HashMap,constu8,"
 			k = "constu8"
 		case "QByteArray":
-			hashMapType = "StringHashMap,u8,"
+			hashMapType = "String" + maybeArray + "HashMap,u8,"
 			k = "u8"
 		default:
 			k = kType.RenderTypeZig(zfs, false, true)
 			if e, ok := KnownEnums[kType.ParameterType]; ok {
 				k = e.EnumTypeZig
 			}
-			hashMapType = "AutoHashMap," + k + ","
+			hashMapType = "Auto" + maybeArray + "HashMap," + k + ","
 		}
 
 		var valIsList, valueTypeOverride bool
@@ -1171,7 +1172,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			if strings.HasPrefix(vParam, "[]QtC.") {
 				vParam = "qtc.libqt_list"
 				valIsList = true
-			} else if !strings.HasPrefix(vParam, "map_") && !strings.HasPrefix(vParam, "struct_") && !vType.IntType() {
+			} else if !strings.HasPrefix(vParam, "arraymap_") && !strings.HasPrefix(vParam, "map_") && !strings.HasPrefix(vParam, "struct_") && !vType.IntType() {
 				valCast = "@ptrCast("
 				valCastClose = ")"
 			}
@@ -1693,7 +1694,8 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		zfs.imports["std"] = struct{}{}
 		shouldReturn = "const " + namePrefix + "_map: qtc.libqt_map = "
 		maybeDeref := ifv(rt.Pointer, ".?.*", "")
-		isQMulti := ifv(containerType == "QMultiHash" || containerType == "QMultiMap", true, false)
+		isQMulti := IsMultiHashMap(containerType)
+		maybeArray := ifv(IsOrderedMap(containerType), "array", "")
 
 		// TODO front-end implementation mostly works, following back-end implementation is very messy
 		var stringKey, stringValue, listValue bool
@@ -1748,7 +1750,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 		valParam = ifv(isQMulti, "qtc.libqt_list", valParam)
 
-		afterword += "var " + namePrefix + "_ret: map_" + keyParam + "_" + vParam + "= .empty;\n"
+		afterword += "var " + namePrefix + "_ret: " + maybeArray + "map_" + keyParam + "_" + vParam + "= .empty;\n"
 
 		afterword += "defer {\n"
 		var deferKey, deferVal string
@@ -2765,16 +2767,18 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 					valueType := kSplit[2]
 
 					switch mapType {
-					case "StringHashMap":
-						key := "map_" + keyType + "_" + mapParamToString(valueType)
-						value := "std.StringHashMapUnmanaged(" + valueType + ")"
+					case "StringArrayHashMap", "StringHashMap":
+						maybeArray := ifv(mapType == "StringArrayHashMap", "array", "")
+						key := maybeArray + "map_" + keyType + "_" + mapParamToString(valueType)
+						value := "std." + mapType + "Unmanaged(" + valueType + ")"
 						structDef = append(structDef, "const "+key+" = "+value+";")
 						zigTypes[key] = strings.ReplaceAll(value, "QtC.", "C.")
-					case "AutoHashMap":
+					case "AutoArrayHashMap", "AutoHashMap":
 						autoKeyType := keyType
 						keyType = mapParamToString(strings.ToLower(keyType))
-						key := "map_" + keyType + "_" + mapParamToString(valueType)
-						value := "std.AutoHashMapUnmanaged(" + autoKeyType + ", " + valueType + ")"
+						maybeArray := ifv(mapType == "AutoArrayHashMap", "array", "")
+						key := maybeArray + "map_" + keyType + "_" + mapParamToString(valueType)
+						value := "std." + mapType + "Unmanaged(" + autoKeyType + ", " + valueType + ")"
 						structDef = append(structDef, "const "+key+" = "+value+";")
 						zigTypes[key] = strings.ReplaceAll(value, "QtC.", "C.")
 					}
