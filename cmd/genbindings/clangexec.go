@@ -18,7 +18,7 @@ func ClangMatchSameHeaderDefinitionOnly(astNodeFilename string) bool {
 	return astNodeFilename == ""
 }
 
-func clangExec(ctx context.Context, clangBin, inputHeader string, cflags []string, matcher ClangMatcher) ([]interface{}, error) {
+func clangExec(ctx context.Context, clangBin, inputHeader string, cflags []string, matcher ClangMatcher) ([]any, error) {
 
 	clangArgs := []string{"-x", "c++"}
 	clangArgs = append(clangArgs, cflags...)
@@ -38,7 +38,7 @@ func clangExec(ctx context.Context, clangBin, inputHeader string, cflags []strin
 	}
 
 	var wg sync.WaitGroup
-	var inner []interface{}
+	var inner []any
 	var innerErr error
 
 	wg.Add(1)
@@ -57,7 +57,7 @@ func clangExec(ctx context.Context, clangBin, inputHeader string, cflags []strin
 	return inner, innerErr
 }
 
-func mustClangExec(ctx context.Context, clangBin, inputHeader string, cflags []string, matcher ClangMatcher) []interface{} {
+func mustClangExec(ctx context.Context, clangBin, inputHeader string, cflags []string, matcher ClangMatcher) []any {
 	astInner, err := clangExec(ctx, clangBin, inputHeader, cflags, matcher)
 	if err != nil {
 		// Log and continue with next retry
@@ -74,15 +74,15 @@ func mustClangExec(ctx context.Context, clangBin, inputHeader string, cflags []s
 // This cleans out everything in the translation unit that came from an
 // #included file.
 // @ref https://stackoverflow.com/a/71128654
-func clangStripUpToFile(stdout io.Reader, matcher ClangMatcher) ([]interface{}, error) {
+func clangStripUpToFile(stdout io.Reader, matcher ClangMatcher) ([]any, error) {
 
-	var obj = map[string]interface{}{}
+	var obj = map[string]any{}
 	err := json.NewDecoder(stdout).Decode(&obj)
 	if err != nil {
 		return nil, fmt.Errorf("json.Decode: %v", err)
 	}
 
-	inner, ok := obj["inner"].([]interface{})
+	inner, ok := obj["inner"].([]any)
 	if !ok {
 		return nil, errors.New("no inner")
 	}
@@ -90,11 +90,11 @@ func clangStripUpToFile(stdout io.Reader, matcher ClangMatcher) ([]interface{}, 
 	// This can't be done by matching the first position only, since it's possible
 	// that there are more #include<>s further down the file
 
-	ret := make([]interface{}, 0, len(inner))
+	ret := make([]any, 0, len(inner))
 
 	for _, entry := range inner {
 
-		entry, ok := entry.(map[string]interface{})
+		entry, ok := entry.(map[string]any)
 		if !ok {
 			return nil, errors.New("entry is not a map")
 		}
@@ -104,19 +104,19 @@ func clangStripUpToFile(stdout io.Reader, matcher ClangMatcher) ([]interface{}, 
 
 		var match_filename = ""
 
-		if loc, ok := entry["loc"].(map[string]interface{}); ok {
-			if includedFrom, ok := loc["includedFrom"].(map[string]interface{}); ok {
+		if loc, ok := entry["loc"].(map[string]any); ok {
+			if includedFrom, ok := loc["includedFrom"].(map[string]any); ok {
 				if filename, ok := includedFrom["file"].(string); ok {
 					match_filename = filename
 				}
 			}
 
 			if match_filename == "" {
-				if expansionloc, ok := loc["expansionLoc"].(map[string]interface{}); ok {
+				if expansionloc, ok := loc["expansionLoc"].(map[string]any); ok {
 					if filename, ok := expansionloc["file"].(string); ok {
 						match_filename = filename
 
-					} else if includedFrom, ok := expansionloc["includedFrom"].(map[string]interface{}); ok {
+					} else if includedFrom, ok := expansionloc["includedFrom"].(map[string]any); ok {
 						if filename, ok := includedFrom["file"].(string); ok {
 							match_filename = filename
 						}
