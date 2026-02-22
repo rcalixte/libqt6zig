@@ -108,7 +108,7 @@ class VirtualKDirOperator final : public KDirOperator {
     using KDirOperator_SortReversed_Callback = void (*)();
     using KDirOperator_ToggleDirsFirst_Callback = void (*)();
     using KDirOperator_ToggleIgnoreCase_Callback = void (*)();
-    using KDirOperator_SlotCompletionMatch_Callback = void (*)(KDirOperator*, libqt_string);
+    using KDirOperator_SlotCompletionMatch_Callback = void (*)(KDirOperator*, const char*);
     using KDirOperator_UpdateMicroFocus_Callback = void (*)();
     using KDirOperator_Create_Callback = void (*)();
     using KDirOperator_Destroy_Callback = void (*)();
@@ -1534,6 +1534,7 @@ class VirtualKDirOperator final : public KDirOperator {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kdiroperator_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KDirOperator::nativeEvent(eventType, message, result);
@@ -1935,16 +1936,16 @@ class VirtualKDirOperator final : public KDirOperator {
             KDirOperator::slotCompletionMatch(match);
         } else if (kdiroperator_slotcompletionmatch_callback != nullptr) {
             const QString match_ret = match;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray match_b = match_ret.toUtf8();
-            libqt_string match_str;
-            match_str.len = match_b.length();
-            match_str.data = static_cast<const char*>(malloc(match_str.len + 1));
-            memcpy((void*)match_str.data, match_b.data(), match_str.len);
-            ((char*)match_str.data)[match_str.len] = '\0';
-            libqt_string cbval1 = match_str;
+            auto match_str_len = match_b.length();
+            const char* match_str = static_cast<const char*>(malloc(match_str_len + 1));
+            memcpy((void*)match_str, match_b.data(), match_str_len);
+            ((char*)match_str)[match_str_len] = '\0';
+            const char* cbval1 = match_str;
 
             kdiroperator_slotcompletionmatch_callback(this, cbval1);
+            libqt_free(match_str);
         } else {
             KDirOperator::slotCompletionMatch(match);
         }

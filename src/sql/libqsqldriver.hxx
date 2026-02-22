@@ -25,21 +25,21 @@ class VirtualQSqlDriver : public QSqlDriver {
     using QSqlDriver_CommitTransaction_Callback = bool (*)();
     using QSqlDriver_RollbackTransaction_Callback = bool (*)();
     using QSqlDriver_Tables_Callback = const char** (*)(const QSqlDriver*, int);
-    using QSqlDriver_PrimaryIndex_Callback = QSqlIndex* (*)(const QSqlDriver*, libqt_string);
-    using QSqlDriver_Record_Callback = QSqlRecord* (*)(const QSqlDriver*, libqt_string);
+    using QSqlDriver_PrimaryIndex_Callback = QSqlIndex* (*)(const QSqlDriver*, const char*);
+    using QSqlDriver_Record_Callback = QSqlRecord* (*)(const QSqlDriver*, const char*);
     using QSqlDriver_FormatValue_Callback = const char* (*)(const QSqlDriver*, QSqlField*, bool);
-    using QSqlDriver_EscapeIdentifier_Callback = const char* (*)(const QSqlDriver*, libqt_string, int);
-    using QSqlDriver_SqlStatement_Callback = const char* (*)(const QSqlDriver*, int, libqt_string, QSqlRecord*, bool);
+    using QSqlDriver_EscapeIdentifier_Callback = const char* (*)(const QSqlDriver*, const char*, int);
+    using QSqlDriver_SqlStatement_Callback = const char* (*)(const QSqlDriver*, int, const char*, QSqlRecord*, bool);
     using QSqlDriver_Handle_Callback = QVariant* (*)();
     using QSqlDriver_HasFeature_Callback = bool (*)(const QSqlDriver*, int);
     using QSqlDriver_Close_Callback = void (*)();
     using QSqlDriver_CreateResult_Callback = QSqlResult* (*)();
-    using QSqlDriver_Open_Callback = bool (*)(QSqlDriver*, libqt_string, libqt_string, libqt_string, libqt_string, int, libqt_string);
-    using QSqlDriver_SubscribeToNotification_Callback = bool (*)(QSqlDriver*, libqt_string);
-    using QSqlDriver_UnsubscribeFromNotification_Callback = bool (*)(QSqlDriver*, libqt_string);
+    using QSqlDriver_Open_Callback = bool (*)(QSqlDriver*, const char*, const char*, const char*, const char*, int, const char*);
+    using QSqlDriver_SubscribeToNotification_Callback = bool (*)(QSqlDriver*, const char*);
+    using QSqlDriver_UnsubscribeFromNotification_Callback = bool (*)(QSqlDriver*, const char*);
     using QSqlDriver_SubscribedToNotifications_Callback = const char** (*)();
-    using QSqlDriver_IsIdentifierEscaped_Callback = bool (*)(const QSqlDriver*, libqt_string, int);
-    using QSqlDriver_StripDelimiters_Callback = const char* (*)(const QSqlDriver*, libqt_string, int);
+    using QSqlDriver_IsIdentifierEscaped_Callback = bool (*)(const QSqlDriver*, const char*, int);
+    using QSqlDriver_StripDelimiters_Callback = const char* (*)(const QSqlDriver*, const char*, int);
     using QSqlDriver_MaximumIdentifierLength_Callback = int (*)(const QSqlDriver*, int);
     using QSqlDriver_CancelQuery_Callback = bool (*)();
     using QSqlDriver_SetOpen_Callback = void (*)(QSqlDriver*, bool);
@@ -396,16 +396,16 @@ class VirtualQSqlDriver : public QSqlDriver {
             return QSqlDriver::primaryIndex(tableName);
         } else if (qsqldriver_primaryindex_callback != nullptr) {
             const QString tableName_ret = tableName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray tableName_b = tableName_ret.toUtf8();
-            libqt_string tableName_str;
-            tableName_str.len = tableName_b.length();
-            tableName_str.data = static_cast<const char*>(malloc(tableName_str.len + 1));
-            memcpy((void*)tableName_str.data, tableName_b.data(), tableName_str.len);
-            ((char*)tableName_str.data)[tableName_str.len] = '\0';
-            libqt_string cbval1 = tableName_str;
+            auto tableName_str_len = tableName_b.length();
+            const char* tableName_str = static_cast<const char*>(malloc(tableName_str_len + 1));
+            memcpy((void*)tableName_str, tableName_b.data(), tableName_str_len);
+            ((char*)tableName_str)[tableName_str_len] = '\0';
+            const char* cbval1 = tableName_str;
 
             QSqlIndex* callback_ret = qsqldriver_primaryindex_callback(this, cbval1);
+            libqt_free(tableName_str);
             return *callback_ret;
         } else {
             return QSqlDriver::primaryIndex(tableName);
@@ -419,16 +419,16 @@ class VirtualQSqlDriver : public QSqlDriver {
             return QSqlDriver::record(tableName);
         } else if (qsqldriver_record_callback != nullptr) {
             const QString tableName_ret = tableName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray tableName_b = tableName_ret.toUtf8();
-            libqt_string tableName_str;
-            tableName_str.len = tableName_b.length();
-            tableName_str.data = static_cast<const char*>(malloc(tableName_str.len + 1));
-            memcpy((void*)tableName_str.data, tableName_b.data(), tableName_str.len);
-            ((char*)tableName_str.data)[tableName_str.len] = '\0';
-            libqt_string cbval1 = tableName_str;
+            auto tableName_str_len = tableName_b.length();
+            const char* tableName_str = static_cast<const char*>(malloc(tableName_str_len + 1));
+            memcpy((void*)tableName_str, tableName_b.data(), tableName_str_len);
+            ((char*)tableName_str)[tableName_str_len] = '\0';
+            const char* cbval1 = tableName_str;
 
             QSqlRecord* callback_ret = qsqldriver_record_callback(this, cbval1);
+            libqt_free(tableName_str);
             return *callback_ret;
         } else {
             return QSqlDriver::record(tableName);
@@ -461,18 +461,18 @@ class VirtualQSqlDriver : public QSqlDriver {
             return QSqlDriver::escapeIdentifier(identifier, typeVal);
         } else if (qsqldriver_escapeidentifier_callback != nullptr) {
             const QString identifier_ret = identifier;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray identifier_b = identifier_ret.toUtf8();
-            libqt_string identifier_str;
-            identifier_str.len = identifier_b.length();
-            identifier_str.data = static_cast<const char*>(malloc(identifier_str.len + 1));
-            memcpy((void*)identifier_str.data, identifier_b.data(), identifier_str.len);
-            ((char*)identifier_str.data)[identifier_str.len] = '\0';
-            libqt_string cbval1 = identifier_str;
+            auto identifier_str_len = identifier_b.length();
+            const char* identifier_str = static_cast<const char*>(malloc(identifier_str_len + 1));
+            memcpy((void*)identifier_str, identifier_b.data(), identifier_str_len);
+            ((char*)identifier_str)[identifier_str_len] = '\0';
+            const char* cbval1 = identifier_str;
             int cbval2 = static_cast<int>(typeVal);
 
             const char* callback_ret = qsqldriver_escapeidentifier_callback(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
+            libqt_free(identifier_str);
             return callback_ret_QString;
         } else {
             return QSqlDriver::escapeIdentifier(identifier, typeVal);
@@ -487,14 +487,13 @@ class VirtualQSqlDriver : public QSqlDriver {
         } else if (qsqldriver_sqlstatement_callback != nullptr) {
             int cbval1 = static_cast<int>(typeVal);
             const QString tableName_ret = tableName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray tableName_b = tableName_ret.toUtf8();
-            libqt_string tableName_str;
-            tableName_str.len = tableName_b.length();
-            tableName_str.data = static_cast<const char*>(malloc(tableName_str.len + 1));
-            memcpy((void*)tableName_str.data, tableName_b.data(), tableName_str.len);
-            ((char*)tableName_str.data)[tableName_str.len] = '\0';
-            libqt_string cbval2 = tableName_str;
+            auto tableName_str_len = tableName_b.length();
+            const char* tableName_str = static_cast<const char*>(malloc(tableName_str_len + 1));
+            memcpy((void*)tableName_str, tableName_b.data(), tableName_str_len);
+            ((char*)tableName_str)[tableName_str_len] = '\0';
+            const char* cbval2 = tableName_str;
             const QSqlRecord& rec_ret = rec;
             // Cast returned reference into pointer
             QSqlRecord* cbval3 = const_cast<QSqlRecord*>(&rec_ret);
@@ -502,6 +501,7 @@ class VirtualQSqlDriver : public QSqlDriver {
 
             const char* callback_ret = qsqldriver_sqlstatement_callback(this, cbval1, cbval2, cbval3, cbval4);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
+            libqt_free(tableName_str);
             return callback_ret_QString;
         } else {
             return QSqlDriver::sqlStatement(typeVal, tableName, rec, preparedStatement);
@@ -554,53 +554,53 @@ class VirtualQSqlDriver : public QSqlDriver {
     virtual bool open(const QString& db, const QString& user, const QString& password, const QString& host, int port, const QString& connOpts) override {
         if (qsqldriver_open_callback != nullptr) {
             const QString db_ret = db;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray db_b = db_ret.toUtf8();
-            libqt_string db_str;
-            db_str.len = db_b.length();
-            db_str.data = static_cast<const char*>(malloc(db_str.len + 1));
-            memcpy((void*)db_str.data, db_b.data(), db_str.len);
-            ((char*)db_str.data)[db_str.len] = '\0';
-            libqt_string cbval1 = db_str;
+            auto db_str_len = db_b.length();
+            const char* db_str = static_cast<const char*>(malloc(db_str_len + 1));
+            memcpy((void*)db_str, db_b.data(), db_str_len);
+            ((char*)db_str)[db_str_len] = '\0';
+            const char* cbval1 = db_str;
             const QString user_ret = user;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray user_b = user_ret.toUtf8();
-            libqt_string user_str;
-            user_str.len = user_b.length();
-            user_str.data = static_cast<const char*>(malloc(user_str.len + 1));
-            memcpy((void*)user_str.data, user_b.data(), user_str.len);
-            ((char*)user_str.data)[user_str.len] = '\0';
-            libqt_string cbval2 = user_str;
+            auto user_str_len = user_b.length();
+            const char* user_str = static_cast<const char*>(malloc(user_str_len + 1));
+            memcpy((void*)user_str, user_b.data(), user_str_len);
+            ((char*)user_str)[user_str_len] = '\0';
+            const char* cbval2 = user_str;
             const QString password_ret = password;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray password_b = password_ret.toUtf8();
-            libqt_string password_str;
-            password_str.len = password_b.length();
-            password_str.data = static_cast<const char*>(malloc(password_str.len + 1));
-            memcpy((void*)password_str.data, password_b.data(), password_str.len);
-            ((char*)password_str.data)[password_str.len] = '\0';
-            libqt_string cbval3 = password_str;
+            auto password_str_len = password_b.length();
+            const char* password_str = static_cast<const char*>(malloc(password_str_len + 1));
+            memcpy((void*)password_str, password_b.data(), password_str_len);
+            ((char*)password_str)[password_str_len] = '\0';
+            const char* cbval3 = password_str;
             const QString host_ret = host;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray host_b = host_ret.toUtf8();
-            libqt_string host_str;
-            host_str.len = host_b.length();
-            host_str.data = static_cast<const char*>(malloc(host_str.len + 1));
-            memcpy((void*)host_str.data, host_b.data(), host_str.len);
-            ((char*)host_str.data)[host_str.len] = '\0';
-            libqt_string cbval4 = host_str;
+            auto host_str_len = host_b.length();
+            const char* host_str = static_cast<const char*>(malloc(host_str_len + 1));
+            memcpy((void*)host_str, host_b.data(), host_str_len);
+            ((char*)host_str)[host_str_len] = '\0';
+            const char* cbval4 = host_str;
             int cbval5 = port;
             const QString connOpts_ret = connOpts;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray connOpts_b = connOpts_ret.toUtf8();
-            libqt_string connOpts_str;
-            connOpts_str.len = connOpts_b.length();
-            connOpts_str.data = static_cast<const char*>(malloc(connOpts_str.len + 1));
-            memcpy((void*)connOpts_str.data, connOpts_b.data(), connOpts_str.len);
-            ((char*)connOpts_str.data)[connOpts_str.len] = '\0';
-            libqt_string cbval6 = connOpts_str;
+            auto connOpts_str_len = connOpts_b.length();
+            const char* connOpts_str = static_cast<const char*>(malloc(connOpts_str_len + 1));
+            memcpy((void*)connOpts_str, connOpts_b.data(), connOpts_str_len);
+            ((char*)connOpts_str)[connOpts_str_len] = '\0';
+            const char* cbval6 = connOpts_str;
 
             bool callback_ret = qsqldriver_open_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6);
+            libqt_free(db_str);
+            libqt_free(user_str);
+            libqt_free(password_str);
+            libqt_free(host_str);
+            libqt_free(connOpts_str);
             return callback_ret;
         } else {
             return {};
@@ -614,16 +614,16 @@ class VirtualQSqlDriver : public QSqlDriver {
             return QSqlDriver::subscribeToNotification(name);
         } else if (qsqldriver_subscribetonotification_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             bool callback_ret = qsqldriver_subscribetonotification_callback(this, cbval1);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QSqlDriver::subscribeToNotification(name);
@@ -637,16 +637,16 @@ class VirtualQSqlDriver : public QSqlDriver {
             return QSqlDriver::unsubscribeFromNotification(name);
         } else if (qsqldriver_unsubscribefromnotification_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             bool callback_ret = qsqldriver_unsubscribefromnotification_callback(this, cbval1);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QSqlDriver::unsubscribeFromNotification(name);
@@ -682,17 +682,17 @@ class VirtualQSqlDriver : public QSqlDriver {
             return QSqlDriver::isIdentifierEscaped(identifier, typeVal);
         } else if (qsqldriver_isidentifierescaped_callback != nullptr) {
             const QString identifier_ret = identifier;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray identifier_b = identifier_ret.toUtf8();
-            libqt_string identifier_str;
-            identifier_str.len = identifier_b.length();
-            identifier_str.data = static_cast<const char*>(malloc(identifier_str.len + 1));
-            memcpy((void*)identifier_str.data, identifier_b.data(), identifier_str.len);
-            ((char*)identifier_str.data)[identifier_str.len] = '\0';
-            libqt_string cbval1 = identifier_str;
+            auto identifier_str_len = identifier_b.length();
+            const char* identifier_str = static_cast<const char*>(malloc(identifier_str_len + 1));
+            memcpy((void*)identifier_str, identifier_b.data(), identifier_str_len);
+            ((char*)identifier_str)[identifier_str_len] = '\0';
+            const char* cbval1 = identifier_str;
             int cbval2 = static_cast<int>(typeVal);
 
             bool callback_ret = qsqldriver_isidentifierescaped_callback(this, cbval1, cbval2);
+            libqt_free(identifier_str);
             return callback_ret;
         } else {
             return QSqlDriver::isIdentifierEscaped(identifier, typeVal);
@@ -706,18 +706,18 @@ class VirtualQSqlDriver : public QSqlDriver {
             return QSqlDriver::stripDelimiters(identifier, typeVal);
         } else if (qsqldriver_stripdelimiters_callback != nullptr) {
             const QString identifier_ret = identifier;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray identifier_b = identifier_ret.toUtf8();
-            libqt_string identifier_str;
-            identifier_str.len = identifier_b.length();
-            identifier_str.data = static_cast<const char*>(malloc(identifier_str.len + 1));
-            memcpy((void*)identifier_str.data, identifier_b.data(), identifier_str.len);
-            ((char*)identifier_str.data)[identifier_str.len] = '\0';
-            libqt_string cbval1 = identifier_str;
+            auto identifier_str_len = identifier_b.length();
+            const char* identifier_str = static_cast<const char*>(malloc(identifier_str_len + 1));
+            memcpy((void*)identifier_str, identifier_b.data(), identifier_str_len);
+            ((char*)identifier_str)[identifier_str_len] = '\0';
+            const char* cbval1 = identifier_str;
             int cbval2 = static_cast<int>(typeVal);
 
             const char* callback_ret = qsqldriver_stripdelimiters_callback(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
+            libqt_free(identifier_str);
             return callback_ret_QString;
         } else {
             return QSqlDriver::stripDelimiters(identifier, typeVal);

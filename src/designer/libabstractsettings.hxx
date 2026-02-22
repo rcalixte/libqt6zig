@@ -17,12 +17,12 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
     bool isVirtualQDesignerSettingsInterface = true;
 
     // Virtual class public types (including callbacks)
-    using QDesignerSettingsInterface_BeginGroup_Callback = void (*)(QDesignerSettingsInterface*, libqt_string);
+    using QDesignerSettingsInterface_BeginGroup_Callback = void (*)(QDesignerSettingsInterface*, const char*);
     using QDesignerSettingsInterface_EndGroup_Callback = void (*)();
-    using QDesignerSettingsInterface_Contains_Callback = bool (*)(const QDesignerSettingsInterface*, libqt_string);
-    using QDesignerSettingsInterface_SetValue_Callback = void (*)(QDesignerSettingsInterface*, libqt_string, QVariant*);
-    using QDesignerSettingsInterface_Value_Callback = QVariant* (*)(const QDesignerSettingsInterface*, libqt_string, QVariant*);
-    using QDesignerSettingsInterface_Remove_Callback = void (*)(QDesignerSettingsInterface*, libqt_string);
+    using QDesignerSettingsInterface_Contains_Callback = bool (*)(const QDesignerSettingsInterface*, const char*);
+    using QDesignerSettingsInterface_SetValue_Callback = void (*)(QDesignerSettingsInterface*, const char*, QVariant*);
+    using QDesignerSettingsInterface_Value_Callback = QVariant* (*)(const QDesignerSettingsInterface*, const char*, QVariant*);
+    using QDesignerSettingsInterface_Remove_Callback = void (*)(QDesignerSettingsInterface*, const char*);
 
   protected:
     // Instance callback storage
@@ -73,16 +73,16 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
     virtual void beginGroup(const QString& prefix) override {
         if (qdesignersettingsinterface_begingroup_callback != nullptr) {
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval1 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval1 = prefix_str;
 
             qdesignersettingsinterface_begingroup_callback(this, cbval1);
+            libqt_free(prefix_str);
         }
     }
 
@@ -97,16 +97,16 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
     virtual bool contains(const QString& key) const override {
         if (qdesignersettingsinterface_contains_callback != nullptr) {
             const QString key_ret = key;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
-            libqt_string key_str;
-            key_str.len = key_b.length();
-            key_str.data = static_cast<const char*>(malloc(key_str.len + 1));
-            memcpy((void*)key_str.data, key_b.data(), key_str.len);
-            ((char*)key_str.data)[key_str.len] = '\0';
-            libqt_string cbval1 = key_str;
+            auto key_str_len = key_b.length();
+            const char* key_str = static_cast<const char*>(malloc(key_str_len + 1));
+            memcpy((void*)key_str, key_b.data(), key_str_len);
+            ((char*)key_str)[key_str_len] = '\0';
+            const char* cbval1 = key_str;
 
             bool callback_ret = qdesignersettingsinterface_contains_callback(this, cbval1);
+            libqt_free(key_str);
             return callback_ret;
         } else {
             return {};
@@ -117,19 +117,19 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
     virtual void setValue(const QString& key, const QVariant& value) override {
         if (qdesignersettingsinterface_setvalue_callback != nullptr) {
             const QString key_ret = key;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
-            libqt_string key_str;
-            key_str.len = key_b.length();
-            key_str.data = static_cast<const char*>(malloc(key_str.len + 1));
-            memcpy((void*)key_str.data, key_b.data(), key_str.len);
-            ((char*)key_str.data)[key_str.len] = '\0';
-            libqt_string cbval1 = key_str;
+            auto key_str_len = key_b.length();
+            const char* key_str = static_cast<const char*>(malloc(key_str_len + 1));
+            memcpy((void*)key_str, key_b.data(), key_str_len);
+            ((char*)key_str)[key_str_len] = '\0';
+            const char* cbval1 = key_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             qdesignersettingsinterface_setvalue_callback(this, cbval1, cbval2);
+            libqt_free(key_str);
         }
     }
 
@@ -137,19 +137,19 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
     virtual QVariant value(const QString& key, const QVariant& defaultValue) const override {
         if (qdesignersettingsinterface_value_callback != nullptr) {
             const QString key_ret = key;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
-            libqt_string key_str;
-            key_str.len = key_b.length();
-            key_str.data = static_cast<const char*>(malloc(key_str.len + 1));
-            memcpy((void*)key_str.data, key_b.data(), key_str.len);
-            ((char*)key_str.data)[key_str.len] = '\0';
-            libqt_string cbval1 = key_str;
+            auto key_str_len = key_b.length();
+            const char* key_str = static_cast<const char*>(malloc(key_str_len + 1));
+            memcpy((void*)key_str, key_b.data(), key_str_len);
+            ((char*)key_str)[key_str_len] = '\0';
+            const char* cbval1 = key_str;
             const QVariant& defaultValue_ret = defaultValue;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&defaultValue_ret);
 
             QVariant* callback_ret = qdesignersettingsinterface_value_callback(this, cbval1, cbval2);
+            libqt_free(key_str);
             return *callback_ret;
         } else {
             return {};
@@ -160,16 +160,16 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
     virtual void remove(const QString& key) override {
         if (qdesignersettingsinterface_remove_callback != nullptr) {
             const QString key_ret = key;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
-            libqt_string key_str;
-            key_str.len = key_b.length();
-            key_str.data = static_cast<const char*>(malloc(key_str.len + 1));
-            memcpy((void*)key_str.data, key_b.data(), key_str.len);
-            ((char*)key_str.data)[key_str.len] = '\0';
-            libqt_string cbval1 = key_str;
+            auto key_str_len = key_b.length();
+            const char* key_str = static_cast<const char*>(malloc(key_str_len + 1));
+            memcpy((void*)key_str, key_b.data(), key_str_len);
+            ((char*)key_str)[key_str_len] = '\0';
+            const char* cbval1 = key_str;
 
             qdesignersettingsinterface_remove_callback(this, cbval1);
+            libqt_free(key_str);
         }
     }
 };

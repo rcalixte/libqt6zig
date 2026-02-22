@@ -953,6 +953,7 @@ class VirtualKUrlRequester final : public KUrlRequester {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kurlrequester_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KUrlRequester::nativeEvent(eventType, message, result);
@@ -2312,6 +2313,7 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kurlcomborequester_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KUrlComboRequester::nativeEvent(eventType, message, result);

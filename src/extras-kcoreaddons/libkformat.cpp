@@ -270,7 +270,7 @@ libqt_string KFormat_FormatValue42(const KFormat* self, double value, const libq
 }
 
 libqt_string KFormat_FormatDistance2(const KFormat* self, double distance, int param2) {
-    QString _ret = self->formatDistance(static_cast<double>(distance), static_cast<QFlags<KFormat::DistanceFormatOption>>(param2));
+    QString _ret = self->formatDistance(static_cast<double>(distance), static_cast<KFormat::DistanceFormatOptions>(param2));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

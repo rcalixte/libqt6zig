@@ -1185,6 +1185,7 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = qstandarditemmodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return QStandardItemModel::mimeData(indexes);
@@ -1587,6 +1588,7 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             QDataStream* cbval2 = &stream_ret;
 
             qstandarditemmodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             QStandardItemModel::encodeData(indexes, stream);
         }
@@ -1875,6 +1877,8 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             qstandarditemmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             QStandardItemModel::changePersistentIndexList(from, to);
         }

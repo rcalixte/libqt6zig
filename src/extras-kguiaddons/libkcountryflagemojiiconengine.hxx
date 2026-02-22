@@ -25,7 +25,7 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
     using KCountryFlagEmojiIconEngine_IsNull_Callback = bool (*)();
     using KCountryFlagEmojiIconEngine_ActualSize_Callback = QSize* (*)(KCountryFlagEmojiIconEngine*, QSize*, int, int);
     using KCountryFlagEmojiIconEngine_AddPixmap_Callback = void (*)(KCountryFlagEmojiIconEngine*, QPixmap*, int, int);
-    using KCountryFlagEmojiIconEngine_AddFile_Callback = void (*)(KCountryFlagEmojiIconEngine*, libqt_string, QSize*, int, int);
+    using KCountryFlagEmojiIconEngine_AddFile_Callback = void (*)(KCountryFlagEmojiIconEngine*, const char*, QSize*, int, int);
     using KCountryFlagEmojiIconEngine_Read_Callback = bool (*)(KCountryFlagEmojiIconEngine*, QDataStream*);
     using KCountryFlagEmojiIconEngine_Write_Callback = bool (*)(const KCountryFlagEmojiIconEngine*, QDataStream*);
     using KCountryFlagEmojiIconEngine_AvailableSizes_Callback = libqt_list /* of QSize* */ (*)(KCountryFlagEmojiIconEngine*, int, int);
@@ -259,14 +259,13 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             KCountryFlagEmojiIconEngine::addFile(fileName, size, mode, state);
         } else if (kcountryflagemojiiconengine_addfile_callback != nullptr) {
             const QString fileName_ret = fileName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray fileName_b = fileName_ret.toUtf8();
-            libqt_string fileName_str;
-            fileName_str.len = fileName_b.length();
-            fileName_str.data = static_cast<const char*>(malloc(fileName_str.len + 1));
-            memcpy((void*)fileName_str.data, fileName_b.data(), fileName_str.len);
-            ((char*)fileName_str.data)[fileName_str.len] = '\0';
-            libqt_string cbval1 = fileName_str;
+            auto fileName_str_len = fileName_b.length();
+            const char* fileName_str = static_cast<const char*>(malloc(fileName_str_len + 1));
+            memcpy((void*)fileName_str, fileName_b.data(), fileName_str_len);
+            ((char*)fileName_str)[fileName_str_len] = '\0';
+            const char* cbval1 = fileName_str;
             const QSize& size_ret = size;
             // Cast returned reference into pointer
             QSize* cbval2 = const_cast<QSize*>(&size_ret);
@@ -274,6 +273,7 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             int cbval4 = static_cast<int>(state);
 
             kcountryflagemojiiconengine_addfile_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_free(fileName_str);
         } else {
             KCountryFlagEmojiIconEngine::addFile(fileName, size, mode, state);
         }

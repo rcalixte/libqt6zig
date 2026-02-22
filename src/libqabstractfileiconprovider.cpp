@@ -58,9 +58,9 @@ libqt_string QAbstractFileIconProvider_Type(const QAbstractFileIconProvider* sel
 void QAbstractFileIconProvider_SetOptions(QAbstractFileIconProvider* self, int options) {
     auto* vqabstractfileiconprovider = dynamic_cast<VirtualQAbstractFileIconProvider*>(self);
     if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
-        self->setOptions(static_cast<QFlags<QAbstractFileIconProvider::Option>>(options));
+        self->setOptions(static_cast<QAbstractFileIconProvider::Options>(options));
     } else {
-        ((VirtualQAbstractFileIconProvider*)self)->setOptions(static_cast<QFlags<QAbstractFileIconProvider::Option>>(options));
+        ((VirtualQAbstractFileIconProvider*)self)->setOptions(static_cast<QAbstractFileIconProvider::Options>(options));
     }
 }
 
@@ -151,9 +151,9 @@ void QAbstractFileIconProvider_QBaseSetOptions(QAbstractFileIconProvider* self, 
     auto* vqabstractfileiconprovider = dynamic_cast<VirtualQAbstractFileIconProvider*>(self);
     if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
         vqabstractfileiconprovider->setQAbstractFileIconProvider_SetOptions_IsBase(true);
-        vqabstractfileiconprovider->setOptions(static_cast<QFlags<QAbstractFileIconProvider::Option>>(options));
+        vqabstractfileiconprovider->setOptions(static_cast<QAbstractFileIconProvider::Options>(options));
     } else {
-        self->QAbstractFileIconProvider::setOptions(static_cast<QFlags<QAbstractFileIconProvider::Option>>(options));
+        self->QAbstractFileIconProvider::setOptions(static_cast<QAbstractFileIconProvider::Options>(options));
     }
 }
 

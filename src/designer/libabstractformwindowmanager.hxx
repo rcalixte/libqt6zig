@@ -347,6 +347,7 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
             libqt_list /* of QDesignerDnDItemInterface* */ cbval1 = item_list_out;
 
             qdesignerformwindowmanagerinterface_dragitems_callback(this, cbval1);
+            free(item_list_arr);
         }
     }
 

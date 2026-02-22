@@ -226,7 +226,7 @@ class VirtualQTreeWidget final : public QTreeWidget {
     using QTreeWidget_SupportedDropActions_Callback = int (*)();
     using QTreeWidget_DropEvent_Callback = void (*)(QTreeWidget*, QDropEvent*);
     using QTreeWidget_SetRootIndex_Callback = void (*)(QTreeWidget*, QModelIndex*);
-    using QTreeWidget_KeyboardSearch_Callback = void (*)(QTreeWidget*, libqt_string);
+    using QTreeWidget_KeyboardSearch_Callback = void (*)(QTreeWidget*, const char*);
     using QTreeWidget_VisualRect_Callback = QRect* (*)(const QTreeWidget*, QModelIndex*);
     using QTreeWidget_ScrollTo_Callback = void (*)(QTreeWidget*, QModelIndex*, int);
     using QTreeWidget_IndexAt_Callback = QModelIndex* (*)(const QTreeWidget*, QPoint*);
@@ -1132,6 +1132,7 @@ class VirtualQTreeWidget final : public QTreeWidget {
             libqt_list /* of QTreeWidgetItem* */ cbval1 = items_out;
 
             QMimeData* callback_ret = qtreewidget_mimedata_callback(this, cbval1);
+            free(items_arr);
             return callback_ret;
         } else {
             return QTreeWidget::mimeData(items);
@@ -1206,16 +1207,16 @@ class VirtualQTreeWidget final : public QTreeWidget {
             QTreeWidget::keyboardSearch(search);
         } else if (qtreewidget_keyboardsearch_callback != nullptr) {
             const QString search_ret = search;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
-            libqt_string search_str;
-            search_str.len = search_b.length();
-            search_str.data = static_cast<const char*>(malloc(search_str.len + 1));
-            memcpy((void*)search_str.data, search_b.data(), search_str.len);
-            ((char*)search_str.data)[search_str.len] = '\0';
-            libqt_string cbval1 = search_str;
+            auto search_str_len = search_b.length();
+            const char* search_str = static_cast<const char*>(malloc(search_str_len + 1));
+            memcpy((void*)search_str, search_b.data(), search_str_len);
+            ((char*)search_str)[search_str_len] = '\0';
+            const char* cbval1 = search_str;
 
             qtreewidget_keyboardsearch_callback(this, cbval1);
+            libqt_free(search_str);
         } else {
             QTreeWidget::keyboardSearch(search);
         }
@@ -1320,6 +1321,7 @@ class VirtualQTreeWidget final : public QTreeWidget {
             libqt_list /* of int */ cbval3 = roles_out;
 
             qtreewidget_datachanged_callback(this, cbval1, cbval2, cbval3);
+            free(roles_arr);
         } else {
             QTreeWidget::dataChanged(topLeft, bottomRight, roles);
         }
@@ -2403,6 +2405,7 @@ class VirtualQTreeWidget final : public QTreeWidget {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qtreewidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QTreeWidget::nativeEvent(eventType, message, result);

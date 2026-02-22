@@ -395,9 +395,10 @@ void QWebEnginePage_Connect_LinkHovered(QWebEnginePage* self, intptr_t slot) {
         const QString url_ret = url;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray url_b = url_ret.toUtf8();
-        const char* url_str = static_cast<const char*>(malloc(url_b.length() + 1));
-        memcpy((void*)url_str, url_b.data(), url_b.length());
-        ((char*)url_str)[url_b.length()] = '\0';
+        auto url_str_len = url_b.length();
+        const char* url_str = static_cast<const char*>(malloc(url_str_len + 1));
+        memcpy((void*)url_str, url_b.data(), url_str_len);
+        ((char*)url_str)[url_str_len] = '\0';
         const char* sigval1 = url_str;
         slotFunc(self, sigval1);
         libqt_free(url_str);
@@ -572,9 +573,10 @@ void QWebEnginePage_Connect_ProxyAuthenticationRequired(QWebEnginePage* self, in
         const QString proxyHost_ret = proxyHost;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray proxyHost_b = proxyHost_ret.toUtf8();
-        const char* proxyHost_str = static_cast<const char*>(malloc(proxyHost_b.length() + 1));
-        memcpy((void*)proxyHost_str, proxyHost_b.data(), proxyHost_b.length());
-        ((char*)proxyHost_str)[proxyHost_b.length()] = '\0';
+        auto proxyHost_str_len = proxyHost_b.length();
+        const char* proxyHost_str = static_cast<const char*>(malloc(proxyHost_str_len + 1));
+        memcpy((void*)proxyHost_str, proxyHost_b.data(), proxyHost_str_len);
+        ((char*)proxyHost_str)[proxyHost_str_len] = '\0';
         const char* sigval3 = proxyHost_str;
         slotFunc(self, sigval1, sigval2, sigval3);
         libqt_free(proxyHost_str);
@@ -661,9 +663,10 @@ void QWebEnginePage_Connect_TitleChanged(QWebEnginePage* self, intptr_t slot) {
         const QString title_ret = title;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray title_b = title_ret.toUtf8();
-        const char* title_str = static_cast<const char*>(malloc(title_b.length() + 1));
-        memcpy((void*)title_str, title_b.data(), title_b.length());
-        ((char*)title_str)[title_b.length()] = '\0';
+        auto title_str_len = title_b.length();
+        const char* title_str = static_cast<const char*>(malloc(title_str_len + 1));
+        memcpy((void*)title_str, title_b.data(), title_str_len);
+        ((char*)title_str)[title_str_len] = '\0';
         const char* sigval1 = title_str;
         slotFunc(self, sigval1);
         libqt_free(title_str);
@@ -799,9 +802,10 @@ void QWebEnginePage_Connect_PdfPrintingFinished(QWebEnginePage* self, intptr_t s
         const QString filePath_ret = filePath;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray filePath_b = filePath_ret.toUtf8();
-        const char* filePath_str = static_cast<const char*>(malloc(filePath_b.length() + 1));
-        memcpy((void*)filePath_str, filePath_b.data(), filePath_b.length());
-        ((char*)filePath_str)[filePath_b.length()] = '\0';
+        auto filePath_str_len = filePath_b.length();
+        const char* filePath_str = static_cast<const char*>(malloc(filePath_str_len + 1));
+        memcpy((void*)filePath_str, filePath_b.data(), filePath_str_len);
+        ((char*)filePath_str)[filePath_str_len] = '\0';
         const char* sigval1 = filePath_str;
         bool sigval2 = success;
         slotFunc(self, sigval1, sigval2);

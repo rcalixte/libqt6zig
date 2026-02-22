@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const identityinfo_enums = enums;
 const std = @import("std");
-const map_constu8_sliceconstconstu8 = std.StringHashMapUnmanaged([]const []const u8);
+const arraymap_constu8_sliceconstconstu8 = std.StringArrayHashMapUnmanaged([]const []const u8);
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
 pub const signon__identityinfo = struct {
@@ -30,11 +30,11 @@ pub const signon__identityinfo = struct {
     ///
     /// ` userName: []const u8 `
     ///
-    /// ` methods: map_constu8_sliceconstconstu8 `
+    /// ` methods: arraymap_constu8_sliceconstconstu8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New3(caption: []const u8, userName: []const u8, methods: map_constu8_sliceconstconstu8, allocator: std.mem.Allocator) QtC.SignOn__IdentityInfo {
+    pub fn New3(caption: []const u8, userName: []const u8, methods: arraymap_constu8_sliceconstconstu8, allocator: std.mem.Allocator) QtC.SignOn__IdentityInfo {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,

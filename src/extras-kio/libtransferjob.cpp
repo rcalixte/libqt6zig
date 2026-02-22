@@ -83,6 +83,7 @@ void KIO__TransferJob_Connect_Data(KIO__TransferJob* self, intptr_t slot) {
         memcpy((void*)data_str.data, data_qb.data(), data_str.len);
         libqt_string sigval2 = data_str;
         slotFunc(self, sigval1, sigval2);
+        libqt_free(data_str.data);
     });
 }
 
@@ -102,6 +103,7 @@ void KIO__TransferJob_Connect_DataReq(KIO__TransferJob* self, intptr_t slot) {
         memcpy((void*)data_str.data, data_qb.data(), data_str.len);
         libqt_string sigval2 = data_str;
         slotFunc(self, sigval1, sigval2);
+        libqt_free(data_str.data);
     });
 }
 
@@ -150,9 +152,10 @@ void KIO__TransferJob_Connect_MimeTypeFound(KIO__TransferJob* self, intptr_t slo
         const QString mimeType_ret = mimeType;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray mimeType_b = mimeType_ret.toUtf8();
-        const char* mimeType_str = static_cast<const char*>(malloc(mimeType_b.length() + 1));
-        memcpy((void*)mimeType_str, mimeType_b.data(), mimeType_b.length());
-        ((char*)mimeType_str)[mimeType_b.length()] = '\0';
+        auto mimeType_str_len = mimeType_b.length();
+        const char* mimeType_str = static_cast<const char*>(malloc(mimeType_str_len + 1));
+        memcpy((void*)mimeType_str, mimeType_b.data(), mimeType_str_len);
+        ((char*)mimeType_str)[mimeType_str_len] = '\0';
         const char* sigval2 = mimeType_str;
         slotFunc(self, sigval1, sigval2);
         libqt_free(mimeType_str);

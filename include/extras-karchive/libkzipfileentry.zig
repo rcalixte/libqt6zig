@@ -179,15 +179,13 @@ pub const kzipfileentry = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.KZipFileEntry `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]u8 `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_string `
     ///
-    pub fn OnData(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]u8) void {
+    pub fn OnData(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_string) void {
         qtc.KZipFileEntry_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 

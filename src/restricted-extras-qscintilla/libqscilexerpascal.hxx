@@ -55,8 +55,8 @@ class VirtualQsciLexerPascal final : public QsciLexerPascal {
     using QsciLexerPascal_SetEolFill_Callback = void (*)(QsciLexerPascal*, bool, int);
     using QsciLexerPascal_SetFont_Callback = void (*)(QsciLexerPascal*, QFont*, int);
     using QsciLexerPascal_SetPaper_Callback = void (*)(QsciLexerPascal*, QColor*, int);
-    using QsciLexerPascal_ReadProperties_Callback = bool (*)(QsciLexerPascal*, QSettings*, libqt_string);
-    using QsciLexerPascal_WriteProperties_Callback = bool (*)(const QsciLexerPascal*, QSettings*, libqt_string);
+    using QsciLexerPascal_ReadProperties_Callback = bool (*)(QsciLexerPascal*, QSettings*, const char*);
+    using QsciLexerPascal_WriteProperties_Callback = bool (*)(const QsciLexerPascal*, QSettings*, const char*);
     using QsciLexerPascal_Event_Callback = bool (*)(QsciLexerPascal*, QEvent*);
     using QsciLexerPascal_EventFilter_Callback = bool (*)(QsciLexerPascal*, QObject*, QEvent*);
     using QsciLexerPascal_TimerEvent_Callback = void (*)(QsciLexerPascal*, QTimerEvent*);
@@ -64,7 +64,7 @@ class VirtualQsciLexerPascal final : public QsciLexerPascal {
     using QsciLexerPascal_CustomEvent_Callback = void (*)(QsciLexerPascal*, QEvent*);
     using QsciLexerPascal_ConnectNotify_Callback = void (*)(QsciLexerPascal*, QMetaMethod*);
     using QsciLexerPascal_DisconnectNotify_Callback = void (*)(QsciLexerPascal*, QMetaMethod*);
-    using QsciLexerPascal_TextAsBytes_Callback = libqt_string (*)(const QsciLexerPascal*, libqt_string);
+    using QsciLexerPascal_TextAsBytes_Callback = libqt_string (*)(const QsciLexerPascal*, const char*);
     using QsciLexerPascal_BytesAsText_Callback = const char* (*)(const QsciLexerPascal*, const char*, int);
     using QsciLexerPascal_Sender_Callback = QObject* (*)();
     using QsciLexerPascal_SenderSignalIndex_Callback = int (*)();
@@ -910,16 +910,16 @@ class VirtualQsciLexerPascal final : public QsciLexerPascal {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerpascal_readproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerPascal::readProperties(qs, prefix);
@@ -936,16 +936,16 @@ class VirtualQsciLexerPascal final : public QsciLexerPascal {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerpascal_writeproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerPascal::writeProperties(qs, prefix);
@@ -1064,17 +1064,17 @@ class VirtualQsciLexerPascal final : public QsciLexerPascal {
             return QsciLexerPascal::textAsBytes(text);
         } else if (qscilexerpascal_textasbytes_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             libqt_string callback_ret = qscilexerpascal_textasbytes_callback(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            libqt_free(text_str);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerPascal::textAsBytes(text);

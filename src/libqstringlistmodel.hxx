@@ -859,6 +859,7 @@ class VirtualQStringListModel final : public QStringListModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = qstringlistmodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return QStringListModel::mimeData(indexes);
@@ -1274,6 +1275,7 @@ class VirtualQStringListModel final : public QStringListModel {
             QDataStream* cbval2 = &stream_ret;
 
             qstringlistmodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             QStringListModel::encodeData(indexes, stream);
         }
@@ -1562,6 +1564,8 @@ class VirtualQStringListModel final : public QStringListModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             qstringlistmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             QStringListModel::changePersistentIndexList(from, to);
         }

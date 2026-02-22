@@ -25,7 +25,7 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
     using QDesignerPropertyEditorInterface_Object_Callback = QObject* (*)();
     using QDesignerPropertyEditorInterface_CurrentPropertyName_Callback = const char* (*)();
     using QDesignerPropertyEditorInterface_SetObject_Callback = void (*)(QDesignerPropertyEditorInterface*, QObject*);
-    using QDesignerPropertyEditorInterface_SetPropertyValue_Callback = void (*)(QDesignerPropertyEditorInterface*, libqt_string, QVariant*, bool);
+    using QDesignerPropertyEditorInterface_SetPropertyValue_Callback = void (*)(QDesignerPropertyEditorInterface*, const char*, QVariant*, bool);
     using QDesignerPropertyEditorInterface_SetReadOnly_Callback = void (*)(QDesignerPropertyEditorInterface*, bool);
     using QDesignerPropertyEditorInterface_DevType_Callback = int (*)();
     using QDesignerPropertyEditorInterface_SetVisible_Callback = void (*)(QDesignerPropertyEditorInterface*, bool);
@@ -538,20 +538,20 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
     virtual void setPropertyValue(const QString& name, const QVariant& value, bool changed) override {
         if (qdesignerpropertyeditorinterface_setpropertyvalue_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             bool cbval3 = changed;
 
             qdesignerpropertyeditorinterface_setpropertyvalue_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(name_str);
         }
     }
 
@@ -1026,6 +1026,7 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qdesignerpropertyeditorinterface_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QDesignerPropertyEditorInterface::nativeEvent(eventType, message, result);

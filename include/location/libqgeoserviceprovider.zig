@@ -4,7 +4,7 @@ const qgeoserviceprovider_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoserviceprovider.html)
 pub const qgeoserviceprovider = struct {
@@ -29,11 +29,11 @@ pub const qgeoserviceprovider = struct {
     ///
     /// ` providerName: []const u8 `
     ///
-    /// ` parameters: map_constu8_qtcqvariant `
+    /// ` parameters: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New2(providerName: []const u8, parameters: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QGeoServiceProvider {
+    pub fn New2(providerName: []const u8, parameters: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QGeoServiceProvider {
         const providerName_str = qtc.libqt_string{
             .len = providerName.len,
             .data = providerName.ptr,
@@ -68,13 +68,13 @@ pub const qgeoserviceprovider = struct {
     ///
     /// ` providerName: []const u8 `
     ///
-    /// ` parameters: map_constu8_qtcqvariant `
+    /// ` parameters: arraymap_constu8_qtcqvariant `
     ///
     /// ` allowExperimental: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New3(providerName: []const u8, parameters: map_constu8_qtcqvariant, allowExperimental: bool, allocator: std.mem.Allocator) QtC.QGeoServiceProvider {
+    pub fn New3(providerName: []const u8, parameters: arraymap_constu8_qtcqvariant, allowExperimental: bool, allocator: std.mem.Allocator) QtC.QGeoServiceProvider {
         const providerName_str = qtc.libqt_string{
             .len = providerName.len,
             .data = providerName.ptr,
@@ -545,11 +545,11 @@ pub const qgeoserviceprovider = struct {
     ///
     /// ` self: QtC.QGeoServiceProvider `
     ///
-    /// ` parameters: map_constu8_qtcqvariant `
+    /// ` parameters: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetParameters(self: ?*anyopaque, parameters: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
+    pub fn SetParameters(self: ?*anyopaque, parameters: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
         const parameters_count = parameters.count();
         const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeoserviceprovider.SetParameters: Memory allocation failed");
         defer allocator.free(parameters_keys);

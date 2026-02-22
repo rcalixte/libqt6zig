@@ -1204,6 +1204,7 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = qidentityproxymodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return QIdentityProxyModel::mimeData(indexes);
@@ -1516,6 +1517,7 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
             QDataStream* cbval2 = &stream_ret;
 
             qidentityproxymodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             QIdentityProxyModel::encodeData(indexes, stream);
         }
@@ -1804,6 +1806,8 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             qidentityproxymodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             QIdentityProxyModel::changePersistentIndexList(from, to);
         }

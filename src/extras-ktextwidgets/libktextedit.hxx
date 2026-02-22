@@ -23,7 +23,7 @@ class VirtualKTextEdit final : public KTextEdit {
     using KTextEdit_SetReadOnly_Callback = void (*)(KTextEdit*, bool);
     using KTextEdit_SetCheckSpellingEnabled_Callback = void (*)(KTextEdit*, bool);
     using KTextEdit_CheckSpellingEnabled_Callback = bool (*)();
-    using KTextEdit_ShouldBlockBeSpellChecked_Callback = bool (*)(const KTextEdit*, libqt_string);
+    using KTextEdit_ShouldBlockBeSpellChecked_Callback = bool (*)(const KTextEdit*, const char*);
     using KTextEdit_CreateHighlighter_Callback = void (*)();
     using KTextEdit_MousePopupMenu_Callback = QMenu* (*)();
     using KTextEdit_Event_Callback = bool (*)(KTextEdit*, QEvent*);
@@ -669,16 +669,16 @@ class VirtualKTextEdit final : public KTextEdit {
             return KTextEdit::shouldBlockBeSpellChecked(block);
         } else if (ktextedit_shouldblockbespellchecked_callback != nullptr) {
             const QString block_ret = block;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray block_b = block_ret.toUtf8();
-            libqt_string block_str;
-            block_str.len = block_b.length();
-            block_str.data = static_cast<const char*>(malloc(block_str.len + 1));
-            memcpy((void*)block_str.data, block_b.data(), block_str.len);
-            ((char*)block_str.data)[block_str.len] = '\0';
-            libqt_string cbval1 = block_str;
+            auto block_str_len = block_b.length();
+            const char* block_str = static_cast<const char*>(malloc(block_str_len + 1));
+            memcpy((void*)block_str, block_b.data(), block_str_len);
+            ((char*)block_str)[block_str_len] = '\0';
+            const char* cbval1 = block_str;
 
             bool callback_ret = ktextedit_shouldblockbespellchecked_callback(this, cbval1);
+            libqt_free(block_str);
             return callback_ret;
         } else {
             return KTextEdit::shouldBlockBeSpellChecked(block);
@@ -1431,6 +1431,7 @@ class VirtualKTextEdit final : public KTextEdit {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = ktextedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KTextEdit::nativeEvent(eventType, message, result);

@@ -20,7 +20,7 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
     using KSvg__FrameSvg_MetaObject_Callback = QMetaObject* (*)();
     using KSvg__FrameSvg_Metacast_Callback = void* (*)(KSvg__FrameSvg*, const char*);
     using KSvg__FrameSvg_Metacall_Callback = int (*)(KSvg__FrameSvg*, int, int, void**);
-    using KSvg__FrameSvg_SetImagePath_Callback = void (*)(KSvg__FrameSvg*, libqt_string);
+    using KSvg__FrameSvg_SetImagePath_Callback = void (*)(KSvg__FrameSvg*, const char*);
     using KSvg__FrameSvg_Event_Callback = bool (*)(KSvg__FrameSvg*, QEvent*);
     using KSvg__FrameSvg_TimerEvent_Callback = void (*)(KSvg__FrameSvg*, QTimerEvent*);
     using KSvg__FrameSvg_ChildEvent_Callback = void (*)(KSvg__FrameSvg*, QChildEvent*);
@@ -170,16 +170,16 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
             KSvg__FrameSvg::setImagePath(path);
         } else if (ksvg__framesvg_setimagepath_callback != nullptr) {
             const QString path_ret = path;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
-            libqt_string path_str;
-            path_str.len = path_b.length();
-            path_str.data = static_cast<const char*>(malloc(path_str.len + 1));
-            memcpy((void*)path_str.data, path_b.data(), path_str.len);
-            ((char*)path_str.data)[path_str.len] = '\0';
-            libqt_string cbval1 = path_str;
+            auto path_str_len = path_b.length();
+            const char* path_str = static_cast<const char*>(malloc(path_str_len + 1));
+            memcpy((void*)path_str, path_b.data(), path_str_len);
+            ((char*)path_str)[path_str_len] = '\0';
+            const char* cbval1 = path_str;
 
             ksvg__framesvg_setimagepath_callback(this, cbval1);
+            libqt_free(path_str);
         } else {
             KSvg__FrameSvg::setImagePath(path);
         }

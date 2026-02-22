@@ -3318,15 +3318,13 @@ pub const qscilexercpp = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: QtC.QsciLexerCPP`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCPP, text: [*:0]const u8) callconv(.c) [*:0]u8 `
+    /// ` callback: *const fn (self: QtC.QsciLexerCPP, text: [*:0]const u8) callconv(.c) qtc.libqt_string `
     ///
-    pub fn OnTextAsBytes(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]u8) void {
+    pub fn OnTextAsBytes(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) qtc.libqt_string) void {
         qtc.QsciLexerCPP_OnTextAsBytes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 

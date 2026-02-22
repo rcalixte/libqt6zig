@@ -1020,6 +1020,7 @@ class VirtualKColorCombo final : public KColorCombo {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kcolorcombo_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KColorCombo::nativeEvent(eventType, message, result);

@@ -53,8 +53,8 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
     using QsciLexerFortran_SetEolFill_Callback = void (*)(QsciLexerFortran*, bool, int);
     using QsciLexerFortran_SetFont_Callback = void (*)(QsciLexerFortran*, QFont*, int);
     using QsciLexerFortran_SetPaper_Callback = void (*)(QsciLexerFortran*, QColor*, int);
-    using QsciLexerFortran_ReadProperties_Callback = bool (*)(QsciLexerFortran*, QSettings*, libqt_string);
-    using QsciLexerFortran_WriteProperties_Callback = bool (*)(const QsciLexerFortran*, QSettings*, libqt_string);
+    using QsciLexerFortran_ReadProperties_Callback = bool (*)(QsciLexerFortran*, QSettings*, const char*);
+    using QsciLexerFortran_WriteProperties_Callback = bool (*)(const QsciLexerFortran*, QSettings*, const char*);
     using QsciLexerFortran_Event_Callback = bool (*)(QsciLexerFortran*, QEvent*);
     using QsciLexerFortran_EventFilter_Callback = bool (*)(QsciLexerFortran*, QObject*, QEvent*);
     using QsciLexerFortran_TimerEvent_Callback = void (*)(QsciLexerFortran*, QTimerEvent*);
@@ -62,7 +62,7 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
     using QsciLexerFortran_CustomEvent_Callback = void (*)(QsciLexerFortran*, QEvent*);
     using QsciLexerFortran_ConnectNotify_Callback = void (*)(QsciLexerFortran*, QMetaMethod*);
     using QsciLexerFortran_DisconnectNotify_Callback = void (*)(QsciLexerFortran*, QMetaMethod*);
-    using QsciLexerFortran_TextAsBytes_Callback = libqt_string (*)(const QsciLexerFortran*, libqt_string);
+    using QsciLexerFortran_TextAsBytes_Callback = libqt_string (*)(const QsciLexerFortran*, const char*);
     using QsciLexerFortran_BytesAsText_Callback = const char* (*)(const QsciLexerFortran*, const char*, int);
     using QsciLexerFortran_Sender_Callback = QObject* (*)();
     using QsciLexerFortran_SenderSignalIndex_Callback = int (*)();
@@ -870,16 +870,16 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerfortran_readproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerFortran::readProperties(qs, prefix);
@@ -896,16 +896,16 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerfortran_writeproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerFortran::writeProperties(qs, prefix);
@@ -1024,17 +1024,17 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
             return QsciLexerFortran::textAsBytes(text);
         } else if (qscilexerfortran_textasbytes_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             libqt_string callback_ret = qscilexerfortran_textasbytes_callback(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            libqt_free(text_str);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerFortran::textAsBytes(text);

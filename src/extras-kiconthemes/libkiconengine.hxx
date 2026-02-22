@@ -29,7 +29,7 @@ class VirtualKIconEngine final : public KIconEngine {
     using KIconEngine_Read_Callback = bool (*)(KIconEngine*, QDataStream*);
     using KIconEngine_Write_Callback = bool (*)(const KIconEngine*, QDataStream*);
     using KIconEngine_AddPixmap_Callback = void (*)(KIconEngine*, QPixmap*, int, int);
-    using KIconEngine_AddFile_Callback = void (*)(KIconEngine*, libqt_string, QSize*, int, int);
+    using KIconEngine_AddFile_Callback = void (*)(KIconEngine*, const char*, QSize*, int, int);
     using KIconEngine_VirtualHook_Callback = void (*)(KIconEngine*, int, void*);
 
   protected:
@@ -334,14 +334,13 @@ class VirtualKIconEngine final : public KIconEngine {
             KIconEngine::addFile(fileName, size, mode, state);
         } else if (kiconengine_addfile_callback != nullptr) {
             const QString fileName_ret = fileName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray fileName_b = fileName_ret.toUtf8();
-            libqt_string fileName_str;
-            fileName_str.len = fileName_b.length();
-            fileName_str.data = static_cast<const char*>(malloc(fileName_str.len + 1));
-            memcpy((void*)fileName_str.data, fileName_b.data(), fileName_str.len);
-            ((char*)fileName_str.data)[fileName_str.len] = '\0';
-            libqt_string cbval1 = fileName_str;
+            auto fileName_str_len = fileName_b.length();
+            const char* fileName_str = static_cast<const char*>(malloc(fileName_str_len + 1));
+            memcpy((void*)fileName_str, fileName_b.data(), fileName_str_len);
+            ((char*)fileName_str)[fileName_str_len] = '\0';
+            const char* cbval1 = fileName_str;
             const QSize& size_ret = size;
             // Cast returned reference into pointer
             QSize* cbval2 = const_cast<QSize*>(&size_ret);
@@ -349,6 +348,7 @@ class VirtualKIconEngine final : public KIconEngine {
             int cbval4 = static_cast<int>(state);
 
             kiconengine_addfile_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_free(fileName_str);
         } else {
             KIconEngine::addFile(fileName, size, mode, state);
         }

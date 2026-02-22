@@ -59,7 +59,7 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
     using QGraphicsProxyWidget_Shape_Callback = QPainterPath* (*)();
     using QGraphicsProxyWidget_InitStyleOption_Callback = void (*)(const QGraphicsProxyWidget*, QStyleOption*);
     using QGraphicsProxyWidget_UpdateGeometry_Callback = void (*)();
-    using QGraphicsProxyWidget_PropertyChange_Callback = QVariant* (*)(QGraphicsProxyWidget*, libqt_string, QVariant*);
+    using QGraphicsProxyWidget_PropertyChange_Callback = QVariant* (*)(QGraphicsProxyWidget*, const char*, QVariant*);
     using QGraphicsProxyWidget_SceneEvent_Callback = bool (*)(QGraphicsProxyWidget*, QEvent*);
     using QGraphicsProxyWidget_WindowFrameEvent_Callback = bool (*)(QGraphicsProxyWidget*, QEvent*);
     using QGraphicsProxyWidget_WindowFrameSectionAt_Callback = int (*)(const QGraphicsProxyWidget*, QPointF*);
@@ -1105,19 +1105,19 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             return QGraphicsProxyWidget::propertyChange(propertyName, value);
         } else if (qgraphicsproxywidget_propertychange_callback != nullptr) {
             const QString propertyName_ret = propertyName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray propertyName_b = propertyName_ret.toUtf8();
-            libqt_string propertyName_str;
-            propertyName_str.len = propertyName_b.length();
-            propertyName_str.data = static_cast<const char*>(malloc(propertyName_str.len + 1));
-            memcpy((void*)propertyName_str.data, propertyName_b.data(), propertyName_str.len);
-            ((char*)propertyName_str.data)[propertyName_str.len] = '\0';
-            libqt_string cbval1 = propertyName_str;
+            auto propertyName_str_len = propertyName_b.length();
+            const char* propertyName_str = static_cast<const char*>(malloc(propertyName_str_len + 1));
+            memcpy((void*)propertyName_str, propertyName_b.data(), propertyName_str_len);
+            ((char*)propertyName_str)[propertyName_str_len] = '\0';
+            const char* cbval1 = propertyName_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             QVariant* callback_ret = qgraphicsproxywidget_propertychange_callback(this, cbval1, cbval2);
+            libqt_free(propertyName_str);
             return *callback_ret;
         } else {
             return QGraphicsProxyWidget::propertyChange(propertyName, value);

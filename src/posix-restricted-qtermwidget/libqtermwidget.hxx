@@ -27,24 +27,24 @@ class VirtualQTermWidget final : public QTermWidget {
     using QTermWidget_StartTerminalTeletype_Callback = void (*)();
     using QTermWidget_GetShellPID_Callback = int (*)();
     using QTermWidget_GetForegroundProcessId_Callback = int (*)();
-    using QTermWidget_ChangeDir_Callback = void (*)(QTermWidget*, libqt_string);
+    using QTermWidget_ChangeDir_Callback = void (*)(QTermWidget*, const char*);
     using QTermWidget_SetTerminalFont_Callback = void (*)(QTermWidget*, QFont*);
     using QTermWidget_GetTerminalFont_Callback = QFont* (*)();
     using QTermWidget_SetTerminalOpacity_Callback = void (*)(QTermWidget*, double);
-    using QTermWidget_SetTerminalBackgroundImage_Callback = void (*)(QTermWidget*, libqt_string);
+    using QTermWidget_SetTerminalBackgroundImage_Callback = void (*)(QTermWidget*, const char*);
     using QTermWidget_SetTerminalBackgroundMode_Callback = void (*)(QTermWidget*, int);
-    using QTermWidget_SetEnvironment_Callback = void (*)(QTermWidget*, libqt_list /* of libqt_string */);
-    using QTermWidget_SetShellProgram_Callback = void (*)(QTermWidget*, libqt_string);
-    using QTermWidget_SetWorkingDirectory_Callback = void (*)(QTermWidget*, libqt_string);
+    using QTermWidget_SetEnvironment_Callback = void (*)(QTermWidget*, const char**);
+    using QTermWidget_SetShellProgram_Callback = void (*)(QTermWidget*, const char*);
+    using QTermWidget_SetWorkingDirectory_Callback = void (*)(QTermWidget*, const char*);
     using QTermWidget_WorkingDirectory_Callback = const char* (*)();
-    using QTermWidget_SetArgs_Callback = void (*)(QTermWidget*, libqt_list /* of libqt_string */);
-    using QTermWidget_SetColorScheme_Callback = void (*)(QTermWidget*, libqt_string);
+    using QTermWidget_SetArgs_Callback = void (*)(QTermWidget*, const char**);
+    using QTermWidget_SetColorScheme_Callback = void (*)(QTermWidget*, const char*);
     using QTermWidget_GetAvailableColorSchemes_Callback = const char** (*)();
     using QTermWidget_SetHistorySize_Callback = void (*)(QTermWidget*, int);
     using QTermWidget_HistorySize_Callback = int (*)();
     using QTermWidget_SetScrollBarPosition_Callback = void (*)(QTermWidget*, int);
     using QTermWidget_ScrollToEnd_Callback = void (*)();
-    using QTermWidget_SendText_Callback = void (*)(QTermWidget*, libqt_string);
+    using QTermWidget_SendText_Callback = void (*)(QTermWidget*, const char*);
     using QTermWidget_SendKeyEvent_Callback = void (*)(QTermWidget*, QKeyEvent*);
     using QTermWidget_SetFlowControlEnabled_Callback = void (*)(QTermWidget*, bool);
     using QTermWidget_FlowControlEnabled_Callback = bool (*)();
@@ -71,7 +71,7 @@ class VirtualQTermWidget final : public QTermWidget {
     using QTermWidget_Title_Callback = const char* (*)();
     using QTermWidget_Icon_Callback = const char* (*)();
     using QTermWidget_IsTitleChanged_Callback = bool (*)();
-    using QTermWidget_BracketText_Callback = void (*)(QTermWidget*, libqt_string);
+    using QTermWidget_BracketText_Callback = void (*)(QTermWidget*, const char*);
     using QTermWidget_DisableBracketedPasteMode_Callback = void (*)(QTermWidget*, bool);
     using QTermWidget_BracketedPasteModeIsDisabled_Callback = bool (*)();
     using QTermWidget_SetMargin_Callback = void (*)(QTermWidget*, int);
@@ -81,7 +81,7 @@ class VirtualQTermWidget final : public QTermWidget {
     using QTermWidget_SetConfirmMultilinePaste_Callback = void (*)(QTermWidget*, bool);
     using QTermWidget_SetTrimPastedTrailingNewlines_Callback = void (*)(QTermWidget*, bool);
     using QTermWidget_WordCharacters_Callback = const char* (*)();
-    using QTermWidget_SetWordCharacters_Callback = void (*)(QTermWidget*, libqt_string);
+    using QTermWidget_SetWordCharacters_Callback = void (*)(QTermWidget*, const char*);
     using QTermWidget_CreateWidget_Callback = QTermWidgetInterface* (*)(const QTermWidget*, int);
     using QTermWidget_ResizeEvent_Callback = void (*)(QTermWidget*, QResizeEvent*);
     using QTermWidget_DevType_Callback = int (*)();
@@ -922,16 +922,16 @@ class VirtualQTermWidget final : public QTermWidget {
             QTermWidget::changeDir(dir);
         } else if (qtermwidget_changedir_callback != nullptr) {
             const QString dir_ret = dir;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dir_b = dir_ret.toUtf8();
-            libqt_string dir_str;
-            dir_str.len = dir_b.length();
-            dir_str.data = static_cast<const char*>(malloc(dir_str.len + 1));
-            memcpy((void*)dir_str.data, dir_b.data(), dir_str.len);
-            ((char*)dir_str.data)[dir_str.len] = '\0';
-            libqt_string cbval1 = dir_str;
+            auto dir_str_len = dir_b.length();
+            const char* dir_str = static_cast<const char*>(malloc(dir_str_len + 1));
+            memcpy((void*)dir_str, dir_b.data(), dir_str_len);
+            ((char*)dir_str)[dir_str_len] = '\0';
+            const char* cbval1 = dir_str;
 
             qtermwidget_changedir_callback(this, cbval1);
+            libqt_free(dir_str);
         } else {
             QTermWidget::changeDir(dir);
         }
@@ -987,16 +987,16 @@ class VirtualQTermWidget final : public QTermWidget {
             QTermWidget::setTerminalBackgroundImage(backgroundImage);
         } else if (qtermwidget_setterminalbackgroundimage_callback != nullptr) {
             const QString backgroundImage_ret = backgroundImage;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray backgroundImage_b = backgroundImage_ret.toUtf8();
-            libqt_string backgroundImage_str;
-            backgroundImage_str.len = backgroundImage_b.length();
-            backgroundImage_str.data = static_cast<const char*>(malloc(backgroundImage_str.len + 1));
-            memcpy((void*)backgroundImage_str.data, backgroundImage_b.data(), backgroundImage_str.len);
-            ((char*)backgroundImage_str.data)[backgroundImage_str.len] = '\0';
-            libqt_string cbval1 = backgroundImage_str;
+            auto backgroundImage_str_len = backgroundImage_b.length();
+            const char* backgroundImage_str = static_cast<const char*>(malloc(backgroundImage_str_len + 1));
+            memcpy((void*)backgroundImage_str, backgroundImage_b.data(), backgroundImage_str_len);
+            ((char*)backgroundImage_str)[backgroundImage_str_len] = '\0';
+            const char* cbval1 = backgroundImage_str;
 
             qtermwidget_setterminalbackgroundimage_callback(this, cbval1);
+            libqt_free(backgroundImage_str);
         } else {
             QTermWidget::setTerminalBackgroundImage(backgroundImage);
         }
@@ -1023,25 +1023,22 @@ class VirtualQTermWidget final : public QTermWidget {
             QTermWidget::setEnvironment(environment);
         } else if (qtermwidget_setenvironment_callback != nullptr) {
             const QList<QString>& environment_ret = environment;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* environment_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (environment_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** environment_arr = static_cast<const char**>(malloc(sizeof(const char*) * (environment_ret.size() + 1)));
             for (qsizetype i = 0; i < environment_ret.size(); ++i) {
-                QString environment_lv_ret = environment_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray environment_lv_b = environment_lv_ret.toUtf8();
-                libqt_string environment_lv_str;
-                environment_lv_str.len = environment_lv_b.length();
-                environment_lv_str.data = static_cast<const char*>(malloc(environment_lv_str.len + 1));
-                memcpy((void*)environment_lv_str.data, environment_lv_b.data(), environment_lv_str.len);
-                ((char*)environment_lv_str.data)[environment_lv_str.len] = '\0';
-                environment_arr[i] = environment_lv_str;
+                QByteArray environment_b = environment_ret[i].toUtf8();
+                auto environment_str_len = environment_b.length();
+                char* environment_str = static_cast<char*>(malloc(environment_str_len + 1));
+                memcpy(environment_str, environment_b.data(), environment_str_len);
+                environment_str[environment_str_len] = '\0';
+                environment_arr[i] = environment_str;
             }
-            libqt_list environment_out;
-            environment_out.len = environment_ret.size();
-            environment_out.data = static_cast<void*>(environment_arr);
-            libqt_list /* of libqt_string */ cbval1 = environment_out;
+            // Append sentinel null terminator to the list
+            environment_arr[environment_ret.size()] = nullptr;
+            const char** cbval1 = environment_arr;
 
             qtermwidget_setenvironment_callback(this, cbval1);
+            libqt_free(environment_arr);
         } else {
             QTermWidget::setEnvironment(environment);
         }
@@ -1054,16 +1051,16 @@ class VirtualQTermWidget final : public QTermWidget {
             QTermWidget::setShellProgram(program);
         } else if (qtermwidget_setshellprogram_callback != nullptr) {
             const QString program_ret = program;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray program_b = program_ret.toUtf8();
-            libqt_string program_str;
-            program_str.len = program_b.length();
-            program_str.data = static_cast<const char*>(malloc(program_str.len + 1));
-            memcpy((void*)program_str.data, program_b.data(), program_str.len);
-            ((char*)program_str.data)[program_str.len] = '\0';
-            libqt_string cbval1 = program_str;
+            auto program_str_len = program_b.length();
+            const char* program_str = static_cast<const char*>(malloc(program_str_len + 1));
+            memcpy((void*)program_str, program_b.data(), program_str_len);
+            ((char*)program_str)[program_str_len] = '\0';
+            const char* cbval1 = program_str;
 
             qtermwidget_setshellprogram_callback(this, cbval1);
+            libqt_free(program_str);
         } else {
             QTermWidget::setShellProgram(program);
         }
@@ -1076,16 +1073,16 @@ class VirtualQTermWidget final : public QTermWidget {
             QTermWidget::setWorkingDirectory(dir);
         } else if (qtermwidget_setworkingdirectory_callback != nullptr) {
             const QString dir_ret = dir;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dir_b = dir_ret.toUtf8();
-            libqt_string dir_str;
-            dir_str.len = dir_b.length();
-            dir_str.data = static_cast<const char*>(malloc(dir_str.len + 1));
-            memcpy((void*)dir_str.data, dir_b.data(), dir_str.len);
-            ((char*)dir_str.data)[dir_str.len] = '\0';
-            libqt_string cbval1 = dir_str;
+            auto dir_str_len = dir_b.length();
+            const char* dir_str = static_cast<const char*>(malloc(dir_str_len + 1));
+            memcpy((void*)dir_str, dir_b.data(), dir_str_len);
+            ((char*)dir_str)[dir_str_len] = '\0';
+            const char* cbval1 = dir_str;
 
             qtermwidget_setworkingdirectory_callback(this, cbval1);
+            libqt_free(dir_str);
         } else {
             QTermWidget::setWorkingDirectory(dir);
         }
@@ -1112,25 +1109,22 @@ class VirtualQTermWidget final : public QTermWidget {
             QTermWidget::setArgs(args);
         } else if (qtermwidget_setargs_callback != nullptr) {
             const QList<QString>& args_ret = args;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* args_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (args_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** args_arr = static_cast<const char**>(malloc(sizeof(const char*) * (args_ret.size() + 1)));
             for (qsizetype i = 0; i < args_ret.size(); ++i) {
-                QString args_lv_ret = args_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray args_lv_b = args_lv_ret.toUtf8();
-                libqt_string args_lv_str;
-                args_lv_str.len = args_lv_b.length();
-                args_lv_str.data = static_cast<const char*>(malloc(args_lv_str.len + 1));
-                memcpy((void*)args_lv_str.data, args_lv_b.data(), args_lv_str.len);
-                ((char*)args_lv_str.data)[args_lv_str.len] = '\0';
-                args_arr[i] = args_lv_str;
+                QByteArray args_b = args_ret[i].toUtf8();
+                auto args_str_len = args_b.length();
+                char* args_str = static_cast<char*>(malloc(args_str_len + 1));
+                memcpy(args_str, args_b.data(), args_str_len);
+                args_str[args_str_len] = '\0';
+                args_arr[i] = args_str;
             }
-            libqt_list args_out;
-            args_out.len = args_ret.size();
-            args_out.data = static_cast<void*>(args_arr);
-            libqt_list /* of libqt_string */ cbval1 = args_out;
+            // Append sentinel null terminator to the list
+            args_arr[args_ret.size()] = nullptr;
+            const char** cbval1 = args_arr;
 
             qtermwidget_setargs_callback(this, cbval1);
+            libqt_free(args_arr);
         } else {
             QTermWidget::setArgs(args);
         }
@@ -1143,16 +1137,16 @@ class VirtualQTermWidget final : public QTermWidget {
             QTermWidget::setColorScheme(name);
         } else if (qtermwidget_setcolorscheme_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             qtermwidget_setcolorscheme_callback(this, cbval1);
+            libqt_free(name_str);
         } else {
             QTermWidget::setColorScheme(name);
         }
@@ -1240,16 +1234,16 @@ class VirtualQTermWidget final : public QTermWidget {
             QTermWidget::sendText(text);
         } else if (qtermwidget_sendtext_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             qtermwidget_sendtext_callback(this, cbval1);
+            libqt_free(text_str);
         } else {
             QTermWidget::sendText(text);
         }
@@ -1635,16 +1629,16 @@ class VirtualQTermWidget final : public QTermWidget {
             QTermWidget::bracketText(text);
         } else if (qtermwidget_brackettext_callback != nullptr) {
             QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             qtermwidget_brackettext_callback(this, cbval1);
+            libqt_free(text_str);
         } else {
             QTermWidget::bracketText(text);
         }
@@ -1781,16 +1775,16 @@ class VirtualQTermWidget final : public QTermWidget {
             QTermWidget::setWordCharacters(chars);
         } else if (qtermwidget_setwordcharacters_callback != nullptr) {
             const QString chars_ret = chars;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray chars_b = chars_ret.toUtf8();
-            libqt_string chars_str;
-            chars_str.len = chars_b.length();
-            chars_str.data = static_cast<const char*>(malloc(chars_str.len + 1));
-            memcpy((void*)chars_str.data, chars_b.data(), chars_str.len);
-            ((char*)chars_str.data)[chars_str.len] = '\0';
-            libqt_string cbval1 = chars_str;
+            auto chars_str_len = chars_b.length();
+            const char* chars_str = static_cast<const char*>(malloc(chars_str_len + 1));
+            memcpy((void*)chars_str, chars_b.data(), chars_str_len);
+            ((char*)chars_str)[chars_str_len] = '\0';
+            const char* cbval1 = chars_str;
 
             qtermwidget_setwordcharacters_callback(this, cbval1);
+            libqt_free(chars_str);
         } else {
             QTermWidget::setWordCharacters(chars);
         }
@@ -2260,6 +2254,7 @@ class VirtualQTermWidget final : public QTermWidget {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qtermwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QTermWidget::nativeEvent(eventType, message, result);

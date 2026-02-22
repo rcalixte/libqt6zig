@@ -198,9 +198,10 @@ void KComboBox_Connect_ReturnPressed(KComboBox* self, intptr_t slot) {
         const QString text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
-        const char* text_str = static_cast<const char*>(malloc(text_b.length() + 1));
-        memcpy((void*)text_str, text_b.data(), text_b.length());
-        ((char*)text_str)[text_b.length()] = '\0';
+        auto text_str_len = text_b.length();
+        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+        memcpy((void*)text_str, text_b.data(), text_str_len);
+        ((char*)text_str)[text_str_len] = '\0';
         const char* sigval1 = text_str;
         slotFunc(self, sigval1);
         libqt_free(text_str);
@@ -218,9 +219,10 @@ void KComboBox_Connect_Completion(KComboBox* self, intptr_t slot) {
         const QString param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
-        const char* param1_str = static_cast<const char*>(malloc(param1_b.length() + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_b.length());
-        ((char*)param1_str)[param1_b.length()] = '\0';
+        auto param1_str_len = param1_b.length();
+        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+        ((char*)param1_str)[param1_str_len] = '\0';
         const char* sigval1 = param1_str;
         slotFunc(self, sigval1);
         libqt_free(param1_str);
@@ -238,9 +240,10 @@ void KComboBox_Connect_SubstringCompletion(KComboBox* self, intptr_t slot) {
         const QString param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
-        const char* param1_str = static_cast<const char*>(malloc(param1_b.length() + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_b.length());
-        ((char*)param1_str)[param1_b.length()] = '\0';
+        auto param1_str_len = param1_b.length();
+        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+        ((char*)param1_str)[param1_str_len] = '\0';
         const char* sigval1 = param1_str;
         slotFunc(self, sigval1);
         libqt_free(param1_str);

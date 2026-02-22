@@ -21,7 +21,7 @@ class VirtualQIconEngine : public QIconEngine {
     using QIconEngine_ActualSize_Callback = QSize* (*)(QIconEngine*, QSize*, int, int);
     using QIconEngine_Pixmap_Callback = QPixmap* (*)(QIconEngine*, QSize*, int, int);
     using QIconEngine_AddPixmap_Callback = void (*)(QIconEngine*, QPixmap*, int, int);
-    using QIconEngine_AddFile_Callback = void (*)(QIconEngine*, libqt_string, QSize*, int, int);
+    using QIconEngine_AddFile_Callback = void (*)(QIconEngine*, const char*, QSize*, int, int);
     using QIconEngine_Key_Callback = const char* (*)();
     using QIconEngine_Clone_Callback = QIconEngine* (*)();
     using QIconEngine_Read_Callback = bool (*)(QIconEngine*, QDataStream*);
@@ -194,14 +194,13 @@ class VirtualQIconEngine : public QIconEngine {
             QIconEngine::addFile(fileName, size, mode, state);
         } else if (qiconengine_addfile_callback != nullptr) {
             const QString fileName_ret = fileName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray fileName_b = fileName_ret.toUtf8();
-            libqt_string fileName_str;
-            fileName_str.len = fileName_b.length();
-            fileName_str.data = static_cast<const char*>(malloc(fileName_str.len + 1));
-            memcpy((void*)fileName_str.data, fileName_b.data(), fileName_str.len);
-            ((char*)fileName_str.data)[fileName_str.len] = '\0';
-            libqt_string cbval1 = fileName_str;
+            auto fileName_str_len = fileName_b.length();
+            const char* fileName_str = static_cast<const char*>(malloc(fileName_str_len + 1));
+            memcpy((void*)fileName_str, fileName_b.data(), fileName_str_len);
+            ((char*)fileName_str)[fileName_str_len] = '\0';
+            const char* cbval1 = fileName_str;
             const QSize& size_ret = size;
             // Cast returned reference into pointer
             QSize* cbval2 = const_cast<QSize*>(&size_ret);
@@ -209,6 +208,7 @@ class VirtualQIconEngine : public QIconEngine {
             int cbval4 = static_cast<int>(state);
 
             qiconengine_addfile_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_free(fileName_str);
         } else {
             QIconEngine::addFile(fileName, size, mode, state);
         }

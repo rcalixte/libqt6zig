@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qplacereply_enums = @import("libqplacereply.zig").enums;
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html)
 pub const qplacemanagerengine = struct {
@@ -12,11 +12,11 @@ pub const qplacemanagerengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parameters: map_constu8_qtcqvariant `
+    /// ` parameters: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New(parameters: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QPlaceManagerEngine {
+    pub fn New(parameters: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QPlaceManagerEngine {
         const parameters_count = parameters.count();
         const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qplacemanagerengine.New: Memory allocation failed");
         defer allocator.free(parameters_keys);
@@ -45,13 +45,13 @@ pub const qplacemanagerengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parameters: map_constu8_qtcqvariant `
+    /// ` parameters: arraymap_constu8_qtcqvariant `
     ///
     /// ` parent: QtC.QObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New2(parameters: map_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QPlaceManagerEngine {
+    pub fn New2(parameters: arraymap_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QPlaceManagerEngine {
         const parameters_count = parameters.count();
         const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qplacemanagerengine.New2: Memory allocation failed");
         defer allocator.free(parameters_keys);

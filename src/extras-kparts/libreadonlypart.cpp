@@ -170,9 +170,10 @@ void KParts__ReadOnlyPart_Connect_Canceled(KParts__ReadOnlyPart* self, intptr_t 
         const QString errMsg_ret = errMsg;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errMsg_b = errMsg_ret.toUtf8();
-        const char* errMsg_str = static_cast<const char*>(malloc(errMsg_b.length() + 1));
-        memcpy((void*)errMsg_str, errMsg_b.data(), errMsg_b.length());
-        ((char*)errMsg_str)[errMsg_b.length()] = '\0';
+        auto errMsg_str_len = errMsg_b.length();
+        const char* errMsg_str = static_cast<const char*>(malloc(errMsg_str_len + 1));
+        memcpy((void*)errMsg_str, errMsg_b.data(), errMsg_str_len);
+        ((char*)errMsg_str)[errMsg_str_len] = '\0';
         const char* sigval1 = errMsg_str;
         slotFunc(self, sigval1);
         libqt_free(errMsg_str);

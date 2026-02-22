@@ -191,6 +191,7 @@ class VirtualKFilterBase : public KFilterBase {
             libqt_string cbval1 = filename_str;
 
             bool callback_ret = kfilterbase_writeheader_callback(this, cbval1);
+            libqt_free(filename_str.data);
             return callback_ret;
         } else {
             return {};

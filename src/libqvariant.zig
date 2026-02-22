@@ -2,6 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qvariant_enums = enums;
 const std = @import("std");
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html)
@@ -249,11 +250,11 @@ pub const qvariant = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` mapVal: map_constu8_qtcqvariant `
+    /// ` mapVal: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New22(mapVal: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QVariant {
+    pub fn New22(mapVal: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QVariant {
         const mapVal_count = mapVal.count();
         const mapVal_keys = allocator.alloc(qtc.libqt_string, mapVal_count) catch @panic("qvariant.New22: Memory allocation failed");
         defer allocator.free(mapVal_keys);
@@ -901,9 +902,9 @@ pub const qvariant = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
+    pub fn ToMap(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_constu8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QVariant_ToMap(@ptrCast(self));
-        var _ret: map_constu8_qtcqvariant = .empty;
+        var _ret: arraymap_constu8_qtcqvariant = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {

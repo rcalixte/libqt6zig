@@ -114,16 +114,17 @@ void KOverlayIconPlugin_Connect_OverlaysChanged(KOverlayIconPlugin* self, intptr
         const char** overlays_arr = static_cast<const char**>(malloc(sizeof(const char*) * (overlays_ret.size() + 1)));
         for (qsizetype i = 0; i < overlays_ret.size(); ++i) {
             QByteArray overlays_b = overlays_ret[i].toUtf8();
-            char* overlays_str = static_cast<char*>(malloc(overlays_b.length() + 1));
-            memcpy(overlays_str, overlays_b.data(), overlays_b.length());
-            overlays_str[overlays_b.length()] = '\0';
+            auto overlays_str_len = overlays_b.length();
+            char* overlays_str = static_cast<char*>(malloc(overlays_str_len + 1));
+            memcpy(overlays_str, overlays_b.data(), overlays_str_len);
+            overlays_str[overlays_str_len] = '\0';
             overlays_arr[i] = overlays_str;
         }
         // Append sentinel null terminator to the list
         overlays_arr[overlays_ret.size()] = nullptr;
         const char** sigval2 = overlays_arr;
         slotFunc(self, sigval1, sigval2);
-        free(overlays_arr);
+        libqt_free(overlays_arr);
     });
 }
 

@@ -24,7 +24,7 @@ class VirtualKReplace final : public KReplace {
     using KReplace_ShouldRestart_Callback = bool (*)(const KReplace*, bool, bool);
     using KReplace_DisplayFinalDialog_Callback = void (*)();
     using KReplace_SetOptions_Callback = void (*)(KReplace*, long);
-    using KReplace_ValidateMatch_Callback = bool (*)(KReplace*, libqt_string, int, int);
+    using KReplace_ValidateMatch_Callback = bool (*)(KReplace*, const char*, int, int);
     using KReplace_Event_Callback = bool (*)(KReplace*, QEvent*);
     using KReplace_EventFilter_Callback = bool (*)(KReplace*, QObject*, QEvent*);
     using KReplace_TimerEvent_Callback = void (*)(KReplace*, QTimerEvent*);
@@ -267,18 +267,18 @@ class VirtualKReplace final : public KReplace {
             return KReplace::validateMatch(text, index, matchedlength);
         } else if (kreplace_validatematch_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
             int cbval2 = index;
             int cbval3 = matchedlength;
 
             bool callback_ret = kreplace_validatematch_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(text_str);
             return callback_ret;
         } else {
             return KReplace::validateMatch(text, index, matchedlength);

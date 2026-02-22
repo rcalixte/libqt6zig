@@ -20,9 +20,9 @@ class VirtualQMimeData final : public QMimeData {
     using QMimeData_MetaObject_Callback = QMetaObject* (*)();
     using QMimeData_Metacast_Callback = void* (*)(QMimeData*, const char*);
     using QMimeData_Metacall_Callback = int (*)(QMimeData*, int, int, void**);
-    using QMimeData_HasFormat_Callback = bool (*)(const QMimeData*, libqt_string);
+    using QMimeData_HasFormat_Callback = bool (*)(const QMimeData*, const char*);
     using QMimeData_Formats_Callback = const char** (*)();
-    using QMimeData_RetrieveData_Callback = QVariant* (*)(const QMimeData*, libqt_string, QMetaType*);
+    using QMimeData_RetrieveData_Callback = QVariant* (*)(const QMimeData*, const char*, QMetaType*);
     using QMimeData_Event_Callback = bool (*)(QMimeData*, QEvent*);
     using QMimeData_EventFilter_Callback = bool (*)(QMimeData*, QObject*, QEvent*);
     using QMimeData_TimerEvent_Callback = void (*)(QMimeData*, QTimerEvent*);
@@ -187,16 +187,16 @@ class VirtualQMimeData final : public QMimeData {
             return QMimeData::hasFormat(mimetype);
         } else if (qmimedata_hasformat_callback != nullptr) {
             const QString mimetype_ret = mimetype;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray mimetype_b = mimetype_ret.toUtf8();
-            libqt_string mimetype_str;
-            mimetype_str.len = mimetype_b.length();
-            mimetype_str.data = static_cast<const char*>(malloc(mimetype_str.len + 1));
-            memcpy((void*)mimetype_str.data, mimetype_b.data(), mimetype_str.len);
-            ((char*)mimetype_str.data)[mimetype_str.len] = '\0';
-            libqt_string cbval1 = mimetype_str;
+            auto mimetype_str_len = mimetype_b.length();
+            const char* mimetype_str = static_cast<const char*>(malloc(mimetype_str_len + 1));
+            memcpy((void*)mimetype_str, mimetype_b.data(), mimetype_str_len);
+            ((char*)mimetype_str)[mimetype_str_len] = '\0';
+            const char* cbval1 = mimetype_str;
 
             bool callback_ret = qmimedata_hasformat_callback(this, cbval1);
+            libqt_free(mimetype_str);
             return callback_ret;
         } else {
             return QMimeData::hasFormat(mimetype);
@@ -232,17 +232,17 @@ class VirtualQMimeData final : public QMimeData {
             return QMimeData::retrieveData(mimetype, preferredType);
         } else if (qmimedata_retrievedata_callback != nullptr) {
             const QString mimetype_ret = mimetype;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray mimetype_b = mimetype_ret.toUtf8();
-            libqt_string mimetype_str;
-            mimetype_str.len = mimetype_b.length();
-            mimetype_str.data = static_cast<const char*>(malloc(mimetype_str.len + 1));
-            memcpy((void*)mimetype_str.data, mimetype_b.data(), mimetype_str.len);
-            ((char*)mimetype_str.data)[mimetype_str.len] = '\0';
-            libqt_string cbval1 = mimetype_str;
+            auto mimetype_str_len = mimetype_b.length();
+            const char* mimetype_str = static_cast<const char*>(malloc(mimetype_str_len + 1));
+            memcpy((void*)mimetype_str, mimetype_b.data(), mimetype_str_len);
+            ((char*)mimetype_str)[mimetype_str_len] = '\0';
+            const char* cbval1 = mimetype_str;
             QMetaType* cbval2 = new QMetaType(preferredType);
 
             QVariant* callback_ret = qmimedata_retrievedata_callback(this, cbval1, cbval2);
+            libqt_free(mimetype_str);
             return *callback_ret;
         } else {
             return QMimeData::retrieveData(mimetype, preferredType);

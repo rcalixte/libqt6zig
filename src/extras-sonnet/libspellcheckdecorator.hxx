@@ -21,7 +21,7 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
     using Sonnet__SpellCheckDecorator_Metacast_Callback = void* (*)(Sonnet__SpellCheckDecorator*, const char*);
     using Sonnet__SpellCheckDecorator_Metacall_Callback = int (*)(Sonnet__SpellCheckDecorator*, int, int, void**);
     using Sonnet__SpellCheckDecorator_EventFilter_Callback = bool (*)(Sonnet__SpellCheckDecorator*, QObject*, QEvent*);
-    using Sonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock_Callback = bool (*)(const Sonnet__SpellCheckDecorator*, libqt_string);
+    using Sonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock_Callback = bool (*)(const Sonnet__SpellCheckDecorator*, const char*);
     using Sonnet__SpellCheckDecorator_Event_Callback = bool (*)(Sonnet__SpellCheckDecorator*, QEvent*);
     using Sonnet__SpellCheckDecorator_TimerEvent_Callback = void (*)(Sonnet__SpellCheckDecorator*, QTimerEvent*);
     using Sonnet__SpellCheckDecorator_ChildEvent_Callback = void (*)(Sonnet__SpellCheckDecorator*, QChildEvent*);
@@ -192,16 +192,16 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
             return Sonnet__SpellCheckDecorator::isSpellCheckingEnabledForBlock(textBlock);
         } else if (sonnet__spellcheckdecorator_isspellcheckingenabledforblock_callback != nullptr) {
             const QString textBlock_ret = textBlock;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray textBlock_b = textBlock_ret.toUtf8();
-            libqt_string textBlock_str;
-            textBlock_str.len = textBlock_b.length();
-            textBlock_str.data = static_cast<const char*>(malloc(textBlock_str.len + 1));
-            memcpy((void*)textBlock_str.data, textBlock_b.data(), textBlock_str.len);
-            ((char*)textBlock_str.data)[textBlock_str.len] = '\0';
-            libqt_string cbval1 = textBlock_str;
+            auto textBlock_str_len = textBlock_b.length();
+            const char* textBlock_str = static_cast<const char*>(malloc(textBlock_str_len + 1));
+            memcpy((void*)textBlock_str, textBlock_b.data(), textBlock_str_len);
+            ((char*)textBlock_str)[textBlock_str_len] = '\0';
+            const char* cbval1 = textBlock_str;
 
             bool callback_ret = sonnet__spellcheckdecorator_isspellcheckingenabledforblock_callback(this, cbval1);
+            libqt_free(textBlock_str);
             return callback_ret;
         } else {
             return Sonnet__SpellCheckDecorator::isSpellCheckingEnabledForBlock(textBlock);

@@ -29,7 +29,7 @@ class VirtualQDBusInterface final : public QDBusInterface {
     using QDBusInterface_CustomEvent_Callback = void (*)(QDBusInterface*, QEvent*);
     using QDBusInterface_InternalPropGet_Callback = QVariant* (*)(const QDBusInterface*, const char*);
     using QDBusInterface_InternalPropSet_Callback = void (*)(QDBusInterface*, const char*, QVariant*);
-    using QDBusInterface_InternalConstCall_Callback = QDBusMessage* (*)(const QDBusInterface*, int, libqt_string);
+    using QDBusInterface_InternalConstCall_Callback = QDBusMessage* (*)(const QDBusInterface*, int, const char*);
     using QDBusInterface_Sender_Callback = QObject* (*)();
     using QDBusInterface_SenderSignalIndex_Callback = int (*)();
     using QDBusInterface_Receivers_Callback = int (*)(const QDBusInterface*, const char*);
@@ -328,16 +328,16 @@ class VirtualQDBusInterface final : public QDBusInterface {
         } else if (qdbusinterface_internalconstcall_callback != nullptr) {
             int cbval1 = static_cast<int>(mode);
             const QString method_ret = method;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray method_b = method_ret.toUtf8();
-            libqt_string method_str;
-            method_str.len = method_b.length();
-            method_str.data = static_cast<const char*>(malloc(method_str.len + 1));
-            memcpy((void*)method_str.data, method_b.data(), method_str.len);
-            ((char*)method_str.data)[method_str.len] = '\0';
-            libqt_string cbval2 = method_str;
+            auto method_str_len = method_b.length();
+            const char* method_str = static_cast<const char*>(malloc(method_str_len + 1));
+            memcpy((void*)method_str, method_b.data(), method_str_len);
+            ((char*)method_str)[method_str_len] = '\0';
+            const char* cbval2 = method_str;
 
             QDBusMessage* callback_ret = qdbusinterface_internalconstcall_callback(this, cbval1, cbval2);
+            libqt_free(method_str);
             return *callback_ret;
         } else {
             return QDBusInterface::internalConstCall(mode, method);

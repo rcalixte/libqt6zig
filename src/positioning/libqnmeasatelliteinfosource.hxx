@@ -24,8 +24,8 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
     using QNmeaSatelliteInfoSource_SetUpdateInterval_Callback = void (*)(QNmeaSatelliteInfoSource*, int);
     using QNmeaSatelliteInfoSource_MinimumUpdateInterval_Callback = int (*)();
     using QNmeaSatelliteInfoSource_Error_Callback = int (*)();
-    using QNmeaSatelliteInfoSource_SetBackendProperty_Callback = bool (*)(QNmeaSatelliteInfoSource*, libqt_string, QVariant*);
-    using QNmeaSatelliteInfoSource_BackendProperty_Callback = QVariant* (*)(const QNmeaSatelliteInfoSource*, libqt_string);
+    using QNmeaSatelliteInfoSource_SetBackendProperty_Callback = bool (*)(QNmeaSatelliteInfoSource*, const char*, QVariant*);
+    using QNmeaSatelliteInfoSource_BackendProperty_Callback = QVariant* (*)(const QNmeaSatelliteInfoSource*, const char*);
     using QNmeaSatelliteInfoSource_StartUpdates_Callback = void (*)();
     using QNmeaSatelliteInfoSource_StopUpdates_Callback = void (*)();
     using QNmeaSatelliteInfoSource_RequestUpdate_Callback = void (*)(QNmeaSatelliteInfoSource*, int);
@@ -289,19 +289,19 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             return QNmeaSatelliteInfoSource::setBackendProperty(name, value);
         } else if (qnmeasatelliteinfosource_setbackendproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             bool callback_ret = qnmeasatelliteinfosource_setbackendproperty_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QNmeaSatelliteInfoSource::setBackendProperty(name, value);
@@ -315,16 +315,16 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             return QNmeaSatelliteInfoSource::backendProperty(name);
         } else if (qnmeasatelliteinfosource_backendproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QVariant* callback_ret = qnmeasatelliteinfosource_backendproperty_callback(this, cbval1);
+            libqt_free(name_str);
             return *callback_ret;
         } else {
             return QNmeaSatelliteInfoSource::backendProperty(name);
@@ -389,6 +389,7 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             libqt_list /* of int */ cbval3 = pnrsInUse_out;
 
             int callback_ret = qnmeasatelliteinfosource_parsesatellitesinusefromnmea_callback(this, cbval1, cbval2, cbval3);
+            free(pnrsInUse_arr);
             return static_cast<QGeoSatelliteInfo::SatelliteSystem>(callback_ret);
         } else {
             return QNmeaSatelliteInfoSource::parseSatellitesInUseFromNmea(data, size, pnrsInUse);
@@ -417,6 +418,7 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             int* cbval4 = reinterpret_cast<int*>(&system);
 
             int callback_ret = qnmeasatelliteinfosource_parsesatelliteinfofromnmea_callback(this, cbval1, cbval2, cbval3, cbval4);
+            free(infos_arr);
             return static_cast<VirtualQNmeaSatelliteInfoSource::SatelliteInfoParseStatus>(callback_ret);
         } else {
             return QNmeaSatelliteInfoSource::parseSatelliteInfoFromNmea(data, size, infos, system);
@@ -552,6 +554,8 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             libqt_list /* of int */ cbval2 = pnrsInUse_out;
 
             int callback_ret = qnmeasatelliteinfosource_parsesatellitesinusefromnmea2_callback(this, cbval1, cbval2);
+            libqt_free(data_str.data);
+            free(pnrsInUse_arr);
             return static_cast<QGeoSatelliteInfo::SatelliteSystem>(callback_ret);
         } else {
             return QNmeaSatelliteInfoSource::parseSatellitesInUseFromNmea(data, pnrsInUse);
@@ -584,6 +588,8 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             int* cbval3 = reinterpret_cast<int*>(&system);
 
             int callback_ret = qnmeasatelliteinfosource_parsesatelliteinfofromnmea2_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(data_str.data);
+            free(infos_arr);
             return static_cast<VirtualQNmeaSatelliteInfoSource::SatelliteInfoParseStatus>(callback_ret);
         } else {
             return QNmeaSatelliteInfoSource::parseSatelliteInfoFromNmea(data, infos, system);

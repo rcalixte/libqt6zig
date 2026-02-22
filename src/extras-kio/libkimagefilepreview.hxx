@@ -73,7 +73,7 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
     using KImageFilePreview_DisconnectNotify_Callback = void (*)(KImageFilePreview*, QMetaMethod*);
     using KImageFilePreview_ShowPreview2_Callback = void (*)();
     using KImageFilePreview_ShowPreview3_Callback = void (*)(KImageFilePreview*, QUrl*, bool);
-    using KImageFilePreview_SetSupportedMimeTypes_Callback = void (*)(KImageFilePreview*, libqt_list /* of libqt_string */);
+    using KImageFilePreview_SetSupportedMimeTypes_Callback = void (*)(KImageFilePreview*, const char**);
     using KImageFilePreview_UpdateMicroFocus_Callback = void (*)();
     using KImageFilePreview_Create_Callback = void (*)();
     using KImageFilePreview_Destroy_Callback = void (*)();
@@ -1009,6 +1009,7 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kimagefilepreview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KImageFilePreview::nativeEvent(eventType, message, result);
@@ -1256,25 +1257,22 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
             KImageFilePreview::setSupportedMimeTypes(mimeTypes);
         } else if (kimagefilepreview_setsupportedmimetypes_callback != nullptr) {
             const QList<QString>& mimeTypes_ret = mimeTypes;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* mimeTypes_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (mimeTypes_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** mimeTypes_arr = static_cast<const char**>(malloc(sizeof(const char*) * (mimeTypes_ret.size() + 1)));
             for (qsizetype i = 0; i < mimeTypes_ret.size(); ++i) {
-                QString mimeTypes_lv_ret = mimeTypes_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray mimeTypes_lv_b = mimeTypes_lv_ret.toUtf8();
-                libqt_string mimeTypes_lv_str;
-                mimeTypes_lv_str.len = mimeTypes_lv_b.length();
-                mimeTypes_lv_str.data = static_cast<const char*>(malloc(mimeTypes_lv_str.len + 1));
-                memcpy((void*)mimeTypes_lv_str.data, mimeTypes_lv_b.data(), mimeTypes_lv_str.len);
-                ((char*)mimeTypes_lv_str.data)[mimeTypes_lv_str.len] = '\0';
-                mimeTypes_arr[i] = mimeTypes_lv_str;
+                QByteArray mimeTypes_b = mimeTypes_ret[i].toUtf8();
+                auto mimeTypes_str_len = mimeTypes_b.length();
+                char* mimeTypes_str = static_cast<char*>(malloc(mimeTypes_str_len + 1));
+                memcpy(mimeTypes_str, mimeTypes_b.data(), mimeTypes_str_len);
+                mimeTypes_str[mimeTypes_str_len] = '\0';
+                mimeTypes_arr[i] = mimeTypes_str;
             }
-            libqt_list mimeTypes_out;
-            mimeTypes_out.len = mimeTypes_ret.size();
-            mimeTypes_out.data = static_cast<void*>(mimeTypes_arr);
-            libqt_list /* of libqt_string */ cbval1 = mimeTypes_out;
+            // Append sentinel null terminator to the list
+            mimeTypes_arr[mimeTypes_ret.size()] = nullptr;
+            const char** cbval1 = mimeTypes_arr;
 
             kimagefilepreview_setsupportedmimetypes_callback(this, cbval1);
+            libqt_free(mimeTypes_arr);
         } else {
             KImageFilePreview::setSupportedMimeTypes(mimeTypes);
         }

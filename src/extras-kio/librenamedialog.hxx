@@ -72,7 +72,7 @@ class VirtualKIORenameDialog final : public KIO::RenameDialog {
     using KIO__RenameDialog_CustomEvent_Callback = void (*)(KIO__RenameDialog*, QEvent*);
     using KIO__RenameDialog_ConnectNotify_Callback = void (*)(KIO__RenameDialog*, QMetaMethod*);
     using KIO__RenameDialog_DisconnectNotify_Callback = void (*)(KIO__RenameDialog*, QMetaMethod*);
-    using KIO__RenameDialog_EnableRenameButton_Callback = void (*)(KIO__RenameDialog*, libqt_string);
+    using KIO__RenameDialog_EnableRenameButton_Callback = void (*)(KIO__RenameDialog*, const char*);
     using KIO__RenameDialog_AdjustPosition_Callback = void (*)(KIO__RenameDialog*, QWidget*);
     using KIO__RenameDialog_UpdateMicroFocus_Callback = void (*)();
     using KIO__RenameDialog_Create_Callback = void (*)();
@@ -1027,6 +1027,7 @@ class VirtualKIORenameDialog final : public KIO::RenameDialog {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kio__renamedialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KIO__RenameDialog::nativeEvent(eventType, message, result);
@@ -1229,16 +1230,16 @@ class VirtualKIORenameDialog final : public KIO::RenameDialog {
             KIO__RenameDialog::enableRenameButton(param1);
         } else if (kio__renamedialog_enablerenamebutton_callback != nullptr) {
             const QString param1_ret = param1;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
-            libqt_string param1_str;
-            param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-            ((char*)param1_str.data)[param1_str.len] = '\0';
-            libqt_string cbval1 = param1_str;
+            auto param1_str_len = param1_b.length();
+            const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+            memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+            ((char*)param1_str)[param1_str_len] = '\0';
+            const char* cbval1 = param1_str;
 
             kio__renamedialog_enablerenamebutton_callback(this, cbval1);
+            libqt_free(param1_str);
         } else {
             KIO__RenameDialog::enableRenameButton(param1);
         }

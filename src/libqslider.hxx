@@ -984,6 +984,7 @@ class VirtualQSlider final : public QSlider {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qslider_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QSlider::nativeEvent(eventType, message, result);

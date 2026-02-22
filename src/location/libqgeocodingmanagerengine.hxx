@@ -21,7 +21,7 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
     using QGeoCodingManagerEngine_Metacast_Callback = void* (*)(QGeoCodingManagerEngine*, const char*);
     using QGeoCodingManagerEngine_Metacall_Callback = int (*)(QGeoCodingManagerEngine*, int, int, void**);
     using QGeoCodingManagerEngine_Geocode_Callback = QGeoCodeReply* (*)(QGeoCodingManagerEngine*, QGeoAddress*, QGeoShape*);
-    using QGeoCodingManagerEngine_Geocode2_Callback = QGeoCodeReply* (*)(QGeoCodingManagerEngine*, libqt_string, int, int, QGeoShape*);
+    using QGeoCodingManagerEngine_Geocode2_Callback = QGeoCodeReply* (*)(QGeoCodingManagerEngine*, const char*, int, int, QGeoShape*);
     using QGeoCodingManagerEngine_ReverseGeocode_Callback = QGeoCodeReply* (*)(QGeoCodingManagerEngine*, QGeoCoordinate*, QGeoShape*);
     using QGeoCodingManagerEngine_Event_Callback = bool (*)(QGeoCodingManagerEngine*, QEvent*);
     using QGeoCodingManagerEngine_EventFilter_Callback = bool (*)(QGeoCodingManagerEngine*, QObject*, QEvent*);
@@ -208,14 +208,13 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
             return QGeoCodingManagerEngine::geocode(address, limit, offset, bounds);
         } else if (qgeocodingmanagerengine_geocode2_callback != nullptr) {
             const QString address_ret = address;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray address_b = address_ret.toUtf8();
-            libqt_string address_str;
-            address_str.len = address_b.length();
-            address_str.data = static_cast<const char*>(malloc(address_str.len + 1));
-            memcpy((void*)address_str.data, address_b.data(), address_str.len);
-            ((char*)address_str.data)[address_str.len] = '\0';
-            libqt_string cbval1 = address_str;
+            auto address_str_len = address_b.length();
+            const char* address_str = static_cast<const char*>(malloc(address_str_len + 1));
+            memcpy((void*)address_str, address_b.data(), address_str_len);
+            ((char*)address_str)[address_str_len] = '\0';
+            const char* cbval1 = address_str;
             int cbval2 = limit;
             int cbval3 = offset;
             const QGeoShape& bounds_ret = bounds;
@@ -223,6 +222,7 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
             QGeoShape* cbval4 = const_cast<QGeoShape*>(&bounds_ret);
 
             QGeoCodeReply* callback_ret = qgeocodingmanagerengine_geocode2_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_free(address_str);
             return callback_ret;
         } else {
             return QGeoCodingManagerEngine::geocode(address, limit, offset, bounds);

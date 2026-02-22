@@ -22,7 +22,7 @@ class VirtualKFind final : public KFind {
     using KFind_Metacall_Callback = int (*)(KFind*, int, int, void**);
     using KFind_SetOptions_Callback = void (*)(KFind*, long);
     using KFind_ResetCounts_Callback = void (*)();
-    using KFind_ValidateMatch_Callback = bool (*)(KFind*, libqt_string, int, int);
+    using KFind_ValidateMatch_Callback = bool (*)(KFind*, const char*, int, int);
     using KFind_ShouldRestart_Callback = bool (*)(const KFind*, bool, bool);
     using KFind_DisplayFinalDialog_Callback = void (*)();
     using KFind_Event_Callback = bool (*)(KFind*, QEvent*);
@@ -238,18 +238,18 @@ class VirtualKFind final : public KFind {
             return KFind::validateMatch(text, index, matchedlength);
         } else if (kfind_validatematch_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
             int cbval2 = index;
             int cbval3 = matchedlength;
 
             bool callback_ret = kfind_validatematch_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(text_str);
             return callback_ret;
         } else {
             return KFind::validateMatch(text, index, matchedlength);

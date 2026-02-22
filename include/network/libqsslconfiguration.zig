@@ -5,7 +5,7 @@ const qsslcertificate_enums = @import("libqsslcertificate.zig").enums;
 const qsslconfiguration_enums = enums;
 const qsslsocket_enums = @import("libqsslsocket.zig").enums;
 const std = @import("std");
-const map_u8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_u8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html)
 pub const qsslconfiguration = struct {
@@ -629,9 +629,9 @@ pub const qsslconfiguration = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BackendConfiguration(self: ?*anyopaque, allocator: std.mem.Allocator) map_u8_qtcqvariant {
+    pub fn BackendConfiguration(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_u8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QSslConfiguration_BackendConfiguration(@ptrCast(self));
-        var _ret: map_u8_qtcqvariant = .empty;
+        var _ret: arraymap_u8_qtcqvariant = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -928,11 +928,11 @@ pub const qsslconfiguration = struct {
     ///
     /// ` self: QtC.QSslConfiguration `
     ///
-    /// ` backendConfiguration: map_u8_qtcqvariant `
+    /// ` backendConfiguration: arraymap_u8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetBackendConfiguration1(self: ?*anyopaque, backendConfiguration: map_u8_qtcqvariant, allocator: std.mem.Allocator) void {
+    pub fn SetBackendConfiguration1(self: ?*anyopaque, backendConfiguration: arraymap_u8_qtcqvariant, allocator: std.mem.Allocator) void {
         const backendConfiguration_count = backendConfiguration.count();
         const backendConfiguration_keys = allocator.alloc(qtc.libqt_string, backendConfiguration_count) catch @panic("qsslconfiguration.SetBackendConfiguration1: Memory allocation failed");
         defer allocator.free(backendConfiguration_keys);

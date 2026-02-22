@@ -18,7 +18,7 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual class public types (including callbacks)
     using KIO__WorkerBase_AppConnectionMade_Callback = void (*)();
-    using KIO__WorkerBase_SetHost_Callback = void (*)(KIO__WorkerBase*, libqt_string, uint16_t, libqt_string, libqt_string);
+    using KIO__WorkerBase_SetHost_Callback = void (*)(KIO__WorkerBase*, const char*, uint16_t, const char*, const char*);
     using KIO__WorkerBase_OpenConnection_Callback = KIO__WorkerResult* (*)();
     using KIO__WorkerBase_CloseConnection_Callback = void (*)();
     using KIO__WorkerBase_Get_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*);
@@ -34,9 +34,9 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
     using KIO__WorkerBase_ListDir_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*);
     using KIO__WorkerBase_Mkdir_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*, int);
     using KIO__WorkerBase_Rename_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*, QUrl*, int);
-    using KIO__WorkerBase_Symlink_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, libqt_string, QUrl*, int);
+    using KIO__WorkerBase_Symlink_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, const char*, QUrl*, int);
     using KIO__WorkerBase_Chmod_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*, int);
-    using KIO__WorkerBase_Chown_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*, libqt_string, libqt_string);
+    using KIO__WorkerBase_Chown_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*, const char*, const char*);
     using KIO__WorkerBase_SetModificationTime_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*, QDateTime*);
     using KIO__WorkerBase_Copy_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*, QUrl*, int, int);
     using KIO__WorkerBase_Del_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*, bool);
@@ -214,35 +214,35 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             KIO__WorkerBase::setHost(host, port, user, pass);
         } else if (kio__workerbase_sethost_callback != nullptr) {
             const QString host_ret = host;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray host_b = host_ret.toUtf8();
-            libqt_string host_str;
-            host_str.len = host_b.length();
-            host_str.data = static_cast<const char*>(malloc(host_str.len + 1));
-            memcpy((void*)host_str.data, host_b.data(), host_str.len);
-            ((char*)host_str.data)[host_str.len] = '\0';
-            libqt_string cbval1 = host_str;
+            auto host_str_len = host_b.length();
+            const char* host_str = static_cast<const char*>(malloc(host_str_len + 1));
+            memcpy((void*)host_str, host_b.data(), host_str_len);
+            ((char*)host_str)[host_str_len] = '\0';
+            const char* cbval1 = host_str;
             uint16_t cbval2 = static_cast<uint16_t>(port);
             const QString user_ret = user;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray user_b = user_ret.toUtf8();
-            libqt_string user_str;
-            user_str.len = user_b.length();
-            user_str.data = static_cast<const char*>(malloc(user_str.len + 1));
-            memcpy((void*)user_str.data, user_b.data(), user_str.len);
-            ((char*)user_str.data)[user_str.len] = '\0';
-            libqt_string cbval3 = user_str;
+            auto user_str_len = user_b.length();
+            const char* user_str = static_cast<const char*>(malloc(user_str_len + 1));
+            memcpy((void*)user_str, user_b.data(), user_str_len);
+            ((char*)user_str)[user_str_len] = '\0';
+            const char* cbval3 = user_str;
             const QString pass_ret = pass;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray pass_b = pass_ret.toUtf8();
-            libqt_string pass_str;
-            pass_str.len = pass_b.length();
-            pass_str.data = static_cast<const char*>(malloc(pass_str.len + 1));
-            memcpy((void*)pass_str.data, pass_b.data(), pass_str.len);
-            ((char*)pass_str.data)[pass_str.len] = '\0';
-            libqt_string cbval4 = pass_str;
+            auto pass_str_len = pass_b.length();
+            const char* pass_str = static_cast<const char*>(malloc(pass_str_len + 1));
+            memcpy((void*)pass_str, pass_b.data(), pass_str_len);
+            ((char*)pass_str)[pass_str_len] = '\0';
+            const char* cbval4 = pass_str;
 
             kio__workerbase_sethost_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_free(host_str);
+            libqt_free(user_str);
+            libqt_free(pass_str);
         } else {
             KIO__WorkerBase::setHost(host, port, user, pass);
         }
@@ -337,6 +337,7 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             libqt_string cbval1 = data_str;
 
             KIO__WorkerResult* callback_ret = kio__workerbase_write_callback(this, cbval1);
+            libqt_free(data_str.data);
             return *callback_ret;
         } else {
             return KIO__WorkerBase::write(data);
@@ -502,20 +503,20 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             return KIO__WorkerBase::symlink(target, dest, flags);
         } else if (kio__workerbase_symlink_callback != nullptr) {
             const QString target_ret = target;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray target_b = target_ret.toUtf8();
-            libqt_string target_str;
-            target_str.len = target_b.length();
-            target_str.data = static_cast<const char*>(malloc(target_str.len + 1));
-            memcpy((void*)target_str.data, target_b.data(), target_str.len);
-            ((char*)target_str.data)[target_str.len] = '\0';
-            libqt_string cbval1 = target_str;
+            auto target_str_len = target_b.length();
+            const char* target_str = static_cast<const char*>(malloc(target_str_len + 1));
+            memcpy((void*)target_str, target_b.data(), target_str_len);
+            ((char*)target_str)[target_str_len] = '\0';
+            const char* cbval1 = target_str;
             const QUrl& dest_ret = dest;
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&dest_ret);
             int cbval3 = static_cast<int>(flags);
 
             KIO__WorkerResult* callback_ret = kio__workerbase_symlink_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(target_str);
             return *callback_ret;
         } else {
             return KIO__WorkerBase::symlink(target, dest, flags);
@@ -550,25 +551,25 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             const QString owner_ret = owner;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray owner_b = owner_ret.toUtf8();
-            libqt_string owner_str;
-            owner_str.len = owner_b.length();
-            owner_str.data = static_cast<const char*>(malloc(owner_str.len + 1));
-            memcpy((void*)owner_str.data, owner_b.data(), owner_str.len);
-            ((char*)owner_str.data)[owner_str.len] = '\0';
-            libqt_string cbval2 = owner_str;
+            auto owner_str_len = owner_b.length();
+            const char* owner_str = static_cast<const char*>(malloc(owner_str_len + 1));
+            memcpy((void*)owner_str, owner_b.data(), owner_str_len);
+            ((char*)owner_str)[owner_str_len] = '\0';
+            const char* cbval2 = owner_str;
             const QString group_ret = group;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
-            libqt_string group_str;
-            group_str.len = group_b.length();
-            group_str.data = static_cast<const char*>(malloc(group_str.len + 1));
-            memcpy((void*)group_str.data, group_b.data(), group_str.len);
-            ((char*)group_str.data)[group_str.len] = '\0';
-            libqt_string cbval3 = group_str;
+            auto group_str_len = group_b.length();
+            const char* group_str = static_cast<const char*>(malloc(group_str_len + 1));
+            memcpy((void*)group_str, group_b.data(), group_str_len);
+            ((char*)group_str)[group_str_len] = '\0';
+            const char* cbval3 = group_str;
 
             KIO__WorkerResult* callback_ret = kio__workerbase_chown_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(owner_str);
+            libqt_free(group_str);
             return *callback_ret;
         } else {
             return KIO__WorkerBase::chown(url, owner, group);
@@ -649,6 +650,7 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             libqt_string cbval1 = data_str;
 
             KIO__WorkerResult* callback_ret = kio__workerbase_special_callback(this, cbval1);
+            libqt_free(data_str.data);
             return *callback_ret;
         } else {
             return KIO__WorkerBase::special(data);

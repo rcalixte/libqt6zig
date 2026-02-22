@@ -1050,6 +1050,7 @@ class VirtualQPdfView final : public QPdfView {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qpdfview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QPdfView::nativeEvent(eventType, message, result);

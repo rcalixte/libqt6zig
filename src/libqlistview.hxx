@@ -58,7 +58,7 @@ class VirtualQListView final : public QListView {
     using QListView_ViewportSizeHint_Callback = QSize* (*)();
     using QListView_SetModel_Callback = void (*)(QListView*, QAbstractItemModel*);
     using QListView_SetSelectionModel_Callback = void (*)(QListView*, QItemSelectionModel*);
-    using QListView_KeyboardSearch_Callback = void (*)(QListView*, libqt_string);
+    using QListView_KeyboardSearch_Callback = void (*)(QListView*, const char*);
     using QListView_SizeHintForRow_Callback = int (*)(const QListView*, int);
     using QListView_SizeHintForColumn_Callback = int (*)(const QListView*, int);
     using QListView_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const QListView*, QModelIndex*);
@@ -959,6 +959,7 @@ class VirtualQListView final : public QListView {
             libqt_list /* of int */ cbval3 = roles_out;
 
             qlistview_datachanged_callback(this, cbval1, cbval2, cbval3);
+            free(roles_arr);
         } else {
             QListView::dataChanged(topLeft, bottomRight, roles);
         }
@@ -1365,16 +1366,16 @@ class VirtualQListView final : public QListView {
             QListView::keyboardSearch(search);
         } else if (qlistview_keyboardsearch_callback != nullptr) {
             const QString search_ret = search;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
-            libqt_string search_str;
-            search_str.len = search_b.length();
-            search_str.data = static_cast<const char*>(malloc(search_str.len + 1));
-            memcpy((void*)search_str.data, search_b.data(), search_str.len);
-            ((char*)search_str.data)[search_str.len] = '\0';
-            libqt_string cbval1 = search_str;
+            auto search_str_len = search_b.length();
+            const char* search_str = static_cast<const char*>(malloc(search_str_len + 1));
+            memcpy((void*)search_str, search_b.data(), search_str_len);
+            ((char*)search_str)[search_str_len] = '\0';
+            const char* cbval1 = search_str;
 
             qlistview_keyboardsearch_callback(this, cbval1);
+            libqt_free(search_str);
         } else {
             QListView::keyboardSearch(search);
         }
@@ -2051,6 +2052,7 @@ class VirtualQListView final : public QListView {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qlistview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QListView::nativeEvent(eventType, message, result);

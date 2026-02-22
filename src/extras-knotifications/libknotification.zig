@@ -4,7 +4,7 @@ const knotification_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/knotificationaction.html)
 pub const knotificationaction = struct {
@@ -2564,9 +2564,9 @@ pub const knotification = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Hints(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
+    pub fn Hints(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_constu8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.KNotification_Hints(@ptrCast(self));
-        var _ret: map_constu8_qtcqvariant = .empty;
+        var _ret: arraymap_constu8_qtcqvariant = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -2594,11 +2594,11 @@ pub const knotification = struct {
     ///
     /// ` self: QtC.KNotification `
     ///
-    /// ` hints: map_constu8_qtcqvariant `
+    /// ` hints: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetHints(self: ?*anyopaque, hints: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
+    pub fn SetHints(self: ?*anyopaque, hints: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
         const hints_count = hints.count();
         const hints_keys = allocator.alloc(qtc.libqt_string, hints_count) catch @panic("knotification.SetHints: Memory allocation failed");
         defer allocator.free(hints_keys);

@@ -50,17 +50,17 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
     using KParts__ReadWritePart_DomDocument_Callback = QDomDocument* (*)();
     using KParts__ReadWritePart_XmlFile_Callback = const char* (*)();
     using KParts__ReadWritePart_LocalXMLFile_Callback = const char* (*)();
-    using KParts__ReadWritePart_SetComponentName_Callback = void (*)(KParts__ReadWritePart*, libqt_string, libqt_string);
-    using KParts__ReadWritePart_SetXMLFile_Callback = void (*)(KParts__ReadWritePart*, libqt_string, bool, bool);
-    using KParts__ReadWritePart_SetLocalXMLFile_Callback = void (*)(KParts__ReadWritePart*, libqt_string);
-    using KParts__ReadWritePart_SetXML_Callback = void (*)(KParts__ReadWritePart*, libqt_string, bool);
+    using KParts__ReadWritePart_SetComponentName_Callback = void (*)(KParts__ReadWritePart*, const char*, const char*);
+    using KParts__ReadWritePart_SetXMLFile_Callback = void (*)(KParts__ReadWritePart*, const char*, bool, bool);
+    using KParts__ReadWritePart_SetLocalXMLFile_Callback = void (*)(KParts__ReadWritePart*, const char*);
+    using KParts__ReadWritePart_SetXML_Callback = void (*)(KParts__ReadWritePart*, const char*, bool);
     using KParts__ReadWritePart_SetDOMDocument_Callback = void (*)(KParts__ReadWritePart*, QDomDocument*, bool);
-    using KParts__ReadWritePart_StateChanged_Callback = void (*)(KParts__ReadWritePart*, libqt_string, int);
+    using KParts__ReadWritePart_StateChanged_Callback = void (*)(KParts__ReadWritePart*, const char*, int);
     using KParts__ReadWritePart_AbortLoad_Callback = void (*)();
     using KParts__ReadWritePart_SetUrl_Callback = void (*)(KParts__ReadWritePart*, QUrl*);
     using KParts__ReadWritePart_LocalFilePath_Callback = const char* (*)();
-    using KParts__ReadWritePart_SetLocalFilePath_Callback = void (*)(KParts__ReadWritePart*, libqt_string);
-    using KParts__ReadWritePart_HostContainer_Callback = QWidget* (*)(KParts__ReadWritePart*, libqt_string);
+    using KParts__ReadWritePart_SetLocalFilePath_Callback = void (*)(KParts__ReadWritePart*, const char*);
+    using KParts__ReadWritePart_HostContainer_Callback = QWidget* (*)(KParts__ReadWritePart*, const char*);
     using KParts__ReadWritePart_SlotWidgetDestroyed_Callback = void (*)();
     using KParts__ReadWritePart_Sender_Callback = QObject* (*)();
     using KParts__ReadWritePart_SenderSignalIndex_Callback = int (*)();
@@ -822,25 +822,25 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             KParts__ReadWritePart::setComponentName(componentName, componentDisplayName);
         } else if (kparts__readwritepart_setcomponentname_callback != nullptr) {
             const QString componentName_ret = componentName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentName_b = componentName_ret.toUtf8();
-            libqt_string componentName_str;
-            componentName_str.len = componentName_b.length();
-            componentName_str.data = static_cast<const char*>(malloc(componentName_str.len + 1));
-            memcpy((void*)componentName_str.data, componentName_b.data(), componentName_str.len);
-            ((char*)componentName_str.data)[componentName_str.len] = '\0';
-            libqt_string cbval1 = componentName_str;
+            auto componentName_str_len = componentName_b.length();
+            const char* componentName_str = static_cast<const char*>(malloc(componentName_str_len + 1));
+            memcpy((void*)componentName_str, componentName_b.data(), componentName_str_len);
+            ((char*)componentName_str)[componentName_str_len] = '\0';
+            const char* cbval1 = componentName_str;
             const QString componentDisplayName_ret = componentDisplayName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentDisplayName_b = componentDisplayName_ret.toUtf8();
-            libqt_string componentDisplayName_str;
-            componentDisplayName_str.len = componentDisplayName_b.length();
-            componentDisplayName_str.data = static_cast<const char*>(malloc(componentDisplayName_str.len + 1));
-            memcpy((void*)componentDisplayName_str.data, componentDisplayName_b.data(), componentDisplayName_str.len);
-            ((char*)componentDisplayName_str.data)[componentDisplayName_str.len] = '\0';
-            libqt_string cbval2 = componentDisplayName_str;
+            auto componentDisplayName_str_len = componentDisplayName_b.length();
+            const char* componentDisplayName_str = static_cast<const char*>(malloc(componentDisplayName_str_len + 1));
+            memcpy((void*)componentDisplayName_str, componentDisplayName_b.data(), componentDisplayName_str_len);
+            ((char*)componentDisplayName_str)[componentDisplayName_str_len] = '\0';
+            const char* cbval2 = componentDisplayName_str;
 
             kparts__readwritepart_setcomponentname_callback(this, cbval1, cbval2);
+            libqt_free(componentName_str);
+            libqt_free(componentDisplayName_str);
         } else {
             KParts__ReadWritePart::setComponentName(componentName, componentDisplayName);
         }
@@ -853,18 +853,18 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             KParts__ReadWritePart::setXMLFile(file, merge, setXMLDoc);
         } else if (kparts__readwritepart_setxmlfile_callback != nullptr) {
             const QString file_ret = file;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
-            libqt_string file_str;
-            file_str.len = file_b.length();
-            file_str.data = static_cast<const char*>(malloc(file_str.len + 1));
-            memcpy((void*)file_str.data, file_b.data(), file_str.len);
-            ((char*)file_str.data)[file_str.len] = '\0';
-            libqt_string cbval1 = file_str;
+            auto file_str_len = file_b.length();
+            const char* file_str = static_cast<const char*>(malloc(file_str_len + 1));
+            memcpy((void*)file_str, file_b.data(), file_str_len);
+            ((char*)file_str)[file_str_len] = '\0';
+            const char* cbval1 = file_str;
             bool cbval2 = merge;
             bool cbval3 = setXMLDoc;
 
             kparts__readwritepart_setxmlfile_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(file_str);
         } else {
             KParts__ReadWritePart::setXMLFile(file, merge, setXMLDoc);
         }
@@ -877,16 +877,16 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             KParts__ReadWritePart::setLocalXMLFile(file);
         } else if (kparts__readwritepart_setlocalxmlfile_callback != nullptr) {
             const QString file_ret = file;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
-            libqt_string file_str;
-            file_str.len = file_b.length();
-            file_str.data = static_cast<const char*>(malloc(file_str.len + 1));
-            memcpy((void*)file_str.data, file_b.data(), file_str.len);
-            ((char*)file_str.data)[file_str.len] = '\0';
-            libqt_string cbval1 = file_str;
+            auto file_str_len = file_b.length();
+            const char* file_str = static_cast<const char*>(malloc(file_str_len + 1));
+            memcpy((void*)file_str, file_b.data(), file_str_len);
+            ((char*)file_str)[file_str_len] = '\0';
+            const char* cbval1 = file_str;
 
             kparts__readwritepart_setlocalxmlfile_callback(this, cbval1);
+            libqt_free(file_str);
         } else {
             KParts__ReadWritePart::setLocalXMLFile(file);
         }
@@ -899,17 +899,17 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             KParts__ReadWritePart::setXML(document, merge);
         } else if (kparts__readwritepart_setxml_callback != nullptr) {
             const QString document_ret = document;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray document_b = document_ret.toUtf8();
-            libqt_string document_str;
-            document_str.len = document_b.length();
-            document_str.data = static_cast<const char*>(malloc(document_str.len + 1));
-            memcpy((void*)document_str.data, document_b.data(), document_str.len);
-            ((char*)document_str.data)[document_str.len] = '\0';
-            libqt_string cbval1 = document_str;
+            auto document_str_len = document_b.length();
+            const char* document_str = static_cast<const char*>(malloc(document_str_len + 1));
+            memcpy((void*)document_str, document_b.data(), document_str_len);
+            ((char*)document_str)[document_str_len] = '\0';
+            const char* cbval1 = document_str;
             bool cbval2 = merge;
 
             kparts__readwritepart_setxml_callback(this, cbval1, cbval2);
+            libqt_free(document_str);
         } else {
             KParts__ReadWritePart::setXML(document, merge);
         }
@@ -939,17 +939,17 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             KParts__ReadWritePart::stateChanged(newstate, reverse);
         } else if (kparts__readwritepart_statechanged_callback != nullptr) {
             const QString newstate_ret = newstate;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
-            libqt_string newstate_str;
-            newstate_str.len = newstate_b.length();
-            newstate_str.data = static_cast<const char*>(malloc(newstate_str.len + 1));
-            memcpy((void*)newstate_str.data, newstate_b.data(), newstate_str.len);
-            ((char*)newstate_str.data)[newstate_str.len] = '\0';
-            libqt_string cbval1 = newstate_str;
+            auto newstate_str_len = newstate_b.length();
+            const char* newstate_str = static_cast<const char*>(malloc(newstate_str_len + 1));
+            memcpy((void*)newstate_str, newstate_b.data(), newstate_str_len);
+            ((char*)newstate_str)[newstate_str_len] = '\0';
+            const char* cbval1 = newstate_str;
             int cbval2 = static_cast<int>(reverse);
 
             kparts__readwritepart_statechanged_callback(this, cbval1, cbval2);
+            libqt_free(newstate_str);
         } else {
             KParts__ReadWritePart::stateChanged(newstate, reverse);
         }
@@ -1004,16 +1004,16 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             KParts__ReadWritePart::setLocalFilePath(localFilePath);
         } else if (kparts__readwritepart_setlocalfilepath_callback != nullptr) {
             const QString localFilePath_ret = localFilePath;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray localFilePath_b = localFilePath_ret.toUtf8();
-            libqt_string localFilePath_str;
-            localFilePath_str.len = localFilePath_b.length();
-            localFilePath_str.data = static_cast<const char*>(malloc(localFilePath_str.len + 1));
-            memcpy((void*)localFilePath_str.data, localFilePath_b.data(), localFilePath_str.len);
-            ((char*)localFilePath_str.data)[localFilePath_str.len] = '\0';
-            libqt_string cbval1 = localFilePath_str;
+            auto localFilePath_str_len = localFilePath_b.length();
+            const char* localFilePath_str = static_cast<const char*>(malloc(localFilePath_str_len + 1));
+            memcpy((void*)localFilePath_str, localFilePath_b.data(), localFilePath_str_len);
+            ((char*)localFilePath_str)[localFilePath_str_len] = '\0';
+            const char* cbval1 = localFilePath_str;
 
             kparts__readwritepart_setlocalfilepath_callback(this, cbval1);
+            libqt_free(localFilePath_str);
         } else {
             KParts__ReadWritePart::setLocalFilePath(localFilePath);
         }
@@ -1026,16 +1026,16 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             return KParts__ReadWritePart::hostContainer(containerName);
         } else if (kparts__readwritepart_hostcontainer_callback != nullptr) {
             const QString containerName_ret = containerName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray containerName_b = containerName_ret.toUtf8();
-            libqt_string containerName_str;
-            containerName_str.len = containerName_b.length();
-            containerName_str.data = static_cast<const char*>(malloc(containerName_str.len + 1));
-            memcpy((void*)containerName_str.data, containerName_b.data(), containerName_str.len);
-            ((char*)containerName_str.data)[containerName_str.len] = '\0';
-            libqt_string cbval1 = containerName_str;
+            auto containerName_str_len = containerName_b.length();
+            const char* containerName_str = static_cast<const char*>(malloc(containerName_str_len + 1));
+            memcpy((void*)containerName_str, containerName_b.data(), containerName_str_len);
+            ((char*)containerName_str)[containerName_str_len] = '\0';
+            const char* cbval1 = containerName_str;
 
             QWidget* callback_ret = kparts__readwritepart_hostcontainer_callback(this, cbval1);
+            libqt_free(containerName_str);
             return callback_ret;
         } else {
             return KParts__ReadWritePart::hostContainer(containerName);

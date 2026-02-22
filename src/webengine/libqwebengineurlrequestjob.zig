@@ -4,8 +4,8 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qwebengineurlrequestjob_enums = enums;
 const std = @import("std");
-const map_u8_sliceu8 = std.StringHashMapUnmanaged([][]u8);
-const map_u8_u8 = std.StringHashMapUnmanaged([]u8);
+const arraymap_u8_sliceu8 = std.StringArrayHashMapUnmanaged([][]u8);
+const arraymap_u8_u8 = std.StringArrayHashMapUnmanaged([]u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestjob.html)
 pub const qwebengineurlrequestjob = struct {
@@ -105,9 +105,9 @@ pub const qwebengineurlrequestjob = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RequestHeaders(self: ?*anyopaque, allocator: std.mem.Allocator) map_u8_u8 {
+    pub fn RequestHeaders(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_u8_u8 {
         const _map: qtc.libqt_map = qtc.QWebEngineUrlRequestJob_RequestHeaders(@ptrCast(self));
-        var _ret: map_u8_u8 = .empty;
+        var _ret: arraymap_u8_u8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -191,11 +191,11 @@ pub const qwebengineurlrequestjob = struct {
     ///
     /// ` self: QtC.QWebEngineUrlRequestJob `
     ///
-    /// ` additionalResponseHeaders: map_u8_sliceu8 `
+    /// ` additionalResponseHeaders: arraymap_u8_sliceu8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetAdditionalResponseHeaders(self: ?*anyopaque, additionalResponseHeaders: map_u8_sliceu8, allocator: std.mem.Allocator) void {
+    pub fn SetAdditionalResponseHeaders(self: ?*anyopaque, additionalResponseHeaders: arraymap_u8_sliceu8, allocator: std.mem.Allocator) void {
         const additionalResponseHeaders_count = additionalResponseHeaders.count();
         const additionalResponseHeaders_keys = allocator.alloc(qtc.libqt_string, additionalResponseHeaders_count) catch @panic("qwebengineurlrequestjob.SetAdditionalResponseHeaders: Memory allocation failed");
         defer allocator.free(additionalResponseHeaders_keys);

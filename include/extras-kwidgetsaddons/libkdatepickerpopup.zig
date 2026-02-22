@@ -8,7 +8,7 @@ const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
-const map_qtcqdate_constu8 = std.AutoHashMapUnmanaged(QtC.QDate, []const u8);
+const arraymap_qtcqdate_constu8 = std.AutoArrayHashMapUnmanaged(QtC.QDate, []const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kdatepickerpopup.html)
 pub const kdatepickerpopup = struct {
@@ -233,9 +233,9 @@ pub const kdatepickerpopup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DateMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_qtcqdate_constu8 {
+    pub fn DateMap(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_qtcqdate_constu8 {
         const _map: qtc.libqt_map = qtc.KDatePickerPopup_DateMap(@ptrCast(self));
-        var _ret: map_qtcqdate_constu8 = .empty;
+        var _ret: arraymap_qtcqdate_constu8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -263,11 +263,11 @@ pub const kdatepickerpopup = struct {
     ///
     /// ` self: QtC.KDatePickerPopup `
     ///
-    /// ` dateMap: map_qtcqdate_constu8 `
+    /// ` dateMap: arraymap_qtcqdate_constu8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetDateMap(self: ?*anyopaque, dateMap: map_qtcqdate_constu8, allocator: std.mem.Allocator) void {
+    pub fn SetDateMap(self: ?*anyopaque, dateMap: arraymap_qtcqdate_constu8, allocator: std.mem.Allocator) void {
         const dateMap_count = dateMap.count();
         const dateMap_keys = allocator.alloc(?*anyopaque, dateMap_count) catch @panic("kdatepickerpopup.SetDateMap: Memory allocation failed");
         defer allocator.free(dateMap_keys);

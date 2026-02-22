@@ -497,9 +497,10 @@ void QFileDialog_Connect_FileSelected(QFileDialog* self, intptr_t slot) {
         const QString file_ret = file;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray file_b = file_ret.toUtf8();
-        const char* file_str = static_cast<const char*>(malloc(file_b.length() + 1));
-        memcpy((void*)file_str, file_b.data(), file_b.length());
-        ((char*)file_str)[file_b.length()] = '\0';
+        auto file_str_len = file_b.length();
+        const char* file_str = static_cast<const char*>(malloc(file_str_len + 1));
+        memcpy((void*)file_str, file_b.data(), file_str_len);
+        ((char*)file_str)[file_str_len] = '\0';
         const char* sigval1 = file_str;
         slotFunc(self, sigval1);
         libqt_free(file_str);
@@ -525,16 +526,17 @@ void QFileDialog_Connect_FilesSelected(QFileDialog* self, intptr_t slot) {
         const char** files_arr = static_cast<const char**>(malloc(sizeof(const char*) * (files_ret.size() + 1)));
         for (qsizetype i = 0; i < files_ret.size(); ++i) {
             QByteArray files_b = files_ret[i].toUtf8();
-            char* files_str = static_cast<char*>(malloc(files_b.length() + 1));
-            memcpy(files_str, files_b.data(), files_b.length());
-            files_str[files_b.length()] = '\0';
+            auto files_str_len = files_b.length();
+            char* files_str = static_cast<char*>(malloc(files_str_len + 1));
+            memcpy(files_str, files_b.data(), files_str_len);
+            files_str[files_str_len] = '\0';
             files_arr[i] = files_str;
         }
         // Append sentinel null terminator to the list
         files_arr[files_ret.size()] = nullptr;
         const char** sigval1 = files_arr;
         slotFunc(self, sigval1);
-        free(files_arr);
+        libqt_free(files_arr);
     });
 }
 
@@ -549,9 +551,10 @@ void QFileDialog_Connect_CurrentChanged(QFileDialog* self, intptr_t slot) {
         const QString path_ret = path;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray path_b = path_ret.toUtf8();
-        const char* path_str = static_cast<const char*>(malloc(path_b.length() + 1));
-        memcpy((void*)path_str, path_b.data(), path_b.length());
-        ((char*)path_str)[path_b.length()] = '\0';
+        auto path_str_len = path_b.length();
+        const char* path_str = static_cast<const char*>(malloc(path_str_len + 1));
+        memcpy((void*)path_str, path_b.data(), path_str_len);
+        ((char*)path_str)[path_str_len] = '\0';
         const char* sigval1 = path_str;
         slotFunc(self, sigval1);
         libqt_free(path_str);
@@ -569,9 +572,10 @@ void QFileDialog_Connect_DirectoryEntered(QFileDialog* self, intptr_t slot) {
         const QString directory_ret = directory;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray directory_b = directory_ret.toUtf8();
-        const char* directory_str = static_cast<const char*>(malloc(directory_b.length() + 1));
-        memcpy((void*)directory_str, directory_b.data(), directory_b.length());
-        ((char*)directory_str)[directory_b.length()] = '\0';
+        auto directory_str_len = directory_b.length();
+        const char* directory_str = static_cast<const char*>(malloc(directory_str_len + 1));
+        memcpy((void*)directory_str, directory_b.data(), directory_str_len);
+        ((char*)directory_str)[directory_str_len] = '\0';
         const char* sigval1 = directory_str;
         slotFunc(self, sigval1);
         libqt_free(directory_str);
@@ -659,9 +663,10 @@ void QFileDialog_Connect_FilterSelected(QFileDialog* self, intptr_t slot) {
         const QString filter_ret = filter;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray filter_b = filter_ret.toUtf8();
-        const char* filter_str = static_cast<const char*>(malloc(filter_b.length() + 1));
-        memcpy((void*)filter_str, filter_b.data(), filter_b.length());
-        ((char*)filter_str)[filter_b.length()] = '\0';
+        auto filter_str_len = filter_b.length();
+        const char* filter_str = static_cast<const char*>(malloc(filter_str_len + 1));
+        memcpy((void*)filter_str, filter_b.data(), filter_str_len);
+        ((char*)filter_str)[filter_str_len] = '\0';
         const char* sigval1 = filter_str;
         slotFunc(self, sigval1);
         libqt_free(filter_str);

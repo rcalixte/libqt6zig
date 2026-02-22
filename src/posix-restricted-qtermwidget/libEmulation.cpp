@@ -278,9 +278,10 @@ void Konsole__Emulation_Connect_TitleChanged(Konsole__Emulation* self, intptr_t 
         const QString newTitle_ret = newTitle;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray newTitle_b = newTitle_ret.toUtf8();
-        const char* newTitle_str = static_cast<const char*>(malloc(newTitle_b.length() + 1));
-        memcpy((void*)newTitle_str, newTitle_b.data(), newTitle_b.length());
-        ((char*)newTitle_str)[newTitle_b.length()] = '\0';
+        auto newTitle_str_len = newTitle_b.length();
+        const char* newTitle_str = static_cast<const char*>(malloc(newTitle_str_len + 1));
+        memcpy((void*)newTitle_str, newTitle_b.data(), newTitle_str_len);
+        ((char*)newTitle_str)[newTitle_str_len] = '\0';
         const char* sigval2 = newTitle_str;
         slotFunc(self, sigval1, sigval2);
         libqt_free(newTitle_str);
@@ -336,9 +337,10 @@ void Konsole__Emulation_Connect_ProfileChangeCommandReceived(Konsole__Emulation*
         const QString text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
-        const char* text_str = static_cast<const char*>(malloc(text_b.length() + 1));
-        memcpy((void*)text_str, text_b.data(), text_b.length());
-        ((char*)text_str)[text_b.length()] = '\0';
+        auto text_str_len = text_b.length();
+        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+        memcpy((void*)text_str, text_b.data(), text_str_len);
+        ((char*)text_str)[text_str_len] = '\0';
         const char* sigval1 = text_str;
         slotFunc(self, sigval1);
         libqt_free(text_str);

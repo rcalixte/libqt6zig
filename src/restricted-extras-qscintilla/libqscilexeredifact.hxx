@@ -52,8 +52,8 @@ class VirtualQsciLexerEDIFACT final : public QsciLexerEDIFACT {
     using QsciLexerEDIFACT_SetEolFill_Callback = void (*)(QsciLexerEDIFACT*, bool, int);
     using QsciLexerEDIFACT_SetFont_Callback = void (*)(QsciLexerEDIFACT*, QFont*, int);
     using QsciLexerEDIFACT_SetPaper_Callback = void (*)(QsciLexerEDIFACT*, QColor*, int);
-    using QsciLexerEDIFACT_ReadProperties_Callback = bool (*)(QsciLexerEDIFACT*, QSettings*, libqt_string);
-    using QsciLexerEDIFACT_WriteProperties_Callback = bool (*)(const QsciLexerEDIFACT*, QSettings*, libqt_string);
+    using QsciLexerEDIFACT_ReadProperties_Callback = bool (*)(QsciLexerEDIFACT*, QSettings*, const char*);
+    using QsciLexerEDIFACT_WriteProperties_Callback = bool (*)(const QsciLexerEDIFACT*, QSettings*, const char*);
     using QsciLexerEDIFACT_Event_Callback = bool (*)(QsciLexerEDIFACT*, QEvent*);
     using QsciLexerEDIFACT_EventFilter_Callback = bool (*)(QsciLexerEDIFACT*, QObject*, QEvent*);
     using QsciLexerEDIFACT_TimerEvent_Callback = void (*)(QsciLexerEDIFACT*, QTimerEvent*);
@@ -61,7 +61,7 @@ class VirtualQsciLexerEDIFACT final : public QsciLexerEDIFACT {
     using QsciLexerEDIFACT_CustomEvent_Callback = void (*)(QsciLexerEDIFACT*, QEvent*);
     using QsciLexerEDIFACT_ConnectNotify_Callback = void (*)(QsciLexerEDIFACT*, QMetaMethod*);
     using QsciLexerEDIFACT_DisconnectNotify_Callback = void (*)(QsciLexerEDIFACT*, QMetaMethod*);
-    using QsciLexerEDIFACT_TextAsBytes_Callback = libqt_string (*)(const QsciLexerEDIFACT*, libqt_string);
+    using QsciLexerEDIFACT_TextAsBytes_Callback = libqt_string (*)(const QsciLexerEDIFACT*, const char*);
     using QsciLexerEDIFACT_BytesAsText_Callback = const char* (*)(const QsciLexerEDIFACT*, const char*, int);
     using QsciLexerEDIFACT_Sender_Callback = QObject* (*)();
     using QsciLexerEDIFACT_SenderSignalIndex_Callback = int (*)();
@@ -850,16 +850,16 @@ class VirtualQsciLexerEDIFACT final : public QsciLexerEDIFACT {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexeredifact_readproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerEDIFACT::readProperties(qs, prefix);
@@ -876,16 +876,16 @@ class VirtualQsciLexerEDIFACT final : public QsciLexerEDIFACT {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexeredifact_writeproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerEDIFACT::writeProperties(qs, prefix);
@@ -1004,17 +1004,17 @@ class VirtualQsciLexerEDIFACT final : public QsciLexerEDIFACT {
             return QsciLexerEDIFACT::textAsBytes(text);
         } else if (qscilexeredifact_textasbytes_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             libqt_string callback_ret = qscilexeredifact_textasbytes_callback(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            libqt_free(text_str);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerEDIFACT::textAsBytes(text);

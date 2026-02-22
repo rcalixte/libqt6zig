@@ -982,6 +982,7 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = kcategorizedsortfilterproxymodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return KCategorizedSortFilterProxyModel::mimeData(indexes);
@@ -1656,6 +1657,7 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             QDataStream* cbval2 = &stream_ret;
 
             kcategorizedsortfilterproxymodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             KCategorizedSortFilterProxyModel::encodeData(indexes, stream);
         }
@@ -1944,6 +1946,8 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             kcategorizedsortfilterproxymodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             KCategorizedSortFilterProxyModel::changePersistentIndexList(from, to);
         }

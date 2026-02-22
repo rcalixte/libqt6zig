@@ -127,9 +127,10 @@ void KContextualHelpButton_Connect_ContextualHelpTextChanged(KContextualHelpButt
         const QString newContextualHelpText_ret = newContextualHelpText;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray newContextualHelpText_b = newContextualHelpText_ret.toUtf8();
-        const char* newContextualHelpText_str = static_cast<const char*>(malloc(newContextualHelpText_b.length() + 1));
-        memcpy((void*)newContextualHelpText_str, newContextualHelpText_b.data(), newContextualHelpText_b.length());
-        ((char*)newContextualHelpText_str)[newContextualHelpText_b.length()] = '\0';
+        auto newContextualHelpText_str_len = newContextualHelpText_b.length();
+        const char* newContextualHelpText_str = static_cast<const char*>(malloc(newContextualHelpText_str_len + 1));
+        memcpy((void*)newContextualHelpText_str, newContextualHelpText_b.data(), newContextualHelpText_str_len);
+        ((char*)newContextualHelpText_str)[newContextualHelpText_str_len] = '\0';
         const char* sigval1 = newContextualHelpText_str;
         slotFunc(self, sigval1);
         libqt_free(newContextualHelpText_str);

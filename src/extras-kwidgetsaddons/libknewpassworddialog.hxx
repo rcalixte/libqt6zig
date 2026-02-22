@@ -21,7 +21,7 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
     using KNewPasswordDialog_Metacast_Callback = void* (*)(KNewPasswordDialog*, const char*);
     using KNewPasswordDialog_Metacall_Callback = int (*)(KNewPasswordDialog*, int, int, void**);
     using KNewPasswordDialog_Accept_Callback = void (*)();
-    using KNewPasswordDialog_CheckPassword_Callback = bool (*)(KNewPasswordDialog*, libqt_string);
+    using KNewPasswordDialog_CheckPassword_Callback = bool (*)(KNewPasswordDialog*, const char*);
     using KNewPasswordDialog_SetVisible_Callback = void (*)(KNewPasswordDialog*, bool);
     using KNewPasswordDialog_SizeHint_Callback = QSize* (*)();
     using KNewPasswordDialog_MinimumSizeHint_Callback = QSize* (*)();
@@ -500,16 +500,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
             return KNewPasswordDialog::checkPassword(param1);
         } else if (knewpassworddialog_checkpassword_callback != nullptr) {
             const QString param1_ret = param1;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
-            libqt_string param1_str;
-            param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-            ((char*)param1_str.data)[param1_str.len] = '\0';
-            libqt_string cbval1 = param1_str;
+            auto param1_str_len = param1_b.length();
+            const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+            memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+            ((char*)param1_str)[param1_str_len] = '\0';
+            const char* cbval1 = param1_str;
 
             bool callback_ret = knewpassworddialog_checkpassword_callback(this, cbval1);
+            libqt_free(param1_str);
             return callback_ret;
         } else {
             return KNewPasswordDialog::checkPassword(param1);
@@ -1045,6 +1045,7 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = knewpassworddialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KNewPasswordDialog::nativeEvent(eventType, message, result);

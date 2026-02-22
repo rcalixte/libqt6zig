@@ -21,12 +21,12 @@ class VirtualQsciScintilla final : public QsciScintilla {
     using QsciScintilla_Metacast_Callback = void* (*)(QsciScintilla*, const char*);
     using QsciScintilla_Metacall_Callback = int (*)(QsciScintilla*, int, int, void**);
     using QsciScintilla_ApiContext_Callback = const char** (*)(QsciScintilla*, int, int*, int*);
-    using QsciScintilla_FindFirst_Callback = bool (*)(QsciScintilla*, libqt_string, bool, bool, bool, bool, bool, int, int, bool, bool, bool);
-    using QsciScintilla_FindFirstInSelection_Callback = bool (*)(QsciScintilla*, libqt_string, bool, bool, bool, bool, bool, bool, bool);
+    using QsciScintilla_FindFirst_Callback = bool (*)(QsciScintilla*, const char*, bool, bool, bool, bool, bool, int, int, bool, bool, bool);
+    using QsciScintilla_FindFirstInSelection_Callback = bool (*)(QsciScintilla*, const char*, bool, bool, bool, bool, bool, bool, bool);
     using QsciScintilla_FindNext_Callback = bool (*)();
     using QsciScintilla_Recolor_Callback = void (*)(QsciScintilla*, int, int);
-    using QsciScintilla_Replace_Callback = void (*)(QsciScintilla*, libqt_string);
-    using QsciScintilla_Append_Callback = void (*)(QsciScintilla*, libqt_string);
+    using QsciScintilla_Replace_Callback = void (*)(QsciScintilla*, const char*);
+    using QsciScintilla_Append_Callback = void (*)(QsciScintilla*, const char*);
     using QsciScintilla_AutoCompleteFromAll_Callback = void (*)();
     using QsciScintilla_AutoCompleteFromAPIs_Callback = void (*)();
     using QsciScintilla_AutoCompleteFromDocument_Callback = void (*)();
@@ -39,13 +39,13 @@ class VirtualQsciScintilla final : public QsciScintilla {
     using QsciScintilla_FoldAll_Callback = void (*)(QsciScintilla*, bool);
     using QsciScintilla_FoldLine_Callback = void (*)(QsciScintilla*, int);
     using QsciScintilla_Indent_Callback = void (*)(QsciScintilla*, int);
-    using QsciScintilla_Insert_Callback = void (*)(QsciScintilla*, libqt_string);
-    using QsciScintilla_InsertAt_Callback = void (*)(QsciScintilla*, libqt_string, int, int);
+    using QsciScintilla_Insert_Callback = void (*)(QsciScintilla*, const char*);
+    using QsciScintilla_InsertAt_Callback = void (*)(QsciScintilla*, const char*, int, int);
     using QsciScintilla_MoveToMatchingBrace_Callback = void (*)();
     using QsciScintilla_Paste_Callback = void (*)();
     using QsciScintilla_Redo_Callback = void (*)();
     using QsciScintilla_RemoveSelectedText_Callback = void (*)();
-    using QsciScintilla_ReplaceSelectedText_Callback = void (*)(QsciScintilla*, libqt_string);
+    using QsciScintilla_ReplaceSelectedText_Callback = void (*)(QsciScintilla*, const char*);
     using QsciScintilla_ResetSelectionBackgroundColor_Callback = void (*)();
     using QsciScintilla_ResetSelectionForegroundColor_Callback = void (*)();
     using QsciScintilla_SelectAll_Callback = void (*)(QsciScintilla*, bool);
@@ -83,7 +83,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
     using QsciScintilla_SetMarginMarkerMask_Callback = void (*)(QsciScintilla*, int, int);
     using QsciScintilla_SetMarginSensitivity_Callback = void (*)(QsciScintilla*, int, bool);
     using QsciScintilla_SetMarginWidth_Callback = void (*)(QsciScintilla*, int, int);
-    using QsciScintilla_SetMarginWidth2_Callback = void (*)(QsciScintilla*, int, libqt_string);
+    using QsciScintilla_SetMarginWidth2_Callback = void (*)(QsciScintilla*, int, const char*);
     using QsciScintilla_SetModified_Callback = void (*)(QsciScintilla*, bool);
     using QsciScintilla_SetPaper_Callback = void (*)(QsciScintilla*, QColor*);
     using QsciScintilla_SetReadOnly_Callback = void (*)(QsciScintilla*, bool);
@@ -92,7 +92,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
     using QsciScintilla_SetSelectionForegroundColor_Callback = void (*)(QsciScintilla*, QColor*);
     using QsciScintilla_SetTabIndents_Callback = void (*)(QsciScintilla*, bool);
     using QsciScintilla_SetTabWidth_Callback = void (*)(QsciScintilla*, int);
-    using QsciScintilla_SetText_Callback = void (*)(QsciScintilla*, libqt_string);
+    using QsciScintilla_SetText_Callback = void (*)(QsciScintilla*, const char*);
     using QsciScintilla_SetUtf8_Callback = void (*)(QsciScintilla*, bool);
     using QsciScintilla_SetWhitespaceVisibility_Callback = void (*)(QsciScintilla*, int);
     using QsciScintilla_SetWrapMode_Callback = void (*)(QsciScintilla*, int);
@@ -1048,14 +1048,13 @@ class VirtualQsciScintilla final : public QsciScintilla {
             return QsciScintilla::findFirst(expr, re, cs, wo, wrap, forward, line, index, show, posix, cxx11);
         } else if (qsciscintilla_findfirst_callback != nullptr) {
             const QString expr_ret = expr;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray expr_b = expr_ret.toUtf8();
-            libqt_string expr_str;
-            expr_str.len = expr_b.length();
-            expr_str.data = static_cast<const char*>(malloc(expr_str.len + 1));
-            memcpy((void*)expr_str.data, expr_b.data(), expr_str.len);
-            ((char*)expr_str.data)[expr_str.len] = '\0';
-            libqt_string cbval1 = expr_str;
+            auto expr_str_len = expr_b.length();
+            const char* expr_str = static_cast<const char*>(malloc(expr_str_len + 1));
+            memcpy((void*)expr_str, expr_b.data(), expr_str_len);
+            ((char*)expr_str)[expr_str_len] = '\0';
+            const char* cbval1 = expr_str;
             bool cbval2 = re;
             bool cbval3 = cs;
             bool cbval4 = wo;
@@ -1068,6 +1067,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
             bool cbval11 = cxx11;
 
             bool callback_ret = qsciscintilla_findfirst_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8, cbval9, cbval10, cbval11);
+            libqt_free(expr_str);
             return callback_ret;
         } else {
             return QsciScintilla::findFirst(expr, re, cs, wo, wrap, forward, line, index, show, posix, cxx11);
@@ -1081,14 +1081,13 @@ class VirtualQsciScintilla final : public QsciScintilla {
             return QsciScintilla::findFirstInSelection(expr, re, cs, wo, forward, show, posix, cxx11);
         } else if (qsciscintilla_findfirstinselection_callback != nullptr) {
             const QString expr_ret = expr;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray expr_b = expr_ret.toUtf8();
-            libqt_string expr_str;
-            expr_str.len = expr_b.length();
-            expr_str.data = static_cast<const char*>(malloc(expr_str.len + 1));
-            memcpy((void*)expr_str.data, expr_b.data(), expr_str.len);
-            ((char*)expr_str.data)[expr_str.len] = '\0';
-            libqt_string cbval1 = expr_str;
+            auto expr_str_len = expr_b.length();
+            const char* expr_str = static_cast<const char*>(malloc(expr_str_len + 1));
+            memcpy((void*)expr_str, expr_b.data(), expr_str_len);
+            ((char*)expr_str)[expr_str_len] = '\0';
+            const char* cbval1 = expr_str;
             bool cbval2 = re;
             bool cbval3 = cs;
             bool cbval4 = wo;
@@ -1098,6 +1097,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
             bool cbval8 = cxx11;
 
             bool callback_ret = qsciscintilla_findfirstinselection_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
+            libqt_free(expr_str);
             return callback_ret;
         } else {
             return QsciScintilla::findFirstInSelection(expr, re, cs, wo, forward, show, posix, cxx11);
@@ -1139,16 +1139,16 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QsciScintilla::replace(replaceStr);
         } else if (qsciscintilla_replace_callback != nullptr) {
             const QString replaceStr_ret = replaceStr;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray replaceStr_b = replaceStr_ret.toUtf8();
-            libqt_string replaceStr_str;
-            replaceStr_str.len = replaceStr_b.length();
-            replaceStr_str.data = static_cast<const char*>(malloc(replaceStr_str.len + 1));
-            memcpy((void*)replaceStr_str.data, replaceStr_b.data(), replaceStr_str.len);
-            ((char*)replaceStr_str.data)[replaceStr_str.len] = '\0';
-            libqt_string cbval1 = replaceStr_str;
+            auto replaceStr_str_len = replaceStr_b.length();
+            const char* replaceStr_str = static_cast<const char*>(malloc(replaceStr_str_len + 1));
+            memcpy((void*)replaceStr_str, replaceStr_b.data(), replaceStr_str_len);
+            ((char*)replaceStr_str)[replaceStr_str_len] = '\0';
+            const char* cbval1 = replaceStr_str;
 
             qsciscintilla_replace_callback(this, cbval1);
+            libqt_free(replaceStr_str);
         } else {
             QsciScintilla::replace(replaceStr);
         }
@@ -1161,16 +1161,16 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QsciScintilla::append(text);
         } else if (qsciscintilla_append_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             qsciscintilla_append_callback(this, cbval1);
+            libqt_free(text_str);
         } else {
             QsciScintilla::append(text);
         }
@@ -1335,16 +1335,16 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QsciScintilla::insert(text);
         } else if (qsciscintilla_insert_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             qsciscintilla_insert_callback(this, cbval1);
+            libqt_free(text_str);
         } else {
             QsciScintilla::insert(text);
         }
@@ -1357,18 +1357,18 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QsciScintilla::insertAt(text, line, index);
         } else if (qsciscintilla_insertat_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
             int cbval2 = line;
             int cbval3 = index;
 
             qsciscintilla_insertat_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(text_str);
         } else {
             QsciScintilla::insertAt(text, line, index);
         }
@@ -1429,16 +1429,16 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QsciScintilla::replaceSelectedText(text);
         } else if (qsciscintilla_replaceselectedtext_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             qsciscintilla_replaceselectedtext_callback(this, cbval1);
+            libqt_free(text_str);
         } else {
             QsciScintilla::replaceSelectedText(text);
         }
@@ -1987,16 +1987,16 @@ class VirtualQsciScintilla final : public QsciScintilla {
         } else if (qsciscintilla_setmarginwidth2_callback != nullptr) {
             int cbval1 = margin;
             const QString s_ret = s;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray s_b = s_ret.toUtf8();
-            libqt_string s_str;
-            s_str.len = s_b.length();
-            s_str.data = static_cast<const char*>(malloc(s_str.len + 1));
-            memcpy((void*)s_str.data, s_b.data(), s_str.len);
-            ((char*)s_str.data)[s_str.len] = '\0';
-            libqt_string cbval2 = s_str;
+            auto s_str_len = s_b.length();
+            const char* s_str = static_cast<const char*>(malloc(s_str_len + 1));
+            memcpy((void*)s_str, s_b.data(), s_str_len);
+            ((char*)s_str)[s_str_len] = '\0';
+            const char* cbval2 = s_str;
 
             qsciscintilla_setmarginwidth2_callback(this, cbval1, cbval2);
+            libqt_free(s_str);
         } else {
             QsciScintilla::setMarginWidth(margin, s);
         }
@@ -2130,16 +2130,16 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QsciScintilla::setText(text);
         } else if (qsciscintilla_settext_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             qsciscintilla_settext_callback(this, cbval1);
+            libqt_free(text_str);
         } else {
             QsciScintilla::setText(text);
         }
@@ -2383,6 +2383,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
             bool cbval2 = rectangular;
 
             QMimeData* callback_ret = qsciscintilla_tomimedata_callback(this, cbval1, cbval2);
+            libqt_free(text_str.data);
             return callback_ret;
         } else {
             return QsciScintilla::toMimeData(text, rectangular);
@@ -2939,6 +2940,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qsciscintilla_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QsciScintilla::nativeEvent(eventType, message, result);

@@ -1095,6 +1095,7 @@ class VirtualQWizard final : public QWizard {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qwizard_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QWizard::nativeEvent(eventType, message, result);
@@ -1612,12 +1613,12 @@ class VirtualQWizardPage final : public QWizardPage {
     using QWizardPage_CustomEvent_Callback = void (*)(QWizardPage*, QEvent*);
     using QWizardPage_ConnectNotify_Callback = void (*)(QWizardPage*, QMetaMethod*);
     using QWizardPage_DisconnectNotify_Callback = void (*)(QWizardPage*, QMetaMethod*);
-    using QWizardPage_SetField_Callback = void (*)(QWizardPage*, libqt_string, QVariant*);
-    using QWizardPage_Field_Callback = QVariant* (*)(const QWizardPage*, libqt_string);
-    using QWizardPage_RegisterField_Callback = void (*)(QWizardPage*, libqt_string, QWidget*);
+    using QWizardPage_SetField_Callback = void (*)(QWizardPage*, const char*, QVariant*);
+    using QWizardPage_Field_Callback = QVariant* (*)(const QWizardPage*, const char*);
+    using QWizardPage_RegisterField_Callback = void (*)(QWizardPage*, const char*, QWidget*);
     using QWizardPage_Wizard_Callback = QWizard* (*)();
-    using QWizardPage_RegisterField3_Callback = void (*)(QWizardPage*, libqt_string, QWidget*, const char*);
-    using QWizardPage_RegisterField4_Callback = void (*)(QWizardPage*, libqt_string, QWidget*, const char*, const char*);
+    using QWizardPage_RegisterField3_Callback = void (*)(QWizardPage*, const char*, QWidget*, const char*);
+    using QWizardPage_RegisterField4_Callback = void (*)(QWizardPage*, const char*, QWidget*, const char*, const char*);
     using QWizardPage_UpdateMicroFocus_Callback = void (*)();
     using QWizardPage_Create_Callback = void (*)();
     using QWizardPage_Destroy_Callback = void (*)();
@@ -2570,6 +2571,7 @@ class VirtualQWizardPage final : public QWizardPage {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qwizardpage_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QWizardPage::nativeEvent(eventType, message, result);
@@ -2788,19 +2790,19 @@ class VirtualQWizardPage final : public QWizardPage {
             QWizardPage::setField(name, value);
         } else if (qwizardpage_setfield_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             qwizardpage_setfield_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
         } else {
             QWizardPage::setField(name, value);
         }
@@ -2813,16 +2815,16 @@ class VirtualQWizardPage final : public QWizardPage {
             return QWizardPage::field(name);
         } else if (qwizardpage_field_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QVariant* callback_ret = qwizardpage_field_callback(this, cbval1);
+            libqt_free(name_str);
             return *callback_ret;
         } else {
             return QWizardPage::field(name);
@@ -2836,17 +2838,17 @@ class VirtualQWizardPage final : public QWizardPage {
             QWizardPage::registerField(name, widget);
         } else if (qwizardpage_registerfield_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             QWidget* cbval2 = widget;
 
             qwizardpage_registerfield_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
         } else {
             QWizardPage::registerField(name, widget);
         }
@@ -2872,18 +2874,18 @@ class VirtualQWizardPage final : public QWizardPage {
             QWizardPage::registerField(name, widget, property);
         } else if (qwizardpage_registerfield3_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             QWidget* cbval2 = widget;
             const char* cbval3 = (const char*)property;
 
             qwizardpage_registerfield3_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(name_str);
         } else {
             QWizardPage::registerField(name, widget, property);
         }
@@ -2896,19 +2898,19 @@ class VirtualQWizardPage final : public QWizardPage {
             QWizardPage::registerField(name, widget, property, changedSignal);
         } else if (qwizardpage_registerfield4_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             QWidget* cbval2 = widget;
             const char* cbval3 = (const char*)property;
             const char* cbval4 = (const char*)changedSignal;
 
             qwizardpage_registerfield4_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_free(name_str);
         } else {
             QWizardPage::registerField(name, widget, property, changedSignal);
         }

@@ -123,16 +123,17 @@ void SignOn__Identity_Connect_MethodsAvailable(SignOn__Identity* self, intptr_t 
         const char** methods_arr = static_cast<const char**>(malloc(sizeof(const char*) * (methods_ret.size() + 1)));
         for (qsizetype i = 0; i < methods_ret.size(); ++i) {
             QByteArray methods_b = methods_ret[i].toUtf8();
-            char* methods_str = static_cast<char*>(malloc(methods_b.length() + 1));
-            memcpy(methods_str, methods_b.data(), methods_b.length());
-            methods_str[methods_b.length()] = '\0';
+            auto methods_str_len = methods_b.length();
+            char* methods_str = static_cast<char*>(malloc(methods_str_len + 1));
+            memcpy(methods_str, methods_b.data(), methods_str_len);
+            methods_str[methods_str_len] = '\0';
             methods_arr[i] = methods_str;
         }
         // Append sentinel null terminator to the list
         methods_arr[methods_ret.size()] = nullptr;
         const char** sigval1 = methods_arr;
         slotFunc(self, sigval1);
-        free(methods_arr);
+        libqt_free(methods_arr);
     });
 }
 

@@ -18,10 +18,10 @@ class VirtualQDesignerDynamicPropertySheetExtension : public QDesignerDynamicPro
 
     // Virtual class public types (including callbacks)
     using QDesignerDynamicPropertySheetExtension_DynamicPropertiesAllowed_Callback = bool (*)();
-    using QDesignerDynamicPropertySheetExtension_AddDynamicProperty_Callback = int (*)(QDesignerDynamicPropertySheetExtension*, libqt_string, QVariant*);
+    using QDesignerDynamicPropertySheetExtension_AddDynamicProperty_Callback = int (*)(QDesignerDynamicPropertySheetExtension*, const char*, QVariant*);
     using QDesignerDynamicPropertySheetExtension_RemoveDynamicProperty_Callback = bool (*)(QDesignerDynamicPropertySheetExtension*, int);
     using QDesignerDynamicPropertySheetExtension_IsDynamicProperty_Callback = bool (*)(const QDesignerDynamicPropertySheetExtension*, int);
-    using QDesignerDynamicPropertySheetExtension_CanAddDynamicProperty_Callback = bool (*)(const QDesignerDynamicPropertySheetExtension*, libqt_string);
+    using QDesignerDynamicPropertySheetExtension_CanAddDynamicProperty_Callback = bool (*)(const QDesignerDynamicPropertySheetExtension*, const char*);
 
   protected:
     // Instance callback storage
@@ -77,19 +77,19 @@ class VirtualQDesignerDynamicPropertySheetExtension : public QDesignerDynamicPro
     virtual int addDynamicProperty(const QString& propertyName, const QVariant& value) override {
         if (qdesignerdynamicpropertysheetextension_adddynamicproperty_callback != nullptr) {
             const QString propertyName_ret = propertyName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray propertyName_b = propertyName_ret.toUtf8();
-            libqt_string propertyName_str;
-            propertyName_str.len = propertyName_b.length();
-            propertyName_str.data = static_cast<const char*>(malloc(propertyName_str.len + 1));
-            memcpy((void*)propertyName_str.data, propertyName_b.data(), propertyName_str.len);
-            ((char*)propertyName_str.data)[propertyName_str.len] = '\0';
-            libqt_string cbval1 = propertyName_str;
+            auto propertyName_str_len = propertyName_b.length();
+            const char* propertyName_str = static_cast<const char*>(malloc(propertyName_str_len + 1));
+            memcpy((void*)propertyName_str, propertyName_b.data(), propertyName_str_len);
+            ((char*)propertyName_str)[propertyName_str_len] = '\0';
+            const char* cbval1 = propertyName_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             int callback_ret = qdesignerdynamicpropertysheetextension_adddynamicproperty_callback(this, cbval1, cbval2);
+            libqt_free(propertyName_str);
             return static_cast<int>(callback_ret);
         } else {
             return {};
@@ -124,16 +124,16 @@ class VirtualQDesignerDynamicPropertySheetExtension : public QDesignerDynamicPro
     virtual bool canAddDynamicProperty(const QString& propertyName) const override {
         if (qdesignerdynamicpropertysheetextension_canadddynamicproperty_callback != nullptr) {
             const QString propertyName_ret = propertyName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray propertyName_b = propertyName_ret.toUtf8();
-            libqt_string propertyName_str;
-            propertyName_str.len = propertyName_b.length();
-            propertyName_str.data = static_cast<const char*>(malloc(propertyName_str.len + 1));
-            memcpy((void*)propertyName_str.data, propertyName_b.data(), propertyName_str.len);
-            ((char*)propertyName_str.data)[propertyName_str.len] = '\0';
-            libqt_string cbval1 = propertyName_str;
+            auto propertyName_str_len = propertyName_b.length();
+            const char* propertyName_str = static_cast<const char*>(malloc(propertyName_str_len + 1));
+            memcpy((void*)propertyName_str, propertyName_b.data(), propertyName_str_len);
+            ((char*)propertyName_str)[propertyName_str_len] = '\0';
+            const char* cbval1 = propertyName_str;
 
             bool callback_ret = qdesignerdynamicpropertysheetextension_canadddynamicproperty_callback(this, cbval1);
+            libqt_free(propertyName_str);
             return callback_ret;
         } else {
             return {};

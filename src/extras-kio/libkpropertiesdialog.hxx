@@ -1050,6 +1050,7 @@ class VirtualKPropertiesDialog final : public KPropertiesDialog {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kpropertiesdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KPropertiesDialog::nativeEvent(eventType, message, result);

@@ -809,6 +809,7 @@ class VirtualQPdfSearchModel final : public QPdfSearchModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = qpdfsearchmodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return QPdfSearchModel::mimeData(indexes);
@@ -1292,6 +1293,7 @@ class VirtualQPdfSearchModel final : public QPdfSearchModel {
             QDataStream* cbval2 = &stream_ret;
 
             qpdfsearchmodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             QPdfSearchModel::encodeData(indexes, stream);
         }
@@ -1580,6 +1582,8 @@ class VirtualQPdfSearchModel final : public QPdfSearchModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             qpdfsearchmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             QPdfSearchModel::changePersistentIndexList(from, to);
         }

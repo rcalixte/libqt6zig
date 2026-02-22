@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
 pub const signon__identity = struct {
@@ -171,11 +171,11 @@ pub const signon__identity = struct {
     ///
     /// ` self: QtC.SignOn__Identity `
     ///
-    /// ` params: map_constu8_qtcqvariant `
+    /// ` params: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn VerifyUser2(self: ?*anyopaque, params: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
+    pub fn VerifyUser2(self: ?*anyopaque, params: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
         const params_count = params.count();
         const params_keys = allocator.alloc(qtc.libqt_string, params_count) catch @panic("signon__identity.VerifyUser2: Memory allocation failed");
         defer allocator.free(params_keys);

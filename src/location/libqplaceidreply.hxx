@@ -29,9 +29,9 @@ class VirtualQPlaceIdReply final : public QPlaceIdReply {
     using QPlaceIdReply_CustomEvent_Callback = void (*)(QPlaceIdReply*, QEvent*);
     using QPlaceIdReply_ConnectNotify_Callback = void (*)(QPlaceIdReply*, QMetaMethod*);
     using QPlaceIdReply_DisconnectNotify_Callback = void (*)(QPlaceIdReply*, QMetaMethod*);
-    using QPlaceIdReply_SetId_Callback = void (*)(QPlaceIdReply*, libqt_string);
+    using QPlaceIdReply_SetId_Callback = void (*)(QPlaceIdReply*, const char*);
     using QPlaceIdReply_SetFinished_Callback = void (*)(QPlaceIdReply*, bool);
-    using QPlaceIdReply_SetError_Callback = void (*)(QPlaceIdReply*, int, libqt_string);
+    using QPlaceIdReply_SetError_Callback = void (*)(QPlaceIdReply*, int, const char*);
     using QPlaceIdReply_Sender_Callback = QObject* (*)();
     using QPlaceIdReply_SenderSignalIndex_Callback = int (*)();
     using QPlaceIdReply_Receivers_Callback = int (*)(const QPlaceIdReply*, const char*);
@@ -330,16 +330,16 @@ class VirtualQPlaceIdReply final : public QPlaceIdReply {
             QPlaceIdReply::setId(identifier);
         } else if (qplaceidreply_setid_callback != nullptr) {
             const QString identifier_ret = identifier;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray identifier_b = identifier_ret.toUtf8();
-            libqt_string identifier_str;
-            identifier_str.len = identifier_b.length();
-            identifier_str.data = static_cast<const char*>(malloc(identifier_str.len + 1));
-            memcpy((void*)identifier_str.data, identifier_b.data(), identifier_str.len);
-            ((char*)identifier_str.data)[identifier_str.len] = '\0';
-            libqt_string cbval1 = identifier_str;
+            auto identifier_str_len = identifier_b.length();
+            const char* identifier_str = static_cast<const char*>(malloc(identifier_str_len + 1));
+            memcpy((void*)identifier_str, identifier_b.data(), identifier_str_len);
+            ((char*)identifier_str)[identifier_str_len] = '\0';
+            const char* cbval1 = identifier_str;
 
             qplaceidreply_setid_callback(this, cbval1);
+            libqt_free(identifier_str);
         } else {
             QPlaceIdReply::setId(identifier);
         }
@@ -367,16 +367,16 @@ class VirtualQPlaceIdReply final : public QPlaceIdReply {
         } else if (qplaceidreply_seterror_callback != nullptr) {
             int cbval1 = static_cast<int>(errorVal);
             const QString errorString_ret = errorString;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
-            libqt_string errorString_str;
-            errorString_str.len = errorString_b.length();
-            errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
-            memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
-            ((char*)errorString_str.data)[errorString_str.len] = '\0';
-            libqt_string cbval2 = errorString_str;
+            auto errorString_str_len = errorString_b.length();
+            const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+            memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+            ((char*)errorString_str)[errorString_str_len] = '\0';
+            const char* cbval2 = errorString_str;
 
             qplaceidreply_seterror_callback(this, cbval1, cbval2);
+            libqt_free(errorString_str);
         } else {
             QPlaceIdReply::setError(errorVal, errorString);
         }

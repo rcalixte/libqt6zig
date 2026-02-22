@@ -20,8 +20,8 @@ class VirtualKEmailValidator final : public KEmailValidator {
     using KEmailValidator_MetaObject_Callback = QMetaObject* (*)();
     using KEmailValidator_Metacast_Callback = void* (*)(KEmailValidator*, const char*);
     using KEmailValidator_Metacall_Callback = int (*)(KEmailValidator*, int, int, void**);
-    using KEmailValidator_Validate_Callback = int (*)(const KEmailValidator*, libqt_string, int*);
-    using KEmailValidator_Fixup_Callback = void (*)(const KEmailValidator*, libqt_string);
+    using KEmailValidator_Validate_Callback = int (*)(const KEmailValidator*, const char*, int*);
+    using KEmailValidator_Fixup_Callback = void (*)(const KEmailValidator*, const char*);
     using KEmailValidator_Event_Callback = bool (*)(KEmailValidator*, QEvent*);
     using KEmailValidator_EventFilter_Callback = bool (*)(KEmailValidator*, QObject*, QEvent*);
     using KEmailValidator_TimerEvent_Callback = void (*)(KEmailValidator*, QTimerEvent*);
@@ -182,17 +182,17 @@ class VirtualKEmailValidator final : public KEmailValidator {
             return KEmailValidator::validate(str, pos);
         } else if (kemailvalidator_validate_callback != nullptr) {
             QString str_ret = str;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
-            libqt_string str_str;
-            str_str.len = str_b.length();
-            str_str.data = static_cast<const char*>(malloc(str_str.len + 1));
-            memcpy((void*)str_str.data, str_b.data(), str_str.len);
-            ((char*)str_str.data)[str_str.len] = '\0';
-            libqt_string cbval1 = str_str;
+            auto str_str_len = str_b.length();
+            const char* str_str = static_cast<const char*>(malloc(str_str_len + 1));
+            memcpy((void*)str_str, str_b.data(), str_str_len);
+            ((char*)str_str)[str_str_len] = '\0';
+            const char* cbval1 = str_str;
             int* cbval2 = &pos;
 
             int callback_ret = kemailvalidator_validate_callback(this, cbval1, cbval2);
+            libqt_free(str_str);
             return static_cast<QValidator::State>(callback_ret);
         } else {
             return KEmailValidator::validate(str, pos);
@@ -206,16 +206,16 @@ class VirtualKEmailValidator final : public KEmailValidator {
             KEmailValidator::fixup(str);
         } else if (kemailvalidator_fixup_callback != nullptr) {
             QString str_ret = str;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
-            libqt_string str_str;
-            str_str.len = str_b.length();
-            str_str.data = static_cast<const char*>(malloc(str_str.len + 1));
-            memcpy((void*)str_str.data, str_b.data(), str_str.len);
-            ((char*)str_str.data)[str_str.len] = '\0';
-            libqt_string cbval1 = str_str;
+            auto str_str_len = str_b.length();
+            const char* str_str = static_cast<const char*>(malloc(str_str_len + 1));
+            memcpy((void*)str_str, str_b.data(), str_str_len);
+            ((char*)str_str)[str_str_len] = '\0';
+            const char* cbval1 = str_str;
 
             kemailvalidator_fixup_callback(this, cbval1);
+            libqt_free(str_str);
         } else {
             KEmailValidator::fixup(str);
         }

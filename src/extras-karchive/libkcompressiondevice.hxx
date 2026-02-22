@@ -46,7 +46,7 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
     using KCompressionDevice_DisconnectNotify_Callback = void (*)(KCompressionDevice*, QMetaMethod*);
     using KCompressionDevice_FilterBase_Callback = KFilterBase* (*)();
     using KCompressionDevice_SetOpenMode_Callback = void (*)(KCompressionDevice*, int);
-    using KCompressionDevice_SetErrorString_Callback = void (*)(KCompressionDevice*, libqt_string);
+    using KCompressionDevice_SetErrorString_Callback = void (*)(KCompressionDevice*, const char*);
     using KCompressionDevice_Sender_Callback = QObject* (*)();
     using KCompressionDevice_SenderSignalIndex_Callback = int (*)();
     using KCompressionDevice_Receivers_Callback = int (*)(const KCompressionDevice*, const char*);
@@ -312,12 +312,12 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool seek(long long param1) override {
+    virtual bool seek(qint64 param1) override {
         if (kcompressiondevice_seek_isbase) {
             kcompressiondevice_seek_isbase = false;
             return KCompressionDevice::seek(param1);
         } else if (kcompressiondevice_seek_callback != nullptr) {
-            long long cbval1 = param1;
+            long long cbval1 = static_cast<long long>(param1);
 
             bool callback_ret = kcompressiondevice_seek_callback(this, cbval1);
             return callback_ret;
@@ -662,16 +662,16 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
             KCompressionDevice::setErrorString(errorString);
         } else if (kcompressiondevice_seterrorstring_callback != nullptr) {
             const QString errorString_ret = errorString;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
-            libqt_string errorString_str;
-            errorString_str.len = errorString_b.length();
-            errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
-            memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
-            ((char*)errorString_str.data)[errorString_str.len] = '\0';
-            libqt_string cbval1 = errorString_str;
+            auto errorString_str_len = errorString_b.length();
+            const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+            memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+            ((char*)errorString_str)[errorString_str_len] = '\0';
+            const char* cbval1 = errorString_str;
 
             kcompressiondevice_seterrorstring_callback(this, cbval1);
+            libqt_free(errorString_str);
         } else {
             KCompressionDevice::setErrorString(errorString);
         }

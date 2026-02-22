@@ -114,7 +114,7 @@ class VirtualQAbstractFileIconProvider final : public QAbstractFileIconProvider 
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void setOptions(QFlags<QAbstractFileIconProvider::Option> options) override {
+    virtual void setOptions(QAbstractFileIconProvider::Options options) override {
         if (qabstractfileiconprovider_setoptions_isbase) {
             qabstractfileiconprovider_setoptions_isbase = false;
             QAbstractFileIconProvider::setOptions(options);

@@ -58,7 +58,7 @@ class VirtualQUndoView final : public QUndoView {
     using QUndoView_ViewportSizeHint_Callback = QSize* (*)();
     using QUndoView_SetModel_Callback = void (*)(QUndoView*, QAbstractItemModel*);
     using QUndoView_SetSelectionModel_Callback = void (*)(QUndoView*, QItemSelectionModel*);
-    using QUndoView_KeyboardSearch_Callback = void (*)(QUndoView*, libqt_string);
+    using QUndoView_KeyboardSearch_Callback = void (*)(QUndoView*, const char*);
     using QUndoView_SizeHintForRow_Callback = int (*)(const QUndoView*, int);
     using QUndoView_SizeHintForColumn_Callback = int (*)(const QUndoView*, int);
     using QUndoView_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const QUndoView*, QModelIndex*);
@@ -963,6 +963,7 @@ class VirtualQUndoView final : public QUndoView {
             libqt_list /* of int */ cbval3 = roles_out;
 
             qundoview_datachanged_callback(this, cbval1, cbval2, cbval3);
+            free(roles_arr);
         } else {
             QUndoView::dataChanged(topLeft, bottomRight, roles);
         }
@@ -1369,16 +1370,16 @@ class VirtualQUndoView final : public QUndoView {
             QUndoView::keyboardSearch(search);
         } else if (qundoview_keyboardsearch_callback != nullptr) {
             const QString search_ret = search;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
-            libqt_string search_str;
-            search_str.len = search_b.length();
-            search_str.data = static_cast<const char*>(malloc(search_str.len + 1));
-            memcpy((void*)search_str.data, search_b.data(), search_str.len);
-            ((char*)search_str.data)[search_str.len] = '\0';
-            libqt_string cbval1 = search_str;
+            auto search_str_len = search_b.length();
+            const char* search_str = static_cast<const char*>(malloc(search_str_len + 1));
+            memcpy((void*)search_str, search_b.data(), search_str_len);
+            ((char*)search_str)[search_str_len] = '\0';
+            const char* cbval1 = search_str;
 
             qundoview_keyboardsearch_callback(this, cbval1);
+            libqt_free(search_str);
         } else {
             QUndoView::keyboardSearch(search);
         }
@@ -2055,6 +2056,7 @@ class VirtualQUndoView final : public QUndoView {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qundoview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QUndoView::nativeEvent(eventType, message, result);

@@ -204,9 +204,10 @@ void QBarCategoryAxis_Connect_MinChanged(QBarCategoryAxis* self, intptr_t slot) 
         const QString min_ret = min;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray min_b = min_ret.toUtf8();
-        const char* min_str = static_cast<const char*>(malloc(min_b.length() + 1));
-        memcpy((void*)min_str, min_b.data(), min_b.length());
-        ((char*)min_str)[min_b.length()] = '\0';
+        auto min_str_len = min_b.length();
+        const char* min_str = static_cast<const char*>(malloc(min_str_len + 1));
+        memcpy((void*)min_str, min_b.data(), min_str_len);
+        ((char*)min_str)[min_str_len] = '\0';
         const char* sigval1 = min_str;
         slotFunc(self, sigval1);
         libqt_free(min_str);
@@ -224,9 +225,10 @@ void QBarCategoryAxis_Connect_MaxChanged(QBarCategoryAxis* self, intptr_t slot) 
         const QString max_ret = max;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray max_b = max_ret.toUtf8();
-        const char* max_str = static_cast<const char*>(malloc(max_b.length() + 1));
-        memcpy((void*)max_str, max_b.data(), max_b.length());
-        ((char*)max_str)[max_b.length()] = '\0';
+        auto max_str_len = max_b.length();
+        const char* max_str = static_cast<const char*>(malloc(max_str_len + 1));
+        memcpy((void*)max_str, max_b.data(), max_str_len);
+        ((char*)max_str)[max_str_len] = '\0';
         const char* sigval1 = max_str;
         slotFunc(self, sigval1);
         libqt_free(max_str);
@@ -245,16 +247,18 @@ void QBarCategoryAxis_Connect_RangeChanged(QBarCategoryAxis* self, intptr_t slot
         const QString min_ret = min;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray min_b = min_ret.toUtf8();
-        const char* min_str = static_cast<const char*>(malloc(min_b.length() + 1));
-        memcpy((void*)min_str, min_b.data(), min_b.length());
-        ((char*)min_str)[min_b.length()] = '\0';
+        auto min_str_len = min_b.length();
+        const char* min_str = static_cast<const char*>(malloc(min_str_len + 1));
+        memcpy((void*)min_str, min_b.data(), min_str_len);
+        ((char*)min_str)[min_str_len] = '\0';
         const char* sigval1 = min_str;
         const QString max_ret = max;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray max_b = max_ret.toUtf8();
-        const char* max_str = static_cast<const char*>(malloc(max_b.length() + 1));
-        memcpy((void*)max_str, max_b.data(), max_b.length());
-        ((char*)max_str)[max_b.length()] = '\0';
+        auto max_str_len = max_b.length();
+        const char* max_str = static_cast<const char*>(malloc(max_str_len + 1));
+        memcpy((void*)max_str, max_b.data(), max_str_len);
+        ((char*)max_str)[max_str_len] = '\0';
         const char* sigval2 = max_str;
         slotFunc(self, sigval1, sigval2);
         libqt_free(min_str);

@@ -906,6 +906,7 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kmimetypechooser_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KMimeTypeChooser::nativeEvent(eventType, message, result);
@@ -2366,6 +2367,7 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kmimetypechooserdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KMimeTypeChooserDialog::nativeEvent(eventType, message, result);

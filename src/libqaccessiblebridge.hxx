@@ -20,7 +20,7 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
     using QAccessibleBridgePlugin_MetaObject_Callback = QMetaObject* (*)();
     using QAccessibleBridgePlugin_Metacast_Callback = void* (*)(QAccessibleBridgePlugin*, const char*);
     using QAccessibleBridgePlugin_Metacall_Callback = int (*)(QAccessibleBridgePlugin*, int, int, void**);
-    using QAccessibleBridgePlugin_Create_Callback = QAccessibleBridge* (*)(QAccessibleBridgePlugin*, libqt_string);
+    using QAccessibleBridgePlugin_Create_Callback = QAccessibleBridge* (*)(QAccessibleBridgePlugin*, const char*);
     using QAccessibleBridgePlugin_Event_Callback = bool (*)(QAccessibleBridgePlugin*, QEvent*);
     using QAccessibleBridgePlugin_EventFilter_Callback = bool (*)(QAccessibleBridgePlugin*, QObject*, QEvent*);
     using QAccessibleBridgePlugin_TimerEvent_Callback = void (*)(QAccessibleBridgePlugin*, QTimerEvent*);
@@ -173,16 +173,16 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
     virtual QAccessibleBridge* create(const QString& key) override {
         if (qaccessiblebridgeplugin_create_callback != nullptr) {
             const QString key_ret = key;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
-            libqt_string key_str;
-            key_str.len = key_b.length();
-            key_str.data = static_cast<const char*>(malloc(key_str.len + 1));
-            memcpy((void*)key_str.data, key_b.data(), key_str.len);
-            ((char*)key_str.data)[key_str.len] = '\0';
-            libqt_string cbval1 = key_str;
+            auto key_str_len = key_b.length();
+            const char* key_str = static_cast<const char*>(malloc(key_str_len + 1));
+            memcpy((void*)key_str, key_b.data(), key_str_len);
+            ((char*)key_str)[key_str_len] = '\0';
+            const char* cbval1 = key_str;
 
             QAccessibleBridge* callback_ret = qaccessiblebridgeplugin_create_callback(this, cbval1);
+            libqt_free(key_str);
             return callback_ret;
         } else {
             return {};

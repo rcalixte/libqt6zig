@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
-const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
+const arraymap_constu8_constu8 = std.StringArrayHashMapUnmanaged([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/attica-person.html)
 pub const attica__person = struct {
@@ -365,9 +365,9 @@ pub const attica__person = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtendedAttributes(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_constu8 {
+    pub fn ExtendedAttributes(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.Attica__Person_ExtendedAttributes(@ptrCast(self));
-        var _ret: map_constu8_constu8 = .empty;
+        var _ret: arraymap_constu8_constu8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));

@@ -25,10 +25,10 @@ class VirtualKLineEdit final : public KLineEdit {
     using KLineEdit_SetCompletionObject_Callback = void (*)(KLineEdit*, KCompletion*, bool);
     using KLineEdit_Copy_Callback = void (*)();
     using KLineEdit_SetReadOnly_Callback = void (*)(KLineEdit*, bool);
-    using KLineEdit_SetCompletedText_Callback = void (*)(KLineEdit*, libqt_string);
-    using KLineEdit_SetCompletedItems_Callback = void (*)(KLineEdit*, libqt_list /* of libqt_string */, bool);
-    using KLineEdit_SetText_Callback = void (*)(KLineEdit*, libqt_string);
-    using KLineEdit_MakeCompletion_Callback = void (*)(KLineEdit*, libqt_string);
+    using KLineEdit_SetCompletedText_Callback = void (*)(KLineEdit*, const char*);
+    using KLineEdit_SetCompletedItems_Callback = void (*)(KLineEdit*, const char**, bool);
+    using KLineEdit_SetText_Callback = void (*)(KLineEdit*, const char*);
+    using KLineEdit_MakeCompletion_Callback = void (*)(KLineEdit*, const char*);
     using KLineEdit_Event_Callback = bool (*)(KLineEdit*, QEvent*);
     using KLineEdit_ResizeEvent_Callback = void (*)(KLineEdit*, QResizeEvent*);
     using KLineEdit_KeyPressEvent_Callback = void (*)(KLineEdit*, QKeyEvent*);
@@ -36,7 +36,7 @@ class VirtualKLineEdit final : public KLineEdit {
     using KLineEdit_MouseReleaseEvent_Callback = void (*)(KLineEdit*, QMouseEvent*);
     using KLineEdit_MouseDoubleClickEvent_Callback = void (*)(KLineEdit*, QMouseEvent*);
     using KLineEdit_ContextMenuEvent_Callback = void (*)(KLineEdit*, QContextMenuEvent*);
-    using KLineEdit_SetCompletedText2_Callback = void (*)(KLineEdit*, libqt_string, bool);
+    using KLineEdit_SetCompletedText2_Callback = void (*)(KLineEdit*, const char*, bool);
     using KLineEdit_PaintEvent_Callback = void (*)(KLineEdit*, QPaintEvent*);
     using KLineEdit_SizeHint_Callback = QSize* (*)();
     using KLineEdit_MinimumSizeHint_Callback = QSize* (*)();
@@ -80,7 +80,7 @@ class VirtualKLineEdit final : public KLineEdit {
     using KLineEdit_DisconnectNotify_Callback = void (*)(KLineEdit*, QMetaMethod*);
     using KLineEdit_SetHandleSignals_Callback = void (*)(KLineEdit*, bool);
     using KLineEdit_VirtualHook_Callback = void (*)(KLineEdit*, int, void*);
-    using KLineEdit_UserCancelled_Callback = void (*)(KLineEdit*, libqt_string);
+    using KLineEdit_UserCancelled_Callback = void (*)(KLineEdit*, const char*);
     using KLineEdit_CreateStandardContextMenu_Callback = QMenu* (*)();
     using KLineEdit_SetUserSelection_Callback = void (*)(KLineEdit*, bool);
     using KLineEdit_AutoSuggest_Callback = bool (*)();
@@ -650,16 +650,16 @@ class VirtualKLineEdit final : public KLineEdit {
             KLineEdit::setCompletedText(completedText);
         } else if (klineedit_setcompletedtext_callback != nullptr) {
             const QString completedText_ret = completedText;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray completedText_b = completedText_ret.toUtf8();
-            libqt_string completedText_str;
-            completedText_str.len = completedText_b.length();
-            completedText_str.data = static_cast<const char*>(malloc(completedText_str.len + 1));
-            memcpy((void*)completedText_str.data, completedText_b.data(), completedText_str.len);
-            ((char*)completedText_str.data)[completedText_str.len] = '\0';
-            libqt_string cbval1 = completedText_str;
+            auto completedText_str_len = completedText_b.length();
+            const char* completedText_str = static_cast<const char*>(malloc(completedText_str_len + 1));
+            memcpy((void*)completedText_str, completedText_b.data(), completedText_str_len);
+            ((char*)completedText_str)[completedText_str_len] = '\0';
+            const char* cbval1 = completedText_str;
 
             klineedit_setcompletedtext_callback(this, cbval1);
+            libqt_free(completedText_str);
         } else {
             KLineEdit::setCompletedText(completedText);
         }
@@ -672,26 +672,23 @@ class VirtualKLineEdit final : public KLineEdit {
             KLineEdit::setCompletedItems(items, autoSuggest);
         } else if (klineedit_setcompleteditems_callback != nullptr) {
             const QList<QString>& items_ret = items;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* items_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (items_ret.size())));
+            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+            const char** items_arr = static_cast<const char**>(malloc(sizeof(const char*) * (items_ret.size() + 1)));
             for (qsizetype i = 0; i < items_ret.size(); ++i) {
-                QString items_lv_ret = items_ret[i];
-                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-                QByteArray items_lv_b = items_lv_ret.toUtf8();
-                libqt_string items_lv_str;
-                items_lv_str.len = items_lv_b.length();
-                items_lv_str.data = static_cast<const char*>(malloc(items_lv_str.len + 1));
-                memcpy((void*)items_lv_str.data, items_lv_b.data(), items_lv_str.len);
-                ((char*)items_lv_str.data)[items_lv_str.len] = '\0';
-                items_arr[i] = items_lv_str;
+                QByteArray items_b = items_ret[i].toUtf8();
+                auto items_str_len = items_b.length();
+                char* items_str = static_cast<char*>(malloc(items_str_len + 1));
+                memcpy(items_str, items_b.data(), items_str_len);
+                items_str[items_str_len] = '\0';
+                items_arr[i] = items_str;
             }
-            libqt_list items_out;
-            items_out.len = items_ret.size();
-            items_out.data = static_cast<void*>(items_arr);
-            libqt_list /* of libqt_string */ cbval1 = items_out;
+            // Append sentinel null terminator to the list
+            items_arr[items_ret.size()] = nullptr;
+            const char** cbval1 = items_arr;
             bool cbval2 = autoSuggest;
 
             klineedit_setcompleteditems_callback(this, cbval1, cbval2);
+            libqt_free(items_arr);
         } else {
             KLineEdit::setCompletedItems(items, autoSuggest);
         }
@@ -704,16 +701,16 @@ class VirtualKLineEdit final : public KLineEdit {
             KLineEdit::setText(text);
         } else if (klineedit_settext_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             klineedit_settext_callback(this, cbval1);
+            libqt_free(text_str);
         } else {
             KLineEdit::setText(text);
         }
@@ -726,16 +723,16 @@ class VirtualKLineEdit final : public KLineEdit {
             KLineEdit::makeCompletion(param1);
         } else if (klineedit_makecompletion_callback != nullptr) {
             const QString param1_ret = param1;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
-            libqt_string param1_str;
-            param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-            ((char*)param1_str.data)[param1_str.len] = '\0';
-            libqt_string cbval1 = param1_str;
+            auto param1_str_len = param1_b.length();
+            const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+            memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+            ((char*)param1_str)[param1_str_len] = '\0';
+            const char* cbval1 = param1_str;
 
             klineedit_makecompletion_callback(this, cbval1);
+            libqt_free(param1_str);
         } else {
             KLineEdit::makeCompletion(param1);
         }
@@ -847,17 +844,17 @@ class VirtualKLineEdit final : public KLineEdit {
             KLineEdit::setCompletedText(param1, param2);
         } else if (klineedit_setcompletedtext2_callback != nullptr) {
             const QString param1_ret = param1;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
-            libqt_string param1_str;
-            param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-            ((char*)param1_str.data)[param1_str.len] = '\0';
-            libqt_string cbval1 = param1_str;
+            auto param1_str_len = param1_b.length();
+            const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+            memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+            ((char*)param1_str)[param1_str_len] = '\0';
+            const char* cbval1 = param1_str;
             bool cbval2 = param2;
 
             klineedit_setcompletedtext2_callback(this, cbval1, cbval2);
+            libqt_free(param1_str);
         } else {
             KLineEdit::setCompletedText(param1, param2);
         }
@@ -1297,6 +1294,7 @@ class VirtualKLineEdit final : public KLineEdit {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = klineedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KLineEdit::nativeEvent(eventType, message, result);
@@ -1487,16 +1485,16 @@ class VirtualKLineEdit final : public KLineEdit {
             KLineEdit::userCancelled(cancelText);
         } else if (klineedit_usercancelled_callback != nullptr) {
             const QString cancelText_ret = cancelText;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray cancelText_b = cancelText_ret.toUtf8();
-            libqt_string cancelText_str;
-            cancelText_str.len = cancelText_b.length();
-            cancelText_str.data = static_cast<const char*>(malloc(cancelText_str.len + 1));
-            memcpy((void*)cancelText_str.data, cancelText_b.data(), cancelText_str.len);
-            ((char*)cancelText_str.data)[cancelText_str.len] = '\0';
-            libqt_string cbval1 = cancelText_str;
+            auto cancelText_str_len = cancelText_b.length();
+            const char* cancelText_str = static_cast<const char*>(malloc(cancelText_str_len + 1));
+            memcpy((void*)cancelText_str, cancelText_b.data(), cancelText_str_len);
+            ((char*)cancelText_str)[cancelText_str_len] = '\0';
+            const char* cbval1 = cancelText_str;
 
             klineedit_usercancelled_callback(this, cbval1);
+            libqt_free(cancelText_str);
         } else {
             KLineEdit::userCancelled(cancelText);
         }

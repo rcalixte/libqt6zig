@@ -20,8 +20,8 @@ class VirtualKDateValidator final : public KDateValidator {
     using KDateValidator_MetaObject_Callback = QMetaObject* (*)();
     using KDateValidator_Metacast_Callback = void* (*)(KDateValidator*, const char*);
     using KDateValidator_Metacall_Callback = int (*)(KDateValidator*, int, int, void**);
-    using KDateValidator_Validate_Callback = int (*)(const KDateValidator*, libqt_string, int*);
-    using KDateValidator_Fixup_Callback = void (*)(const KDateValidator*, libqt_string);
+    using KDateValidator_Validate_Callback = int (*)(const KDateValidator*, const char*, int*);
+    using KDateValidator_Fixup_Callback = void (*)(const KDateValidator*, const char*);
     using KDateValidator_Event_Callback = bool (*)(KDateValidator*, QEvent*);
     using KDateValidator_EventFilter_Callback = bool (*)(KDateValidator*, QObject*, QEvent*);
     using KDateValidator_TimerEvent_Callback = void (*)(KDateValidator*, QTimerEvent*);
@@ -182,17 +182,17 @@ class VirtualKDateValidator final : public KDateValidator {
             return KDateValidator::validate(text, e);
         } else if (kdatevalidator_validate_callback != nullptr) {
             QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
             int* cbval2 = &e;
 
             int callback_ret = kdatevalidator_validate_callback(this, cbval1, cbval2);
+            libqt_free(text_str);
             return static_cast<QValidator::State>(callback_ret);
         } else {
             return KDateValidator::validate(text, e);
@@ -206,16 +206,16 @@ class VirtualKDateValidator final : public KDateValidator {
             KDateValidator::fixup(input);
         } else if (kdatevalidator_fixup_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
 
             kdatevalidator_fixup_callback(this, cbval1);
+            libqt_free(input_str);
         } else {
             KDateValidator::fixup(input);
         }

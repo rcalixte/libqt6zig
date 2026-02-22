@@ -291,19 +291,19 @@ void QGridLayout_AddItem2(QGridLayout* self, QLayoutItem* param1) {
 }
 
 void QGridLayout_AddWidget4(QGridLayout* self, QWidget* param1, int row, int column, int param4) {
-    self->addWidget(param1, static_cast<int>(row), static_cast<int>(column), static_cast<QFlags<Qt::AlignmentFlag>>(param4));
+    self->addWidget(param1, static_cast<int>(row), static_cast<int>(column), static_cast<Qt::Alignment>(param4));
 }
 
 void QGridLayout_AddWidget6(QGridLayout* self, QWidget* param1, int row, int column, int rowSpan, int columnSpan, int param6) {
-    self->addWidget(param1, static_cast<int>(row), static_cast<int>(column), static_cast<int>(rowSpan), static_cast<int>(columnSpan), static_cast<QFlags<Qt::AlignmentFlag>>(param6));
+    self->addWidget(param1, static_cast<int>(row), static_cast<int>(column), static_cast<int>(rowSpan), static_cast<int>(columnSpan), static_cast<Qt::Alignment>(param6));
 }
 
 void QGridLayout_AddLayout4(QGridLayout* self, QLayout* param1, int row, int column, int param4) {
-    self->addLayout(param1, static_cast<int>(row), static_cast<int>(column), static_cast<QFlags<Qt::AlignmentFlag>>(param4));
+    self->addLayout(param1, static_cast<int>(row), static_cast<int>(column), static_cast<Qt::Alignment>(param4));
 }
 
 void QGridLayout_AddLayout6(QGridLayout* self, QLayout* param1, int row, int column, int rowSpan, int columnSpan, int param6) {
-    self->addLayout(param1, static_cast<int>(row), static_cast<int>(column), static_cast<int>(rowSpan), static_cast<int>(columnSpan), static_cast<QFlags<Qt::AlignmentFlag>>(param6));
+    self->addLayout(param1, static_cast<int>(row), static_cast<int>(column), static_cast<int>(rowSpan), static_cast<int>(columnSpan), static_cast<Qt::Alignment>(param6));
 }
 
 void QGridLayout_AddItem4(QGridLayout* self, QLayoutItem* item, int row, int column, int rowSpan) {
@@ -315,7 +315,7 @@ void QGridLayout_AddItem5(QGridLayout* self, QLayoutItem* item, int row, int col
 }
 
 void QGridLayout_AddItem6(QGridLayout* self, QLayoutItem* item, int row, int column, int rowSpan, int columnSpan, int param6) {
-    self->addItem(item, static_cast<int>(row), static_cast<int>(column), static_cast<int>(rowSpan), static_cast<int>(columnSpan), static_cast<QFlags<Qt::AlignmentFlag>>(param6));
+    self->addItem(item, static_cast<int>(row), static_cast<int>(column), static_cast<int>(rowSpan), static_cast<int>(columnSpan), static_cast<Qt::Alignment>(param6));
 }
 
 // Base class handler implementation

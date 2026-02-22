@@ -4,8 +4,8 @@ const deviceinterface_enums = @import("libdeviceinterface.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const map_constu8_i32 = std.StringHashMapUnmanaged(i32);
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_i32 = std.StringArrayHashMapUnmanaged(i32);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/solid-genericinterface.html)
 pub const solid__genericinterface = struct {
@@ -95,9 +95,9 @@ pub const solid__genericinterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllProperties(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
+    pub fn AllProperties(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_constu8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.Solid__GenericInterface_AllProperties(@ptrCast(self));
-        var _ret: map_constu8_qtcqvariant = .empty;
+        var _ret: arraymap_constu8_qtcqvariant = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -141,11 +141,11 @@ pub const solid__genericinterface = struct {
     ///
     /// ` self: QtC.Solid__GenericInterface `
     ///
-    /// ` changes: map_constu8_i32 `
+    /// ` changes: arraymap_constu8_i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PropertyChanged(self: ?*anyopaque, changes: map_constu8_i32, allocator: std.mem.Allocator) void {
+    pub fn PropertyChanged(self: ?*anyopaque, changes: arraymap_constu8_i32, allocator: std.mem.Allocator) void {
         const changes_count = changes.count();
         const changes_keys = allocator.alloc(qtc.libqt_string, changes_count) catch @panic("solid__genericinterface.PropertyChanged: Memory allocation failed");
         defer allocator.free(changes_keys);
@@ -175,7 +175,7 @@ pub const solid__genericinterface = struct {
     ///
     /// ` self: QtC.Solid__GenericInterface `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__GenericInterface, changes: qtc.libqt_map (map_constu8_i32)) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__GenericInterface, changes: qtc.libqt_map (arraymap_constu8_i32)) callconv(.c) void `
     ///
     pub fn OnPropertyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_map) callconv(.c) void) void {
         qtc.Solid__GenericInterface_Connect_PropertyChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));

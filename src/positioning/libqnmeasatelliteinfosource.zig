@@ -6,7 +6,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qnmeasatelliteinfosource_enums = enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html)
 pub const qnmeasatelliteinfosource = struct {
@@ -925,13 +925,13 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parameters: map_constu8_qtcqvariant `
+    /// ` parameters: arraymap_constu8_qtcqvariant `
     ///
     /// ` parent: QtC.QObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CreateDefaultSource2(parameters: map_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QGeoSatelliteInfoSource {
+    pub fn CreateDefaultSource2(parameters: arraymap_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QGeoSatelliteInfoSource {
         const parameters_count = parameters.count();
         const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qnmeasatelliteinfosource.CreateDefaultSource2: Memory allocation failed");
         defer allocator.free(parameters_keys);
@@ -963,13 +963,13 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` sourceName: []const u8 `
     ///
-    /// ` parameters: map_constu8_qtcqvariant `
+    /// ` parameters: arraymap_constu8_qtcqvariant `
     ///
     /// ` parent: QtC.QObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CreateSource2(sourceName: []const u8, parameters: map_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QGeoSatelliteInfoSource {
+    pub fn CreateSource2(sourceName: []const u8, parameters: arraymap_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QGeoSatelliteInfoSource {
         const sourceName_str = qtc.libqt_string{
             .len = sourceName.len,
             .data = sourceName.ptr,

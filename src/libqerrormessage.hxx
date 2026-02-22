@@ -1030,6 +1030,7 @@ class VirtualQErrorMessage final : public QErrorMessage {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qerrormessage_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QErrorMessage::nativeEvent(eventType, message, result);

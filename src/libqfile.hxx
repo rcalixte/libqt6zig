@@ -49,7 +49,7 @@ class VirtualQFile final : public QFile {
     using QFile_ConnectNotify_Callback = void (*)(QFile*, QMetaMethod*);
     using QFile_DisconnectNotify_Callback = void (*)(QFile*, QMetaMethod*);
     using QFile_SetOpenMode_Callback = void (*)(QFile*, int);
-    using QFile_SetErrorString_Callback = void (*)(QFile*, libqt_string);
+    using QFile_SetErrorString_Callback = void (*)(QFile*, const char*);
     using QFile_Sender_Callback = QObject* (*)();
     using QFile_SenderSignalIndex_Callback = int (*)();
     using QFile_Receivers_Callback = int (*)(const QFile*, const char*);
@@ -725,16 +725,16 @@ class VirtualQFile final : public QFile {
             QFile::setErrorString(errorString);
         } else if (qfile_seterrorstring_callback != nullptr) {
             const QString errorString_ret = errorString;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
-            libqt_string errorString_str;
-            errorString_str.len = errorString_b.length();
-            errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
-            memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
-            ((char*)errorString_str.data)[errorString_str.len] = '\0';
-            libqt_string cbval1 = errorString_str;
+            auto errorString_str_len = errorString_b.length();
+            const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+            memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+            ((char*)errorString_str)[errorString_str_len] = '\0';
+            const char* cbval1 = errorString_str;
 
             qfile_seterrorstring_callback(this, cbval1);
+            libqt_free(errorString_str);
         } else {
             QFile::setErrorString(errorString);
         }

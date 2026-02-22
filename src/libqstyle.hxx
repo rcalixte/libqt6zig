@@ -25,9 +25,9 @@ class VirtualQStyle : public QStyle {
     using QStyle_Polish2_Callback = void (*)(QStyle*, QApplication*);
     using QStyle_Unpolish2_Callback = void (*)(QStyle*, QApplication*);
     using QStyle_Polish3_Callback = void (*)(QStyle*, QPalette*);
-    using QStyle_ItemTextRect_Callback = QRect* (*)(const QStyle*, QFontMetrics*, QRect*, int, bool, libqt_string);
+    using QStyle_ItemTextRect_Callback = QRect* (*)(const QStyle*, QFontMetrics*, QRect*, int, bool, const char*);
     using QStyle_ItemPixmapRect_Callback = QRect* (*)(const QStyle*, QRect*, int, QPixmap*);
-    using QStyle_DrawItemText_Callback = void (*)(const QStyle*, QPainter*, QRect*, int, QPalette*, bool, libqt_string, int);
+    using QStyle_DrawItemText_Callback = void (*)(const QStyle*, QPainter*, QRect*, int, QPalette*, bool, const char*, int);
     using QStyle_DrawItemPixmap_Callback = void (*)(const QStyle*, QPainter*, QRect*, int, QPixmap*);
     using QStyle_StandardPalette_Callback = QPalette* (*)();
     using QStyle_DrawPrimitive_Callback = void (*)(const QStyle*, int, QStyleOption*, QPainter*, QWidget*);
@@ -387,16 +387,16 @@ class VirtualQStyle : public QStyle {
             int cbval3 = flags;
             bool cbval4 = enabled;
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval5 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval5 = text_str;
 
             QRect* callback_ret = qstyle_itemtextrect_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_free(text_str);
             return *callback_ret;
         } else {
             return QStyle::itemTextRect(fm, r, flags, enabled, text);
@@ -440,17 +440,17 @@ class VirtualQStyle : public QStyle {
             QPalette* cbval4 = const_cast<QPalette*>(&pal_ret);
             bool cbval5 = enabled;
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval6 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval6 = text_str;
             int cbval7 = static_cast<int>(textRole);
 
             qstyle_drawitemtext_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            libqt_free(text_str);
         } else {
             QStyle::drawItemText(painter, rect, flags, pal, enabled, text, textRole);
         }

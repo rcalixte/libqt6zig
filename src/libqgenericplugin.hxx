@@ -20,7 +20,7 @@ class VirtualQGenericPlugin : public QGenericPlugin {
     using QGenericPlugin_MetaObject_Callback = QMetaObject* (*)();
     using QGenericPlugin_Metacast_Callback = void* (*)(QGenericPlugin*, const char*);
     using QGenericPlugin_Metacall_Callback = int (*)(QGenericPlugin*, int, int, void**);
-    using QGenericPlugin_Create_Callback = QObject* (*)(QGenericPlugin*, libqt_string, libqt_string);
+    using QGenericPlugin_Create_Callback = QObject* (*)(QGenericPlugin*, const char*, const char*);
     using QGenericPlugin_Event_Callback = bool (*)(QGenericPlugin*, QEvent*);
     using QGenericPlugin_EventFilter_Callback = bool (*)(QGenericPlugin*, QObject*, QEvent*);
     using QGenericPlugin_TimerEvent_Callback = void (*)(QGenericPlugin*, QTimerEvent*);
@@ -173,25 +173,25 @@ class VirtualQGenericPlugin : public QGenericPlugin {
     virtual QObject* create(const QString& name, const QString& spec) override {
         if (qgenericplugin_create_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QString spec_ret = spec;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray spec_b = spec_ret.toUtf8();
-            libqt_string spec_str;
-            spec_str.len = spec_b.length();
-            spec_str.data = static_cast<const char*>(malloc(spec_str.len + 1));
-            memcpy((void*)spec_str.data, spec_b.data(), spec_str.len);
-            ((char*)spec_str.data)[spec_str.len] = '\0';
-            libqt_string cbval2 = spec_str;
+            auto spec_str_len = spec_b.length();
+            const char* spec_str = static_cast<const char*>(malloc(spec_str_len + 1));
+            memcpy((void*)spec_str, spec_b.data(), spec_str_len);
+            ((char*)spec_str)[spec_str_len] = '\0';
+            const char* cbval2 = spec_str;
 
             QObject* callback_ret = qgenericplugin_create_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
+            libqt_free(spec_str);
             return callback_ret;
         } else {
             return {};

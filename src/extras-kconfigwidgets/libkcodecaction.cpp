@@ -106,6 +106,7 @@ void KCodecAction_Connect_CodecNameTriggered(KCodecAction* self, intptr_t slot) 
         memcpy((void*)name_str.data, name_qb.data(), name_str.len);
         libqt_string sigval1 = name_str;
         slotFunc(self, sigval1);
+        libqt_free(name_str.data);
     });
 }
 

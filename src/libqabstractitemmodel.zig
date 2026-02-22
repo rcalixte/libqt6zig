@@ -4,7 +4,7 @@ const qabstractitemmodel_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
-const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
+const arraymap_i32_qtcqvariant = std.AutoArrayHashMapUnmanaged(i32, QtC.QVariant);
 const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmodelroledata.html)
@@ -1356,9 +1356,9 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QAbstractItemModel_ItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -1386,7 +1386,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of map_i32_qtcqvariant `
+    /// ` C ABI representation of arraymap_i32_qtcqvariant `
     ///
     pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
         qtc.QAbstractItemModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
@@ -1404,9 +1404,9 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QAbstractItemModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -1430,11 +1430,11 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    /// ` roles: map_i32_qtcqvariant `
+    /// ` roles: arraymap_i32_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("qabstractitemmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -1463,7 +1463,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` self: QtC.QAbstractItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemModel, index: QtC.QModelIndex, roles: qtc.libqt_map (map_i32_qtcqvariant)) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.QAbstractItemModel, index: QtC.QModelIndex, roles: qtc.libqt_map (arraymap_i32_qtcqvariant)) callconv(.c) bool `
     ///
     pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
         qtc.QAbstractItemModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
@@ -1479,11 +1479,11 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    /// ` roles: map_i32_qtcqvariant `
+    /// ` roles: arraymap_i32_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("qabstractitemmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -7724,9 +7724,9 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QAbstractTableModel_ItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -7756,9 +7756,9 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QAbstractTableModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -7788,7 +7788,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of map_i32_qtcqvariant `
+    /// ` C ABI representation of arraymap_i32_qtcqvariant `
     ///
     pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
         qtc.QAbstractTableModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
@@ -7806,11 +7806,11 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    /// ` roles: map_i32_qtcqvariant `
+    /// ` roles: arraymap_i32_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("qabstracttablemodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -7843,11 +7843,11 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    /// ` roles: map_i32_qtcqvariant `
+    /// ` roles: arraymap_i32_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("qabstracttablemodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -7878,7 +7878,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` self: QtC.QAbstractTableModel`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTableModel, index: QtC.QModelIndex, roles: qtc.libqt_map (map_i32_qtcqvariant)) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.QAbstractTableModel, index: QtC.QModelIndex, roles: qtc.libqt_map (arraymap_i32_qtcqvariant)) callconv(.c) bool `
     ///
     pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
         qtc.QAbstractTableModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
@@ -13078,9 +13078,9 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QAbstractListModel_ItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -13110,9 +13110,9 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
+    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QAbstractListModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: map_i32_qtcqvariant = .empty;
+        var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -13142,7 +13142,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of map_i32_qtcqvariant `
+    /// ` C ABI representation of arraymap_i32_qtcqvariant `
     ///
     pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
         qtc.QAbstractListModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
@@ -13160,11 +13160,11 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    /// ` roles: map_i32_qtcqvariant `
+    /// ` roles: arraymap_i32_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("qabstractlistmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -13197,11 +13197,11 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    /// ` roles: map_i32_qtcqvariant `
+    /// ` roles: arraymap_i32_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("qabstractlistmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -13232,7 +13232,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` self: QtC.QAbstractListModel`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractListModel, index: QtC.QModelIndex, roles: qtc.libqt_map (map_i32_qtcqvariant)) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.QAbstractListModel, index: QtC.QModelIndex, roles: qtc.libqt_map (arraymap_i32_qtcqvariant)) callconv(.c) bool `
     ///
     pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
         qtc.QAbstractListModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));

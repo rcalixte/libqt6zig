@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html)
 pub const qwebengineclienthints = struct {
@@ -173,9 +173,9 @@ pub const qwebengineclienthints = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FullVersionList(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
+    pub fn FullVersionList(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_constu8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QWebEngineClientHints_FullVersionList(@ptrCast(self));
-        var _ret: map_constu8_qtcqvariant = .empty;
+        var _ret: arraymap_constu8_qtcqvariant = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -321,11 +321,11 @@ pub const qwebengineclienthints = struct {
     ///
     /// ` self: QtC.QWebEngineClientHints `
     ///
-    /// ` fullVersionList: map_constu8_qtcqvariant `
+    /// ` fullVersionList: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetFullVersionList(self: ?*anyopaque, fullVersionList: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
+    pub fn SetFullVersionList(self: ?*anyopaque, fullVersionList: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
         const fullVersionList_count = fullVersionList.count();
         const fullVersionList_keys = allocator.alloc(qtc.libqt_string, fullVersionList_count) catch @panic("qwebengineclienthints.SetFullVersionList: Memory allocation failed");
         defer allocator.free(fullVersionList_keys);

@@ -46,16 +46,17 @@ void KConfigWatcher_Connect_ConfigChanged(KConfigWatcher* self, intptr_t slot) {
         const char** names_arr = static_cast<const char**>(malloc(sizeof(const char*) * (names_ret.size() + 1)));
         for (qsizetype i = 0; i < names_ret.size(); ++i) {
             QByteArray names_b = names_ret[i];
-            char* names_str = static_cast<char*>(malloc(names_b.length() + 1));
-            memcpy(names_str, names_b.data(), names_b.length());
-            names_str[names_b.length()] = '\0';
+            auto names_str_len = names_b.length();
+            char* names_str = static_cast<char*>(malloc(names_str_len + 1));
+            memcpy(names_str, names_b.data(), names_str_len);
+            names_str[names_str_len] = '\0';
             names_arr[i] = names_str;
         }
         // Append sentinel null terminator to the list
         names_arr[names_ret.size()] = nullptr;
         const char** sigval2 = names_arr;
         slotFunc(self, sigval1, sigval2);
-        free(names_arr);
+        libqt_free(names_arr);
     });
 }
 

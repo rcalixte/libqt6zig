@@ -20,12 +20,12 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
     using KTextEditor__Command_MetaObject_Callback = QMetaObject* (*)();
     using KTextEditor__Command_Metacast_Callback = void* (*)(KTextEditor__Command*, const char*);
     using KTextEditor__Command_Metacall_Callback = int (*)(KTextEditor__Command*, int, int, void**);
-    using KTextEditor__Command_SupportsRange_Callback = bool (*)(KTextEditor__Command*, libqt_string);
-    using KTextEditor__Command_Exec_Callback = bool (*)(KTextEditor__Command*, KTextEditor__View*, libqt_string, libqt_string, KTextEditor__Range*);
-    using KTextEditor__Command_Help_Callback = bool (*)(KTextEditor__Command*, KTextEditor__View*, libqt_string, libqt_string);
-    using KTextEditor__Command_CompletionObject_Callback = KCompletion* (*)(KTextEditor__Command*, KTextEditor__View*, libqt_string);
-    using KTextEditor__Command_WantsToProcessText_Callback = bool (*)(KTextEditor__Command*, libqt_string);
-    using KTextEditor__Command_ProcessText_Callback = void (*)(KTextEditor__Command*, KTextEditor__View*, libqt_string);
+    using KTextEditor__Command_SupportsRange_Callback = bool (*)(KTextEditor__Command*, const char*);
+    using KTextEditor__Command_Exec_Callback = bool (*)(KTextEditor__Command*, KTextEditor__View*, const char*, const char*, KTextEditor__Range*);
+    using KTextEditor__Command_Help_Callback = bool (*)(KTextEditor__Command*, KTextEditor__View*, const char*, const char*);
+    using KTextEditor__Command_CompletionObject_Callback = KCompletion* (*)(KTextEditor__Command*, KTextEditor__View*, const char*);
+    using KTextEditor__Command_WantsToProcessText_Callback = bool (*)(KTextEditor__Command*, const char*);
+    using KTextEditor__Command_ProcessText_Callback = void (*)(KTextEditor__Command*, KTextEditor__View*, const char*);
     using KTextEditor__Command_Event_Callback = bool (*)(KTextEditor__Command*, QEvent*);
     using KTextEditor__Command_EventFilter_Callback = bool (*)(KTextEditor__Command*, QObject*, QEvent*);
     using KTextEditor__Command_TimerEvent_Callback = void (*)(KTextEditor__Command*, QTimerEvent*);
@@ -206,16 +206,16 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
             return KTextEditor__Command::supportsRange(cmd);
         } else if (ktexteditor__command_supportsrange_callback != nullptr) {
             const QString cmd_ret = cmd;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray cmd_b = cmd_ret.toUtf8();
-            libqt_string cmd_str;
-            cmd_str.len = cmd_b.length();
-            cmd_str.data = static_cast<const char*>(malloc(cmd_str.len + 1));
-            memcpy((void*)cmd_str.data, cmd_b.data(), cmd_str.len);
-            ((char*)cmd_str.data)[cmd_str.len] = '\0';
-            libqt_string cbval1 = cmd_str;
+            auto cmd_str_len = cmd_b.length();
+            const char* cmd_str = static_cast<const char*>(malloc(cmd_str_len + 1));
+            memcpy((void*)cmd_str, cmd_b.data(), cmd_str_len);
+            ((char*)cmd_str)[cmd_str_len] = '\0';
+            const char* cbval1 = cmd_str;
 
             bool callback_ret = ktexteditor__command_supportsrange_callback(this, cbval1);
+            libqt_free(cmd_str);
             return callback_ret;
         } else {
             return KTextEditor__Command::supportsRange(cmd);
@@ -227,28 +227,28 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         if (ktexteditor__command_exec_callback != nullptr) {
             KTextEditor__View* cbval1 = view;
             const QString cmd_ret = cmd;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray cmd_b = cmd_ret.toUtf8();
-            libqt_string cmd_str;
-            cmd_str.len = cmd_b.length();
-            cmd_str.data = static_cast<const char*>(malloc(cmd_str.len + 1));
-            memcpy((void*)cmd_str.data, cmd_b.data(), cmd_str.len);
-            ((char*)cmd_str.data)[cmd_str.len] = '\0';
-            libqt_string cbval2 = cmd_str;
+            auto cmd_str_len = cmd_b.length();
+            const char* cmd_str = static_cast<const char*>(malloc(cmd_str_len + 1));
+            memcpy((void*)cmd_str, cmd_b.data(), cmd_str_len);
+            ((char*)cmd_str)[cmd_str_len] = '\0';
+            const char* cbval2 = cmd_str;
             QString msg_ret = msg;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray msg_b = msg_ret.toUtf8();
-            libqt_string msg_str;
-            msg_str.len = msg_b.length();
-            msg_str.data = static_cast<const char*>(malloc(msg_str.len + 1));
-            memcpy((void*)msg_str.data, msg_b.data(), msg_str.len);
-            ((char*)msg_str.data)[msg_str.len] = '\0';
-            libqt_string cbval3 = msg_str;
+            auto msg_str_len = msg_b.length();
+            const char* msg_str = static_cast<const char*>(malloc(msg_str_len + 1));
+            memcpy((void*)msg_str, msg_b.data(), msg_str_len);
+            ((char*)msg_str)[msg_str_len] = '\0';
+            const char* cbval3 = msg_str;
             const KTextEditor::Range& range_ret = range;
             // Cast returned reference into pointer
             KTextEditor__Range* cbval4 = const_cast<KTextEditor::Range*>(&range_ret);
 
             bool callback_ret = ktexteditor__command_exec_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_free(cmd_str);
+            libqt_free(msg_str);
             return callback_ret;
         } else {
             return {};
@@ -260,25 +260,25 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         if (ktexteditor__command_help_callback != nullptr) {
             KTextEditor__View* cbval1 = view;
             const QString cmd_ret = cmd;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray cmd_b = cmd_ret.toUtf8();
-            libqt_string cmd_str;
-            cmd_str.len = cmd_b.length();
-            cmd_str.data = static_cast<const char*>(malloc(cmd_str.len + 1));
-            memcpy((void*)cmd_str.data, cmd_b.data(), cmd_str.len);
-            ((char*)cmd_str.data)[cmd_str.len] = '\0';
-            libqt_string cbval2 = cmd_str;
+            auto cmd_str_len = cmd_b.length();
+            const char* cmd_str = static_cast<const char*>(malloc(cmd_str_len + 1));
+            memcpy((void*)cmd_str, cmd_b.data(), cmd_str_len);
+            ((char*)cmd_str)[cmd_str_len] = '\0';
+            const char* cbval2 = cmd_str;
             QString msg_ret = msg;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray msg_b = msg_ret.toUtf8();
-            libqt_string msg_str;
-            msg_str.len = msg_b.length();
-            msg_str.data = static_cast<const char*>(malloc(msg_str.len + 1));
-            memcpy((void*)msg_str.data, msg_b.data(), msg_str.len);
-            ((char*)msg_str.data)[msg_str.len] = '\0';
-            libqt_string cbval3 = msg_str;
+            auto msg_str_len = msg_b.length();
+            const char* msg_str = static_cast<const char*>(malloc(msg_str_len + 1));
+            memcpy((void*)msg_str, msg_b.data(), msg_str_len);
+            ((char*)msg_str)[msg_str_len] = '\0';
+            const char* cbval3 = msg_str;
 
             bool callback_ret = ktexteditor__command_help_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(cmd_str);
+            libqt_free(msg_str);
             return callback_ret;
         } else {
             return {};
@@ -293,16 +293,16 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         } else if (ktexteditor__command_completionobject_callback != nullptr) {
             KTextEditor__View* cbval1 = view;
             const QString cmdname_ret = cmdname;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray cmdname_b = cmdname_ret.toUtf8();
-            libqt_string cmdname_str;
-            cmdname_str.len = cmdname_b.length();
-            cmdname_str.data = static_cast<const char*>(malloc(cmdname_str.len + 1));
-            memcpy((void*)cmdname_str.data, cmdname_b.data(), cmdname_str.len);
-            ((char*)cmdname_str.data)[cmdname_str.len] = '\0';
-            libqt_string cbval2 = cmdname_str;
+            auto cmdname_str_len = cmdname_b.length();
+            const char* cmdname_str = static_cast<const char*>(malloc(cmdname_str_len + 1));
+            memcpy((void*)cmdname_str, cmdname_b.data(), cmdname_str_len);
+            ((char*)cmdname_str)[cmdname_str_len] = '\0';
+            const char* cbval2 = cmdname_str;
 
             KCompletion* callback_ret = ktexteditor__command_completionobject_callback(this, cbval1, cbval2);
+            libqt_free(cmdname_str);
             return callback_ret;
         } else {
             return KTextEditor__Command::completionObject(view, cmdname);
@@ -316,16 +316,16 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
             return KTextEditor__Command::wantsToProcessText(cmdname);
         } else if (ktexteditor__command_wantstoprocesstext_callback != nullptr) {
             const QString cmdname_ret = cmdname;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray cmdname_b = cmdname_ret.toUtf8();
-            libqt_string cmdname_str;
-            cmdname_str.len = cmdname_b.length();
-            cmdname_str.data = static_cast<const char*>(malloc(cmdname_str.len + 1));
-            memcpy((void*)cmdname_str.data, cmdname_b.data(), cmdname_str.len);
-            ((char*)cmdname_str.data)[cmdname_str.len] = '\0';
-            libqt_string cbval1 = cmdname_str;
+            auto cmdname_str_len = cmdname_b.length();
+            const char* cmdname_str = static_cast<const char*>(malloc(cmdname_str_len + 1));
+            memcpy((void*)cmdname_str, cmdname_b.data(), cmdname_str_len);
+            ((char*)cmdname_str)[cmdname_str_len] = '\0';
+            const char* cbval1 = cmdname_str;
 
             bool callback_ret = ktexteditor__command_wantstoprocesstext_callback(this, cbval1);
+            libqt_free(cmdname_str);
             return callback_ret;
         } else {
             return KTextEditor__Command::wantsToProcessText(cmdname);
@@ -340,16 +340,16 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         } else if (ktexteditor__command_processtext_callback != nullptr) {
             KTextEditor__View* cbval1 = view;
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval2 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval2 = text_str;
 
             ktexteditor__command_processtext_callback(this, cbval1, cbval2);
+            libqt_free(text_str);
         } else {
             KTextEditor__Command::processText(view, text);
         }

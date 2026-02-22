@@ -20,7 +20,7 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
     using QSqlTableModel_MetaObject_Callback = QMetaObject* (*)();
     using QSqlTableModel_Metacast_Callback = void* (*)(QSqlTableModel*, const char*);
     using QSqlTableModel_Metacall_Callback = int (*)(QSqlTableModel*, int, int, void**);
-    using QSqlTableModel_SetTable_Callback = void (*)(QSqlTableModel*, libqt_string);
+    using QSqlTableModel_SetTable_Callback = void (*)(QSqlTableModel*, const char*);
     using QSqlTableModel_Flags_Callback = int (*)(const QSqlTableModel*, QModelIndex*);
     using QSqlTableModel_Data_Callback = QVariant* (*)(const QSqlTableModel*, QModelIndex*, int);
     using QSqlTableModel_SetData_Callback = bool (*)(QSqlTableModel*, QModelIndex*, QVariant*, int);
@@ -30,7 +30,7 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
     using QSqlTableModel_SetEditStrategy_Callback = void (*)(QSqlTableModel*, int);
     using QSqlTableModel_Sort_Callback = void (*)(QSqlTableModel*, int, int);
     using QSqlTableModel_SetSort_Callback = void (*)(QSqlTableModel*, int, int);
-    using QSqlTableModel_SetFilter_Callback = void (*)(QSqlTableModel*, libqt_string);
+    using QSqlTableModel_SetFilter_Callback = void (*)(QSqlTableModel*, const char*);
     using QSqlTableModel_RowCount_Callback = int (*)(const QSqlTableModel*, QModelIndex*);
     using QSqlTableModel_RemoveColumns_Callback = bool (*)(QSqlTableModel*, int, int, QModelIndex*);
     using QSqlTableModel_RemoveRows_Callback = bool (*)(QSqlTableModel*, int, int, QModelIndex*);
@@ -609,16 +609,16 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
             QSqlTableModel::setTable(tableName);
         } else if (qsqltablemodel_settable_callback != nullptr) {
             const QString tableName_ret = tableName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray tableName_b = tableName_ret.toUtf8();
-            libqt_string tableName_str;
-            tableName_str.len = tableName_b.length();
-            tableName_str.data = static_cast<const char*>(malloc(tableName_str.len + 1));
-            memcpy((void*)tableName_str.data, tableName_b.data(), tableName_str.len);
-            ((char*)tableName_str.data)[tableName_str.len] = '\0';
-            libqt_string cbval1 = tableName_str;
+            auto tableName_str_len = tableName_b.length();
+            const char* tableName_str = static_cast<const char*>(malloc(tableName_str_len + 1));
+            memcpy((void*)tableName_str, tableName_b.data(), tableName_str_len);
+            ((char*)tableName_str)[tableName_str_len] = '\0';
+            const char* cbval1 = tableName_str;
 
             qsqltablemodel_settable_callback(this, cbval1);
+            libqt_free(tableName_str);
         } else {
             QSqlTableModel::setTable(tableName);
         }
@@ -777,16 +777,16 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
             QSqlTableModel::setFilter(filter);
         } else if (qsqltablemodel_setfilter_callback != nullptr) {
             const QString filter_ret = filter;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray filter_b = filter_ret.toUtf8();
-            libqt_string filter_str;
-            filter_str.len = filter_b.length();
-            filter_str.data = static_cast<const char*>(malloc(filter_str.len + 1));
-            memcpy((void*)filter_str.data, filter_b.data(), filter_str.len);
-            ((char*)filter_str.data)[filter_str.len] = '\0';
-            libqt_string cbval1 = filter_str;
+            auto filter_str_len = filter_b.length();
+            const char* filter_str = static_cast<const char*>(malloc(filter_str_len + 1));
+            memcpy((void*)filter_str, filter_b.data(), filter_str_len);
+            ((char*)filter_str)[filter_str_len] = '\0';
+            const char* cbval1 = filter_str;
 
             qsqltablemodel_setfilter_callback(this, cbval1);
+            libqt_free(filter_str);
         } else {
             QSqlTableModel::setFilter(filter);
         }
@@ -1304,6 +1304,7 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = qsqltablemodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return QSqlTableModel::mimeData(indexes);
@@ -1829,6 +1830,7 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
             QDataStream* cbval2 = &stream_ret;
 
             qsqltablemodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             QSqlTableModel::encodeData(indexes, stream);
         }
@@ -1973,6 +1975,8 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             qsqltablemodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             QSqlTableModel::changePersistentIndexList(from, to);
         }

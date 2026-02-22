@@ -22,11 +22,11 @@ class VirtualKConfig final : public KConfig {
     using KConfig_AccessMode_Callback = int (*)();
     using KConfig_IsImmutable_Callback = bool (*)();
     using KConfig_GroupList_Callback = const char** (*)();
-    using KConfig_HasGroupImpl_Callback = bool (*)(const KConfig*, libqt_string);
-    using KConfig_GroupImpl_Callback = KConfigGroup* (*)(KConfig*, libqt_string);
-    using KConfig_GroupImpl2_Callback = KConfigGroup* (*)(const KConfig*, libqt_string);
-    using KConfig_DeleteGroupImpl_Callback = void (*)(KConfig*, libqt_string, int);
-    using KConfig_IsGroupImmutableImpl_Callback = bool (*)(const KConfig*, libqt_string);
+    using KConfig_HasGroupImpl_Callback = bool (*)(const KConfig*, const char*);
+    using KConfig_GroupImpl_Callback = KConfigGroup* (*)(KConfig*, const char*);
+    using KConfig_GroupImpl2_Callback = KConfigGroup* (*)(const KConfig*, const char*);
+    using KConfig_DeleteGroupImpl_Callback = void (*)(KConfig*, const char*, int);
+    using KConfig_IsGroupImmutableImpl_Callback = bool (*)(const KConfig*, const char*);
     using KConfig_VirtualHook_Callback = void (*)(KConfig*, int, void*);
 
   protected:
@@ -184,16 +184,16 @@ class VirtualKConfig final : public KConfig {
             return KConfig::hasGroupImpl(groupName);
         } else if (kconfig_hasgroupimpl_callback != nullptr) {
             const QString groupName_ret = groupName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
-            libqt_string groupName_str;
-            groupName_str.len = groupName_b.length();
-            groupName_str.data = static_cast<const char*>(malloc(groupName_str.len + 1));
-            memcpy((void*)groupName_str.data, groupName_b.data(), groupName_str.len);
-            ((char*)groupName_str.data)[groupName_str.len] = '\0';
-            libqt_string cbval1 = groupName_str;
+            auto groupName_str_len = groupName_b.length();
+            const char* groupName_str = static_cast<const char*>(malloc(groupName_str_len + 1));
+            memcpy((void*)groupName_str, groupName_b.data(), groupName_str_len);
+            ((char*)groupName_str)[groupName_str_len] = '\0';
+            const char* cbval1 = groupName_str;
 
             bool callback_ret = kconfig_hasgroupimpl_callback(this, cbval1);
+            libqt_free(groupName_str);
             return callback_ret;
         } else {
             return KConfig::hasGroupImpl(groupName);
@@ -207,16 +207,16 @@ class VirtualKConfig final : public KConfig {
             return KConfig::groupImpl(groupName);
         } else if (kconfig_groupimpl_callback != nullptr) {
             const QString groupName_ret = groupName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
-            libqt_string groupName_str;
-            groupName_str.len = groupName_b.length();
-            groupName_str.data = static_cast<const char*>(malloc(groupName_str.len + 1));
-            memcpy((void*)groupName_str.data, groupName_b.data(), groupName_str.len);
-            ((char*)groupName_str.data)[groupName_str.len] = '\0';
-            libqt_string cbval1 = groupName_str;
+            auto groupName_str_len = groupName_b.length();
+            const char* groupName_str = static_cast<const char*>(malloc(groupName_str_len + 1));
+            memcpy((void*)groupName_str, groupName_b.data(), groupName_str_len);
+            ((char*)groupName_str)[groupName_str_len] = '\0';
+            const char* cbval1 = groupName_str;
 
             KConfigGroup* callback_ret = kconfig_groupimpl_callback(this, cbval1);
+            libqt_free(groupName_str);
             return *callback_ret;
         } else {
             return KConfig::groupImpl(groupName);
@@ -230,16 +230,16 @@ class VirtualKConfig final : public KConfig {
             return KConfig::groupImpl(groupName);
         } else if (kconfig_groupimpl2_callback != nullptr) {
             const QString groupName_ret = groupName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
-            libqt_string groupName_str;
-            groupName_str.len = groupName_b.length();
-            groupName_str.data = static_cast<const char*>(malloc(groupName_str.len + 1));
-            memcpy((void*)groupName_str.data, groupName_b.data(), groupName_str.len);
-            ((char*)groupName_str.data)[groupName_str.len] = '\0';
-            libqt_string cbval1 = groupName_str;
+            auto groupName_str_len = groupName_b.length();
+            const char* groupName_str = static_cast<const char*>(malloc(groupName_str_len + 1));
+            memcpy((void*)groupName_str, groupName_b.data(), groupName_str_len);
+            ((char*)groupName_str)[groupName_str_len] = '\0';
+            const char* cbval1 = groupName_str;
 
             KConfigGroup* callback_ret = kconfig_groupimpl2_callback(this, cbval1);
+            libqt_free(groupName_str);
             return *callback_ret;
         } else {
             return KConfig::groupImpl(groupName);
@@ -253,17 +253,17 @@ class VirtualKConfig final : public KConfig {
             KConfig::deleteGroupImpl(groupName, flags);
         } else if (kconfig_deletegroupimpl_callback != nullptr) {
             const QString groupName_ret = groupName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
-            libqt_string groupName_str;
-            groupName_str.len = groupName_b.length();
-            groupName_str.data = static_cast<const char*>(malloc(groupName_str.len + 1));
-            memcpy((void*)groupName_str.data, groupName_b.data(), groupName_str.len);
-            ((char*)groupName_str.data)[groupName_str.len] = '\0';
-            libqt_string cbval1 = groupName_str;
+            auto groupName_str_len = groupName_b.length();
+            const char* groupName_str = static_cast<const char*>(malloc(groupName_str_len + 1));
+            memcpy((void*)groupName_str, groupName_b.data(), groupName_str_len);
+            ((char*)groupName_str)[groupName_str_len] = '\0';
+            const char* cbval1 = groupName_str;
             int cbval2 = static_cast<int>(flags);
 
             kconfig_deletegroupimpl_callback(this, cbval1, cbval2);
+            libqt_free(groupName_str);
         } else {
             KConfig::deleteGroupImpl(groupName, flags);
         }
@@ -276,16 +276,16 @@ class VirtualKConfig final : public KConfig {
             return KConfig::isGroupImmutableImpl(groupName);
         } else if (kconfig_isgroupimmutableimpl_callback != nullptr) {
             const QString groupName_ret = groupName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
-            libqt_string groupName_str;
-            groupName_str.len = groupName_b.length();
-            groupName_str.data = static_cast<const char*>(malloc(groupName_str.len + 1));
-            memcpy((void*)groupName_str.data, groupName_b.data(), groupName_str.len);
-            ((char*)groupName_str.data)[groupName_str.len] = '\0';
-            libqt_string cbval1 = groupName_str;
+            auto groupName_str_len = groupName_b.length();
+            const char* groupName_str = static_cast<const char*>(malloc(groupName_str_len + 1));
+            memcpy((void*)groupName_str, groupName_b.data(), groupName_str_len);
+            ((char*)groupName_str)[groupName_str_len] = '\0';
+            const char* cbval1 = groupName_str;
 
             bool callback_ret = kconfig_isgroupimmutableimpl_callback(this, cbval1);
+            libqt_free(groupName_str);
             return callback_ret;
         } else {
             return KConfig::isGroupImmutableImpl(groupName);

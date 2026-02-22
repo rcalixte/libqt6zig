@@ -26,7 +26,7 @@ class VirtualQSctpSocket final : public QSctpSocket {
     using QSctpSocket_ReadLineData_Callback = long long (*)(QSctpSocket*, char*, long long);
     using QSctpSocket_Resume_Callback = void (*)();
     using QSctpSocket_Bind_Callback = bool (*)(QSctpSocket*, QHostAddress*, uint16_t, int);
-    using QSctpSocket_ConnectToHost_Callback = void (*)(QSctpSocket*, libqt_string, uint16_t, int, int);
+    using QSctpSocket_ConnectToHost_Callback = void (*)(QSctpSocket*, const char*, uint16_t, int, int);
     using QSctpSocket_BytesAvailable_Callback = long long (*)();
     using QSctpSocket_BytesToWrite_Callback = long long (*)();
     using QSctpSocket_SetReadBufferSize_Callback = void (*)(QSctpSocket*, long long);
@@ -61,9 +61,9 @@ class VirtualQSctpSocket final : public QSctpSocket {
     using QSctpSocket_SetLocalAddress_Callback = void (*)(QSctpSocket*, QHostAddress*);
     using QSctpSocket_SetPeerPort_Callback = void (*)(QSctpSocket*, uint16_t);
     using QSctpSocket_SetPeerAddress_Callback = void (*)(QSctpSocket*, QHostAddress*);
-    using QSctpSocket_SetPeerName_Callback = void (*)(QSctpSocket*, libqt_string);
+    using QSctpSocket_SetPeerName_Callback = void (*)(QSctpSocket*, const char*);
     using QSctpSocket_SetOpenMode_Callback = void (*)(QSctpSocket*, int);
-    using QSctpSocket_SetErrorString_Callback = void (*)(QSctpSocket*, libqt_string);
+    using QSctpSocket_SetErrorString_Callback = void (*)(QSctpSocket*, const char*);
     using QSctpSocket_Sender_Callback = QObject* (*)();
     using QSctpSocket_SenderSignalIndex_Callback = int (*)();
     using QSctpSocket_Receivers_Callback = int (*)(const QSctpSocket*, const char*);
@@ -479,19 +479,19 @@ class VirtualQSctpSocket final : public QSctpSocket {
             QSctpSocket::connectToHost(hostName, port, mode, protocol);
         } else if (qsctpsocket_connecttohost_callback != nullptr) {
             const QString hostName_ret = hostName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray hostName_b = hostName_ret.toUtf8();
-            libqt_string hostName_str;
-            hostName_str.len = hostName_b.length();
-            hostName_str.data = static_cast<const char*>(malloc(hostName_str.len + 1));
-            memcpy((void*)hostName_str.data, hostName_b.data(), hostName_str.len);
-            ((char*)hostName_str.data)[hostName_str.len] = '\0';
-            libqt_string cbval1 = hostName_str;
+            auto hostName_str_len = hostName_b.length();
+            const char* hostName_str = static_cast<const char*>(malloc(hostName_str_len + 1));
+            memcpy((void*)hostName_str, hostName_b.data(), hostName_str_len);
+            ((char*)hostName_str)[hostName_str_len] = '\0';
+            const char* cbval1 = hostName_str;
             uint16_t cbval2 = static_cast<uint16_t>(port);
             int cbval3 = static_cast<int>(mode);
             int cbval4 = static_cast<int>(protocol);
 
             qsctpsocket_connecttohost_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_free(hostName_str);
         } else {
             QSctpSocket::connectToHost(hostName, port, mode, protocol);
         }
@@ -999,16 +999,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
             QSctpSocket::setPeerName(name);
         } else if (qsctpsocket_setpeername_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             qsctpsocket_setpeername_callback(this, cbval1);
+            libqt_free(name_str);
         } else {
             QSctpSocket::setPeerName(name);
         }
@@ -1035,16 +1035,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
             QSctpSocket::setErrorString(errorString);
         } else if (qsctpsocket_seterrorstring_callback != nullptr) {
             const QString errorString_ret = errorString;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
-            libqt_string errorString_str;
-            errorString_str.len = errorString_b.length();
-            errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
-            memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
-            ((char*)errorString_str.data)[errorString_str.len] = '\0';
-            libqt_string cbval1 = errorString_str;
+            auto errorString_str_len = errorString_b.length();
+            const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+            memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+            ((char*)errorString_str)[errorString_str_len] = '\0';
+            const char* cbval1 = errorString_str;
 
             qsctpsocket_seterrorstring_callback(this, cbval1);
+            libqt_free(errorString_str);
         } else {
             QSctpSocket::setErrorString(errorString);
         }

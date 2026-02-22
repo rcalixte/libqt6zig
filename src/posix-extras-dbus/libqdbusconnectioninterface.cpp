@@ -37,9 +37,10 @@ void QDBusConnectionInterface_Connect_ServiceRegistered(QDBusConnectionInterface
         const QString service_ret = service;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray service_b = service_ret.toUtf8();
-        const char* service_str = static_cast<const char*>(malloc(service_b.length() + 1));
-        memcpy((void*)service_str, service_b.data(), service_b.length());
-        ((char*)service_str)[service_b.length()] = '\0';
+        auto service_str_len = service_b.length();
+        const char* service_str = static_cast<const char*>(malloc(service_str_len + 1));
+        memcpy((void*)service_str, service_b.data(), service_str_len);
+        ((char*)service_str)[service_str_len] = '\0';
         const char* sigval1 = service_str;
         slotFunc(self, sigval1);
         libqt_free(service_str);
@@ -57,9 +58,10 @@ void QDBusConnectionInterface_Connect_ServiceUnregistered(QDBusConnectionInterfa
         const QString service_ret = service;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray service_b = service_ret.toUtf8();
-        const char* service_str = static_cast<const char*>(malloc(service_b.length() + 1));
-        memcpy((void*)service_str, service_b.data(), service_b.length());
-        ((char*)service_str)[service_b.length()] = '\0';
+        auto service_str_len = service_b.length();
+        const char* service_str = static_cast<const char*>(malloc(service_str_len + 1));
+        memcpy((void*)service_str, service_b.data(), service_str_len);
+        ((char*)service_str)[service_str_len] = '\0';
         const char* sigval1 = service_str;
         slotFunc(self, sigval1);
         libqt_free(service_str);
@@ -79,23 +81,26 @@ void QDBusConnectionInterface_Connect_ServiceOwnerChanged(QDBusConnectionInterfa
         const QString name_ret = name;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray name_b = name_ret.toUtf8();
-        const char* name_str = static_cast<const char*>(malloc(name_b.length() + 1));
-        memcpy((void*)name_str, name_b.data(), name_b.length());
-        ((char*)name_str)[name_b.length()] = '\0';
+        auto name_str_len = name_b.length();
+        const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+        memcpy((void*)name_str, name_b.data(), name_str_len);
+        ((char*)name_str)[name_str_len] = '\0';
         const char* sigval1 = name_str;
         const QString oldOwner_ret = oldOwner;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray oldOwner_b = oldOwner_ret.toUtf8();
-        const char* oldOwner_str = static_cast<const char*>(malloc(oldOwner_b.length() + 1));
-        memcpy((void*)oldOwner_str, oldOwner_b.data(), oldOwner_b.length());
-        ((char*)oldOwner_str)[oldOwner_b.length()] = '\0';
+        auto oldOwner_str_len = oldOwner_b.length();
+        const char* oldOwner_str = static_cast<const char*>(malloc(oldOwner_str_len + 1));
+        memcpy((void*)oldOwner_str, oldOwner_b.data(), oldOwner_str_len);
+        ((char*)oldOwner_str)[oldOwner_str_len] = '\0';
         const char* sigval2 = oldOwner_str;
         const QString newOwner_ret = newOwner;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray newOwner_b = newOwner_ret.toUtf8();
-        const char* newOwner_str = static_cast<const char*>(malloc(newOwner_b.length() + 1));
-        memcpy((void*)newOwner_str, newOwner_b.data(), newOwner_b.length());
-        ((char*)newOwner_str)[newOwner_b.length()] = '\0';
+        auto newOwner_str_len = newOwner_b.length();
+        const char* newOwner_str = static_cast<const char*>(malloc(newOwner_str_len + 1));
+        memcpy((void*)newOwner_str, newOwner_b.data(), newOwner_str_len);
+        ((char*)newOwner_str)[newOwner_str_len] = '\0';
         const char* sigval3 = newOwner_str;
         slotFunc(self, sigval1, sigval2, sigval3);
         libqt_free(name_str);
@@ -132,9 +137,10 @@ void QDBusConnectionInterface_Connect_NameAcquired(QDBusConnectionInterface* sel
         const QString param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
-        const char* param1_str = static_cast<const char*>(malloc(param1_b.length() + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_b.length());
-        ((char*)param1_str)[param1_b.length()] = '\0';
+        auto param1_str_len = param1_b.length();
+        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+        ((char*)param1_str)[param1_str_len] = '\0';
         const char* sigval1 = param1_str;
         slotFunc(self, sigval1);
         libqt_free(param1_str);
@@ -152,9 +158,10 @@ void QDBusConnectionInterface_Connect_NameLost(QDBusConnectionInterface* self, i
         const QString param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
-        const char* param1_str = static_cast<const char*>(malloc(param1_b.length() + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_b.length());
-        ((char*)param1_str)[param1_b.length()] = '\0';
+        auto param1_str_len = param1_b.length();
+        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+        ((char*)param1_str)[param1_str_len] = '\0';
         const char* sigval1 = param1_str;
         slotFunc(self, sigval1);
         libqt_free(param1_str);
@@ -174,23 +181,26 @@ void QDBusConnectionInterface_Connect_NameOwnerChanged(QDBusConnectionInterface*
         const QString param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
-        const char* param1_str = static_cast<const char*>(malloc(param1_b.length() + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_b.length());
-        ((char*)param1_str)[param1_b.length()] = '\0';
+        auto param1_str_len = param1_b.length();
+        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+        ((char*)param1_str)[param1_str_len] = '\0';
         const char* sigval1 = param1_str;
         const QString param2_ret = param2;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param2_b = param2_ret.toUtf8();
-        const char* param2_str = static_cast<const char*>(malloc(param2_b.length() + 1));
-        memcpy((void*)param2_str, param2_b.data(), param2_b.length());
-        ((char*)param2_str)[param2_b.length()] = '\0';
+        auto param2_str_len = param2_b.length();
+        const char* param2_str = static_cast<const char*>(malloc(param2_str_len + 1));
+        memcpy((void*)param2_str, param2_b.data(), param2_str_len);
+        ((char*)param2_str)[param2_str_len] = '\0';
         const char* sigval2 = param2_str;
         const QString param3_ret = param3;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param3_b = param3_ret.toUtf8();
-        const char* param3_str = static_cast<const char*>(malloc(param3_b.length() + 1));
-        memcpy((void*)param3_str, param3_b.data(), param3_b.length());
-        ((char*)param3_str)[param3_b.length()] = '\0';
+        auto param3_str_len = param3_b.length();
+        const char* param3_str = static_cast<const char*>(malloc(param3_str_len + 1));
+        memcpy((void*)param3_str, param3_b.data(), param3_str_len);
+        ((char*)param3_str)[param3_str_len] = '\0';
         const char* sigval3 = param3_str;
         slotFunc(self, sigval1, sigval2, sigval3);
         libqt_free(param1_str);

@@ -22,7 +22,7 @@ class VirtualQSslSocket final : public QSslSocket {
     using QSslSocket_Metacall_Callback = int (*)(QSslSocket*, int, int, void**);
     using QSslSocket_Resume_Callback = void (*)();
     using QSslSocket_SetSocketDescriptor_Callback = bool (*)(QSslSocket*, intptr_t, int, int);
-    using QSslSocket_ConnectToHost_Callback = void (*)(QSslSocket*, libqt_string, uint16_t, int, int);
+    using QSslSocket_ConnectToHost_Callback = void (*)(QSslSocket*, const char*, uint16_t, int, int);
     using QSslSocket_DisconnectFromHost_Callback = void (*)();
     using QSslSocket_SetSocketOption_Callback = void (*)(QSslSocket*, int, QVariant*);
     using QSslSocket_SocketOption_Callback = QVariant* (*)(QSslSocket*, int);
@@ -61,9 +61,9 @@ class VirtualQSslSocket final : public QSslSocket {
     using QSslSocket_SetLocalAddress_Callback = void (*)(QSslSocket*, QHostAddress*);
     using QSslSocket_SetPeerPort_Callback = void (*)(QSslSocket*, uint16_t);
     using QSslSocket_SetPeerAddress_Callback = void (*)(QSslSocket*, QHostAddress*);
-    using QSslSocket_SetPeerName_Callback = void (*)(QSslSocket*, libqt_string);
+    using QSslSocket_SetPeerName_Callback = void (*)(QSslSocket*, const char*);
     using QSslSocket_SetOpenMode_Callback = void (*)(QSslSocket*, int);
-    using QSslSocket_SetErrorString_Callback = void (*)(QSslSocket*, libqt_string);
+    using QSslSocket_SetErrorString_Callback = void (*)(QSslSocket*, const char*);
     using QSslSocket_Sender_Callback = QObject* (*)();
     using QSslSocket_SenderSignalIndex_Callback = int (*)();
     using QSslSocket_Receivers_Callback = int (*)(const QSslSocket*, const char*);
@@ -422,19 +422,19 @@ class VirtualQSslSocket final : public QSslSocket {
             QSslSocket::connectToHost(hostName, port, openMode, protocol);
         } else if (qsslsocket_connecttohost_callback != nullptr) {
             const QString hostName_ret = hostName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray hostName_b = hostName_ret.toUtf8();
-            libqt_string hostName_str;
-            hostName_str.len = hostName_b.length();
-            hostName_str.data = static_cast<const char*>(malloc(hostName_str.len + 1));
-            memcpy((void*)hostName_str.data, hostName_b.data(), hostName_str.len);
-            ((char*)hostName_str.data)[hostName_str.len] = '\0';
-            libqt_string cbval1 = hostName_str;
+            auto hostName_str_len = hostName_b.length();
+            const char* hostName_str = static_cast<const char*>(malloc(hostName_str_len + 1));
+            memcpy((void*)hostName_str, hostName_b.data(), hostName_str_len);
+            ((char*)hostName_str)[hostName_str_len] = '\0';
+            const char* cbval1 = hostName_str;
             uint16_t cbval2 = static_cast<uint16_t>(port);
             int cbval3 = static_cast<int>(openMode);
             int cbval4 = static_cast<int>(protocol);
 
             qsslsocket_connecttohost_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_free(hostName_str);
         } else {
             QSslSocket::connectToHost(hostName, port, openMode, protocol);
         }
@@ -999,16 +999,16 @@ class VirtualQSslSocket final : public QSslSocket {
             QSslSocket::setPeerName(name);
         } else if (qsslsocket_setpeername_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             qsslsocket_setpeername_callback(this, cbval1);
+            libqt_free(name_str);
         } else {
             QSslSocket::setPeerName(name);
         }
@@ -1035,16 +1035,16 @@ class VirtualQSslSocket final : public QSslSocket {
             QSslSocket::setErrorString(errorString);
         } else if (qsslsocket_seterrorstring_callback != nullptr) {
             const QString errorString_ret = errorString;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
-            libqt_string errorString_str;
-            errorString_str.len = errorString_b.length();
-            errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
-            memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
-            ((char*)errorString_str.data)[errorString_str.len] = '\0';
-            libqt_string cbval1 = errorString_str;
+            auto errorString_str_len = errorString_b.length();
+            const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+            memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+            ((char*)errorString_str)[errorString_str_len] = '\0';
+            const char* cbval1 = errorString_str;
 
             qsslsocket_seterrorstring_callback(this, cbval1);
+            libqt_free(errorString_str);
         } else {
             QSslSocket::setErrorString(errorString);
         }

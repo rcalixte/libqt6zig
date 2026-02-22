@@ -113,9 +113,10 @@ void Sonnet__ConfigDialog_Connect_LanguageChanged(Sonnet__ConfigDialog* self, in
         const QString language_ret = language;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray language_b = language_ret.toUtf8();
-        const char* language_str = static_cast<const char*>(malloc(language_b.length() + 1));
-        memcpy((void*)language_str, language_b.data(), language_b.length());
-        ((char*)language_str)[language_b.length()] = '\0';
+        auto language_str_len = language_b.length();
+        const char* language_str = static_cast<const char*>(malloc(language_str_len + 1));
+        memcpy((void*)language_str, language_b.data(), language_str_len);
+        ((char*)language_str)[language_str_len] = '\0';
         const char* sigval1 = language_str;
         slotFunc(self, sigval1);
         libqt_free(language_str);

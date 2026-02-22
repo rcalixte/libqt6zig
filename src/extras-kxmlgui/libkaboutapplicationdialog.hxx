@@ -1018,6 +1018,7 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kaboutapplicationdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KAboutApplicationDialog::nativeEvent(eventType, message, result);

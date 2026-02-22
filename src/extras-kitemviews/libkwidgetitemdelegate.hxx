@@ -289,6 +289,7 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             QPersistentModelIndex* cbval3 = const_cast<QPersistentModelIndex*>(&index_ret);
 
             kwidgetitemdelegate_updateitemwidgets_callback(this, cbval1, cbval2, cbval3);
+            free(widgets_arr);
         }
     }
 
@@ -605,6 +606,7 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             libqt_list /* of int */ cbval2 = types_out;
 
             kwidgetitemdelegate_setblockedeventtypes_callback(this, cbval1, cbval2);
+            free(types_arr);
         } else {
             KWidgetItemDelegate::setBlockedEventTypes(widget, types);
         }

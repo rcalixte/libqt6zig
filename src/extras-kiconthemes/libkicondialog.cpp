@@ -144,9 +144,10 @@ void KIconDialog_Connect_NewIconName(KIconDialog* self, intptr_t slot) {
         const QString iconName_ret = iconName;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray iconName_b = iconName_ret.toUtf8();
-        const char* iconName_str = static_cast<const char*>(malloc(iconName_b.length() + 1));
-        memcpy((void*)iconName_str, iconName_b.data(), iconName_b.length());
-        ((char*)iconName_str)[iconName_b.length()] = '\0';
+        auto iconName_str_len = iconName_b.length();
+        const char* iconName_str = static_cast<const char*>(malloc(iconName_str_len + 1));
+        memcpy((void*)iconName_str, iconName_b.data(), iconName_str_len);
+        ((char*)iconName_str)[iconName_str_len] = '\0';
         const char* sigval1 = iconName_str;
         slotFunc(self, sigval1);
         libqt_free(iconName_str);

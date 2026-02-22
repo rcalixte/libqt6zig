@@ -23,7 +23,7 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
     using QDesignerWidgetFactoryInterface_Core_Callback = QDesignerFormEditorInterface* (*)();
     using QDesignerWidgetFactoryInterface_ContainerOfWidget_Callback = QWidget* (*)(const QDesignerWidgetFactoryInterface*, QWidget*);
     using QDesignerWidgetFactoryInterface_WidgetOfContainer_Callback = QWidget* (*)(const QDesignerWidgetFactoryInterface*, QWidget*);
-    using QDesignerWidgetFactoryInterface_CreateWidget_Callback = QWidget* (*)(const QDesignerWidgetFactoryInterface*, libqt_string, QWidget*);
+    using QDesignerWidgetFactoryInterface_CreateWidget_Callback = QWidget* (*)(const QDesignerWidgetFactoryInterface*, const char*, QWidget*);
     using QDesignerWidgetFactoryInterface_CreateLayout_Callback = QLayout* (*)(const QDesignerWidgetFactoryInterface*, QWidget*, QLayout*, int);
     using QDesignerWidgetFactoryInterface_IsPassiveInteractor_Callback = bool (*)(QDesignerWidgetFactoryInterface*, QWidget*);
     using QDesignerWidgetFactoryInterface_Initialize_Callback = void (*)(const QDesignerWidgetFactoryInterface*, QObject*);
@@ -243,17 +243,17 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
     virtual QWidget* createWidget(const QString& name, QWidget* parentWidget) const override {
         if (qdesignerwidgetfactoryinterface_createwidget_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             QWidget* cbval2 = parentWidget;
 
             QWidget* callback_ret = qdesignerwidgetfactoryinterface_createwidget_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return {};

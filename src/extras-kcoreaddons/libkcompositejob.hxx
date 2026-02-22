@@ -23,7 +23,7 @@ class VirtualKCompositeJob : public KCompositeJob {
     using KCompositeJob_AddSubjob_Callback = bool (*)(KCompositeJob*, KJob*);
     using KCompositeJob_RemoveSubjob_Callback = bool (*)(KCompositeJob*, KJob*);
     using KCompositeJob_SlotResult_Callback = void (*)(KCompositeJob*, KJob*);
-    using KCompositeJob_SlotInfoMessage_Callback = void (*)(KCompositeJob*, KJob*, libqt_string);
+    using KCompositeJob_SlotInfoMessage_Callback = void (*)(KCompositeJob*, KJob*, const char*);
     using KCompositeJob_Start_Callback = void (*)();
     using KCompositeJob_DoKill_Callback = bool (*)();
     using KCompositeJob_DoSuspend_Callback = bool (*)();
@@ -42,7 +42,7 @@ class VirtualKCompositeJob : public KCompositeJob {
     using KCompositeJob_SetCapabilities_Callback = void (*)(KCompositeJob*, int);
     using KCompositeJob_IsFinished_Callback = bool (*)();
     using KCompositeJob_SetError_Callback = void (*)(KCompositeJob*, int);
-    using KCompositeJob_SetErrorText_Callback = void (*)(KCompositeJob*, libqt_string);
+    using KCompositeJob_SetErrorText_Callback = void (*)(KCompositeJob*, const char*);
     using KCompositeJob_SetProcessedAmount_Callback = void (*)(KCompositeJob*, int, unsigned long long);
     using KCompositeJob_SetTotalAmount_Callback = void (*)(KCompositeJob*, int, unsigned long long);
     using KCompositeJob_SetProgressUnit_Callback = void (*)(KCompositeJob*, int);
@@ -359,16 +359,16 @@ class VirtualKCompositeJob : public KCompositeJob {
         } else if (kcompositejob_slotinfomessage_callback != nullptr) {
             KJob* cbval1 = job;
             const QString message_ret = message;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray message_b = message_ret.toUtf8();
-            libqt_string message_str;
-            message_str.len = message_b.length();
-            message_str.data = static_cast<const char*>(malloc(message_str.len + 1));
-            memcpy((void*)message_str.data, message_b.data(), message_str.len);
-            ((char*)message_str.data)[message_str.len] = '\0';
-            libqt_string cbval2 = message_str;
+            auto message_str_len = message_b.length();
+            const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+            memcpy((void*)message_str, message_b.data(), message_str_len);
+            ((char*)message_str)[message_str_len] = '\0';
+            const char* cbval2 = message_str;
 
             kcompositejob_slotinfomessage_callback(this, cbval1, cbval2);
+            libqt_free(message_str);
         } else {
             KCompositeJob::slotInfoMessage(job, message);
         }
@@ -632,16 +632,16 @@ class VirtualKCompositeJob : public KCompositeJob {
             KCompositeJob::setErrorText(errorText);
         } else if (kcompositejob_seterrortext_callback != nullptr) {
             const QString errorText_ret = errorText;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
-            libqt_string errorText_str;
-            errorText_str.len = errorText_b.length();
-            errorText_str.data = static_cast<const char*>(malloc(errorText_str.len + 1));
-            memcpy((void*)errorText_str.data, errorText_b.data(), errorText_str.len);
-            ((char*)errorText_str.data)[errorText_str.len] = '\0';
-            libqt_string cbval1 = errorText_str;
+            auto errorText_str_len = errorText_b.length();
+            const char* errorText_str = static_cast<const char*>(malloc(errorText_str_len + 1));
+            memcpy((void*)errorText_str, errorText_b.data(), errorText_str_len);
+            ((char*)errorText_str)[errorText_str_len] = '\0';
+            const char* cbval1 = errorText_str;
 
             kcompositejob_seterrortext_callback(this, cbval1);
+            libqt_free(errorText_str);
         } else {
             KCompositeJob::setErrorText(errorText);
         }

@@ -20,7 +20,7 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
     using QSyntaxHighlighter_MetaObject_Callback = QMetaObject* (*)();
     using QSyntaxHighlighter_Metacast_Callback = void* (*)(QSyntaxHighlighter*, const char*);
     using QSyntaxHighlighter_Metacall_Callback = int (*)(QSyntaxHighlighter*, int, int, void**);
-    using QSyntaxHighlighter_HighlightBlock_Callback = void (*)(QSyntaxHighlighter*, libqt_string);
+    using QSyntaxHighlighter_HighlightBlock_Callback = void (*)(QSyntaxHighlighter*, const char*);
     using QSyntaxHighlighter_Event_Callback = bool (*)(QSyntaxHighlighter*, QEvent*);
     using QSyntaxHighlighter_EventFilter_Callback = bool (*)(QSyntaxHighlighter*, QObject*, QEvent*);
     using QSyntaxHighlighter_TimerEvent_Callback = void (*)(QSyntaxHighlighter*, QTimerEvent*);
@@ -233,16 +233,16 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
     virtual void highlightBlock(const QString& text) override {
         if (qsyntaxhighlighter_highlightblock_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             qsyntaxhighlighter_highlightblock_callback(this, cbval1);
+            libqt_free(text_str);
         }
     }
 

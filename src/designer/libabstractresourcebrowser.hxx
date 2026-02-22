@@ -20,7 +20,7 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
     using QDesignerResourceBrowserInterface_MetaObject_Callback = QMetaObject* (*)();
     using QDesignerResourceBrowserInterface_Metacast_Callback = void* (*)(QDesignerResourceBrowserInterface*, const char*);
     using QDesignerResourceBrowserInterface_Metacall_Callback = int (*)(QDesignerResourceBrowserInterface*, int, int, void**);
-    using QDesignerResourceBrowserInterface_SetCurrentPath_Callback = void (*)(QDesignerResourceBrowserInterface*, libqt_string);
+    using QDesignerResourceBrowserInterface_SetCurrentPath_Callback = void (*)(QDesignerResourceBrowserInterface*, const char*);
     using QDesignerResourceBrowserInterface_CurrentPath_Callback = const char* (*)();
     using QDesignerResourceBrowserInterface_DevType_Callback = int (*)();
     using QDesignerResourceBrowserInterface_SetVisible_Callback = void (*)(QDesignerResourceBrowserInterface*, bool);
@@ -455,16 +455,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
     virtual void setCurrentPath(const QString& filePath) override {
         if (qdesignerresourcebrowserinterface_setcurrentpath_callback != nullptr) {
             const QString filePath_ret = filePath;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray filePath_b = filePath_ret.toUtf8();
-            libqt_string filePath_str;
-            filePath_str.len = filePath_b.length();
-            filePath_str.data = static_cast<const char*>(malloc(filePath_str.len + 1));
-            memcpy((void*)filePath_str.data, filePath_b.data(), filePath_str.len);
-            ((char*)filePath_str.data)[filePath_str.len] = '\0';
-            libqt_string cbval1 = filePath_str;
+            auto filePath_str_len = filePath_b.length();
+            const char* filePath_str = static_cast<const char*>(malloc(filePath_str_len + 1));
+            memcpy((void*)filePath_str, filePath_b.data(), filePath_str_len);
+            ((char*)filePath_str)[filePath_str_len] = '\0';
+            const char* cbval1 = filePath_str;
 
             qdesignerresourcebrowserinterface_setcurrentpath_callback(this, cbval1);
+            libqt_free(filePath_str);
         }
     }
 
@@ -941,6 +941,7 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qdesignerresourcebrowserinterface_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QDesignerResourceBrowserInterface::nativeEvent(eventType, message, result);

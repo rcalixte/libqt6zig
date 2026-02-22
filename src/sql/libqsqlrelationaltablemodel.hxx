@@ -25,7 +25,7 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
     using QSqlRelationalTableModel_RemoveColumns_Callback = bool (*)(QSqlRelationalTableModel*, int, int, QModelIndex*);
     using QSqlRelationalTableModel_Clear_Callback = void (*)();
     using QSqlRelationalTableModel_Select_Callback = bool (*)();
-    using QSqlRelationalTableModel_SetTable_Callback = void (*)(QSqlRelationalTableModel*, libqt_string);
+    using QSqlRelationalTableModel_SetTable_Callback = void (*)(QSqlRelationalTableModel*, const char*);
     using QSqlRelationalTableModel_SetRelation_Callback = void (*)(QSqlRelationalTableModel*, int, QSqlRelation*);
     using QSqlRelationalTableModel_RelationModel_Callback = QSqlTableModel* (*)(const QSqlRelationalTableModel*, int);
     using QSqlRelationalTableModel_RevertRow_Callback = void (*)(QSqlRelationalTableModel*, int);
@@ -39,7 +39,7 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
     using QSqlRelationalTableModel_SetEditStrategy_Callback = void (*)(QSqlRelationalTableModel*, int);
     using QSqlRelationalTableModel_Sort_Callback = void (*)(QSqlRelationalTableModel*, int, int);
     using QSqlRelationalTableModel_SetSort_Callback = void (*)(QSqlRelationalTableModel*, int, int);
-    using QSqlRelationalTableModel_SetFilter_Callback = void (*)(QSqlRelationalTableModel*, libqt_string);
+    using QSqlRelationalTableModel_SetFilter_Callback = void (*)(QSqlRelationalTableModel*, const char*);
     using QSqlRelationalTableModel_RowCount_Callback = int (*)(const QSqlRelationalTableModel*, QModelIndex*);
     using QSqlRelationalTableModel_RemoveRows_Callback = bool (*)(QSqlRelationalTableModel*, int, int, QModelIndex*);
     using QSqlRelationalTableModel_InsertRows_Callback = bool (*)(QSqlRelationalTableModel*, int, int, QModelIndex*);
@@ -704,16 +704,16 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QSqlRelationalTableModel::setTable(tableName);
         } else if (qsqlrelationaltablemodel_settable_callback != nullptr) {
             const QString tableName_ret = tableName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray tableName_b = tableName_ret.toUtf8();
-            libqt_string tableName_str;
-            tableName_str.len = tableName_b.length();
-            tableName_str.data = static_cast<const char*>(malloc(tableName_str.len + 1));
-            memcpy((void*)tableName_str.data, tableName_b.data(), tableName_str.len);
-            ((char*)tableName_str.data)[tableName_str.len] = '\0';
-            libqt_string cbval1 = tableName_str;
+            auto tableName_str_len = tableName_b.length();
+            const char* tableName_str = static_cast<const char*>(malloc(tableName_str_len + 1));
+            memcpy((void*)tableName_str, tableName_b.data(), tableName_str_len);
+            ((char*)tableName_str)[tableName_str_len] = '\0';
+            const char* cbval1 = tableName_str;
 
             qsqlrelationaltablemodel_settable_callback(this, cbval1);
+            libqt_free(tableName_str);
         } else {
             QSqlRelationalTableModel::setTable(tableName);
         }
@@ -930,16 +930,16 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QSqlRelationalTableModel::setFilter(filter);
         } else if (qsqlrelationaltablemodel_setfilter_callback != nullptr) {
             const QString filter_ret = filter;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray filter_b = filter_ret.toUtf8();
-            libqt_string filter_str;
-            filter_str.len = filter_b.length();
-            filter_str.data = static_cast<const char*>(malloc(filter_str.len + 1));
-            memcpy((void*)filter_str.data, filter_b.data(), filter_str.len);
-            ((char*)filter_str.data)[filter_str.len] = '\0';
-            libqt_string cbval1 = filter_str;
+            auto filter_str_len = filter_b.length();
+            const char* filter_str = static_cast<const char*>(malloc(filter_str_len + 1));
+            memcpy((void*)filter_str, filter_b.data(), filter_str_len);
+            ((char*)filter_str)[filter_str_len] = '\0';
+            const char* cbval1 = filter_str;
 
             qsqlrelationaltablemodel_setfilter_callback(this, cbval1);
+            libqt_free(filter_str);
         } else {
             QSqlRelationalTableModel::setFilter(filter);
         }
@@ -1348,6 +1348,7 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = qsqlrelationaltablemodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return QSqlRelationalTableModel::mimeData(indexes);
@@ -1873,6 +1874,7 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QDataStream* cbval2 = &stream_ret;
 
             qsqlrelationaltablemodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             QSqlRelationalTableModel::encodeData(indexes, stream);
         }
@@ -2017,6 +2019,8 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             qsqlrelationaltablemodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             QSqlRelationalTableModel::changePersistentIndexList(from, to);
         }

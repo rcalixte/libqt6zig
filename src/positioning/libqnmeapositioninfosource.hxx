@@ -30,8 +30,8 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
     using QNmeaPositionInfoSource_RequestUpdate_Callback = void (*)(QNmeaPositionInfoSource*, int);
     using QNmeaPositionInfoSource_ParsePosInfoFromNmeaData_Callback = bool (*)(QNmeaPositionInfoSource*, const char*, int, QGeoPositionInfo*, bool*);
     using QNmeaPositionInfoSource_SetPreferredPositioningMethods_Callback = void (*)(QNmeaPositionInfoSource*, int);
-    using QNmeaPositionInfoSource_SetBackendProperty_Callback = bool (*)(QNmeaPositionInfoSource*, libqt_string, QVariant*);
-    using QNmeaPositionInfoSource_BackendProperty_Callback = QVariant* (*)(const QNmeaPositionInfoSource*, libqt_string);
+    using QNmeaPositionInfoSource_SetBackendProperty_Callback = bool (*)(QNmeaPositionInfoSource*, const char*, QVariant*);
+    using QNmeaPositionInfoSource_BackendProperty_Callback = QVariant* (*)(const QNmeaPositionInfoSource*, const char*);
     using QNmeaPositionInfoSource_Event_Callback = bool (*)(QNmeaPositionInfoSource*, QEvent*);
     using QNmeaPositionInfoSource_EventFilter_Callback = bool (*)(QNmeaPositionInfoSource*, QObject*, QEvent*);
     using QNmeaPositionInfoSource_TimerEvent_Callback = void (*)(QNmeaPositionInfoSource*, QTimerEvent*);
@@ -392,19 +392,19 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
             return QNmeaPositionInfoSource::setBackendProperty(name, value);
         } else if (qnmeapositioninfosource_setbackendproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             bool callback_ret = qnmeapositioninfosource_setbackendproperty_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QNmeaPositionInfoSource::setBackendProperty(name, value);
@@ -418,16 +418,16 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
             return QNmeaPositionInfoSource::backendProperty(name);
         } else if (qnmeapositioninfosource_backendproperty_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
 
             QVariant* callback_ret = qnmeapositioninfosource_backendproperty_callback(this, cbval1);
+            libqt_free(name_str);
             return *callback_ret;
         } else {
             return QNmeaPositionInfoSource::backendProperty(name);
@@ -555,6 +555,7 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
             bool* cbval3 = hasFix;
 
             bool callback_ret = qnmeapositioninfosource_parseposinfofromnmeadata2_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(data_str.data);
             return callback_ret;
         } else {
             return QNmeaPositionInfoSource::parsePosInfoFromNmeaData(data, posInfo, hasFix);

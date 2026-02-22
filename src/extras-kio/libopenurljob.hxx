@@ -24,7 +24,7 @@ class VirtualKIOOpenUrlJob final : public KIO::OpenUrlJob {
     using KIO__OpenUrlJob_DoKill_Callback = bool (*)();
     using KIO__OpenUrlJob_AddSubjob_Callback = bool (*)(KIO__OpenUrlJob*, KJob*);
     using KIO__OpenUrlJob_RemoveSubjob_Callback = bool (*)(KIO__OpenUrlJob*, KJob*);
-    using KIO__OpenUrlJob_SlotInfoMessage_Callback = void (*)(KIO__OpenUrlJob*, KJob*, libqt_string);
+    using KIO__OpenUrlJob_SlotInfoMessage_Callback = void (*)(KIO__OpenUrlJob*, KJob*, const char*);
     using KIO__OpenUrlJob_DoSuspend_Callback = bool (*)();
     using KIO__OpenUrlJob_DoResume_Callback = bool (*)();
     using KIO__OpenUrlJob_ErrorString_Callback = const char* (*)();
@@ -41,7 +41,7 @@ class VirtualKIOOpenUrlJob final : public KIO::OpenUrlJob {
     using KIO__OpenUrlJob_SetCapabilities_Callback = void (*)(KIO__OpenUrlJob*, int);
     using KIO__OpenUrlJob_IsFinished_Callback = bool (*)();
     using KIO__OpenUrlJob_SetError_Callback = void (*)(KIO__OpenUrlJob*, int);
-    using KIO__OpenUrlJob_SetErrorText_Callback = void (*)(KIO__OpenUrlJob*, libqt_string);
+    using KIO__OpenUrlJob_SetErrorText_Callback = void (*)(KIO__OpenUrlJob*, const char*);
     using KIO__OpenUrlJob_SetProcessedAmount_Callback = void (*)(KIO__OpenUrlJob*, int, unsigned long long);
     using KIO__OpenUrlJob_SetTotalAmount_Callback = void (*)(KIO__OpenUrlJob*, int, unsigned long long);
     using KIO__OpenUrlJob_SetProgressUnit_Callback = void (*)(KIO__OpenUrlJob*, int);
@@ -366,16 +366,16 @@ class VirtualKIOOpenUrlJob final : public KIO::OpenUrlJob {
         } else if (kio__openurljob_slotinfomessage_callback != nullptr) {
             KJob* cbval1 = job;
             const QString message_ret = message;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray message_b = message_ret.toUtf8();
-            libqt_string message_str;
-            message_str.len = message_b.length();
-            message_str.data = static_cast<const char*>(malloc(message_str.len + 1));
-            memcpy((void*)message_str.data, message_b.data(), message_str.len);
-            ((char*)message_str.data)[message_str.len] = '\0';
-            libqt_string cbval2 = message_str;
+            auto message_str_len = message_b.length();
+            const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+            memcpy((void*)message_str, message_b.data(), message_str_len);
+            ((char*)message_str)[message_str_len] = '\0';
+            const char* cbval2 = message_str;
 
             kio__openurljob_slotinfomessage_callback(this, cbval1, cbval2);
+            libqt_free(message_str);
         } else {
             KIO__OpenUrlJob::slotInfoMessage(job, message);
         }
@@ -619,16 +619,16 @@ class VirtualKIOOpenUrlJob final : public KIO::OpenUrlJob {
             KIO__OpenUrlJob::setErrorText(errorText);
         } else if (kio__openurljob_seterrortext_callback != nullptr) {
             const QString errorText_ret = errorText;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
-            libqt_string errorText_str;
-            errorText_str.len = errorText_b.length();
-            errorText_str.data = static_cast<const char*>(malloc(errorText_str.len + 1));
-            memcpy((void*)errorText_str.data, errorText_b.data(), errorText_str.len);
-            ((char*)errorText_str.data)[errorText_str.len] = '\0';
-            libqt_string cbval1 = errorText_str;
+            auto errorText_str_len = errorText_b.length();
+            const char* errorText_str = static_cast<const char*>(malloc(errorText_str_len + 1));
+            memcpy((void*)errorText_str, errorText_b.data(), errorText_str_len);
+            ((char*)errorText_str)[errorText_str_len] = '\0';
+            const char* cbval1 = errorText_str;
 
             kio__openurljob_seterrortext_callback(this, cbval1);
+            libqt_free(errorText_str);
         } else {
             KIO__OpenUrlJob::setErrorText(errorText);
         }

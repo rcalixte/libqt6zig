@@ -56,8 +56,8 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     using QsciLexerPostScript_SetEolFill_Callback = void (*)(QsciLexerPostScript*, bool, int);
     using QsciLexerPostScript_SetFont_Callback = void (*)(QsciLexerPostScript*, QFont*, int);
     using QsciLexerPostScript_SetPaper_Callback = void (*)(QsciLexerPostScript*, QColor*, int);
-    using QsciLexerPostScript_ReadProperties_Callback = bool (*)(QsciLexerPostScript*, QSettings*, libqt_string);
-    using QsciLexerPostScript_WriteProperties_Callback = bool (*)(const QsciLexerPostScript*, QSettings*, libqt_string);
+    using QsciLexerPostScript_ReadProperties_Callback = bool (*)(QsciLexerPostScript*, QSettings*, const char*);
+    using QsciLexerPostScript_WriteProperties_Callback = bool (*)(const QsciLexerPostScript*, QSettings*, const char*);
     using QsciLexerPostScript_Event_Callback = bool (*)(QsciLexerPostScript*, QEvent*);
     using QsciLexerPostScript_EventFilter_Callback = bool (*)(QsciLexerPostScript*, QObject*, QEvent*);
     using QsciLexerPostScript_TimerEvent_Callback = void (*)(QsciLexerPostScript*, QTimerEvent*);
@@ -65,7 +65,7 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     using QsciLexerPostScript_CustomEvent_Callback = void (*)(QsciLexerPostScript*, QEvent*);
     using QsciLexerPostScript_ConnectNotify_Callback = void (*)(QsciLexerPostScript*, QMetaMethod*);
     using QsciLexerPostScript_DisconnectNotify_Callback = void (*)(QsciLexerPostScript*, QMetaMethod*);
-    using QsciLexerPostScript_TextAsBytes_Callback = libqt_string (*)(const QsciLexerPostScript*, libqt_string);
+    using QsciLexerPostScript_TextAsBytes_Callback = libqt_string (*)(const QsciLexerPostScript*, const char*);
     using QsciLexerPostScript_BytesAsText_Callback = const char* (*)(const QsciLexerPostScript*, const char*, int);
     using QsciLexerPostScript_Sender_Callback = QObject* (*)();
     using QsciLexerPostScript_SenderSignalIndex_Callback = int (*)();
@@ -930,16 +930,16 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerpostscript_readproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerPostScript::readProperties(qs, prefix);
@@ -956,16 +956,16 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerpostscript_writeproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerPostScript::writeProperties(qs, prefix);
@@ -1084,17 +1084,17 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
             return QsciLexerPostScript::textAsBytes(text);
         } else if (qscilexerpostscript_textasbytes_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             libqt_string callback_ret = qscilexerpostscript_textasbytes_callback(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            libqt_free(text_str);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerPostScript::textAsBytes(text);

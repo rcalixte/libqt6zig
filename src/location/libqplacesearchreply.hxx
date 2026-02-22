@@ -34,7 +34,7 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
     using QPlaceSearchReply_SetPreviousPageRequest_Callback = void (*)(QPlaceSearchReply*, QPlaceSearchRequest*);
     using QPlaceSearchReply_SetNextPageRequest_Callback = void (*)(QPlaceSearchReply*, QPlaceSearchRequest*);
     using QPlaceSearchReply_SetFinished_Callback = void (*)(QPlaceSearchReply*, bool);
-    using QPlaceSearchReply_SetError_Callback = void (*)(QPlaceSearchReply*, int, libqt_string);
+    using QPlaceSearchReply_SetError_Callback = void (*)(QPlaceSearchReply*, int, const char*);
     using QPlaceSearchReply_Sender_Callback = QObject* (*)();
     using QPlaceSearchReply_SenderSignalIndex_Callback = int (*)();
     using QPlaceSearchReply_Receivers_Callback = int (*)(const QPlaceSearchReply*, const char*);
@@ -359,6 +359,7 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
             libqt_list /* of QPlaceSearchResult* */ cbval1 = results_out;
 
             qplacesearchreply_setresults_callback(this, cbval1);
+            free(results_arr);
         } else {
             QPlaceSearchReply::setResults(results);
         }
@@ -434,16 +435,16 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
         } else if (qplacesearchreply_seterror_callback != nullptr) {
             int cbval1 = static_cast<int>(errorVal);
             const QString errorString_ret = errorString;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
-            libqt_string errorString_str;
-            errorString_str.len = errorString_b.length();
-            errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
-            memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
-            ((char*)errorString_str.data)[errorString_str.len] = '\0';
-            libqt_string cbval2 = errorString_str;
+            auto errorString_str_len = errorString_b.length();
+            const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+            memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+            ((char*)errorString_str)[errorString_str_len] = '\0';
+            const char* cbval2 = errorString_str;
 
             qplacesearchreply_seterror_callback(this, cbval1, cbval2);
+            libqt_free(errorString_str);
         } else {
             QPlaceSearchReply::setError(errorVal, errorString);
         }

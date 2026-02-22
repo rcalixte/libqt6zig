@@ -21,10 +21,10 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
     using KPluralHandlingSpinBox_Metacast_Callback = void* (*)(KPluralHandlingSpinBox*, const char*);
     using KPluralHandlingSpinBox_Metacall_Callback = int (*)(KPluralHandlingSpinBox*, int, int, void**);
     using KPluralHandlingSpinBox_Event_Callback = bool (*)(KPluralHandlingSpinBox*, QEvent*);
-    using KPluralHandlingSpinBox_Validate_Callback = int (*)(const KPluralHandlingSpinBox*, libqt_string, int*);
-    using KPluralHandlingSpinBox_ValueFromText_Callback = int (*)(const KPluralHandlingSpinBox*, libqt_string);
+    using KPluralHandlingSpinBox_Validate_Callback = int (*)(const KPluralHandlingSpinBox*, const char*, int*);
+    using KPluralHandlingSpinBox_ValueFromText_Callback = int (*)(const KPluralHandlingSpinBox*, const char*);
     using KPluralHandlingSpinBox_TextFromValue_Callback = const char* (*)(const KPluralHandlingSpinBox*, int);
-    using KPluralHandlingSpinBox_Fixup_Callback = void (*)(const KPluralHandlingSpinBox*, libqt_string);
+    using KPluralHandlingSpinBox_Fixup_Callback = void (*)(const KPluralHandlingSpinBox*, const char*);
     using KPluralHandlingSpinBox_SizeHint_Callback = QSize* (*)();
     using KPluralHandlingSpinBox_MinimumSizeHint_Callback = QSize* (*)();
     using KPluralHandlingSpinBox_InputMethodQuery_Callback = QVariant* (*)(const KPluralHandlingSpinBox*, int);
@@ -521,17 +521,17 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
             return KPluralHandlingSpinBox::validate(input, pos);
         } else if (kpluralhandlingspinbox_validate_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
             int* cbval2 = &pos;
 
             int callback_ret = kpluralhandlingspinbox_validate_callback(this, cbval1, cbval2);
+            libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
         } else {
             return KPluralHandlingSpinBox::validate(input, pos);
@@ -545,16 +545,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
             return KPluralHandlingSpinBox::valueFromText(text);
         } else if (kpluralhandlingspinbox_valuefromtext_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             int callback_ret = kpluralhandlingspinbox_valuefromtext_callback(this, cbval1);
+            libqt_free(text_str);
             return static_cast<int>(callback_ret);
         } else {
             return KPluralHandlingSpinBox::valueFromText(text);
@@ -584,16 +584,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
             KPluralHandlingSpinBox::fixup(str);
         } else if (kpluralhandlingspinbox_fixup_callback != nullptr) {
             QString str_ret = str;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
-            libqt_string str_str;
-            str_str.len = str_b.length();
-            str_str.data = static_cast<const char*>(malloc(str_str.len + 1));
-            memcpy((void*)str_str.data, str_b.data(), str_str.len);
-            ((char*)str_str.data)[str_str.len] = '\0';
-            libqt_string cbval1 = str_str;
+            auto str_str_len = str_b.length();
+            const char* str_str = static_cast<const char*>(malloc(str_str_len + 1));
+            memcpy((void*)str_str, str_b.data(), str_str_len);
+            ((char*)str_str)[str_str_len] = '\0';
+            const char* cbval1 = str_str;
 
             kpluralhandlingspinbox_fixup_callback(this, cbval1);
+            libqt_free(str_str);
         } else {
             KPluralHandlingSpinBox::fixup(str);
         }
@@ -1142,6 +1142,7 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kpluralhandlingspinbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KPluralHandlingSpinBox::nativeEvent(eventType, message, result);

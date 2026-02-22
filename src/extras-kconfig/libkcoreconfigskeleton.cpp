@@ -3112,11 +3112,11 @@ QVariant* KCoreConfigSkeleton__ItemLongLong_MaxValue(const KCoreConfigSkeleton__
 }
 
 void KCoreConfigSkeleton__ItemLongLong_SetMinValue(KCoreConfigSkeleton__ItemLongLong* self, long long minValue) {
-    self->setMinValue(static_cast<long long>(minValue));
+    self->setMinValue(static_cast<qint64>(minValue));
 }
 
 void KCoreConfigSkeleton__ItemLongLong_SetMaxValue(KCoreConfigSkeleton__ItemLongLong* self, long long maxValue) {
-    self->setMaxValue(static_cast<long long>(maxValue));
+    self->setMaxValue(static_cast<qint64>(maxValue));
 }
 
 // Base class handler implementation
@@ -3666,11 +3666,11 @@ QVariant* KCoreConfigSkeleton__ItemUInt_MaxValue(const KCoreConfigSkeleton__Item
 }
 
 void KCoreConfigSkeleton__ItemUInt_SetMinValue(KCoreConfigSkeleton__ItemUInt* self, unsigned int minValue) {
-    self->setMinValue(static_cast<unsigned int>(minValue));
+    self->setMinValue(static_cast<quint32>(minValue));
 }
 
 void KCoreConfigSkeleton__ItemUInt_SetMaxValue(KCoreConfigSkeleton__ItemUInt* self, unsigned int maxValue) {
-    self->setMaxValue(static_cast<unsigned int>(maxValue));
+    self->setMaxValue(static_cast<quint32>(maxValue));
 }
 
 // Base class handler implementation
@@ -3858,11 +3858,11 @@ QVariant* KCoreConfigSkeleton__ItemULongLong_MaxValue(const KCoreConfigSkeleton_
 }
 
 void KCoreConfigSkeleton__ItemULongLong_SetMinValue(KCoreConfigSkeleton__ItemULongLong* self, unsigned long long minValue) {
-    self->setMinValue(static_cast<unsigned long long>(minValue));
+    self->setMinValue(static_cast<quint64>(minValue));
 }
 
 void KCoreConfigSkeleton__ItemULongLong_SetMaxValue(KCoreConfigSkeleton__ItemULongLong* self, unsigned long long maxValue) {
-    self->setMaxValue(static_cast<unsigned long long>(maxValue));
+    self->setMaxValue(static_cast<quint64>(maxValue));
 }
 
 // Base class handler implementation

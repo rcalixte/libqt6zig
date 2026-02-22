@@ -53,8 +53,8 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     using QsciLexerYAML_SetEolFill_Callback = void (*)(QsciLexerYAML*, bool, int);
     using QsciLexerYAML_SetFont_Callback = void (*)(QsciLexerYAML*, QFont*, int);
     using QsciLexerYAML_SetPaper_Callback = void (*)(QsciLexerYAML*, QColor*, int);
-    using QsciLexerYAML_ReadProperties_Callback = bool (*)(QsciLexerYAML*, QSettings*, libqt_string);
-    using QsciLexerYAML_WriteProperties_Callback = bool (*)(const QsciLexerYAML*, QSettings*, libqt_string);
+    using QsciLexerYAML_ReadProperties_Callback = bool (*)(QsciLexerYAML*, QSettings*, const char*);
+    using QsciLexerYAML_WriteProperties_Callback = bool (*)(const QsciLexerYAML*, QSettings*, const char*);
     using QsciLexerYAML_Event_Callback = bool (*)(QsciLexerYAML*, QEvent*);
     using QsciLexerYAML_EventFilter_Callback = bool (*)(QsciLexerYAML*, QObject*, QEvent*);
     using QsciLexerYAML_TimerEvent_Callback = void (*)(QsciLexerYAML*, QTimerEvent*);
@@ -62,7 +62,7 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     using QsciLexerYAML_CustomEvent_Callback = void (*)(QsciLexerYAML*, QEvent*);
     using QsciLexerYAML_ConnectNotify_Callback = void (*)(QsciLexerYAML*, QMetaMethod*);
     using QsciLexerYAML_DisconnectNotify_Callback = void (*)(QsciLexerYAML*, QMetaMethod*);
-    using QsciLexerYAML_TextAsBytes_Callback = libqt_string (*)(const QsciLexerYAML*, libqt_string);
+    using QsciLexerYAML_TextAsBytes_Callback = libqt_string (*)(const QsciLexerYAML*, const char*);
     using QsciLexerYAML_BytesAsText_Callback = const char* (*)(const QsciLexerYAML*, const char*, int);
     using QsciLexerYAML_Sender_Callback = QObject* (*)();
     using QsciLexerYAML_SenderSignalIndex_Callback = int (*)();
@@ -870,16 +870,16 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexeryaml_readproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerYAML::readProperties(qs, prefix);
@@ -896,16 +896,16 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexeryaml_writeproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerYAML::writeProperties(qs, prefix);
@@ -1024,17 +1024,17 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
             return QsciLexerYAML::textAsBytes(text);
         } else if (qscilexeryaml_textasbytes_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             libqt_string callback_ret = qscilexeryaml_textasbytes_callback(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            libqt_free(text_str);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerYAML::textAsBytes(text);

@@ -20,8 +20,8 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
     using KListWidgetSearchLine_MetaObject_Callback = QMetaObject* (*)();
     using KListWidgetSearchLine_Metacast_Callback = void* (*)(KListWidgetSearchLine*, const char*);
     using KListWidgetSearchLine_Metacall_Callback = int (*)(KListWidgetSearchLine*, int, int, void**);
-    using KListWidgetSearchLine_UpdateSearch_Callback = void (*)(KListWidgetSearchLine*, libqt_string);
-    using KListWidgetSearchLine_ItemMatches_Callback = bool (*)(const KListWidgetSearchLine*, QListWidgetItem*, libqt_string);
+    using KListWidgetSearchLine_UpdateSearch_Callback = void (*)(KListWidgetSearchLine*, const char*);
+    using KListWidgetSearchLine_ItemMatches_Callback = bool (*)(const KListWidgetSearchLine*, QListWidgetItem*, const char*);
     using KListWidgetSearchLine_Event_Callback = bool (*)(KListWidgetSearchLine*, QEvent*);
     using KListWidgetSearchLine_SizeHint_Callback = QSize* (*)();
     using KListWidgetSearchLine_MinimumSizeHint_Callback = QSize* (*)();
@@ -471,16 +471,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
             KListWidgetSearchLine::updateSearch(s);
         } else if (klistwidgetsearchline_updatesearch_callback != nullptr) {
             const QString s_ret = s;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray s_b = s_ret.toUtf8();
-            libqt_string s_str;
-            s_str.len = s_b.length();
-            s_str.data = static_cast<const char*>(malloc(s_str.len + 1));
-            memcpy((void*)s_str.data, s_b.data(), s_str.len);
-            ((char*)s_str.data)[s_str.len] = '\0';
-            libqt_string cbval1 = s_str;
+            auto s_str_len = s_b.length();
+            const char* s_str = static_cast<const char*>(malloc(s_str_len + 1));
+            memcpy((void*)s_str, s_b.data(), s_str_len);
+            ((char*)s_str)[s_str_len] = '\0';
+            const char* cbval1 = s_str;
 
             klistwidgetsearchline_updatesearch_callback(this, cbval1);
+            libqt_free(s_str);
         } else {
             KListWidgetSearchLine::updateSearch(s);
         }
@@ -494,16 +494,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         } else if (klistwidgetsearchline_itemmatches_callback != nullptr) {
             QListWidgetItem* cbval1 = (QListWidgetItem*)item;
             const QString s_ret = s;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray s_b = s_ret.toUtf8();
-            libqt_string s_str;
-            s_str.len = s_b.length();
-            s_str.data = static_cast<const char*>(malloc(s_str.len + 1));
-            memcpy((void*)s_str.data, s_b.data(), s_str.len);
-            ((char*)s_str.data)[s_str.len] = '\0';
-            libqt_string cbval2 = s_str;
+            auto s_str_len = s_b.length();
+            const char* s_str = static_cast<const char*>(malloc(s_str_len + 1));
+            memcpy((void*)s_str, s_b.data(), s_str_len);
+            ((char*)s_str)[s_str_len] = '\0';
+            const char* cbval2 = s_str;
 
             bool callback_ret = klistwidgetsearchline_itemmatches_callback(this, cbval1, cbval2);
+            libqt_free(s_str);
             return callback_ret;
         } else {
             return KListWidgetSearchLine::itemMatches(item, s);
@@ -1043,6 +1043,7 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = klistwidgetsearchline_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KListWidgetSearchLine::nativeEvent(eventType, message, result);

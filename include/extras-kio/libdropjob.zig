@@ -6,7 +6,7 @@ const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
+const arraymap_constu8_constu8 = std.StringArrayHashMapUnmanaged([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kio-dropjob.html)
 pub const kio__dropjob = struct {
@@ -375,11 +375,11 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` values: map_constu8_constu8 `
+    /// ` values: arraymap_constu8_constu8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddMetaData2(self: ?*anyopaque, values: map_constu8_constu8, allocator: std.mem.Allocator) void {
+    pub fn AddMetaData2(self: ?*anyopaque, values: arraymap_constu8_constu8, allocator: std.mem.Allocator) void {
         const values_count = values.count();
         const values_keys = allocator.alloc(qtc.libqt_string, values_count) catch @panic("kio__dropjob.AddMetaData2: Memory allocation failed");
         defer allocator.free(values_keys);
@@ -415,11 +415,11 @@ pub const kio__dropjob = struct {
     ///
     /// ` self: QtC.KIO__DropJob `
     ///
-    /// ` values: map_constu8_constu8 `
+    /// ` values: arraymap_constu8_constu8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MergeMetaData(self: ?*anyopaque, values: map_constu8_constu8, allocator: std.mem.Allocator) void {
+    pub fn MergeMetaData(self: ?*anyopaque, values: arraymap_constu8_constu8, allocator: std.mem.Allocator) void {
         const values_count = values.count();
         const values_keys = allocator.alloc(qtc.libqt_string, values_count) catch @panic("kio__dropjob.MergeMetaData: Memory allocation failed");
         defer allocator.free(values_keys);

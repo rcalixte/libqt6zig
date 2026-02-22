@@ -117,9 +117,10 @@ void KIO__OpenUrlJob_Connect_MimeTypeFound(KIO__OpenUrlJob* self, intptr_t slot)
         const QString mimeType_ret = mimeType;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray mimeType_b = mimeType_ret.toUtf8();
-        const char* mimeType_str = static_cast<const char*>(malloc(mimeType_b.length() + 1));
-        memcpy((void*)mimeType_str, mimeType_b.data(), mimeType_b.length());
-        ((char*)mimeType_str)[mimeType_b.length()] = '\0';
+        auto mimeType_str_len = mimeType_b.length();
+        const char* mimeType_str = static_cast<const char*>(malloc(mimeType_str_len + 1));
+        memcpy((void*)mimeType_str, mimeType_b.data(), mimeType_str_len);
+        ((char*)mimeType_str)[mimeType_str_len] = '\0';
         const char* sigval1 = mimeType_str;
         slotFunc(self, sigval1);
         libqt_free(mimeType_str);

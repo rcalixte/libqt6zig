@@ -32,7 +32,7 @@ class VirtualQGraphicsWidget final : public QGraphicsWidget {
     using QGraphicsWidget_SizeHint_Callback = QSizeF* (*)(const QGraphicsWidget*, int, QSizeF*);
     using QGraphicsWidget_UpdateGeometry_Callback = void (*)();
     using QGraphicsWidget_ItemChange_Callback = QVariant* (*)(QGraphicsWidget*, int, QVariant*);
-    using QGraphicsWidget_PropertyChange_Callback = QVariant* (*)(QGraphicsWidget*, libqt_string, QVariant*);
+    using QGraphicsWidget_PropertyChange_Callback = QVariant* (*)(QGraphicsWidget*, const char*, QVariant*);
     using QGraphicsWidget_SceneEvent_Callback = bool (*)(QGraphicsWidget*, QEvent*);
     using QGraphicsWidget_WindowFrameEvent_Callback = bool (*)(QGraphicsWidget*, QEvent*);
     using QGraphicsWidget_WindowFrameSectionAt_Callback = int (*)(const QGraphicsWidget*, QPointF*);
@@ -716,19 +716,19 @@ class VirtualQGraphicsWidget final : public QGraphicsWidget {
             return QGraphicsWidget::propertyChange(propertyName, value);
         } else if (qgraphicswidget_propertychange_callback != nullptr) {
             const QString propertyName_ret = propertyName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray propertyName_b = propertyName_ret.toUtf8();
-            libqt_string propertyName_str;
-            propertyName_str.len = propertyName_b.length();
-            propertyName_str.data = static_cast<const char*>(malloc(propertyName_str.len + 1));
-            memcpy((void*)propertyName_str.data, propertyName_b.data(), propertyName_str.len);
-            ((char*)propertyName_str.data)[propertyName_str.len] = '\0';
-            libqt_string cbval1 = propertyName_str;
+            auto propertyName_str_len = propertyName_b.length();
+            const char* propertyName_str = static_cast<const char*>(malloc(propertyName_str_len + 1));
+            memcpy((void*)propertyName_str, propertyName_b.data(), propertyName_str_len);
+            ((char*)propertyName_str)[propertyName_str_len] = '\0';
+            const char* cbval1 = propertyName_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
             QVariant* callback_ret = qgraphicswidget_propertychange_callback(this, cbval1, cbval2);
+            libqt_free(propertyName_str);
             return *callback_ret;
         } else {
             return QGraphicsWidget::propertyChange(propertyName, value);

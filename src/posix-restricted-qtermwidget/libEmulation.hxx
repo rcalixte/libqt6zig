@@ -25,7 +25,7 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
     using Konsole__Emulation_ClearEntireScreen_Callback = void (*)();
     using Konsole__Emulation_Reset_Callback = void (*)();
     using Konsole__Emulation_SetImageSize_Callback = void (*)(Konsole__Emulation*, int, int);
-    using Konsole__Emulation_SendText_Callback = void (*)(Konsole__Emulation*, libqt_string);
+    using Konsole__Emulation_SendText_Callback = void (*)(Konsole__Emulation*, const char*);
     using Konsole__Emulation_SendKeyEvent_Callback = void (*)(Konsole__Emulation*, QKeyEvent*, bool);
     using Konsole__Emulation_SendMouseEvent_Callback = void (*)(Konsole__Emulation*, int, int, int, int);
     using Konsole__Emulation_SendString_Callback = void (*)(Konsole__Emulation*, const char*, int);
@@ -287,16 +287,16 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
     virtual void sendText(const QString& text) override {
         if (konsole__emulation_sendtext_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             konsole__emulation_sendtext_callback(this, cbval1);
+            libqt_free(text_str);
         }
     }
 

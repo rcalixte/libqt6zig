@@ -64,11 +64,11 @@ double QOpenGLPaintDevice_DotsPerMeterY(const QOpenGLPaintDevice* self) {
 }
 
 void QOpenGLPaintDevice_SetDotsPerMeterX(QOpenGLPaintDevice* self, double dotsPerMeterX) {
-    self->setDotsPerMeterX(static_cast<double>(dotsPerMeterX));
+    self->setDotsPerMeterX(static_cast<qreal>(dotsPerMeterX));
 }
 
 void QOpenGLPaintDevice_SetDotsPerMeterY(QOpenGLPaintDevice* self, double dotsPerMeterY) {
-    self->setDotsPerMeterY(static_cast<double>(dotsPerMeterY));
+    self->setDotsPerMeterY(static_cast<qreal>(dotsPerMeterY));
 }
 
 void QOpenGLPaintDevice_SetPaintFlipped(QOpenGLPaintDevice* self, bool flipped) {

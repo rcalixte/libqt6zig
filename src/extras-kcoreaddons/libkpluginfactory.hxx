@@ -189,6 +189,7 @@ class VirtualKPluginFactory final : public KPluginFactory {
             libqt_list /* of QVariant* */ cbval4 = args_out;
 
             QObject* callback_ret = kpluginfactory_create_callback(this, cbval1, cbval2, cbval3, cbval4);
+            free(args_arr);
             return callback_ret;
         } else {
             return KPluginFactory::create(iface, parentWidget, parent, args);

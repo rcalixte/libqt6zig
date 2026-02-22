@@ -5,7 +5,7 @@ const extractionresult_enums = enums;
 const properties_enums = @import("libproperties.zig").enums;
 const std = @import("std");
 const types_enums = @import("libtypes.zig").enums;
-const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
+const arraymap_i32_u8 = std.AutoArrayHashMapUnmanaged(i32, []u8);
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html)
 pub const kfilemetadata__extractionresult = struct {
@@ -266,11 +266,11 @@ pub const kfilemetadata__extractionresult = struct {
     ///
     /// ## Returns:
     ///
-    /// ` map_i32_u8 (key: embeddedimagedata_enums.ImageType) `
+    /// ` arraymap_i32_u8 (key: embeddedimagedata_enums.ImageType) `
     ///
-    pub fn ImageData(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
+    pub fn ImageData(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_u8 {
         const _map: qtc.libqt_map = qtc.KFileMetaData__ExtractionResult_ImageData(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
+        var _ret: arraymap_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {

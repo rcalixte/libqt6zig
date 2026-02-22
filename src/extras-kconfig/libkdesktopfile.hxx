@@ -22,10 +22,10 @@ class VirtualKDesktopFile final : public KDesktopFile {
     using KDesktopFile_AccessMode_Callback = int (*)();
     using KDesktopFile_IsImmutable_Callback = bool (*)();
     using KDesktopFile_GroupList_Callback = const char** (*)();
-    using KDesktopFile_HasGroupImpl_Callback = bool (*)(const KDesktopFile*, libqt_string);
-    using KDesktopFile_GroupImpl_Callback = KConfigGroup* (*)(KDesktopFile*, libqt_string);
-    using KDesktopFile_DeleteGroupImpl_Callback = void (*)(KDesktopFile*, libqt_string, int);
-    using KDesktopFile_IsGroupImmutableImpl_Callback = bool (*)(const KDesktopFile*, libqt_string);
+    using KDesktopFile_HasGroupImpl_Callback = bool (*)(const KDesktopFile*, const char*);
+    using KDesktopFile_GroupImpl_Callback = KConfigGroup* (*)(KDesktopFile*, const char*);
+    using KDesktopFile_DeleteGroupImpl_Callback = void (*)(KDesktopFile*, const char*, int);
+    using KDesktopFile_IsGroupImmutableImpl_Callback = bool (*)(const KDesktopFile*, const char*);
     using KDesktopFile_VirtualHook_Callback = void (*)(KDesktopFile*, int, void*);
 
   protected:
@@ -174,16 +174,16 @@ class VirtualKDesktopFile final : public KDesktopFile {
             return KDesktopFile::hasGroupImpl(groupName);
         } else if (kdesktopfile_hasgroupimpl_callback != nullptr) {
             const QString groupName_ret = groupName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
-            libqt_string groupName_str;
-            groupName_str.len = groupName_b.length();
-            groupName_str.data = static_cast<const char*>(malloc(groupName_str.len + 1));
-            memcpy((void*)groupName_str.data, groupName_b.data(), groupName_str.len);
-            ((char*)groupName_str.data)[groupName_str.len] = '\0';
-            libqt_string cbval1 = groupName_str;
+            auto groupName_str_len = groupName_b.length();
+            const char* groupName_str = static_cast<const char*>(malloc(groupName_str_len + 1));
+            memcpy((void*)groupName_str, groupName_b.data(), groupName_str_len);
+            ((char*)groupName_str)[groupName_str_len] = '\0';
+            const char* cbval1 = groupName_str;
 
             bool callback_ret = kdesktopfile_hasgroupimpl_callback(this, cbval1);
+            libqt_free(groupName_str);
             return callback_ret;
         } else {
             return KDesktopFile::hasGroupImpl(groupName);
@@ -197,16 +197,16 @@ class VirtualKDesktopFile final : public KDesktopFile {
             return KDesktopFile::groupImpl(groupName);
         } else if (kdesktopfile_groupimpl_callback != nullptr) {
             const QString groupName_ret = groupName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
-            libqt_string groupName_str;
-            groupName_str.len = groupName_b.length();
-            groupName_str.data = static_cast<const char*>(malloc(groupName_str.len + 1));
-            memcpy((void*)groupName_str.data, groupName_b.data(), groupName_str.len);
-            ((char*)groupName_str.data)[groupName_str.len] = '\0';
-            libqt_string cbval1 = groupName_str;
+            auto groupName_str_len = groupName_b.length();
+            const char* groupName_str = static_cast<const char*>(malloc(groupName_str_len + 1));
+            memcpy((void*)groupName_str, groupName_b.data(), groupName_str_len);
+            ((char*)groupName_str)[groupName_str_len] = '\0';
+            const char* cbval1 = groupName_str;
 
             KConfigGroup* callback_ret = kdesktopfile_groupimpl_callback(this, cbval1);
+            libqt_free(groupName_str);
             return *callback_ret;
         } else {
             return KDesktopFile::groupImpl(groupName);
@@ -220,17 +220,17 @@ class VirtualKDesktopFile final : public KDesktopFile {
             KDesktopFile::deleteGroupImpl(groupName, flags);
         } else if (kdesktopfile_deletegroupimpl_callback != nullptr) {
             const QString groupName_ret = groupName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
-            libqt_string groupName_str;
-            groupName_str.len = groupName_b.length();
-            groupName_str.data = static_cast<const char*>(malloc(groupName_str.len + 1));
-            memcpy((void*)groupName_str.data, groupName_b.data(), groupName_str.len);
-            ((char*)groupName_str.data)[groupName_str.len] = '\0';
-            libqt_string cbval1 = groupName_str;
+            auto groupName_str_len = groupName_b.length();
+            const char* groupName_str = static_cast<const char*>(malloc(groupName_str_len + 1));
+            memcpy((void*)groupName_str, groupName_b.data(), groupName_str_len);
+            ((char*)groupName_str)[groupName_str_len] = '\0';
+            const char* cbval1 = groupName_str;
             int cbval2 = static_cast<int>(flags);
 
             kdesktopfile_deletegroupimpl_callback(this, cbval1, cbval2);
+            libqt_free(groupName_str);
         } else {
             KDesktopFile::deleteGroupImpl(groupName, flags);
         }
@@ -243,16 +243,16 @@ class VirtualKDesktopFile final : public KDesktopFile {
             return KDesktopFile::isGroupImmutableImpl(groupName);
         } else if (kdesktopfile_isgroupimmutableimpl_callback != nullptr) {
             const QString groupName_ret = groupName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
-            libqt_string groupName_str;
-            groupName_str.len = groupName_b.length();
-            groupName_str.data = static_cast<const char*>(malloc(groupName_str.len + 1));
-            memcpy((void*)groupName_str.data, groupName_b.data(), groupName_str.len);
-            ((char*)groupName_str.data)[groupName_str.len] = '\0';
-            libqt_string cbval1 = groupName_str;
+            auto groupName_str_len = groupName_b.length();
+            const char* groupName_str = static_cast<const char*>(malloc(groupName_str_len + 1));
+            memcpy((void*)groupName_str, groupName_b.data(), groupName_str_len);
+            ((char*)groupName_str)[groupName_str_len] = '\0';
+            const char* cbval1 = groupName_str;
 
             bool callback_ret = kdesktopfile_isgroupimmutableimpl_callback(this, cbval1);
+            libqt_free(groupName_str);
             return callback_ret;
         } else {
             return KDesktopFile::isGroupImmutableImpl(groupName);

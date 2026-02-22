@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
+const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
 const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
 const struct_qtcqcborvalue_qtcqcborvalue = extern struct { first: QtC.QCborValue, second: QtC.QCborValue };
 
@@ -675,11 +676,11 @@ pub const qcbormap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` mapVal: map_constu8_qtcqvariant `
+    /// ` mapVal: arraymap_constu8_qtcqvariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FromVariantMap(mapVal: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QCborMap {
+    pub fn FromVariantMap(mapVal: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QCborMap {
         const mapVal_count = mapVal.count();
         const mapVal_keys = allocator.alloc(qtc.libqt_string, mapVal_count) catch @panic("qcbormap.FromVariantMap: Memory allocation failed");
         defer allocator.free(mapVal_keys);
@@ -753,9 +754,9 @@ pub const qcbormap = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToVariantMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
+    pub fn ToVariantMap(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_constu8_qtcqvariant {
         const _map: qtc.libqt_map = qtc.QCborMap_ToVariantMap(@ptrCast(self));
-        var _ret: map_constu8_qtcqvariant = .empty;
+        var _ret: arraymap_constu8_qtcqvariant = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {

@@ -938,6 +938,7 @@ class VirtualQWidget final : public QWidget {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QWidget::nativeEvent(eventType, message, result);
@@ -1226,12 +1227,12 @@ class VirtualQWidget final : public QWidget {
     }
 
     // Virtual method for C ABI access and custom callback
-    void create(unsigned long long param1) {
+    void create(WId param1) {
         if (qwidget_create1_isbase) {
             qwidget_create1_isbase = false;
             QWidget::create(param1);
         } else if (qwidget_create1_callback != nullptr) {
-            unsigned long long cbval1 = param1;
+            unsigned long long cbval1 = static_cast<unsigned long long>(param1);
 
             qwidget_create1_callback(this, cbval1);
         } else {
@@ -1240,12 +1241,12 @@ class VirtualQWidget final : public QWidget {
     }
 
     // Virtual method for C ABI access and custom callback
-    void create(unsigned long long param1, bool initializeWindow) {
+    void create(WId param1, bool initializeWindow) {
         if (qwidget_create2_isbase) {
             qwidget_create2_isbase = false;
             QWidget::create(param1, initializeWindow);
         } else if (qwidget_create2_callback != nullptr) {
-            unsigned long long cbval1 = param1;
+            unsigned long long cbval1 = static_cast<unsigned long long>(param1);
             bool cbval2 = initializeWindow;
 
             qwidget_create2_callback(this, cbval1, cbval2);
@@ -1255,12 +1256,12 @@ class VirtualQWidget final : public QWidget {
     }
 
     // Virtual method for C ABI access and custom callback
-    void create(unsigned long long param1, bool initializeWindow, bool destroyOldWindow) {
+    void create(WId param1, bool initializeWindow, bool destroyOldWindow) {
         if (qwidget_create3_isbase) {
             qwidget_create3_isbase = false;
             QWidget::create(param1, initializeWindow, destroyOldWindow);
         } else if (qwidget_create3_callback != nullptr) {
-            unsigned long long cbval1 = param1;
+            unsigned long long cbval1 = static_cast<unsigned long long>(param1);
             bool cbval2 = initializeWindow;
             bool cbval3 = destroyOldWindow;
 

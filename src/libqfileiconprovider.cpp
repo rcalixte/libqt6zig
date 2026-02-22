@@ -134,9 +134,9 @@ void QFileIconProvider_OnType(const QFileIconProvider* self, intptr_t slot) {
 void QFileIconProvider_SetOptions(QFileIconProvider* self, int options) {
     auto* vqfileiconprovider = dynamic_cast<VirtualQFileIconProvider*>(self);
     if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider) {
-        vqfileiconprovider->setOptions(static_cast<QFlags<QAbstractFileIconProvider::Option>>(options));
+        vqfileiconprovider->setOptions(static_cast<QAbstractFileIconProvider::Options>(options));
     } else {
-        self->QFileIconProvider::setOptions(static_cast<QFlags<QAbstractFileIconProvider::Option>>(options));
+        self->QFileIconProvider::setOptions(static_cast<QAbstractFileIconProvider::Options>(options));
     }
 }
 
@@ -145,9 +145,9 @@ void QFileIconProvider_QBaseSetOptions(QFileIconProvider* self, int options) {
     auto* vqfileiconprovider = dynamic_cast<VirtualQFileIconProvider*>(self);
     if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider) {
         vqfileiconprovider->setQFileIconProvider_SetOptions_IsBase(true);
-        vqfileiconprovider->setOptions(static_cast<QFlags<QAbstractFileIconProvider::Option>>(options));
+        vqfileiconprovider->setOptions(static_cast<QAbstractFileIconProvider::Options>(options));
     } else {
-        self->QFileIconProvider::setOptions(static_cast<QFlags<QAbstractFileIconProvider::Option>>(options));
+        self->QFileIconProvider::setOptions(static_cast<QAbstractFileIconProvider::Options>(options));
     }
 }
 

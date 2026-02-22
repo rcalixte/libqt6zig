@@ -679,16 +679,17 @@ void PackageKit__Daemon_Connect_TransactionListChanged(PackageKit__Daemon* self,
         const char** tids_arr = static_cast<const char**>(malloc(sizeof(const char*) * (tids_ret.size() + 1)));
         for (qsizetype i = 0; i < tids_ret.size(); ++i) {
             QByteArray tids_b = tids_ret[i].toUtf8();
-            char* tids_str = static_cast<char*>(malloc(tids_b.length() + 1));
-            memcpy(tids_str, tids_b.data(), tids_b.length());
-            tids_str[tids_b.length()] = '\0';
+            auto tids_str_len = tids_b.length();
+            char* tids_str = static_cast<char*>(malloc(tids_str_len + 1));
+            memcpy(tids_str, tids_b.data(), tids_str_len);
+            tids_str[tids_str_len] = '\0';
             tids_arr[i] = tids_str;
         }
         // Append sentinel null terminator to the list
         tids_arr[tids_ret.size()] = nullptr;
         const char** sigval1 = tids_arr;
         slotFunc(self, sigval1);
-        free(tids_arr);
+        libqt_free(tids_arr);
     });
 }
 

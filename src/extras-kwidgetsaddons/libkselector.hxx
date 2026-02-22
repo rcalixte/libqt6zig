@@ -1007,6 +1007,7 @@ class VirtualKSelector final : public KSelector {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kselector_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KSelector::nativeEvent(eventType, message, result);
@@ -2479,6 +2480,7 @@ class VirtualKGradientSelector final : public KGradientSelector {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kgradientselector_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KGradientSelector::nativeEvent(eventType, message, result);

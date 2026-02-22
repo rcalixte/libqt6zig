@@ -789,6 +789,7 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = qpdflinkmodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return QPdfLinkModel::mimeData(indexes);
@@ -1272,6 +1273,7 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             QDataStream* cbval2 = &stream_ret;
 
             qpdflinkmodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             QPdfLinkModel::encodeData(indexes, stream);
         }
@@ -1560,6 +1562,8 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             qpdflinkmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             QPdfLinkModel::changePersistentIndexList(from, to);
         }

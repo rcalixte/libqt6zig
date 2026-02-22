@@ -1256,6 +1256,7 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = kextracolumnsproxymodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return KExtraColumnsProxyModel::mimeData(indexes);
@@ -1568,6 +1569,7 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
             QDataStream* cbval2 = &stream_ret;
 
             kextracolumnsproxymodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             KExtraColumnsProxyModel::encodeData(indexes, stream);
         }
@@ -1856,6 +1858,8 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             kextracolumnsproxymodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             KExtraColumnsProxyModel::changePersistentIndexList(from, to);
         }

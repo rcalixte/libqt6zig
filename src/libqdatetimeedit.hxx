@@ -28,9 +28,9 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
     using QDateTimeEdit_WheelEvent_Callback = void (*)(QDateTimeEdit*, QWheelEvent*);
     using QDateTimeEdit_FocusInEvent_Callback = void (*)(QDateTimeEdit*, QFocusEvent*);
     using QDateTimeEdit_FocusNextPrevChild_Callback = bool (*)(QDateTimeEdit*, bool);
-    using QDateTimeEdit_Validate_Callback = int (*)(const QDateTimeEdit*, libqt_string, int*);
-    using QDateTimeEdit_Fixup_Callback = void (*)(const QDateTimeEdit*, libqt_string);
-    using QDateTimeEdit_DateTimeFromText_Callback = QDateTime* (*)(const QDateTimeEdit*, libqt_string);
+    using QDateTimeEdit_Validate_Callback = int (*)(const QDateTimeEdit*, const char*, int*);
+    using QDateTimeEdit_Fixup_Callback = void (*)(const QDateTimeEdit*, const char*);
+    using QDateTimeEdit_DateTimeFromText_Callback = QDateTime* (*)(const QDateTimeEdit*, const char*);
     using QDateTimeEdit_TextFromDateTime_Callback = const char* (*)(const QDateTimeEdit*, QDateTime*);
     using QDateTimeEdit_StepEnabled_Callback = int (*)();
     using QDateTimeEdit_MousePressEvent_Callback = void (*)(QDateTimeEdit*, QMouseEvent*);
@@ -623,17 +623,17 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             return QDateTimeEdit::validate(input, pos);
         } else if (qdatetimeedit_validate_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
             int* cbval2 = &pos;
 
             int callback_ret = qdatetimeedit_validate_callback(this, cbval1, cbval2);
+            libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
         } else {
             return QDateTimeEdit::validate(input, pos);
@@ -647,16 +647,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             QDateTimeEdit::fixup(input);
         } else if (qdatetimeedit_fixup_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
 
             qdatetimeedit_fixup_callback(this, cbval1);
+            libqt_free(input_str);
         } else {
             QDateTimeEdit::fixup(input);
         }
@@ -669,16 +669,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             return QDateTimeEdit::dateTimeFromText(text);
         } else if (qdatetimeedit_datetimefromtext_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             QDateTime* callback_ret = qdatetimeedit_datetimefromtext_callback(this, cbval1);
+            libqt_free(text_str);
             return *callback_ret;
         } else {
             return QDateTimeEdit::dateTimeFromText(text);
@@ -1165,6 +1165,7 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qdatetimeedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QDateTimeEdit::nativeEvent(eventType, message, result);
@@ -1613,9 +1614,9 @@ class VirtualQTimeEdit final : public QTimeEdit {
     using QTimeEdit_WheelEvent_Callback = void (*)(QTimeEdit*, QWheelEvent*);
     using QTimeEdit_FocusInEvent_Callback = void (*)(QTimeEdit*, QFocusEvent*);
     using QTimeEdit_FocusNextPrevChild_Callback = bool (*)(QTimeEdit*, bool);
-    using QTimeEdit_Validate_Callback = int (*)(const QTimeEdit*, libqt_string, int*);
-    using QTimeEdit_Fixup_Callback = void (*)(const QTimeEdit*, libqt_string);
-    using QTimeEdit_DateTimeFromText_Callback = QDateTime* (*)(const QTimeEdit*, libqt_string);
+    using QTimeEdit_Validate_Callback = int (*)(const QTimeEdit*, const char*, int*);
+    using QTimeEdit_Fixup_Callback = void (*)(const QTimeEdit*, const char*);
+    using QTimeEdit_DateTimeFromText_Callback = QDateTime* (*)(const QTimeEdit*, const char*);
     using QTimeEdit_TextFromDateTime_Callback = const char* (*)(const QTimeEdit*, QDateTime*);
     using QTimeEdit_StepEnabled_Callback = int (*)();
     using QTimeEdit_MousePressEvent_Callback = void (*)(QTimeEdit*, QMouseEvent*);
@@ -2204,17 +2205,17 @@ class VirtualQTimeEdit final : public QTimeEdit {
             return QTimeEdit::validate(input, pos);
         } else if (qtimeedit_validate_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
             int* cbval2 = &pos;
 
             int callback_ret = qtimeedit_validate_callback(this, cbval1, cbval2);
+            libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
         } else {
             return QTimeEdit::validate(input, pos);
@@ -2228,16 +2229,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
             QTimeEdit::fixup(input);
         } else if (qtimeedit_fixup_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
 
             qtimeedit_fixup_callback(this, cbval1);
+            libqt_free(input_str);
         } else {
             QTimeEdit::fixup(input);
         }
@@ -2250,16 +2251,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
             return QTimeEdit::dateTimeFromText(text);
         } else if (qtimeedit_datetimefromtext_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             QDateTime* callback_ret = qtimeedit_datetimefromtext_callback(this, cbval1);
+            libqt_free(text_str);
             return *callback_ret;
         } else {
             return QTimeEdit::dateTimeFromText(text);
@@ -2746,6 +2747,7 @@ class VirtualQTimeEdit final : public QTimeEdit {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qtimeedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QTimeEdit::nativeEvent(eventType, message, result);
@@ -3194,9 +3196,9 @@ class VirtualQDateEdit final : public QDateEdit {
     using QDateEdit_WheelEvent_Callback = void (*)(QDateEdit*, QWheelEvent*);
     using QDateEdit_FocusInEvent_Callback = void (*)(QDateEdit*, QFocusEvent*);
     using QDateEdit_FocusNextPrevChild_Callback = bool (*)(QDateEdit*, bool);
-    using QDateEdit_Validate_Callback = int (*)(const QDateEdit*, libqt_string, int*);
-    using QDateEdit_Fixup_Callback = void (*)(const QDateEdit*, libqt_string);
-    using QDateEdit_DateTimeFromText_Callback = QDateTime* (*)(const QDateEdit*, libqt_string);
+    using QDateEdit_Validate_Callback = int (*)(const QDateEdit*, const char*, int*);
+    using QDateEdit_Fixup_Callback = void (*)(const QDateEdit*, const char*);
+    using QDateEdit_DateTimeFromText_Callback = QDateTime* (*)(const QDateEdit*, const char*);
     using QDateEdit_TextFromDateTime_Callback = const char* (*)(const QDateEdit*, QDateTime*);
     using QDateEdit_StepEnabled_Callback = int (*)();
     using QDateEdit_MousePressEvent_Callback = void (*)(QDateEdit*, QMouseEvent*);
@@ -3785,17 +3787,17 @@ class VirtualQDateEdit final : public QDateEdit {
             return QDateEdit::validate(input, pos);
         } else if (qdateedit_validate_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
             int* cbval2 = &pos;
 
             int callback_ret = qdateedit_validate_callback(this, cbval1, cbval2);
+            libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
         } else {
             return QDateEdit::validate(input, pos);
@@ -3809,16 +3811,16 @@ class VirtualQDateEdit final : public QDateEdit {
             QDateEdit::fixup(input);
         } else if (qdateedit_fixup_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
 
             qdateedit_fixup_callback(this, cbval1);
+            libqt_free(input_str);
         } else {
             QDateEdit::fixup(input);
         }
@@ -3831,16 +3833,16 @@ class VirtualQDateEdit final : public QDateEdit {
             return QDateEdit::dateTimeFromText(text);
         } else if (qdateedit_datetimefromtext_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             QDateTime* callback_ret = qdateedit_datetimefromtext_callback(this, cbval1);
+            libqt_free(text_str);
             return *callback_ret;
         } else {
             return QDateEdit::dateTimeFromText(text);
@@ -4327,6 +4329,7 @@ class VirtualQDateEdit final : public QDateEdit {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qdateedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QDateEdit::nativeEvent(eventType, message, result);

@@ -67,7 +67,7 @@ class VirtualKCompletionBox final : public KCompletionBox {
     using KCompletionBox_SelectionChanged_Callback = void (*)(KCompletionBox*, QItemSelection*, QItemSelection*);
     using KCompletionBox_CurrentChanged_Callback = void (*)(KCompletionBox*, QModelIndex*, QModelIndex*);
     using KCompletionBox_ViewportSizeHint_Callback = QSize* (*)();
-    using KCompletionBox_KeyboardSearch_Callback = void (*)(KCompletionBox*, libqt_string);
+    using KCompletionBox_KeyboardSearch_Callback = void (*)(KCompletionBox*, const char*);
     using KCompletionBox_SizeHintForRow_Callback = int (*)(const KCompletionBox*, int);
     using KCompletionBox_SizeHintForColumn_Callback = int (*)(const KCompletionBox*, int);
     using KCompletionBox_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const KCompletionBox*, QModelIndex*);
@@ -1027,6 +1027,7 @@ class VirtualKCompletionBox final : public KCompletionBox {
             libqt_list /* of QListWidgetItem* */ cbval1 = items_out;
 
             QMimeData* callback_ret = kcompletionbox_mimedata_callback(this, cbval1);
+            free(items_arr);
             return callback_ret;
         } else {
             return KCompletionBox::mimeData(items);
@@ -1193,6 +1194,7 @@ class VirtualKCompletionBox final : public KCompletionBox {
             libqt_list /* of int */ cbval3 = roles_out;
 
             kcompletionbox_datachanged_callback(this, cbval1, cbval2, cbval3);
+            free(roles_arr);
         } else {
             KCompletionBox::dataChanged(topLeft, bottomRight, roles);
         }
@@ -1557,16 +1559,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
             KCompletionBox::keyboardSearch(search);
         } else if (kcompletionbox_keyboardsearch_callback != nullptr) {
             const QString search_ret = search;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
-            libqt_string search_str;
-            search_str.len = search_b.length();
-            search_str.data = static_cast<const char*>(malloc(search_str.len + 1));
-            memcpy((void*)search_str.data, search_b.data(), search_str.len);
-            ((char*)search_str.data)[search_str.len] = '\0';
-            libqt_string cbval1 = search_str;
+            auto search_str_len = search_b.length();
+            const char* search_str = static_cast<const char*>(malloc(search_str_len + 1));
+            memcpy((void*)search_str, search_b.data(), search_str_len);
+            ((char*)search_str)[search_str_len] = '\0';
+            const char* cbval1 = search_str;
 
             kcompletionbox_keyboardsearch_callback(this, cbval1);
+            libqt_free(search_str);
         } else {
             KCompletionBox::keyboardSearch(search);
         }
@@ -2200,6 +2202,7 @@ class VirtualKCompletionBox final : public KCompletionBox {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = kcompletionbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return KCompletionBox::nativeEvent(eventType, message, result);

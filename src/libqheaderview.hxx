@@ -54,7 +54,7 @@ class VirtualQHeaderView final : public QHeaderView {
     using QHeaderView_InitStyleOptionForIndex_Callback = void (*)(const QHeaderView*, QStyleOptionHeader*, int);
     using QHeaderView_InitStyleOption_Callback = void (*)(const QHeaderView*, QStyleOptionHeader*);
     using QHeaderView_SetSelectionModel_Callback = void (*)(QHeaderView*, QItemSelectionModel*);
-    using QHeaderView_KeyboardSearch_Callback = void (*)(QHeaderView*, libqt_string);
+    using QHeaderView_KeyboardSearch_Callback = void (*)(QHeaderView*, const char*);
     using QHeaderView_SizeHintForRow_Callback = int (*)(const QHeaderView*, int);
     using QHeaderView_SizeHintForColumn_Callback = int (*)(const QHeaderView*, int);
     using QHeaderView_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const QHeaderView*, QModelIndex*);
@@ -1144,6 +1144,7 @@ class VirtualQHeaderView final : public QHeaderView {
             libqt_list /* of int */ cbval3 = roles_out;
 
             qheaderview_datachanged_callback(this, cbval1, cbval2, cbval3);
+            free(roles_arr);
         } else {
             QHeaderView::dataChanged(topLeft, bottomRight, roles);
         }
@@ -1236,7 +1237,7 @@ class VirtualQHeaderView final : public QHeaderView {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QModelIndex moveCursor(QAbstractItemView::CursorAction param1, QFlags<Qt::KeyboardModifier> param2) override {
+    virtual QModelIndex moveCursor(QAbstractItemView::CursorAction param1, Qt::KeyboardModifiers param2) override {
         if (qheaderview_movecursor_isbase) {
             qheaderview_movecursor_isbase = false;
             return QHeaderView::moveCursor(param1, param2);
@@ -1335,16 +1336,16 @@ class VirtualQHeaderView final : public QHeaderView {
             QHeaderView::keyboardSearch(search);
         } else if (qheaderview_keyboardsearch_callback != nullptr) {
             const QString search_ret = search;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
-            libqt_string search_str;
-            search_str.len = search_b.length();
-            search_str.data = static_cast<const char*>(malloc(search_str.len + 1));
-            memcpy((void*)search_str.data, search_b.data(), search_str.len);
-            ((char*)search_str.data)[search_str.len] = '\0';
-            libqt_string cbval1 = search_str;
+            auto search_str_len = search_b.length();
+            const char* search_str = static_cast<const char*>(malloc(search_str_len + 1));
+            memcpy((void*)search_str, search_b.data(), search_str_len);
+            ((char*)search_str)[search_str_len] = '\0';
+            const char* cbval1 = search_str;
 
             qheaderview_keyboardsearch_callback(this, cbval1);
+            libqt_free(search_str);
         } else {
             QHeaderView::keyboardSearch(search);
         }
@@ -2135,6 +2136,7 @@ class VirtualQHeaderView final : public QHeaderView {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qheaderview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QHeaderView::nativeEvent(eventType, message, result);

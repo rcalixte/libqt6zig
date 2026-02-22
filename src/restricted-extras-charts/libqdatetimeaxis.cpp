@@ -151,9 +151,10 @@ void QDateTimeAxis_Connect_FormatChanged(QDateTimeAxis* self, intptr_t slot) {
         QString format_ret = format;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray format_b = format_ret.toUtf8();
-        const char* format_str = static_cast<const char*>(malloc(format_b.length() + 1));
-        memcpy((void*)format_str, format_b.data(), format_b.length());
-        ((char*)format_str)[format_b.length()] = '\0';
+        auto format_str_len = format_b.length();
+        const char* format_str = static_cast<const char*>(malloc(format_str_len + 1));
+        memcpy((void*)format_str, format_b.data(), format_str_len);
+        ((char*)format_str)[format_str_len] = '\0';
         const char* sigval1 = format_str;
         slotFunc(self, sigval1);
         libqt_free(format_str);

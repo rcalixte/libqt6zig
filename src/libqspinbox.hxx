@@ -21,10 +21,10 @@ class VirtualQSpinBox final : public QSpinBox {
     using QSpinBox_Metacast_Callback = void* (*)(QSpinBox*, const char*);
     using QSpinBox_Metacall_Callback = int (*)(QSpinBox*, int, int, void**);
     using QSpinBox_Event_Callback = bool (*)(QSpinBox*, QEvent*);
-    using QSpinBox_Validate_Callback = int (*)(const QSpinBox*, libqt_string, int*);
-    using QSpinBox_ValueFromText_Callback = int (*)(const QSpinBox*, libqt_string);
+    using QSpinBox_Validate_Callback = int (*)(const QSpinBox*, const char*, int*);
+    using QSpinBox_ValueFromText_Callback = int (*)(const QSpinBox*, const char*);
     using QSpinBox_TextFromValue_Callback = const char* (*)(const QSpinBox*, int);
-    using QSpinBox_Fixup_Callback = void (*)(const QSpinBox*, libqt_string);
+    using QSpinBox_Fixup_Callback = void (*)(const QSpinBox*, const char*);
     using QSpinBox_SizeHint_Callback = QSize* (*)();
     using QSpinBox_MinimumSizeHint_Callback = QSize* (*)();
     using QSpinBox_InputMethodQuery_Callback = QVariant* (*)(const QSpinBox*, int);
@@ -521,17 +521,17 @@ class VirtualQSpinBox final : public QSpinBox {
             return QSpinBox::validate(input, pos);
         } else if (qspinbox_validate_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
             int* cbval2 = &pos;
 
             int callback_ret = qspinbox_validate_callback(this, cbval1, cbval2);
+            libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
         } else {
             return QSpinBox::validate(input, pos);
@@ -545,16 +545,16 @@ class VirtualQSpinBox final : public QSpinBox {
             return QSpinBox::valueFromText(text);
         } else if (qspinbox_valuefromtext_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             int callback_ret = qspinbox_valuefromtext_callback(this, cbval1);
+            libqt_free(text_str);
             return static_cast<int>(callback_ret);
         } else {
             return QSpinBox::valueFromText(text);
@@ -584,16 +584,16 @@ class VirtualQSpinBox final : public QSpinBox {
             QSpinBox::fixup(str);
         } else if (qspinbox_fixup_callback != nullptr) {
             QString str_ret = str;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
-            libqt_string str_str;
-            str_str.len = str_b.length();
-            str_str.data = static_cast<const char*>(malloc(str_str.len + 1));
-            memcpy((void*)str_str.data, str_b.data(), str_str.len);
-            ((char*)str_str.data)[str_str.len] = '\0';
-            libqt_string cbval1 = str_str;
+            auto str_str_len = str_b.length();
+            const char* str_str = static_cast<const char*>(malloc(str_str_len + 1));
+            memcpy((void*)str_str, str_b.data(), str_str_len);
+            ((char*)str_str)[str_str_len] = '\0';
+            const char* cbval1 = str_str;
 
             qspinbox_fixup_callback(this, cbval1);
+            libqt_free(str_str);
         } else {
             QSpinBox::fixup(str);
         }
@@ -1142,6 +1142,7 @@ class VirtualQSpinBox final : public QSpinBox {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qspinbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QSpinBox::nativeEvent(eventType, message, result);
@@ -1599,10 +1600,10 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
     using QDoubleSpinBox_MetaObject_Callback = QMetaObject* (*)();
     using QDoubleSpinBox_Metacast_Callback = void* (*)(QDoubleSpinBox*, const char*);
     using QDoubleSpinBox_Metacall_Callback = int (*)(QDoubleSpinBox*, int, int, void**);
-    using QDoubleSpinBox_Validate_Callback = int (*)(const QDoubleSpinBox*, libqt_string, int*);
-    using QDoubleSpinBox_ValueFromText_Callback = double (*)(const QDoubleSpinBox*, libqt_string);
+    using QDoubleSpinBox_Validate_Callback = int (*)(const QDoubleSpinBox*, const char*, int*);
+    using QDoubleSpinBox_ValueFromText_Callback = double (*)(const QDoubleSpinBox*, const char*);
     using QDoubleSpinBox_TextFromValue_Callback = const char* (*)(const QDoubleSpinBox*, double);
-    using QDoubleSpinBox_Fixup_Callback = void (*)(const QDoubleSpinBox*, libqt_string);
+    using QDoubleSpinBox_Fixup_Callback = void (*)(const QDoubleSpinBox*, const char*);
     using QDoubleSpinBox_SizeHint_Callback = QSize* (*)();
     using QDoubleSpinBox_MinimumSizeHint_Callback = QSize* (*)();
     using QDoubleSpinBox_Event_Callback = bool (*)(QDoubleSpinBox*, QEvent*);
@@ -2085,17 +2086,17 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
             return QDoubleSpinBox::validate(input, pos);
         } else if (qdoublespinbox_validate_callback != nullptr) {
             QString input_ret = input;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
-            libqt_string input_str;
-            input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
-            memcpy((void*)input_str.data, input_b.data(), input_str.len);
-            ((char*)input_str.data)[input_str.len] = '\0';
-            libqt_string cbval1 = input_str;
+            auto input_str_len = input_b.length();
+            const char* input_str = static_cast<const char*>(malloc(input_str_len + 1));
+            memcpy((void*)input_str, input_b.data(), input_str_len);
+            ((char*)input_str)[input_str_len] = '\0';
+            const char* cbval1 = input_str;
             int* cbval2 = &pos;
 
             int callback_ret = qdoublespinbox_validate_callback(this, cbval1, cbval2);
+            libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
         } else {
             return QDoubleSpinBox::validate(input, pos);
@@ -2109,16 +2110,16 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
             return QDoubleSpinBox::valueFromText(text);
         } else if (qdoublespinbox_valuefromtext_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             double callback_ret = qdoublespinbox_valuefromtext_callback(this, cbval1);
+            libqt_free(text_str);
             return static_cast<double>(callback_ret);
         } else {
             return QDoubleSpinBox::valueFromText(text);
@@ -2148,16 +2149,16 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
             QDoubleSpinBox::fixup(str);
         } else if (qdoublespinbox_fixup_callback != nullptr) {
             QString str_ret = str;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
-            libqt_string str_str;
-            str_str.len = str_b.length();
-            str_str.data = static_cast<const char*>(malloc(str_str.len + 1));
-            memcpy((void*)str_str.data, str_b.data(), str_str.len);
-            ((char*)str_str.data)[str_str.len] = '\0';
-            libqt_string cbval1 = str_str;
+            auto str_str_len = str_b.length();
+            const char* str_str = static_cast<const char*>(malloc(str_str_len + 1));
+            memcpy((void*)str_str, str_b.data(), str_str_len);
+            ((char*)str_str)[str_str_len] = '\0';
+            const char* cbval1 = str_str;
 
             qdoublespinbox_fixup_callback(this, cbval1);
+            libqt_free(str_str);
         } else {
             QDoubleSpinBox::fixup(str);
         }
@@ -2721,6 +2722,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qdoublespinbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QDoubleSpinBox::nativeEvent(eventType, message, result);

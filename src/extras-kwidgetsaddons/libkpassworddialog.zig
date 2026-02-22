@@ -9,7 +9,7 @@ const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
-const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
+const arraymap_constu8_constu8 = std.StringArrayHashMapUnmanaged([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kpassworddialog.html)
 pub const kpassworddialog = struct {
@@ -422,11 +422,11 @@ pub const kpassworddialog = struct {
     ///
     /// ` self: QtC.KPasswordDialog `
     ///
-    /// ` knownLogins: map_constu8_constu8 `
+    /// ` knownLogins: arraymap_constu8_constu8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetKnownLogins(self: ?*anyopaque, knownLogins: map_constu8_constu8, allocator: std.mem.Allocator) void {
+    pub fn SetKnownLogins(self: ?*anyopaque, knownLogins: arraymap_constu8_constu8, allocator: std.mem.Allocator) void {
         const knownLogins_count = knownLogins.count();
         const knownLogins_keys = allocator.alloc(qtc.libqt_string, knownLogins_count) catch @panic("kpassworddialog.SetKnownLogins: Memory allocation failed");
         defer allocator.free(knownLogins_keys);

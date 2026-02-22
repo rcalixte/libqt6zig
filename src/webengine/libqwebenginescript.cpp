@@ -74,7 +74,7 @@ unsigned int QWebEngineScript_WorldId(const QWebEngineScript* self) {
 }
 
 void QWebEngineScript_SetWorldId(QWebEngineScript* self, unsigned int worldId) {
-    self->setWorldId(static_cast<unsigned int>(worldId));
+    self->setWorldId(static_cast<quint32>(worldId));
 }
 
 bool QWebEngineScript_RunsOnSubFrames(const QWebEngineScript* self) {

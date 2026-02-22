@@ -57,8 +57,8 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     using QsciLexerJavaScript_SetEolFill_Callback = void (*)(QsciLexerJavaScript*, bool, int);
     using QsciLexerJavaScript_SetFont_Callback = void (*)(QsciLexerJavaScript*, QFont*, int);
     using QsciLexerJavaScript_SetPaper_Callback = void (*)(QsciLexerJavaScript*, QColor*, int);
-    using QsciLexerJavaScript_ReadProperties_Callback = bool (*)(QsciLexerJavaScript*, QSettings*, libqt_string);
-    using QsciLexerJavaScript_WriteProperties_Callback = bool (*)(const QsciLexerJavaScript*, QSettings*, libqt_string);
+    using QsciLexerJavaScript_ReadProperties_Callback = bool (*)(QsciLexerJavaScript*, QSettings*, const char*);
+    using QsciLexerJavaScript_WriteProperties_Callback = bool (*)(const QsciLexerJavaScript*, QSettings*, const char*);
     using QsciLexerJavaScript_Event_Callback = bool (*)(QsciLexerJavaScript*, QEvent*);
     using QsciLexerJavaScript_EventFilter_Callback = bool (*)(QsciLexerJavaScript*, QObject*, QEvent*);
     using QsciLexerJavaScript_TimerEvent_Callback = void (*)(QsciLexerJavaScript*, QTimerEvent*);
@@ -66,7 +66,7 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     using QsciLexerJavaScript_CustomEvent_Callback = void (*)(QsciLexerJavaScript*, QEvent*);
     using QsciLexerJavaScript_ConnectNotify_Callback = void (*)(QsciLexerJavaScript*, QMetaMethod*);
     using QsciLexerJavaScript_DisconnectNotify_Callback = void (*)(QsciLexerJavaScript*, QMetaMethod*);
-    using QsciLexerJavaScript_TextAsBytes_Callback = libqt_string (*)(const QsciLexerJavaScript*, libqt_string);
+    using QsciLexerJavaScript_TextAsBytes_Callback = libqt_string (*)(const QsciLexerJavaScript*, const char*);
     using QsciLexerJavaScript_BytesAsText_Callback = const char* (*)(const QsciLexerJavaScript*, const char*, int);
     using QsciLexerJavaScript_Sender_Callback = QObject* (*)();
     using QsciLexerJavaScript_SenderSignalIndex_Callback = int (*)();
@@ -950,16 +950,16 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerjavascript_readproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerJavaScript::readProperties(qs, prefix);
@@ -976,16 +976,16 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
             const QString prefix_ret = prefix;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
-            libqt_string prefix_str;
-            prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
-            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
-            ((char*)prefix_str.data)[prefix_str.len] = '\0';
-            libqt_string cbval2 = prefix_str;
+            auto prefix_str_len = prefix_b.length();
+            const char* prefix_str = static_cast<const char*>(malloc(prefix_str_len + 1));
+            memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
+            ((char*)prefix_str)[prefix_str_len] = '\0';
+            const char* cbval2 = prefix_str;
 
             bool callback_ret = qscilexerjavascript_writeproperties_callback(this, cbval1, cbval2);
+            libqt_free(prefix_str);
             return callback_ret;
         } else {
             return QsciLexerJavaScript::writeProperties(qs, prefix);
@@ -1104,17 +1104,17 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
             return QsciLexerJavaScript::textAsBytes(text);
         } else if (qscilexerjavascript_textasbytes_callback != nullptr) {
             const QString text_ret = text;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
-            libqt_string text_str;
-            text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
-            memcpy((void*)text_str.data, text_b.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
-            libqt_string cbval1 = text_str;
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
 
             libqt_string callback_ret = qscilexerjavascript_textasbytes_callback(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            libqt_free(text_str);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerJavaScript::textAsBytes(text);

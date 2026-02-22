@@ -428,9 +428,10 @@ void QWebSocket_Connect_TextFrameReceived(QWebSocket* self, intptr_t slot) {
         const QString frame_ret = frame;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray frame_b = frame_ret.toUtf8();
-        const char* frame_str = static_cast<const char*>(malloc(frame_b.length() + 1));
-        memcpy((void*)frame_str, frame_b.data(), frame_b.length());
-        ((char*)frame_str)[frame_b.length()] = '\0';
+        auto frame_str_len = frame_b.length();
+        const char* frame_str = static_cast<const char*>(malloc(frame_str_len + 1));
+        memcpy((void*)frame_str, frame_b.data(), frame_str_len);
+        ((char*)frame_str)[frame_str_len] = '\0';
         const char* sigval1 = frame_str;
         bool sigval2 = isLastFrame;
         slotFunc(self, sigval1, sigval2);
@@ -454,6 +455,7 @@ void QWebSocket_Connect_BinaryFrameReceived(QWebSocket* self, intptr_t slot) {
         libqt_string sigval1 = frame_str;
         bool sigval2 = isLastFrame;
         slotFunc(self, sigval1, sigval2);
+        libqt_free(frame_str.data);
     });
 }
 
@@ -468,9 +470,10 @@ void QWebSocket_Connect_TextMessageReceived(QWebSocket* self, intptr_t slot) {
         const QString message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
-        const char* message_str = static_cast<const char*>(malloc(message_b.length() + 1));
-        memcpy((void*)message_str, message_b.data(), message_b.length());
-        ((char*)message_str)[message_b.length()] = '\0';
+        auto message_str_len = message_b.length();
+        const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+        memcpy((void*)message_str, message_b.data(), message_str_len);
+        ((char*)message_str)[message_str_len] = '\0';
         const char* sigval1 = message_str;
         slotFunc(self, sigval1);
         libqt_free(message_str);
@@ -492,6 +495,7 @@ void QWebSocket_Connect_BinaryMessageReceived(QWebSocket* self, intptr_t slot) {
         memcpy((void*)message_str.data, message_qb.data(), message_str.len);
         libqt_string sigval1 = message_str;
         slotFunc(self, sigval1);
+        libqt_free(message_str.data);
     });
 }
 
@@ -527,6 +531,7 @@ void QWebSocket_Connect_Pong(QWebSocket* self, intptr_t slot) {
         memcpy((void*)payload_str.data, payload_qb.data(), payload_str.len);
         libqt_string sigval2 = payload_str;
         slotFunc(self, sigval1, sigval2);
+        libqt_free(payload_str.data);
     });
 }
 
@@ -609,9 +614,10 @@ void QWebSocket_Connect_AlertSent(QWebSocket* self, intptr_t slot) {
         const QString description_ret = description;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray description_b = description_ret.toUtf8();
-        const char* description_str = static_cast<const char*>(malloc(description_b.length() + 1));
-        memcpy((void*)description_str, description_b.data(), description_b.length());
-        ((char*)description_str)[description_b.length()] = '\0';
+        auto description_str_len = description_b.length();
+        const char* description_str = static_cast<const char*>(malloc(description_str_len + 1));
+        memcpy((void*)description_str, description_b.data(), description_str_len);
+        ((char*)description_str)[description_str_len] = '\0';
         const char* sigval3 = description_str;
         slotFunc(self, sigval1, sigval2, sigval3);
         libqt_free(description_str);
@@ -631,9 +637,10 @@ void QWebSocket_Connect_AlertReceived(QWebSocket* self, intptr_t slot) {
         const QString description_ret = description;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray description_b = description_ret.toUtf8();
-        const char* description_str = static_cast<const char*>(malloc(description_b.length() + 1));
-        memcpy((void*)description_str, description_b.data(), description_b.length());
-        ((char*)description_str)[description_b.length()] = '\0';
+        auto description_str_len = description_b.length();
+        const char* description_str = static_cast<const char*>(malloc(description_str_len + 1));
+        memcpy((void*)description_str, description_b.data(), description_str_len);
+        ((char*)description_str)[description_str_len] = '\0';
         const char* sigval3 = description_str;
         slotFunc(self, sigval1, sigval2, sigval3);
         libqt_free(description_str);

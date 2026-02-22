@@ -17,10 +17,10 @@ class VirtualKRcc final : public KRcc {
     bool isVirtualKRcc = true;
 
     // Virtual class public types (including callbacks)
-    using KRcc_DoPrepareWriting_Callback = bool (*)(KRcc*, libqt_string, libqt_string, libqt_string, long long, mode_t, QDateTime*, QDateTime*, QDateTime*);
+    using KRcc_DoPrepareWriting_Callback = bool (*)(KRcc*, const char*, const char*, const char*, long long, mode_t, QDateTime*, QDateTime*, QDateTime*);
     using KRcc_DoFinishWriting_Callback = bool (*)(KRcc*, long long);
-    using KRcc_DoWriteDir_Callback = bool (*)(KRcc*, libqt_string, libqt_string, libqt_string, mode_t, QDateTime*, QDateTime*, QDateTime*);
-    using KRcc_DoWriteSymLink_Callback = bool (*)(KRcc*, libqt_string, libqt_string, libqt_string, libqt_string, mode_t, QDateTime*, QDateTime*, QDateTime*);
+    using KRcc_DoWriteDir_Callback = bool (*)(KRcc*, const char*, const char*, const char*, mode_t, QDateTime*, QDateTime*, QDateTime*);
+    using KRcc_DoWriteSymLink_Callback = bool (*)(KRcc*, const char*, const char*, const char*, const char*, mode_t, QDateTime*, QDateTime*, QDateTime*);
     using KRcc_OpenArchive_Callback = bool (*)(KRcc*, int);
     using KRcc_CloseArchive_Callback = bool (*)();
     using KRcc_VirtualHook_Callback = void (*)(KRcc*, int, void*);
@@ -29,8 +29,8 @@ class VirtualKRcc final : public KRcc {
     using KRcc_RootDir_Callback = KArchiveDirectory* (*)();
     using KRcc_DoWriteData_Callback = bool (*)(KRcc*, const char*, long long);
     using KRcc_CreateDevice_Callback = bool (*)(KRcc*, int);
-    using KRcc_SetErrorString_Callback = void (*)(KRcc*, libqt_string);
-    using KRcc_FindOrCreate_Callback = KArchiveDirectory* (*)(KRcc*, libqt_string);
+    using KRcc_SetErrorString_Callback = void (*)(KRcc*, const char*);
+    using KRcc_FindOrCreate_Callback = KArchiveDirectory* (*)(KRcc*, const char*);
     using KRcc_SetDevice_Callback = void (*)(KRcc*, QIODevice*);
     using KRcc_SetRootDir_Callback = void (*)(KRcc*, KArchiveDirectory*);
 
@@ -137,32 +137,29 @@ class VirtualKRcc final : public KRcc {
             return KRcc::doPrepareWriting(name, user, group, size, perm, atime, mtime, ctime);
         } else if (krcc_dopreparewriting_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QString user_ret = user;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray user_b = user_ret.toUtf8();
-            libqt_string user_str;
-            user_str.len = user_b.length();
-            user_str.data = static_cast<const char*>(malloc(user_str.len + 1));
-            memcpy((void*)user_str.data, user_b.data(), user_str.len);
-            ((char*)user_str.data)[user_str.len] = '\0';
-            libqt_string cbval2 = user_str;
+            auto user_str_len = user_b.length();
+            const char* user_str = static_cast<const char*>(malloc(user_str_len + 1));
+            memcpy((void*)user_str, user_b.data(), user_str_len);
+            ((char*)user_str)[user_str_len] = '\0';
+            const char* cbval2 = user_str;
             const QString group_ret = group;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
-            libqt_string group_str;
-            group_str.len = group_b.length();
-            group_str.data = static_cast<const char*>(malloc(group_str.len + 1));
-            memcpy((void*)group_str.data, group_b.data(), group_str.len);
-            ((char*)group_str.data)[group_str.len] = '\0';
-            libqt_string cbval3 = group_str;
+            auto group_str_len = group_b.length();
+            const char* group_str = static_cast<const char*>(malloc(group_str_len + 1));
+            memcpy((void*)group_str, group_b.data(), group_str_len);
+            ((char*)group_str)[group_str_len] = '\0';
+            const char* cbval3 = group_str;
             long long cbval4 = static_cast<long long>(size);
             mode_t cbval5 = perm;
             const QDateTime& atime_ret = atime;
@@ -176,6 +173,9 @@ class VirtualKRcc final : public KRcc {
             QDateTime* cbval8 = const_cast<QDateTime*>(&ctime_ret);
 
             bool callback_ret = krcc_dopreparewriting_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
+            libqt_free(name_str);
+            libqt_free(user_str);
+            libqt_free(group_str);
             return callback_ret;
         } else {
             return KRcc::doPrepareWriting(name, user, group, size, perm, atime, mtime, ctime);
@@ -204,32 +204,29 @@ class VirtualKRcc final : public KRcc {
             return KRcc::doWriteDir(name, user, group, perm, atime, mtime, ctime);
         } else if (krcc_dowritedir_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QString user_ret = user;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray user_b = user_ret.toUtf8();
-            libqt_string user_str;
-            user_str.len = user_b.length();
-            user_str.data = static_cast<const char*>(malloc(user_str.len + 1));
-            memcpy((void*)user_str.data, user_b.data(), user_str.len);
-            ((char*)user_str.data)[user_str.len] = '\0';
-            libqt_string cbval2 = user_str;
+            auto user_str_len = user_b.length();
+            const char* user_str = static_cast<const char*>(malloc(user_str_len + 1));
+            memcpy((void*)user_str, user_b.data(), user_str_len);
+            ((char*)user_str)[user_str_len] = '\0';
+            const char* cbval2 = user_str;
             const QString group_ret = group;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
-            libqt_string group_str;
-            group_str.len = group_b.length();
-            group_str.data = static_cast<const char*>(malloc(group_str.len + 1));
-            memcpy((void*)group_str.data, group_b.data(), group_str.len);
-            ((char*)group_str.data)[group_str.len] = '\0';
-            libqt_string cbval3 = group_str;
+            auto group_str_len = group_b.length();
+            const char* group_str = static_cast<const char*>(malloc(group_str_len + 1));
+            memcpy((void*)group_str, group_b.data(), group_str_len);
+            ((char*)group_str)[group_str_len] = '\0';
+            const char* cbval3 = group_str;
             mode_t cbval4 = perm;
             const QDateTime& atime_ret = atime;
             // Cast returned reference into pointer
@@ -242,6 +239,9 @@ class VirtualKRcc final : public KRcc {
             QDateTime* cbval7 = const_cast<QDateTime*>(&ctime_ret);
 
             bool callback_ret = krcc_dowritedir_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            libqt_free(name_str);
+            libqt_free(user_str);
+            libqt_free(group_str);
             return callback_ret;
         } else {
             return KRcc::doWriteDir(name, user, group, perm, atime, mtime, ctime);
@@ -255,41 +255,37 @@ class VirtualKRcc final : public KRcc {
             return KRcc::doWriteSymLink(name, target, user, group, perm, atime, mtime, ctime);
         } else if (krcc_dowritesymlink_callback != nullptr) {
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval1 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval1 = name_str;
             const QString target_ret = target;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray target_b = target_ret.toUtf8();
-            libqt_string target_str;
-            target_str.len = target_b.length();
-            target_str.data = static_cast<const char*>(malloc(target_str.len + 1));
-            memcpy((void*)target_str.data, target_b.data(), target_str.len);
-            ((char*)target_str.data)[target_str.len] = '\0';
-            libqt_string cbval2 = target_str;
+            auto target_str_len = target_b.length();
+            const char* target_str = static_cast<const char*>(malloc(target_str_len + 1));
+            memcpy((void*)target_str, target_b.data(), target_str_len);
+            ((char*)target_str)[target_str_len] = '\0';
+            const char* cbval2 = target_str;
             const QString user_ret = user;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray user_b = user_ret.toUtf8();
-            libqt_string user_str;
-            user_str.len = user_b.length();
-            user_str.data = static_cast<const char*>(malloc(user_str.len + 1));
-            memcpy((void*)user_str.data, user_b.data(), user_str.len);
-            ((char*)user_str.data)[user_str.len] = '\0';
-            libqt_string cbval3 = user_str;
+            auto user_str_len = user_b.length();
+            const char* user_str = static_cast<const char*>(malloc(user_str_len + 1));
+            memcpy((void*)user_str, user_b.data(), user_str_len);
+            ((char*)user_str)[user_str_len] = '\0';
+            const char* cbval3 = user_str;
             const QString group_ret = group;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
-            libqt_string group_str;
-            group_str.len = group_b.length();
-            group_str.data = static_cast<const char*>(malloc(group_str.len + 1));
-            memcpy((void*)group_str.data, group_b.data(), group_str.len);
-            ((char*)group_str.data)[group_str.len] = '\0';
-            libqt_string cbval4 = group_str;
+            auto group_str_len = group_b.length();
+            const char* group_str = static_cast<const char*>(malloc(group_str_len + 1));
+            memcpy((void*)group_str, group_b.data(), group_str_len);
+            ((char*)group_str)[group_str_len] = '\0';
+            const char* cbval4 = group_str;
             mode_t cbval5 = perm;
             const QDateTime& atime_ret = atime;
             // Cast returned reference into pointer
@@ -302,6 +298,10 @@ class VirtualKRcc final : public KRcc {
             QDateTime* cbval8 = const_cast<QDateTime*>(&ctime_ret);
 
             bool callback_ret = krcc_dowritesymlink_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
+            libqt_free(name_str);
+            libqt_free(target_str);
+            libqt_free(user_str);
+            libqt_free(group_str);
             return callback_ret;
         } else {
             return KRcc::doWriteSymLink(name, target, user, group, perm, atime, mtime, ctime);
@@ -430,16 +430,16 @@ class VirtualKRcc final : public KRcc {
             KRcc::setErrorString(errorStr);
         } else if (krcc_seterrorstring_callback != nullptr) {
             const QString errorStr_ret = errorStr;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorStr_b = errorStr_ret.toUtf8();
-            libqt_string errorStr_str;
-            errorStr_str.len = errorStr_b.length();
-            errorStr_str.data = static_cast<const char*>(malloc(errorStr_str.len + 1));
-            memcpy((void*)errorStr_str.data, errorStr_b.data(), errorStr_str.len);
-            ((char*)errorStr_str.data)[errorStr_str.len] = '\0';
-            libqt_string cbval1 = errorStr_str;
+            auto errorStr_str_len = errorStr_b.length();
+            const char* errorStr_str = static_cast<const char*>(malloc(errorStr_str_len + 1));
+            memcpy((void*)errorStr_str, errorStr_b.data(), errorStr_str_len);
+            ((char*)errorStr_str)[errorStr_str_len] = '\0';
+            const char* cbval1 = errorStr_str;
 
             krcc_seterrorstring_callback(this, cbval1);
+            libqt_free(errorStr_str);
         } else {
             KRcc::setErrorString(errorStr);
         }
@@ -452,16 +452,16 @@ class VirtualKRcc final : public KRcc {
             return KRcc::findOrCreate(path);
         } else if (krcc_findorcreate_callback != nullptr) {
             const QString path_ret = path;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
-            libqt_string path_str;
-            path_str.len = path_b.length();
-            path_str.data = static_cast<const char*>(malloc(path_str.len + 1));
-            memcpy((void*)path_str.data, path_b.data(), path_str.len);
-            ((char*)path_str.data)[path_str.len] = '\0';
-            libqt_string cbval1 = path_str;
+            auto path_str_len = path_b.length();
+            const char* path_str = static_cast<const char*>(malloc(path_str_len + 1));
+            memcpy((void*)path_str, path_b.data(), path_str_len);
+            ((char*)path_str)[path_str_len] = '\0';
+            const char* cbval1 = path_str;
 
             KArchiveDirectory* callback_ret = krcc_findorcreate_callback(this, cbval1);
+            libqt_free(path_str);
             return callback_ret;
         } else {
             return KRcc::findOrCreate(path);

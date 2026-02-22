@@ -743,6 +743,7 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
             QMimeData* callback_ret = qconcatenatetablesproxymodel_mimedata_callback(this, cbval1);
+            free(indexes_arr);
             return callback_ret;
         } else {
             return QConcatenateTablesProxyModel::mimeData(indexes);
@@ -1341,6 +1342,7 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
             QDataStream* cbval2 = &stream_ret;
 
             qconcatenatetablesproxymodel_encodedata_callback(this, cbval1, cbval2);
+            free(indexes_arr);
         } else {
             QConcatenateTablesProxyModel::encodeData(indexes, stream);
         }
@@ -1629,6 +1631,8 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
             qconcatenatetablesproxymodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            free(from_arr);
+            free(to_arr);
         } else {
             QConcatenateTablesProxyModel::changePersistentIndexList(from, to);
         }

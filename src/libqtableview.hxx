@@ -50,7 +50,7 @@ class VirtualQTableView final : public QTableView {
     using QTableView_IsIndexHidden_Callback = bool (*)(const QTableView*, QModelIndex*);
     using QTableView_SelectionChanged_Callback = void (*)(QTableView*, QItemSelection*, QItemSelection*);
     using QTableView_CurrentChanged_Callback = void (*)(QTableView*, QModelIndex*, QModelIndex*);
-    using QTableView_KeyboardSearch_Callback = void (*)(QTableView*, libqt_string);
+    using QTableView_KeyboardSearch_Callback = void (*)(QTableView*, const char*);
     using QTableView_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const QTableView*, QModelIndex*);
     using QTableView_InputMethodQuery_Callback = QVariant* (*)(const QTableView*, int);
     using QTableView_Reset_Callback = void (*)();
@@ -1245,16 +1245,16 @@ class VirtualQTableView final : public QTableView {
             QTableView::keyboardSearch(search);
         } else if (qtableview_keyboardsearch_callback != nullptr) {
             const QString search_ret = search;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
-            libqt_string search_str;
-            search_str.len = search_b.length();
-            search_str.data = static_cast<const char*>(malloc(search_str.len + 1));
-            memcpy((void*)search_str.data, search_b.data(), search_str.len);
-            ((char*)search_str.data)[search_str.len] = '\0';
-            libqt_string cbval1 = search_str;
+            auto search_str_len = search_b.length();
+            const char* search_str = static_cast<const char*>(malloc(search_str_len + 1));
+            memcpy((void*)search_str, search_b.data(), search_str_len);
+            ((char*)search_str)[search_str_len] = '\0';
+            const char* cbval1 = search_str;
 
             qtableview_keyboardsearch_callback(this, cbval1);
+            libqt_free(search_str);
         } else {
             QTableView::keyboardSearch(search);
         }
@@ -1340,6 +1340,7 @@ class VirtualQTableView final : public QTableView {
             libqt_list /* of int */ cbval3 = roles_out;
 
             qtableview_datachanged_callback(this, cbval1, cbval2, cbval3);
+            free(roles_arr);
         } else {
             QTableView::dataChanged(topLeft, bottomRight, roles);
         }
@@ -2063,6 +2064,7 @@ class VirtualQTableView final : public QTableView {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qtableview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QTableView::nativeEvent(eventType, message, result);

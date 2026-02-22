@@ -20,10 +20,10 @@ class VirtualQUiLoader final : public QUiLoader {
     using QUiLoader_MetaObject_Callback = QMetaObject* (*)();
     using QUiLoader_Metacast_Callback = void* (*)(QUiLoader*, const char*);
     using QUiLoader_Metacall_Callback = int (*)(QUiLoader*, int, int, void**);
-    using QUiLoader_CreateWidget_Callback = QWidget* (*)(QUiLoader*, libqt_string, QWidget*, libqt_string);
-    using QUiLoader_CreateLayout_Callback = QLayout* (*)(QUiLoader*, libqt_string, QObject*, libqt_string);
-    using QUiLoader_CreateActionGroup_Callback = QActionGroup* (*)(QUiLoader*, QObject*, libqt_string);
-    using QUiLoader_CreateAction_Callback = QAction* (*)(QUiLoader*, QObject*, libqt_string);
+    using QUiLoader_CreateWidget_Callback = QWidget* (*)(QUiLoader*, const char*, QWidget*, const char*);
+    using QUiLoader_CreateLayout_Callback = QLayout* (*)(QUiLoader*, const char*, QObject*, const char*);
+    using QUiLoader_CreateActionGroup_Callback = QActionGroup* (*)(QUiLoader*, QObject*, const char*);
+    using QUiLoader_CreateAction_Callback = QAction* (*)(QUiLoader*, QObject*, const char*);
     using QUiLoader_Event_Callback = bool (*)(QUiLoader*, QEvent*);
     using QUiLoader_EventFilter_Callback = bool (*)(QUiLoader*, QObject*, QEvent*);
     using QUiLoader_TimerEvent_Callback = void (*)(QUiLoader*, QTimerEvent*);
@@ -194,26 +194,26 @@ class VirtualQUiLoader final : public QUiLoader {
             return QUiLoader::createWidget(className, parent, name);
         } else if (quiloader_createwidget_callback != nullptr) {
             const QString className_ret = className;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray className_b = className_ret.toUtf8();
-            libqt_string className_str;
-            className_str.len = className_b.length();
-            className_str.data = static_cast<const char*>(malloc(className_str.len + 1));
-            memcpy((void*)className_str.data, className_b.data(), className_str.len);
-            ((char*)className_str.data)[className_str.len] = '\0';
-            libqt_string cbval1 = className_str;
+            auto className_str_len = className_b.length();
+            const char* className_str = static_cast<const char*>(malloc(className_str_len + 1));
+            memcpy((void*)className_str, className_b.data(), className_str_len);
+            ((char*)className_str)[className_str_len] = '\0';
+            const char* cbval1 = className_str;
             QWidget* cbval2 = parent;
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval3 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval3 = name_str;
 
             QWidget* callback_ret = quiloader_createwidget_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(className_str);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QUiLoader::createWidget(className, parent, name);
@@ -227,26 +227,26 @@ class VirtualQUiLoader final : public QUiLoader {
             return QUiLoader::createLayout(className, parent, name);
         } else if (quiloader_createlayout_callback != nullptr) {
             const QString className_ret = className;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray className_b = className_ret.toUtf8();
-            libqt_string className_str;
-            className_str.len = className_b.length();
-            className_str.data = static_cast<const char*>(malloc(className_str.len + 1));
-            memcpy((void*)className_str.data, className_b.data(), className_str.len);
-            ((char*)className_str.data)[className_str.len] = '\0';
-            libqt_string cbval1 = className_str;
+            auto className_str_len = className_b.length();
+            const char* className_str = static_cast<const char*>(malloc(className_str_len + 1));
+            memcpy((void*)className_str, className_b.data(), className_str_len);
+            ((char*)className_str)[className_str_len] = '\0';
+            const char* cbval1 = className_str;
             QObject* cbval2 = parent;
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval3 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval3 = name_str;
 
             QLayout* callback_ret = quiloader_createlayout_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(className_str);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QUiLoader::createLayout(className, parent, name);
@@ -261,16 +261,16 @@ class VirtualQUiLoader final : public QUiLoader {
         } else if (quiloader_createactiongroup_callback != nullptr) {
             QObject* cbval1 = parent;
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval2 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval2 = name_str;
 
             QActionGroup* callback_ret = quiloader_createactiongroup_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QUiLoader::createActionGroup(parent, name);
@@ -285,16 +285,16 @@ class VirtualQUiLoader final : public QUiLoader {
         } else if (quiloader_createaction_callback != nullptr) {
             QObject* cbval1 = parent;
             const QString name_ret = name;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
-            libqt_string name_str;
-            name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-            memcpy((void*)name_str.data, name_b.data(), name_str.len);
-            ((char*)name_str.data)[name_str.len] = '\0';
-            libqt_string cbval2 = name_str;
+            auto name_str_len = name_b.length();
+            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+            memcpy((void*)name_str, name_b.data(), name_str_len);
+            ((char*)name_str)[name_str_len] = '\0';
+            const char* cbval2 = name_str;
 
             QAction* callback_ret = quiloader_createaction_callback(this, cbval1, cbval2);
+            libqt_free(name_str);
             return callback_ret;
         } else {
             return QUiLoader::createAction(parent, name);

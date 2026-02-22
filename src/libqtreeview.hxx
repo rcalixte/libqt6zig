@@ -26,7 +26,7 @@ class VirtualQTreeView final : public QTreeView {
     using QTreeView_SetModel_Callback = void (*)(QTreeView*, QAbstractItemModel*);
     using QTreeView_SetRootIndex_Callback = void (*)(QTreeView*, QModelIndex*);
     using QTreeView_SetSelectionModel_Callback = void (*)(QTreeView*, QItemSelectionModel*);
-    using QTreeView_KeyboardSearch_Callback = void (*)(QTreeView*, libqt_string);
+    using QTreeView_KeyboardSearch_Callback = void (*)(QTreeView*, const char*);
     using QTreeView_VisualRect_Callback = QRect* (*)(const QTreeView*, QModelIndex*);
     using QTreeView_ScrollTo_Callback = void (*)(QTreeView*, QModelIndex*, int);
     using QTreeView_IndexAt_Callback = QModelIndex* (*)(const QTreeView*, QPoint*);
@@ -901,16 +901,16 @@ class VirtualQTreeView final : public QTreeView {
             QTreeView::keyboardSearch(search);
         } else if (qtreeview_keyboardsearch_callback != nullptr) {
             const QString search_ret = search;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
-            libqt_string search_str;
-            search_str.len = search_b.length();
-            search_str.data = static_cast<const char*>(malloc(search_str.len + 1));
-            memcpy((void*)search_str.data, search_b.data(), search_str.len);
-            ((char*)search_str.data)[search_str.len] = '\0';
-            libqt_string cbval1 = search_str;
+            auto search_str_len = search_b.length();
+            const char* search_str = static_cast<const char*>(malloc(search_str_len + 1));
+            memcpy((void*)search_str, search_b.data(), search_str_len);
+            ((char*)search_str)[search_str_len] = '\0';
+            const char* cbval1 = search_str;
 
             qtreeview_keyboardsearch_callback(this, cbval1);
+            libqt_free(search_str);
         } else {
             QTreeView::keyboardSearch(search);
         }
@@ -1015,6 +1015,7 @@ class VirtualQTreeView final : public QTreeView {
             libqt_list /* of int */ cbval3 = roles_out;
 
             qtreeview_datachanged_callback(this, cbval1, cbval2, cbval3);
+            free(roles_arr);
         } else {
             QTreeView::dataChanged(topLeft, bottomRight, roles);
         }
@@ -2127,6 +2128,7 @@ class VirtualQTreeView final : public QTreeView {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qtreeview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QTreeView::nativeEvent(eventType, message, result);

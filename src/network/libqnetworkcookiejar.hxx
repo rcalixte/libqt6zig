@@ -256,6 +256,7 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
             QUrl* cbval2 = const_cast<QUrl*>(&url_ret);
 
             bool callback_ret = qnetworkcookiejar_setcookiesfromurl_callback(this, cbval1, cbval2);
+            free(cookieList_arr);
             return callback_ret;
         } else {
             return QNetworkCookieJar::setCookiesFromUrl(cookieList, url);
@@ -476,6 +477,7 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
             libqt_list /* of QNetworkCookie* */ cbval1 = cookieList_out;
 
             qnetworkcookiejar_setallcookies_callback(this, cbval1);
+            free(cookieList_arr);
         } else {
             QNetworkCookieJar::setAllCookies(cookieList);
         }

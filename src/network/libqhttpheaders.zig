@@ -2,6 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qhttpheaders_enums = enums;
 const std = @import("std");
+const arraymap_u8_sliceu8 = std.StringArrayHashMapUnmanaged([][]u8);
 const map_u8_sliceu8 = std.StringHashMapUnmanaged([][]u8);
 const struct_u8_u8 = struct { first: []u8, second: []u8 };
 
@@ -471,11 +472,11 @@ pub const qhttpheaders = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` headers: map_u8_sliceu8 `
+    /// ` headers: arraymap_u8_sliceu8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FromMultiMap(headers: map_u8_sliceu8, allocator: std.mem.Allocator) QtC.QHttpHeaders {
+    pub fn FromMultiMap(headers: arraymap_u8_sliceu8, allocator: std.mem.Allocator) QtC.QHttpHeaders {
         const headers_count = headers.count();
         const headers_keys = allocator.alloc(qtc.libqt_string, headers_count) catch @panic("qhttpheaders.FromMultiMap: Memory allocation failed");
         defer allocator.free(headers_keys);
@@ -605,9 +606,9 @@ pub const qhttpheaders = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToMultiMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_u8_sliceu8 {
+    pub fn ToMultiMap(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_u8_sliceu8 {
         const _map: qtc.libqt_map = qtc.QHttpHeaders_ToMultiMap(@ptrCast(self));
-        var _ret: map_u8_sliceu8 = .empty;
+        var _ret: arraymap_u8_sliceu8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));

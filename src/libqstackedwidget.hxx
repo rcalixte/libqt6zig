@@ -941,6 +941,7 @@ class VirtualQStackedWidget final : public QStackedWidget {
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
             bool callback_ret = qstackedwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
             return callback_ret;
         } else {
             return QStackedWidget::nativeEvent(eventType, message, result);

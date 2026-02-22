@@ -28,7 +28,7 @@ class VirtualQGeoCodeReply final : public QGeoCodeReply {
     using QGeoCodeReply_CustomEvent_Callback = void (*)(QGeoCodeReply*, QEvent*);
     using QGeoCodeReply_ConnectNotify_Callback = void (*)(QGeoCodeReply*, QMetaMethod*);
     using QGeoCodeReply_DisconnectNotify_Callback = void (*)(QGeoCodeReply*, QMetaMethod*);
-    using QGeoCodeReply_SetError_Callback = void (*)(QGeoCodeReply*, int, libqt_string);
+    using QGeoCodeReply_SetError_Callback = void (*)(QGeoCodeReply*, int, const char*);
     using QGeoCodeReply_SetFinished_Callback = void (*)(QGeoCodeReply*, bool);
     using QGeoCodeReply_SetViewport_Callback = void (*)(QGeoCodeReply*, QGeoShape*);
     using QGeoCodeReply_AddLocation_Callback = void (*)(QGeoCodeReply*, QGeoLocation*);
@@ -336,16 +336,16 @@ class VirtualQGeoCodeReply final : public QGeoCodeReply {
         } else if (qgeocodereply_seterror_callback != nullptr) {
             int cbval1 = static_cast<int>(errorVal);
             const QString errorString_ret = errorString;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
-            libqt_string errorString_str;
-            errorString_str.len = errorString_b.length();
-            errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
-            memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
-            ((char*)errorString_str.data)[errorString_str.len] = '\0';
-            libqt_string cbval2 = errorString_str;
+            auto errorString_str_len = errorString_b.length();
+            const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+            memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+            ((char*)errorString_str)[errorString_str_len] = '\0';
+            const char* cbval2 = errorString_str;
 
             qgeocodereply_seterror_callback(this, cbval1, cbval2);
+            libqt_free(errorString_str);
         } else {
             QGeoCodeReply::setError(errorVal, errorString);
         }
@@ -415,6 +415,7 @@ class VirtualQGeoCodeReply final : public QGeoCodeReply {
             libqt_list /* of QGeoLocation* */ cbval1 = locations_out;
 
             qgeocodereply_setlocations_callback(this, cbval1);
+            free(locations_arr);
         } else {
             QGeoCodeReply::setLocations(locations);
         }

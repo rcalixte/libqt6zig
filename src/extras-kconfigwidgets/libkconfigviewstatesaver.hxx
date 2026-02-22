@@ -20,7 +20,7 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
     using KConfigViewStateSaver_MetaObject_Callback = QMetaObject* (*)();
     using KConfigViewStateSaver_Metacast_Callback = void* (*)(KConfigViewStateSaver*, const char*);
     using KConfigViewStateSaver_Metacall_Callback = int (*)(KConfigViewStateSaver*, int, int, void**);
-    using KConfigViewStateSaver_IndexFromConfigString_Callback = QModelIndex* (*)(const KConfigViewStateSaver*, QAbstractItemModel*, libqt_string);
+    using KConfigViewStateSaver_IndexFromConfigString_Callback = QModelIndex* (*)(const KConfigViewStateSaver*, QAbstractItemModel*, const char*);
     using KConfigViewStateSaver_IndexToConfigString_Callback = const char* (*)(const KConfigViewStateSaver*, QModelIndex*);
     using KConfigViewStateSaver_Event_Callback = bool (*)(KConfigViewStateSaver*, QEvent*);
     using KConfigViewStateSaver_EventFilter_Callback = bool (*)(KConfigViewStateSaver*, QObject*, QEvent*);
@@ -180,16 +180,16 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
         if (kconfigviewstatesaver_indexfromconfigstring_callback != nullptr) {
             QAbstractItemModel* cbval1 = (QAbstractItemModel*)model;
             const QString key_ret = key;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
-            libqt_string key_str;
-            key_str.len = key_b.length();
-            key_str.data = static_cast<const char*>(malloc(key_str.len + 1));
-            memcpy((void*)key_str.data, key_b.data(), key_str.len);
-            ((char*)key_str.data)[key_str.len] = '\0';
-            libqt_string cbval2 = key_str;
+            auto key_str_len = key_b.length();
+            const char* key_str = static_cast<const char*>(malloc(key_str_len + 1));
+            memcpy((void*)key_str, key_b.data(), key_str_len);
+            ((char*)key_str)[key_str_len] = '\0';
+            const char* cbval2 = key_str;
 
             QModelIndex* callback_ret = kconfigviewstatesaver_indexfromconfigstring_callback(this, cbval1, cbval2);
+            libqt_free(key_str);
             return *callback_ret;
         } else {
             return {};
